@@ -119,7 +119,7 @@ def run_baseline(
     return preds
 
 
-def _event_prompt(event: EventRecord) -> str:
+def _event_prompt(event: EventRecord, *, target_horizon: int = 3) -> str:
     packet = {
         "as_of_packet": {
             "market": event.market,
@@ -137,7 +137,7 @@ def _event_prompt(event: EventRecord) -> str:
                 "web_search_allowed": False,
                 "future_information_allowed": False,
                 "must_predict": False,
-                "target_horizon": "T+3",
+                "target_horizon": f"T+{max(1, int(target_horizon))}",
                 "neutral_allowed": True,
                 "neutral_car_threshold_bps": 50,
             },
@@ -154,9 +154,15 @@ async def run_team_prompt(
     concurrency: int = 4,
     skip_event_ids: Optional[set[str]] = None,
     system_prompt_variant: str = "v0",
+    target_horizon: int = 3,
     on_pred_callback: Optional[Callable[[TeamPrediction], None]] = None,
 ) -> list[TeamPrediction]:
-    system = _build_system_prompt(system_prompt_variant)
+    horizon = max(1, int(target_horizon))
+    horizon_instruction = (
+        f"\n\n【本次评测结算周期】本次唯一预测与结算周期为 T+{horizon} 个交易日。"
+        "以此周期判断 benchmark-relative CAR；该指令优先于提示词中的默认 T+3 表述。"
+    )
+    system = _build_system_prompt(system_prompt_variant) + horizon_instruction
     sem = asyncio.Semaphore(max(1, int(concurrency or 1)))
     skip = skip_event_ids or set()
     _rl_last_ts: list[float] = [0.0]
@@ -187,7 +193,7 @@ async def run_team_prompt(
             if effective_variant == _v and any(t in _event_type_l2 for t in ["earn", "guid", "业绩", "财报", "预", "profit", "alert"]) and not _title_kw_earn_cn:
                 effective_variant = "v0"
 
-        eff_system = _build_system_prompt(effective_variant)
+        eff_system = _build_system_prompt(effective_variant) + horizon_instruction
         async with sem:
             from ..llm import config as _llm_cfg
             rl_ms = getattr(_llm_cfg, "LLM_RPS_INTERVAL_S", 1.15)
@@ -197,7 +203,7 @@ async def run_team_prompt(
             if need > 0:
                 await asyncio.sleep(need)
             try:
-                obj = await complete_json(eff_system, _event_prompt(event), max_tokens=900)
+                obj = await complete_json(eff_system, _event_prompt(event, target_horizon=horizon), max_tokens=900)
                 print(f"[PROGRESS] {event.event_id} done ({event.market}/{event.event_type_l2})")
             finally:
                 _rl_last_ts[0] = _t.monotonic()
@@ -297,6 +303,7 @@ A股（CN）先验：
 不要强行套用不适用的先验。你的金融推理能力是核心资产，先验只是参考。
 
 【输出格式】
+严格只输出 JSON（json object），不要输出 Markdown 或其他文字。
 {"pred_direction":"up|down|neutral","confidence":0.0,"rationale":"中文理由，引用packet证据"}
 """.strip()
 
