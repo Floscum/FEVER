@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Beaker, LineChart, MessageSquareText, PanelLeftClose, PanelLeftOpen, Plus, Swords, Terminal, Trash2, Users, Wrench } from "lucide-react";
+import { Beaker, LineChart, MessageSquareText, PanelLeftClose, PanelLeftOpen, Plus, Swords, Terminal, Trash2, Users, Wrench, Radio } from "lucide-react";
 import { relTime, cls } from "../utils";
 import { useStore, ViewName } from "../store";
 import { VERSION } from "../version";
@@ -30,7 +30,8 @@ export default function Sidebar() {
 
   const inBacktestView = view.startsWith("backtest-");
   const inArenaView = view.startsWith("arena-");
-  const inLabView = inBacktestView || inArenaView;
+  const inProspectiveView = view.startsWith("prospective-");
+  const inLabView = inBacktestView || inArenaView || inProspectiveView;
   const goView = (v: ViewName) => {
     if (streaming && v !== "chat") return; // 流式中禁止切走
     setView(v);
@@ -94,6 +95,16 @@ export default function Sidebar() {
           )}
         >
           <Swords size={16} />
+        </button>
+        <button
+          onClick={() => goView("prospective-list")}
+          title={inProspectiveView ? "前瞻评测（当前）" : "切换到前瞻评测"}
+          className={cls(
+            "rounded-lg p-2 transition-colors",
+            inProspectiveView ? "bg-card text-amber shadow-card" : "text-mute hover:bg-card hover:text-ink",
+          )}
+        >
+          <Radio size={16} />
         </button>
         {/* 新研究 */}
         <button
@@ -198,7 +209,7 @@ export default function Sidebar() {
 
       {/* 视图切换：研究工作台 ↔ 回测中心 ↔ Arena 比对 */}
       <div className="mb-2 px-3.5">
-        <div className="grid grid-cols-3 gap-1 rounded-lg bg-edge/50 p-1">
+        <div className="grid grid-cols-4 gap-1 rounded-lg bg-edge/50 p-1">
           <button
             onClick={() => goView("chat")}
             className={cls(
@@ -228,6 +239,16 @@ export default function Sidebar() {
           >
             <Swords size={11} />
             Arena
+          </button>
+          <button
+            onClick={() => goView("prospective-list")}
+            className={cls(
+              "flex items-center justify-center gap-1 rounded-md px-1 py-1.5 text-[11px] font-medium transition-all",
+              inProspectiveView ? "bg-card text-amber shadow-card" : "text-mute hover:bg-card/60 hover:text-ink",
+            )}
+          >
+            <Radio size={11} />
+            前瞻
           </button>
         </div>
       </div>

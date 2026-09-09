@@ -7,6 +7,8 @@ import BacktestDetail from "./components/BacktestDetail";
 import ArenaList from "./components/ArenaList";
 import ArenaDetail from "./components/ArenaDetail";
 import LiveLogPanel from "./components/LiveLogPanel";
+import ProspectiveList from "./components/ProspectiveList";
+import ProspectiveDetail from "./components/ProspectiveDetail";
 import { useStore } from "./store";
 
 export default function App() {
@@ -31,6 +33,8 @@ export default function App() {
         {view === "backtest-detail" && <BacktestDetail />}
         {view === "arena-list" && <ArenaList />}
         {view === "arena-detail" && <ArenaDetail />}
+        {view === "prospective-list" && <ProspectiveList />}
+        {view === "prospective-detail" && <ProspectiveDetail />}
         {liveLogOpen && <LiveLogPanel />}
       </div>
     </div>
