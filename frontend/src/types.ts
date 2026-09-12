@@ -236,6 +236,146 @@ export interface CaseDetail {
   artifacts: Artifact[];
 }
 
+export type ProspectiveRunStatus = "draft" | "scheduled" | "capturing" | "waiting" | "settling" | "completed" | "partial" | "failed" | "cancelled" | string;
+
+export interface ProspectiveRun {
+  id: string;
+  name: string;
+  status: ProspectiveRunStatus;
+  capture_at: string;
+  settle_after_days: number;
+  settle_after_seconds?: number;
+  settle_at?: string | null;
+  target_settle_at?: string | null;
+  source_config?: Record<string, unknown>;
+  predictor_config?: Record<string, unknown>;
+  metric_config?: Record<string, unknown>;
+  total_items?: number;
+  frozen_items?: number;
+  settled_items?: number;
+  correct_items?: number;
+  candidate_items?: number;
+  selected_items?: number;
+  error_message?: string | null;
+  evidence_cutoff_at?: string | null;
+  evidence_start_date?: string | null;
+  evidence_end_date?: string | null;
+  evidence_policy?: string | null;
+  actual_capture_at?: string | null;
+  result_available_at?: string | null;
+  next_check_at?: string | null;
+  settlement_summary?: {
+    total: number; settled: number; waiting: number; failed: number;
+    accuracy?: number | null; coverage?: number | null; result_available_at?: string | null;
+    next_check_at?: string | null; message?: string;
+  };
+  created_at: string;
+  updated_at: string;
+}
+
+export interface ProspectiveCandidate {
+  id: string;
+  run_id?: string;
+  event_id?: string;
+  symbol?: string;
+  market?: string;
+  company_name?: string;
+  announcement_title?: string;
+  title?: string;
+  announcement_date?: string;
+  event_time?: string;
+  source_url?: string;
+  event_type?: string;
+  event_type_l2?: string;
+  latest_event_at?: string;
+  event_count?: number;
+  selected?: boolean | number;
+  selection_rank?: number | null;
+  selection_score?: number | null;
+  selection_reason?: string | null;
+  selector_model_version?: string | null;
+  selector_prompt_version?: string | null;
+  status?: string;
+  evidence?: Record<string, unknown> | Array<Record<string, unknown>>;
+}
+
+export interface ProspectiveSettlement {
+  id?: string;
+  settlement_mode?: string;
+  status?: string;
+  actual_label?: string | null;
+  actual_value?: number | null;
+  reasoning?: string | null;
+  result_source?: Record<string, unknown> | string | null;
+  settled_at?: string | null;
+  created_at?: string | null;
+  [key: string]: unknown;
+}
+
+export interface ProspectiveItemDetail {
+  item: {
+    id: string;
+    candidate_id?: string | null;
+    event_id: string;
+    assertion_text?: string;
+    market?: string;
+    symbol?: string;
+    event_type_l2?: string;
+    captured_at?: string;
+    settle_at?: string;
+    status: string;
+    actual_label?: string | null;
+    actual_value?: number | null;
+    is_correct?: number | null;
+    error_message?: string | null;
+  };
+  prediction?: {
+    id: string;
+    pred_direction: string;
+    confidence?: number | null;
+    rationale?: string | null;
+    model_version?: string | null;
+    prompt_version?: string | null;
+    as_of_at: string;
+    evidence_hash?: string | null;
+    raw_prediction?: Record<string, unknown>;
+  } | null;
+  evidence: Array<{
+    id: string;
+    source_kind?: string;
+    source_url?: string;
+    title?: string;
+    content?: string;
+    published_at?: string;
+    retrieved_at?: string;
+    content_hash?: string;
+  }>;
+  settlements: ProspectiveSettlement[];
+  trace?: Array<{
+    id: string;
+    sequence_no: number;
+    stage: string;
+    stage_title: string;
+    as_of_at: string;
+    input_snapshot?: Record<string, unknown>;
+    output_snapshot?: Record<string, unknown>;
+    evidence_refs?: string[];
+    model_version?: string | null;
+    prompt_version?: string | null;
+    trace_version?: string;
+    complete?: boolean;
+  }>;
+}
+
+export interface ProspectiveDetailResponse {
+  run: ProspectiveRun;
+  items: ProspectiveItemDetail[];
+  candidates?: ProspectiveCandidate[];
+  metrics: Record<string, unknown>;
+  snapshots: Array<Record<string, unknown>>;
+  settlement_summary?: ProspectiveRun["settlement_summary"];
+}
+
 /* ------- artifact payloads（design.md §9） ------- */
 
 export interface KlinePayload {

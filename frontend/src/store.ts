@@ -246,7 +246,7 @@ export function partsFromHistory(m: HistoryMessage): Part[] {
 /** P0 视图：chat（研究工作台）/ backtest-list（回测列表页）/ backtest-detail（回测详情页）
  *  arena-list（Arena 比对列表）/ arena-detail（Arena 比对详情）
  */
-export type ViewName = "chat" | "backtest-list" | "backtest-detail" | "arena-list" | "arena-detail";
+export type ViewName = "chat" | "backtest-list" | "backtest-detail" | "arena-list" | "arena-detail" | "prospective-list" | "prospective-detail";
 
 interface FeverState {
   cases: CaseItem[];
@@ -293,6 +293,7 @@ interface FeverState {
   arenaLoading: boolean;
   /** Arena 详情页当前 arena_id */
   currentArenaId: string | null;
+  currentProspectiveRunId: string | null;
 
   init: () => Promise<void>;
   sendMessage: (text: string, mode?: Mode, agent?: string) => Promise<void>;
@@ -361,6 +362,8 @@ interface FeverState {
   loadArenas: (force?: boolean) => Promise<ArenaItem[]>;
   /** 列表里单独更新某条 Arena */
   patchArena: (arenaId: string, patch: Partial<ArenaItem>) => void;
+  openProspectiveDetail: (runId: string) => void;
+  backFromProspectiveDetail: () => void;
 }
 
 let abortCtl: AbortController | null = null;
@@ -561,6 +564,7 @@ export const useStore = create<FeverState>((set, get) => {
     arenaItems: [],
     arenaLoading: false,
     currentArenaId: null,
+    currentProspectiveRunId: null,
 
     init: async () => {
       if (get().initialized) return;
@@ -1150,6 +1154,9 @@ export const useStore = create<FeverState>((set, get) => {
         arenaItems: s.arenaItems.map((a) => (a.id === arenaId ? { ...a, ...patch } : a)),
       }));
     },
+
+    openProspectiveDetail: (runId) => set({ view: "prospective-detail", currentProspectiveRunId: runId }),
+    backFromProspectiveDetail: () => set({ view: "prospective-list", currentProspectiveRunId: null }),
   };
 });
 

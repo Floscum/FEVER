@@ -119,7 +119,7 @@ def run_baseline(
     return preds
 
 
-def _event_prompt(event: EventRecord) -> str:
+def _event_prompt(event: EventRecord, *, target_horizon: int = 3) -> str:
     packet = {
         "as_of_packet": {
             "market": event.market,
@@ -137,7 +137,7 @@ def _event_prompt(event: EventRecord) -> str:
                 "web_search_allowed": False,
                 "future_information_allowed": False,
                 "must_predict": False,
-                "target_horizon": "T+3",
+                "target_horizon": f"T+{max(1, int(target_horizon))}",
                 "neutral_allowed": True,
                 "neutral_car_threshold_bps": 50,
             },
@@ -154,9 +154,15 @@ async def run_team_prompt(
     concurrency: int = 4,
     skip_event_ids: Optional[set[str]] = None,
     system_prompt_variant: str = "v0",
+    target_horizon: int = 3,
     on_pred_callback: Optional[Callable[[TeamPrediction], None]] = None,
 ) -> list[TeamPrediction]:
-    system = _build_system_prompt(system_prompt_variant)
+    horizon = max(1, int(target_horizon))
+    horizon_instruction = (
+        f"\n\n【本次评测结算周期】本次唯一预测与结算周期为 T+{horizon} 个交易日。"
+        "以此周期判断 benchmark-relative CAR；该指令优先于提示词中的默认 T+3 表述。"
+    )
+    system = _build_system_prompt(system_prompt_variant) + horizon_instruction
     sem = asyncio.Semaphore(max(1, int(concurrency or 1)))
     skip = skip_event_ids or set()
     _rl_last_ts: list[float] = [0.0]
@@ -187,7 +193,7 @@ async def run_team_prompt(
             if effective_variant == _v and any(t in _event_type_l2 for t in ["earn", "guid", "业绩", "财报", "预", "profit", "alert"]) and not _title_kw_earn_cn:
                 effective_variant = "v0"
 
-        eff_system = _build_system_prompt(effective_variant)
+        eff_system = _build_system_prompt(effective_variant) + horizon_instruction
         async with sem:
             from ..llm import config as _llm_cfg
             rl_ms = getattr(_llm_cfg, "LLM_RPS_INTERVAL_S", 1.15)
@@ -197,7 +203,7 @@ async def run_team_prompt(
             if need > 0:
                 await asyncio.sleep(need)
             try:
-                obj = await complete_json(eff_system, _event_prompt(event), max_tokens=900)
+                obj = await complete_json(eff_system, _event_prompt(event, target_horizon=horizon), max_tokens=900)
                 print(f"[PROGRESS] {event.event_id} done ({event.market}/{event.event_type_l2})")
             finally:
                 _rl_last_ts[0] = _t.monotonic()
@@ -297,6 +303,7 @@ A股（CN）先验：
 不要强行套用不适用的先验。你的金融推理能力是核心资产，先验只是参考。
 
 【输出格式】
+严格只输出 JSON（json object），不要输出 Markdown 或其他文字。
 {"pred_direction":"up|down|neutral","confidence":0.0,"rationale":"中文理由，引用packet证据"}
 """.strip()
 
@@ -322,11 +329,16 @@ TEAM_FULL_QUESTION_TEMPLATE = """
 plan → expert fan-out → deep researcher 建证据图 → synthesize → verify → extract hypotheses。
 
 【核心约束 — 红线】
-1. 方向 = benchmark-relative CAR（超额收益）方向，非绝对收益。个股涨但跑输基准 → down；个股跌但跑赢基准 → up。
-2. 评估窗口 T+3（事件后3个交易日），CAR = 个股累计收益 − 基准累计收益。
+1. 两类判别指标 × 各 5 个窗口，共 10 个独立判断（judge 数量 = 指标数量）：
+   - ret（正常收益率）：个股绝对累计收益方向，窗口 T+3 / T+7 / T+15 / T+30 / T+60（事件后N个交易日）。
+   - CAR（异常收益率）：个股累计收益 − 基准累计收益 的方向，同样 T+3 / T+7 / T+15 / T+30 / T+60。
+   个股涨但跑输基准 → ret=up 而 CAR=down；两类指标可以不一致，必须分别独立判断。
+2. 窗口衰减方法论：短窗（T+3/T+7）由事件冲击与 T0 动能延续主导；中窗（T+15/T+30）由基本面趋势
+   与资金持续性主导；长窗（T+60）由基本面定价与均值回归主导。同一净分可映射出不同窗口方向
+   （如净分+4 → car_t3=up 而 car_t60=neutral）；长窗 confidence 应整体低于短窗。
 3. 严格禁止未来函数：event_study_skill 在 as_of=True 下仅返回事件日及以前数据（T0涨跌、pre5/pre20漂移），
-   绝不包含 T+1/T+3/T+5 未来收益或 CAR。你的判断是前瞻预判，禁止引用/推断任何 post-event CAR。
-   如工具返回中出现 post-event CAR 数值，必须忽略——那是工具故障泄露。
+   绝不包含 T+1/T+3/T+5 未来收益或 CAR。你的判断是前瞻预判，禁止引用/推断任何 post-event 收益。
+   如工具返回中出现 post-event 数值，必须忽略——那是工具故障泄露。
 
 【信号加权评分卡 — 核心判别方法论】
 从 as_of_packet 中提取信号，每条信号有方向（up/down）和强度（3/2/1分）：
@@ -356,10 +368,21 @@ A股(CN)：减持/定增偏空、财报略增有利好出尽效应(增速≥50%�
 当事件不属于上述先验覆盖的典型场景时，基于事件本身的语义和行情信号做独立判断。
 不要强行套用不适用的先验。
 
-最后在你的最终回答里必须清晰给出（必须是4行格式，便于脚本解析）：
-【最终方向】 up 或 down 或 neutral（三选一）
-【置信度】 0.5~1.0 之间一个小数
-【中文理由】 1~3 句中文，引用公告正文基本面证据 + 事件日/事前行情信号；严禁引用 T+N 事后 CAR
+最后在你的最终回答里必须清晰给出（固定格式，便于脚本解析）：
+【多窗口判别】（必须10行，每行固定「指标: 方向 置信度」；方向 up/down/neutral 三选一；置信度 0.50~1.00）
+ret_t3: 方向 置信度
+ret_t7: 方向 置信度
+ret_t15: 方向 置信度
+ret_t30: 方向 置信度
+ret_t60: 方向 置信度
+car_t3: 方向 置信度
+car_t7: 方向 置信度
+car_t15: 方向 置信度
+car_t30: 方向 置信度
+car_t60: 方向 置信度
+【最终方向】（主指标 = car_t3，须与上面 car_t3 行一致）up 或 down 或 neutral（三选一）
+【置信度】（主指标 = car_t3 的置信度）0.5~1.0 之间一个小数
+【中文理由】 1~3 句中文，引用公告正文基本面证据 + 事件日/事前行情信号；说明各窗口方向差异的依据；严禁引用 T+N 事后收益
 【依据原文片段】 直接 1:1 复制 as_of_packet 里支持你判断的 1~2 句原文
 
 严格 as_of_packet（唯一输入，禁止超纲）：
@@ -572,6 +595,33 @@ async def run_team_full_one_event(
         direction = "neutral"
         applied_gate = True
 
+    # ===== 多窗口判别解析：ret/car × T+3/7/15/30/60，共 10 个 judge =====
+    # 每行格式「指标: 方向 置信度」；主指标 = car_t3（向后兼容 direction/confidence）
+    import re as _re2
+    horizon_keys = ["ret_t3", "ret_t7", "ret_t15", "ret_t30", "ret_t60",
+                    "car_t3", "car_t7", "car_t15", "car_t30", "car_t60"]
+    horizons: dict = {}
+    for hk in horizon_keys:
+        mh = _re2.search(
+            rf"{hk}\s*[:：]\s*\**\s*(up|down|neutral)\s*[,，/ ]+\s*\**\s*(0?\.\d+|1\.0+|1)\b",
+            final_txt, flags=_re2.I)
+        if mh:
+            hd = mh.group(1).lower()
+            try:
+                hc = max(0.50, min(1.0, float(mh.group(2))))
+            except ValueError:
+                hc = 0.55
+            hgate = False
+            if hc < 0.60 and hd != "neutral":
+                hd, hgate = "neutral", True
+            horizons[hk] = {"direction": hd, "confidence": round(hc, 3),
+                            "conf_gate_applied": hgate}
+    # 缺失窗口用主判断兜底（schema 完整性；主判断语义 = car_t3）
+    for hk in horizon_keys:
+        if hk not in horizons:
+            horizons[hk] = {"direction": direction, "confidence": round(float(confidence), 3),
+                            "conf_gate_applied": applied_gate, "filled_from_primary": True}
+
     # 落盘完整 trajectory（可被 `bt trajectory --event-id` 回放）
     ckpt_p = Path(trajectory_ckpt_dir)
     ckpt_p.mkdir(parents=True, exist_ok=True)
@@ -606,6 +656,7 @@ async def run_team_full_one_event(
             "confidence": confidence,
             "rationale": rationale,
             "conf_gate_applied": applied_gate,
+            "horizons": horizons,
         },
         "team_final_state": {
             "content_full": final_txt,
@@ -624,6 +675,7 @@ async def run_team_full_one_event(
         pred_direction=direction,
         confidence=float(confidence),
         rationale=str(rationale) + gate_tag,
+        horizons=horizons,
     )
 
 

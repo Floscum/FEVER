@@ -23,6 +23,8 @@ import type {
   SuggestionItem,
   SSEEvent,
   SimulationJob,
+  ProspectiveDetailResponse,
+  ProspectiveRun,
 } from "./types";
 
 const BASE = "/api";
@@ -293,6 +295,36 @@ export const api = {
     if (eventsPath?.trim()) qs.set("events_path", eventsPath.trim());
     return req<BTEventsCount>(`/bt/labels-count?${qs.toString()}`);
   },
+
+  /* ==================== Prospective evaluation ==================== */
+  prospectiveRuns: (limit = 100) =>
+    req<{ total: number; items: ProspectiveRun[] }>(`/prospective/runs?limit=${limit}`),
+  prospectiveCreateRun: (data: {
+    name: string;
+    capture_at: string;
+    settle_after_days: number;
+    source_config?: {
+      source: string;
+      lookback_trade_days?: number;
+      keywords?: string[];
+      symbols?: string[];
+      candidate_limit?: number;
+      selection_count?: number;
+      max_items?: number;
+      [key: string]: unknown;
+    };
+    predictor_config?: Record<string, unknown>;
+    metric_config?: {
+      settlement_mode?: "after_trade_days" | "absolute_trade_date";
+      settlement_trade_date?: string;
+      epsilon?: number;
+      [key: string]: unknown;
+    };
+  }) => req<ProspectiveRun>("/prospective/runs", { method: "POST", body: JSON.stringify(data) }),
+  prospectiveRun: (runId: string) => req<ProspectiveDetailResponse>(`/prospective/runs/${runId}`),
+  prospectiveCapture: (runId: string) => req<ProspectiveRun>(`/prospective/runs/${runId}/capture`, { method: "POST", body: "{}" }),
+  prospectiveSettle: (runId: string, force = false) => req<ProspectiveRun>(`/prospective/runs/${runId}/settle?force=${force ? "1" : "0"}`, { method: "POST", body: "{}" }),
+  prospectiveCancel: (runId: string) => req<ProspectiveRun>(`/prospective/runs/${runId}/cancel`, { method: "POST", body: "{}" }),
 
   /* ===================================== Arena 横向比对 ===================================== */
 

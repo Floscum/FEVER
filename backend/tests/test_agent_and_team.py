@@ -4,6 +4,11 @@ from unittest.mock import patch
 
 import backend.app.agents.team as team_mod
 import backend.app.llm as llm_mod
+from backend.app.agents.roster import (
+    get_agent,
+    resolve_deep_researcher_prompt_variant,
+    system_prompt,
+)
 from backend.app.agents.research_context import ResearchContext
 from backend.app.llm import run_agent
 from backend.app.agents.roster import AGENTS
@@ -12,12 +17,31 @@ from backend.app.skills.registry import ensure_skills_loaded, tools_for_agent
 
 
 class TestAgentAndTeam(unittest.IsolatedAsyncioTestCase):
+    def test_deep_researcher_prompt_variants_are_registered(self):
+        self.assertEqual(resolve_deep_researcher_prompt_variant("v0"), "deep_researcher_v0")
+        self.assertEqual(
+            resolve_deep_researcher_prompt_variant("claim_v2"),
+            "deep_researcher_claim_v2",
+        )
+        old_prompt = system_prompt("deep_researcher", "deep_researcher_v0")
+        new_prompt = system_prompt("deep_researcher", "deep_researcher_claim_v2")
+        # v0 = 分支 RLVR 版（含量价 regime 校验 step 0）
+        self.assertIn("量价 regime 校验", old_prompt)
+        self.assertIn("Evidence → Claim → Link → audit → export", new_prompt)
+        self.assertIn("audit()", new_prompt)
+        self.assertNotEqual(
+            get_agent("deep_researcher", "v0")["persona"],
+            get_agent("deep_researcher", "claim_v2")["persona"],
+        )
+
     def test_predictor_owns_async_scenario_handoff_without_probability_claim(self):
+        # 分支 RLVR 设计：predictor 改用世界模型三情景（乐观/中性/悲观），
+        # 不再使用 main 的「异步多智能体事件推演」hand-off 表述。
         predictor = AGENTS["predictor"]
-        self.assertIn("异步多智能体事件推演", predictor["description"])
-        self.assertIn("交给事件预测员推演", predictor["persona"])
-        self.assertIn("不输出校准概率", predictor["persona"])
-        self.assertNotIn("3) 概率（%）", predictor["persona"])
+        self.assertIn("后市推演", predictor["description"])
+        self.assertIn("前瞻推演", predictor["persona"])
+        self.assertIn("乐观", predictor["persona"])
+        self.assertIn("悲观", predictor["persona"])
 
     def test_agent_tools_visibility_filters_internal(self):
         ensure_skills_loaded()
