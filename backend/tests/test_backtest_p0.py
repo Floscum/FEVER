@@ -14,8 +14,10 @@ class TestBacktestP0(unittest.TestCase):
         # 隔离测试环境：临时 DB + DATA_DIR
         cls._td = tempfile.TemporaryDirectory()
         cls.tmp = Path(cls._td.name)
-        os.environ["FEVER_DB_PATH"] = str(cls.tmp / "fever_test.db")
-        os.environ["FEVER_DATA_DIR"] = str(cls.tmp / "data")
+        from app import config
+        cls.previous_paths = (config.DB_PATH, config.DATA_DIR)
+        config.DB_PATH = str(cls.tmp / "fever_test.db")
+        config.DATA_DIR = str(cls.tmp / "data")
         (cls.tmp / "data").mkdir(exist_ok=True)
         # 强制重建 DB 连接（否则 _conn 单例会指向旧文件）
         import app.db as _db
@@ -27,6 +29,11 @@ class TestBacktestP0(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
+        from app import config, db
+        if db._conn is not None:
+            db._conn.close()
+        db._conn = None
+        config.DB_PATH, config.DATA_DIR = cls.previous_paths
         cls._td.cleanup()
 
     @staticmethod
@@ -189,7 +196,7 @@ class TestBacktestP0(unittest.TestCase):
             second = await asyncio.wait_for(q.get(), timeout=1.0)
             return first, second
 
-        first, second = asyncio.get_event_loop_policy().get_event_loop().run_until_complete(_a())
+        first, second = asyncio.run(_a())
         self.assertEqual(first["type"], "prediction")
         self.assertEqual(second["type"], "run_done")
 

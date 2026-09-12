@@ -18,6 +18,7 @@ def _event(frame: str) -> dict:
 class ChatSimulationHandoffTests(unittest.IsolatedAsyncioTestCase):
     async def asyncSetUp(self):
         self.temporary = tempfile.TemporaryDirectory()
+        self.previous_db_path = config.DB_PATH
         if db._conn is not None:
             db._conn.close()
             db._conn = None
@@ -30,6 +31,37 @@ class ChatSimulationHandoffTests(unittest.IsolatedAsyncioTestCase):
             db._conn.close()
             db._conn = None
         self.temporary.cleanup()
+        config.DB_PATH = self.previous_db_path
+
+    async def test_final_graph_after_navigator_starts_once_with_supplemental_evidence(self):
+        async def fake_run_team(question, history, state, artifact_store, team_members=None):
+            state["team_plan"] = [{"agent": "deep_researcher"}, {"agent": "predictor"}]
+            yield {"type": "agent_step", "phase": "agent_done", "agent": "predictor"}
+            yield {"type": "agent_step", "phase": "evidence_navigator", "note": "补查完成"}
+            graph = await artifact_store("graph", "证据图", {
+                "question": question,
+                "nodes": [{"id": "E1", "kind": "evidence"}, {"id": "E2", "kind": "evidence", "title": "补查资料"}],
+                "edges": [],
+            })
+            yield {"type": "artifact", "agent": "deep_researcher", "artifact": graph}
+            yield {"type": "artifact", "agent": "deep_researcher", "artifact": graph}
+
+        def start(case_id, request):
+            graph = next(item for item in db.list_artifacts(case_id) if item["id"] == request.source_graph_artifact_id)
+            self.assertEqual([node["id"] for node in graph["payload"]["nodes"]], ["E1", "E2"])
+            return {"id": "final_graph_job", "status": "queued"}
+
+        async def title(question):
+            return "最终图谱交接"
+
+        with patch.object(chat_mod, "run_team", fake_run_team), patch.object(chat_mod, "start_simulation_service", side_effect=start) as starter, patch.object(chat_mod, "_gen_title", title):
+            frames = [_event(frame) async for frame in chat_mod._chat_stream(ChatRequest(
+                case_id=self.case["id"], message="合并后的推演", mode="team", team_members=["predictor"],
+            ))]
+        starter.assert_called_once()
+        phases = [event.get("phase") for event in frames]
+        self.assertLess(phases.index("evidence_navigator"), phases.index("simulation_started"))
+        self.assertEqual(sum(event.get("phase") == "simulation_started" for event in frames), 1)
 
     async def test_predictor_plan_starts_from_created_graph(self):
         async def fake_title(question):

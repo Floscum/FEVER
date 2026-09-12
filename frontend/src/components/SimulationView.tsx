@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { AlertTriangle, Check, ClipboardList, Copy, GitBranch, Users } from "lucide-react";
-import { observationMarkdown, observations, safeSourceUrl, textItems } from "../lib/simulationPresentation";
+import { observationMarkdown, observationWindow, observations, safeSourceUrl, textItems } from "../lib/simulationPresentation";
 
 function Stat({ label, value }: { label: string; value: number | string }) {
   return <div className="rounded-lg border border-edge bg-card px-3 py-2"><p className="text-[10.5px] text-faint">{label}</p><p className="mt-0.5 text-[15px] font-semibold text-ink">{value}</p></div>;
@@ -36,7 +36,8 @@ export default function SimulationView({ payload }: { payload: any }) {
   return (
     <div className="space-y-3">
       <div className="rounded-card border border-edge bg-card p-3.5 shadow-card">
-        <div className="flex items-center gap-2 text-[13px] font-semibold text-ink"><Users size={15} className="text-jade" />事件推演{payload?.source?.horizon_days ? ` · 未来 ${payload.source.horizon_days} 天` : ""}</div>
+        <div className="flex items-center gap-2 text-[13px] font-semibold text-ink"><Users size={15} className="text-jade" />事件推演</div>
+        {observationWindow(payload) && <p className="mt-1.5 text-[11px] text-faint">观察窗口：{observationWindow(payload)}</p>}
         <p className="mt-1.5 text-[11.5px] leading-relaxed text-mute">查看各方可能采取的行动，并把触发与失效条件加入后续研究。</p>
         <div className="mt-3 grid grid-cols-2 gap-2">
           <Stat label={coverageRecorded ? "进入情景的参与方" : "参与方"} value={coverageRecorded ? (configuredCount ? `${coveredActors.size} / ${configuredCount}` : coveredActors.size) : (configuredCount || "未记录")} />

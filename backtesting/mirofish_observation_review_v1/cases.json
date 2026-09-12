@@ -1,0 +1,2532 @@
+[
+  {
+    "case_id": "byd-h1-2025",
+    "spec": {
+      "schema_version": "0.1.0",
+      "case_id": "real-byd-h1-2025",
+      "title": "比亚迪（002594）发布2025年中报后，未来7天可能出现哪些经营和市场反应？各参与方有哪些分歧，下一步应核对哪些公开信号？",
+      "as_of": "2025-08-30T23:59:59+08:00",
+      "question": "比亚迪（002594）发布2025年中报后，未来7天可能出现哪些经营和市场反应？各参与方有哪些分歧，下一步应核对哪些公开信号？",
+      "horizon": {
+        "kind": "calendar_days",
+        "value": 7,
+        "end_at": "2025-09-06T23:59:59+08:00"
+      },
+      "market": {
+        "region": "CN",
+        "venues": [
+          "SZSE"
+        ],
+        "instruments": [
+          {
+            "symbol": "002594",
+            "name": "A股 002594",
+            "kind": "equity",
+            "currency": "CNY"
+          }
+        ]
+      },
+      "facts": [
+        {
+          "id": "F1",
+          "observed_at": "2025-08-30T00:00:00+08:00",
+          "time_basis": "source_published_at",
+          "statement": "2025年上半年，比亚迪营业收入3712.80948亿元，同比增长23.30%。",
+          "source_kind": "filing",
+          "source_url": "https://static.cninfo.com.cn/finalpage/2025-08-30/1224626653.PDF",
+          "evidence_ref": "E1",
+          "confidence": 0.5
+        },
+        {
+          "id": "F2",
+          "observed_at": "2025-08-30T00:00:00+08:00",
+          "time_basis": "source_published_at",
+          "statement": "同期归母净利润155.10533亿元，同比增长13.79%；经营现金流净额318.33471亿元，同比增长124.52%。",
+          "source_kind": "filing",
+          "source_url": "https://static.cninfo.com.cn/finalpage/2025-08-30/1224626653.PDF",
+          "evidence_ref": "E2",
+          "confidence": 0.5
+        },
+        {
+          "id": "F3",
+          "observed_at": "2025-08-30T00:00:00+08:00",
+          "time_basis": "source_published_at",
+          "statement": "同期研发投入308.80339亿元，同比增长53.05%。公司解释主要由职工薪酬及物料消耗增加所致。",
+          "source_kind": "filing",
+          "source_url": "https://static.cninfo.com.cn/finalpage/2025-08-30/1224626653.PDF",
+          "evidence_ref": "E3",
+          "confidence": 0.5
+        },
+        {
+          "id": "F4",
+          "observed_at": "2025-08-30T00:00:00+08:00",
+          "time_basis": "source_published_at",
+          "statement": "汽车、汽车相关产品及其他产品毛利率20.35%，同比下降1.99个百分点。比较数据已按质量保证费用转入营业成本的口径调整。",
+          "source_kind": "filing",
+          "source_url": "https://static.cninfo.com.cn/finalpage/2025-08-30/1224626653.PDF",
+          "evidence_ref": "E4",
+          "confidence": 0.5
+        },
+        {
+          "id": "F5",
+          "observed_at": "2025-08-30T00:00:00+08:00",
+          "time_basis": "source_published_at",
+          "statement": "同期境外收入1353.57667亿元，同比增长50.49%，占收入36.46%；境外毛利率19.82%。",
+          "source_kind": "filing",
+          "source_url": "https://static.cninfo.com.cn/finalpage/2025-08-30/1224626653.PDF",
+          "evidence_ref": "E5",
+          "confidence": 0.5
+        }
+      ],
+      "actors": [
+        {
+          "id": "actor_issuer",
+          "label": "比亚迪（002594）",
+          "kind": "issuer",
+          "aggregation": "organization",
+          "goals": [
+            "代表比亚迪独立评估经营与交易条件，维护自身利益",
+            "根据对方行动与新增信息调整判断"
+          ],
+          "constraints": [
+            "只能使用分析截止时间前可观察的信息",
+            "行动受现金、执行能力和已披露承诺约束，不假定有无限资源",
+            "只代表比亚迪作出自身权限内的决策；不能代替交易对方、股东或监管机构批准交易"
+          ],
+          "observable_fact_ids": [
+            "F1",
+            "F2",
+            "F3",
+            "F4",
+            "F5"
+          ],
+          "assumptions": [
+            "上述目标与资源约束是角色建模假设，具体资源、权限和私有信息仍以证据为准"
+          ],
+          "selection_reason": "问题或市场信息提供名称与代码；主体名称在 F1 中可核对。身份匹配不代表已验证证券代码或交易权限",
+          "identity": {
+            "name": "比亚迪",
+            "symbol": "002594",
+            "evidence_refs": [
+              "F1"
+            ]
+          }
+        },
+        {
+          "id": "actor_institutions",
+          "label": "机构投资者",
+          "kind": "institutional_investor",
+          "aggregation": "cohort",
+          "goals": [
+            "权衡风险敞口、流动性和资本配置",
+            "根据对方行动与新增信息调整判断"
+          ],
+          "constraints": [
+            "只能使用分析截止时间前可观察的信息",
+            "受投资授权和流动性约束，不假定能够无限增持或立即退出"
+          ],
+          "observable_fact_ids": [
+            "F1",
+            "F2",
+            "F3",
+            "F4",
+            "F5"
+          ],
+          "assumptions": [
+            "上述目标与资源约束是角色建模假设，具体资源、权限和私有信息仍以证据为准"
+          ],
+          "selection_reason": "事件结构 earnings_guidance 命中：净利润"
+        },
+        {
+          "id": "actor_analysts",
+          "label": "分析师",
+          "kind": "analyst",
+          "aggregation": "cohort",
+          "goals": [
+            "比较事实与原有判断，明确需要更新的假设",
+            "根据对方行动与新增信息调整判断"
+          ],
+          "constraints": [
+            "只能使用分析截止时间前可观察的信息",
+            "区分已知事实与估计，不将研判当成公司承诺"
+          ],
+          "observable_fact_ids": [
+            "F1",
+            "F2",
+            "F3",
+            "F4",
+            "F5"
+          ],
+          "assumptions": [
+            "上述目标与资源约束是角色建模假设，具体资源、权限和私有信息仍以证据为准"
+          ],
+          "selection_reason": "事件结构 earnings_guidance 命中：净利润"
+        },
+        {
+          "id": "actor_brokers",
+          "label": "券商与中介机构",
+          "kind": "broker",
+          "aggregation": "cohort",
+          "goals": [
+            "评估融资、交易与中介服务的连续性",
+            "根据对方行动与新增信息调整判断"
+          ],
+          "constraints": [
+            "只能使用分析截止时间前可观察的信息",
+            "受授信、资本和合同责任约束，不预设已有未披露融资承诺"
+          ],
+          "observable_fact_ids": [
+            "F1",
+            "F2",
+            "F3",
+            "F4",
+            "F5"
+          ],
+          "assumptions": [
+            "上述目标与资源约束是角色建模假设，具体资源、权限和私有信息仍以证据为准"
+          ],
+          "selection_reason": "事件结构 earnings_guidance 命中：净利润"
+        },
+        {
+          "id": "actor_exchange",
+          "label": "交易所",
+          "kind": "exchange",
+          "aggregation": "organization",
+          "goals": [
+            "维护信息披露和交易秩序",
+            "根据对方行动与新增信息调整判断"
+          ],
+          "constraints": [
+            "只能使用分析截止时间前可观察的信息",
+            "依据已知规则采取措施，不替代公司经营或监管审批"
+          ],
+          "observable_fact_ids": [
+            "F1",
+            "F2",
+            "F3",
+            "F4",
+            "F5"
+          ],
+          "assumptions": [
+            "上述目标与资源约束是角色建模假设，具体资源、权限和私有信息仍以证据为准"
+          ],
+          "selection_reason": "事件结构 earnings_guidance 命中：净利润"
+        },
+        {
+          "id": "actor_competitors",
+          "label": "竞争者",
+          "kind": "competitor",
+          "aggregation": "cohort",
+          "goals": [
+            "评估竞争格局变化并调整业务响应",
+            "根据对方行动与新增信息调整判断"
+          ],
+          "constraints": [
+            "只能使用分析截止时间前可观察的信息",
+            "受自身产能、成本和执行周期限制，不预设可以立即承接全部需求"
+          ],
+          "observable_fact_ids": [
+            "F1",
+            "F2",
+            "F3",
+            "F4",
+            "F5"
+          ],
+          "assumptions": [
+            "上述目标与资源约束是角色建模假设，具体资源、权限和私有信息仍以证据为准"
+          ],
+          "selection_reason": "事件结构 earnings_guidance 命中：净利润"
+        }
+      ],
+      "relationships": [
+        {
+          "source_actor_id": "actor_institutions",
+          "target_actor_id": "actor_issuer",
+          "kind": "constrains_or_influences",
+          "visibility": "assumed"
+        },
+        {
+          "source_actor_id": "actor_analysts",
+          "target_actor_id": "actor_issuer",
+          "kind": "constrains_or_influences",
+          "visibility": "assumed"
+        },
+        {
+          "source_actor_id": "actor_brokers",
+          "target_actor_id": "actor_issuer",
+          "kind": "constrains_or_influences",
+          "visibility": "assumed"
+        },
+        {
+          "source_actor_id": "actor_exchange",
+          "target_actor_id": "actor_issuer",
+          "kind": "constrains_or_influences",
+          "visibility": "assumed"
+        },
+        {
+          "source_actor_id": "actor_competitors",
+          "target_actor_id": "actor_issuer",
+          "kind": "constrains_or_influences",
+          "visibility": "assumed"
+        },
+        {
+          "source_actor_id": "actor_issuer",
+          "target_actor_id": "actor_competitors",
+          "kind": "communicates_actions_to",
+          "visibility": "assumed"
+        }
+      ],
+      "allowed_actions": [
+        {
+          "type": "COMMUNICATE",
+          "description": "公开沟通与预期管理",
+          "visibility": "public"
+        },
+        {
+          "type": "OPERATE",
+          "description": "调整业务、产品或治理",
+          "visibility": "either"
+        },
+        {
+          "type": "REGULATE",
+          "description": "调查、批准、限制或补救",
+          "visibility": "public"
+        },
+        {
+          "type": "ALLOCATE",
+          "description": "调整资本或风险敞口",
+          "visibility": "private"
+        },
+        {
+          "type": "NEGOTIATE",
+          "description": "协商交易或治理条件",
+          "visibility": "private"
+        },
+        {
+          "type": "WAIT",
+          "description": "等待更多证据或对方行动",
+          "visibility": "either"
+        }
+      ],
+      "interventions": [
+        {
+          "id": "I0_FEVER_EVIDENCE",
+          "at_round": 0,
+          "fact_ids": [
+            "F1",
+            "F2",
+            "F3",
+            "F4",
+            "F5"
+          ],
+          "visibility": "public"
+        }
+      ],
+      "forecast_targets": [
+        {
+          "id": "T1",
+          "kind": "event",
+          "definition": "比亚迪（002594）发布2025年中报后，未来7天可能出现哪些经营和市场反应？各参与方有哪些分歧，下一步应核对哪些公开信号？",
+          "horizon": "7_calendar_days",
+          "scoring": "brier"
+        }
+      ],
+      "run_config": {
+        "rounds": 3,
+        "replications": 3,
+        "seed_strategy": "deterministic_sequence",
+        "layers": [
+          "information",
+          "behavior"
+        ]
+      },
+      "provenance": {
+        "created_by": "FEVER SimulationSpecBuilder v1",
+        "source_graph_artifact_id": "real-public-byd-h1-2025",
+        "notes": [
+          "Scenario-first integration input; simulation output is not evidence.",
+          "Quick mode executes one partial replication from a three-replication spec."
+        ],
+        "actor_selection": {
+          "mode": "auto",
+          "recommended_count": 6,
+          "applied_limit": 6,
+          "detected_stakeholder_type_count": 0,
+          "configured_count": 6,
+          "matched_event_profiles": [
+            {
+              "id": "earnings_guidance",
+              "matched_patterns": [
+                "净利润"
+              ],
+              "recommended_count": 6
+            }
+          ],
+          "selection_strategy": "literal_mentions_plus_event_structure_v4_entities",
+          "rationale": "从证据与研究问题中识别出 0 类显式利益相关方，并命中 1 类事件结构，按 4/6/8/10 分档建议最多 6 个核心参与方",
+          "identified_entity_count": 1,
+          "configured_entity_count": 1,
+          "unconfigured_entity_names": []
+        },
+        "evidence_timing": {
+          "excluded_future_ids": [],
+          "unknown_time_ids": []
+        }
+      }
+    },
+    "scenarios": [
+      {
+        "id": "branch-1",
+        "label": "券商调仓触发机构再评估",
+        "summary": "若未来7天券商发布包含目标价调整的研报或交易量显著变化，机构投资者将重新评估比亚迪持仓风险，可能因毛利压力和研发投入增加而调整仓位。",
+        "run_count": 1,
+        "frequency": 1.0,
+        "probability_semantics": "uncalibrated_simulation_frequency",
+        "triggers": [
+          "若在2025-09-06前，券商发布关于比亚迪目标价或评级调整的研报，且其内容引用F4中毛利率下降或F3中研发投入增速作为关键因素。",
+          "若比亚迪股票出现单日交易量较前30日均值增加20%以上，且伴随大宗交易信息。",
+          "若机构投资者在公开渠道(如券商路演或媒体采访)发出关于持仓调整预期的信号。"
+        ],
+        "consequences": [
+          "券商对融资额度或利率的调整将直接影响机构投资者的资金成本和持仓决策。",
+          "机构投资者的重新评估可能引发连锁反应，包括其他机构跟随调仓，进一步影响股价波动。",
+          "若机构减持，可能倒逼比亚迪加速披露Q3月度销量数据以稳定市场预期。"
+        ],
+        "invalidation_conditions": [
+          "若2025-09-06前券商未发布任何涉及比亚迪目标价或评级变化的研报。",
+          "若比亚迪股票交易量维持平稳，无明显异动。",
+          "若机构投资者继续维持观望态度，未公开表示调整意愿。"
+        ],
+        "actor_ids": [
+          "actor_brokers",
+          "actor_institutions"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4",
+          "F5"
+        ],
+        "simulation_refs": [
+          "decision-actor_brokers-r2",
+          "decision-actor_institutions-r2"
+        ],
+        "novelty_claim": "该分支将券商的中介服务行为与非金融机构投资者的调仓决策串联起来，揭示中介服务变化如何成为机构调节仓位的导火索，而非简单的单方等待。",
+        "confidence": 0.7,
+        "confidence_semantics": "branch_coherence_not_forecast_probability",
+        "starting_decisions": [
+          {
+            "actor_id": "actor_brokers",
+            "action_type": "WAIT",
+            "decision_status": "intended",
+            "rationale": "基于2025上半年数据，比亚迪整体营收与利润符合增长预期，且经营现金流大幅改善至318.33亿元。但需关注以下不确定性：一是毛利率同比下降1.99个百分点（已按新口径调整），研发投入同比增长53.05%压制品毛利率，若下半年价格战持续可能进一步压缩利润空间；二是境外收入占比36.46%、增速50.49%是积极信号，但境外毛利率19.82%略低于整体水平，需等待下半年是否受地缘关税政策冲击。作为券商，倾向于维持现有授信敞口不变，在下半年季报或公司业绩说明会获取更多关于毛利率趋势、海外工厂投产进度及资本开支计划等信息后再决定是否调整融资中介服务条件。当前仓位和融资安排可维持，暂无紧急调整必要。",
+            "decision_ref": "decision-actor_brokers-r2"
+          },
+          {
+            "actor_id": "actor_institutions",
+            "action_type": "WAIT",
+            "decision_status": "conditional",
+            "rationale": "比亚迪H1 2025数据呈现多空交织信号：营收增长23.30%与经营现金流增长124.52%为积极因素，但毛利率下降1.99个百分点（已按质量保证费用转入成本口径调整）意味着竞争与成本压力增大，归母净利增速(13.79%)显著低于营收增速。研发投入增长53.05%虽是长期技术投入的必要支出，但短期内对利润形成持续压制。境外收入增长50.49%贡献多元化亮点，但境外毛利率19.82%整体趋同，且受地缘政策不确定性影响。当前信号方向不统一，需等待Q3更多经营数据（如月度销量、价格走势、海外关税政策变化）以及竞争对手响应，再决定持仓调整方向与幅度。在流动性约束与投资授权范围内，不适合在当前信息不对称阶段做出激进调仓决策。",
+            "decision_ref": "decision-actor_institutions-r2"
+          }
+        ],
+        "observations": [
+          {
+            "kind": "trigger",
+            "signal": "若在2025-09-06前，券商发布关于比亚迪目标价或评级调整的研报，且其内容引用F4中毛利率下降或F3中研发投入增速作为关键因素。",
+            "source": "依据资料 F1、F2、F3、F4、F5 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F2",
+              "F3",
+              "F4",
+              "F5"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          },
+          {
+            "kind": "trigger",
+            "signal": "若比亚迪股票出现单日交易量较前30日均值增加20%以上，且伴随大宗交易信息。",
+            "source": "依据资料 F1、F2、F3、F4、F5 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F2",
+              "F3",
+              "F4",
+              "F5"
+            ],
+            "review_status": "needs_review",
+            "review_findings": [
+              {
+                "code": "unsupported_quantity",
+                "message": "引用资料及观察窗口未提供这些数值：20%；先核对数值含义及来源"
+              }
+            ]
+          },
+          {
+            "kind": "trigger",
+            "signal": "若机构投资者在公开渠道(如券商路演或媒体采访)发出关于持仓调整预期的信号。",
+            "source": "依据资料 F1、F2、F3、F4、F5 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F2",
+              "F3",
+              "F4",
+              "F5"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          },
+          {
+            "kind": "invalidation",
+            "signal": "若2025-09-06前券商未发布任何涉及比亚迪目标价或评级变化的研报。",
+            "source": "依据资料 F1、F2、F3、F4、F5 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F2",
+              "F3",
+              "F4",
+              "F5"
+            ],
+            "review_status": "needs_review",
+            "review_findings": [
+              {
+                "code": "silence_is_not_invalidation",
+                "message": "未见消息只能说明尚未观察到，不能单独推翻这条路径；应核对相反的公开信息"
+              }
+            ]
+          },
+          {
+            "kind": "invalidation",
+            "signal": "若比亚迪股票交易量维持平稳，无明显异动。",
+            "source": "依据资料 F1、F2、F3、F4、F5 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F2",
+              "F3",
+              "F4",
+              "F5"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          },
+          {
+            "kind": "invalidation",
+            "signal": "若机构投资者继续维持观望态度，未公开表示调整意愿。",
+            "source": "依据资料 F1、F2、F3、F4、F5 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F2",
+              "F3",
+              "F4",
+              "F5"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          }
+        ],
+        "review_notices": [
+          "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：20%。"
+        ]
+      },
+      {
+        "id": "branch-2",
+        "label": "竞争者研发调整比对冲",
+        "summary": "若竞争者根据比亚迪研发投入数据(增长53.05%)调整自身研发预算优先级，比亚迪可能通过加速技术迭代或公布新合作计划来回应，形成研发竞赛。",
+        "run_count": 1,
+        "frequency": 1.0,
+        "probability_semantics": "uncalibrated_simulation_frequency",
+        "triggers": [
+          "若在2025-09-06前，竞争者通过公告或媒体披露2025年下半年度研发预算调整计划，明显参考比亚迪研发投入增速。",
+          "若比亚迪在业绩说明会或公告中提及新技术平台或新车型研发进展，作为对竞争压力的回应。",
+          "若行业媒体大规模报道‘研发投入竞赛’话题，并引用比亚迪数据作为标杆。"
+        ],
+        "consequences": [
+          "竞争者调整研发预算可能压缩其短期利润，但若比亚迪推出新车型或技术优势，进一步拉大市场占有率差距。",
+          "比亚迪若加速技术迭代，将进一步增加研发支出，短期压制净利润，但强化长期护城河，影响机构投资者评估。",
+          "交易所可能因信息披露的充分性要求，主动问询公司关于研发投入的资本化率变化。"
+        ],
+        "invalidation_conditions": [
+          "若竞争者未发布任何关于研发预算调整的公开声明或传闻未经证实。",
+          "若比亚迪保持当前战略沟通节奏，未新增技术进展披露。",
+          "若行业讨论聚焦于价格战或其他因素，而非研发投入。"
+        ],
+        "actor_ids": [
+          "actor_competitors",
+          "actor_issuer"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F3",
+          "F4",
+          "F5"
+        ],
+        "simulation_refs": [
+          "decision-actor_competitors-r2",
+          "decision-actor_issuer-r2"
+        ],
+        "novelty_claim": "该分支将竞争者的资源分配决策(研发预算调整)与比亚迪的技术行动联系起来，展示竞争循环如何从财务数据触发到战略回应，而非单一公司的独立行为。",
+        "confidence": 0.65,
+        "confidence_semantics": "branch_coherence_not_forecast_probability",
+        "starting_decisions": [
+          {
+            "actor_id": "actor_competitors",
+            "action_type": "WAIT",
+            "decision_status": "conditional",
+            "rationale": "比亚迪2025H1数据揭示三个关键信号：①研发投入增速（+53.05%）远超收入增速（+23.30%），表明其以短期利润换长期技术纵深；②境外收入占比已达36.46%且增速50.49%，全球化加速意味着海外市场将出现更激烈的渠道与品牌争夺；③汽车业务毛利率下降1.99个百分点至20.35%，虽部分由会计口径调整导致，但仍反映价格竞争压力加剧。作为竞争对手，在自身产能与成本约束下，我无法立即全面跟进其研发投入强度或海外扩张速度。需要等待更详细的季度细分数据以及自身下阶段产能规划评审结果，再决定是聚焦细分市场做差异化竞争、还是调整海外布局节奏。当前最审慎的策略是保持现有业务节奏，在内部完成对标分析报告后再制定资源重分配方案。",
+            "decision_ref": "decision-actor_competitors-r2"
+          },
+          {
+            "actor_id": "actor_issuer",
+            "action_type": "WAIT",
+            "decision_status": "no_action",
+            "rationale": "当前为抽象模拟第2轮结束，尚未出现需比亚迪作出经营或交易条件调整的具体对方行动或新增信息增量。公司2025年上半年经营数据已于F1-F5中完整披露，业绩整体符合预期：收入增长23.30%、现金流大幅改善124.52%、境外收入增速50.49%构成核心支撑。毛利率下降1.99个百分点已按质量保证费用转入营业成本口径调整，且研发投入增速53.05%体现技术储备加码。整体战略路径清晰，无紧急需调整的研判。后续决策需等待下半年度经营走势、关税政策变化或重大合作/竞标机会出现，以便在充分信息基础上作出最有利于公司利益的判断。",
+            "decision_ref": "decision-actor_issuer-r2"
+          }
+        ],
+        "observations": [
+          {
+            "kind": "trigger",
+            "signal": "若在2025-09-06前，竞争者通过公告或媒体披露2025年下半年度研发预算调整计划，明显参考比亚迪研发投入增速。",
+            "source": "依据资料 F1、F3、F4、F5 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F3",
+              "F4",
+              "F5"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          },
+          {
+            "kind": "trigger",
+            "signal": "若比亚迪在业绩说明会或公告中提及新技术平台或新车型研发进展，作为对竞争压力的回应。",
+            "source": "依据资料 F1、F3、F4、F5 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F3",
+              "F4",
+              "F5"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          },
+          {
+            "kind": "trigger",
+            "signal": "若行业媒体大规模报道‘研发投入竞赛’话题，并引用比亚迪数据作为标杆。",
+            "source": "依据资料 F1、F3、F4、F5 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F3",
+              "F4",
+              "F5"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          },
+          {
+            "kind": "invalidation",
+            "signal": "若竞争者未发布任何关于研发预算调整的公开声明或传闻未经证实。",
+            "source": "依据资料 F1、F3、F4、F5 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F3",
+              "F4",
+              "F5"
+            ],
+            "review_status": "needs_review",
+            "review_findings": [
+              {
+                "code": "silence_is_not_invalidation",
+                "message": "未见消息只能说明尚未观察到，不能单独推翻这条路径；应核对相反的公开信息"
+              }
+            ]
+          },
+          {
+            "kind": "invalidation",
+            "signal": "若比亚迪保持当前战略沟通节奏，未新增技术进展披露。",
+            "source": "依据资料 F1、F3、F4、F5 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F3",
+              "F4",
+              "F5"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          },
+          {
+            "kind": "invalidation",
+            "signal": "若行业讨论聚焦于价格战或其他因素，而非研发投入。",
+            "source": "依据资料 F1、F3、F4、F5 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F3",
+              "F4",
+              "F5"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          }
+        ],
+        "review_notices": []
+      },
+      {
+        "id": "branch-3",
+        "label": "分析师建议触发交易所监管问询",
+        "summary": "若分析师在研报或媒体中强调会计准则调整对毛利率可比性的影响，交易所可能因信息披露不充分，主动要求比亚迪补充提供口径调整后的可比数据。",
+        "run_count": 1,
+        "frequency": 1.0,
+        "probability_semantics": "uncalibrated_simulation_frequency",
+        "triggers": [
+          "若在2025-09-06前，至少一家主要券商(如中信、华泰)发布研报，批评比亚迪未提供质量保证费用口径调整前后的得可比毛利率数据，并量化其影响。",
+          "若交易所收到投资者关于会计准则变更影响的正式问询。",
+          "若媒体广泛报道分析师关于‘毛利率数据可能存在误导’的言论。"
+        ],
+        "consequences": [
+          "交易所可能要求比亚迪补充披露追溯调整后的可比毛利率，这将成为新的市场信息，影响机构投资者和券商评估。",
+          "若比亚迪按交易所要求补充数据，可能揭示毛利率实际降幅低于或高于此前市场预期，进而触发股价调整。",
+          "分析师此举可能树立更严格的行业信息披露标准，影响其他公司会计披露实践。"
+        ],
+        "invalidation_conditions": [
+          "若分析师未在公开渠道强调会计准则调整的影响，或认为当前披露已足够充分。",
+          "若交易所未收到正式问询或未主动启动问询程序。",
+          "若比亚迪主动在业绩说明会中补充提供效力可比数据，提前解除疑虑。"
+        ],
+        "actor_ids": [
+          "actor_analysts",
+          "actor_exchange"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F4",
+          "F5"
+        ],
+        "simulation_refs": [
+          "decision-actor_analysts-r2",
+          "decision-actor_exchange-r2"
+        ],
+        "novelty_claim": "该分支将分析师的知识生产行为与交易所的监管行动联系起来，说明分析师的专业质疑如何可能转化为交易所的正式行动，从而改变公司信息披露义务和市场信息环境。",
+        "confidence": 0.55,
+        "confidence_semantics": "branch_coherence_not_forecast_probability",
+        "starting_decisions": [
+          {
+            "actor_id": "actor_analysts",
+            "action_type": "WAIT",
+            "decision_status": "no_action",
+            "rationale": "截至2025年8月30日，比亚迪2025年半年报已披露核心财务数据。收入增长23.30%符合预期，但毛利率下降1.99个百分点（已按质量保证费用转入营业成本口径调整）与归母净利润增速（13.79%）低于收入增速这两个信号构成需要进一步验证的判断前提。当前缺少三个关键信息：(1)上年同期同口径毛利率的具体数值（仅知可调口径但未公布调整幅度）；(2)研发投入资本化率是否发生变化（308.80亿元研发投入同比+53.05%，远高于收入增速，但资本化比例影响当期利润）；(3)境外收入的高增长（+50.49%，占比36.46%）与境外毛利率19.82%的趋势可持续性。在缺少可比分析基础的情况下，贸然调整判断可能混淆已知事实与估计。计划等待下一轮可获得的信息（如行业产销数据、竞争对手半年报、或公司补充披露的追溯调整毛利率），再进行假设更新。",
+            "decision_ref": "decision-actor_analysts-r2"
+          },
+          {
+            "actor_id": "actor_exchange",
+            "action_type": "WAIT",
+            "decision_status": "no_action",
+            "rationale": "截至2025-08-30，比亚迪已按规则披露2025年半年度报告，关键财务指标（F1-F5）均已公开。未发现重大遗漏、虚假记载或应问询而未问询的事项。研发投入同比+53.05%（F3）属合理商业决策范畴，无需替代经营判断；毛利率同比下降1.99个百分点（F4）已在公司披露中说明口径调整因素，属于可理解信息。各指标虽有增减变动但均处于正常经营波动范围内，无新增未公开重大信息，无需启动监管问询或停牌等干预措施。继续观察后续市场反应与公司持续性披露即可。",
+            "decision_ref": "decision-actor_exchange-r2"
+          }
+        ],
+        "observations": [
+          {
+            "kind": "trigger",
+            "signal": "若在2025-09-06前，至少一家主要券商(如中信、华泰)发布研报，批评比亚迪未提供质量保证费用口径调整前后的得可比毛利率数据，并量化其影响。",
+            "source": "依据资料 F1、F4、F5 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4",
+              "F5"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          },
+          {
+            "kind": "trigger",
+            "signal": "若交易所收到投资者关于会计准则变更影响的正式问询。",
+            "source": "依据资料 F1、F4、F5 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4",
+              "F5"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          },
+          {
+            "kind": "trigger",
+            "signal": "若媒体广泛报道分析师关于‘毛利率数据可能存在误导’的言论。",
+            "source": "依据资料 F1、F4、F5 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4",
+              "F5"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          },
+          {
+            "kind": "invalidation",
+            "signal": "若分析师未在公开渠道强调会计准则调整的影响，或认为当前披露已足够充分。",
+            "source": "依据资料 F1、F4、F5 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4",
+              "F5"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          },
+          {
+            "kind": "invalidation",
+            "signal": "若交易所未收到正式问询或未主动启动问询程序。",
+            "source": "依据资料 F1、F4、F5 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4",
+              "F5"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          },
+          {
+            "kind": "invalidation",
+            "signal": "若比亚迪主动在业绩说明会中补充提供效力可比数据，提前解除疑虑。",
+            "source": "依据资料 F1、F4、F5 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4",
+              "F5"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          }
+        ],
+        "review_notices": [
+          "输入已说明比较数据按同一口径调整；请核实这里是否重复调整，或误将可比数据当成尚未提供。"
+        ]
+      },
+      {
+        "id": "branch-4",
+        "label": "券商融资条件调整挤压竞争对手空间",
+        "summary": "若券商因比亚迪现金流改善而降低其融资利率，同时因毛利率压力收紧对竞争对手的授信条件，这将改变竞争格局，促使比亚迪加大市场扩张。",
+        "run_count": 1,
+        "frequency": 1.0,
+        "probability_semantics": "uncalibrated_simulation_frequency",
+        "triggers": [
+          "若在2025-09-06前，券商公开或内部调整针对比亚迪的融资利率或额度条款，引用其F2中现金流改善作为正面依据。",
+          "若券商同时发布行业研究报告，指出竞争对手(如小鹏、蔚来)因毛利率下滑或研发资金紧张面临授信风险。",
+          "若比亚迪因此宣布加速海外建厂或新车型投资计划，利用低成本融资优势。"
+        ],
+        "consequences": [
+          "券商对竞争对手的融资收紧将削弱其研发投入和产能扩张能力，间接增强比亚迪的市场份额占有潜力。",
+          "比亚迪利用低成本融资加速全球化布局，可能进一步提升F5中的境外收入占比，但也增加地缘政治风险暴露。",
+          "竞争对手可能被迫合或寻求其他融资来源如政府补贴或股权融资，改变行业融资生态。"
+        ],
+        "invalidation_conditions": [
+          "若券商未调整对比亚迪或竞争对手的融资条件。",
+          "若比亚迪因海外政策不确定性或股东反对，放缓全球化投资节奏。",
+          "若竞争对手通过自救措施(如裁或资产出售)缓解融资压力，未出现授信危机。"
+        ],
+        "actor_ids": [
+          "actor_brokers",
+          "actor_competitors"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4",
+          "F5"
+        ],
+        "simulation_refs": [
+          "decision-actor_brokers-r2",
+          "decision-actor_competitors-r2"
+        ],
+        "novelty_claim": "该分支将券商的融资中介服务与比亚迪及其对手的竞争动态串联起来，说明融资条件分化如何强化比亚迪的竞争地位，而非将融资决策视为独立事件。",
+        "confidence": 0.6,
+        "confidence_semantics": "branch_coherence_not_forecast_probability",
+        "starting_decisions": [
+          {
+            "actor_id": "actor_brokers",
+            "action_type": "WAIT",
+            "decision_status": "intended",
+            "rationale": "基于2025上半年数据，比亚迪整体营收与利润符合增长预期，且经营现金流大幅改善至318.33亿元。但需关注以下不确定性：一是毛利率同比下降1.99个百分点（已按新口径调整），研发投入同比增长53.05%压制品毛利率，若下半年价格战持续可能进一步压缩利润空间；二是境外收入占比36.46%、增速50.49%是积极信号，但境外毛利率19.82%略低于整体水平，需等待下半年是否受地缘关税政策冲击。作为券商，倾向于维持现有授信敞口不变，在下半年季报或公司业绩说明会获取更多关于毛利率趋势、海外工厂投产进度及资本开支计划等信息后再决定是否调整融资中介服务条件。当前仓位和融资安排可维持，暂无紧急调整必要。",
+            "decision_ref": "decision-actor_brokers-r2"
+          },
+          {
+            "actor_id": "actor_competitors",
+            "action_type": "WAIT",
+            "decision_status": "conditional",
+            "rationale": "比亚迪2025H1数据揭示三个关键信号：①研发投入增速（+53.05%）远超收入增速（+23.30%），表明其以短期利润换长期技术纵深；②境外收入占比已达36.46%且增速50.49%，全球化加速意味着海外市场将出现更激烈的渠道与品牌争夺；③汽车业务毛利率下降1.99个百分点至20.35%，虽部分由会计口径调整导致，但仍反映价格竞争压力加剧。作为竞争对手，在自身产能与成本约束下，我无法立即全面跟进其研发投入强度或海外扩张速度。需要等待更详细的季度细分数据以及自身下阶段产能规划评审结果，再决定是聚焦细分市场做差异化竞争、还是调整海外布局节奏。当前最审慎的策略是保持现有业务节奏，在内部完成对标分析报告后再制定资源重分配方案。",
+            "decision_ref": "decision-actor_competitors-r2"
+          }
+        ],
+        "observations": [
+          {
+            "kind": "trigger",
+            "signal": "若在2025-09-06前，券商公开或内部调整针对比亚迪的融资利率或额度条款，引用其F2中现金流改善作为正面依据。",
+            "source": "依据资料 F1、F2、F3、F4、F5 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F2",
+              "F3",
+              "F4",
+              "F5"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          },
+          {
+            "kind": "trigger",
+            "signal": "若券商同时发布行业研究报告，指出竞争对手(如小鹏、蔚来)因毛利率下滑或研发资金紧张面临授信风险。",
+            "source": "依据资料 F1、F2、F3、F4、F5 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F2",
+              "F3",
+              "F4",
+              "F5"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          },
+          {
+            "kind": "trigger",
+            "signal": "若比亚迪因此宣布加速海外建厂或新车型投资计划，利用低成本融资优势。",
+            "source": "依据资料 F1、F2、F3、F4、F5 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F2",
+              "F3",
+              "F4",
+              "F5"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          },
+          {
+            "kind": "invalidation",
+            "signal": "若券商未调整对比亚迪或竞争对手的融资条件。",
+            "source": "依据资料 F1、F2、F3、F4、F5 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F2",
+              "F3",
+              "F4",
+              "F5"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          },
+          {
+            "kind": "invalidation",
+            "signal": "若比亚迪因海外政策不确定性或股东反对，放缓全球化投资节奏。",
+            "source": "依据资料 F1、F2、F3、F4、F5 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F2",
+              "F3",
+              "F4",
+              "F5"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          },
+          {
+            "kind": "invalidation",
+            "signal": "若竞争对手通过自救措施(如裁或资产出售)缓解融资压力，未出现授信危机。",
+            "source": "依据资料 F1、F2、F3、F4、F5 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F2",
+              "F3",
+              "F4",
+              "F5"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          }
+        ],
+        "review_notices": []
+      }
+    ],
+    "source_files": {
+      "revision-4/cases/byd-h1-2025/entity-v7/reviewed-display.json": "01a5639d0611679e03ec3ac8bcdaadf6cd09e40b2f8bf33a682371da48482624",
+      "revision-4/cases/byd-h1-2025/entity-v7/spec.json": "145ef4a1906561d230e0b1f1510d47843039063b98e2a7a774e41cb1ae8d49ae"
+    }
+  },
+  {
+    "case_id": "crowdstrike-outage-2024",
+    "spec": {
+      "schema_version": "0.1.0",
+      "case_id": "real-crowdstrike-outage-2024",
+      "title": "CrowdStrike（CRWD）更新导致Windows客户系统中断后，未来7天各参与方可能如何响应？哪些二阶影响和恢复信号值得跟进？",
+      "as_of": "2024-07-20T23:59:59+00:00",
+      "question": "CrowdStrike（CRWD）更新导致Windows客户系统中断后，未来7天各参与方可能如何响应？哪些二阶影响和恢复信号值得跟进？",
+      "horizon": {
+        "kind": "calendar_days",
+        "value": 7,
+        "end_at": "2024-07-27T23:59:59+00:00"
+      },
+      "market": {
+        "region": "US",
+        "venues": [
+          "NASDAQ"
+        ],
+        "instruments": [
+          {
+            "symbol": "CRWD",
+            "name": "CrowdStrike",
+            "kind": "equity",
+            "currency": "USD"
+          }
+        ]
+      },
+      "facts": [
+        {
+          "id": "F1",
+          "observed_at": "2024-07-20T00:00:00+00:00",
+          "time_basis": "source_published_at",
+          "statement": "CrowdStrike说明：2024年7月19日04:09 UTC发布Windows传感器配置更新，引发逻辑错误，导致部分系统崩溃和蓝屏。",
+          "source_kind": "official",
+          "source_url": "https://www.crowdstrike.com/en-us/blog/falcon-update-for-windows-hosts-technical-details/",
+          "evidence_ref": "E1",
+          "confidence": 0.5
+        },
+        {
+          "id": "F2",
+          "observed_at": "2024-07-20T00:00:00+00:00",
+          "time_basis": "source_published_at",
+          "statement": "CrowdStrike称导致问题的配置更新已于7月19日05:27 UTC修正，并明确该事件不是网络攻击。",
+          "source_kind": "official",
+          "source_url": "https://www.crowdstrike.com/en-us/blog/falcon-update-for-windows-hosts-technical-details/",
+          "evidence_ref": "E2",
+          "confidence": 0.5
+        },
+        {
+          "id": "F3",
+          "observed_at": "2024-07-20T00:00:00+00:00",
+          "time_basis": "source_published_at",
+          "statement": "运行Windows Falcon 7.11及以上版本、并在04:09至05:27 UTC期间下载该配置的系统可能受影响。",
+          "source_kind": "official",
+          "source_url": "https://www.crowdstrike.com/en-us/blog/falcon-update-for-windows-hosts-technical-details/",
+          "evidence_ref": "E3",
+          "confidence": 0.5
+        },
+        {
+          "id": "F4",
+          "observed_at": "2024-07-20T00:00:00+00:00",
+          "time_basis": "source_published_at",
+          "statement": "Microsoft在7月20日估计约850万台Windows设备受影响，占所有Windows设备不足1%；关键服务企业使用这些设备使经济社会影响扩大。",
+          "source_kind": "official",
+          "source_url": "https://blogs.microsoft.com/blog/2024/07/20/helping-our-customers-through-the-crowdstrike-outage/",
+          "evidence_ref": "E4",
+          "confidence": 0.5
+        },
+        {
+          "id": "F5",
+          "observed_at": "2024-07-20T00:00:00+00:00",
+          "time_basis": "source_published_at",
+          "statement": "Microsoft已派出数百名工程师协助客户恢复，与CrowdStrike以及AWS、Google Cloud协作，并提供手工恢复文档与脚本。",
+          "source_kind": "official",
+          "source_url": "https://blogs.microsoft.com/blog/2024/07/20/helping-our-customers-through-the-crowdstrike-outage/",
+          "evidence_ref": "E5",
+          "confidence": 0.5
+        }
+      ],
+      "actors": [
+        {
+          "id": "actor_issuer",
+          "label": "CrowdStrike（CRWD）",
+          "kind": "issuer",
+          "aggregation": "organization",
+          "goals": [
+            "代表CrowdStrike独立评估经营与交易条件，维护自身利益",
+            "根据对方行动与新增信息调整判断"
+          ],
+          "constraints": [
+            "只能使用分析截止时间前可观察的信息",
+            "行动受现金、执行能力和已披露承诺约束，不假定有无限资源",
+            "只代表CrowdStrike作出自身权限内的决策；不能代替交易对方、股东或监管机构批准交易"
+          ],
+          "observable_fact_ids": [
+            "F1",
+            "F2",
+            "F3",
+            "F4",
+            "F5"
+          ],
+          "assumptions": [
+            "上述目标与资源约束是角色建模假设，具体资源、权限和私有信息仍以证据为准"
+          ],
+          "selection_reason": "问题或市场信息提供名称与代码；主体名称在 F1、F2、F5 中可核对。身份匹配不代表已验证证券代码或交易权限",
+          "identity": {
+            "name": "CrowdStrike",
+            "symbol": "CRWD",
+            "evidence_refs": [
+              "F1",
+              "F2",
+              "F5"
+            ]
+          }
+        },
+        {
+          "id": "actor_customers",
+          "label": "客户",
+          "kind": "customer",
+          "aggregation": "cohort",
+          "goals": [
+            "保障产品或服务连续性，权衡成本和替代方案",
+            "根据对方行动与新增信息调整判断"
+          ],
+          "constraints": [
+            "只能使用分析截止时间前可观察的信息",
+            "考虑合同、转换成本和替代供给，不假定需求可以即时转移"
+          ],
+          "observable_fact_ids": [
+            "F1",
+            "F2",
+            "F3",
+            "F4",
+            "F5"
+          ],
+          "assumptions": [
+            "上述目标与资源约束是角色建模假设，具体资源、权限和私有信息仍以证据为准"
+          ],
+          "selection_reason": "证据或研究问题命中：客户"
+        },
+        {
+          "id": "actor_suppliers",
+          "label": "供应商",
+          "kind": "supplier",
+          "aggregation": "cohort",
+          "goals": [
+            "保障回款与订单稳定，评估交付和信用风险",
+            "根据对方行动与新增信息调整判断"
+          ],
+          "constraints": [
+            "只能使用分析截止时间前可观察的信息",
+            "受合同、产能和客户依赖约束，不假定可立即替换所有订单"
+          ],
+          "observable_fact_ids": [
+            "F1",
+            "F2",
+            "F3",
+            "F4",
+            "F5"
+          ],
+          "assumptions": [
+            "上述目标与资源约束是角色建模假设，具体资源、权限和私有信息仍以证据为准"
+          ],
+          "selection_reason": "事件结构 operational_disruption 命中：系统中断、系统崩溃"
+        },
+        {
+          "id": "actor_competitors",
+          "label": "竞争者",
+          "kind": "competitor",
+          "aggregation": "cohort",
+          "goals": [
+            "评估竞争格局变化并调整业务响应",
+            "根据对方行动与新增信息调整判断"
+          ],
+          "constraints": [
+            "只能使用分析截止时间前可观察的信息",
+            "受自身产能、成本和执行周期限制，不预设可以立即承接全部需求"
+          ],
+          "observable_fact_ids": [
+            "F1",
+            "F2",
+            "F3",
+            "F4",
+            "F5"
+          ],
+          "assumptions": [
+            "上述目标与资源约束是角色建模假设，具体资源、权限和私有信息仍以证据为准"
+          ],
+          "selection_reason": "事件结构 operational_disruption 命中：系统中断、系统崩溃"
+        },
+        {
+          "id": "actor_institutions",
+          "label": "机构投资者",
+          "kind": "institutional_investor",
+          "aggregation": "cohort",
+          "goals": [
+            "权衡风险敞口、流动性和资本配置",
+            "根据对方行动与新增信息调整判断"
+          ],
+          "constraints": [
+            "只能使用分析截止时间前可观察的信息",
+            "受投资授权和流动性约束，不假定能够无限增持或立即退出"
+          ],
+          "observable_fact_ids": [
+            "F1",
+            "F2",
+            "F3",
+            "F4",
+            "F5"
+          ],
+          "assumptions": [
+            "上述目标与资源约束是角色建模假设，具体资源、权限和私有信息仍以证据为准"
+          ],
+          "selection_reason": "事件结构 operational_disruption 命中：系统中断、系统崩溃"
+        },
+        {
+          "id": "actor_media",
+          "label": "财经媒体",
+          "kind": "media",
+          "aggregation": "cohort",
+          "goals": [
+            "核实和传播对事件判断有用的新信息",
+            "根据对方行动与新增信息调整判断"
+          ],
+          "constraints": [
+            "只能使用分析截止时间前可观察的信息",
+            "区分事实、消息与推测，不凭空增加独家信息"
+          ],
+          "observable_fact_ids": [
+            "F1",
+            "F2",
+            "F3",
+            "F4",
+            "F5"
+          ],
+          "assumptions": [
+            "上述目标与资源约束是角色建模假设，具体资源、权限和私有信息仍以证据为准"
+          ],
+          "selection_reason": "事件结构 operational_disruption 命中：系统中断、系统崩溃"
+        }
+      ],
+      "relationships": [
+        {
+          "source_actor_id": "actor_customers",
+          "target_actor_id": "actor_issuer",
+          "kind": "constrains_or_influences",
+          "visibility": "assumed"
+        },
+        {
+          "source_actor_id": "actor_suppliers",
+          "target_actor_id": "actor_issuer",
+          "kind": "constrains_or_influences",
+          "visibility": "assumed"
+        },
+        {
+          "source_actor_id": "actor_competitors",
+          "target_actor_id": "actor_issuer",
+          "kind": "constrains_or_influences",
+          "visibility": "assumed"
+        },
+        {
+          "source_actor_id": "actor_institutions",
+          "target_actor_id": "actor_issuer",
+          "kind": "constrains_or_influences",
+          "visibility": "assumed"
+        },
+        {
+          "source_actor_id": "actor_media",
+          "target_actor_id": "actor_issuer",
+          "kind": "constrains_or_influences",
+          "visibility": "assumed"
+        },
+        {
+          "source_actor_id": "actor_issuer",
+          "target_actor_id": "actor_media",
+          "kind": "communicates_actions_to",
+          "visibility": "assumed"
+        }
+      ],
+      "allowed_actions": [
+        {
+          "type": "COMMUNICATE",
+          "description": "公开沟通与预期管理",
+          "visibility": "public"
+        },
+        {
+          "type": "OPERATE",
+          "description": "调整业务、产品或治理",
+          "visibility": "either"
+        },
+        {
+          "type": "REGULATE",
+          "description": "调查、批准、限制或补救",
+          "visibility": "public"
+        },
+        {
+          "type": "ALLOCATE",
+          "description": "调整资本或风险敞口",
+          "visibility": "private"
+        },
+        {
+          "type": "NEGOTIATE",
+          "description": "协商交易或治理条件",
+          "visibility": "private"
+        },
+        {
+          "type": "WAIT",
+          "description": "等待更多证据或对方行动",
+          "visibility": "either"
+        }
+      ],
+      "interventions": [
+        {
+          "id": "I0_FEVER_EVIDENCE",
+          "at_round": 0,
+          "fact_ids": [
+            "F1",
+            "F2",
+            "F3",
+            "F4",
+            "F5"
+          ],
+          "visibility": "public"
+        }
+      ],
+      "forecast_targets": [
+        {
+          "id": "T1",
+          "kind": "event",
+          "definition": "CrowdStrike（CRWD）更新导致Windows客户系统中断后，未来7天各参与方可能如何响应？哪些二阶影响和恢复信号值得跟进？",
+          "horizon": "7_calendar_days",
+          "scoring": "brier"
+        }
+      ],
+      "run_config": {
+        "rounds": 3,
+        "replications": 3,
+        "seed_strategy": "deterministic_sequence",
+        "layers": [
+          "information",
+          "behavior"
+        ]
+      },
+      "provenance": {
+        "created_by": "FEVER SimulationSpecBuilder v1",
+        "source_graph_artifact_id": "real-public-crowdstrike-outage-2024",
+        "notes": [
+          "Scenario-first integration input; simulation output is not evidence.",
+          "Quick mode executes one partial replication from a three-replication spec."
+        ],
+        "actor_selection": {
+          "mode": "auto",
+          "recommended_count": 6,
+          "applied_limit": 6,
+          "detected_stakeholder_type_count": 1,
+          "configured_count": 6,
+          "matched_event_profiles": [
+            {
+              "id": "operational_disruption",
+              "matched_patterns": [
+                "系统中断",
+                "系统崩溃"
+              ],
+              "recommended_count": 6
+            }
+          ],
+          "selection_strategy": "literal_mentions_plus_event_structure_v4_entities",
+          "rationale": "从证据与研究问题中识别出 1 类显式利益相关方，并命中 1 类事件结构，按 4/6/8/10 分档建议最多 6 个核心参与方",
+          "identified_entity_count": 1,
+          "configured_entity_count": 1,
+          "unconfigured_entity_names": []
+        },
+        "evidence_timing": {
+          "excluded_future_ids": [],
+          "unknown_time_ids": []
+        }
+      }
+    },
+    "scenarios": [
+      {
+        "id": "branch-1",
+        "label": "客户公开质疑与CrowdStrike增加承诺",
+        "summary": "若受影响客户在公开渠道对恢复进度或赔偿承诺表达不满，CrowdStrike可能需要从当前主动沟通转向更具体的承诺（如延长免费支持时间、加速补丁交付），从而改变客户原本主要关注内部恢复的决策路径。",
+        "run_count": 1,
+        "frequency": 1.0,
+        "probability_semantics": "uncalibrated_simulation_frequency",
+        "triggers": [
+          "在2024-07-20至2024-07-27期间，至少2家大型客户（如航空、金融或医疗行业）公开声明对CrowdStrike的恢复支持或SLA赔偿方案不满意。"
+        ],
+        "consequences": [
+          "CrowdStrike将不得不额外投入技术资源以加快客户系统恢复，并可能需要预留法律或财务准备金用于潜在客户索赔，从而影响其短期成本和营收预期。",
+          "客户在评估替代方案时可能获得更多议价权，但短期内仍受高转换成本限制，不会大规模迁移到竞争产品。"
+        ],
+        "invalidation_conditions": [
+          "若截至2024-07-27，未见任何主要客户在公开渠道表达对CrowdStrike服务不满或提出索赔要求。"
+        ],
+        "actor_ids": [
+          "actor_customers",
+          "actor_issuer"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F4",
+          "F5"
+        ],
+        "simulation_refs": [
+          "decision-actor_customers-r2",
+          "decision-actor_issuer-r2"
+        ],
+        "novelty_claim": "该分支比事实复述多出了客户公开行动将如何约束CrowdStrike沟通方向并迫使其承担额外资源支出这一传导链条。",
+        "confidence": 0.6,
+        "confidence_semantics": "branch_coherence_not_forecast_probability",
+        "starting_decisions": [
+          {
+            "actor_id": "actor_customers",
+            "action_type": "OPERATE",
+            "decision_status": "intended",
+            "rationale": "作为已部署CrowdStrike Falcon的客户，首要目标是保障产品或服务连续性。根据F4，约850万台Windows设备受影响且关键服务企业使用这些设备使经济社会影响扩大，我需要立即评估自身系统受影响范围，核实是否在04:09至05:27 UTC期间下载了该配置更新（F3），并按照Microsoft提供的恢复文档与脚本（F5）进行恢复操作。同时我需要评估CrowdStrike的补救响应速度和有效性，为后续是否继续使用该服务或考虑替代方案积累第一手信息。转换成本较高，不会立即切换，但必须降低当前运营中断风险。",
+            "decision_ref": "decision-actor_customers-r2"
+          },
+          {
+            "actor_id": "actor_issuer",
+            "action_type": "COMMUNICATE",
+            "decision_status": "intended",
+            "rationale": "事件发生后仅约一天，受影响范围（约850万台设备、占Windows不足1%）已由Microsoft初步确认，且非网络攻击的性质已明确。当前首要任务是主动向客户、合作伙伴和公众沟通事件根因、修复进展及后续预防措施，以控制声誉风险并维持客户信任。同时需要回应市场关切，说明CrowdStrike正在全力配合Microsoft及云厂商恢复服务。沟通行动本身不构成任何交易承诺或资源支出承诺，属于我方可自主决定的公开行动。",
+            "decision_ref": "decision-actor_issuer-r2"
+          }
+        ],
+        "observations": [
+          {
+            "kind": "trigger",
+            "signal": "在2024-07-20至2024-07-27期间，至少2家大型客户（如航空、金融或医疗行业）公开声明对CrowdStrike的恢复支持或SLA赔偿方案不满意。",
+            "source": "依据资料 F1、F4、F5 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4",
+              "F5"
+            ],
+            "review_status": "needs_review",
+            "review_findings": [
+              {
+                "code": "unsupported_quantity",
+                "message": "引用资料及观察窗口未提供这些数值：2家；先核对数值含义及来源"
+              }
+            ]
+          },
+          {
+            "kind": "invalidation",
+            "signal": "若截至2024-07-27，未见任何主要客户在公开渠道表达对CrowdStrike服务不满或提出索赔要求。",
+            "source": "依据资料 F1、F4、F5 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4",
+              "F5"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          }
+        ],
+        "review_notices": [
+          "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：2家。"
+        ]
+      },
+      {
+        "id": "branch-2",
+        "label": "机构减持促使供应商调整信用评估",
+        "summary": "若机构投资者因为事件导致的客户流失风险而主动减持CrowdStrike股票，这将成为供应商可观察的市场信号，促使供应商从当前等待状态转向提前调整对CrowdStrike或其受影响客户的信用条件或订单条款。",
+        "run_count": 1,
+        "frequency": 1.0,
+        "probability_semantics": "uncalibrated_simulation_frequency",
+        "triggers": [
+          "在2024-07-20至2024-07-27期间，披露的13F或机构交易记录显示至少两家大型机构投资者大幅减少CRWD敞口。"
+        ],
+        "consequences": [
+          "供应商将提高对CrowdStrike收款账期的风险评估，并可能收紧对其客户的授信额度，从而形成从资本市场到实体供应链的信用收缩压力。",
+          "CrowdStrike的融资或运营灵活性降低，尤其是在与关键供应商谈判付款条件时处于不利地位。"
+        ],
+        "invalidation_conditions": [
+          "若截至2024-07-27，公开披露数据显示大型机构投资者对CRWD的头寸没有显著净减持；或供应商未提及市场信号在信用决策中的参考价值。"
+        ],
+        "actor_ids": [
+          "actor_institutions",
+          "actor_suppliers"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F4"
+        ],
+        "simulation_refs": [
+          "decision-actor_institutions-r2",
+          "decision-actor_suppliers-r2"
+        ],
+        "novelty_claim": "该分支比事实复述多出了机构投资者的减持决策会如何传导为供应商信用决策调整，进而反作用于CrowdStrike运营条件这一跨角色传导。",
+        "confidence": 0.55,
+        "confidence_semantics": "branch_coherence_not_forecast_probability",
+        "starting_decisions": [
+          {
+            "actor_id": "actor_institutions",
+            "action_type": "WAIT",
+            "decision_status": "intended",
+            "rationale": "截至7月20日，CrowdStrike配置更新事故已确认非网络攻击，更新已在约78分钟内修正。但微软估计约850万台设备受影响，关键服务企业受影响使经济社会影响扩大，可能引发客户索赔、监管审查及短期续约压力。虽仅不足1%的Windows设备受影响，但受波及的关键服务企业客户（航空、金融、医疗等）可能要求SLA赔偿或重新评估安全供应商，对CRWD短期收入与品牌声誉构成压力。同时微软派出数百名工程师协助恢复显示了行业协作，降低了系统性长期风险。需要更多信息评估：监管行动、客户流失率、潜在法律索赔规模及保险赔付情况。当前保持现有仓位，暂不增持也不减持，等待下一季度财报电话会披露的具体客户留存数据和事故相关成本。",
+            "decision_ref": "decision-actor_institutions-r2"
+          },
+          {
+            "actor_id": "actor_suppliers",
+            "action_type": "WAIT",
+            "decision_status": "intended",
+            "rationale": "作为供应商，需观察CrowdStrike事件对下游客户的系统恢复进度和订单连续性实际影响。已知故障窗口仅78分钟且已修复，Microsoft及CrowdStrike已协同实施恢复，受影响设备占比不足1%。但关键服务企业使用这些设备导致经济社会影响扩大，可能使部分客户短期付款能力或订单节奏产生波动。当前信息不足以判断具体客户受影响程度及传导到我方回款的时间线，需要等待下一轮客户运营恢复报告和付款状态确认后再调整信用评估或订单策略。主要不确定性在于受影响客户中哪些为我方直接或间接交易对手以及其IT恢复速度。",
+            "decision_ref": "decision-actor_suppliers-r2"
+          }
+        ],
+        "observations": [
+          {
+            "kind": "trigger",
+            "signal": "在2024-07-20至2024-07-27期间，披露的13F或机构交易记录显示至少两家大型机构投资者大幅减少CRWD敞口。",
+            "source": "依据资料 F1、F4 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4"
+            ],
+            "review_status": "needs_review",
+            "review_findings": [
+              {
+                "code": "reporting_period_mismatch",
+                "message": "13F 反映季度末持仓，不能据此确认本次短期窗口内的交易；需核对报告时点"
+              }
+            ]
+          },
+          {
+            "kind": "invalidation",
+            "signal": "若截至2024-07-27，公开披露数据显示大型机构投资者对CRWD的头寸没有显著净减持；或供应商未提及市场信号在信用决策中的参考价值。",
+            "source": "依据资料 F1、F4 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          }
+        ],
+        "review_notices": []
+      },
+      {
+        "id": "branch-3",
+        "label": "竞争者试探性营销与媒体放大分析",
+        "summary": "若竞争者从当前等待转向发出有限的营销试探（如发布事故对比分析白皮书、联系特定客户进行POC），财经媒体可能解读为行业格局变化的信号，从而改变媒体从单纯事实梳理转向深度竞争格局分析的报道重点。",
+        "run_count": 1,
+        "frequency": 1.0,
+        "probability_semantics": "uncalibrated_simulation_frequency",
+        "triggers": [
+          "在2024-07-20至2024-07-27期间，至少一家EDR竞争者公开发布针对此事件的技术对比白皮书或行业分析报告。"
+        ],
+        "consequences": [
+          "媒体会将该行为视为竞争者主动抢占客户心智，其报道将增加竞品在事件后获得的市场关注度，促使更多受影响客户内部启动评估流程。",
+          "竞争者可能获得更多POC邀请，但其产能和交付能力约束限制了短期内市场份额的巨大变化。"
+        ],
+        "invalidation_conditions": [
+          "若截至2024-07-27，未发现直接竞争者发布针对此事件的营销材料或技术对比分析；或媒体未将此类行为纳入报道重点。"
+        ],
+        "actor_ids": [
+          "actor_competitors",
+          "actor_media"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F4"
+        ],
+        "simulation_refs": [
+          "decision-actor_competitors-r2",
+          "decision-actor_media-r2"
+        ],
+        "novelty_claim": "该分支比事实复述多出了竞争者的试探性行动将如何改变媒体叙事焦点，进而影响客户采购决策信息环境这一传导路径。",
+        "confidence": 0.6,
+        "confidence_semantics": "branch_coherence_not_forecast_probability",
+        "starting_decisions": [
+          {
+            "actor_id": "actor_competitors",
+            "action_type": "WAIT",
+            "decision_status": "conditional",
+            "rationale": "CrowdStrike配置更新事故（F1-F5）暴露了其更新验证流程缺陷，可能引发企业客户对EDR可靠性重新评估。但截至7月20日，事故修复已公告（F2），Microsoft已介入协助恢复（F5），且受影响设备占Windows设备不足1%（F4），尚无法判断客户流失规模或速度。作为竞争者，受自身产能和成本限制（constraint:1），需要更多可观察信息（如客户咨询量变化、PoC请求趋势、竞争对手定价调整）才能判断是否调整产能准备或启动针对性市场沟通，不应仅依据社交热度或单次事件直接下注。当前决策周期内以观察为主，不做金融动作亦不抢跑营销。",
+            "decision_ref": "decision-actor_competitors-r2"
+          },
+          {
+            "actor_id": "actor_media",
+            "action_type": "WAIT",
+            "decision_status": "no_action",
+            "rationale": "截至2024-07-20已获取事件核心事实（F1-F5），但CrowdStrike的配置更新漏洞与修复已完成，Microsoft与多方协作恢复正在进行。此时CRWD的二级市场反应与监管动态尚未显现完整信号，作为财经媒体应先核实事件后续影响（如客户索赔、监管问询、竞品反应），再调整信息传播方向，避免凭空推测股价走势或事件升级程度。当前最恰当行动是等待更多可观察信息，随后再提供基于事实的深入分析。",
+            "decision_ref": "decision-actor_media-r2"
+          }
+        ],
+        "observations": [
+          {
+            "kind": "trigger",
+            "signal": "在2024-07-20至2024-07-27期间，至少一家EDR竞争者公开发布针对此事件的技术对比白皮书或行业分析报告。",
+            "source": "依据资料 F1、F4 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          },
+          {
+            "kind": "invalidation",
+            "signal": "若截至2024-07-27，未发现直接竞争者发布针对此事件的营销材料或技术对比分析；或媒体未将此类行为纳入报道重点。",
+            "source": "依据资料 F1、F4 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          }
+        ],
+        "review_notices": []
+      },
+      {
+        "id": "branch-4",
+        "label": "供应商结合客户反馈为CrowdStrike设置付款条件",
+        "summary": "若供应商收集到客户恢复进度缓慢的持续反馈，且预估CrowdStrike面临大量索赔，则供应商可能从等待转向主动为CrowdStrike设置更严格付款条件（如缩短账期、要求预付），这反过来限制CrowdStrike的现金流和激励其加速客户补偿方案。",
+        "run_count": 1,
+        "frequency": 1.0,
+        "probability_semantics": "uncalibrated_simulation_frequency",
+        "triggers": [
+          "在2024-07-20至2024-07-27期间，有可靠报道或客户声明称受影响客户平均恢复时间超过48小时；且CrowdStrike未公开承诺额外补偿。"
+        ],
+        "consequences": [
+          "供应商收紧账期将直接减少CrowdStrike的自由现金流，迫使其推迟或缩减非核心IT支持或研发投入。",
+          "CrowdStrike为了维持供应链稳定，可能更主动地提出客户补偿方案，以降低监管和法律风险，从而维持供应商信心。"
+        ],
+        "invalidation_conditions": [
+          "若截至2024-07-27，未观察到供应商调整对CrowdStrike的付款条件，或恢复时间在承诺窗口内完成且无客户集体索赔报告。"
+        ],
+        "actor_ids": [
+          "actor_suppliers",
+          "actor_issuer"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F4",
+          "F5"
+        ],
+        "simulation_refs": [
+          "decision-actor_suppliers-r2",
+          "decision-actor_issuer-r2"
+        ],
+        "novelty_claim": "该分支比事实复述多出了供应商如何根据客户恢复进程的间接信号主动调整对CrowdStrike的信贷条件，从而影响发行人运营资金这一闭环传导。",
+        "confidence": 0.55,
+        "confidence_semantics": "branch_coherence_not_forecast_probability",
+        "starting_decisions": [
+          {
+            "actor_id": "actor_suppliers",
+            "action_type": "WAIT",
+            "decision_status": "intended",
+            "rationale": "作为供应商，需观察CrowdStrike事件对下游客户的系统恢复进度和订单连续性实际影响。已知故障窗口仅78分钟且已修复，Microsoft及CrowdStrike已协同实施恢复，受影响设备占比不足1%。但关键服务企业使用这些设备导致经济社会影响扩大，可能使部分客户短期付款能力或订单节奏产生波动。当前信息不足以判断具体客户受影响程度及传导到我方回款的时间线，需要等待下一轮客户运营恢复报告和付款状态确认后再调整信用评估或订单策略。主要不确定性在于受影响客户中哪些为我方直接或间接交易对手以及其IT恢复速度。",
+            "decision_ref": "decision-actor_suppliers-r2"
+          },
+          {
+            "actor_id": "actor_issuer",
+            "action_type": "COMMUNICATE",
+            "decision_status": "intended",
+            "rationale": "事件发生后仅约一天，受影响范围（约850万台设备、占Windows不足1%）已由Microsoft初步确认，且非网络攻击的性质已明确。当前首要任务是主动向客户、合作伙伴和公众沟通事件根因、修复进展及后续预防措施，以控制声誉风险并维持客户信任。同时需要回应市场关切，说明CrowdStrike正在全力配合Microsoft及云厂商恢复服务。沟通行动本身不构成任何交易承诺或资源支出承诺，属于我方可自主决定的公开行动。",
+            "decision_ref": "decision-actor_issuer-r2"
+          }
+        ],
+        "observations": [
+          {
+            "kind": "trigger",
+            "signal": "在2024-07-20至2024-07-27期间，有可靠报道或客户声明称受影响客户平均恢复时间超过48小时；且CrowdStrike未公开承诺额外补偿。",
+            "source": "依据资料 F1、F4、F5 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4",
+              "F5"
+            ],
+            "review_status": "needs_review",
+            "review_findings": [
+              {
+                "code": "unsupported_quantity",
+                "message": "引用资料及观察窗口未提供这些数值：48小时；先核对数值含义及来源"
+              }
+            ]
+          },
+          {
+            "kind": "invalidation",
+            "signal": "若截至2024-07-27，未观察到供应商调整对CrowdStrike的付款条件，或恢复时间在承诺窗口内完成且无客户集体索赔报告。",
+            "source": "依据资料 F1、F4、F5 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4",
+              "F5"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          }
+        ],
+        "review_notices": [
+          "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：48小时。"
+        ]
+      }
+    ],
+    "source_files": {
+      "revision-4/cases/crowdstrike-outage-2024/entity-v7/reviewed-display.json": "987b3e455006b0762485974051a4bf28fa593b618f365fa321aa3aafd12d794e",
+      "revision-4/cases/crowdstrike-outage-2024/entity-v7/spec.json": "54dc7ab660db9f853cb57e296dbd36aa07986fde8cd6c69a1002e6070d992432"
+    }
+  },
+  {
+    "case_id": "guotai-haitong-2024",
+    "spec": {
+      "schema_version": "0.1.0",
+      "case_id": "real-guotai-haitong-2024",
+      "title": "国泰君安（601211）与海通证券（600837）筹划重组并停牌后，未来30天各参与方可能如何响应？请找出影响交易推进的分歧和需要跟进的公开信号。",
+      "as_of": "2024-09-06T23:59:59+08:00",
+      "question": "国泰君安（601211）与海通证券（600837）筹划重组并停牌后，未来30天各参与方可能如何响应？请找出影响交易推进的分歧和需要跟进的公开信号。",
+      "horizon": {
+        "kind": "calendar_days",
+        "value": 30,
+        "end_at": "2024-10-06T23:59:59+08:00"
+      },
+      "market": {
+        "region": "CN",
+        "venues": [
+          "SSE",
+          "SSE"
+        ],
+        "instruments": [
+          {
+            "symbol": "601211",
+            "name": "A股 601211",
+            "kind": "equity",
+            "currency": "CNY"
+          },
+          {
+            "symbol": "600837",
+            "name": "A股 600837",
+            "kind": "equity",
+            "currency": "CNY"
+          }
+        ]
+      },
+      "facts": [
+        {
+          "id": "F1",
+          "observed_at": "2024-09-06T00:00:00+08:00",
+          "time_basis": "source_published_at",
+          "statement": "国泰君安拟以向海通证券A股、H股换股股东分别发行对应股份的方式吸收合并海通证券，并发行A股募集配套资金。",
+          "source_kind": "filing",
+          "source_url": "https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=10470824&stockid=",
+          "evidence_ref": "E1",
+          "confidence": 0.5
+        },
+        {
+          "id": "F2",
+          "observed_at": "2024-09-06T00:00:00+08:00",
+          "time_basis": "source_published_at",
+          "statement": "国泰君安A股从2024年9月6日开市起停牌，公告预计停牌不超过25个交易日；该期限为预计，未披露确定复牌日。",
+          "source_kind": "filing",
+          "source_url": "https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=10470824&stockid=",
+          "evidence_ref": "E2",
+          "confidence": 0.5
+        },
+        {
+          "id": "F3",
+          "observed_at": "2024-09-06T00:00:00+08:00",
+          "time_basis": "source_published_at",
+          "statement": "双方于2024年9月5日签署合作协议，目前仅就重组作出原则性约定，具体方案以进一步签署的交易文件为准。",
+          "source_kind": "filing",
+          "source_url": "https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=10470824&stockid=",
+          "evidence_ref": "E3",
+          "confidence": 0.5
+        },
+        {
+          "id": "F4",
+          "observed_at": "2024-09-06T00:00:00+08:00",
+          "time_basis": "source_published_at",
+          "statement": "交易及正式文件需双方各自董事会、股东大会审议，并获得有权监管机构批准后才能实施，能否实施仍存在不确定性。",
+          "source_kind": "filing",
+          "source_url": "https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=10470824&stockid=",
+          "evidence_ref": "E4",
+          "confidence": 0.5
+        },
+        {
+          "id": "F5",
+          "observed_at": "2024-09-06T00:00:00+08:00",
+          "time_basis": "source_published_at",
+          "statement": "停牌期间公司将按进展履行披露义务，相关事项确定后及时公告并申请复牌。本次公告没有给出换股比例或募集金额。",
+          "source_kind": "filing",
+          "source_url": "https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=10470824&stockid=",
+          "evidence_ref": "E5",
+          "confidence": 0.5
+        }
+      ],
+      "actors": [
+        {
+          "id": "actor_issuer",
+          "label": "国泰君安（601211）",
+          "kind": "issuer",
+          "aggregation": "organization",
+          "goals": [
+            "代表国泰君安独立评估经营与交易条件，维护自身利益",
+            "根据对方行动与新增信息调整判断"
+          ],
+          "constraints": [
+            "只能使用分析截止时间前可观察的信息",
+            "行动受现金、执行能力和已披露承诺约束，不假定有无限资源",
+            "只代表国泰君安作出自身权限内的决策；不能代替交易对方、股东或监管机构批准交易"
+          ],
+          "observable_fact_ids": [
+            "F1",
+            "F2",
+            "F3",
+            "F4",
+            "F5"
+          ],
+          "assumptions": [
+            "上述目标与资源约束是角色建模假设，具体资源、权限和私有信息仍以证据为准"
+          ],
+          "selection_reason": "问题或市场信息提供名称与代码；主体名称在 F1、F2 中可核对。身份匹配不代表已验证证券代码或交易权限",
+          "identity": {
+            "name": "国泰君安",
+            "symbol": "601211",
+            "evidence_refs": [
+              "F1",
+              "F2"
+            ]
+          }
+        },
+        {
+          "id": "actor_issuer_600837",
+          "label": "海通证券（600837）",
+          "kind": "issuer",
+          "aggregation": "organization",
+          "goals": [
+            "代表海通证券独立评估经营与交易条件，维护自身利益",
+            "根据对方行动与新增信息调整判断"
+          ],
+          "constraints": [
+            "只能使用分析截止时间前可观察的信息",
+            "行动受现金、执行能力和已披露承诺约束，不假定有无限资源",
+            "只代表海通证券作出自身权限内的决策；不能代替交易对方、股东或监管机构批准交易"
+          ],
+          "observable_fact_ids": [
+            "F1",
+            "F2",
+            "F3",
+            "F4",
+            "F5"
+          ],
+          "assumptions": [
+            "上述目标与资源约束是角色建模假设，具体资源、权限和私有信息仍以证据为准"
+          ],
+          "selection_reason": "问题或市场信息提供名称与代码；主体名称在 F1 中可核对。身份匹配不代表已验证证券代码或交易权限",
+          "identity": {
+            "name": "海通证券",
+            "symbol": "600837",
+            "evidence_refs": [
+              "F1"
+            ]
+          }
+        },
+        {
+          "id": "actor_regulator",
+          "label": "监管机构",
+          "kind": "regulator",
+          "aggregation": "organization",
+          "goals": [
+            "核实风险并评估调查、审批或补救措施",
+            "根据对方行动与新增信息调整判断"
+          ],
+          "constraints": [
+            "只能使用分析截止时间前可观察的信息",
+            "只能在自身权限和程序内行动，不预设审批结果或时间表"
+          ],
+          "observable_fact_ids": [
+            "F1",
+            "F2",
+            "F3",
+            "F4",
+            "F5"
+          ],
+          "assumptions": [
+            "上述目标与资源约束是角色建模假设，具体资源、权限和私有信息仍以证据为准"
+          ],
+          "selection_reason": "证据或研究问题命中：监管、监管机构"
+        },
+        {
+          "id": "actor_exchange",
+          "label": "交易所",
+          "kind": "exchange",
+          "aggregation": "organization",
+          "goals": [
+            "维护信息披露和交易秩序",
+            "根据对方行动与新增信息调整判断"
+          ],
+          "constraints": [
+            "只能使用分析截止时间前可观察的信息",
+            "依据已知规则采取措施，不替代公司经营或监管审批"
+          ],
+          "observable_fact_ids": [
+            "F1",
+            "F2",
+            "F3",
+            "F4",
+            "F5"
+          ],
+          "assumptions": [
+            "上述目标与资源约束是角色建模假设，具体资源、权限和私有信息仍以证据为准"
+          ],
+          "selection_reason": "证据或研究问题命中：停牌"
+        },
+        {
+          "id": "actor_institutions",
+          "label": "机构投资者",
+          "kind": "institutional_investor",
+          "aggregation": "cohort",
+          "goals": [
+            "权衡风险敞口、流动性和资本配置",
+            "根据对方行动与新增信息调整判断"
+          ],
+          "constraints": [
+            "只能使用分析截止时间前可观察的信息",
+            "受投资授权和流动性约束，不假定能够无限增持或立即退出"
+          ],
+          "observable_fact_ids": [
+            "F1",
+            "F2",
+            "F3",
+            "F4",
+            "F5"
+          ],
+          "assumptions": [
+            "上述目标与资源约束是角色建模假设，具体资源、权限和私有信息仍以证据为准"
+          ],
+          "selection_reason": "证据或研究问题命中：机构"
+        },
+        {
+          "id": "actor_brokers",
+          "label": "券商与中介机构",
+          "kind": "broker",
+          "aggregation": "cohort",
+          "goals": [
+            "评估融资、交易与中介服务的连续性",
+            "根据对方行动与新增信息调整判断"
+          ],
+          "constraints": [
+            "只能使用分析截止时间前可观察的信息",
+            "受授信、资本和合同责任约束，不预设已有未披露融资承诺"
+          ],
+          "observable_fact_ids": [
+            "F1",
+            "F2",
+            "F3",
+            "F4",
+            "F5"
+          ],
+          "assumptions": [
+            "上述目标与资源约束是角色建模假设，具体资源、权限和私有信息仍以证据为准"
+          ],
+          "selection_reason": "事件结构 ma_capital 命中：重组"
+        },
+        {
+          "id": "actor_competitors",
+          "label": "竞争者",
+          "kind": "competitor",
+          "aggregation": "cohort",
+          "goals": [
+            "评估竞争格局变化并调整业务响应",
+            "根据对方行动与新增信息调整判断"
+          ],
+          "constraints": [
+            "只能使用分析截止时间前可观察的信息",
+            "受自身产能、成本和执行周期限制，不预设可以立即承接全部需求"
+          ],
+          "observable_fact_ids": [
+            "F1",
+            "F2",
+            "F3",
+            "F4",
+            "F5"
+          ],
+          "assumptions": [
+            "上述目标与资源约束是角色建模假设，具体资源、权限和私有信息仍以证据为准"
+          ],
+          "selection_reason": "事件结构 ma_capital 命中：重组"
+        },
+        {
+          "id": "actor_analysts",
+          "label": "分析师",
+          "kind": "analyst",
+          "aggregation": "cohort",
+          "goals": [
+            "比较事实与原有判断，明确需要更新的假设",
+            "根据对方行动与新增信息调整判断"
+          ],
+          "constraints": [
+            "只能使用分析截止时间前可观察的信息",
+            "区分已知事实与估计，不将研判当成公司承诺"
+          ],
+          "observable_fact_ids": [
+            "F1",
+            "F2",
+            "F3",
+            "F4",
+            "F5"
+          ],
+          "assumptions": [
+            "上述目标与资源约束是角色建模假设，具体资源、权限和私有信息仍以证据为准"
+          ],
+          "selection_reason": "事件结构 ma_capital 命中：重组"
+        }
+      ],
+      "relationships": [
+        {
+          "source_actor_id": "actor_issuer_600837",
+          "target_actor_id": "actor_issuer",
+          "kind": "constrains_or_influences",
+          "visibility": "assumed"
+        },
+        {
+          "source_actor_id": "actor_regulator",
+          "target_actor_id": "actor_issuer",
+          "kind": "constrains_or_influences",
+          "visibility": "assumed"
+        },
+        {
+          "source_actor_id": "actor_exchange",
+          "target_actor_id": "actor_issuer",
+          "kind": "constrains_or_influences",
+          "visibility": "assumed"
+        },
+        {
+          "source_actor_id": "actor_institutions",
+          "target_actor_id": "actor_issuer",
+          "kind": "constrains_or_influences",
+          "visibility": "assumed"
+        },
+        {
+          "source_actor_id": "actor_brokers",
+          "target_actor_id": "actor_issuer",
+          "kind": "constrains_or_influences",
+          "visibility": "assumed"
+        },
+        {
+          "source_actor_id": "actor_competitors",
+          "target_actor_id": "actor_issuer",
+          "kind": "constrains_or_influences",
+          "visibility": "assumed"
+        },
+        {
+          "source_actor_id": "actor_analysts",
+          "target_actor_id": "actor_issuer",
+          "kind": "constrains_or_influences",
+          "visibility": "assumed"
+        },
+        {
+          "source_actor_id": "actor_issuer",
+          "target_actor_id": "actor_analysts",
+          "kind": "communicates_actions_to",
+          "visibility": "assumed"
+        }
+      ],
+      "allowed_actions": [
+        {
+          "type": "COMMUNICATE",
+          "description": "公开沟通与预期管理",
+          "visibility": "public"
+        },
+        {
+          "type": "OPERATE",
+          "description": "调整业务、产品或治理",
+          "visibility": "either"
+        },
+        {
+          "type": "REGULATE",
+          "description": "调查、批准、限制或补救",
+          "visibility": "public"
+        },
+        {
+          "type": "ALLOCATE",
+          "description": "调整资本或风险敞口",
+          "visibility": "private"
+        },
+        {
+          "type": "NEGOTIATE",
+          "description": "协商交易或治理条件",
+          "visibility": "private"
+        },
+        {
+          "type": "WAIT",
+          "description": "等待更多证据或对方行动",
+          "visibility": "either"
+        }
+      ],
+      "interventions": [
+        {
+          "id": "I0_FEVER_EVIDENCE",
+          "at_round": 0,
+          "fact_ids": [
+            "F1",
+            "F2",
+            "F3",
+            "F4",
+            "F5"
+          ],
+          "visibility": "public"
+        }
+      ],
+      "forecast_targets": [
+        {
+          "id": "T1",
+          "kind": "event",
+          "definition": "国泰君安（601211）与海通证券（600837）筹划重组并停牌后，未来30天各参与方可能如何响应？请找出影响交易推进的分歧和需要跟进的公开信号。",
+          "horizon": "30_calendar_days",
+          "scoring": "brier"
+        }
+      ],
+      "run_config": {
+        "rounds": 3,
+        "replications": 3,
+        "seed_strategy": "deterministic_sequence",
+        "layers": [
+          "information",
+          "behavior"
+        ]
+      },
+      "provenance": {
+        "created_by": "FEVER SimulationSpecBuilder v1",
+        "source_graph_artifact_id": "real-public-guotai-haitong-2024",
+        "notes": [
+          "Scenario-first integration input; simulation output is not evidence.",
+          "Quick mode executes one partial replication from a three-replication spec."
+        ],
+        "actor_selection": {
+          "mode": "auto",
+          "recommended_count": 8,
+          "applied_limit": 8,
+          "detected_stakeholder_type_count": 3,
+          "configured_count": 8,
+          "matched_event_profiles": [
+            {
+              "id": "ma_capital",
+              "matched_patterns": [
+                "重组"
+              ],
+              "recommended_count": 8
+            }
+          ],
+          "selection_strategy": "literal_mentions_plus_event_structure_v4_entities",
+          "rationale": "从证据与研究问题中识别出 3 类显式利益相关方，并命中 1 类事件结构，按 4/6/8/10 分档建议最多 8 个核心参与方",
+          "identified_entity_count": 2,
+          "configured_entity_count": 2,
+          "unconfigured_entity_names": []
+        },
+        "evidence_timing": {
+          "excluded_future_ids": [],
+          "unknown_time_ids": []
+        }
+      }
+    },
+    "scenarios": [
+      {
+        "id": "branch-1",
+        "label": "分析师报告触发竞争者加速布局",
+        "summary": "若分析师于复牌前发布首份包含换股比例预期或业务协同预测的正式研报，竞争者可能基于该研报启动内部战略评估，并加速在分析师未覆盖的区域市场或业务线扩展，以抢占整合窗口期。",
+        "run_count": 1,
+        "frequency": 1.0,
+        "probability_semantics": "uncalibrated_simulation_frequency",
+        "triggers": [
+          "分析师在2024-10-06前发布涵盖国泰君安/海通证券交易的正式研报，并明确提出对换股比例区间或业务整合难度的量化判断"
+        ],
+        "consequences": [
+          "竞争者将研报数据作为输入，调整自身在投行、资管等重叠业务线的资源分配方案",
+          "竞争者内部可能加快评估是否主动与另一家中型券商合并以维持相对排名"
+        ],
+        "invalidation_conditions": [
+          "2024-10-06前无任何分析师发布包含新量化条件的研报",
+          "竞争者公开声明未进行任何战略调整或业务布局变化"
+        ],
+        "actor_ids": [
+          "actor_analysts",
+          "actor_competitors"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F3",
+          "F5"
+        ],
+        "simulation_refs": [
+          "decision-actor_analysts-r2",
+          "decision-actor_competitors-r2"
+        ],
+        "novelty_claim": "该分支在已有F1-F5事实基础上，额外构建分析师研判触发竞争者采取防御性加速行动的多主体传导链条，而非仅停留于双方等待状态。",
+        "confidence": 0.35,
+        "confidence_semantics": "branch_coherence_not_forecast_probability",
+        "starting_decisions": [
+          {
+            "actor_id": "actor_analysts",
+            "action_type": "WAIT",
+            "decision_status": "conditional",
+            "rationale": "截至截止时点，F1+F3显示合并仅处于原则性约定阶段，F4提示交易仍需三重审批，F5明确未给出换股比例或募集金额——核心定价要素尚未可知，不具备形成方向性判断的基础。模拟第2轮中，我在社交媒体发表了分析意见（区分事实与估计），监管方也发布了提示性回应，但均未产生可观察的新事实打破原有信息边界。因此选择等待，直到后续交易文件披露换股比例或其他实质性条款后，再更新研判。",
+            "decision_ref": "decision-actor_analysts-r2"
+          },
+          {
+            "actor_id": "actor_competitors",
+            "action_type": "WAIT",
+            "decision_status": "conditional",
+            "rationale": "截至2024年9月6日，国泰君安吸收合并海通证券仅完成原则性签约，换股比例和配套募资金额等核心定价条款（F5）均未披露，交易仍需经各自董事会、股东大会及监管机构批准（F4），能否实施存在不确定性。作为竞争者，评估本次合并对行业竞争格局的影响需依赖具体交易要素和监管审批结果。在关键条款和审批进展明朗前，最审慎的做法是暂行等待，保留资源与产能，收集复牌后更多信息后再做业务响应调整。",
+            "decision_ref": "decision-actor_competitors-r2"
+          }
+        ],
+        "observations": [
+          {
+            "kind": "trigger",
+            "signal": "分析师在2024-10-06前发布涵盖国泰君安/海通证券交易的正式研报，并明确提出对换股比例区间或业务整合难度的量化判断",
+            "source": "依据资料 F1、F3、F5 的原始来源及后续更新",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F3",
+              "F5"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          },
+          {
+            "kind": "invalidation",
+            "signal": "2024-10-06前无任何分析师发布包含新量化条件的研报",
+            "source": "依据资料 F1、F3、F5 的原始来源及后续更新",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F3",
+              "F5"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          },
+          {
+            "kind": "invalidation",
+            "signal": "竞争者公开声明未进行任何战略调整或业务布局变化",
+            "source": "依据资料 F1、F3、F5 的原始来源及后续更新",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F3",
+              "F5"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          }
+        ],
+        "review_notices": []
+      },
+      {
+        "id": "branch-2",
+        "label": "交易所延长停牌引发机构赎回压力",
+        "summary": "若基准停牌期限到期前国泰君安未发布明确复牌公告且交易所未确认是否延长停牌，机构投资者可能因流动性约束无法等待而先行减仓海通证券相关替代仓位，从而在复牌后形成主动卖出压力。",
+        "run_count": 1,
+        "frequency": 1.0,
+        "probability_semantics": "uncalibrated_simulation_frequency",
+        "triggers": [
+          "距基准预计25个交易日届满（约2024-10-10）前3个交易日，交易所未发出任何关于复牌日的确认或延期通知"
+        ],
+        "consequences": [
+          "机构投资者将基于组合流动性要求，于复牌前通过大宗交易或二级市场减仓海通证券或与海通深度关联的标的以降低敞口",
+          "复牌后国泰君安股票因卖盘集中而面临短期下跌压力"
+        ],
+        "invalidation_conditions": [
+          "交易所于预计停牌期届满前正式公告复牌日期或延期安排",
+          "机构投资者披露其持仓占基金净值比例极低且无流动性压力"
+        ],
+        "actor_ids": [
+          "actor_exchange",
+          "actor_institutions"
+        ],
+        "evidence_refs": [
+          "F2",
+          "F5"
+        ],
+        "simulation_refs": [
+          "decision-actor_exchange-r2",
+          "decision-actor_institutions-r2"
+        ],
+        "novelty_claim": "该分支连接交易所的停牌管理决策与机构投资者的流动性约束，推导出期限不确定性可能引发主动减仓这一额外传导路径，超越各自单独等待的条件。",
+        "confidence": 0.35,
+        "confidence_semantics": "branch_coherence_not_forecast_probability",
+        "starting_decisions": [
+          {
+            "actor_id": "actor_exchange",
+            "action_type": "WAIT",
+            "decision_status": "conditional",
+            "rationale": "截至截止时点，公司已按规则启动停牌程序（F2），本次重组仍处于原则性约定阶段（F3），核心交易要素（换股比例、募集金额）尚未披露（F5），且交易需经多重审批且存在不确定性（F4）。作为交易所，我的职责是维护信息披露秩序和监督规则执行，而非替代公司经营或监管审批。当前公司已按要求停牌并承诺按进展履行披露义务，我暂无新的规则执行或监管干预的必要，等待公司后续提交复牌申请或披露实质性进展是最合适的动作。",
+            "decision_ref": "decision-actor_exchange-r2"
+          },
+          {
+            "actor_id": "actor_institutions",
+            "action_type": "WAIT",
+            "decision_status": "conditional",
+            "rationale": "基于截至公告事实F1-F5，该吸收合并交易处于原则性约定阶段，尚未披露换股比例与募集金额两项核心交易要素（F5），无法对国泰君安（601211）和海通证券（600837）进行相对估值比价。交易需经双方董事会、股东大会及监管机构批准（F4），实施路径存在多重审批不确定性。国泰君安A股已于2024年9月6日停牌（F2），复牌时间未定。作为机构投资者，在缺乏定价对价核心参数且审批不确定性未消除的时点下，优先选择维持现有持仓不变、不调整敞口也不进行增量配置，等待后续交易文件签署及换股比例等关键信息披露后再做决策。该期间将持续跟踪信息披露进展（F5维护的披露义务机制）。",
+            "decision_ref": "decision-actor_institutions-r2"
+          }
+        ],
+        "observations": [
+          {
+            "kind": "trigger",
+            "signal": "距基准预计25个交易日届满（约2024-10-10）前3个交易日，交易所未发出任何关于复牌日的确认或延期通知",
+            "source": "依据资料 F2、F5 的原始来源及后续更新",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F2",
+              "F5"
+            ],
+            "review_status": "needs_review",
+            "review_findings": [
+              {
+                "code": "unsupported_quantity",
+                "message": "引用资料及观察窗口未提供这些数值：3个交易日；先核对数值含义及来源"
+              }
+            ]
+          },
+          {
+            "kind": "invalidation",
+            "signal": "交易所于预计停牌期届满前正式公告复牌日期或延期安排",
+            "source": "依据资料 F2、F5 的原始来源及后续更新",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F2",
+              "F5"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          },
+          {
+            "kind": "invalidation",
+            "signal": "机构投资者披露其持仓占基金净值比例极低且无流动性压力",
+            "source": "依据资料 F2、F5 的原始来源及后续更新",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F2",
+              "F5"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          }
+        ],
+        "review_notices": [
+          "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：3个交易日。"
+        ]
+      },
+      {
+        "id": "branch-3",
+        "label": "中介承销受阻促使海通证券要求条款调整",
+        "summary": "若中介机构因监管顾虑或资本约束宣布不参与配套融资承销，海通证券作为被合并方可能要求国泰君安重新谈判换股比例或筹资结构，以保障其股东价值不因融资难度下降。",
+        "run_count": 1,
+        "frequency": 1.0,
+        "probability_semantics": "uncalibrated_simulation_frequency",
+        "triggers": [
+          "2024-10-06前有至少一家头部券商或银行公开表示不参与本次合并的配套融资承销或授信"
+        ],
+        "consequences": [
+          "海通证券将以融资方案不可执行为由，主张推迟董事会审议直至替代融资方出现",
+          "国泰君安可能被迫调整配套资金募集规模或结构，并相应修改换股对价"
+        ],
+        "invalidation_conditions": [
+          "2024-10-06前无任何中介机构公开拒绝参与配套融资",
+          "海通证券正式确认接受原定融资框架并推进审议程序"
+        ],
+        "actor_ids": [
+          "actor_brokers",
+          "actor_issuer_600837"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F4",
+          "F5"
+        ],
+        "simulation_refs": [
+          "decision-actor_brokers-r2",
+          "decision-actor_issuer_600837-r2"
+        ],
+        "novelty_claim": "该分支从中介机构的行为约束出发，推导其拒绝参与的可能如何转化为海通证券对交易条款的重新博弈，而不仅是等待方案的单纯延期。",
+        "confidence": 0.3,
+        "confidence_semantics": "branch_coherence_not_forecast_probability",
+        "starting_decisions": [
+          {
+            "actor_id": "actor_brokers",
+            "action_type": "WAIT",
+            "decision_status": "conditional",
+            "rationale": "截至当前时点，国泰君安吸收合并海通证券仅签署原则性合作协议，具体换股比例、募集金额等核心交易参数均未披露（F5）。交易尚需双方董事会、股东大会及监管机构多重审批，能否实施存在不确定性（F4）。作为中介机构，在不掌握具体交易文件及未确认融资承诺的情况下（约束F1、F2），不具备提供连续融资、交易或中介服务的充分依据。因此选择等待，待换股比例、募集方案及复牌时间等关键信息明确后再评估中介业务介入的可行性。停牌期间公司承诺按进展履行披露义务（F5），这是后续获取信息的法定渠道。",
+            "decision_ref": "decision-actor_brokers-r2"
+          },
+          {
+            "actor_id": "actor_issuer_600837",
+            "action_type": "WAIT",
+            "decision_status": "no_action",
+            "rationale": "截至2024年9月6日，国泰君安A股（601211）已停牌，海通证券（600837）是否同步停牌尚未确认。双方于9月5日签署的合作协议仅为原则性约定，换股比例及募集金额等核心交易要素均未披露。交易需经双方董事会、股东大会及有权监管机构批准，能否实施仍存在不确定性。在当前状态下，海通证券作为被合并方，自身没有主动调整经营或交易条件的依据，也无须对外传递新信息或启动谈判——因为实质性条款尚未成形、正式交易文件尚未签署。因此本周期最审慎合理的选择是不采取任何对外金融动作，等待国泰君安进一步披露具体交易方案及复牌安排，再基于可观察信息做后续判断。",
+            "decision_ref": "decision-actor_issuer_600837-r2"
+          }
+        ],
+        "observations": [
+          {
+            "kind": "trigger",
+            "signal": "2024-10-06前有至少一家头部券商或银行公开表示不参与本次合并的配套融资承销或授信",
+            "source": "依据资料 F1、F4、F5 的原始来源及后续更新",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4",
+              "F5"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          },
+          {
+            "kind": "invalidation",
+            "signal": "2024-10-06前无任何中介机构公开拒绝参与配套融资",
+            "source": "依据资料 F1、F4、F5 的原始来源及后续更新",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4",
+              "F5"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          },
+          {
+            "kind": "invalidation",
+            "signal": "海通证券正式确认接受原定融资框架并推进审议程序",
+            "source": "依据资料 F1、F4、F5 的原始来源及后续更新",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4",
+              "F5"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          }
+        ],
+        "review_notices": []
+      },
+      {
+        "id": "branch-4",
+        "label": "监管提前介入要求补充披露",
+        "summary": "若监管机构在等待期内主动发出问询函或召开非正式会议，要求国泰君安补充提供本次交易的估值基准、协同效益测算或竞争影响分析，则国泰君安需调整信息披露节奏并推迟正式文件签署。",
+        "run_count": 1,
+        "frequency": 1.0,
+        "probability_semantics": "uncalibrated_simulation_frequency",
+        "triggers": [
+          "交易所在预审或日常沟通中单向监管机构传递需额外材料的建议后，监管机构在2024-10-06前向国泰君安发出书面问询或要求补充披露的通知"
+        ],
+        "consequences": [
+          "国泰君安将不得不延后董事会审议时间表并申请延长停牌直至完成补充说明",
+          "监管要求一旦公开，将向市场释放交易整合复杂程度高于预期的信号，间接影响机构持仓意愿"
+        ],
+        "invalidation_conditions": [
+          "2024-10-06前监管机构未发出任何形式的问询或补充通知",
+          "国泰君安主动且提前披露本次交易的估值报告或协同效益分析，消除监管疑虑"
+        ],
+        "actor_ids": [
+          "actor_regulator",
+          "actor_issuer"
+        ],
+        "evidence_refs": [
+          "F2",
+          "F4"
+        ],
+        "simulation_refs": [
+          "decision-actor_regulator-r2",
+          "decision-actor_issuer-r2"
+        ],
+        "novelty_claim": "该分支将监管机构从被动等待角色转为主动介入者，并构建其行动如何通过强制补充披露链条间接改变国泰君安停牌与复牌节奏的传导机制。",
+        "confidence": 0.35,
+        "confidence_semantics": "branch_coherence_not_forecast_probability",
+        "starting_decisions": [
+          {
+            "actor_id": "actor_regulator",
+            "action_type": "WAIT",
+            "decision_status": "no_action",
+            "rationale": "根据截至2024年9月6日收盘的可观察事实，国泰君安与海通证券仅于2024年9月5日签署原则性合作协议，具体交易方案尚未形成正式文件，换股比例、募集金额等核心要素均未披露（F3、F5）。该交易尚需双方董事会、股东大会审议及有权监管机构批准，能否实施仍存在重大不确定性（F4）。截至当前时点，公司刚于9月6日开市停牌，尚无需要本机构采取实质性监管措施或沟通行动的新信息或违规线索。因此，本决策周期最适当的做法是等待公司按进展履行披露义务（F5），待后续获取更详细的交易文件及相关审议进展后再行评估，符合约束要求：不预设审批结果或时间表，不使用截止时点后不可观察的信息。",
+            "decision_ref": "decision-actor_regulator-r2"
+          },
+          {
+            "actor_id": "actor_issuer",
+            "action_type": "WAIT",
+            "decision_status": "no_action",
+            "rationale": "截至2024年9月6日，国泰君安已公告拟吸收合并海通证券并停牌，目前仅签署原则性合作协议，具体方案尚未确定，换股比例和募集金额均未披露。交易实施需经双方董事会、股东大会及监管机构批准，存在重大不确定性。在停牌期间，公司无法进行公开市场操作，也不具备谈判新条款的依据。因此当前最优策略是等待内部工作推进至可披露阶段，再根据确定的交易文件和监管反馈做出后续决策。",
+            "decision_ref": "decision-actor_issuer-r2"
+          }
+        ],
+        "observations": [
+          {
+            "kind": "trigger",
+            "signal": "交易所在预审或日常沟通中单向监管机构传递需额外材料的建议后，监管机构在2024-10-06前向国泰君安发出书面问询或要求补充披露的通知",
+            "source": "依据资料 F2、F4 的原始来源及后续更新",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F2",
+              "F4"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          },
+          {
+            "kind": "invalidation",
+            "signal": "2024-10-06前监管机构未发出任何形式的问询或补充通知",
+            "source": "依据资料 F2、F4 的原始来源及后续更新",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F2",
+              "F4"
+            ],
+            "review_status": "needs_review",
+            "review_findings": [
+              {
+                "code": "silence_is_not_invalidation",
+                "message": "未见消息只能说明尚未观察到，不能单独推翻这条路径；应核对相反的公开信息"
+              }
+            ]
+          },
+          {
+            "kind": "invalidation",
+            "signal": "国泰君安主动且提前披露本次交易的估值报告或协同效益分析，消除监管疑虑",
+            "source": "依据资料 F2、F4 的原始来源及后续更新",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F2",
+              "F4"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          }
+        ],
+        "review_notices": []
+      }
+    ],
+    "source_files": {
+      "revision-4/cases/guotai-haitong-2024/entity-v7/reviewed-display.json": "b232a24611967ab03a22564f5e572a3e5a537ebbf6b6ce27cdf55737c4b2f399",
+      "revision-4/cases/guotai-haitong-2024/entity-v7/spec.json": "662ae93992b4911137945183407fc3173756307496e9f16b6bac656ae7761a5d"
+    }
+  }
+]

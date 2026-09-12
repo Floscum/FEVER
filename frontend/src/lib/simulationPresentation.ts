@@ -4,6 +4,22 @@ export function textItems(value: unknown): string[] {
   return Array.isArray(value) ? value.filter((item): item is string => typeof item === "string" && Boolean(item.trim())) : [];
 }
 
+export function observationWindow(payload: any): string | undefined {
+  const source = payload?.source;
+  const horizon = source?.horizon;
+  const count = horizon?.value ?? source?.horizon_days;
+  if (typeof count !== "number" || !Number.isFinite(count) || count <= 0) return undefined;
+  const unit = ({ calendar_days: "个自然日", trading_days: "个交易日", rounds: "轮" } as Record<string, string>)[horizon?.kind ?? "calendar_days"];
+  if (!unit) return undefined;
+  // Preserve the recorded date in its original timezone. Historical artifacts
+  // must never acquire a new deadline relative to the day they are opened.
+  const recordedDate = (value: unknown) => typeof value === "string" && /^\d{4}-\d{2}-\d{2}(T|$)/.test(value) ? value.slice(0, 10) : undefined;
+  const start = recordedDate(source?.as_of);
+  const end = recordedDate(horizon?.end_at);
+  if (start && end) return `${start} 至 ${end}（${count} ${unit}）`;
+  return start ? `自 ${start} 起 ${count} ${unit}` : `${count} ${unit}（未记录起点）`;
+}
+
 export function observations(payload: any): Observation[] {
   const scenarios = Array.isArray(payload?.scenarios) ? payload.scenarios : [];
   return scenarios.flatMap((scenario: any, index: number) => {
@@ -28,7 +44,8 @@ export function observationMarkdown(payload: any): string {
   const lines = ["# 条件情景观察清单", "", "以下为模拟提出的待核对条件，不代表已发生事实或发生概率。", ""];
   if (payload?.source?.question) lines.push(`研究问题：${payload.source.question}`);
   if (payload?.source?.as_of) lines.push(`证据截止：${payload.source.as_of}`);
-  if (payload?.source?.horizon_days) lines.push(`观察窗口：未来 ${payload.source.horizon_days} 天`);
+  const window = observationWindow(payload);
+  if (window) lines.push(`观察窗口：${window}`);
   let currentIndex = -1;
   for (const item of observations(payload)) {
     if (item.scenarioIndex !== currentIndex) {

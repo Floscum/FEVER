@@ -13,7 +13,7 @@ from starlette.requests import Request
 
 from . import config, db
 from .log_bus import publish
-from .routes import admin, arena, backtest, cases, chat, logic, meta, prospective
+from .routes import admin, arena, backtest, cases, chat, logic, meta, prospective, simulations
 
 app = FastAPI(title="Pronoia", version="3.12.1", docs_url="/api/docs")
 
@@ -81,6 +81,7 @@ app.include_router(backtest.router)
 app.include_router(arena.router)
 app.include_router(admin.router)
 app.include_router(prospective.router)
+app.include_router(simulations.router)
 
 
 @app.on_event("startup")

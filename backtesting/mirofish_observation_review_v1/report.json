@@ -1,0 +1,933 @@
+{
+  "classification": "offline_review_rule_regression_not_generation_quality_or_prediction_accuracy",
+  "model_calls": 0,
+  "case_count": 3,
+  "scenario_count": 12,
+  "observation_count": 44,
+  "input_text_preserved": true,
+  "flagged_before": 8,
+  "flagged_after": 19,
+  "newly_flagged": 11,
+  "no_longer_flagged": 0,
+  "finding_counts": {
+    "before": {
+      "reporting_period_mismatch": 1,
+      "silence_is_not_invalidation": 3,
+      "unsupported_quantity": 4
+    },
+    "after": {
+      "disclosure_required": 2,
+      "reporting_period_mismatch": 1,
+      "silence_is_not_invalidation": 12,
+      "unsupported_quantity": 4
+    }
+  },
+  "cases": [
+    {
+      "case_id": "byd-h1-2025",
+      "scenarios": 4,
+      "observations": 24,
+      "before": 3,
+      "after": 7
+    },
+    {
+      "case_id": "crowdstrike-outage-2024",
+      "scenarios": 4,
+      "observations": 8,
+      "before": 3,
+      "after": 7
+    },
+    {
+      "case_id": "guotai-haitong-2024",
+      "scenarios": 4,
+      "observations": 12,
+      "before": 2,
+      "after": 5
+    }
+  ],
+  "conditions": [
+    {
+      "case_id": "byd-h1-2025",
+      "scenario_index": 0,
+      "observation_index": 0,
+      "scenario": "券商调仓触发机构再评估",
+      "kind": "trigger",
+      "signal": "若在2025-09-06前，券商发布关于比亚迪目标价或评级调整的研报，且其内容引用F4中毛利率下降或F3中研发投入增速作为关键因素。",
+      "source": "依据资料 F1、F2、F3、F4、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      }
+    },
+    {
+      "case_id": "byd-h1-2025",
+      "scenario_index": 0,
+      "observation_index": 1,
+      "scenario": "券商调仓触发机构再评估",
+      "kind": "trigger",
+      "signal": "若比亚迪股票出现单日交易量较前30日均值增加20%以上，且伴随大宗交易信息。",
+      "source": "依据资料 F1、F2、F3、F4、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "needs_review",
+        "review_findings": [
+          {
+            "code": "unsupported_quantity",
+            "message": "引用资料及观察窗口未提供这些数值：20%；先核对数值含义及来源"
+          }
+        ]
+      },
+      "after": {
+        "review_status": "needs_review",
+        "review_findings": [
+          {
+            "code": "unsupported_quantity",
+            "message": "输入资料及观察窗口未提供这些数值：20%；先核对数值含义及来源"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "byd-h1-2025",
+      "scenario_index": 0,
+      "observation_index": 2,
+      "scenario": "券商调仓触发机构再评估",
+      "kind": "trigger",
+      "signal": "若机构投资者在公开渠道(如券商路演或媒体采访)发出关于持仓调整预期的信号。",
+      "source": "依据资料 F1、F2、F3、F4、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      }
+    },
+    {
+      "case_id": "byd-h1-2025",
+      "scenario_index": 0,
+      "observation_index": 3,
+      "scenario": "券商调仓触发机构再评估",
+      "kind": "invalidation",
+      "signal": "若2025-09-06前券商未发布任何涉及比亚迪目标价或评级变化的研报。",
+      "source": "依据资料 F1、F2、F3、F4、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "needs_review",
+        "review_findings": [
+          {
+            "code": "silence_is_not_invalidation",
+            "message": "未见消息只能说明尚未观察到，不能单独推翻这条路径；应核对相反的公开信息"
+          }
+        ]
+      },
+      "after": {
+        "review_status": "needs_review",
+        "review_findings": [
+          {
+            "code": "silence_is_not_invalidation",
+            "message": "这里含有尚未观察到或未披露消息的条件；请区分“仍待观察”和“路径已被推翻”。如有明确披露义务及截止日，应按该承诺复核"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "byd-h1-2025",
+      "scenario_index": 0,
+      "observation_index": 4,
+      "scenario": "券商调仓触发机构再评估",
+      "kind": "invalidation",
+      "signal": "若比亚迪股票交易量维持平稳，无明显异动。",
+      "source": "依据资料 F1、F2、F3、F4、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      }
+    },
+    {
+      "case_id": "byd-h1-2025",
+      "scenario_index": 0,
+      "observation_index": 5,
+      "scenario": "券商调仓触发机构再评估",
+      "kind": "invalidation",
+      "signal": "若机构投资者继续维持观望态度，未公开表示调整意愿。",
+      "source": "依据资料 F1、F2、F3、F4、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "needs_review",
+        "review_findings": [
+          {
+            "code": "silence_is_not_invalidation",
+            "message": "这里含有尚未观察到或未披露消息的条件；请区分“仍待观察”和“路径已被推翻”。如有明确披露义务及截止日，应按该承诺复核"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "byd-h1-2025",
+      "scenario_index": 1,
+      "observation_index": 0,
+      "scenario": "竞争者研发调整比对冲",
+      "kind": "trigger",
+      "signal": "若在2025-09-06前，竞争者通过公告或媒体披露2025年下半年度研发预算调整计划，明显参考比亚迪研发投入增速。",
+      "source": "依据资料 F1、F3、F4、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      }
+    },
+    {
+      "case_id": "byd-h1-2025",
+      "scenario_index": 1,
+      "observation_index": 1,
+      "scenario": "竞争者研发调整比对冲",
+      "kind": "trigger",
+      "signal": "若比亚迪在业绩说明会或公告中提及新技术平台或新车型研发进展，作为对竞争压力的回应。",
+      "source": "依据资料 F1、F3、F4、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      }
+    },
+    {
+      "case_id": "byd-h1-2025",
+      "scenario_index": 1,
+      "observation_index": 2,
+      "scenario": "竞争者研发调整比对冲",
+      "kind": "trigger",
+      "signal": "若行业媒体大规模报道‘研发投入竞赛’话题，并引用比亚迪数据作为标杆。",
+      "source": "依据资料 F1、F3、F4、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      }
+    },
+    {
+      "case_id": "byd-h1-2025",
+      "scenario_index": 1,
+      "observation_index": 3,
+      "scenario": "竞争者研发调整比对冲",
+      "kind": "invalidation",
+      "signal": "若竞争者未发布任何关于研发预算调整的公开声明或传闻未经证实。",
+      "source": "依据资料 F1、F3、F4、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "needs_review",
+        "review_findings": [
+          {
+            "code": "silence_is_not_invalidation",
+            "message": "未见消息只能说明尚未观察到，不能单独推翻这条路径；应核对相反的公开信息"
+          }
+        ]
+      },
+      "after": {
+        "review_status": "needs_review",
+        "review_findings": [
+          {
+            "code": "silence_is_not_invalidation",
+            "message": "这里含有尚未观察到或未披露消息的条件；请区分“仍待观察”和“路径已被推翻”。如有明确披露义务及截止日，应按该承诺复核"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "byd-h1-2025",
+      "scenario_index": 1,
+      "observation_index": 4,
+      "scenario": "竞争者研发调整比对冲",
+      "kind": "invalidation",
+      "signal": "若比亚迪保持当前战略沟通节奏，未新增技术进展披露。",
+      "source": "依据资料 F1、F3、F4、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "needs_review",
+        "review_findings": [
+          {
+            "code": "silence_is_not_invalidation",
+            "message": "这里含有尚未观察到或未披露消息的条件；请区分“仍待观察”和“路径已被推翻”。如有明确披露义务及截止日，应按该承诺复核"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "byd-h1-2025",
+      "scenario_index": 1,
+      "observation_index": 5,
+      "scenario": "竞争者研发调整比对冲",
+      "kind": "invalidation",
+      "signal": "若行业讨论聚焦于价格战或其他因素，而非研发投入。",
+      "source": "依据资料 F1、F3、F4、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      }
+    },
+    {
+      "case_id": "byd-h1-2025",
+      "scenario_index": 2,
+      "observation_index": 0,
+      "scenario": "分析师建议触发交易所监管问询",
+      "kind": "trigger",
+      "signal": "若在2025-09-06前，至少一家主要券商(如中信、华泰)发布研报，批评比亚迪未提供质量保证费用口径调整前后的得可比毛利率数据，并量化其影响。",
+      "source": "依据资料 F1、F4、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      }
+    },
+    {
+      "case_id": "byd-h1-2025",
+      "scenario_index": 2,
+      "observation_index": 1,
+      "scenario": "分析师建议触发交易所监管问询",
+      "kind": "trigger",
+      "signal": "若交易所收到投资者关于会计准则变更影响的正式问询。",
+      "source": "依据资料 F1、F4、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      }
+    },
+    {
+      "case_id": "byd-h1-2025",
+      "scenario_index": 2,
+      "observation_index": 2,
+      "scenario": "分析师建议触发交易所监管问询",
+      "kind": "trigger",
+      "signal": "若媒体广泛报道分析师关于‘毛利率数据可能存在误导’的言论。",
+      "source": "依据资料 F1、F4、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      }
+    },
+    {
+      "case_id": "byd-h1-2025",
+      "scenario_index": 2,
+      "observation_index": 3,
+      "scenario": "分析师建议触发交易所监管问询",
+      "kind": "invalidation",
+      "signal": "若分析师未在公开渠道强调会计准则调整的影响，或认为当前披露已足够充分。",
+      "source": "依据资料 F1、F4、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "needs_review",
+        "review_findings": [
+          {
+            "code": "silence_is_not_invalidation",
+            "message": "这里含有尚未观察到或未披露消息的条件；请区分“仍待观察”和“路径已被推翻”。如有明确披露义务及截止日，应按该承诺复核"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "byd-h1-2025",
+      "scenario_index": 2,
+      "observation_index": 4,
+      "scenario": "分析师建议触发交易所监管问询",
+      "kind": "invalidation",
+      "signal": "若交易所未收到正式问询或未主动启动问询程序。",
+      "source": "依据资料 F1、F4、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      }
+    },
+    {
+      "case_id": "byd-h1-2025",
+      "scenario_index": 2,
+      "observation_index": 5,
+      "scenario": "分析师建议触发交易所监管问询",
+      "kind": "invalidation",
+      "signal": "若比亚迪主动在业绩说明会中补充提供效力可比数据，提前解除疑虑。",
+      "source": "依据资料 F1、F4、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      }
+    },
+    {
+      "case_id": "byd-h1-2025",
+      "scenario_index": 3,
+      "observation_index": 0,
+      "scenario": "券商融资条件调整挤压竞争对手空间",
+      "kind": "trigger",
+      "signal": "若在2025-09-06前，券商公开或内部调整针对比亚迪的融资利率或额度条款，引用其F2中现金流改善作为正面依据。",
+      "source": "依据资料 F1、F2、F3、F4、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "needs_review",
+        "review_findings": [
+          {
+            "code": "disclosure_required",
+            "message": "该渠道或信号涉及非公开信息，需找到公开披露后才能复核"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "byd-h1-2025",
+      "scenario_index": 3,
+      "observation_index": 1,
+      "scenario": "券商融资条件调整挤压竞争对手空间",
+      "kind": "trigger",
+      "signal": "若券商同时发布行业研究报告，指出竞争对手(如小鹏、蔚来)因毛利率下滑或研发资金紧张面临授信风险。",
+      "source": "依据资料 F1、F2、F3、F4、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      }
+    },
+    {
+      "case_id": "byd-h1-2025",
+      "scenario_index": 3,
+      "observation_index": 2,
+      "scenario": "券商融资条件调整挤压竞争对手空间",
+      "kind": "trigger",
+      "signal": "若比亚迪因此宣布加速海外建厂或新车型投资计划，利用低成本融资优势。",
+      "source": "依据资料 F1、F2、F3、F4、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      }
+    },
+    {
+      "case_id": "byd-h1-2025",
+      "scenario_index": 3,
+      "observation_index": 3,
+      "scenario": "券商融资条件调整挤压竞争对手空间",
+      "kind": "invalidation",
+      "signal": "若券商未调整对比亚迪或竞争对手的融资条件。",
+      "source": "依据资料 F1、F2、F3、F4、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      }
+    },
+    {
+      "case_id": "byd-h1-2025",
+      "scenario_index": 3,
+      "observation_index": 4,
+      "scenario": "券商融资条件调整挤压竞争对手空间",
+      "kind": "invalidation",
+      "signal": "若比亚迪因海外政策不确定性或股东反对，放缓全球化投资节奏。",
+      "source": "依据资料 F1、F2、F3、F4、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      }
+    },
+    {
+      "case_id": "byd-h1-2025",
+      "scenario_index": 3,
+      "observation_index": 5,
+      "scenario": "券商融资条件调整挤压竞争对手空间",
+      "kind": "invalidation",
+      "signal": "若竞争对手通过自救措施(如裁或资产出售)缓解融资压力，未出现授信危机。",
+      "source": "依据资料 F1、F2、F3、F4、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      }
+    },
+    {
+      "case_id": "crowdstrike-outage-2024",
+      "scenario_index": 0,
+      "observation_index": 0,
+      "scenario": "客户公开质疑与CrowdStrike增加承诺",
+      "kind": "trigger",
+      "signal": "在2024-07-20至2024-07-27期间，至少2家大型客户（如航空、金融或医疗行业）公开声明对CrowdStrike的恢复支持或SLA赔偿方案不满意。",
+      "source": "依据资料 F1、F4、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "needs_review",
+        "review_findings": [
+          {
+            "code": "unsupported_quantity",
+            "message": "引用资料及观察窗口未提供这些数值：2家；先核对数值含义及来源"
+          }
+        ]
+      },
+      "after": {
+        "review_status": "needs_review",
+        "review_findings": [
+          {
+            "code": "unsupported_quantity",
+            "message": "输入资料及观察窗口未提供这些数值：2家；先核对数值含义及来源"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "crowdstrike-outage-2024",
+      "scenario_index": 0,
+      "observation_index": 1,
+      "scenario": "客户公开质疑与CrowdStrike增加承诺",
+      "kind": "invalidation",
+      "signal": "若截至2024-07-27，未见任何主要客户在公开渠道表达对CrowdStrike服务不满或提出索赔要求。",
+      "source": "依据资料 F1、F4、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "needs_review",
+        "review_findings": [
+          {
+            "code": "silence_is_not_invalidation",
+            "message": "这里含有尚未观察到或未披露消息的条件；请区分“仍待观察”和“路径已被推翻”。如有明确披露义务及截止日，应按该承诺复核"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "crowdstrike-outage-2024",
+      "scenario_index": 1,
+      "observation_index": 0,
+      "scenario": "机构减持促使供应商调整信用评估",
+      "kind": "trigger",
+      "signal": "在2024-07-20至2024-07-27期间，披露的13F或机构交易记录显示至少两家大型机构投资者大幅减少CRWD敞口。",
+      "source": "依据资料 F1、F4 的原始来源及后续更新",
+      "before": {
+        "review_status": "needs_review",
+        "review_findings": [
+          {
+            "code": "reporting_period_mismatch",
+            "message": "13F 反映季度末持仓，不能据此确认本次短期窗口内的交易；需核对报告时点"
+          }
+        ]
+      },
+      "after": {
+        "review_status": "needs_review",
+        "review_findings": [
+          {
+            "code": "reporting_period_mismatch",
+            "message": "13F 反映季度末持仓，不能据此确认本次短期窗口内的交易；需核对报告时点"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "crowdstrike-outage-2024",
+      "scenario_index": 1,
+      "observation_index": 1,
+      "scenario": "机构减持促使供应商调整信用评估",
+      "kind": "invalidation",
+      "signal": "若截至2024-07-27，公开披露数据显示大型机构投资者对CRWD的头寸没有显著净减持；或供应商未提及市场信号在信用决策中的参考价值。",
+      "source": "依据资料 F1、F4 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "needs_review",
+        "review_findings": [
+          {
+            "code": "silence_is_not_invalidation",
+            "message": "这里含有尚未观察到或未披露消息的条件；请区分“仍待观察”和“路径已被推翻”。如有明确披露义务及截止日，应按该承诺复核"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "crowdstrike-outage-2024",
+      "scenario_index": 2,
+      "observation_index": 0,
+      "scenario": "竞争者试探性营销与媒体放大分析",
+      "kind": "trigger",
+      "signal": "在2024-07-20至2024-07-27期间，至少一家EDR竞争者公开发布针对此事件的技术对比白皮书或行业分析报告。",
+      "source": "依据资料 F1、F4 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      }
+    },
+    {
+      "case_id": "crowdstrike-outage-2024",
+      "scenario_index": 2,
+      "observation_index": 1,
+      "scenario": "竞争者试探性营销与媒体放大分析",
+      "kind": "invalidation",
+      "signal": "若截至2024-07-27，未发现直接竞争者发布针对此事件的营销材料或技术对比分析；或媒体未将此类行为纳入报道重点。",
+      "source": "依据资料 F1、F4 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "needs_review",
+        "review_findings": [
+          {
+            "code": "silence_is_not_invalidation",
+            "message": "这里含有尚未观察到或未披露消息的条件；请区分“仍待观察”和“路径已被推翻”。如有明确披露义务及截止日，应按该承诺复核"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "crowdstrike-outage-2024",
+      "scenario_index": 3,
+      "observation_index": 0,
+      "scenario": "供应商结合客户反馈为CrowdStrike设置付款条件",
+      "kind": "trigger",
+      "signal": "在2024-07-20至2024-07-27期间，有可靠报道或客户声明称受影响客户平均恢复时间超过48小时；且CrowdStrike未公开承诺额外补偿。",
+      "source": "依据资料 F1、F4、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "needs_review",
+        "review_findings": [
+          {
+            "code": "unsupported_quantity",
+            "message": "引用资料及观察窗口未提供这些数值：48小时；先核对数值含义及来源"
+          }
+        ]
+      },
+      "after": {
+        "review_status": "needs_review",
+        "review_findings": [
+          {
+            "code": "unsupported_quantity",
+            "message": "输入资料及观察窗口未提供这些数值：48小时；先核对数值含义及来源"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "crowdstrike-outage-2024",
+      "scenario_index": 3,
+      "observation_index": 1,
+      "scenario": "供应商结合客户反馈为CrowdStrike设置付款条件",
+      "kind": "invalidation",
+      "signal": "若截至2024-07-27，未观察到供应商调整对CrowdStrike的付款条件，或恢复时间在承诺窗口内完成且无客户集体索赔报告。",
+      "source": "依据资料 F1、F4、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "needs_review",
+        "review_findings": [
+          {
+            "code": "silence_is_not_invalidation",
+            "message": "这里含有尚未观察到或未披露消息的条件；请区分“仍待观察”和“路径已被推翻”。如有明确披露义务及截止日，应按该承诺复核"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "guotai-haitong-2024",
+      "scenario_index": 0,
+      "observation_index": 0,
+      "scenario": "分析师报告触发竞争者加速布局",
+      "kind": "trigger",
+      "signal": "分析师在2024-10-06前发布涵盖国泰君安/海通证券交易的正式研报，并明确提出对换股比例区间或业务整合难度的量化判断",
+      "source": "依据资料 F1、F3、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      }
+    },
+    {
+      "case_id": "guotai-haitong-2024",
+      "scenario_index": 0,
+      "observation_index": 1,
+      "scenario": "分析师报告触发竞争者加速布局",
+      "kind": "invalidation",
+      "signal": "2024-10-06前无任何分析师发布包含新量化条件的研报",
+      "source": "依据资料 F1、F3、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "needs_review",
+        "review_findings": [
+          {
+            "code": "silence_is_not_invalidation",
+            "message": "这里含有尚未观察到或未披露消息的条件；请区分“仍待观察”和“路径已被推翻”。如有明确披露义务及截止日，应按该承诺复核"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "guotai-haitong-2024",
+      "scenario_index": 0,
+      "observation_index": 2,
+      "scenario": "分析师报告触发竞争者加速布局",
+      "kind": "invalidation",
+      "signal": "竞争者公开声明未进行任何战略调整或业务布局变化",
+      "source": "依据资料 F1、F3、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      }
+    },
+    {
+      "case_id": "guotai-haitong-2024",
+      "scenario_index": 1,
+      "observation_index": 0,
+      "scenario": "交易所延长停牌引发机构赎回压力",
+      "kind": "trigger",
+      "signal": "距基准预计25个交易日届满（约2024-10-10）前3个交易日，交易所未发出任何关于复牌日的确认或延期通知",
+      "source": "依据资料 F2、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "needs_review",
+        "review_findings": [
+          {
+            "code": "unsupported_quantity",
+            "message": "引用资料及观察窗口未提供这些数值：3个交易日；先核对数值含义及来源"
+          }
+        ]
+      },
+      "after": {
+        "review_status": "needs_review",
+        "review_findings": [
+          {
+            "code": "unsupported_quantity",
+            "message": "输入资料及观察窗口未提供这些数值：3个交易日；先核对数值含义及来源"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "guotai-haitong-2024",
+      "scenario_index": 1,
+      "observation_index": 1,
+      "scenario": "交易所延长停牌引发机构赎回压力",
+      "kind": "invalidation",
+      "signal": "交易所于预计停牌期届满前正式公告复牌日期或延期安排",
+      "source": "依据资料 F2、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      }
+    },
+    {
+      "case_id": "guotai-haitong-2024",
+      "scenario_index": 1,
+      "observation_index": 2,
+      "scenario": "交易所延长停牌引发机构赎回压力",
+      "kind": "invalidation",
+      "signal": "机构投资者披露其持仓占基金净值比例极低且无流动性压力",
+      "source": "依据资料 F2、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      }
+    },
+    {
+      "case_id": "guotai-haitong-2024",
+      "scenario_index": 2,
+      "observation_index": 0,
+      "scenario": "中介承销受阻促使海通证券要求条款调整",
+      "kind": "trigger",
+      "signal": "2024-10-06前有至少一家头部券商或银行公开表示不参与本次合并的配套融资承销或授信",
+      "source": "依据资料 F1、F4、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      }
+    },
+    {
+      "case_id": "guotai-haitong-2024",
+      "scenario_index": 2,
+      "observation_index": 1,
+      "scenario": "中介承销受阻促使海通证券要求条款调整",
+      "kind": "invalidation",
+      "signal": "2024-10-06前无任何中介机构公开拒绝参与配套融资",
+      "source": "依据资料 F1、F4、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "needs_review",
+        "review_findings": [
+          {
+            "code": "silence_is_not_invalidation",
+            "message": "这里含有尚未观察到或未披露消息的条件；请区分“仍待观察”和“路径已被推翻”。如有明确披露义务及截止日，应按该承诺复核"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "guotai-haitong-2024",
+      "scenario_index": 2,
+      "observation_index": 2,
+      "scenario": "中介承销受阻促使海通证券要求条款调整",
+      "kind": "invalidation",
+      "signal": "海通证券正式确认接受原定融资框架并推进审议程序",
+      "source": "依据资料 F1、F4、F5 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      }
+    },
+    {
+      "case_id": "guotai-haitong-2024",
+      "scenario_index": 3,
+      "observation_index": 0,
+      "scenario": "监管提前介入要求补充披露",
+      "kind": "trigger",
+      "signal": "交易所在预审或日常沟通中单向监管机构传递需额外材料的建议后，监管机构在2024-10-06前向国泰君安发出书面问询或要求补充披露的通知",
+      "source": "依据资料 F2、F4 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "needs_review",
+        "review_findings": [
+          {
+            "code": "disclosure_required",
+            "message": "该渠道或信号涉及非公开信息，需找到公开披露后才能复核"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "guotai-haitong-2024",
+      "scenario_index": 3,
+      "observation_index": 1,
+      "scenario": "监管提前介入要求补充披露",
+      "kind": "invalidation",
+      "signal": "2024-10-06前监管机构未发出任何形式的问询或补充通知",
+      "source": "依据资料 F2、F4 的原始来源及后续更新",
+      "before": {
+        "review_status": "needs_review",
+        "review_findings": [
+          {
+            "code": "silence_is_not_invalidation",
+            "message": "未见消息只能说明尚未观察到，不能单独推翻这条路径；应核对相反的公开信息"
+          }
+        ]
+      },
+      "after": {
+        "review_status": "needs_review",
+        "review_findings": [
+          {
+            "code": "silence_is_not_invalidation",
+            "message": "这里含有尚未观察到或未披露消息的条件；请区分“仍待观察”和“路径已被推翻”。如有明确披露义务及截止日，应按该承诺复核"
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "guotai-haitong-2024",
+      "scenario_index": 3,
+      "observation_index": 2,
+      "scenario": "监管提前介入要求补充披露",
+      "kind": "invalidation",
+      "signal": "国泰君安主动且提前披露本次交易的估值报告或协同效益分析，消除监管疑虑",
+      "source": "依据资料 F2、F4 的原始来源及后续更新",
+      "before": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      },
+      "after": {
+        "review_status": "no_rule_findings",
+        "review_findings": []
+      }
+    }
+  ]
+}

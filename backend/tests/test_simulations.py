@@ -14,6 +14,7 @@ from app.main import app
 class SimulationRoutesTests(unittest.TestCase):
     def setUp(self):
         self.temporary = tempfile.TemporaryDirectory()
+        self.previous_db_path = config.DB_PATH
         if db._conn is not None:
             db._conn.close()
             db._conn = None
@@ -47,6 +48,25 @@ class SimulationRoutesTests(unittest.TestCase):
             db._conn.close()
             db._conn = None
         self.temporary.cleanup()
+        config.DB_PATH = self.previous_db_path
+
+    def test_simulation_and_prospective_state_survive_reinitialization_together(self):
+        job = db.create_simulation_job(
+            self.case["id"], self.graph["id"],
+            {"job_id": "migration-test", "status": "running"}, {"horizon_days": 7},
+        )
+        run = db.create_prospective_run(
+            name="coexistence", capture_at="2026-09-12T00:00:00+00:00", settle_after_days=3,
+        )
+        db.init_db()
+        self.assertEqual(db.get_simulation_job(job["id"])["status"], "running")
+        self.assertEqual(db.get_prospective_run(run["id"])["name"], "coexistence")
+        response = self.client.get("/api/prospective/runs")
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json()["items"][0]["id"], run["id"])
+        db.delete_case(self.case["id"])
+        self.assertIsNone(db.get_simulation_job(job["id"]))
+        self.assertIsNotNone(db.get_prospective_run(run["id"]))
 
     def test_rerun_and_observation_window_reach_gateway(self):
         from app.routes.simulations import StartSimulationRequest, _build_gateway_payload
