@@ -3,6 +3,7 @@ import { AlertCircle, GitBranch, Loader2 } from "lucide-react";
 import { api } from "../api";
 import type { Artifact, SimulationJob } from "../types";
 import { useStore } from "../store";
+import { friendlySimulationError as friendlyError, simulationNeedsNewRun } from "../lib/researchProgress";
 
 const STAGE_CN: Record<string, string> = {
   queued: "等待执行", compiling_spec: "整理证据与参与方", validating: "检查证据",
@@ -13,15 +14,6 @@ const STAGE_CN: Record<string, string> = {
   cancel_requested: "正在停止", cancelled: "已取消",
 };
 const RUNNING = new Set(["queued", "running", "cancelling"]);
-
-function friendlyError(reason: unknown) {
-  const message = reason instanceof Error ? reason.message : String(reason || "");
-  if (message.includes("Ontology generation failed")) return "参与方关系整理暂时失败，可以从保存进度继续，或重新推演。";
-  if (message.includes("safety budget is exhausted")) return "本次模型调用额度已用完。服务额度恢复后可继续，证据图和已保存进度仍在。";
-  if (message.includes("ZEP read quota") || message.toLowerCase().includes("rate limit")) return "服务暂时达到调用上限，请稍后重试。已提交的进度会保留。";
-  if (message.includes("durable workflow checkpoint")) return "这次任务还没有可恢复的进度，请选择重新推演。";
-  return message;
-}
 
 export default function SimulationLaunch({ artifact }: { artifact: Artifact }) {
   const caseId = useStore((state) => state.currentCaseId);
@@ -127,6 +119,7 @@ function SimulationLaunchPanel({ artifact, caseId }: { artifact: Artifact; caseI
   };
 
   const busy = job && RUNNING.has(job.status);
+  const needsNewRun = simulationNeedsNewRun(job?.error);
   const canStart = !pending && !restoring && !previewLoading && Boolean(preview) && !previewError;
   const progress = Math.max(0, Math.min(100, Math.round((job?.progress || 0) * 100)));
   return <div className="mb-3 rounded-card border border-jade/25 bg-jade-soft/50 p-3.5">
@@ -164,9 +157,9 @@ function SimulationLaunchPanel({ artifact, caseId }: { artifact: Artifact; caseI
           {connectionNotice && <p role="status" className="mt-2 text-[11px] text-[#775B19]">{connectionNotice}</p>}
           <button disabled={Boolean(pending) || job.status === "cancelling"} onClick={() => void act("cancel")} className="mt-2 text-[11px] text-mute underline disabled:cursor-not-allowed disabled:text-faint">{pending === "cancel" || job.status === "cancelling" ? "正在停止…" : "取消推演"}</button>
         </div> : <>
-          {job?.status === "failed" && <p className="mt-3 text-[11px] leading-relaxed text-mute">上一次推演未完成。可恢复原任务；需要使用当前参与方和观察窗口时，请重新推演。</p>}
+          {job?.status === "failed" && <p className="mt-3 text-[11px] leading-relaxed text-mute">{needsNewRun ? "上一次推演未完成，请使用当前参与方和观察窗口重新推演。" : "上一次推演未完成。可恢复原任务；需要使用当前参与方和观察窗口时，请重新推演。"}</p>}
           <div className="mt-3 flex flex-wrap gap-2">
-            {job?.status === "failed" && <button disabled={Boolean(pending)} onClick={() => void act("resume")} className="rounded-lg border border-jade/30 px-3 py-1.5 text-[12px] font-medium text-jade disabled:opacity-50">{pending === "resume" ? "正在恢复…" : "从保存进度继续"}</button>}
+            {job?.status === "failed" && !needsNewRun && <button disabled={Boolean(pending)} onClick={() => void act("resume")} className="rounded-lg border border-jade/30 px-3 py-1.5 text-[12px] font-medium text-jade disabled:opacity-50">{pending === "resume" ? "正在恢复…" : "从保存进度继续"}</button>}
             <button disabled={!canStart} onClick={() => void act("start")} className="rounded-lg bg-jade px-3 py-1.5 text-[12px] font-medium text-white hover:bg-[#0c665f] disabled:cursor-not-allowed disabled:opacity-50">{pending === "start" ? "正在启动…" : restoring ? "正在恢复任务…" : job ? "按当前设置重新推演" : "开始推演"}</button>
             {job?.artifact_id && <button onClick={() => selectArtifact(job.artifact_id!)} className="px-2 py-1.5 text-[12px] text-jade underline">查看上次结果</button>}
           </div>

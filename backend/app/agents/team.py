@@ -6,6 +6,7 @@
 """
 from __future__ import annotations
 
+import asyncio
 from typing import Any, AsyncIterator
 
 from .. import config
@@ -19,6 +20,7 @@ from ..skills.evidence_graph import (
 from .roster import AGENTS, get_agent, system_prompt
 
 EXPERT_IDS = ["event_scout", "market_analyst", "fundamentals_analyst", "deep_researcher", "predictor"]
+HYPOTHESIS_TIMEOUT_SECONDS = 45.0
 
 # ======================================================================
 # Pronoia-RLVR v1 · Tier 1.5 接入预留（design §3.3.1 / §3.4 · 先训练后接入）
@@ -1158,35 +1160,63 @@ async def run_team(
                 yield ev
 
     # -------------------------------------------------- 5) extract hypotheses
-    import time as _t
     final_answer = state["content"].strip()
     if final_answer and not skip_hypothesis:
-        try:
-            yield {"type": "thinking", "agent": "router",
-                   "delta": "正在提炼可证伪的研究假设…"}
-            extracted = await complete_json(
+        async for event in _extract_hypotheses(question, final_answer, state):
+            yield event
+
+
+async def _extract_hypotheses(
+    question: str, final_answer: str, state: dict,
+) -> AsyncIterator[dict]:
+    """Optional post-processing always reports a terminal state to the UI."""
+    import time
+
+    yield {"type": "agent_step", "phase": "hypotheses", "agent": "router",
+           "verdict": "running", "note": "正在提炼可证伪的研究假设…"}
+    items: list[dict] = []
+    verdict = "failed"
+    note = "研究假设提炼未完成，研究正文已保留。"
+    try:
+        extracted = await asyncio.wait_for(
+            complete_json(
                 system_prompt("router") + "\n\n" + HYPOTHESIS_EXTRACT_INSTRUCTION,
                 f"用户原始问题：{question}\n\n【研究结论】\n{final_answer[:3500]}",
                 max_tokens=2000,
-            )
-        except Exception:  # noqa: BLE001
-            extracted = None
-        items: list[dict] = []
-        if extracted:
-            for j, it in enumerate((extracted.get("items") or [])[:5]):
-                h = str(it.get("hypothesis") or "").strip()
-                if not h:
-                    continue
-                items.append({
-                    "id": f"h{int(_t.time() * 1000) % 1_000_000}_{j}",
-                    "hypothesis": h[:300],
-                    "category": str(it.get("category") or "").strip()[:30],
-                    "probability": str(it.get("probability") or "").strip()[:20],
-                    "scope": str(it.get("scope") or "").strip()[:80],
-                    "horizon": str(it.get("horizon") or "").strip()[:50],
-                    "check": str(it.get("check") or "").strip()[:200],
-                })
-        if items:
-            yield {"type": "logic_items", "items": items}
-            state["tool_trace"].append({"type": "logic_items", "count": len(items),
-                                        "items": items})
+            ),
+            timeout=HYPOTHESIS_TIMEOUT_SECONDS,
+        )
+        if not isinstance(extracted, dict) or not isinstance(extracted.get("items"), list):
+            raise ValueError("invalid hypothesis response")
+        for j, it in enumerate(extracted["items"][:5]):
+            if not isinstance(it, dict):
+                continue
+            h = str(it.get("hypothesis") or "").strip()
+            if not h:
+                continue
+            items.append({
+                "id": f"h{int(time.time() * 1000) % 1_000_000}_{j}",
+                "hypothesis": h[:300],
+                "category": str(it.get("category") or "").strip()[:30],
+                "probability": str(it.get("probability") or "").strip()[:20],
+                "scope": str(it.get("scope") or "").strip()[:80],
+                "horizon": str(it.get("horizon") or "").strip()[:50],
+                "check": str(it.get("check") or "").strip()[:200],
+            })
+        if extracted["items"] and not items:
+            raise ValueError("no valid hypothesis items")
+        verdict = "completed" if items else "empty"
+        note = f"已提炼 {len(items)} 条待验证假设。" if items else "研究假设提炼完成，本轮未新增可独立验证的条目。"
+    except asyncio.TimeoutError:
+        verdict = "timeout"
+        note = "研究假设提炼超时，已停止此步骤；研究正文已保留。"
+    except Exception:  # noqa: BLE001 — optional extraction must not discard the answer
+        pass
+    if items:
+        event = {"type": "logic_items", "items": items}
+        state["tool_trace"].append({**event, "count": len(items)})
+        yield event
+    terminal = {"type": "agent_step", "phase": "hypotheses", "agent": "router",
+                "verdict": verdict, "note": note}
+    state["tool_trace"].append(terminal)
+    yield terminal

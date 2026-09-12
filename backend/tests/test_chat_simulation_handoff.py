@@ -4,7 +4,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import AsyncMock, patch
 
 from app import config, db
 from app.routes import chat as chat_mod
@@ -32,6 +32,26 @@ class ChatSimulationHandoffTests(unittest.IsolatedAsyncioTestCase):
             db._conn = None
         self.temporary.cleanup()
         config.DB_PATH = self.previous_db_path
+
+    async def test_empty_hypothesis_step_is_persisted_and_chat_emits_done(self):
+        from app.agents import team as team_mod
+
+        async def fake_run_team(question, history, state, artifact_store, **kwargs):
+            state["content"] = "研究正文已经完成"
+            yield {"type": "token", "delta": state["content"], "agent": "router"}
+            async for event in team_mod._extract_hypotheses(question, state["content"], state):
+                yield event
+
+        with patch.object(chat_mod, "run_team", fake_run_team), patch.object(team_mod, "complete_json", AsyncMock(return_value={"items": []})), patch.object(chat_mod, "_gen_title", AsyncMock(return_value="完成状态测试")):
+            frames = [_event(frame) async for frame in chat_mod._chat_stream(ChatRequest(
+                case_id=self.case["id"], message="研究问题", mode="team",
+            ))]
+        self.assertEqual(frames[-1]["type"], "done")
+        self.assertEqual([event["verdict"] for event in frames if event.get("phase") == "hypotheses"], ["running", "empty"])
+        assistant = next(item for item in db.list_messages(self.case["id"]) if item["role"] == "assistant")
+        self.assertEqual(assistant["content"], "研究正文已经完成")
+        self.assertTrue(any(item.get("phase") == "hypotheses" and item.get("verdict") == "empty" for item in assistant["tool_trace"]))
+        self.assertFalse(any(item.get("phase") == "interrupted" for item in assistant["tool_trace"]))
 
     async def test_final_graph_after_navigator_starts_once_with_supplemental_evidence(self):
         async def fake_run_team(question, history, state, artifact_store, team_members=None):
