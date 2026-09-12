@@ -1,0 +1,182 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "real-crowdstrike-outage-2024",
+  "spec_sha256": "544d941cebfe9dfb62720269355a38984b6867adebee8c162e760b9b3419760b",
+  "simulation_id": "sim_direct_f6ac8b09bbb6",
+  "generated_at": "2026-09-12T04:39:50.925238+00:00",
+  "status": "completed",
+  "decisions": [
+    {
+      "id": "decision-actor_issuer-r2",
+      "round": 2,
+      "actor_id": "actor_issuer",
+      "action_type": "WAIT",
+      "decision_status": "intended",
+      "direction": "not_applicable",
+      "intensity": null,
+      "instrument_refs": [],
+      "rationale": "截至2024年7月20日23:59:59，我们已在05:27 UTC完成配置修正，并已联合Microsoft、AWS和Google Cloud推进客户恢复工作。当前最优先事项是确保受影响客户恢复运营、评估事件财务与声誉影响，并内部启动流程改进审查。此时不宜进行额外沟通或运营动作打乱恢复节奏，观望客户反馈、监管动态和市场反应后再制定下一阶段行动计划更为审慎。主要不确定性：（1）850万台受影响设备中关键服务的恢复进度；（2）潜在客户流失与法律追责风险；（3）后续监管审查强度。约束：行动受有限现金、执行能力和已披露承诺约束，不能透支资源做无目标操作。",
+      "constraint_refs": [
+        "actor_issuer:constraint:0",
+        "actor_issuer:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:0",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_customers-r2",
+      "round": 2,
+      "actor_id": "actor_customers",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "maintain",
+      "intensity": 0.6,
+      "instrument_refs": [
+        "CRWD"
+      ],
+      "rationale": "截止时点事实显示，虽然CrowdStrike已快速修正配置错误(F2)且微软已投入大量资源协助恢复(F5)，但事件仅发生约1.5天，影响范围涉及850万台设备(F4)的关键服务企业。作为客户，我需要更多时间评估：(1)CrowdStrike未来将采取何种变更管理改进措施以防范类似逻辑错误；(2)现有合同条款下是否可获得补偿或服务级别协议(SLA)违约赔偿；(3)替代安全供应商的迁移成本与时间线。由于存在合同约束和转换成本(约束ref:1)，且当前信息不足以做出切换或重新谈判的明确决策，继续等待并收集更多信息是当前最合理的行动。将维持现有使用状态(不主动切换)，但保持对CrowdStrike后续公告和客户支持回应的高度关注。",
+      "constraint_refs": [
+        "actor_customers:constraint:0",
+        "actor_customers:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:1",
+      "visibility": "private",
+      "confidence": 0.8,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_suppliers-r2",
+      "round": 2,
+      "actor_id": "actor_suppliers",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": 0.3,
+      "instrument_refs": [
+        "CRWD"
+      ],
+      "rationale": "作为供应商，我需要进一步评估CrowdStrike此次更新事故对各客户企业的影响深度。F4显示约850万台设备受影响、关键服务企业使用这些设备使经济社会影响扩大，但F4也指出受影响设备仅占所有Windows设备不足1%。当前已有F5表明Microsoft和CrowdStrike正在积极协作恢复。然而，我无法立即判断客户回款是否会因IT中断而延迟，也无法确认CrowdStrike是否会因赔偿或信誉损失影响其后续订单稳定性。基于约束（受合同和客户依赖约束，不假定可立即替换所有订单），选择等待更多可观察信息——例如客户企业的实际恢复进度、是否有采购延迟或合同变更公告——再决定是否需要调整合作策略或重新评估信用风险。主要不确定性在于：恢复周期长短、CrowdStrike后续的质量管控整改措施、以及关键服务企业是否会因此事件调整安全供应商策略。",
+      "constraint_refs": [
+        "actor_suppliers:constraint:0",
+        "actor_suppliers:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:2",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_competitors-r2",
+      "round": 2,
+      "actor_id": "actor_competitors",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": null,
+      "instrument_refs": [],
+      "rationale": "截至7月20日，CrowdStrike事件的直接影响（850万台设备受影响、更新已修正）已基本明朗，但客户信任恢复程度、监管潜在反应以及竞争格局的实际重塑效应尚需时间显现。当前我作为安全行业竞争者，不应急于在事件爆发初期立即大规模营销或价格竞争——客户切换安全供应商是严肃决策，评估周期通常以季度计。更合理的策略是：继续观察监管机构是否介入审查CrowdStrike的更新流程（这会带来更长期合规红利）、追踪竞争对手的市场反应，以及自身产能评估是否足以承接可能释放的客户需求。同时需等待更多客户对此次事件的满意度调查和净推荐值变化数据，再决定何时启动针对性的获客行动。",
+      "constraint_refs": [
+        "actor_competitors:constraint:0",
+        "actor_competitors:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:3",
+      "visibility": "private",
+      "confidence": 0.8,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_institutions-r2",
+      "round": 2,
+      "actor_id": "actor_institutions",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "maintain",
+      "intensity": 0.0,
+      "instrument_refs": [
+        "CRWD"
+      ],
+      "rationale": "截至7月20日，CrowdStrike已确认配置更新由逻辑错误引起且非网络攻击（F2），并于05:27 UTC完成修正（F2）。Microsoft估计受影响设备约850万台，占Windows设备不足1%（F4），但关键服务企业使用这些设备扩大了经济社会影响（F4）。Microsoft已派出数百名工程师协助恢复并与CrowdStrike协作（F5）。目前事件的性质、影响范围与修复进展已初步明确，但以下不确定性仍需观察：1) 监管审查与诉讼风险尚未明朗；2) 客户续约率及新签单在后续季度的实际反映无法从当前公开信息判断；3) 受影响关键服务企业的恢复成本及可能的索赔规模尚不可知。受投资授权和流动性约束，不假定能够立即大幅增减仓位，当前最审慎的做法是维持现有敞口、继续收集后续客户反应与行业竞争格局变化的证据，等待更明确的安全边际信号再决定下一步配置调整。",
+      "constraint_refs": [
+        "actor_institutions:constraint:0",
+        "actor_institutions:constraint:1"
+      ],
+      "evidence_refs": [
+        "F2",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:4",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_media-r2",
+      "round": 2,
+      "actor_id": "actor_media",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [
+        "CRWD"
+      ],
+      "rationale": "截至2024年7月20日，事件核心事实已明确：CrowdStrike配置更新导致约850万台Windows设备受影响，非网络攻击，已修复并协同Microsoft等厂商恢复。作为财经媒体，当前已核实并及时传播了F1-F5的核心信息。下一步决策取决于两个待观察因素：一是CrowdStrike是否会进一步披露根本原因分析及流程改进措施，这将影响市场对其风控能力的重新评估；二是企业客户在灾后是否会大规模重新评估安全供应商，带来行业格局变化。目前信息不充分，不宜匆忙下结论，应等待CrowdStrike官方后续公告及行业客户反馈，再决定是否做深度报道或进一步分析。",
+      "constraint_refs": [
+        "actor_media:constraint:0",
+        "actor_media:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:5",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    }
+  ],
+  "failures": [],
+  "warnings": [
+    "Decision confidence expresses action clarity, not forecast probability.",
+    "Interview decisions are simulated statements, not observed evidence."
+  ]
+}

@@ -1,0 +1,391 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_supply_disruption_003",
+  "title": "匿名案例：关键国际航道突发中断",
+  "as_of": "2019-09-12T23:59:59+08:00",
+  "question": "日期、地点、船名、公司和证券代码均已匿名化。只使用D0前已公开的信息，推演航道恢复、承运人和客户应对、运价叙事及匿名航运标的价格方向。",
+  "horizon": {
+    "kind": "calendar_days",
+    "value": 30,
+    "end_at": "2019-10-12T23:59:59+08:00"
+  },
+  "market": {
+    "region": "BLIND_CN",
+    "venues": [
+      "BLIND_CN_EQUITY"
+    ],
+    "instruments": [
+      {
+        "symbol": "ASSET_C",
+        "name": "匿名大型集装箱航运公司C",
+        "kind": "equity",
+        "currency": "CNY"
+      }
+    ]
+  },
+  "facts": [
+    {
+      "id": "F1",
+      "observed_at": "2019-09-10T15:00:00+08:00",
+      "statement": "一艘超大型集装箱船在连接两大贸易区域的关键人工航道搁浅，横向阻断双向通行；事故原因和恢复时间尚未确定。",
+      "source_kind": "official",
+      "source_url": "https://benchmark.invalid/blind-supply-disruption-003/F1",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F2",
+      "observed_at": "2019-09-12T12:00:00+08:00",
+      "statement": "匿名航运公司发布客户提示，确认航道受阻可能造成货物延误，表示将持续监测并尽力降低对客户运输的影响。",
+      "source_kind": "official",
+      "source_url": "https://benchmark.invalid/blind-supply-disruption-003/F2",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F3",
+      "observed_at": "2019-09-12T18:00:00+08:00",
+      "statement": "主管机构、拖轮和疏浚力量正在开展救援；航道是全球重要贸易路线，持续关闭会影响船期、港口拥堵、集装箱调度和供应链交付。",
+      "source_kind": "official",
+      "source_url": "https://benchmark.invalid/blind-supply-disruption-003/F3",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F4",
+      "observed_at": "2019-09-12T15:00:00+08:00",
+      "statement": "匿名航运标的在D-2和D-1分别大跌约6%和10%，D0反弹约3.4%，连续三日成交活跃且价格波动很大。",
+      "source_kind": "market_data",
+      "source_url": "https://benchmark.invalid/blind-supply-disruption-003/F4",
+      "evidence_ref": null,
+      "confidence": 1.0
+    }
+  ],
+  "actors": [
+    {
+      "id": "actor_carrier",
+      "label": "匿名大型集装箱航运公司",
+      "kind": "issuer",
+      "aggregation": "organization",
+      "goals": [
+        "降低船期和客户损失",
+        "维护运力与箱源",
+        "控制声誉和运营风险"
+      ],
+      "constraints": [
+        "不能直接控制航道救援进度，需协调港口和客户"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "有部分船舶和货物受到排队或延误影响"
+      ]
+    },
+    {
+      "id": "actor_canal_authority",
+      "label": "航道主管机构",
+      "kind": "regulator",
+      "aggregation": "organization",
+      "goals": [
+        "安全恢复通航",
+        "保护船员、货物和环境",
+        "控制积压"
+      ],
+      "constraints": [
+        "救援进度受船体、风浪、拖轮和疏浚条件限制"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F3"
+      ],
+      "assumptions": [
+        "掌握最直接的救援和交通信息"
+      ]
+    },
+    {
+      "id": "actor_salvage",
+      "label": "拖轮、疏浚与救援联合体",
+      "kind": "supplier",
+      "aggregation": "cohort",
+      "goals": [
+        "安全解除搁浅",
+        "避免船体和环境损害"
+      ],
+      "constraints": [
+        "必须服从主管机构协调并受现场条件限制"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F3"
+      ],
+      "assumptions": [
+        "可能需要增加设备或改变救援方案"
+      ]
+    },
+    {
+      "id": "actor_customers",
+      "label": "货主与供应链客户",
+      "kind": "customer",
+      "aggregation": "cohort",
+      "goals": [
+        "获得可靠到货时间",
+        "减少停工和库存风险",
+        "控制附加物流成本"
+      ],
+      "constraints": [
+        "改道、空运或替代供应通常成本更高"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": [
+        "不同货物对延误的敏感度不同"
+      ]
+    },
+    {
+      "id": "actor_competitors",
+      "label": "其他国际航运公司",
+      "kind": "competitor",
+      "aggregation": "cohort",
+      "goals": [
+        "管理受阻船队",
+        "调整运力和报价",
+        "维护客户关系"
+      ],
+      "constraints": [
+        "同样受到航道和港口容量约束"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F3"
+      ],
+      "assumptions": [
+        "可能在等待、改道和调整附加费之间选择"
+      ]
+    },
+    {
+      "id": "actor_ports",
+      "label": "相关港口和码头运营方",
+      "kind": "supplier",
+      "aggregation": "cohort",
+      "goals": [
+        "管理恢复后的集中到港",
+        "降低堆场与泊位拥堵"
+      ],
+      "constraints": [
+        "短期泊位、堆场和陆路疏运能力有限"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": [
+        "恢复通航后可能出现延迟到港高峰"
+      ]
+    },
+    {
+      "id": "actor_institutions",
+      "label": "航运板块机构投资者",
+      "kind": "institutional_investor",
+      "aggregation": "cohort",
+      "goals": [
+        "判断运价与成本影响",
+        "管理高波动持仓",
+        "区分短期事件和行业趋势"
+      ],
+      "constraints": [
+        "救援时点与运价传导高度不确定"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "对供给收紧利好和运营延误损失存在相反判断"
+      ]
+    },
+    {
+      "id": "actor_retail",
+      "label": "个人投资者",
+      "kind": "retail_cohort",
+      "aggregation": "cohort",
+      "goals": [
+        "判断事件驱动行情",
+        "控制追涨杀跌风险"
+      ],
+      "constraints": [
+        "容易把航道堵塞直接等同于运价和股价上涨"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "近期剧烈波动会放大情绪交易"
+      ]
+    },
+    {
+      "id": "actor_media",
+      "label": "国际航运与财经媒体",
+      "kind": "media",
+      "aggregation": "cohort",
+      "goals": [
+        "跟踪救援、积压和供应链影响",
+        "解释运价与上市公司传导"
+      ],
+      "constraints": [
+        "救援现场信息更新快且存在不确定传闻"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    }
+  ],
+  "relationships": [
+    {
+      "source_actor_id": "actor_canal_authority",
+      "target_actor_id": "actor_salvage",
+      "kind": "coordinates_salvage",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_carrier",
+      "target_actor_id": "actor_customers",
+      "kind": "provides_transport_updates",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_carrier",
+      "target_actor_id": "actor_ports",
+      "kind": "coordinates_port_calls",
+      "visibility": "assumed"
+    },
+    {
+      "source_actor_id": "actor_competitors",
+      "target_actor_id": "actor_customers",
+      "kind": "offers_alternative_capacity",
+      "visibility": "assumed"
+    },
+    {
+      "source_actor_id": "actor_media",
+      "target_actor_id": "actor_retail",
+      "kind": "influences_information_set",
+      "visibility": "assumed"
+    }
+  ],
+  "allowed_actions": [
+    {
+      "type": "COMMUNICATE",
+      "description": "发布救援、船期、客户或风险更新。",
+      "visibility": "public"
+    },
+    {
+      "type": "REGULATE",
+      "description": "协调航道交通、安全和救援。",
+      "visibility": "public"
+    },
+    {
+      "type": "OPERATE",
+      "description": "救援、改道、调箱、调整港序或准备拥堵应对。",
+      "visibility": "either"
+    },
+    {
+      "type": "NEGOTIATE",
+      "description": "协商舱位、交付、费用或救援资源。",
+      "visibility": "private"
+    },
+    {
+      "type": "ALLOCATE",
+      "description": "调整航运板块或匿名标的风险敞口。",
+      "visibility": "private"
+    },
+    {
+      "type": "WAIT",
+      "description": "等待救援、通航或运营信息。",
+      "visibility": "either"
+    }
+  ],
+  "interventions": [
+    {
+      "id": "I0_CHANNEL_BLOCKAGE",
+      "at_round": 0,
+      "fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "visibility": "public"
+    }
+  ],
+  "forecast_targets": [
+    {
+      "id": "T1",
+      "kind": "market",
+      "definition": "D1收盘价相对D0收盘价的方向。",
+      "horizon": "next_trading_close",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T2",
+      "kind": "market",
+      "definition": "第5个交易日收盘价相对D0收盘价的方向。",
+      "horizon": "5_trading_days",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T3",
+      "kind": "market",
+      "definition": "第20个交易日收盘价相对D0收盘价的方向。",
+      "horizon": "20_trading_days",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T4",
+      "kind": "event",
+      "definition": "关键航道是否在5个自然日内恢复双向通行。",
+      "horizon": "5_calendar_days",
+      "scoring": "brier"
+    },
+    {
+      "id": "T5",
+      "kind": "event",
+      "definition": "匿名航运公司是否在10个自然日内公开包含箱源、船期或港口拥堵应对的具体客户更新。",
+      "horizon": "10_calendar_days",
+      "scoring": "brier"
+    }
+  ],
+  "run_config": {
+    "rounds": 12,
+    "replications": 20,
+    "seed_strategy": "deterministic_sequence",
+    "layers": [
+      "information",
+      "behavior"
+    ]
+  },
+  "provenance": {
+    "created_by": "FEVER-MiroFish blind benchmark",
+    "source_graph_artifact_id": null,
+    "notes": [
+      "真实航道、船名、公司、证券代码、日期和来源链接已从模型可见输入中移除。",
+      "时间戳是保持相对间隔的实验标签，不代表真实宏观年份。",
+      "真实映射和结果只保存在独立outcome文件，禁止进入模型提示。"
+    ]
+  }
+}

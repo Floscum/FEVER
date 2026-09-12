@@ -1,0 +1,198 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_capital_return_001",
+  "spec_sha256": "5fd3cba33034fb4779fe0f9d32cc6d28b08ca6125bc6f5bad95d95b8995fd689",
+  "simulation_id": "sim_df8b6dd34da6",
+  "generated_at": "2026-07-29T05:54:54.402334+00:00",
+  "status": "partial",
+  "decisions": [
+    {
+      "id": "decision-actor_issuer-r3",
+      "round": 3,
+      "actor_id": "actor_issuer",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": null,
+      "instrument_refs": [],
+      "rationale": "特别分红方案已于收盘后公告（F4），但临时股东大会尚未召开，分红尚未生效（F3）。控股股东增持计划依赖分红实施后启动（F2），在股东大会审批前无法进入执行阶段。作为发行人，当前优先任务是确保信息披露充分并等待法定审议流程完成，而非提前采取额外公开动作。主要不确定性在于股东大会的审批结果，这决定后续分红派发和增持能否按计划推进。",
+      "constraint_refs": [
+        "actor_issuer:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:0",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_controller-r3",
+      "round": 3,
+      "actor_id": "actor_controller",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "特别分红方案尚需临时股东大会审议通过，尚未生效。增持计划明确以部分分红所得为资金来源，且须在特别分红实施后的六个月内按固定金额上下限执行。在股东大会审议结果公布前，不适宜提前进行任何实质增持操作。当前最佳策略是等待股东大会审批结果，再根据计划执行增持承诺。D0股价下跌与成交量放大已在公告后公开，市场正在消化信息，过早行动可能增加不必要的信息不对称风险。",
+      "constraint_refs": [
+        "actor_controller:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:1",
+      "visibility": "private",
+      "confidence": 0.9,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_regulator-r3",
+      "round": 3,
+      "actor_id": "actor_regulator",
+      "action_type": "WAIT",
+      "decision_status": "no_action",
+      "direction": "maintain",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "截至时点，发行人已公告特别分红方案（F1）和控股股东增持计划（F2），两者均需股东大会审议通过（F3）。当前无披露违规迹象，且股市价格波动（F4）属正常市场行为，不能作为监管干预的依据。依法只能等待股东大会结果，再视方案的最终执行情况判断是否需要对披露或资金来源进行合规审查。选择等待，不做动作。",
+      "constraint_refs": [
+        "actor_regulator:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:2",
+      "visibility": "private",
+      "confidence": 1.0,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_exchange-r3",
+      "round": 3,
+      "actor_id": "actor_exchange",
+      "action_type": "WAIT",
+      "decision_status": "no_action",
+      "direction": "not_applicable",
+      "intensity": null,
+      "instrument_refs": [],
+      "rationale": "截至当前时点，发行人已公告特别分红方案及控股股东增持计划，但特别分红仍须临时股东大会审议，尚未生效。D0标的收跌约0.8%且成交量放大，公告于收盘后公开，市场尚在消化信息。依据现金分红、权益变动和交易规则，在方案未获股东大会批准前，交易所不宜提前采取监管干预。最佳行动是等待临时股东大会审议结果及后续增持实施情况，观察是否存在信息披露违规或交易异常后再行判断。",
+      "constraint_refs": [
+        "actor_exchange:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:3",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_institutions-r3",
+      "round": 3,
+      "actor_id": "actor_institutions",
+      "action_type": "WAIT",
+      "decision_status": "intended",
+      "direction": "not_applicable",
+      "intensity": null,
+      "instrument_refs": [],
+      "rationale": "特别分红方案与增持计划同时公布，但分红总额超过全年净利润一半，属一次性资本返还，非经营增长信号。增持计划使用红利且未设价格区间，执行弹性大，实际增持力度不确定。标的当日放量下跌，说明市场分歧显著，且方案尚需股东大会审议。当前最佳策略是等待股东大会结果及后续增持执行进展，再评估分红可持续性及增持可信度，避免在不确定性高时贸然调仓。",
+      "constraint_refs": [
+        "actor_institutions:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:4",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_competitors-r3",
+      "round": 3,
+      "actor_id": "actor_competitors",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "conditional",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "发行人已公告特别分红+增持组合方案，但方案尚需临时股东大会审议通过才能生效。作为同业竞争对手，我需要等待股东大会结果，确认该方案是否最终落地及具体执行情况，再评估其对自身资本回报政策的竞争压力。同时，我们自身的现金流与股权结构与发行人不同，不能简单模仿其方案，必须基于自身实际情况做差异化回应。D0交易量放大但股价下跌，市场反应尚不明确，需进一步观察。",
+      "constraint_refs": [
+        "actor_competitors:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:6",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_media-r3",
+      "round": 3,
+      "actor_id": "actor_media",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": null,
+      "instrument_refs": [
+        "ASSET_A"
+      ],
+      "rationale": "截至2017-04-11，特别分红方案（F1）和增持计划（F2）均处于董事会公告阶段，仍需临时股东大会审议（F3）才能生效。D0市场反应（F4）仅反映收盘前信息，无法作为方案实施结果。作为财经媒体，当前最优行动是等待股东大会决议，以区分已公告方案与已实施结果，再发布解释性分析。",
+      "constraint_refs": [
+        "actor_media:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:7",
+      "visibility": "public",
+      "confidence": 0.9,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    }
+  ],
+  "failures": [
+    {
+      "agent_id": 5,
+      "actor_id": "actor_retail",
+      "error": "intensity must be between 0 and 1"
+    }
+  ],
+  "warnings": [
+    "Decision confidence expresses action clarity, not forecast probability.",
+    "Interview decisions are simulated statements, not observed evidence."
+  ]
+}

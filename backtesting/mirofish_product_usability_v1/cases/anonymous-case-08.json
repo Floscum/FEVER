@@ -1,0 +1,939 @@
+{
+  "case_id": "anonymous-case-08",
+  "market": "US",
+  "event_type": "增长/就业数据意外",
+  "actor_budget": 8,
+  "decision_actor_ids": [
+    "actor_analysts",
+    "actor_brokers",
+    "actor_customers",
+    "actor_foreign",
+    "actor_government",
+    "actor_institutions",
+    "actor_issuer",
+    "actor_media"
+  ],
+  "facts": [
+    {
+      "id": "F1",
+      "observed_at": "D0",
+      "statement": "【美国】美国11月芝加哥PMI：美国11月芝加哥PMI | 公布:36.3 预期:nan 前值:43.8",
+      "source_kind": "official",
+      "source_url": "anonymized-source",
+      "evidence_ref": "E1",
+      "confidence": 0.8
+    }
+  ],
+  "source_hashes": {
+    "spec_sha256": "2964d57d06d783b12c6d1e11d0bee62fc48e287d24b4dd3c996071dcb9b75278",
+    "simulation_result_sha256": "4a444fd66ca228985ff240b1c8e4c2cfe358b3449450bae36d6ecc0306573ab3",
+    "financial_actions_sha256": "5e50df638c98cd2deb7a33adeabe2a3737efdc4936f20ce86dc7f1e69d134a72"
+  },
+  "variants": {
+    "decisions_only": {
+      "generation": {
+        "status": "sealed",
+        "semantic_retries": 0,
+        "elapsed_seconds": 55.892069833003916,
+        "prompt_chars": 8694,
+        "visible_interactions": 0
+      },
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "媒体解读引发避险共识",
+          "summary": "如果财经媒体的PMI衰退报道被广泛传播，券商的专业分析报告将强化衰退预期，两者共同推动市场主体形成避险共识，但对后续ISM数据的依赖仍存在不确定性。",
+          "actor_ids": [
+            "actor_brokers",
+            "actor_media"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_brokers",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_brokers-r2"
+            },
+            {
+              "actor_id": "actor_media",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_media-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "财经媒体在D1发布以衰退风险为焦点的深度分析，浏览量或转发量超过同类新闻平均水平",
+            "券商在D2前向主要机构客户发布含制造业收缩传导链条的专业报告"
+          ],
+          "consequences": [
+            "若两者在D2前形成叙事共振，机构投资者和境外投资者的净卖出压力将增加，但若ISM数据未同步恶化，则叙事可能在D3后半段出现修正"
+          ],
+          "invalidation_conditions": [
+            "D3收盘前若ISM全国制造业PMI公布值好于市场预期（如大于45），则衰退叙事证据链趋于弱化",
+            "若主流媒体转向报道其他利好（如科技财报），而非持续跟进PMI衰退主题"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "机构先行引发主体被动反应",
+          "summary": "如果机构投资者在D1已小幅减仓，其行为信号将促使事件主体从等待转向介入，尝试了解或影响后续市场演进逻辑。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "ALLOCATE",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "机构投资者在D1收盘前通过大宗交易或公开仓位变化表显示出减少对ANON_ASSET暴露的证据",
+            "事件主体在D2召开内部会议讨论该数据与机构行为"
+          ],
+          "consequences": [
+            "若机构减仓确认，事件主体将进入核实与应对阶段，可能增加与政府或分析师的沟通频率"
+          ],
+          "invalidation_conditions": [
+            "若机构投资者决策实际未执行（如D1盘面并无明显异常缩量或价差扩大）",
+            "若后续ISM数据在D3前公布且显著好于35，则原减仓逻辑失效"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "境外观望触发客户行为分化",
+          "summary": "如果境外投资者保持观望不动的信号被市场察觉，部分高敏感客户可能率先调整消费或储蓄行为，形成领先指标。",
+          "actor_ids": [
+            "actor_foreign",
+            "actor_customers"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_foreign",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_foreign-r2"
+            },
+            {
+              "actor_id": "actor_customers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_customers-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "境外投资者在D2前公开声明或通过资金流数据显示未因PMI调整仓位",
+            "客户社群中出现关于经济放缓的讨论频率升高或消费信心指数出现周环比下降超过2个百分点"
+          ],
+          "consequences": [
+            "若客户先行收缩非必要消费，将压低消费类企业的短期预期，进而影响机构投资者的行业配置偏好"
+          ],
+          "invalidation_conditions": [
+            "若D3公布的密歇根消费者信心指数初值好于市场预期（如上升超过2点）",
+            "若境外投资者在D2后实际改变了决策（如通过经纪商增加避险头寸）"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "分析师沉默迫使政府主动释疑",
+          "summary": "如果分析师在D1-D2对PMI数据选择性沉默，将削弱市场的信息中间环节，迫使政府或监管部门提前发出沟通信号以安市场情绪。",
+          "actor_ids": [
+            "actor_analysts",
+            "actor_government"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_analysts",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_analysts-r2"
+            },
+            {
+              "actor_id": "actor_government",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_government-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "分析师在D1-D2期间未通过公开研报或媒体采访对PMI变化做出实质性解读",
+            "政府或司法机构在D3前通过匿名消息或例行发布会提及“关注制造业状况”但未落实到政策行动"
+          ],
+          "consequences": [
+            "若政府提前释放非政策性的安抚信号，市场将解读为官方对下行风险的隐性确认，可能加剧而非缓解避险",
+            "若分析师在D2末突然转变态度做出解读，则政府不必发出信号，分支自行失效"
+          ],
+          "invalidation_conditions": [
+            "D2收盘前若至少2家主要投行的宏观分析师已发布PMI分析报告且包含具体预测",
+            "若政府发言明确否认考虑任何经济刺激方案，则与分支中的“释疑”方向相反"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        }
+      ],
+      "quality": [
+        {
+          "scores": {
+            "mechanism_coherence": 1,
+            "monitoring_actionability": 1,
+            "falsifiability": 2,
+            "evidence_discipline": 1,
+            "scenario_diversity": 2
+          },
+          "total_score": 7,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            }
+          ]
+        },
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 1,
+            "falsifiability": 2,
+            "evidence_discipline": 2,
+            "scenario_diversity": 2
+          },
+          "total_score": 9,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": false,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            }
+          ]
+        }
+      ],
+      "judge_reasons": [
+        "No free-form reason supplied.",
+        "No free-form reason supplied."
+      ],
+      "prompt": {
+        "system": "你是金融事件分支编译器，不是价格预测器。只使用输入中 as_of 时点可得事实\n和明确标为模拟的行为，生成恰好 4 条彼此有实质区别、未来可证伪的条件化事件分支。\n\n\n硬性要求：\n- 不得补充 as_of 之后的真实事件、公告、价格或人员结果；\n- 每条分支至少串联两个不同 actor 的动作，不能只是改写一个人的观点；\n- trigger_conditions 必须是未来可观察的“若……则进入该分支”条件；\n- consequences 是机制结果，不是已发生事实；\n- invalidation_conditions 必须说明什么观察会推翻该分支；\n- evidence_refs 只能引用输入中的 F 编号；\n- 按 branch_slots 的顺序生成分支；第 N 条分支必须描述第 N 个槽位中的所有角色及其相互影响；\n- 不要输出 actor_ids、actions、decision_ref 或 simulation_refs；系统会按数组位置确定性绑定\n  槽位中的角色及其已有 financial_decision，禁止自行概括、改写或新造动作；\n- confidence 只表示分支内部连贯性，不是发生概率；\n- novelty_claim 说明该分支比事实直接复述多出了哪段多主体传导；\n- 不得输出目标价格、收益率概率或 Agent 投票频率。\n\n只输出 JSON：\n{\"branches\":[{\"label\":\"简短名称\",\"summary\":\"条件化摘要\",\n\"trigger_conditions\":[\"...\"],\"consequences\":[\"...\"],\n\"invalidation_conditions\":[\"...\"],\"evidence_refs\":[\"F1\"],\n\"novelty_claim\":\"...\",\"confidence\":0.5}],\"warnings\":[]}。\n互动输入可能为空；其中内容仍是模拟消息，不是新增事实。不得凭空推断立场变化或因果影响。每条分支说明一方行动如何影响另一方的可行行动。触发和失效条件尽量指出观察对象与时间窗口；没有依据时不编造精确阈值。对缺少行动依据的传导使用条件表述，不把等待决策改写成已经采取新行动。",
+        "user": "{\"case_id\": \"anonymous-case-08\", \"as_of\": \"D0\", \"question\": \"严格基于 D0 时点可得信息，推演未来三个交易日各参与方行动及条件化传导机制。\", \"horizon\": {\"kind\": \"calendar_days\", \"value\": 3, \"end_at\": \"2025-11-29T23:59:59+00:00\"}, \"facts\": [{\"id\": \"F1\", \"statement\": \"【美国】美国11月芝加哥PMI：美国11月芝加哥PMI | 公布:36.3 预期:nan 前值:43.8\"}], \"actors\": [{\"id\": \"actor_issuer\", \"label\": \"事件主体\", \"kind\": \"issuer\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_government\", \"label\": \"政府与司法机构\", \"kind\": \"government\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_institutions\", \"label\": \"机构投资者\", \"kind\": \"institutional_investor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_foreign\", \"label\": \"境外投资者\", \"kind\": \"foreign_investor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_brokers\", \"label\": \"券商与中介机构\", \"kind\": \"broker\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_analysts\", \"label\": \"分析师\", \"kind\": \"analyst\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_media\", \"label\": \"财经媒体\", \"kind\": \"media\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_customers\", \"label\": \"客户\", \"kind\": \"customer\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}], \"financial_decisions\": [{\"id\": \"decision-actor_issuer-r2\", \"round\": 2, \"actor_id\": \"actor_issuer\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"maintain\", \"intensity\": 0.5, \"instrument_refs\": [], \"rationale\": \"芝加哥PMI数据（F1）显示制造业收缩加剧至36.3，但单一地区数据且预期值为nan，尚不足以作为调整制度或经济利益的确定依据。需要等待后续ISM全国性制造业PMI、就业及通胀数据以确认趋势是否具有普遍性。当前维持现有立场，保持监测，视后续多指标一致性再做调整。\", \"constraint_refs\": [\"actor_issuer:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_government-r2\", \"round\": 2, \"actor_id\": \"actor_government\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"截至2025-11-26，美国11月芝加哥PMI公布值为36.3，较前值43.8大幅下降且低于荣枯线50，显示制造业加速收缩。但该指标仅反映芝加哥地区单一维度，且预期值为nan，市场尚未形成一致性预期。作为政府与司法机构，当前不具充分依据采取实质性监管干预或公开沟通行动，需等待后续ISM制造业PMI、非农就业等更全面经济数据交叉验证后再作判断。单月PMI波动不足以触发政策调整或资本市场干预，因此选择观察等待。\", \"constraint_refs\": [\"actor_government:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.9, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_institutions-r2\", \"round\": 2, \"actor_id\": \"actor_institutions\", \"action_type\": \"ALLOCATE\", \"decision_status\": \"conditional\", \"direction\": \"decrease\", \"intensity\": 0.3, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"芝加哥PMI从43.8骤降至36.3，制造业收缩幅度显著扩大，已深度低于荣枯线50。作为机构投资者，这一先行指标表明美国中西部经济活动加速恶化，可能传导至更广泛的经济领域。基于此，考虑在下一个决策周期内适度降低对匿名标的1（标普500ETF）的风险暴露，以对冲潜在的经济衰退风险。但仅以单个地区PMI数据为依据、尚未得到ISM制造业PMI等更广泛指标验证，因此仅采取小幅降低仓位的试探性调整，且需等待后续其他经济数据确认趋势后再做进一步决策。主要不确定性在于：该数据是否具有普遍性、美联储可能的政策应对、以及市场是否已提前定价该疲弱数据。\", \"constraint_refs\": [\"actor_institutions:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.7, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_foreign-r2\", \"round\": 2, \"actor_id\": \"actor_foreign\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"not_applicable\", \"intensity\": 0.5, \"instrument_refs\": [], \"rationale\": \"芝加哥PMI从43.8骤降至36.3，显示制造业收缩加速，这是一个显著的经济放缓信号。但单一地区PMI波动较大，且缺乏预期值（nan），无法判断市场定价程度。作为境外投资者，我需要等待后续ISM制造业PMI等全国性数据确认趋势，同时观察美联储政策信号及市场反应后再调整配置。在获得更多验证性信息前，维持现有仓位、暂不行动是最审慎的选择。\", \"constraint_refs\": [\"actor_foreign:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_brokers-r2\", \"round\": 2, \"actor_id\": \"actor_brokers\", \"action_type\": \"COMMUNICATE\", \"decision_status\": \"intended\", \"direction\": \"not_applicable\", \"intensity\": 0.7, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"芝加哥PMI骤降至36.3，远低于前值43.8，显示制造业加速收缩。作为券商与中介机构，我需要向客户发布专业解读，提示衰退风险以及潜在的美债收益率下行、避险资产（黄金）受益等传导路径，同时建议关注后续ISM制造业数据。这一行为属于公开表达，不构成直接金融操作，但符合我维护客户关系和制度利益的职责。\", \"constraint_refs\": [\"actor_brokers:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_analysts-r2\", \"round\": 2, \"actor_id\": \"actor_analysts\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"芝加哥PMI大幅下跌至36.3，已确认制造业收缩加速，但单一地区PMI数据不足以形成趋势判断。当前最佳策略是等待后续ISM制造业PMI及其他经济指标验证该趋势是否具有广泛性，同时也需要观察美联储在下次会议前的政策信号变化，再决定是否需要调整对匿名标的1的敞口判断。\", \"constraint_refs\": [\"actor_analysts:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_media-r2\", \"round\": 2, \"actor_id\": \"actor_media\", \"action_type\": \"COMMUNICATE\", \"decision_status\": \"intended\", \"direction\": \"conditional\", \"intensity\": 0.7, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"作为财经媒体，芝加哥PMI从43.8骤降至36.3是重要宏观经济信号，需向受众发布专业分析。该数据远低于荣枯线50，显示制造业收缩加速，可能对美股（匿名标的1）构成压力。决定发布一篇分析评论，提醒受众关注后续ISM制造业数据验证趋势，以及美联储政策调整的可能性。传导机制：PMI骤降→经济衰退预期升温→风险资产承压。主要不确定性：单一地区PMI是否代表全国趋势，以及后续其他经济数据是否验证该信号。\", \"constraint_refs\": [\"actor_media:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_customers-r2\", \"round\": 2, \"actor_id\": \"actor_customers\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"maintain\", \"intensity\": 0.3, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"作为消费者，观察到美国11月芝加哥PMI从43.8骤降至36.3，显示制造业加速收缩，这可能传导至就业市场和消费环境。当前单月数据尚不足以确认趋势转变，需要等待后续ISM制造业PMI等更多数据验证该收缩信号是否持续。在此期间，保持现有消费与投资节奏不变，避免因单点数据过度调整行为。主要不确定性在于该数据是否为独立月份异常还是趋势反转的开端。\", \"constraint_refs\": [\"actor_customers:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.7, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}], \"simulated_actions\": [], \"branch_slots\": [{\"slot_id\": \"slot-1\", \"actor_ids\": [\"actor_brokers\", \"actor_media\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_brokers-r2\", \"decision-actor_media-r2\"]}, {\"slot_id\": \"slot-2\", \"actor_ids\": [\"actor_institutions\", \"actor_issuer\"], \"relationship_kind\": \"constrains_or_influences\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_issuer-r2\"]}, {\"slot_id\": \"slot-3\", \"actor_ids\": [\"actor_foreign\", \"actor_customers\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_foreign-r2\", \"decision-actor_customers-r2\"]}, {\"slot_id\": \"slot-4\", \"actor_ids\": [\"actor_analysts\", \"actor_government\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_analysts-r2\", \"decision-actor_government-r2\"]}]}"
+      }
+    },
+    "filtered_interactions": {
+      "generation": {
+        "status": "sealed",
+        "semantic_retries": 0,
+        "elapsed_seconds": 29.978761832986493,
+        "prompt_chars": 10843,
+        "visible_interactions": 10
+      },
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "券商分析传导至媒体跟进解读",
+          "summary": "若券商公开发布PMI解读引发广泛讨论，则媒体基于券商的分析发布进一步解读推文，放大市场对衰退的担忧情绪。",
+          "actor_ids": [
+            "actor_brokers",
+            "actor_media"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_brokers",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_brokers-r2"
+            },
+            {
+              "actor_id": "actor_media",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_media-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "在2025-11-27公共信息源观察到‘actor_brokers’的实际公开沟通(如研报)被主流财经媒体引用"
+          ],
+          "consequences": [
+            "媒体引用券商分析后，引发更多散户及小型机构注意，导致社交媒体关键词提及‘衰退’的频率在24小时内上升"
+          ],
+          "invalidation_conditions": [
+            "若媒体在D2前未引用券商分析或发表独立且不一致的解读"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "机构减仓触发主体反应",
+          "summary": "若机构投资者开始小幅减仓，事件主体观察到资金流出后，可能被迫提前发表稳定预期的公开声明或加快制定应对措施。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "ALLOCATE",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "D1-D2期间观察到‘actor_institutions’在匿名标的上净卖出超过其正常调仓阈值"
+          ],
+          "consequences": [
+            "事件主体在得知机构减仓后，可能发布公告或评论以强调单一指标不足信，意图稳定投资者信心"
+          ],
+          "invalidation_conditions": [
+            "若机构实际未行动或实施的是与减仓相反的操作；若主体不作出任何可观察的公开反应"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "境外投资者观望态度影响客户决策",
+          "summary": "若境外投资者表达对数据恶化的担忧和观望态度，其言论通过跨境资讯渠道被国内客户获知，可能强化客户延迟或减少投资与消费的计划。",
+          "actor_ids": [
+            "actor_foreign",
+            "actor_customers"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_foreign",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_foreign-r2"
+            },
+            {
+              "actor_id": "actor_customers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_customers-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "在2025-11-27至2025-11-28间，有可信来源记录‘actor_foreign’在公开或半公开渠道表明确认继续观望"
+          ],
+          "consequences": [
+            "个人客户在接收到境外投资者的悲观论调后，可能推迟非必需消费品购买或增加现金储备"
+          ],
+          "invalidation_conditions": [
+            "若境外投资者维持沉默或表达并未改变观点；若无证据表明其言论传达到了国内客户群体"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "分析师沟通引发监管部门提示",
+          "summary": "若分析师发布的沟通内容提及‘Q4 GDP下行风险加大’等具体负面传导，可能导致监管部门认为市场情绪过热，从而发布监管警示，提醒市场理性看待且不要跟风。",
+          "actor_ids": [
+            "actor_analysts",
+            "actor_government"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_analysts",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_analysts-r2"
+            },
+            {
+              "actor_id": "actor_government",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_government-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "在D0-D1期间，分析师发布了包含可量化的经济下行风险(如GDP或利率倒挂)的公开分析"
+          ],
+          "consequences": [
+            "监管机构在分析师发布后48小时内，发布合规提醒或提示市场风险，强调勿以单月数据进行趋势性操作"
+          ],
+          "invalidation_conditions": [
+            "若分析师仅重申等待数据而未作未来判断；若监管机构无相应公开动作"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        }
+      ],
+      "quality": [
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 1,
+            "falsifiability": 2,
+            "evidence_discipline": 2,
+            "scenario_diversity": 2
+          },
+          "total_score": 9,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": false,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            }
+          ]
+        },
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 1,
+            "falsifiability": 2,
+            "evidence_discipline": 2,
+            "scenario_diversity": 3
+          },
+          "total_score": 10,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": false,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": false,
+              "specific_invalidation": false,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": false,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": false
+            }
+          ]
+        }
+      ],
+      "judge_reasons": [
+        "各分支机制有一定因果链但触发条件可观察性模糊，失效条件具体，但部分场景决策相关性存疑，分支间机制重叠较多，多样性不足。",
+        "情景整体覆盖了不同渠道的传导机制，但监控触发条件难以直接转成具体观察清单，且多数分支后果对投资者决策的实用性不足。"
+      ],
+      "prompt": {
+        "system": "你是金融事件分支编译器，不是价格预测器。只使用输入中 as_of 时点可得事实\n和明确标为模拟的行为，生成恰好 4 条彼此有实质区别、未来可证伪的条件化事件分支。\n\n\n硬性要求：\n- 不得补充 as_of 之后的真实事件、公告、价格或人员结果；\n- 每条分支至少串联两个不同 actor 的动作，不能只是改写一个人的观点；\n- trigger_conditions 必须是未来可观察的“若……则进入该分支”条件；\n- consequences 是机制结果，不是已发生事实；\n- invalidation_conditions 必须说明什么观察会推翻该分支；\n- evidence_refs 只能引用输入中的 F 编号；\n- 按 branch_slots 的顺序生成分支；第 N 条分支必须描述第 N 个槽位中的所有角色及其相互影响；\n- 不要输出 actor_ids、actions、decision_ref 或 simulation_refs；系统会按数组位置确定性绑定\n  槽位中的角色及其已有 financial_decision，禁止自行概括、改写或新造动作；\n- confidence 只表示分支内部连贯性，不是发生概率；\n- novelty_claim 说明该分支比事实直接复述多出了哪段多主体传导；\n- 不得输出目标价格、收益率概率或 Agent 投票频率。\n\n只输出 JSON：\n{\"branches\":[{\"label\":\"简短名称\",\"summary\":\"条件化摘要\",\n\"trigger_conditions\":[\"...\"],\"consequences\":[\"...\"],\n\"invalidation_conditions\":[\"...\"],\"evidence_refs\":[\"F1\"],\n\"novelty_claim\":\"...\",\"confidence\":0.5}],\"warnings\":[]}。\n互动输入可能为空；其中内容仍是模拟消息，不是新增事实。不得凭空推断立场变化或因果影响。每条分支说明一方行动如何影响另一方的可行行动。触发和失效条件尽量指出观察对象与时间窗口；没有依据时不编造精确阈值。对缺少行动依据的传导使用条件表述，不把等待决策改写成已经采取新行动。",
+        "user": "{\"case_id\": \"anonymous-case-08\", \"as_of\": \"D0\", \"question\": \"严格基于 D0 时点可得信息，推演未来三个交易日各参与方行动及条件化传导机制。\", \"horizon\": {\"kind\": \"calendar_days\", \"value\": 3, \"end_at\": \"2025-11-29T23:59:59+00:00\"}, \"facts\": [{\"id\": \"F1\", \"statement\": \"【美国】美国11月芝加哥PMI：美国11月芝加哥PMI | 公布:36.3 预期:nan 前值:43.8\"}], \"actors\": [{\"id\": \"actor_issuer\", \"label\": \"事件主体\", \"kind\": \"issuer\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_government\", \"label\": \"政府与司法机构\", \"kind\": \"government\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_institutions\", \"label\": \"机构投资者\", \"kind\": \"institutional_investor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_foreign\", \"label\": \"境外投资者\", \"kind\": \"foreign_investor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_brokers\", \"label\": \"券商与中介机构\", \"kind\": \"broker\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_analysts\", \"label\": \"分析师\", \"kind\": \"analyst\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_media\", \"label\": \"财经媒体\", \"kind\": \"media\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_customers\", \"label\": \"客户\", \"kind\": \"customer\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}], \"financial_decisions\": [{\"id\": \"decision-actor_issuer-r2\", \"round\": 2, \"actor_id\": \"actor_issuer\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"maintain\", \"intensity\": 0.5, \"instrument_refs\": [], \"rationale\": \"芝加哥PMI数据（F1）显示制造业收缩加剧至36.3，但单一地区数据且预期值为nan，尚不足以作为调整制度或经济利益的确定依据。需要等待后续ISM全国性制造业PMI、就业及通胀数据以确认趋势是否具有普遍性。当前维持现有立场，保持监测，视后续多指标一致性再做调整。\", \"constraint_refs\": [\"actor_issuer:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_government-r2\", \"round\": 2, \"actor_id\": \"actor_government\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"截至2025-11-26，美国11月芝加哥PMI公布值为36.3，较前值43.8大幅下降且低于荣枯线50，显示制造业加速收缩。但该指标仅反映芝加哥地区单一维度，且预期值为nan，市场尚未形成一致性预期。作为政府与司法机构，当前不具充分依据采取实质性监管干预或公开沟通行动，需等待后续ISM制造业PMI、非农就业等更全面经济数据交叉验证后再作判断。单月PMI波动不足以触发政策调整或资本市场干预，因此选择观察等待。\", \"constraint_refs\": [\"actor_government:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.9, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_institutions-r2\", \"round\": 2, \"actor_id\": \"actor_institutions\", \"action_type\": \"ALLOCATE\", \"decision_status\": \"conditional\", \"direction\": \"decrease\", \"intensity\": 0.3, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"芝加哥PMI从43.8骤降至36.3，制造业收缩幅度显著扩大，已深度低于荣枯线50。作为机构投资者，这一先行指标表明美国中西部经济活动加速恶化，可能传导至更广泛的经济领域。基于此，考虑在下一个决策周期内适度降低对匿名标的1（标普500ETF）的风险暴露，以对冲潜在的经济衰退风险。但仅以单个地区PMI数据为依据、尚未得到ISM制造业PMI等更广泛指标验证，因此仅采取小幅降低仓位的试探性调整，且需等待后续其他经济数据确认趋势后再做进一步决策。主要不确定性在于：该数据是否具有普遍性、美联储可能的政策应对、以及市场是否已提前定价该疲弱数据。\", \"constraint_refs\": [\"actor_institutions:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.7, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_foreign-r2\", \"round\": 2, \"actor_id\": \"actor_foreign\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"not_applicable\", \"intensity\": 0.5, \"instrument_refs\": [], \"rationale\": \"芝加哥PMI从43.8骤降至36.3，显示制造业收缩加速，这是一个显著的经济放缓信号。但单一地区PMI波动较大，且缺乏预期值（nan），无法判断市场定价程度。作为境外投资者，我需要等待后续ISM制造业PMI等全国性数据确认趋势，同时观察美联储政策信号及市场反应后再调整配置。在获得更多验证性信息前，维持现有仓位、暂不行动是最审慎的选择。\", \"constraint_refs\": [\"actor_foreign:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_brokers-r2\", \"round\": 2, \"actor_id\": \"actor_brokers\", \"action_type\": \"COMMUNICATE\", \"decision_status\": \"intended\", \"direction\": \"not_applicable\", \"intensity\": 0.7, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"芝加哥PMI骤降至36.3，远低于前值43.8，显示制造业加速收缩。作为券商与中介机构，我需要向客户发布专业解读，提示衰退风险以及潜在的美债收益率下行、避险资产（黄金）受益等传导路径，同时建议关注后续ISM制造业数据。这一行为属于公开表达，不构成直接金融操作，但符合我维护客户关系和制度利益的职责。\", \"constraint_refs\": [\"actor_brokers:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_analysts-r2\", \"round\": 2, \"actor_id\": \"actor_analysts\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"芝加哥PMI大幅下跌至36.3，已确认制造业收缩加速，但单一地区PMI数据不足以形成趋势判断。当前最佳策略是等待后续ISM制造业PMI及其他经济指标验证该趋势是否具有广泛性，同时也需要观察美联储在下次会议前的政策信号变化，再决定是否需要调整对匿名标的1的敞口判断。\", \"constraint_refs\": [\"actor_analysts:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_media-r2\", \"round\": 2, \"actor_id\": \"actor_media\", \"action_type\": \"COMMUNICATE\", \"decision_status\": \"intended\", \"direction\": \"conditional\", \"intensity\": 0.7, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"作为财经媒体，芝加哥PMI从43.8骤降至36.3是重要宏观经济信号，需向受众发布专业分析。该数据远低于荣枯线50，显示制造业收缩加速，可能对美股（匿名标的1）构成压力。决定发布一篇分析评论，提醒受众关注后续ISM制造业数据验证趋势，以及美联储政策调整的可能性。传导机制：PMI骤降→经济衰退预期升温→风险资产承压。主要不确定性：单一地区PMI是否代表全国趋势，以及后续其他经济数据是否验证该信号。\", \"constraint_refs\": [\"actor_media:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_customers-r2\", \"round\": 2, \"actor_id\": \"actor_customers\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"maintain\", \"intensity\": 0.3, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"作为消费者，观察到美国11月芝加哥PMI从43.8骤降至36.3，显示制造业加速收缩，这可能传导至就业市场和消费环境。当前单月数据尚不足以确认趋势转变，需要等待后续ISM制造业PMI等更多数据验证该收缩信号是否持续。在此期间，保持现有消费与投资节奏不变，避免因单点数据过度调整行为。主要不确定性在于该数据是否为独立月份异常还是趋势反转的开端。\", \"constraint_refs\": [\"actor_customers:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.7, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}], \"simulated_actions\": [{\"id\": \"trace-19\", \"actor_id\": \"actor_issuer\", \"action_type\": \"COMMUNICATE\", \"summary\": \"芝加哥PMI从43.8骤降至36.3，收缩幅度显著扩大，这反映出制造业活动加速萎缩。需要密切关注后续其他经济指标是否印证这一趋势，以及美联储政策应对的潜在影响。\"}, {\"id\": \"trace-20\", \"actor_id\": \"actor_customers\", \"action_type\": \"COMMUNICATE\", \"summary\": \"芝加哥PMI大幅下滑到36.3，低于前值43.8，这意味着制造业收缩加剧了。作为消费者，这可能会影响到未来商品价格和就业市场，需要密切关注后续经济数据对消费环境的影响。\"}, {\"id\": \"trace-22\", \"actor_id\": \"actor_government\", \"action_type\": \"COMMUNICATE\", \"summary\": \"【经济监测通报】美国11月芝加哥PMI公布值为36.3，较前值43.8大幅下降17.2%，持续低于50荣枯线。这表明该地区制造业活动加速收缩，需关注下游产业链传导效应及就业市场影响。我们将持续追踪相关数据变化。\"}, {\"id\": \"trace-23\", \"actor_id\": \"actor_analysts\", \"action_type\": \"COMMUNICATE\", \"summary\": \"芝加哥PMI从43.8骤降至36.3，跌破40荣枯线，表明美国中西部制造业收缩明显加速。需密切关注后续ISM制造业PMI数据以确认趋势。这一数据可能反映高利率环境对制造业的持续压制。\"}, {\"id\": \"trace-25\", \"actor_id\": \"actor_brokers\", \"action_type\": \"COMMUNICATE\", \"summary\": \"📊 【宏观速评】美国11月芝加哥PMI报36.3，远低于前值43.8，且低于荣枯线50，显示制造业收缩加剧。作为中介机构，我们提醒客户注意：1）美债收益率可能承压下行；2）短期避险情绪升温，黄金或受支撑；3）关注本周后续ISM制造业数据验证趋势。建议调整仓位以对冲衰退风险。\"}, {\"id\": \"trace-26\", \"actor_id\": \"actor_foreign\", \"action_type\": \"COMMUNICATE\", \"summary\": \"US Chicago PMI dropping from 43.8 to 36.3 is a significant contraction signal. Manufacturing weakness persists. This could influence Fed rate decisions and impact USD asset allocations. Monitoring closely for Q4 impact on broader economic indicators.\"}, {\"id\": \"trace-39\", \"actor_id\": \"actor_issuer\", \"action_type\": \"COMMUNICATE\", \"summary\": \"作为数据发布方，我们注意到PMI数据下行幅度确实超出预期。中介机构的资产配置建议值得参考，但需要强调：单一地区PMI数据不宜作为趋势判断的唯一依据，应结合全国性ISM制造业PMI及就业数据综合评估。我们将在后续月度报告中提供更全面的分析框架。\"}, {\"id\": \"trace-41\", \"actor_id\": \"actor_customers\", \"action_type\": \"COMMUNICATE\", \"summary\": \"感谢分享分析。作为普通消费者，我想了解在这种制造业加速收缩的背景下，普通人的消费和投资策略应该如何调整？比如是否需要优先考虑减少非必要开支，或者应该关注哪些防御性资产类别？期待进一步分析。\"}, {\"id\": \"trace-43\", \"actor_id\": \"actor_government\", \"action_type\": \"COMMUNICATE\", \"summary\": \"【监管提示】针对该PMI数据所引发的市场解读与投资建议，我方提醒：各方在进行资产配置调整时应基于充分的信息与合规的决策流程。经济指标的单月波动不代表趋势确立，建议等待后续ISM制造业PMI、非农就业等更多数据交叉验证。我方将持续监测市场异常波动及不当市场操作行为。\"}, {\"id\": \"trace-45\", \"actor_id\": \"actor_analysts\", \"action_type\": \"COMMUNICATE\", \"summary\": \"同意分析框架。补充一点：芝加哥PMI分项数据中，新订单指数和就业指数通常领先于库存周期，若这两个分项同步走弱，则Q4 GDP下行风险进一步加大。建议关注今晚美债2s10s利差变化，若进一步倒挂加深，将强化衰退定价。\"}], \"branch_slots\": [{\"slot_id\": \"slot-1\", \"actor_ids\": [\"actor_brokers\", \"actor_media\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_brokers-r2\", \"decision-actor_media-r2\"]}, {\"slot_id\": \"slot-2\", \"actor_ids\": [\"actor_institutions\", \"actor_issuer\"], \"relationship_kind\": \"constrains_or_influences\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_issuer-r2\"]}, {\"slot_id\": \"slot-3\", \"actor_ids\": [\"actor_foreign\", \"actor_customers\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_foreign-r2\", \"decision-actor_customers-r2\"]}, {\"slot_id\": \"slot-4\", \"actor_ids\": [\"actor_analysts\", \"actor_government\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_analysts-r2\", \"decision-actor_government-r2\"]}]}"
+      }
+    },
+    "raw_interactions": {
+      "generation": {
+        "status": "sealed",
+        "semantic_retries": 0,
+        "elapsed_seconds": 62.83990124997217,
+        "prompt_chars": 13308,
+        "visible_interactions": 22
+      },
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "媒体放大传导到客户避险",
+          "summary": "若brokers的公开沟通被media广泛引用并解读，则客户可能从等待转为向brokers咨询避险配置，触发brokers进一步向客户发布具体对冲建议。",
+          "actor_ids": [
+            "actor_brokers",
+            "actor_media"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_brokers",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_brokers-r2"
+            },
+            {
+              "actor_id": "actor_media",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_media-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "在D1内，media发布标题包含'PMI'和'衰退'的深度分析并被公开转载",
+            "在D1-D2内，客户向brokers咨询防御性资产类别的消息出现在社交媒体"
+          ],
+          "consequences": [
+            "brokers因应客户咨询，可能将通用沟通升级为面向具体客户群体的配置建议",
+            "客户的主动咨询可能反向强化media对'衰退需求'的叙事，形成信息循环"
+          ],
+          "invalidation_conditions": [
+            "D2结束前media未发布任何与PMI相关的深度分析",
+            "客户在D2结束前无任何关于个人投资调整的公开表述"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "机构降仓引发主体确认",
+          "summary": "若institutions先行小幅降仓并公开表态后，issuer可能从其机构数据库发现该动作，进而将原有'等待'立场转为对institutions做出口头确认，减少市场不确定性。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "ALLOCATE",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "在D1交易时段，institutions执行卖出匿名标的并公开披露',",
+            "issuer的数据监测系统在D1-D2之间识别到该卖出行为并内部标记"
+          ],
+          "consequences": [
+            "issuer可能通过公开采访或报告回应institutions的动作，正文重申'等待综合数据'的立场",
+            "institutions因获得issuer的确认性表态，短期可能暂停进一步减仓、观察后续数据"
+          ],
+          "invalidation_conditions": [
+            "D2结束前institutions无任何公开交易记录",
+            "issuer在D2结束前无任何对institutions仓位变动的公开评论"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "境外贴文带动国内消费者固有认知",
+          "summary": "若foreign在社交媒体上的英文分析被大型财经网站翻译转载后流入国内消费者信息流，则客户可能从'等待'转为在消费者社群中讨论制造业收缩的生活影响，但不会立即改变financial decision。",
+          "actor_ids": [
+            "actor_foreign",
+            "actor_customers"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_foreign",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_foreign-r2"
+            },
+            {
+              "actor_id": "actor_customers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_customers-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "在D1-D2内，有中文媒体或大V翻译并转发foreign的PMI评论',",
+            "客户在D2内出现在评论区提及'物价'或'就业'等生活影响"
+          ],
+          "consequences": [
+            "消费者社群内部的讨论热度可能短线推升社交媒体上的'衰退'话题排名，形成情绪面",
+            "客户因仅停留在谈论层面而未实际改变消费或投资决策，所以对资产价格无直接传导效应"
+          ],
+          "invalidation_conditions": [
+            "D2结束前无任何中文渠道提及foreign的英文评论",
+            "客户在D2结束前无任何涉及生活成本或就业预期的公开讨论"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "分析师理性补充被政府纳入监测口径",
+          "summary": "若analysts在公开评论中暗示'新订单与就业分项同步走弱'，则government的监管提示可能从一般性提醒升级为引用分析师观点、要求各方在后续交易中注意风险。",
+          "actor_ids": [
+            "actor_analysts",
+            "actor_government"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_analysts",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_analysts-r2"
+            },
+            {
+              "actor_id": "actor_government",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_government-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "在D1内，analysts的公开评论明确提及新订单指数和就业指数",
+            "government在D1-D2内发布第二份监管提示，内容中引用analysts的分项分析"
+          ],
+          "consequences": [
+            "analysts因其观点被官方引用而获得市场信用增益，后续发布的报告可能被更广泛类型投资者关注",
+            "government的引用行为可能使brokers等中介在发布建议时增加'需与官方口径一致'的措辞约束"
+          ],
+          "invalidation_conditions": [
+            "D2结束前analysts无公开评论",
+            "government在D2结束前发布的任何提示均未引用任何外部分析"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        }
+      ],
+      "quality": [
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 2,
+            "evidence_discipline": 1,
+            "scenario_diversity": 2
+          },
+          "total_score": 9,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            }
+          ]
+        },
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 2,
+            "evidence_discipline": 2,
+            "scenario_diversity": 3
+          },
+          "total_score": 11,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            }
+          ]
+        }
+      ],
+      "judge_reasons": [
+        "场景机制有基本因果链但多依赖D0后不可见的私有动作（如issuer数据监测、government内部监测），削弱evidence_grounded；场景多样性有限，多为媒体/分析师反馈循环。",
+        "No free-form reason supplied."
+      ],
+      "prompt": {
+        "system": "你是金融事件分支编译器，不是价格预测器。只使用输入中 as_of 时点可得事实\n和明确标为模拟的行为，生成恰好 4 条彼此有实质区别、未来可证伪的条件化事件分支。\n\n\n硬性要求：\n- 不得补充 as_of 之后的真实事件、公告、价格或人员结果；\n- 每条分支至少串联两个不同 actor 的动作，不能只是改写一个人的观点；\n- trigger_conditions 必须是未来可观察的“若……则进入该分支”条件；\n- consequences 是机制结果，不是已发生事实；\n- invalidation_conditions 必须说明什么观察会推翻该分支；\n- evidence_refs 只能引用输入中的 F 编号；\n- 按 branch_slots 的顺序生成分支；第 N 条分支必须描述第 N 个槽位中的所有角色及其相互影响；\n- 不要输出 actor_ids、actions、decision_ref 或 simulation_refs；系统会按数组位置确定性绑定\n  槽位中的角色及其已有 financial_decision，禁止自行概括、改写或新造动作；\n- confidence 只表示分支内部连贯性，不是发生概率；\n- novelty_claim 说明该分支比事实直接复述多出了哪段多主体传导；\n- 不得输出目标价格、收益率概率或 Agent 投票频率。\n\n只输出 JSON：\n{\"branches\":[{\"label\":\"简短名称\",\"summary\":\"条件化摘要\",\n\"trigger_conditions\":[\"...\"],\"consequences\":[\"...\"],\n\"invalidation_conditions\":[\"...\"],\"evidence_refs\":[\"F1\"],\n\"novelty_claim\":\"...\",\"confidence\":0.5}],\"warnings\":[]}。\n互动输入可能为空；其中内容仍是模拟消息，不是新增事实。不得凭空推断立场变化或因果影响。每条分支说明一方行动如何影响另一方的可行行动。触发和失效条件尽量指出观察对象与时间窗口；没有依据时不编造精确阈值。对缺少行动依据的传导使用条件表述，不把等待决策改写成已经采取新行动。",
+        "user": "{\"case_id\": \"anonymous-case-08\", \"as_of\": \"D0\", \"question\": \"严格基于 D0 时点可得信息，推演未来三个交易日各参与方行动及条件化传导机制。\", \"horizon\": {\"kind\": \"calendar_days\", \"value\": 3, \"end_at\": \"2025-11-29T23:59:59+00:00\"}, \"facts\": [{\"id\": \"F1\", \"statement\": \"【美国】美国11月芝加哥PMI：美国11月芝加哥PMI | 公布:36.3 预期:nan 前值:43.8\"}], \"actors\": [{\"id\": \"actor_issuer\", \"label\": \"事件主体\", \"kind\": \"issuer\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_government\", \"label\": \"政府与司法机构\", \"kind\": \"government\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_institutions\", \"label\": \"机构投资者\", \"kind\": \"institutional_investor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_foreign\", \"label\": \"境外投资者\", \"kind\": \"foreign_investor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_brokers\", \"label\": \"券商与中介机构\", \"kind\": \"broker\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_analysts\", \"label\": \"分析师\", \"kind\": \"analyst\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_media\", \"label\": \"财经媒体\", \"kind\": \"media\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_customers\", \"label\": \"客户\", \"kind\": \"customer\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}], \"financial_decisions\": [{\"id\": \"decision-actor_issuer-r2\", \"round\": 2, \"actor_id\": \"actor_issuer\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"maintain\", \"intensity\": 0.5, \"instrument_refs\": [], \"rationale\": \"芝加哥PMI数据（F1）显示制造业收缩加剧至36.3，但单一地区数据且预期值为nan，尚不足以作为调整制度或经济利益的确定依据。需要等待后续ISM全国性制造业PMI、就业及通胀数据以确认趋势是否具有普遍性。当前维持现有立场，保持监测，视后续多指标一致性再做调整。\", \"constraint_refs\": [\"actor_issuer:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_government-r2\", \"round\": 2, \"actor_id\": \"actor_government\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"截至2025-11-26，美国11月芝加哥PMI公布值为36.3，较前值43.8大幅下降且低于荣枯线50，显示制造业加速收缩。但该指标仅反映芝加哥地区单一维度，且预期值为nan，市场尚未形成一致性预期。作为政府与司法机构，当前不具充分依据采取实质性监管干预或公开沟通行动，需等待后续ISM制造业PMI、非农就业等更全面经济数据交叉验证后再作判断。单月PMI波动不足以触发政策调整或资本市场干预，因此选择观察等待。\", \"constraint_refs\": [\"actor_government:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.9, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_institutions-r2\", \"round\": 2, \"actor_id\": \"actor_institutions\", \"action_type\": \"ALLOCATE\", \"decision_status\": \"conditional\", \"direction\": \"decrease\", \"intensity\": 0.3, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"芝加哥PMI从43.8骤降至36.3，制造业收缩幅度显著扩大，已深度低于荣枯线50。作为机构投资者，这一先行指标表明美国中西部经济活动加速恶化，可能传导至更广泛的经济领域。基于此，考虑在下一个决策周期内适度降低对匿名标的1（标普500ETF）的风险暴露，以对冲潜在的经济衰退风险。但仅以单个地区PMI数据为依据、尚未得到ISM制造业PMI等更广泛指标验证，因此仅采取小幅降低仓位的试探性调整，且需等待后续其他经济数据确认趋势后再做进一步决策。主要不确定性在于：该数据是否具有普遍性、美联储可能的政策应对、以及市场是否已提前定价该疲弱数据。\", \"constraint_refs\": [\"actor_institutions:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.7, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_foreign-r2\", \"round\": 2, \"actor_id\": \"actor_foreign\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"not_applicable\", \"intensity\": 0.5, \"instrument_refs\": [], \"rationale\": \"芝加哥PMI从43.8骤降至36.3，显示制造业收缩加速，这是一个显著的经济放缓信号。但单一地区PMI波动较大，且缺乏预期值（nan），无法判断市场定价程度。作为境外投资者，我需要等待后续ISM制造业PMI等全国性数据确认趋势，同时观察美联储政策信号及市场反应后再调整配置。在获得更多验证性信息前，维持现有仓位、暂不行动是最审慎的选择。\", \"constraint_refs\": [\"actor_foreign:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_brokers-r2\", \"round\": 2, \"actor_id\": \"actor_brokers\", \"action_type\": \"COMMUNICATE\", \"decision_status\": \"intended\", \"direction\": \"not_applicable\", \"intensity\": 0.7, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"芝加哥PMI骤降至36.3，远低于前值43.8，显示制造业加速收缩。作为券商与中介机构，我需要向客户发布专业解读，提示衰退风险以及潜在的美债收益率下行、避险资产（黄金）受益等传导路径，同时建议关注后续ISM制造业数据。这一行为属于公开表达，不构成直接金融操作，但符合我维护客户关系和制度利益的职责。\", \"constraint_refs\": [\"actor_brokers:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_analysts-r2\", \"round\": 2, \"actor_id\": \"actor_analysts\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"芝加哥PMI大幅下跌至36.3，已确认制造业收缩加速，但单一地区PMI数据不足以形成趋势判断。当前最佳策略是等待后续ISM制造业PMI及其他经济指标验证该趋势是否具有广泛性，同时也需要观察美联储在下次会议前的政策信号变化，再决定是否需要调整对匿名标的1的敞口判断。\", \"constraint_refs\": [\"actor_analysts:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_media-r2\", \"round\": 2, \"actor_id\": \"actor_media\", \"action_type\": \"COMMUNICATE\", \"decision_status\": \"intended\", \"direction\": \"conditional\", \"intensity\": 0.7, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"作为财经媒体，芝加哥PMI从43.8骤降至36.3是重要宏观经济信号，需向受众发布专业分析。该数据远低于荣枯线50，显示制造业收缩加速，可能对美股（匿名标的1）构成压力。决定发布一篇分析评论，提醒受众关注后续ISM制造业数据验证趋势，以及美联储政策调整的可能性。传导机制：PMI骤降→经济衰退预期升温→风险资产承压。主要不确定性：单一地区PMI是否代表全国趋势，以及后续其他经济数据是否验证该信号。\", \"constraint_refs\": [\"actor_media:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_customers-r2\", \"round\": 2, \"actor_id\": \"actor_customers\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"maintain\", \"intensity\": 0.3, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"作为消费者，观察到美国11月芝加哥PMI从43.8骤降至36.3，显示制造业加速收缩，这可能传导至就业市场和消费环境。当前单月数据尚不足以确认趋势转变，需要等待后续ISM制造业PMI等更多数据验证该收缩信号是否持续。在此期间，保持现有消费与投资节奏不变，避免因单点数据过度调整行为。主要不确定性在于该数据是否为独立月份异常还是趋势反转的开端。\", \"constraint_refs\": [\"actor_customers:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.7, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}], \"simulated_actions\": [{\"id\": \"trace-18\", \"kind\": \"simulated_action\", \"action_type\": \"SOCIAL_ENDORSEMENT\", \"summary\": \"点赞帖子 #1：【美国】美国11月芝加哥PMI：美国11月芝加哥PMI | 公布:36.3 预期:nan 前值:43.8\", \"actor_id\": \"actor_institutions\"}, {\"id\": \"trace-19\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"芝加哥PMI从43.8骤降至36.3，收缩幅度显著扩大，这反映出制造业活动加速萎缩。需要密切关注后续其他经济指标是否印证这一趋势，以及美联储政策应对的潜在影响。\", \"actor_id\": \"actor_issuer\"}, {\"id\": \"trace-20\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"芝加哥PMI大幅下滑到36.3，低于前值43.8，这意味着制造业收缩加剧了。作为消费者，这可能会影响到未来商品价格和就业市场，需要密切关注后续经济数据对消费环境的影响。\", \"actor_id\": \"actor_customers\"}, {\"id\": \"trace-22\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"【经济监测通报】美国11月芝加哥PMI公布值为36.3，较前值43.8大幅下降17.2%，持续低于50荣枯线。这表明该地区制造业活动加速收缩，需关注下游产业链传导效应及就业市场影响。我们将持续追踪相关数据变化。\", \"actor_id\": \"actor_government\"}, {\"id\": \"trace-23\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"芝加哥PMI从43.8骤降至36.3，跌破40荣枯线，表明美国中西部制造业收缩明显加速。需密切关注后续ISM制造业PMI数据以确认趋势。这一数据可能反映高利率环境对制造业的持续压制。\", \"actor_id\": \"actor_analysts\"}, {\"id\": \"trace-24\", \"kind\": \"simulated_action\", \"action_type\": \"SOCIAL_ENDORSEMENT\", \"summary\": \"点赞帖子 #1：【美国】美国11月芝加哥PMI：美国11月芝加哥PMI | 公布:36.3 预期:nan 前值:43.8\", \"actor_id\": \"actor_analysts\"}, {\"id\": \"trace-25\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"📊 【宏观速评】美国11月芝加哥PMI报36.3，远低于前值43.8，且低于荣枯线50，显示制造业收缩加剧。作为中介机构，我们提醒客户注意：1）美债收益率可能承压下行；2）短期避险情绪升温，黄金或受支撑；3）关注本周后续ISM制造业数据验证趋势。建议调整仓位以对冲衰退风险。\", \"actor_id\": \"actor_brokers\"}, {\"id\": \"trace-26\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"US Chicago PMI dropping from 43.8 to 36.3 is a significant contraction signal. Manufacturing weakness persists. This could influence Fed rate decisions and impact USD asset allocations. Monitoring closely for Q4 impact on broader economic indicators.\", \"actor_id\": \"actor_foreign\"}, {\"id\": \"trace-27\", \"kind\": \"simulated_action\", \"action_type\": \"SOCIAL_ENDORSEMENT\", \"summary\": \"点赞帖子 #1：【美国】美国11月芝加哥PMI：美国11月芝加哥PMI | 公布:36.3 预期:nan 前值:43.8\", \"actor_id\": \"actor_foreign\"}, {\"id\": \"trace-36\", \"kind\": \"simulated_action\", \"action_type\": \"SEARCH_POSTS\", \"summary\": \"search_posts\", \"actor_id\": \"actor_media\"}, {\"id\": \"trace-37\", \"kind\": \"simulated_action\", \"action_type\": \"SOCIAL_ENDORSEMENT\", \"summary\": \"点赞帖子 #2：📊 【宏观速评】美国11月芝加哥PMI报36.3，远低于前值43.8，且低于荣枯线50，显示制造业收缩加剧。作为中介机构，我们提醒客户注意：1）美债收益率可能承压下行；2）短期避险情绪升温，黄金或受支撑；3）关注本周后续ISM制造业数据验证趋势。建议调整仓位以对冲衰退风险。\", \"actor_id\": \"actor_institutions\"}, {\"id\": \"trace-38\", \"kind\": \"simulated_action\", \"action_type\": \"LIKE_COMMENT\", \"summary\": \"like_comment\", \"actor_id\": \"actor_institutions\"}, {\"id\": \"trace-39\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"作为数据发布方，我们注意到PMI数据下行幅度确实超出预期。中介机构的资产配置建议值得参考，但需要强调：单一地区PMI数据不宜作为趋势判断的唯一依据，应结合全国性ISM制造业PMI及就业数据综合评估。我们将在后续月度报告中提供更全面的分析框架。\", \"actor_id\": \"actor_issuer\"}, {\"id\": \"trace-40\", \"kind\": \"simulated_action\", \"action_type\": \"SOCIAL_ENDORSEMENT\", \"summary\": \"点赞帖子 #2：📊 【宏观速评】美国11月芝加哥PMI报36.3，远低于前值43.8，且低于荣枯线50，显示制造业收缩加剧。作为中介机构，我们提醒客户注意：1）美债收益率可能承压下行；2）短期避险情绪升温，黄金或受支撑；3）关注本周后续ISM制造业数据验证趋势。建议调整仓位以对冲衰退风险。\", \"actor_id\": \"actor_foreign\"}, {\"id\": \"trace-41\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"感谢分享分析。作为普通消费者，我想了解在这种制造业加速收缩的背景下，普通人的消费和投资策略应该如何调整？比如是否需要优先考虑减少非必要开支，或者应该关注哪些防御性资产类别？期待进一步分析。\", \"actor_id\": \"actor_customers\"}, {\"id\": \"trace-42\", \"kind\": \"simulated_action\", \"action_type\": \"SOCIAL_ENDORSEMENT\", \"summary\": \"点赞帖子 #1：【美国】美国11月芝加哥PMI：美国11月芝加哥PMI | 公布:36.3 预期:nan 前值:43.8\", \"actor_id\": \"actor_government\"}, {\"id\": \"trace-43\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"【监管提示】针对该PMI数据所引发的市场解读与投资建议，我方提醒：各方在进行资产配置调整时应基于充分的信息与合规的决策流程。经济指标的单月波动不代表趋势确立，建议等待后续ISM制造业PMI、非农就业等更多数据交叉验证。我方将持续监测市场异常波动及不当市场操作行为。\", \"actor_id\": \"actor_government\"}, {\"id\": \"trace-44\", \"kind\": \"simulated_action\", \"action_type\": \"SOCIAL_ENDORSEMENT\", \"summary\": \"点赞帖子 #1：【美国】美国11月芝加哥PMI：美国11月芝加哥PMI | 公布:36.3 预期:nan 前值:43.8\", \"actor_id\": \"actor_brokers\"}, {\"id\": \"trace-45\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"同意分析框架。补充一点：芝加哥PMI分项数据中，新订单指数和就业指数通常领先于库存周期，若这两个分项同步走弱，则Q4 GDP下行风险进一步加大。建议关注今晚美债2s10s利差变化，若进一步倒挂加深，将强化衰退定价。\", \"actor_id\": \"actor_analysts\"}, {\"id\": \"trace-46\", \"kind\": \"simulated_action\", \"action_type\": \"LIKE_COMMENT\", \"summary\": \"like_comment\", \"actor_id\": \"actor_brokers\"}, {\"id\": \"trace-47\", \"kind\": \"simulated_action\", \"action_type\": \"LIKE_COMMENT\", \"summary\": \"like_comment\", \"actor_id\": \"actor_brokers\"}, {\"id\": \"trace-48\", \"kind\": \"simulated_action\", \"action_type\": \"LIKE_COMMENT\", \"summary\": \"like_comment\", \"actor_id\": \"actor_brokers\"}], \"branch_slots\": [{\"slot_id\": \"slot-1\", \"actor_ids\": [\"actor_brokers\", \"actor_media\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_brokers-r2\", \"decision-actor_media-r2\"]}, {\"slot_id\": \"slot-2\", \"actor_ids\": [\"actor_institutions\", \"actor_issuer\"], \"relationship_kind\": \"constrains_or_influences\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_issuer-r2\"]}, {\"slot_id\": \"slot-3\", \"actor_ids\": [\"actor_foreign\", \"actor_customers\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_foreign-r2\", \"decision-actor_customers-r2\"]}, {\"slot_id\": \"slot-4\", \"actor_ids\": [\"actor_analysts\", \"actor_government\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_analysts-r2\", \"decision-actor_government-r2\"]}]}"
+      }
+    }
+  },
+  "usage": [
+    {
+      "case_id": "anonymous-case-08",
+      "variant": "filtered_interactions",
+      "phase": "generation",
+      "request_id": "71289bff0e1a41bfae5891988f2461d4",
+      "request_sha256": "f7599b12a81ff95aed35f1cc380b5fcbbe08a98aca974688f94b7487d8f31f3a",
+      "prompt_chars": 10843,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:13:09.542941+00:00",
+      "status": "completed",
+      "prompt_tokens": 4261,
+      "completion_tokens": 806,
+      "total_tokens": 5067,
+      "estimated_cost": 0.0005101379999999999,
+      "finish_reason": "stop",
+      "elapsed_seconds": 29.97457508300431
+    },
+    {
+      "case_id": "anonymous-case-08",
+      "variant": "raw_interactions",
+      "phase": "generation",
+      "request_id": "5823eaec944142fb8623b205b2e33c16",
+      "request_sha256": "09ac5f42bd1c78e4ab8fd132b5d8f92396220581a8734b7be64a45bf23af8225",
+      "prompt_chars": 13308,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:13:27.786471+00:00",
+      "status": "completed",
+      "prompt_tokens": 5230,
+      "completion_tokens": 1038,
+      "total_tokens": 6268,
+      "estimated_cost": 0.00043635600000000005,
+      "finish_reason": "stop",
+      "elapsed_seconds": 62.836977207974996
+    },
+    {
+      "case_id": "anonymous-case-08",
+      "variant": "decisions_only",
+      "phase": "generation",
+      "request_id": "0f5259407a524062aff15af5074d6f36",
+      "request_sha256": "f5b4400142f0fc520af74c4a754c21298afd8d8559291481fa0ab5f009979124",
+      "prompt_chars": 8694,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:13:39.556167+00:00",
+      "status": "completed",
+      "prompt_tokens": 3338,
+      "completion_tokens": 1038,
+      "total_tokens": 4376,
+      "estimated_cost": 0.000266076,
+      "finish_reason": "stop",
+      "elapsed_seconds": 55.88784295797814
+    },
+    {
+      "case_id": "anonymous-case-08",
+      "variant": "raw_interactions",
+      "phase": "quality",
+      "repeat": 1,
+      "request_id": "ee5b7e1c17a34e9a81c315f8bdf83ba1",
+      "request_sha256": "9171e28e9f359c984a41fe1398668c7eb7ac1fcb175a1d1d31980cbef1e2bd68",
+      "prompt_chars": 5965,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:19:47.177816+00:00",
+      "status": "completed",
+      "prompt_tokens": 2360,
+      "completion_tokens": 306,
+      "total_tokens": 2666,
+      "estimated_cost": 0.00024904800000000003,
+      "finish_reason": "stop",
+      "elapsed_seconds": 6.823616833018605
+    },
+    {
+      "case_id": "anonymous-case-08",
+      "variant": "raw_interactions",
+      "phase": "quality",
+      "repeat": 2,
+      "request_id": "c393a28f44a349fbacc3903c487d5880",
+      "request_sha256": "9171e28e9f359c984a41fe1398668c7eb7ac1fcb175a1d1d31980cbef1e2bd68",
+      "prompt_chars": 5965,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:19:56.685171+00:00",
+      "status": "completed",
+      "prompt_tokens": 2360,
+      "completion_tokens": 294,
+      "total_tokens": 2654,
+      "estimated_cost": 9.943199999999999e-05,
+      "finish_reason": "stop",
+      "elapsed_seconds": 6.7777755839633755
+    },
+    {
+      "case_id": "anonymous-case-08",
+      "variant": "decisions_only",
+      "phase": "quality",
+      "repeat": 2,
+      "request_id": "b8e2b12272c148e19909bf43fa86cf9f",
+      "request_sha256": "b0c07e4a47aef2869a56ab989db78373f859a5f7395c45680f191caf5bcef353",
+      "prompt_chars": 5788,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:20:06.603680+00:00",
+      "status": "completed",
+      "prompt_tokens": 2350,
+      "completion_tokens": 296,
+      "total_tokens": 2646,
+      "estimated_cost": 0.00026478,
+      "finish_reason": "stop",
+      "elapsed_seconds": 10.309198874980211
+    },
+    {
+      "case_id": "anonymous-case-08",
+      "variant": "filtered_interactions",
+      "phase": "quality",
+      "repeat": 1,
+      "request_id": "4ab9d3e10c884d988bdfa2cec07943a0",
+      "request_sha256": "4f15e98fdd2f9280b7bc149ad94e88c9e6960399bb53b6343fa6aa7700bc8690",
+      "prompt_chars": 5486,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:20:44.277268+00:00",
+      "status": "completed",
+      "prompt_tokens": 2154,
+      "completion_tokens": 297,
+      "total_tokens": 2451,
+      "estimated_cost": 0.00015516,
+      "finish_reason": "stop",
+      "elapsed_seconds": 7.668992999999318
+    },
+    {
+      "case_id": "anonymous-case-08",
+      "variant": "decisions_only",
+      "phase": "quality",
+      "repeat": 1,
+      "request_id": "49cbaf30992041da8a30d80eb7f42130",
+      "request_sha256": "b0c07e4a47aef2869a56ab989db78373f859a5f7395c45680f191caf5bcef353",
+      "prompt_chars": 5788,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:20:52.338679+00:00",
+      "status": "completed",
+      "prompt_tokens": 2350,
+      "completion_tokens": 323,
+      "total_tokens": 2673,
+      "estimated_cost": 0.000103752,
+      "finish_reason": "stop",
+      "elapsed_seconds": 9.55726033297833
+    },
+    {
+      "case_id": "anonymous-case-08",
+      "variant": "filtered_interactions",
+      "phase": "quality",
+      "repeat": 2,
+      "request_id": "0970588f4ab1419c85a2c84a080197b4",
+      "request_sha256": "4f15e98fdd2f9280b7bc149ad94e88c9e6960399bb53b6343fa6aa7700bc8690",
+      "prompt_chars": 5486,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:21:01.949471+00:00",
+      "status": "completed",
+      "prompt_tokens": 2154,
+      "completion_tokens": 295,
+      "total_tokens": 2449,
+      "estimated_cost": 9.950400000000001e-05,
+      "finish_reason": "stop",
+      "elapsed_seconds": 10.890475749969482
+    }
+  ]
+}

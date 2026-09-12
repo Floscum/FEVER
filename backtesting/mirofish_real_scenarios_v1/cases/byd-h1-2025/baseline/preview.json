@@ -1,0 +1,120 @@
+{
+  "actor_selection": {
+    "mode": "auto",
+    "recommended_count": 8,
+    "applied_limit": 8,
+    "detected_stakeholder_type_count": 0,
+    "configured_count": 8,
+    "matched_event_profiles": [
+      {
+        "id": "earnings_guidance",
+        "matched_patterns": [
+          "净利润"
+        ],
+        "recommended_count": 6
+      },
+      {
+        "id": "rate_policy",
+        "matched_patterns": [
+          "利率"
+        ],
+        "recommended_count": 8
+      }
+    ],
+    "selection_strategy": "literal_mentions_plus_event_structure_v2",
+    "rationale": "从证据与研究问题中识别出 0 类显式利益相关方，并命中 2 类事件结构，按 4/6/8/10 分档建议最多 8 个核心参与方"
+  },
+  "actors": [
+    {
+      "id": "actor_issuer",
+      "label": "事件主体",
+      "kind": "issuer",
+      "selection_reason": "事件研究主体：始终纳入推演",
+      "focus": "维持经营与融资能力，控制事件对客户和业务的影响",
+      "constraints": [
+        "只能使用分析截止时间前可观察的信息",
+        "行动受现金、执行能力和已披露承诺约束，不假定有无限资源"
+      ]
+    },
+    {
+      "id": "actor_institutions",
+      "label": "机构投资者",
+      "kind": "institutional_investor",
+      "selection_reason": "事件结构 rate_policy 命中：利率",
+      "focus": "权衡风险敞口、流动性和资本配置",
+      "constraints": [
+        "只能使用分析截止时间前可观察的信息",
+        "受投资授权和流动性约束，不假定能够无限增持或立即退出"
+      ]
+    },
+    {
+      "id": "actor_brokers",
+      "label": "券商与中介机构",
+      "kind": "broker",
+      "selection_reason": "事件结构 rate_policy 命中：利率",
+      "focus": "评估融资、交易与中介服务的连续性",
+      "constraints": [
+        "只能使用分析截止时间前可观察的信息",
+        "受授信、资本和合同责任约束，不预设已有未披露融资承诺"
+      ]
+    },
+    {
+      "id": "actor_analysts",
+      "label": "分析师",
+      "kind": "analyst",
+      "selection_reason": "事件结构 rate_policy 命中：利率",
+      "focus": "比较事实与原有判断，明确需要更新的假设",
+      "constraints": [
+        "只能使用分析截止时间前可观察的信息",
+        "区分已知事实与估计，不将研判当成公司承诺"
+      ]
+    },
+    {
+      "id": "actor_government",
+      "label": "政府与司法机构",
+      "kind": "government",
+      "selection_reason": "事件结构 rate_policy 命中：利率",
+      "focus": "权衡公共利益、制度目标和政策执行效果",
+      "constraints": [
+        "只能使用分析截止时间前可观察的信息",
+        "遵守司法或政策程序，不代替其他机构作出决定"
+      ]
+    },
+    {
+      "id": "actor_regulator",
+      "label": "监管机构",
+      "kind": "regulator",
+      "selection_reason": "事件结构 rate_policy 命中：利率",
+      "focus": "核实风险并评估调查、审批或补救措施",
+      "constraints": [
+        "只能使用分析截止时间前可观察的信息",
+        "只能在自身权限和程序内行动，不预设审批结果或时间表"
+      ]
+    },
+    {
+      "id": "actor_media",
+      "label": "财经媒体",
+      "kind": "media",
+      "selection_reason": "事件结构 rate_policy 命中：利率",
+      "focus": "核实和传播对事件判断有用的新信息",
+      "constraints": [
+        "只能使用分析截止时间前可观察的信息",
+        "区分事实、消息与推测，不凭空增加独家信息"
+      ]
+    },
+    {
+      "id": "actor_exchange",
+      "label": "交易所",
+      "kind": "exchange",
+      "selection_reason": "事件结构 earnings_guidance 命中：净利润",
+      "focus": "维护信息披露和交易秩序",
+      "constraints": [
+        "只能使用分析截止时间前可观察的信息",
+        "依据已知规则采取措施，不替代公司经营或监管审批"
+      ]
+    }
+  ],
+  "evidence_count": 5,
+  "notices": [],
+  "as_of": "2025-08-30T23:59:59+08:00"
+}

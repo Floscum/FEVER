@@ -1,0 +1,393 @@
+[
+  {
+    "request_id": "d2952b3320344319ba64e02682095445",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "role-fix",
+    "http_status": 200,
+    "elapsed_seconds": 2.539955124957487,
+    "usage": {
+      "prompt_tokens": 3271,
+      "total_tokens": 3404,
+      "completion_tokens": 133,
+      "estimated_cost": 0.000207738,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0035353800000000003,
+    "charged_budget_usd": 0.00047749500000000004
+  },
+  {
+    "request_id": "e31f74aa524440f389b6229073c6cf66",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "role-fix",
+    "http_status": 200,
+    "elapsed_seconds": 3.399462249944918,
+    "usage": {
+      "prompt_tokens": 3263,
+      "total_tokens": 3468,
+      "completion_tokens": 205,
+      "estimated_cost": 0.00021997800000000001,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00352971,
+    "charged_budget_usd": 0.0004958550000000001
+  },
+  {
+    "request_id": "e45826307b884dafa0a33bbb4c379eb8",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "role-fix",
+    "http_status": 200,
+    "elapsed_seconds": 4.735476291039959,
+    "usage": {
+      "prompt_tokens": 3267,
+      "total_tokens": 3486,
+      "completion_tokens": 219,
+      "estimated_cost": 0.000222858,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00353403,
+    "charged_budget_usd": 0.0005001750000000001
+  },
+  {
+    "request_id": "8554735064c4422e8a7e4ec8b82604cb",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "role-fix",
+    "http_status": 200,
+    "elapsed_seconds": 5.4463840840617195,
+    "usage": {
+      "prompt_tokens": 3272,
+      "total_tokens": 3422,
+      "completion_tokens": 150,
+      "estimated_cost": 0.00032148,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00353646,
+    "charged_budget_usd": 0.00048222
+  },
+  {
+    "request_id": "3828b6468ca3475588f9e5ec864c3612",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "role-fix",
+    "http_status": 200,
+    "elapsed_seconds": 6.470498541952111,
+    "usage": {
+      "prompt_tokens": 3271,
+      "total_tokens": 3560,
+      "completion_tokens": 289,
+      "estimated_cost": 0.00034640999999999996,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.003533895,
+    "charged_budget_usd": 0.000519615
+  },
+  {
+    "request_id": "672d05360bf941adacf83c2c701e4aaa",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "role-fix",
+    "http_status": 200,
+    "elapsed_seconds": 6.717183875036426,
+    "usage": {
+      "prompt_tokens": 3265,
+      "total_tokens": 3591,
+      "completion_tokens": 326,
+      "estimated_cost": 0.00024193800000000003,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.003533895,
+    "charged_budget_usd": 0.0005287950000000001
+  },
+  {
+    "request_id": "be59f71d11c740f7a69be4c0e47c966d",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "role-fix",
+    "http_status": 200,
+    "elapsed_seconds": 7.104273709002882,
+    "usage": {
+      "prompt_tokens": 5766,
+      "total_tokens": 5999,
+      "completion_tokens": 233,
+      "estimated_cost": 0.000339696,
+      "prompt_tokens_details": {
+        "cached_tokens": 3072,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004447035,
+    "charged_budget_usd": 0.00084132
+  },
+  {
+    "request_id": "bb48064f58ba47839e2762b823063fc6",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "role-fix",
+    "http_status": 200,
+    "elapsed_seconds": 7.109871875029057,
+    "usage": {
+      "prompt_tokens": 5757,
+      "total_tokens": 6022,
+      "completion_tokens": 265,
+      "estimated_cost": 0.000344646,
+      "prompt_tokens_details": {
+        "cached_tokens": 3072,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00445419,
+    "charged_budget_usd": 0.0008487450000000001
+  },
+  {
+    "request_id": "d9da8aa64698484cadbbb2f297edee80",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "role-fix",
+    "http_status": 200,
+    "elapsed_seconds": 12.019977499963716,
+    "usage": {
+      "prompt_tokens": 5820,
+      "total_tokens": 6053,
+      "completion_tokens": 233,
+      "estimated_cost": 0.00034455600000000004,
+      "prompt_tokens_details": {
+        "cached_tokens": 3072,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004490640000000001,
+    "charged_budget_usd": 0.00084861
+  },
+  {
+    "request_id": "94876cea038f41fca6dd8734ae977775",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "role-fix",
+    "http_status": 200,
+    "elapsed_seconds": 12.149346874910407,
+    "usage": {
+      "prompt_tokens": 5458,
+      "total_tokens": 5760,
+      "completion_tokens": 302,
+      "estimated_cost": 0.000324396,
+      "prompt_tokens_details": {
+        "cached_tokens": 3072,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004346325000000001,
+    "charged_budget_usd": 0.00081837
+  },
+  {
+    "request_id": "0a0cdd4a88c24ca7b8d1fe5ab263aad0",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "role-fix",
+    "http_status": 200,
+    "elapsed_seconds": 14.6816708749393,
+    "usage": {
+      "prompt_tokens": 5533,
+      "total_tokens": 5761,
+      "completion_tokens": 228,
+      "estimated_cost": 0.000428418,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00439155,
+    "charged_budget_usd": 0.0008085150000000001
+  },
+  {
+    "request_id": "7d99ddaba17448aaaa56eb36e913d891",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "role-fix",
+    "http_status": 200,
+    "elapsed_seconds": 17.849311499972828,
+    "usage": {
+      "prompt_tokens": 5598,
+      "total_tokens": 5884,
+      "completion_tokens": 286,
+      "estimated_cost": 0.00033411599999999997,
+      "prompt_tokens_details": {
+        "cached_tokens": 3072,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004409235000000001,
+    "charged_budget_usd": 0.00083295
+  },
+  {
+    "request_id": "2de424d2936a40dd83c079ce56939271",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "role-fix",
+    "http_status": 200,
+    "elapsed_seconds": 6.647799499914981,
+    "usage": {
+      "prompt_tokens": 5560,
+      "total_tokens": 5871,
+      "completion_tokens": 311,
+      "estimated_cost": 0.00055638,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0043973549999999995,
+    "charged_budget_usd": 0.0008345700000000001
+  },
+  {
+    "request_id": "7d7fb9159d4947208d1c44c36e7ef375",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "role-fix",
+    "http_status": 200,
+    "elapsed_seconds": 6.7481980829034,
+    "usage": {
+      "prompt_tokens": 5268,
+      "total_tokens": 5556,
+      "completion_tokens": 288,
+      "estimated_cost": 0.00052596,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004300965,
+    "charged_budget_usd": 0.00078894
+  },
+  {
+    "request_id": "7ea0037798c74723931749e03669b5aa",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "role-fix",
+    "http_status": 200,
+    "elapsed_seconds": 6.812557416036725,
+    "usage": {
+      "prompt_tokens": 5406,
+      "total_tokens": 5735,
+      "completion_tokens": 329,
+      "estimated_cost": 0.00054576,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00437184,
+    "charged_budget_usd": 0.0008186400000000001
+  },
+  {
+    "request_id": "77ab074a014a402eaf54e9835f90a337",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "role-fix",
+    "http_status": 200,
+    "elapsed_seconds": 9.207422874984331,
+    "usage": {
+      "prompt_tokens": 5515,
+      "total_tokens": 5799,
+      "completion_tokens": 284,
+      "estimated_cost": 0.00054747,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004373595,
+    "charged_budget_usd": 0.0008212050000000002
+  },
+  {
+    "request_id": "63c80a642a124e79ab667918ef71a72c",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "role-fix",
+    "http_status": 200,
+    "elapsed_seconds": 10.950718041043729,
+    "usage": {
+      "prompt_tokens": 5278,
+      "total_tokens": 5560,
+      "completion_tokens": 282,
+      "estimated_cost": 0.00052578,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00431001,
+    "charged_budget_usd": 0.0007886700000000001
+  },
+  {
+    "request_id": "0f8718a41283425b83874af85df2b1bf",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "role-fix",
+    "http_status": 200,
+    "elapsed_seconds": 11.095625124988146,
+    "usage": {
+      "prompt_tokens": 5509,
+      "total_tokens": 5844,
+      "completion_tokens": 335,
+      "estimated_cost": 0.00055611,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004371435000000001,
+    "charged_budget_usd": 0.0008341650000000001
+  },
+  {
+    "request_id": "ac7ffe1dda924809b6be49cd06f13bce",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "role-fix",
+    "http_status": 502,
+    "elapsed_seconds": 30.00459954200778,
+    "usage": {},
+    "usage_known": false,
+    "reserved_usd": 0.00486405,
+    "charged_budget_usd": 0.00486405
+  },
+  {
+    "request_id": "f15806307f5344fcadbc6c85e137a543",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "role-fix",
+    "http_status": 200,
+    "elapsed_seconds": 46.3651570410002,
+    "usage": {
+      "prompt_tokens": 5081,
+      "total_tokens": 6298,
+      "completion_tokens": 1217,
+      "estimated_cost": 0.000657918,
+      "prompt_tokens_details": {
+        "cached_tokens": 256,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00486405,
+    "charged_budget_usd": 0.001014525
+  }
+]

@@ -1,0 +1,273 @@
+{
+  "case_id": "byd-h1-2025",
+  "variant": "v9",
+  "cohort": "public_pilot",
+  "artifact": {
+    "schema_version": "0.1.0",
+    "case_id": "real-byd-h1-2025",
+    "spec_sha256": "113b2d9c974e69d3b475b66eef726a8dfb8c2f9d3f094931e5422a7344a0318b",
+    "simulation_id": "sim_direct_c5d0a549768d",
+    "generated_at": "2026-09-12T05:58:16.760638+00:00",
+    "model_id": "deepseek-ai/DeepSeek-V4-Flash",
+    "prompt_version": "scenario-branch-compiler-v9",
+    "status": "completed",
+    "branches": [
+      {
+        "id": "branch-1",
+        "label": "毛利率口径澄清与机构信心修复",
+        "summary": "若比亚迪在后续沟通中主动量化质量保证费用口径调整对毛利率的实际影响，且机构投资者认为剔除口径影响后毛利率降幅收窄至可接受范围，则机构可能从等待转为适度增持；反之若公司未提供量化说明或口径调整后毛利率仍显著低于预期，则机构可能进一步减仓。",
+        "actor_ids": [
+          "actor_institutions",
+          "actor_issuer"
+        ],
+        "trigger_conditions": [
+          "若比亚迪在公开沟通中明确披露质量保证费用转入营业成本对毛利率的具体影响数值，且剔除该影响后毛利率降幅小于1个百分点"
+        ],
+        "actions": [
+          {
+            "actor_id": "actor_institutions",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_institutions-r2"
+          },
+          {
+            "actor_id": "actor_issuer",
+            "action_type": "COMMUNICATE",
+            "decision_ref": "decision-actor_issuer-r2"
+          }
+        ],
+        "consequences": [
+          "机构投资者可能将比亚迪评级从观望上调至增持，推动股价短期上涨",
+          "券商研报可能集中发布正面解读，强化市场信心"
+        ],
+        "invalidation_conditions": [
+          "若比亚迪未在公开沟通中提供口径调整的量化影响，或剔除后毛利率降幅仍超过1.5个百分点"
+        ],
+        "evidence_refs": [
+          "F4"
+        ],
+        "simulation_refs": [
+          "decision-actor_institutions-r2",
+          "decision-actor_issuer-r2"
+        ],
+        "novelty_claim": "比亚迪主动量化口径调整影响，可能改变机构投资者对毛利率下降是结构性还是周期性的判断，从而影响其从等待转为增持的决策",
+        "confidence": 0.6,
+        "confidence_semantics": "branch_coherence_not_forecast_probability",
+        "assumptions": [
+          "尚未披露质量保证费用口径调整对毛利率的具体量化影响，本路径假设公司会在后续沟通中主动提供该数据",
+          "机构投资者对毛利率的敏感度阈值尚未明确，本路径假设1个百分点为关键分界线"
+        ],
+        "observations": [
+          {
+            "kind": "trigger",
+            "signal": "若比亚迪在公开沟通中明确披露质量保证费用转入营业成本对毛利率的具体影响数值，且剔除该影响后毛利率降幅小于1个百分点",
+            "source": "比亚迪后续公告或投资者交流纪要",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F4"
+            ]
+          },
+          {
+            "kind": "invalidation",
+            "signal": "若比亚迪未在公开沟通中提供口径调整的量化影响，或剔除后毛利率降幅仍超过1.5个百分点",
+            "source": "比亚迪后续公告或投资者交流纪要",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F4"
+            ]
+          }
+        ],
+        "starting_decisions": [
+          {
+            "actor_id": "actor_institutions",
+            "action_type": "WAIT",
+            "decision_status": "conditional",
+            "rationale": "基于截至2025-08-30的半年报数据，比亚迪核心指标呈现多空交织状态。营收+23.3%和现金流+124.5%是积极信号，但归母净利增速+13.79%显著低于营收增速，且汽车业务毛利率-1.99pp至20.35%反映出竞争加剧和成本压力。研发投入+53.05%占总营收8.3%，虽利于中长期竞争力但短期压制利润。境外收入+50.49%占比36.46%彰显海外扩张势头，但地缘政治与关税风险尚未充分兑现。当前处于财报消化期与行业竞争格局观察期，短期内缺乏足够确定性驱动仓位调整，倾向于维持现有敞口并等待下半年数据验证毛利率走势与海外拓展可持续性后再决策。主要不确定性在于：①价格战对毛利率的冲击是周期性还是结构性；②海外关税政策实际落地幅度；③研发高投入向产品竞争力的转化效率。",
+            "decision_ref": "decision-actor_institutions-r2"
+          },
+          {
+            "actor_id": "actor_issuer",
+            "action_type": "COMMUNICATE",
+            "decision_status": "intended",
+            "rationale": "2025年上半年业绩已披露，营收和现金流表现强劲，但市场对毛利率下降及利润率增速低于营收增速存在疑虑。作为事件主体，需要在下一财报窗口前主动与市场和机构投资者沟通，重点澄清：（1）毛利率口径调整的实际影响小于表面数字，剔除质量保证费用转营业成本因素后降幅收窄；（2）研发投入53%增长是战略性布局，为智能化和全球化夯实基础；（3）境外收入50.49%增长和36.46%占比创历史新高，全球化战略成效显著。通过主动沟通稳定投资者预期，控制毛利率话题对股价和融资能力的潜在负面影响，是维持经营与融资能力的关键一步。主要不确定性在于行业价格战是否持续加剧以及地缘贸易政策变化对境外业务的影响。",
+            "decision_ref": "decision-actor_issuer-r2"
+          }
+        ]
+      },
+      {
+        "id": "branch-2",
+        "label": "境外收入增长与地缘风险对冲",
+        "summary": "若比亚迪在后续沟通中披露境外产能布局进展或关税对冲措施，且分析师认为境外毛利率19.82%可持续，则分析师可能上调盈利预测；反之若境外业务面临关税落地或地缘风险升级，则分析师可能下调境外收入增长预期。",
+        "actor_ids": [
+          "actor_analysts",
+          "actor_issuer"
+        ],
+        "trigger_conditions": [
+          "若比亚迪公开披露海外工厂投产进度或与当地政府达成关税豁免安排，且境外毛利率维持19%以上"
+        ],
+        "actions": [
+          {
+            "actor_id": "actor_analysts",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_analysts-r2"
+          },
+          {
+            "actor_id": "actor_issuer",
+            "action_type": "COMMUNICATE",
+            "decision_ref": "decision-actor_issuer-r2"
+          }
+        ],
+        "consequences": [
+          "分析师可能上调比亚迪2025年全年盈利预测，目标价上调5%-10%",
+          "券商可能发布专题报告强调全球化战略价值，吸引更多海外资金关注"
+        ],
+        "invalidation_conditions": [
+          "若主要市场（如欧盟、美国）宣布对比亚迪电动汽车加征关税，或境外毛利率跌破18%"
+        ],
+        "evidence_refs": [
+          "F5"
+        ],
+        "simulation_refs": [
+          "decision-actor_analysts-r2",
+          "decision-actor_issuer-r2"
+        ],
+        "novelty_claim": "比亚迪境外收入占比创历史新高，分析师对境外业务可持续性的判断将直接影响其盈利预测调整，而公司是否披露产能和关税对冲措施是关键变量",
+        "confidence": 0.55,
+        "confidence_semantics": "branch_coherence_not_forecast_probability",
+        "assumptions": [
+          "尚未披露海外产能具体投产时间表和关税对冲措施，本路径假设公司会在后续沟通中提供相关进展",
+          "境外毛利率19.82%的可持续性尚未验证，本路径假设分析师以19%为关键阈值"
+        ],
+        "observations": [
+          {
+            "kind": "trigger",
+            "signal": "若比亚迪公开披露海外工厂投产进度或与当地政府达成关税豁免安排，且境外毛利率维持19%以上",
+            "source": "比亚迪后续公告或投资者交流纪要",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F5"
+            ]
+          },
+          {
+            "kind": "invalidation",
+            "signal": "若主要市场（如欧盟、美国）宣布对比亚迪电动汽车加征关税，或境外毛利率跌破18%",
+            "source": "主要经济体贸易政策公告或比亚迪后续财报",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F5"
+            ]
+          }
+        ],
+        "starting_decisions": [
+          {
+            "actor_id": "actor_analysts",
+            "action_type": "WAIT",
+            "decision_status": "conditional",
+            "rationale": "截至2025-08-30，比亚迪H1数据已完整披露。收入增长23.3%，但归母净利润仅增13.79%，利润增速低于收入，且汽车业务毛利率下降1.99pct至20.35%，显示价格竞争对盈利端形成压力。但经营性现金流大增124.52%至318亿元，研发投入增长53%至308.8亿元，以及境外收入占比升至36.46%且增速50.49%，表明公司正以现金流质量改善和海外扩张对冲国内价格战影响。需要等待下半年数据来验证：1）毛利率是否因规模效应边际修复；2）海外增量能否持续抵消国内利润率压力；3）研发高投入向技术转化效率。当前时点不急于调整判断，待下一个季度数据验证后再做出更确定的动作。",
+            "decision_ref": "decision-actor_analysts-r2"
+          },
+          {
+            "actor_id": "actor_issuer",
+            "action_type": "COMMUNICATE",
+            "decision_status": "intended",
+            "rationale": "2025年上半年业绩已披露，营收和现金流表现强劲，但市场对毛利率下降及利润率增速低于营收增速存在疑虑。作为事件主体，需要在下一财报窗口前主动与市场和机构投资者沟通，重点澄清：（1）毛利率口径调整的实际影响小于表面数字，剔除质量保证费用转营业成本因素后降幅收窄；（2）研发投入53%增长是战略性布局，为智能化和全球化夯实基础；（3）境外收入50.49%增长和36.46%占比创历史新高，全球化战略成效显著。通过主动沟通稳定投资者预期，控制毛利率话题对股价和融资能力的潜在负面影响，是维持经营与融资能力的关键一步。主要不确定性在于行业价格战是否持续加剧以及地缘贸易政策变化对境外业务的影响。",
+            "decision_ref": "decision-actor_issuer-r2"
+          }
+        ]
+      },
+      {
+        "id": "branch-3",
+        "label": "研发投入转化效率与券商评级分歧",
+        "summary": "若比亚迪在后续沟通中披露研发投入的具体转化成果（如新车型、智驾系统量产时间表），且券商认为研发投入占营收8.3%的强度可带来中期竞争优势，则券商可能维持或上调评级；反之若研发投入未见明确产出或市场认为投入效率低于同行，则券商可能下调评级。",
+        "actor_ids": [
+          "actor_brokers",
+          "actor_issuer"
+        ],
+        "trigger_conditions": [
+          "若比亚迪公开披露智能驾驶系统或固态电池等研发成果的量产时间表，且研发投入占营收比例维持8%以上"
+        ],
+        "actions": [
+          {
+            "actor_id": "actor_brokers",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_brokers-r2"
+          },
+          {
+            "actor_id": "actor_issuer",
+            "action_type": "COMMUNICATE",
+            "decision_ref": "decision-actor_issuer-r2"
+          }
+        ],
+        "consequences": [
+          "券商可能发布正面研报强调技术护城河，推动股价上涨",
+          "若研发投入效率受质疑，可能引发市场对利润率的进一步担忧，导致股价承压"
+        ],
+        "invalidation_conditions": [
+          "若比亚迪未披露研发成果转化进展，或市场出现研发投入效率低于同行的负面研报"
+        ],
+        "evidence_refs": [
+          "F3"
+        ],
+        "simulation_refs": [
+          "decision-actor_brokers-r2",
+          "decision-actor_issuer-r2"
+        ],
+        "novelty_claim": "比亚迪研发投入强度是净利润的两倍，券商对投入转化效率的判断将直接影响其评级决策，而公司是否披露量产时间表是消除市场疑虑的关键",
+        "confidence": 0.5,
+        "confidence_semantics": "branch_coherence_not_forecast_probability",
+        "assumptions": [
+          "尚未披露研发投入的具体转化成果，本路径假设公司会在后续沟通中提供相关进展",
+          "券商对研发投入效率的评估标准尚未明确，本路径假设以量产时间表为关键信号"
+        ],
+        "observations": [
+          {
+            "kind": "trigger",
+            "signal": "若比亚迪公开披露智能驾驶系统或固态电池等研发成果的量产时间表，且研发投入占营收比例维持8%以上",
+            "source": "比亚迪后续公告或投资者交流纪要",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F3"
+            ]
+          },
+          {
+            "kind": "invalidation",
+            "signal": "若比亚迪未披露研发成果转化进展，或市场出现研发投入效率低于同行的负面研报",
+            "source": "比亚迪后续公告或券商研报",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F3"
+            ]
+          }
+        ],
+        "starting_decisions": [
+          {
+            "actor_id": "actor_brokers",
+            "action_type": "WAIT",
+            "decision_status": "conditional",
+            "rationale": "作为券商/中介机构，我评估比亚迪2025H1基本面。营收、经营现金流和境外收入增长强劲，但净利润增速低于营收增速且汽车业务毛利率下降1.99个百分点，显示价格战和研发投入对利润端形成挤压。研发投入同比+53.05%至308.8亿元虽表明技术投入积极但短期侵蚀利润。当前信息不足以确定毛利率下行是结构性还是周期性的，境外扩张虽好但地缘政治风险存不确定性。需等待下半年数据观察规模效应对毛利率的修复效果，以及境外收入增长能否持续转化利润。因此选择保持观察，不急于调整融资或中介服务安排。",
+            "decision_ref": "decision-actor_brokers-r2"
+          },
+          {
+            "actor_id": "actor_issuer",
+            "action_type": "COMMUNICATE",
+            "decision_status": "intended",
+            "rationale": "2025年上半年业绩已披露，营收和现金流表现强劲，但市场对毛利率下降及利润率增速低于营收增速存在疑虑。作为事件主体，需要在下一财报窗口前主动与市场和机构投资者沟通，重点澄清：（1）毛利率口径调整的实际影响小于表面数字，剔除质量保证费用转营业成本因素后降幅收窄；（2）研发投入53%增长是战略性布局，为智能化和全球化夯实基础；（3）境外收入50.49%增长和36.46%占比创历史新高，全球化战略成效显著。通过主动沟通稳定投资者预期，控制毛利率话题对股价和融资能力的潜在负面影响，是维持经营与融资能力的关键一步。主要不确定性在于行业价格战是否持续加剧以及地缘贸易政策变化对境外业务的影响。",
+            "decision_ref": "decision-actor_issuer-r2"
+          }
+        ]
+      }
+    ],
+    "warnings": [
+      "branch-1: bound deterministic actor slot to unique financial decisions",
+      "branch-2: bound deterministic actor slot to unique financial decisions",
+      "branch-3: bound deterministic actor slot to unique financial decisions",
+      "Branches are simulated hypotheses, not observed evidence.",
+      "Branch confidence expresses coherence, not occurrence probability.",
+      "未强行纳入情景的参与方：交易所、竞争者。角色有决策不代表存在有用的传导路径。"
+    ]
+  },
+  "elapsed_seconds": 20.30502600001637,
+  "attempt_count": 1,
+  "request_ids": [
+    "e5aee2ef525348e29eaf0fd366e10650"
+  ]
+}

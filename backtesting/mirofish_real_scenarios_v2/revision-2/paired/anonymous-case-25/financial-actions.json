@@ -1,0 +1,171 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_airline_activist_campaign_025",
+  "spec_sha256": "7c25e313568c41d908dae7d5f33f23f733357218618db9f1ad194d629836c9ec",
+  "simulation_id": "sim_4bd47e8cad99",
+  "generated_at": "2026-08-05T03:52:24.943490+00:00",
+  "status": "completed",
+  "decisions": [
+    {
+      "id": "decision-actor_issuer-r3",
+      "round": 3,
+      "actor_id": "actor_issuer",
+      "action_type": "COMMUNICATE",
+      "decision_status": "intended",
+      "direction": "maintain",
+      "intensity": 0.6,
+      "instrument_refs": [
+        "ASSET_025"
+      ],
+      "rationale": "截至D0时点，虽然激进投资者持有约11%经济敞口并提出改革要求，但尚无正式董事提名或管理层变动安排。公司在F3中已表态支持现任CEO及转型计划，同时表示愿意沟通。在模拟第3轮中，我已通过公开发言重申了支持现状的立场，并回应了机构股东的关切。考虑到D0信息仍不完整且其他各方可能采取策略行动，未来一个决策周期内，最可能的主要动作是继续通过公开渠道进行沟通，以稳定市场预期、维护公司立场，同时为后续基于新增事实调整行动保留空间。这一沟通策略既维护了核心利益（避免在信息不充分时做出重大让步），也符合根据新增证据逐步调整的审慎原则。",
+      "constraint_refs": [
+        "actor_issuer:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:0",
+      "visibility": "public",
+      "confidence": 0.8,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_activist-r3",
+      "round": 3,
+      "actor_id": "actor_activist",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [
+        "ASSET_025"
+      ],
+      "rationale": "截至当前，公司仅在F3中表达了沟通意愿但明确支持现任CEO及既定计划，尚未在D0前提出正式董事提名、和解协议或管理层变更安排(F4)。作为持有约11%经济敞口的激进投资者，我已通过F1公开批评并透过F2提出明确改革要求。当前最优策略是等待公司下一次正式回应——观察其是否愿意在关键治理议题（董事会构成、领导层调整、业务模式评估）上做出实质性让步。过早升级对抗（如公开提名董事）在信息不完整(F1约束)的情况下可能削弱议价地位；而不采取行动则给予对方时间消化压力。主要不确定性在于公司可能继续拖延或尝试分化股东支持。",
+      "constraint_refs": [
+        "actor_activist:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:1",
+      "visibility": "private",
+      "confidence": 0.8,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_board-r3",
+      "round": 3,
+      "actor_id": "actor_board",
+      "action_type": "WAIT",
+      "decision_status": "intended",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [
+        "ASSET_025"
+      ],
+      "rationale": "截至D0尚无正式董事提名或管理层离任安排，董事会需要更多时间收集信息并评估激进投资者诉求的实质影响。公司已公开表达愿意沟通但支持现任管理层，此时过早采取实质性动作可能削弱董事会谈判地位。等待下一个正式代理周期或投资者提交正式提名后，再根据新增事实做出调整，更符合董事会维护核心利益的制度约束。",
+      "constraint_refs": [
+        "actor_board:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:2",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_employees-r3",
+      "round": 3,
+      "actor_id": "actor_employees",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "maintain",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "当前信息仍不完整（D0无正式董事提名、和解或管理层变动），激进投资者的公开批评和要求尚未转化为具体治理行动，公司管理层明确支持现任CEO和既定转型计划。作为员工与工会，核心利益在于维护就业稳定和既有谈判地位，在对方策略尚未明朗时过早介入可能暴露自身弱势。因此选择等待，观察投资者后续实质性动作（如正式提名或罢免提案）后再调整立场。",
+      "constraint_refs": [
+        "actor_employees:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:3",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_customers-r3",
+      "round": 3,
+      "actor_id": "actor_customers",
+      "action_type": "WAIT",
+      "decision_status": "no_action",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "作为航空旅客，我的核心利益是航班服务质量和运营稳定性。目前F4表明尚无正式董事提名或管理层变动安排，公司表态支持现任CEO及既定转型计划，而激进投资者的要求尚未进入实质性阶段。在信息不完整（约束提示D0信息不完整）且其他参与方可能采取策略性行动的情况下，我缺乏足够证据判断哪一方的主张更有利于旅客利益。因此选择等待，观察后续是否有正式董事提名、和解或管理层变动等实质进展后再决定公开行动，避免过早表态带来的策略风险。",
+      "constraint_refs": [
+        "actor_customers:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:4",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_institutions-r3",
+      "round": 3,
+      "actor_id": "actor_institutions",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": 0.6,
+      "instrument_refs": [],
+      "rationale": "截至当前时点，F1~F4均表明事态仍处于早期阶段：激进投资者仅表达了公开批评和诉求（F1、F2），公司虽表态支持现任CEO及既定转型计划但愿意沟通（F3），而D0尚未产生任何正式董事提名、和解协议或管理层离任安排（F4）。作为其他机构股东，我的核心利益在于维护长期价值，目前公开信息不足以判断激进投资者能否成功推动实质性变革，也不确定公司管理层会否在后续对话中做出让步。过早公开站队可能丧失策略灵活性，而立即调整持仓可能错失后续信息驱动价值重估的机会。因此选择继续观察，等待正式董事提名或和解安排等新增事实出现后再采取公开行动或调整配置。",
+      "constraint_refs": [
+        "actor_institutions:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:5",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    }
+  ],
+  "failures": [],
+  "warnings": [
+    "Decision confidence expresses action clarity, not forecast probability.",
+    "Interview decisions are simulated statements, not observed evidence."
+  ]
+}

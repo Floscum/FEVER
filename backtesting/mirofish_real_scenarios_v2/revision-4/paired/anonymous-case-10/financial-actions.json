@@ -1,0 +1,217 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_sovereign_deadline_010",
+  "spec_sha256": "e4685457dc59ed6f14b4862bb806cbd02f4b9db40360a899c857a3cb7192772e",
+  "simulation_id": "sim_57ff6ba18d18",
+  "generated_at": "2026-07-31T10:17:31.781848+00:00",
+  "status": "completed",
+  "decisions": [
+    {
+      "id": "decision-actor_executive-r3",
+      "round": 3,
+      "actor_id": "actor_executive",
+      "action_type": "WAIT",
+      "decision_status": "intended",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "当前谈判仍在进行（F4），尽管债务上限已触及且非常规措施已启动（F1），财政部预计约十日后可能耗尽资金（F2），且短期融资成本已上升（F3）。但立即宣布强硬措施或改变政策可能破坏谈判进程，反而不利于取得分裂立法机关的足够票数以实现可签署方案。因此选择继续等待，在高层谈判中保持接触，同时密切关注现金流变化。主要不确定性在于反对党谈判立场是否能在短时间内松动，以及耗尽时点是否因现金流变化而推迟。",
+      "constraint_refs": [
+        "actor_executive:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:0",
+      "visibility": "private",
+      "confidence": 0.8,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_lower_chamber-r3",
+      "round": 3,
+      "actor_id": "actor_lower_chamber",
+      "action_type": "COMMUNICATE",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": 0.7,
+      "instrument_refs": [
+        "ASSET_J"
+      ],
+      "rationale": "在F2的十日窗口和F3的融资成本上升压力下，需要加快内部协调以统一温和派与强硬派立场。计划通过党团内部沟通明确核心诉求——以临时性提高债务上限换取可验证的支出约束框架，同时对外释放有谈判诚意的信号，避免市场因僵局预期而进一步抛售短期国债导致ASSET_J收益率失控。主要不确定性在于强硬派要求的前置削减规模可能超出反对党和行政部门的接受底线。",
+      "constraint_refs": [
+        "actor_lower_chamber:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:1",
+      "visibility": "private",
+      "confidence": 0.8,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_upper_chamber-r3",
+      "round": 3,
+      "actor_id": "actor_upper_chamber",
+      "action_type": "COMMUNICATE",
+      "decision_status": "intended",
+      "direction": "maintain",
+      "intensity": 0.7,
+      "instrument_refs": [],
+      "rationale": "作为上院关键议员，当前核心任务是推动跨阵营协调，在约十日的窗口期内达成可同时通过两院并获行政首脑签署的方案。F4显示行政与反对党仍在谈判支出条件，而上院需要在此框架下争取温和派与强硬派的折中立场。选择COMMUNICATE是基于：第一，D0尚无法案通过，程序压力巨大（约束0）；第二，内部温和派与强硬派存在公开分歧，需要通过跨阵营沟通形成初步共识文本；第三，F3关于融资成本上升的信号要求我在公开场合传递紧迫感，同时避免直接市场干预。我将与两院协调委员会及反对党中间派进行私下磋商，探讨将债务上限提高与适度支出约束挂钩的框架草案，为下周末前形成可表决文本铺路。",
+      "constraint_refs": [
+        "actor_upper_chamber:constraint:0"
+      ],
+      "evidence_refs": [
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:2",
+      "visibility": "private",
+      "confidence": 0.8,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_fiscal_authority-r3",
+      "round": 3,
+      "actor_id": "actor_fiscal_authority",
+      "action_type": "WAIT",
+      "decision_status": "intended",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "法定债务上限已触及，非常规措施已启用，但立法谈判尚未达成法案。根据F2，最早可能在约十日后耗尽现金，但具体日期不确定。此时公开增加措辞可能加剧市场紧张，而无法通过借款缓解流动性。选择等待，既不改变当前融资操作节奏，也不额外施压市场，维持现有非常规措施运行，并密切观察立法进展和现金流数据。主要不确定性是谈判结果和实际现金流时点。",
+      "constraint_refs": [
+        "actor_fiscal_authority:constraint:0",
+        "actor_fiscal_authority:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:3",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_dealers-r3",
+      "round": 3,
+      "actor_id": "actor_dealers",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "在债务上限谈判未取得实质性进展、财政机关非常规措施仍在执行的背景下，短期限国债融资成本已上升，但具体耗尽日期仍具不确定性，且尚无法案通过。作为交易商和货币基金，当前最优策略是保持流动性、观望谈判走向，避免在市场高度敏感时期进行不必要的仓位调整。待有明确法案信号出现后再调整敞口，以控制赎回压力和支付风险。",
+      "constraint_refs": [
+        "actor_dealers:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:4",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_rating-r3",
+      "round": 3,
+      "actor_id": "actor_rating",
+      "action_type": "WAIT",
+      "decision_status": "intended",
+      "direction": "conditional",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "截至F2/F3/F4，财政机关已发出明确警告（最早约十日后可能无法履约），短期融资成本上升，但政治谈判仍在进行且D0尚无已通过法案。作为主权信用评级机构，当前不宜立即调整公开评级意见或发布正式风险更新，因为政治协议与实际付款时间均不确定——在耗尽日期到来前，谈判仍有达成可能，过度反应可能扰乱市场。同时，在耗尽窗口临近且无法案通过的情况下，贸然沟通可能超出可见事实基础。因此选择继续观察谈判进展，待政治协议或实际违约事件触发后再更新风险意见。",
+      "constraint_refs": [
+        "actor_rating:constraint:0"
+      ],
+      "evidence_refs": [
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:5",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_investors-r3",
+      "round": 3,
+      "actor_id": "actor_investors",
+      "action_type": "ALLOCATE",
+      "decision_status": "conditional",
+      "direction": "decrease",
+      "intensity": 0.35,
+      "instrument_refs": [
+        "ASSET_J"
+      ],
+      "rationale": "F2确认约十日为X-date窗口期，F3显示短期国债融资成本已明显上升，F4表明谈判尚无法案通过。作为全球机构投资者，首要目标是保护流动性与本金。因此选择将ASSET_J（一月期主权基准利率敞口）的配置小幅降低，转向更短久期的现金等价物。这是预览式调整而非大规模撤退——因为谈判结果仍有通过可能性，且缺乏闭门信息意味着不宜过度反应。强度设为0.35以体现谨慎防御而非恐慌离场。",
+      "constraint_refs": [
+        "actor_investors:constraint:0"
+      ],
+      "evidence_refs": [
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:6",
+      "visibility": "private",
+      "confidence": 0.7,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_media-r3",
+      "round": 3,
+      "actor_id": "actor_media",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": null,
+      "instrument_refs": [],
+      "rationale": "作为财经与政治媒体，当前核心任务是持续跟踪谈判进展和截止日，但截至D0尚无已通过的法案（F4），谈判仍处于策略性表态阶段（约束）。此时贸然发布结论性报道可能误判策略性信息。F1显示非常规措施已启动，F2给出约十日的耗尽窗口但存在不确定性，F3显示短期融资成本上升但尚未触发信用评级行动。三个信号均指向谈判进入关键期但结果未明。选择WAIT意味着在下一决策周期继续观察立法进程和回谈判进展，等待更明确的法案表决或投票信号后再决定是否发表深度分析或市场影响解读。不涉及金融工具操作，故instrument_refs为空，direction和intensity不适用。",
+      "constraint_refs": [
+        "actor_media:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:7",
+      "visibility": "public",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    }
+  ],
+  "failures": [],
+  "warnings": [
+    "Decision confidence expresses action clarity, not forecast probability.",
+    "Interview decisions are simulated statements, not observed evidence."
+  ]
+}

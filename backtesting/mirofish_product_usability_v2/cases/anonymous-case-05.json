@@ -1,0 +1,1188 @@
+{
+  "anonymous_case_id": "anonymous-case-05",
+  "configured_actor_count": 9,
+  "decision_actor_count": 9,
+  "fact_count": 4,
+  "fact_chars": 221,
+  "input": {
+    "case_id": "anonymous-case-05",
+    "as_of": "D0",
+    "question": "日期、名称、代码和绝对规模均已匿名化。只使用D0收盘后已公开的信息，推演存款人、融资方、监管者和同业机构如何响应银行的资产出售与资本补充。",
+    "horizon": {
+      "kind": "calendar_days",
+      "value": 35,
+      "end_at": "D0 + stated horizon"
+    },
+    "facts": [
+      {
+        "id": "F1",
+        "statement": "一家服务创新企业和投资机构的区域银行在D0收盘后宣布，已出售几乎全部可供出售证券，并确认约相当于拟融资额80%的一次性税后损失。"
+      },
+      {
+        "id": "F2",
+        "statement": "银行同时启动普通股和强制可转换优先股发行，并获得一家长期客户型投资者的认购承诺；计划融资总额约为确认损失的125%。"
+      },
+      {
+        "id": "F3",
+        "statement": "银行称客户现金消耗高于预期、存款低于预测，并计划将定期借款规模提高一倍；客户高度集中在风险投资支持的科技和生命科学企业。"
+      },
+      {
+        "id": "F4",
+        "statement": "D0区域银行指数基金收盘波动有限；资产出售、损失和融资计划均在D0收盘后公布。"
+      }
+    ],
+    "actors": [
+      {
+        "id": "actor_bank",
+        "label": "匿名区域银行",
+        "kind": "issuer",
+        "goals": [
+          "补充资本与流动性",
+          "稳定存款人信心",
+          "维持核心客户服务"
+        ],
+        "constraints": [
+          "证券出售已确认重大损失",
+          "融资尚未完成"
+        ]
+      },
+      {
+        "id": "actor_depositors",
+        "label": "企业存款人",
+        "kind": "customer",
+        "goals": [
+          "确保工资与运营资金可用",
+          "降低未保险余额风险"
+        ],
+        "constraints": [
+          "转移大额企业存款需要快速协调"
+        ]
+      },
+      {
+        "id": "actor_vc",
+        "label": "风险投资与私募机构",
+        "kind": "institutional_investor",
+        "goals": [
+          "保护被投企业现金",
+          "避免组合公司运营中断"
+        ],
+        "constraints": [
+          "对银行资产质量和即时流动性信息有限"
+        ]
+      },
+      {
+        "id": "actor_equity_investors",
+        "label": "银行股权投资者",
+        "kind": "institutional_investor",
+        "goals": [
+          "评估融资稀释与存款流失",
+          "控制银行板块敞口"
+        ],
+        "constraints": [
+          "融资定价和认购完成情况尚不确定"
+        ]
+      },
+      {
+        "id": "actor_regulators",
+        "label": "银行监管与存款保险机构",
+        "kind": "regulator",
+        "goals": [
+          "保护存款人",
+          "维持金融稳定",
+          "依法处置流动性失败机构"
+        ],
+        "constraints": [
+          "不能事前承诺超出法定范围的保护"
+        ]
+      },
+      {
+        "id": "actor_central_bank",
+        "label": "中央银行",
+        "kind": "government",
+        "goals": [
+          "维持银行体系流动性",
+          "限制系统性传染"
+        ],
+        "constraints": [
+          "工具使用需满足法律与抵押品要求"
+        ]
+      },
+      {
+        "id": "actor_peer_banks",
+        "label": "大型银行与同业机构",
+        "kind": "competitor",
+        "goals": [
+          "管理交易对手风险",
+          "承接合格存款与客户",
+          "维护自身流动性"
+        ],
+        "constraints": [
+          "不能保证问题银行的融资或收购完成"
+        ]
+      },
+      {
+        "id": "actor_retail",
+        "label": "个人投资者",
+        "kind": "retail_cohort",
+        "goals": [
+          "判断银行板块风险",
+          "控制恐慌交易损失"
+        ],
+        "constraints": [
+          "难以实时观察企业存款流"
+        ]
+      },
+      {
+        "id": "actor_media",
+        "label": "金融媒体与分析师",
+        "kind": "media",
+        "goals": [
+          "解释资产负债表与流动性风险",
+          "跟踪融资和监管响应"
+        ],
+        "constraints": [
+          "必须区分资本损失、流动性缺口和信用损失"
+        ]
+      }
+    ],
+    "financial_decisions": [
+      {
+        "id": "decision-actor_bank-r3",
+        "round": 3,
+        "actor_id": "actor_bank",
+        "action_type": "OPERATE",
+        "decision_status": "conditional",
+        "direction": "increase",
+        "intensity": 0.7,
+        "instrument_refs": [],
+        "rationale": "作为匿名区域银行，我的核心矛盾是：证券出售已确认重大损失（约束0），融资尚未完成（约束1），而存款人信心正在动摇——同业机构正在评估交易对手敞口，企业存款人建议客户降低未保险存款敞口。我必须立即采取操作：启动与长期客户型投资者的密切沟通，加速落实F2中已获认购承诺的融资安排；同时针对F3中提到的客户现金消耗高于预期、存款低于预测的情况，主动联系核心科技和生命科学企业客户，提供定制化流动性管理方案以稳定存款。此外，需开始执行F3中计划将定期借款规模提高一倍的安排，确保未来两周内流动性储备充裕。这些操作的核心是赶在存款外逃形成自我实现的螺旋之前，用实际金融动作而非口头安抚来重建市场信任。主要不确定性在于：(1)融资认购方是否会因市场负面情绪而推迟交割；(2)高度互联的科技/生命科学企业客户是否出现同步存款转移。",
+        "constraint_refs": [
+          "actor_bank:constraint:0",
+          "actor_bank:constraint:1"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.75,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_depositors-r3",
+        "round": 3,
+        "actor_id": "actor_depositors",
+        "action_type": "COMMUNICATE",
+        "decision_status": "intended",
+        "direction": "decrease",
+        "intensity": 0.7,
+        "instrument_refs": [],
+        "rationale": "作为企业存款人，首要目标是确保工资与运营资金可用并降低未保险余额风险。银行已确认相当于拟融资额80%的一次性税后损失（F1），且客户存款低于预测、现金消耗高于预期（F3），客户高度集中在风投支持的科技和生命科学企业。虽然银行计划融资（F2），但融资总额仅为损失的125%，资本缓冲不足。由于转移大额企业存款需要快速协调（约束），我需要立即与其他企业存款人进行沟通，评估共同行动方案，以便在D1开盘后能及时降低未保险存款敞口。",
+        "constraint_refs": [
+          "actor_depositors:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_vc-r3",
+        "round": 3,
+        "actor_id": "actor_vc",
+        "action_type": "ALLOCATE",
+        "decision_status": "conditional",
+        "direction": "decrease",
+        "intensity": 0.7,
+        "instrument_refs": [],
+        "rationale": "D0收盘后，该区域银行公告出售几乎全部可供出售证券并确认重大损失（F1），同时启动股权融资但计划融资总额仅为确认损失的125%（F2），资本缺口未完全填补。银行承认客户现金消耗高于预期、存款低于预测，且客户高度集中在风险投资支持的科技和生命科学企业（F3），这与我们的被投企业高度重叠。鉴于我们对银行资产质量和即时流动性信息有限（约束），最佳行动是主动保护被投企业现金：在下一决策周期内，将集中向组合公司发出存款分散建议，引导其降低在该行的未受保存款敞口，分散至多家大型银行以确保运营资金安全。该行动为条件性执行——取决于FDIC保险上限核查情况及是否有其他被投企业率先发起存款转移。",
+        "constraint_refs": [
+          "actor_vc:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_equity_investors-r3",
+        "round": 3,
+        "actor_id": "actor_equity_investors",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "maintain",
+        "intensity": 0.3,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "D0收盘后银行才公布资产出售损失和融资计划，区域银行指数基金E当日收盘波动有限，说明市场尚未对事件充分定价。融资由普通股和强制可转换优先股构成，且仅获得一家长期客户型投资者的认购承诺，定价和完成情况存在重大不确定性。存款流失和客户集中度高是结构性隐患，但损失规模和计划融资额的相对关系（融资额约为损失125%）显示资本缺口可能可控。需要等待下个交易日后市场的流动性数据、融资认购率以及同行信用利差变化才能做出决策，目前保持指数敞口不变并观察。",
+        "constraint_refs": [
+          "actor_equity_investors:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.75,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_regulators-r3",
+        "round": 3,
+        "actor_id": "actor_regulators",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "conditional",
+        "intensity": 0.4,
+        "instrument_refs": [],
+        "rationale": "该银行已公告重大损失和补充资本计划（F1、F2），融资规模覆盖损失的125%且获得基石投资者认购承诺，短期偿付能力尚存缓冲。但客户存款高度集中在风险投资支持的科技和生命科学企业（F3），存款流出压力未缓解，且定期借款将翻倍——这可能在流动性指标上形成交叉压力。F4显示外部市场尚未定价该信息。作为监管机构，我需等待D+1开盘后存款流出数据及融资实际完成进度，再决定是否启动早期干预或流动性支持。过早公开表态可能触发不必要的恐慌挤兑，且受限于不能事前承诺超出法定范围的保护。因此选择条件性等待，密切监控存款变动和同业传染信号后再做进一步行动。",
+        "constraint_refs": [
+          "actor_regulators:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.7,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_central_bank-r3",
+        "round": 3,
+        "actor_id": "actor_central_bank",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "该银行已启动资本补充计划且融资方案获得认购承诺，当前未出现流动性急剧恶化或跨机构传染的明确迹象。市场反应仅在收盘后有限波动，需等待D1交易时段的实际价格与流动性压力数据，以评估是否需要动用流动性工具。若后续观察到相似负债结构机构出现存款外逃或融资成本飙升，则启动紧急流动性支持。",
+        "constraint_refs": [
+          "actor_central_bank:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_peer_banks-r3",
+        "round": 3,
+        "actor_id": "actor_peer_banks",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": null,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "作为同业机构，当前时点该区域银行已公布亏损确认和融资计划，但融资尚未完成交割，区域银行指数基金波动有限（F4），表明市场尚未形成恐慌性定价。我的目标是管理交易对手风险和维护自身流动性，但当前缺乏足够信息判断该行融资能否成功完成（约束：不能保证问题银行的融资或收购完成）。需等待D+1开盘后观察以下信号再决策：（1）该行股价及信用违约互换价格变动；（2）客户存款外流情况数据；（3）融资认购的实际完成率。过早行动（如缩减同业额度）可能引发不必要的市场猜疑或流动性传染，反而加剧自身风险。因此选择有条件等待，保持观察姿态。",
+        "constraint_refs": [
+          "actor_peer_banks:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_retail-r3",
+        "round": 3,
+        "actor_id": "actor_retail",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "D0收盘后公布的F1-F4信息表明问题个案银行存在显著的科技客户集中度和存款流出压力，但区域银行指数基金当日波动有限，尚未形成板块性传染信号。作为个人投资者，我难以实时验证存款流是否扩散，也不容易区分个案与板块的系统性风险。当前最合理的行动是暂时不调仓，等待D1市场开盘后价格信号及该银行新股发行结果，再判断是否降低指数基金持仓。盲目提前减仓可能造成恐慌交易损失，违背控制损失的目标。",
+        "constraint_refs": [
+          "actor_retail:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_media-r3",
+        "round": 3,
+        "actor_id": "actor_media",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "D0收盘后公布的资产出售损失和融资计划已在当日市场收盘后发布，区域银行指数基金当日波动有限，表明市场尚未充分定价。我需要等待下一个交易日开盘后，观察市场对资本损失与融资结构的反应，特别是区分一次性税后损失（资本损失）与存款流出（流动性缺口）之间的传导关系，以及客户集中度带来的信用损失风险。在融资计划实际生效前，过早评论可能混淆资本损失与流动性缺口，因此选择观望。",
+        "constraint_refs": [
+          "actor_media:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      }
+    ],
+    "simulated_actions": [
+      {
+        "id": "trace-25",
+        "actor_id": "actor_peer_banks",
+        "action_type": "COMMUNICATE",
+        "summary": "作为同业机构，我们正在评估与该行的交易对手敞口。证券出售损失规模、融资仅覆盖损失的125%、存款集中于高风险科技/生命科学企业——这三个因素叠加表明该行流动性压力显著。我们将审慎检视同业拆借及衍生品交易对手额度。"
+      },
+      {
+        "id": "trace-26",
+        "actor_id": "actor_depositors",
+        "action_type": "COMMUNICATE",
+        "summary": "作为企业存款人，我们正在紧急评估本行存款风险。亏损确认规模相当于拟融资额的80%，而融资总额仅为损失的125%，这意味着资本缺口并未完全填补。考虑到客户集中在风投支持的科创企业，存款波动性可能进一步加剧。建议各企业客户重新评估未保险存款敞口。"
+      },
+      {
+        "id": "trace-33",
+        "actor_id": "actor_vc",
+        "action_type": "COMMUNICATE",
+        "summary": "作为被投企业的主要现金管理方，我们正在连夜评估该行的资产质量和流动性。关键观察：融资总额仅覆盖损失的125%，资本缺口仍存；客户存款高度集中在VC-backed科技/生命科学企业，波动性风险极大。我们将立即向组合公司发出建议：降低在该行的未受保存款敞口，分散存放运营资金。同时提醒各被投企业核查自身的FDIC保险覆盖上限。"
+      }
+    ],
+    "branch_slots": [
+      {
+        "slot_id": "slot-1",
+        "actor_ids": [
+          "actor_vc",
+          "actor_depositors"
+        ],
+        "relationship_kind": "advises_portfolio_companies",
+        "decision_refs": [
+          "decision-actor_vc-r3",
+          "decision-actor_depositors-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-2",
+        "actor_ids": [
+          "actor_bank",
+          "actor_media",
+          "actor_retail"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_bank-r3",
+          "decision-actor_media-r3",
+          "decision-actor_retail-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-3",
+        "actor_ids": [
+          "actor_regulators",
+          "actor_equity_investors"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_regulators-r3",
+          "decision-actor_equity_investors-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-4",
+        "actor_ids": [
+          "actor_central_bank",
+          "actor_peer_banks"
+        ],
+        "relationship_kind": "provides_system_liquidity",
+        "decision_refs": [
+          "decision-actor_central_bank-r3",
+          "decision-actor_peer_banks-r3"
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "v7": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "风险投资引导的存款外流",
+          "summary": "如果风险投资机构在D+1开盘前向被投企业发出降低在该行未保险存款敞口的建议，这些企业存款人会在D+1至D+3期间快速协调转移大额存款，迫使银行加速执行定期借款翻倍计划以补充流动性。",
+          "actor_ids": [
+            "actor_vc",
+            "actor_depositors"
+          ],
+          "trigger_conditions": [
+            "D+1开盘前，风险投资机构向组合公司发出降低在该行存款的建议（如trace-33所示）",
+            "D+1至D+2期间，至少一家被投企业存款人开始协调转移未保险存款至其他大型银行"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_vc",
+              "action_type": "ALLOCATE",
+              "decision_ref": "decision-actor_vc-r3"
+            },
+            {
+              "actor_id": "actor_depositors",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_depositors-r3"
+            }
+          ],
+          "consequences": [
+            "被投企业存款人加速转移存款，使该行总存款在D+3内下降超过5%",
+            "银行被迫在融资完成前提前执行定期借款翻倍计划，增加利息成本并压缩净息差",
+            "融资认购方因存款外流重新评估银行资产质量，可能导致融资条款变更或推迟交割"
+          ],
+          "invalidation_conditions": [
+            "D+1至D+3期间，该行企业存款余额保持稳定或下降不超过1%",
+            "风险投资机构未在D+1前后发布正式的存款分散建议"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_vc-r3",
+            "decision-actor_depositors-r3"
+          ],
+          "novelty_claim": "风险投资机构（actor_vc）的存款分散建议触发企业存款人（actor_depositors）协调转移，形成存款外流—借款成本上升—融资受阻的负反馈循环",
+          "confidence": 0.6,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-2",
+          "label": "媒体放大情绪与零售抛售",
+          "summary": "如果在D+1开盘后，金融媒体和分析师发布关于客户集中度和存款流失风险的深度分析，个人投资者会在当天恐慌性抛售区域银行指数基金，推动银行股价和板块ETF价格下跌超过市场预期，迫使银行管理层在开盘后紧急发布澄清声明并加速融资路演。",
+          "actor_ids": [
+            "actor_bank",
+            "actor_media",
+            "actor_retail"
+          ],
+          "trigger_conditions": [
+            "D+1开盘后，金融媒体发布关于该行客户集中在风投科技企业的风险分析（基于F3）",
+            "D+1交易时段前2小时内，区域银行指数基金交易量超过D0全日成交量的150%且价格下跌超过3%"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_bank",
+              "action_type": "OPERATE",
+              "decision_ref": "decision-actor_bank-r3"
+            },
+            {
+              "actor_id": "actor_media",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_media-r3"
+            },
+            {
+              "actor_id": "actor_retail",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_retail-r3"
+            }
+          ],
+          "consequences": [
+            "个人投资者在D+1当天净卖出区域银行指数基金，使该行股价相对公布前下跌5%以上",
+            "银行在D+1收盘前紧急发布应对声明，强调融资进展和存款稳定性",
+            "媒体关注度持续至D+2，迫使银行加速融资路演，但可能因负面情绪导致认购不足"
+          ],
+          "invalidation_conditions": [
+            "D+1收盘时，区域银行指数基金价格与D0收盘价差异不超过1%",
+            "金融媒体在D+1开盘后未发布关于该行客户集中度的专题报道"
+          ],
+          "evidence_refs": [
+            "F3",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_bank-r3",
+            "decision-actor_media-r3",
+            "decision-actor_retail-r3"
+          ],
+          "novelty_claim": "媒体（actor_media）的负面分析触发个人投资者（actor_retail）的恐慌性指数基金抛售，放大市场负面情绪并迫使银行管理层改变危机沟通节奏",
+          "confidence": 0.65,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-3",
+          "label": "监管警示与股权投资者重新评估",
+          "summary": "如果在D+1早盘发现存款外流加速迹象或同业信用利差扩大，监管机构会发布早期干预预警或启动非公开约谈，银行股权投资者随即重新评估融资稀释与存款流失风险，推迟或缩减认购规模，迫使银行压缩融资计划或寻求更昂贵的替代方案。",
+          "actor_ids": [
+            "actor_regulators",
+            "actor_equity_investors"
+          ],
+          "trigger_conditions": [
+            "D+1交易时段，该行信用违约互换利差或同业拆借利率较D0扩大超过30个基点",
+            "监管机构在D+1内发布关于该行流动性状况的早期干预声明或启动非公开会晤"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_regulators",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_regulators-r3"
+            },
+            {
+              "actor_id": "actor_equity_investors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_equity_investors-r3"
+            }
+          ],
+          "consequences": [
+            "股权投资者（actor_equity_investors）在D+2前宣布缩减认购规模或推迟投资决策",
+            "银行融资计划延期，被迫使用定期借款翻倍来弥补短期缺口，但定期借款成本上升",
+            "监管机构启动更深入的资产负债表检查，可能提出额外资本要求或限制分红"
+          ],
+          "invalidation_conditions": [
+            "D+1至D+2期间，该行注销或缩减的融资认购额不超过原定规模的10%",
+            "D+1交易结束时，该行信用利差较D0变动在10个基点以内"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_regulators-r3",
+            "decision-actor_equity_investors-r3"
+          ],
+          "novelty_claim": "监管机构（actor_regulators）的早期干预信号触发股权投资者（actor_equity_investors）重新评估融资可行性，体现外部监督与市场融资的联动传导机制",
+          "confidence": 0.55,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-4",
+          "label": "中央银行流动性支持与同业承接",
+          "summary": "如果存款外流持续且同业机构因管理交易对手风险而缩减同业额度，该行流动性急剧恶化，中央银行会紧急启用贴现窗口或常备借贷便利提供流动性；同时，大型银行与同业机构（actor_peer_banks）会评估该行合格资产质量后承接部分存款和优质客户，形成银行体系内的风险再分配。",
+          "actor_ids": [
+            "actor_central_bank",
+            "actor_peer_banks"
+          ],
+          "trigger_conditions": [
+            "D+2至D+3期间，该行无法通过定期借款翻倍或融资满足单日净存款流出超过其流动储备的50%",
+            "至少两家大型同业机构宣布因交易对手风险缩减对该行的同业拆借额度或未承诺信贷额度"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_central_bank",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_central_bank-r3"
+            },
+            {
+              "actor_id": "actor_peer_banks",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_peer_banks-r3"
+            }
+          ],
+          "consequences": [
+            "中央银行提供不超过该行合格抵押品价值80%的紧急流动性支持，并附加更高抵押品折扣",
+            "大型银行与同业机构利用该行流动性压力，以折扣条件承接其部分优质客户存款和贷款组合",
+            "该行最终被迫压缩资产负债规模，或触发监管下的一致行动安排（如合并或有序清算）"
+          ],
+          "invalidation_conditions": [
+            "D+2至D+5期间，该行未向央行申请或实际动用紧急流动性工具",
+            "大型同业机构未缩减对该行的同业额度，反而因存款流入而增加同业融出"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F3",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_central_bank-r3",
+            "decision-actor_peer_banks-r3"
+          ],
+          "novelty_claim": "中央银行（actor_central_bank）的流动性支持与同业机构（actor_peer_banks）的客户承接构成双重响应，展示公共部门与市场参与者如何共同管理中小银行挤兑风险",
+          "confidence": 0.5,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        }
+      ],
+      "generation": {
+        "semantic_retries": 1,
+        "elapsed_seconds": 124.67208816698985
+      },
+      "judgments": []
+    },
+    "v8": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "企业存款人与VC协调外逃",
+          "summary": "若在D1开盘前，多家企业存款人和VC同时向其被投企业发出降低未保险存款敞口的建议，则可能触发超过银行预期规模的存款外逃，使定期借款翻倍计划来不及弥补流动性缺口。",
+          "actor_ids": [
+            "actor_vc",
+            "actor_depositors"
+          ],
+          "trigger_conditions": [
+            "多家企业存款人公开或私下通知银行降低未保险存款敞口"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_vc",
+              "action_type": "ALLOCATE",
+              "decision_ref": "decision-actor_vc-r3"
+            },
+            {
+              "actor_id": "actor_depositors",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_depositors-r3"
+            }
+          ],
+          "consequences": [
+            "银行融资计划被迫提前定价或扩大规模以吸引新投资者",
+            "其他VC及被投企业加速存款分散，行业性存款转移",
+            "大型银行资产负债表短期内被动吸收存款，监管可能关注集中度风险"
+          ],
+          "invalidation_conditions": [
+            "银行在D1开盘后两小时内宣布已获得额外流动性支持或核心存款（如未保险存款总额的70%以上）承诺3个月内不动用"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_vc-r3",
+            "decision-actor_depositors-r3"
+          ],
+          "novelty_claim": "VC和企业存款人作为信息中介的协同外逃可放大银行披露损失后的存款外流，形成与定期借款翻倍计划的时间赛跑",
+          "confidence": 0.55,
+          "confidence_semantics": "branch_coherence_not_forecast_probability",
+          "starting_decisions": [
+            {
+              "actor_id": "actor_vc",
+              "action_type": "ALLOCATE",
+              "decision_status": "conditional",
+              "rationale": "D0收盘后，该区域银行公告出售几乎全部可供出售证券并确认重大损失（F1），同时启动股权融资但计划融资总额仅为确认损失的125%（F2），资本缺口未完全填补。银行承认客户现金消耗高于预期、存款低于预测，且客户高度集中在风险投资支持的科技和生命科学企业（F3），这与我们的被投企业高度重叠。鉴于我们对银行资产质量和即时流动性信息有限（约束），最佳行动是主动保护被投企业现金：在下一决策周期内，将集中向组合公司发出存款分散建议，引导其降低在该行的未受保存款敞口，分散至多家大型银行以确保运营资金安全。该行动为条件性执行——取决于FDIC保险上限核查情况及是否有其他被投企业率先发起存款转移。",
+              "decision_ref": "decision-actor_vc-r3"
+            },
+            {
+              "actor_id": "actor_depositors",
+              "action_type": "COMMUNICATE",
+              "decision_status": "intended",
+              "rationale": "作为企业存款人，首要目标是确保工资与运营资金可用并降低未保险余额风险。银行已确认相当于拟融资额80%的一次性税后损失（F1），且客户存款低于预测、现金消耗高于预期（F3），客户高度集中在风投支持的科技和生命科学企业。虽然银行计划融资（F2），但融资总额仅为损失的125%，资本缓冲不足。由于转移大额企业存款需要快速协调（约束），我需要立即与其他企业存款人进行沟通，评估共同行动方案，以便在D1开盘后能及时降低未保险存款敞口。",
+              "decision_ref": "decision-actor_depositors-r3"
+            }
+          ],
+          "conditional_responses": [
+            {
+              "actor_id": "actor_vc",
+              "condition": "若多个被投企业反馈其同行已开始转移存款，且有至少两家大型银行同业主动联系提供存款承接",
+              "response": "我可能立即升级建议强度：向全部组合公司发出紧急指令，要求在D1中午前将超过FDIC保险上限的存款转移至指定大型银行，并同步启动短期授信额度以覆盖转账完成前的运营资金缺口。"
+            },
+            {
+              "actor_id": "actor_depositors",
+              "condition": "若在D1上午观察到超过20%的同行企业存款人已向银行提交转账申请，且银行未能在周二前确认定期借款提款",
+              "response": "我可能加速执行集体协调转移方案：通知银行我方计划在48小时内转出所有未保险存款，并要求银行提供实时可动用流动性证明；若银行无法满足，则直接向大型银行开立新账户并行转移。"
+            }
+          ],
+          "response_semantics": "conditional_hypothesis_not_observed_action",
+          "observations": [
+            {
+              "kind": "trigger",
+              "signal": "多家企业存款人公开或私下通知银行降低未保险存款敞口",
+              "source": "银行内部客户关系记录或同业交流",
+              "window": "未来 35 个自然日",
+              "evidence_refs": [
+                "F1",
+                "F3"
+              ]
+            },
+            {
+              "kind": "invalidation",
+              "signal": "银行在D1开盘后两小时内宣布已获得额外流动性支持或核心存款（如未保险存款总额的70%以上）承诺3个月内不动用",
+              "source": "银行公告或监管通知",
+              "window": "未来 35 个自然日",
+              "evidence_refs": [
+                "F3"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "银行与媒体个人投资者博弈信任",
+          "summary": "若银行在D1开盘前主动披露融资进展并承诺核心客户存款稳定，同时金融媒体区分资本损失与流动性缺口，则可能阻止零售投资者的恐慌赎回；但若银行信息不透明或媒体聚焦损失规模，则零售投资者可能在D1大幅减持。",
+          "actor_ids": [
+            "actor_bank",
+            "actor_media",
+            "actor_retail"
+          ],
+          "trigger_conditions": [
+            "银行在D1开盘前发布补充公告，详述融资交割时间线和核心存款锁定情况"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_bank",
+              "action_type": "OPERATE",
+              "decision_ref": "decision-actor_bank-r3"
+            },
+            {
+              "actor_id": "actor_media",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_media-r3"
+            },
+            {
+              "actor_id": "actor_retail",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_retail-r3"
+            }
+          ],
+          "consequences": [
+            "银行成功稳定零售投资者信心，融资按原计划完成",
+            "个人投资者赎回但规模可控，指数基金净流出有限",
+            "媒体后续报道转向银行长期盈利能力与风险定价",
+            "若银行未及时补充信息，零售和机构同步撤退形成卖压",
+            "可能迫使银行以更大折价完成融资"
+          ],
+          "invalidation_conditions": [
+            "D1开盘30分钟内该行普通股价格下跌幅度超过融资金额的10%（按市场估值的稀释倍数），且无大型投资者主动买入"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_bank-r3",
+            "decision-actor_media-r3",
+            "decision-actor_retail-r3"
+          ],
+          "novelty_claim": "媒体在事件初期对资本损失和流动性缺口的区分质量，直接影响零售投资者是否将个案负面冲击误解为板块系统性风险",
+          "confidence": 0.5,
+          "confidence_semantics": "branch_coherence_not_forecast_probability",
+          "starting_decisions": [
+            {
+              "actor_id": "actor_bank",
+              "action_type": "OPERATE",
+              "decision_status": "conditional",
+              "rationale": "作为匿名区域银行，我的核心矛盾是：证券出售已确认重大损失（约束0），融资尚未完成（约束1），而存款人信心正在动摇——同业机构正在评估交易对手敞口，企业存款人建议客户降低未保险存款敞口。我必须立即采取操作：启动与长期客户型投资者的密切沟通，加速落实F2中已获认购承诺的融资安排；同时针对F3中提到的客户现金消耗高于预期、存款低于预测的情况，主动联系核心科技和生命科学企业客户，提供定制化流动性管理方案以稳定存款。此外，需开始执行F3中计划将定期借款规模提高一倍的安排，确保未来两周内流动性储备充裕。这些操作的核心是赶在存款外逃形成自我实现的螺旋之前，用实际金融动作而非口头安抚来重建市场信任。主要不确定性在于：(1)融资认购方是否会因市场负面情绪而推迟交割；(2)高度互联的科技/生命科学企业客户是否出现同步存款转移。",
+              "decision_ref": "decision-actor_bank-r3"
+            },
+            {
+              "actor_id": "actor_media",
+              "action_type": "WAIT",
+              "decision_status": "intended",
+              "rationale": "D0收盘后公布的资产出售损失和融资计划已在当日市场收盘后发布，区域银行指数基金当日波动有限，表明市场尚未充分定价。我需要等待下一个交易日开盘后，观察市场对资本损失与融资结构的反应，特别是区分一次性税后损失（资本损失）与存款流出（流动性缺口）之间的传导关系，以及客户集中度带来的信用损失风险。在融资计划实际生效前，过早评论可能混淆资本损失与流动性缺口，因此选择观望。",
+              "decision_ref": "decision-actor_media-r3"
+            },
+            {
+              "actor_id": "actor_retail",
+              "action_type": "WAIT",
+              "decision_status": "no_action",
+              "rationale": "D0收盘后公布的F1-F4信息表明问题个案银行存在显著的科技客户集中度和存款流出压力，但区域银行指数基金当日波动有限，尚未形成板块性传染信号。作为个人投资者，我难以实时验证存款流是否扩散，也不容易区分个案与板块的系统性风险。当前最合理的行动是暂时不调仓，等待D1市场开盘后价格信号及该银行新股发行结果，再判断是否降低指数基金持仓。盲目提前减仓可能造成恐慌交易损失，违背控制损失的目标。",
+              "decision_ref": "decision-actor_retail-r3"
+            }
+          ],
+          "conditional_responses": [
+            {
+              "actor_id": "actor_bank",
+              "condition": "若D1市场开盘前超过5家金融媒体集中报道该行资本损失规模和客户集中度风险，而未明确说明融资计划细节",
+              "response": "我可能立即发布补充公告，包括：(1)融资认购方已完成尽职调查且无意反悔，(2)核心存款中超过FDIC保险上限的部分已与主要存款人达成短期锁定协议，(3)定期借款翻倍已获银行团承诺；并安排CEO在盘前接受独家采访以稳定个人投资者情绪。"
+            },
+            {
+              "actor_id": "actor_media",
+              "condition": "若银行在D1盘前发布补充说明并获得大型银行同业信用额度确认",
+              "response": "我可能在报道中强调资本损失为非经常性项目（证券出售），与信用损失不同，并梳理融资结构与主要认购方背景；但会同时指出存款集中度风险和定期借款翻倍带来的利息成本压力，避免单一解读。"
+            },
+            {
+              "actor_id": "actor_retail",
+              "condition": "若银行D1盘前没有提供补充信息，且金融媒体聚焦于损失规模而非融资计划",
+              "response": "我可能开盘后立即卖出该指数基金持仓的30%–50%，以降低板块敞口；即使仅卖出部分，也会观察早盘成交量和价差来判断是否存在其他散户出逃。"
+            }
+          ],
+          "response_semantics": "conditional_hypothesis_not_observed_action",
+          "observations": [
+            {
+              "kind": "trigger",
+              "signal": "银行在D1开盘前发布补充公告，详述融资交割时间线和核心存款锁定情况",
+              "source": "银行官方网站或新闻稿",
+              "window": "未来 35 个自然日",
+              "evidence_refs": [
+                "F2",
+                "F3"
+              ]
+            },
+            {
+              "kind": "invalidation",
+              "signal": "D1开盘30分钟内该行普通股价格下跌幅度超过融资金额的10%（按市场估值的稀释倍数），且无大型投资者主动买入",
+              "source": "交易所行情数据",
+              "window": "未来 35 个自然日",
+              "evidence_refs": [
+                "F4"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "监管施压与股权投资者重新定价",
+          "summary": "若在D1交易时段，监管机构观察到存款流出速度超过其内部阈值（如日降幅超过5%且未保险存款占比高），则可能约谈银行管理层并要求提供流动性应急计划；而股权投资者则在等待融资实际定价和认购率，若认购率不足则要求更严格监管干预。",
+          "actor_ids": [
+            "actor_regulators",
+            "actor_equity_investors"
+          ],
+          "trigger_conditions": [
+            "监管机构发布针对该行的非公开或公开质询，或要求提交流动性应急计划"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_regulators",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_regulators-r3"
+            },
+            {
+              "actor_id": "actor_equity_investors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_equity_investors-r3"
+            }
+          ],
+          "consequences": [
+            "银行可能被迫接受更高融资成本（如折价扩大）或寻求额外资本",
+            "监管干预信号引发其他银行自查同类敞口",
+            "股权投资者重新评估银行板块系统性风险，可能导致板块短期折价",
+            "若认购率正常，银行股价企稳，监管只作审慎监测"
+          ],
+          "invalidation_conditions": [
+            "银行在D1收市前宣布融资全部完成，且认购方包括多家机构而非仅一家长期客户，同时无存款外逃加速迹象"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_regulators-r3",
+            "decision-actor_equity_investors-r3"
+          ],
+          "novelty_claim": "监管在融资交割窗口期内是否提前施压，以及股权投资者对该压力的敏感度，共同决定了银行是否能在既定融资条件下完成资本补充",
+          "confidence": 0.5,
+          "confidence_semantics": "branch_coherence_not_forecast_probability",
+          "starting_decisions": [
+            {
+              "actor_id": "actor_regulators",
+              "action_type": "WAIT",
+              "decision_status": "conditional",
+              "rationale": "该银行已公告重大损失和补充资本计划（F1、F2），融资规模覆盖损失的125%且获得基石投资者认购承诺，短期偿付能力尚存缓冲。但客户存款高度集中在风险投资支持的科技和生命科学企业（F3），存款流出压力未缓解，且定期借款将翻倍——这可能在流动性指标上形成交叉压力。F4显示外部市场尚未定价该信息。作为监管机构，我需等待D+1开盘后存款流出数据及融资实际完成进度，再决定是否启动早期干预或流动性支持。过早公开表态可能触发不必要的恐慌挤兑，且受限于不能事前承诺超出法定范围的保护。因此选择条件性等待，密切监控存款变动和同业传染信号后再做进一步行动。",
+              "decision_ref": "decision-actor_regulators-r3"
+            },
+            {
+              "actor_id": "actor_equity_investors",
+              "action_type": "WAIT",
+              "decision_status": "conditional",
+              "rationale": "D0收盘后银行才公布资产出售损失和融资计划，区域银行指数基金E当日收盘波动有限，说明市场尚未对事件充分定价。融资由普通股和强制可转换优先股构成，且仅获得一家长期客户型投资者的认购承诺，定价和完成情况存在重大不确定性。存款流失和客户集中度高是结构性隐患，但损失规模和计划融资额的相对关系（融资额约为损失125%）显示资本缺口可能可控。需要等待下个交易日后市场的流动性数据、融资认购率以及同行信用利差变化才能做出决策，目前保持指数敞口不变并观察。",
+              "decision_ref": "decision-actor_equity_investors-r3"
+            }
+          ],
+          "conditional_responses": [
+            {
+              "actor_id": "actor_regulators",
+              "condition": "若D1日内该行存款余额数据显示降幅超过监管内部阈值（例如未保险存款减少10%以上），且融资认购方未在收市前确认全额交割",
+              "response": "我可能立刻致函银行CEO要求提交48小时流动性应急计划，并指定监管团队现场监控存款流出；若银行无法满足资本和流动性要求，我可能启动有限范围的存款保险早期干预，包括限制单笔大额支付或要求银行立即削减授信额度。"
+            },
+            {
+              "actor_id": "actor_equity_investors",
+              "condition": "若D1收市后公告该行融资认购率低于70%（即未获足额认购）且监管层未公开提供流动性支持承诺",
+              "response": "我可能降低目标银行板块敞口10%–20%，并增持大型银行或投资级债券；同时等待下一轮监管或央行动作以决定是否完全退出相关指数基金。若认购率高于90%且监管表态正常，则维持观望。"
+            }
+          ],
+          "response_semantics": "conditional_hypothesis_not_observed_action",
+          "observations": [
+            {
+              "kind": "trigger",
+              "signal": "监管机构发布针对该行的非公开或公开质询，或要求提交流动性应急计划",
+              "source": "监管公告或媒体引用知情人士",
+              "window": "未来 35 个自然日",
+              "evidence_refs": [
+                "F1",
+                "F2",
+                "F3"
+              ]
+            },
+            {
+              "kind": "invalidation",
+              "signal": "银行在D1收市前宣布融资全部完成，且认购方包括多家机构而非仅一家长期客户，同时无存款外逃加速迹象",
+              "source": "银行公告或确认的融资结案文件",
+              "window": "未来 35 个自然日",
+              "evidence_refs": [
+                "F2"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "央行与同业应对流动性压力传染",
+          "summary": "若大型银行同业因交易对手敞口评估而收缩对该区域银行的短期融资，同时央行观察到银行间市场特定品种利率上升，则央行可能启用紧急流动性工具；同业若集体收缩额度可能加剧个案流动性危机。",
+          "actor_ids": [
+            "actor_central_bank",
+            "actor_peer_banks"
+          ],
+          "trigger_conditions": [
+            "银行间市场无担保拆借利率在该行规模相近的地区银行间上升，或大型银行公开或私下缩减同业额度"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_central_bank",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_central_bank-r3"
+            },
+            {
+              "actor_id": "actor_peer_banks",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_peer_banks-r3"
+            }
+          ],
+          "consequences": [
+            "若央行及时介入，银行流动性缺口得到暂时缓解，同业传染被阻断",
+            "若同业集体收缩，银行不得不在更严苛条件下完成融资或寻求合并",
+            "系统性传染风险上升，可能迫使央行在后期实施更广泛流动性支持",
+            "市场应声调整银行股定价，中小银行融资成本上升"
+          ],
+          "invalidation_conditions": [
+            "该行在D1开盘前已从至少两家大型银行获得明确的存量贷款展期或新增流动性额度，且央行在盘前表态已关注但暂无需动用非常规工具"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_central_bank-r3",
+            "decision-actor_peer_banks-r3"
+          ],
+          "novelty_claim": "大型银行同业在评估是否收缩额度时的决策时滞和央行介入速度，决定了简单区域性流动性问题是否升级为系统性压力",
+          "confidence": 0.55,
+          "confidence_semantics": "branch_coherence_not_forecast_probability",
+          "starting_decisions": [
+            {
+              "actor_id": "actor_central_bank",
+              "action_type": "WAIT",
+              "decision_status": "conditional",
+              "rationale": "该银行已启动资本补充计划且融资方案获得认购承诺，当前未出现流动性急剧恶化或跨机构传染的明确迹象。市场反应仅在收盘后有限波动，需等待D1交易时段的实际价格与流动性压力数据，以评估是否需要动用流动性工具。若后续观察到相似负债结构机构出现存款外逃或融资成本飙升，则启动紧急流动性支持。",
+              "decision_ref": "decision-actor_central_bank-r3"
+            },
+            {
+              "actor_id": "actor_peer_banks",
+              "action_type": "WAIT",
+              "decision_status": "conditional",
+              "rationale": "作为同业机构，当前时点该区域银行已公布亏损确认和融资计划，但融资尚未完成交割，区域银行指数基金波动有限（F4），表明市场尚未形成恐慌性定价。我的目标是管理交易对手风险和维护自身流动性，但当前缺乏足够信息判断该行融资能否成功完成（约束：不能保证问题银行的融资或收购完成）。需等待D+1开盘后观察以下信号再决策：（1）该行股价及信用违约互换价格变动；（2）客户存款外流情况数据；（3）融资认购的实际完成率。过早行动（如缩减同业额度）可能引发不必要的市场猜疑或流动性传染，反而加剧自身风险。因此选择有条件等待，保持观察姿态。",
+              "decision_ref": "decision-actor_peer_banks-r3"
+            }
+          ],
+          "conditional_responses": [
+            {
+              "actor_id": "actor_central_bank",
+              "condition": "若D1银行间市场无担保隔夜拆借利率较前日上行超过30个基点，且至少两家大型银行表示减少对该行的同业额度",
+              "response": "我可能在盘中宣布向银行体系提供额外流动性操作（如扩大贴现窗口抵押品范围或增设长期再融资操作），并单独向该行提供紧急流动性援助（需抵押品充足）。若该行抵押品不足，我将在法定权限内协调其他监管机构评估特殊处置方案。"
+            },
+            {
+              "actor_id": "actor_peer_banks",
+              "condition": "若该行宣布定期借款翻倍计划但不能提供明确已签约的银行团名单或资金到账时间，且央行未表态支持",
+              "response": "我可能主动降低与该行的同业拆借和回购交易额度至原水平的50%以下，同时要求该行提供额外抵押品或二级担保（如未受损贷款组合）。若同业评级下降或流动性压力扩散，我可能暂停新增交易对手敞口并启动内部流动性压力测试。"
+            }
+          ],
+          "response_semantics": "conditional_hypothesis_not_observed_action",
+          "observations": [
+            {
+              "kind": "trigger",
+              "signal": "银行间市场无担保拆借利率在该行规模相近的地区银行间上升，或大型银行公开或私下缩减同业额度",
+              "source": "央行市场监测数据或交易商反馈",
+              "window": "未来 35 个自然日",
+              "evidence_refs": [
+                "F1",
+                "F3"
+              ]
+            },
+            {
+              "kind": "invalidation",
+              "signal": "该行在D1开盘前已从至少两家大型银行获得明确的存量贷款展期或新增流动性额度，且央行在盘前表态已关注但暂无需动用非常规工具",
+              "source": "银行公告或央行声明",
+              "window": "未来 35 个自然日",
+              "evidence_refs": [
+                "F2",
+                "F4"
+              ]
+            }
+          ]
+        }
+      ],
+      "generation": {
+        "semantic_retries": 1,
+        "elapsed_seconds": 214.70727854198776
+      },
+      "judgments": [
+        {
+          "branches": [
+            {
+              "index": 1,
+              "criteria": {
+                "action_time_clear": {
+                  "pass": false,
+                  "quote": "多家企业存款人公开或私下通知银行降低未保险存款敞口",
+                  "reason": "触发条件未区分模拟起点D0后与未来条件响应，将未来假设表述为可观察事实。"
+                },
+                "observable": {
+                  "pass": true,
+                  "quote": "多家企业存款人公开或私下通知银行降低未保险存款敞口",
+                  "reason": "信号指明可核对的事件与来源（银行内部记录或同业交流），便于判断何时核查。"
+                },
+                "falsifiable": {
+                  "pass": true,
+                  "quote": "银行在D1开盘后两小时内宣布已获得额外流动性支持或核心存款（如未保险存款总额的70%以上）承诺3个月内不动用",
+                  "reason": "失效条件具体为D1两小时内获得流动性或存款锁定，可推翻分支核心存款外逃传导。"
+                },
+                "grounded": {
+                  "pass": true,
+                  "quote": "多家企业存款人公开或私下通知银行降低未保险存款敞口",
+                  "reason": "触发基于事实F1损失和F3存款低于预测及VC客户集中，未捏造资源或期限。"
+                },
+                "multi_actor": {
+                  "pass": true,
+                  "quote": "企业存款人与VC协调外逃",
+                  "reason": "分支描述存款人发通知后VC加速建议转移，一方行动改变另一方选择，响应关系明确。"
+                }
+              }
+            },
+            {
+              "index": 2,
+              "criteria": {
+                "action_time_clear": {
+                  "pass": false,
+                  "quote": "银行在D1开盘前发布补充公告，详述融资交割时间线和核心存款锁定情况",
+                  "reason": "触发条件将未来假设表述为已发生行动，未区分模拟起点WAIT与条件响应。"
+                },
+                "observable": {
+                  "pass": true,
+                  "quote": "银行在D1开盘前发布补充公告，详述融资交割时间线和核心存款锁定情况",
+                  "reason": "信号指明可核对的事件（公告）与来源（银行网站），便于在D1开盘前核查。"
+                },
+                "falsifiable": {
+                  "pass": true,
+                  "quote": "D1开盘30分钟内该行普通股价格下跌幅度超过融资金额的10%（按市场估值的稀释倍数），且无大型投资者主动买入",
+                  "reason": "失效条件具体为股价跌幅与无买入，可推翻分支零售投资者信心稳定的传导。"
+                },
+                "grounded": {
+                  "pass": true,
+                  "quote": "银行在D1开盘前发布补充公告，详述融资交割时间线和核心存款锁定情况",
+                  "reason": "触发基于事实F2融资计划和F3存款低于预测，未捏造已知资源或结果。"
+                },
+                "multi_actor": {
+                  "pass": true,
+                  "quote": "银行与媒体个人投资者博弈信任",
+                  "reason": "分支描述银行公告影响媒体报道，进而改变个人投资者行动，三方存在明确响应关系。"
+                }
+              }
+            },
+            {
+              "index": 3,
+              "criteria": {
+                "action_time_clear": {
+                  "pass": false,
+                  "quote": "若在D1交易时段，监管机构观察到存款流出速度超过其内部阈值（如日降幅超过5%且未保险存款占比高）",
+                  "reason": "条件将未来假设的观察事件写为已发生，未区分模拟起点WAIT与条件行动。"
+                },
+                "observable": {
+                  "pass": true,
+                  "quote": "监管机构发布针对该行的非公开或公开质询，或要求提交流动性应急计划",
+                  "reason": "信号指明可核对的事件（监管公告）与来源，便于在交易时段核查。"
+                },
+                "falsifiable": {
+                  "pass": true,
+                  "quote": "银行在D1收市前宣布融资全部完成，且认购方包括多家机构而非仅一家长期客户，同时无存款外逃加速迹象",
+                  "reason": "失效条件具体为D1收市前融资完成且无存款外逃，可推翻分支监管干预的传导。"
+                },
+                "grounded": {
+                  "pass": true,
+                  "quote": "监管机构发布针对该行的非公开或公开质询，或要求提交流动性应急计划",
+                  "reason": "触发基于事实F1损失和F3存款低于预测，监管角色约束不允许事前承诺超额保护。"
+                },
+                "multi_actor": {
+                  "pass": true,
+                  "quote": "监管施压与股权投资者重新定价",
+                  "reason": "分支描述监管质询后股权投资者据认购率重估，一方行动改变另一方选择，响应关系明确。"
+                }
+              }
+            },
+            {
+              "index": 4,
+              "criteria": {
+                "action_time_clear": {
+                  "pass": false,
+                  "quote": "银行间市场无担保拆借利率在该行规模相近的地区银行间上升，或大型银行公开或私下缩减同业额度",
+                  "reason": "触发条件将未来假设的利率上升或缩减额度写为已发生，未区分模拟起点WAIT与条件响应。"
+                },
+                "observable": {
+                  "pass": true,
+                  "quote": "银行间市场无担保拆借利率在该行规模相近的地区银行间上升",
+                  "reason": "信号指明可核对的市场数据（利率）与来源（央行数据或交易商反馈），便于核查。"
+                },
+                "falsifiable": {
+                  "pass": true,
+                  "quote": "该行在D1开盘前已从至少两家大型银行获得明确的存量贷款展期或新增流动性额度，且央行在盘前表态已关注但暂无需动用非常规工具",
+                  "reason": "失效条件具体为D1开盘前获展期或额度及央行表态，可推翻分支流动性压力传染的传导。"
+                },
+                "grounded": {
+                  "pass": true,
+                  "quote": "银行间市场无担保拆借利率在该行规模相近的地区银行间上升",
+                  "reason": "触发基于事实F1损失和F3存款低于预测，且央行角色约束需满足法律与抵押品要求。"
+                },
+                "multi_actor": {
+                  "pass": true,
+                  "quote": "央行与同业应对流动性压力传染",
+                  "reason": "分支描述同业缩减额度后央行启用流动性工具，一方行动改变另一方选择，响应关系明确。"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

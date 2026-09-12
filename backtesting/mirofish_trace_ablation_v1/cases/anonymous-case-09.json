@@ -1,0 +1,975 @@
+{
+  "case_id": "anonymous-case-09",
+  "market": "US",
+  "event_type": "并购/分拆/再融资",
+  "actor_budget": 8,
+  "source_hashes": {
+    "spec_sha256": "acf3d8c094f977ed08fb43bb0c006fe41879ccdcf5deba9b95abcc2c2e70d8f0",
+    "simulation_result_sha256": "20f51197d9293ca132a30484af2f3bc3c32f38563fd2e8bd74bd8151bf150e8d",
+    "financial_actions_sha256": "99289edef67a5d6aacd5e5ee04e1c70ae7a07d5668c05f0824cced582b3c41c0"
+  },
+  "shared_input": {
+    "case_id": "anonymous-case-09",
+    "as_of": "D0",
+    "question": "严格基于 D0 时点可得信息，推演未来三个交易日各参与方行动及条件化传导机制。",
+    "horizon": {
+      "kind": "calendar_days",
+      "value": 3,
+      "end_at": "2024-02-16T23:59:59+00:00"
+    },
+    "facts": [
+      {
+        "id": "F1",
+        "statement": "Tender Offer/Acquisition Reports：SC 13G/A | Tender Offer/Acquisition Reports"
+      }
+    ],
+    "actors": [
+      {
+        "id": "actor_issuer",
+        "label": "事件主体",
+        "kind": "issuer",
+        "goals": [
+          "维护自身制度或经济利益",
+          "根据新增信息调整行动"
+        ],
+        "constraints": [
+          "只能使用分析截止时间前可观察的信息"
+        ]
+      },
+      {
+        "id": "actor_regulator",
+        "label": "监管机构",
+        "kind": "regulator",
+        "goals": [
+          "维护自身制度或经济利益",
+          "根据新增信息调整行动"
+        ],
+        "constraints": [
+          "只能使用分析截止时间前可观察的信息"
+        ]
+      },
+      {
+        "id": "actor_exchange",
+        "label": "交易所",
+        "kind": "exchange",
+        "goals": [
+          "维护自身制度或经济利益",
+          "根据新增信息调整行动"
+        ],
+        "constraints": [
+          "只能使用分析截止时间前可观察的信息"
+        ]
+      },
+      {
+        "id": "actor_institutions",
+        "label": "机构投资者",
+        "kind": "institutional_investor",
+        "goals": [
+          "维护自身制度或经济利益",
+          "根据新增信息调整行动"
+        ],
+        "constraints": [
+          "只能使用分析截止时间前可观察的信息"
+        ]
+      },
+      {
+        "id": "actor_brokers",
+        "label": "券商与中介机构",
+        "kind": "broker",
+        "goals": [
+          "维护自身制度或经济利益",
+          "根据新增信息调整行动"
+        ],
+        "constraints": [
+          "只能使用分析截止时间前可观察的信息"
+        ]
+      },
+      {
+        "id": "actor_competitors",
+        "label": "竞争者",
+        "kind": "competitor",
+        "goals": [
+          "维护自身制度或经济利益",
+          "根据新增信息调整行动"
+        ],
+        "constraints": [
+          "只能使用分析截止时间前可观察的信息"
+        ]
+      },
+      {
+        "id": "actor_analysts",
+        "label": "分析师",
+        "kind": "analyst",
+        "goals": [
+          "维护自身制度或经济利益",
+          "根据新增信息调整行动"
+        ],
+        "constraints": [
+          "只能使用分析截止时间前可观察的信息"
+        ]
+      },
+      {
+        "id": "actor_media",
+        "label": "财经媒体",
+        "kind": "media",
+        "goals": [
+          "维护自身制度或经济利益",
+          "根据新增信息调整行动"
+        ],
+        "constraints": [
+          "只能使用分析截止时间前可观察的信息"
+        ]
+      }
+    ],
+    "financial_decisions": [
+      {
+        "id": "decision-actor_issuer-r2",
+        "round": 2,
+        "actor_id": "actor_issuer",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "截至截止时点，仅有SC 13G/A通用报告标题作为可用事实。该文件为被动投资者持股5%以上的常规披露，不构成主动收购要约或明确交易意向。作为事件主体，我已完成内部审阅并公开声明合规。未观察到需要立即调整制度安排或采取金融操作的新增信息，因此最优行动是等待进一步实质性的披露或监管反馈，以维护制度稳定性与经济利益。",
+        "constraint_refs": [
+          "actor_issuer:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_regulator-r2",
+        "round": 2,
+        "actor_id": "actor_regulator",
+        "action_type": "REGULATE",
+        "decision_status": "intended",
+        "direction": "maintain",
+        "intensity": 0.6,
+        "instrument_refs": [
+          "ANON_ASSET"
+        ],
+        "rationale": "SC 13G/A披露文件已提交，标志该标的可能存在潜在的收购要约或大股东持股变动。作为监管机构，需在下一个决策周期内启动对该备案文件的合规审查程序，确认信息披露的完整性、及时性和准确性，并关注是否存在内幕交易或市场操纵迹象。当前观察到利益相关方（机构投资者、分析师、财经媒体）已在社交平台讨论该事件，但社交热度本身不构成违规证据。监管行为基于可观察到的SC 13G/A备案事实，而非市场情绪。主要不确定性在于备案方后续是否提交13D文件（主动型投资者），以及标的公司管理层是否已参与交易。",
+        "constraint_refs": [
+          "actor_regulator:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_exchange-r2",
+        "round": 2,
+        "actor_id": "actor_exchange",
+        "action_type": "OPERATE",
+        "decision_status": "intended",
+        "direction": "maintain",
+        "intensity": 0.6,
+        "instrument_refs": [],
+        "rationale": "作为交易所，SC 13G/A 申报文件标志着重要的机构持股变动和潜在收购要约信息。我已点赞该帖并注意到监管机构、财经媒体和其他市场参与者已就此发表评论。基于职责，我将在下一个决策周期内启动对该申报文件的标准化审查流程，确保相关披露内容符合交易所的信息披露规则，并评估是否需要就该收购要约报告向市场发布补充指引或风险提示。此操作属于常规市场监管职能，不指向具体证券，而是维护市场透明度和制度运行。",
+        "constraint_refs": [
+          "actor_exchange:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_brokers-r2",
+        "round": 2,
+        "actor_id": "actor_brokers",
+        "action_type": "COMMUNICATE",
+        "decision_status": "intended",
+        "direction": "maintain",
+        "intensity": 0.7,
+        "instrument_refs": [
+          "ANON_ASSET"
+        ],
+        "rationale": "SC 13G/A文件的提交表明有机构投资者对匿名标的1进行了大宗持股变动申报，作为券商与中介机构，我需要向客户和内部团队传达此监管文件信息，提示可能存在潜在并购要约或所有权结构变化。当前事实仅有一份披露文件的标题，尚无内容细节，因此最佳行动是就已知监管信息进行沟通，向客户提示关注后续13D文件披露的时间节点，同时强调这是公开可得事实而非内幕信息。主要不确定性在于该文件的详细内容尚未可知，需等待正式报告内容。",
+        "constraint_refs": [
+          "actor_brokers:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "public",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_competitors-r2",
+        "round": 2,
+        "actor_id": "actor_competitors",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [
+          "ANON_ASSET"
+        ],
+        "rationale": "观察到SC 13G/A备案信息（F1），该文件披露机构投资者5%以上持股变动，可能预示潜在收购或制度性仓位调整。作为竞争者，需先分析该备案详细内容（区分被动13G与潜在主动13D转换），评估对自身制度或经济利益的实质影响后再行动。当前时点信息不足以支持直接操作决策，因此选择等待更多实质性披露（如完整13D转换、收购要约条款或竞争对手回应），再据此调整仓位或策略。",
+        "constraint_refs": [
+          "actor_competitors:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_analysts-r2",
+        "round": 2,
+        "actor_id": "actor_analysts",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "conditional",
+        "intensity": 0.6,
+        "instrument_refs": [
+          "ANON_ASSET"
+        ],
+        "rationale": "观察到SC 13G/A提交公告，表明机构投资者5%以上持股变动或意向调整。当前仅为初始公告，尚无后续13D转换或要约细节披露。作为依据截至时点可观察信息的分析师，需等待进一步披露（如13D转换为积极投资声明、要约条款或持股明细变更）才能评估对匿名标的1的具体资产影响。信息不完整时调整头寸可能违背事实驱动原则。暂保持观察状态，待新的事实信息出现后再行行动。",
+        "constraint_refs": [
+          "actor_analysts:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_media-r2",
+        "round": 2,
+        "actor_id": "actor_media",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "maintain",
+        "intensity": 0.0,
+        "instrument_refs": [
+          "ANON_ASSET"
+        ],
+        "rationale": "截至时点仅有SC 13G/A持股披露文件，属于机构被动持仓变动报告，尚不构成明确的并购要约或主动收购信号。作为财经媒体，需要等待后续13D文件或更详细的收购条款披露才能形成有新闻价值的分析报道。当前未观察到足够的实质信息来改变报道立场或发布新内容，因此选择等待观察，避免基于不完整信息做出过早判断。",
+        "constraint_refs": [
+          "actor_media:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      }
+    ],
+    "simulated_actions": [
+      {
+        "id": "trace-18",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #1：Tender Offer/Acquisition Reports：SC 13G/A | Tender Offer/Acquisition Reports",
+        "actor_id": "actor_analysts"
+      },
+      {
+        "id": "trace-21",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_POSTS",
+        "summary": "search_posts",
+        "actor_id": "actor_competitors"
+      },
+      {
+        "id": "trace-22",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user",
+        "actor_id": "actor_competitors"
+      },
+      {
+        "id": "trace-23",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "Noted. We are currently reviewing the SC 13G/A filing details and will assess any implications for our institutional position. Further disclosures will be made in compliance with regulatory requirements.",
+        "actor_id": "actor_issuer"
+      },
+      {
+        "id": "trace-24",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "Valuable regulatory filing data. SC 13G/A filings often reveal important shifts in institutional positioning and potential M&A activity. I'll be analyzing the implications of these filings for portfolio strategy adjustments.",
+        "actor_id": "actor_institutions"
+      },
+      {
+        "id": "trace-25",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "As a regulatory body, we take note of this SC 13G/A filing regarding tender offer/acquisition reports. We will monitor compliance with disclosure requirements and ensure market transparency is maintained throughout this process. All parties should adhere to applicable securities regulations.",
+        "actor_id": "actor_regulator"
+      },
+      {
+        "id": "trace-26",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "Important filing - institutional investors reporting 5%+ stakes or changes in holdings. This SC 13G/A filing could signal shifts in ownership structure ahead of a potential acquisition. Worth monitoring the filings for material changes.",
+        "actor_id": "actor_brokers"
+      },
+      {
+        "id": "trace-27",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #1：Tender Offer/Acquisition Reports：SC 13G/A | Tender Offer/Acquisition Reports",
+        "actor_id": "actor_brokers"
+      },
+      {
+        "id": "trace-28",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #1：Tender Offer/Acquisition Reports：SC 13G/A | Tender Offer/Acquisition Reports",
+        "actor_id": "actor_media"
+      },
+      {
+        "id": "trace-29",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "【财经媒体观察】SC 13G/A 是机构投资者持股变动的重要披露文件，通常预示着潜在的并购要约或大股东策略调整。我们将持续追踪此案，分析对市场流动性和定价的影响。建议关注后续13D文件的披露时间节点。",
+        "actor_id": "actor_media"
+      },
+      {
+        "id": "trace-39",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #1：Tender Offer/Acquisition Reports：SC 13G/A | Tender Offer/Acquisition Reports",
+        "actor_id": "actor_exchange"
+      },
+      {
+        "id": "trace-40",
+        "kind": "simulated_action",
+        "action_type": "LIKE_COMMENT",
+        "summary": "like_comment",
+        "actor_id": "actor_institutions"
+      },
+      {
+        "id": "trace-41",
+        "kind": "simulated_action",
+        "action_type": "LIKE_COMMENT",
+        "summary": "like_comment",
+        "actor_id": "actor_regulator"
+      },
+      {
+        "id": "trace-42",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "Update: Our internal review of the SC 13G/A filing is complete. We confirm that all disclosures have been made in accordance with applicable securities regulations. We will continue to monitor material developments and provide timely updates as required. Market participants are advised to refer to official filings for accurate information.",
+        "actor_id": "actor_issuer"
+      },
+      {
+        "id": "trace-43",
+        "kind": "simulated_action",
+        "action_type": "LIKE_COMMENT",
+        "summary": "like_comment",
+        "actor_id": "actor_regulator"
+      },
+      {
+        "id": "trace-44",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user",
+        "actor_id": "actor_regulator"
+      },
+      {
+        "id": "trace-45",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "SC 13G/A filing detected. As a market competitor, I'm analyzing the institutional positioning changes disclosed in this filing. Any shift ≥5% stake reported here could signal competitive realignment. Will cross-reference with other filings to assess strategic implications for our position. Key focus: whether this is passive (13G) or might convert to activist (13D) activity - that distinction is critical for competitive response planning.",
+        "actor_id": "actor_competitors"
+      },
+      {
+        "id": "trace-46",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "As an analyst specializing in tender offer/acquisition filings, I note that SC 13G/A filings indicate a beneficial owner's amended statement of 5%+ ownership. Key factors to monitor: (1) whether this is a passive vs. activist filing (13G vs 13D implications), (2) the delta in position size from prior filing, and (3) any disclosed intentions. Will be tracking subsequent filings for material changes that could signal acquisition trajectory.",
+        "actor_id": "actor_analysts"
+      },
+      {
+        "id": "trace-47",
+        "kind": "simulated_action",
+        "action_type": "LIKE_COMMENT",
+        "summary": "like_comment",
+        "actor_id": "actor_media"
+      },
+      {
+        "id": "trace-48",
+        "kind": "simulated_action",
+        "action_type": "LIKE_COMMENT",
+        "summary": "like_comment",
+        "actor_id": "actor_media"
+      },
+      {
+        "id": "trace-49",
+        "kind": "simulated_action",
+        "action_type": "LIKE_COMMENT",
+        "summary": "like_comment",
+        "actor_id": "actor_media"
+      }
+    ],
+    "branch_slots": [
+      {
+        "slot_id": "slot-1",
+        "actor_ids": [
+          "actor_brokers",
+          "actor_regulator"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_brokers-r2",
+          "decision-actor_regulator-r2"
+        ]
+      },
+      {
+        "slot_id": "slot-2",
+        "actor_ids": [
+          "actor_exchange",
+          "actor_analysts"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_exchange-r2",
+          "decision-actor_analysts-r2"
+        ]
+      },
+      {
+        "slot_id": "slot-3",
+        "actor_ids": [
+          "actor_competitors",
+          "actor_media"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_competitors-r2",
+          "decision-actor_media-r2"
+        ]
+      },
+      {
+        "slot_id": "slot-4",
+        "actor_ids": [
+          "actor_brokers",
+          "actor_issuer"
+        ],
+        "relationship_kind": "constrains_or_influences",
+        "decision_refs": [
+          "decision-actor_brokers-r2",
+          "decision-actor_issuer-r2"
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "with_traces": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "券商咨询触发监管窗口期审查",
+          "summary": "券商向客户传达SC 13G/A细节后，客户（机构投资者）向监管机构举报可能的延迟披露；监管机构启动对备案方是否应提交13D的正式审查，要求券商说明沟通内容。",
+          "actor_ids": [
+            "actor_brokers",
+            "actor_regulator"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_brokers",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_brokers-r2"
+            },
+            {
+              "actor_id": "actor_regulator",
+              "action_type": "REGULATE",
+              "decision_ref": "decision-actor_regulator-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "券商在公开声明中提及“关注13D转换的时间节点”后，有机构投资者向监管机构提交匿名举报",
+            "监管机构在D+1收盘前发布针对该SC 13G/A补充信息披露的问询函"
+          ],
+          "consequences": [
+            "监管机构要求券商提供其客户沟通记录，券商面临合规审查成本与声誉损失",
+            "备案方在压力下加速提交13D转换或补充披露，市场对其收购意图的猜测短期升温"
+          ],
+          "invalidation_conditions": [
+            "若D+3收盘前未出现任何监管问询或有记录的投诉",
+            "若券商声明未被任何第三方机构引用或质疑"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "交易所指引与分析师反向定价",
+          "summary": "交易所发布标准化指引，提醒市场注意SC 13G/A可能预判为13D的技术性转换；分析师据此调整估值模型，将13D情境下的控制权溢价折价率纳入报告。",
+          "actor_ids": [
+            "actor_exchange",
+            "actor_analysts"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_exchange",
+              "action_type": "OPERATE",
+              "decision_ref": "decision-actor_exchange-r2"
+            },
+            {
+              "actor_id": "actor_analysts",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_analysts-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "交易所在D+1交易时段发布关于SC 13G/A与13D区别的投资者教育公告",
+            "分析师在D+2前发布研报，其目标价格中对控制权溢价的假设出现超过5%的调整"
+          ],
+          "consequences": [
+            "若分析师下调控制权溢价预期，则机构投资者重新定价标的资产的合理估值区间，交易量下降",
+            "若分析师上调折价率，则实际收购者可能面临更高融资成本，增发预案搁置"
+          ],
+          "invalidation_conditions": [
+            "若交易所未在D+1收盘前发布任何补充指引",
+            "若分析师报告中的估值假设不涉及控制权溢价的任何量化调整"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "竞争者公开喊话被媒体放大为对抗信号",
+          "summary": "竞争者公开声明对SC 13G/A的竞争性分析（指出可能转为13D）并被财经媒体以“竞争对手警告”题号报道，引发公众对恶意收购的恐慌情绪。",
+          "actor_ids": [
+            "actor_competitors",
+            "actor_media"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_competitors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_competitors-r2"
+            },
+            {
+              "actor_id": "actor_media",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_media-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "竞争者在D+1收盘前发布一条具体的、指向标的公司竞争脆弱性的公开评论",
+            "财经媒体在D+2前发布以“竞争者爆出收购预警”为标题的报道，且阅读量/转载量超过正常值的200%"
+          ],
+          "consequences": [
+            "标的公司管理层被迫召开紧急投资者电话会反驳竞争者的论点，增加额外沟通成本",
+            "交易所酌情引入临时价格稳定机制（如涨跌幅限制），扰乱原有交易节奏"
+          ],
+          "invalidation_conditions": [
+            "若竞争者未在任何公开平台发布针对标的公司的明确评论",
+            "若媒体报道未被第三方平台转载或阅读量未显著偏离基准"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "券商沟通促使发行人主动澄清交易性质",
+          "summary": "券商在向高净值客户传达备案信息时引起卖方流动性管理需求，发行人私下接到买方问询后，为维护股价稳定而主动发布一份补充公告，澄清该持股不涉及控制权变更。",
+          "actor_ids": [
+            "actor_brokers",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_brokers",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_brokers-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "券商在D+1向机构客户发送的内部纪要中提及“可能影响做空意愿”",
+            "标的公司管理层在D+2前发布一份非强制性的、澄清13G/A备案方意图的声明"
+          ],
+          "consequences": [
+            "券商因泄露非公开分析观点面临道德委员会内部审查",
+            "发行人澄清若被市场采信，则会反而压制收购溢价预期，导致卖方做空动力上升，流动性分流"
+          ],
+          "invalidation_conditions": [
+            "若券商内部纪要始终未外流或被用户提及",
+            "若发行人在D+3内未发布任何针对该备案意图的补充说明"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        }
+      ],
+      "quality": [
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 2,
+            "evidence_discipline": 1,
+            "scenario_diversity": 2
+          },
+          "total_score": 9,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            }
+          ]
+        },
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 2,
+            "evidence_discipline": 2,
+            "scenario_diversity": 2
+          },
+          "total_score": 10,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": false,
+              "specific_invalidation": false,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": false,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": false,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": false,
+              "specific_invalidation": false,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            }
+          ]
+        }
+      ]
+    },
+    "without_traces": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "行纪提前调控周期",
+          "summary": "券商先行收集客户仓位信息并向监管私下通报，触发监管加速启动合规审查并限制特定账户交易，交易所随后发布补充披露指引。",
+          "actor_ids": [
+            "actor_brokers",
+            "actor_regulator"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_brokers",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_brokers-r2"
+            },
+            {
+              "actor_id": "actor_regulator",
+              "action_type": "REGULATE",
+              "decision_ref": "decision-actor_regulator-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "券商在下一交易日收盘前向机构客户群发SC 13G/A详细解读邮件",
+            "同一交易日收市后交易时段出现大量针对该标的的限价挂单未成交"
+          ],
+          "consequences": [
+            "监管机构获得券商通报后提前启动正式审查",
+            "交易所因市场活动异常发布临时信息披露指引",
+            "券商客户仓位调整计划被推迟至审查结果明确"
+          ],
+          "invalidation_conditions": [
+            "券商未向监管私下沟通仅作公开提示",
+            "监管未收到任何正式或非正式问询",
+            "交易所未发布新指引"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "交易所数据加剧分析师分歧",
+          "summary": "交易所发布后台交易数据异常波动报告，分析师阵营分裂：看多派援引历史类似事件撰写上调报告，看空派质疑数据完整性并下调评级。",
+          "actor_ids": [
+            "actor_exchange",
+            "actor_analysts"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_exchange",
+              "action_type": "OPERATE",
+              "decision_ref": "decision-actor_exchange-r2"
+            },
+            {
+              "actor_id": "actor_analysts",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_analysts-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "交易所于D1盘中发布匿名化大额交易统计表显示近三成买卖单来自同一经纪商关联账户"
+          ],
+          "consequences": [
+            "交易所因数据发布引发市场公开猜测，随后澄清统计方式",
+            "看多分析师发布上调目标价格研报，看空分析师发布警告研报",
+            "双方报告均被媒体摘要转载导致标的隔夜隐含波动率上升"
+          ],
+          "invalidation_conditions": [
+            "交易所未发布任何统计数据",
+            "交易所发布数据但分析师未就此发表报告",
+            "分析师只发布通稿式声明未出现实质性多空分歧"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "等待链断裂：竞争者先发制人",
+          "summary": "竞争者从媒体渠道获知同行加速审查传闻后放弃等待策略，抢先发布替代收购意向公告，媒体随之转向报道行业重组格局。",
+          "actor_ids": [
+            "actor_competitors",
+            "actor_media"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_competitors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_competitors-r2"
+            },
+            {
+              "actor_id": "actor_media",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_media-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "监管机构内部审查会议纪要片段被匿名人士泄露至社交平台并获媒体核实",
+            "该标的近3个交易日连续出现场内大宗溢价成交"
+          ],
+          "consequences": [
+            "竞争者发布意向公告后标的股价波动扩大",
+            "媒体将报道重心从SC 13G/A转向潜在行业整合案例",
+            "监管机构因竞争对手公告而扩大审查范围至整个细分板块"
+          ],
+          "invalidation_conditions": [
+            "媒体未核实并报道任何泄露内容",
+            "竞争者未发布任何实质公告仅发布澄清声明",
+            "监管审查范围未扩大"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "主体被迫回应中介链",
+          "summary": "券商在客户施压下公开移除‘等待’标签并发布尽职调查意向，事件主体为维护制度正当性被迫发布无关但合规的例行关联交易公告以对冲关注度。",
+          "actor_ids": [
+            "actor_brokers",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_brokers",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_brokers-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "券商于D2上午收到超过5家机构客户的书面询问要求提供更深入背景调查服务",
+            "事件主体在D1至D2间连续遭遇分析师负面评论或机构减持暗示传闻"
+          ],
+          "consequences": [
+            "券商发布尽职调查意向并暂停该标的做市服务以隔离风险",
+            "事件主体发布无关的董事会决议公告（如修订章程或派息议案）以展示治理常态化",
+            "媒体将两则公告并列报道并评论为‘试图稀释并购消息’"
+          ],
+          "invalidation_conditions": [
+            "券商未发布尽职调查意向或仅内部评估",
+            "事件主体未发布任何新公告",
+            "媒体未将两则公告联系报道"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        }
+      ],
+      "quality": [
+        {
+          "scores": {
+            "mechanism_coherence": 1,
+            "monitoring_actionability": 1,
+            "falsifiability": 1,
+            "evidence_discipline": 1,
+            "scenario_diversity": 2
+          },
+          "total_score": 6,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": false,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": false,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": false,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": false
+            }
+          ]
+        },
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 2,
+            "evidence_discipline": 1,
+            "scenario_diversity": 2
+          },
+          "total_score": 9,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": false,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

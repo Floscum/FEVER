@@ -1,0 +1,367 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_labor_escalation_017",
+  "title": "匿名案例：制造业集体谈判与选择性停工",
+  "as_of": "2018-09-14T16:00:00-04:00",
+  "question": "国家、年份、工会、企业名称和市场代码均已匿名化。只使用D0已公开的信息，推演全国性工会、三家大型制造企业、工人、供应商、政府和投资者在合同到期前如何互动。",
+  "horizon": {
+    "kind": "calendar_days",
+    "value": 30,
+    "end_at": "2018-10-14T16:00:00-04:00"
+  },
+  "market": {
+    "region": "BLIND_DEVELOPED_EQUITY_MARKET",
+    "venues": [
+      "BLIND_EQUITY_EXCHANGE"
+    ],
+    "instruments": [
+      {
+        "symbol": "ASSET_Q",
+        "name": "匿名大型制造企业普通股",
+        "kind": "equity",
+        "currency": "USD"
+      }
+    ]
+  },
+  "facts": [
+    {
+      "id": "F1",
+      "observed_at": "2018-09-13T12:00:00-04:00",
+      "statement": "覆盖约十五万名工人的三份全国劳动合同将在D0午夜到期。工会成员此前以压倒性多数授权在无法达成新协议时采取罢工行动。",
+      "source_kind": "official",
+      "source_url": "https://benchmark.invalid/blind-labor-escalation-017/F1",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F2",
+      "observed_at": "2018-09-14T11:00:00-04:00",
+      "statement": "工会宣布采用逐步扩大的选择性停工策略，而不是立即要求全部成员离岗；全国领导层可以根据各企业谈判进展临时增加参与地点。",
+      "source_kind": "official",
+      "source_url": "https://benchmark.invalid/blind-labor-escalation-017/F2",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F3",
+      "observed_at": "2018-09-14T14:00:00-04:00",
+      "statement": "工资增长、生活成本调整、临时工转正、分级工资和工厂关闭保障仍是主要分歧。三家企业均表示正在谈判，但各自报价和进展不同。",
+      "source_kind": "official",
+      "source_url": "https://benchmark.invalid/blind-labor-escalation-017/F3",
+      "evidence_ref": null,
+      "confidence": 0.98
+    },
+    {
+      "id": "F4",
+      "observed_at": "2018-09-14T16:00:00-04:00",
+      "statement": "匿名制造企业股票在D0正常收盘；投资者同时评估停工损失、库存缓冲、供应链外溢和新合同的长期成本。",
+      "source_kind": "market_data",
+      "source_url": "https://benchmark.invalid/blind-labor-escalation-017/F4",
+      "evidence_ref": null,
+      "confidence": 0.98
+    }
+  ],
+  "actors": [
+    {
+      "id": "actor_union",
+      "label": "匿名全国性产业工会领导层",
+      "kind": "labor_union",
+      "aggregation": "organization",
+      "goals": [
+        "提高工资和生活成本保障",
+        "改善临时工与工厂关闭条款",
+        "维持谈判杠杆和成员团结"
+      ],
+      "constraints": [
+        "罢工基金和成员收入有限",
+        "三家企业谈判进度不同"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_workers",
+      "label": "匿名制造业工人群体",
+      "kind": "retail_cohort",
+      "aggregation": "cohort",
+      "goals": [
+        "取得更高且更公平的薪酬",
+        "保护就业和福利"
+      ],
+      "constraints": [
+        "是否停工由全国策略和本地通知决定",
+        "停工期间收入下降"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_company_a",
+      "label": "匿名制造企业A",
+      "kind": "issuer",
+      "aggregation": "organization",
+      "goals": [
+        "维持关键工厂生产",
+        "控制长期劳动成本",
+        "达成可批准协议"
+      ],
+      "constraints": [
+        "高利润产品集中于少数工厂",
+        "竞争企业的让步会改变谈判基准"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_company_b",
+      "label": "匿名制造企业B",
+      "kind": "issuer",
+      "aggregation": "organization",
+      "goals": [
+        "避免停工扩散",
+        "保持成本竞争力",
+        "管理经销和库存"
+      ],
+      "constraints": [
+        "零部件与组装网络相互依赖"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_company_c",
+      "label": "匿名制造企业C",
+      "kind": "issuer",
+      "aggregation": "organization",
+      "goals": [
+        "争取有利合同结构",
+        "避免主力产品停产",
+        "保护转型投资"
+      ],
+      "constraints": [
+        "部分条款落后于另外两家企业"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_suppliers",
+      "label": "零部件供应商与经销网络",
+      "kind": "supplier",
+      "aggregation": "cohort",
+      "goals": [
+        "维持订单和现金流",
+        "调整库存与生产计划"
+      ],
+      "constraints": [
+        "无法确定下一批停工地点"
+      ],
+      "observable_fact_ids": [
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_government",
+      "label": "劳动与产业政策机关",
+      "kind": "government",
+      "aggregation": "organization",
+      "goals": [
+        "降低经济与就业冲击",
+        "鼓励集体谈判达成协议"
+      ],
+      "constraints": [
+        "私营企业集体谈判由劳资双方主导"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_investors",
+      "label": "制造业投资者",
+      "kind": "institutional_investor",
+      "aggregation": "cohort",
+      "goals": [
+        "估计停工持续时间与利润影响",
+        "比较三家企业谈判风险"
+      ],
+      "constraints": [
+        "选择性策略使生产冲击路径不确定"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    }
+  ],
+  "relationships": [
+    {
+      "source_actor_id": "actor_union",
+      "target_actor_id": "actor_company_a",
+      "kind": "collectively_bargains_with",
+      "visibility": "private"
+    },
+    {
+      "source_actor_id": "actor_union",
+      "target_actor_id": "actor_company_b",
+      "kind": "collectively_bargains_with",
+      "visibility": "private"
+    },
+    {
+      "source_actor_id": "actor_union",
+      "target_actor_id": "actor_company_c",
+      "kind": "collectively_bargains_with",
+      "visibility": "private"
+    },
+    {
+      "source_actor_id": "actor_union",
+      "target_actor_id": "actor_workers",
+      "kind": "coordinates_selective_action_by",
+      "visibility": "private"
+    },
+    {
+      "source_actor_id": "actor_company_a",
+      "target_actor_id": "actor_suppliers",
+      "kind": "transmits_production_changes_to",
+      "visibility": "private"
+    },
+    {
+      "source_actor_id": "actor_government",
+      "target_actor_id": "actor_union",
+      "kind": "publicly_pressures_for_settlement",
+      "visibility": "public"
+    }
+  ],
+  "allowed_actions": [
+    {
+      "type": "COMMUNICATE",
+      "description": "公布谈判进展、成员要求、企业报价或经济影响。",
+      "visibility": "public"
+    },
+    {
+      "type": "OPERATE",
+      "description": "选择性停工、维持生产或调整库存和供应。",
+      "visibility": "either"
+    },
+    {
+      "type": "NEGOTIATE",
+      "description": "交换工资、福利、就业保障和运营条款。",
+      "visibility": "private"
+    },
+    {
+      "type": "ALLOCATE",
+      "description": "调整股票、库存、产能或现金敞口。",
+      "visibility": "private"
+    },
+    {
+      "type": "REGULATE",
+      "description": "采取合法的劳动或产业政策行动。",
+      "visibility": "public"
+    },
+    {
+      "type": "WAIT",
+      "description": "等待谈判、停工通知或对方让步。",
+      "visibility": "either"
+    }
+  ],
+  "interventions": [
+    {
+      "id": "I0_CONTRACT_DEADLINE",
+      "at_round": 0,
+      "fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "visibility": "public"
+    }
+  ],
+  "forecast_targets": [
+    {
+      "id": "T1",
+      "kind": "market",
+      "definition": "D1收盘价相对D0的匿名制造企业普通股方向。",
+      "horizon": "next_market_observation",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T2",
+      "kind": "market",
+      "definition": "第5个后续收盘价相对D0的匿名制造企业普通股方向。",
+      "horizon": "5_market_observations",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T3",
+      "kind": "market",
+      "definition": "第20个后续收盘价相对D0的匿名制造企业普通股方向。",
+      "horizon": "20_market_observations",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T4",
+      "kind": "event",
+      "definition": "工会是否在2个自然日内同时对三家大型制造企业各至少一个工作地点发起选择性停工。",
+      "horizon": "2_calendar_days",
+      "scoring": "brier"
+    },
+    {
+      "id": "T5",
+      "kind": "event",
+      "definition": "工会是否在16个自然日内要求约十五万名受合同覆盖成员全部停止工作。",
+      "horizon": "16_calendar_days",
+      "scoring": "brier"
+    }
+  ],
+  "run_config": {
+    "rounds": 12,
+    "replications": 20,
+    "seed_strategy": "deterministic_sequence",
+    "layers": [
+      "information",
+      "behavior"
+    ]
+  },
+  "provenance": {
+    "created_by": "FEVER-MiroFish blind benchmark",
+    "source_graph_artifact_id": null,
+    "notes": [
+      "真实国家、年份、工会、企业、工厂、市场代码和来源链接已从模型可见输入中移除。",
+      "真实映射和结果只保存在独立outcome文件。"
+    ]
+  }
+}

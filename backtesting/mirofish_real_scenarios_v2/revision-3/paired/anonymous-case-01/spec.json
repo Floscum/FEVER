@@ -1,0 +1,364 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_capital_return_001",
+  "title": "匿名案例：成熟消费品公司特别现金分红与股东增持",
+  "as_of": "2017-04-11T23:59:59+08:00",
+  "question": "日期、名称、代码和绝对金额均已匿名化。只使用D0收盘前后已公开的信息，推演特别分红的治理落地、控股股东行为、投资者反应及匿名标的后续价格方向。",
+  "horizon": {
+    "kind": "calendar_days",
+    "value": 35,
+    "end_at": "2017-05-16T23:59:59+08:00"
+  },
+  "market": {
+    "region": "BLIND_CN",
+    "venues": [
+      "BLIND_CN_EQUITY"
+    ],
+    "instruments": [
+      {
+        "symbol": "ASSET_A",
+        "name": "匿名成熟消费品龙头A",
+        "kind": "equity",
+        "currency": "CNY"
+      }
+    ]
+  },
+  "facts": [
+    {
+      "id": "F1",
+      "observed_at": "2017-04-11T20:00:00+08:00",
+      "statement": "发行人董事会提出一次特别现金分红方案，拟派发总额超过最近完整年度归母净利润的一半；该方案不会改变主营业务和股本数量。",
+      "source_kind": "filing",
+      "source_url": "https://benchmark.invalid/blind-capital-return-001/F1",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F2",
+      "observed_at": "2017-04-11T20:00:00+08:00",
+      "statement": "控股股东及其关联方同时公布二级市场增持计划，计划使用部分现金红利，在特别分红实施后的六个月内按固定金额上下限增持，未设置固定买入价格。",
+      "source_kind": "filing",
+      "source_url": "https://benchmark.invalid/blind-capital-return-001/F2",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F3",
+      "observed_at": "2017-04-11T20:00:00+08:00",
+      "statement": "特别分红仍需临时股东大会审议；董事会认为该安排兼顾持续经营、股东回报和长期稳定发展。",
+      "source_kind": "filing",
+      "source_url": "https://benchmark.invalid/blind-capital-return-001/F3",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F4",
+      "observed_at": "2017-04-11T15:00:00+08:00",
+      "statement": "D0匿名标的收跌约0.8%，成交量约为前一交易日的2.6倍；公告在D0收盘后公开。",
+      "source_kind": "market_data",
+      "source_url": "https://benchmark.invalid/blind-capital-return-001/F4",
+      "evidence_ref": null,
+      "confidence": 1.0
+    }
+  ],
+  "actors": [
+    {
+      "id": "actor_issuer",
+      "label": "匿名成熟消费品发行人",
+      "kind": "issuer",
+      "aggregation": "organization",
+      "goals": [
+        "提高长期股东回报",
+        "维护经营稳定",
+        "形成可信资本配置政策"
+      ],
+      "constraints": [
+        "特别分红须履行董事会、股东大会和信息披露程序"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "公司拥有较强经营现金流和成熟品牌"
+      ]
+    },
+    {
+      "id": "actor_controller",
+      "label": "控股股东及关联方",
+      "kind": "institutional_investor",
+      "aggregation": "organization",
+      "goals": [
+        "维护控制权和长期价值",
+        "兑现增持承诺",
+        "稳定市场预期"
+      ],
+      "constraints": [
+        "增持须遵守披露、窗口期和金额上下限"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "计划使用部分分红所得增持"
+      ]
+    },
+    {
+      "id": "actor_regulator",
+      "label": "证券监管机构",
+      "kind": "regulator",
+      "aggregation": "organization",
+      "goals": [
+        "保证分红和增持披露合规",
+        "保护中小投资者"
+      ],
+      "constraints": [
+        "只能依法监管，不能替代股东表决"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_exchange",
+      "label": "上市交易所",
+      "kind": "exchange",
+      "aggregation": "organization",
+      "goals": [
+        "监督信息披露",
+        "维护交易秩序"
+      ],
+      "constraints": [
+        "依照现金分红、权益变动和交易规则执行"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_institutions",
+      "label": "持有匿名标的的机构投资者",
+      "kind": "institutional_investor",
+      "aggregation": "cohort",
+      "goals": [
+        "评估分红可持续性",
+        "判断增持信号",
+        "控制估值与组合风险"
+      ],
+      "constraints": [
+        "必须区分一次性资本返还与经营增长"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "不同机构对高分红的信号解释存在分歧"
+      ]
+    },
+    {
+      "id": "actor_retail",
+      "label": "个人投资者",
+      "kind": "retail_cohort",
+      "aggregation": "cohort",
+      "goals": [
+        "获取现金回报",
+        "判断短中期价格方向"
+      ],
+      "constraints": [
+        "信息和估值能力有限，容易受高分红叙事影响"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "可能把分红和增持同时理解为强利好"
+      ]
+    },
+    {
+      "id": "actor_competitors",
+      "label": "同业成熟消费品公司",
+      "kind": "competitor",
+      "aggregation": "cohort",
+      "goals": [
+        "比较资本回报政策",
+        "维护投资者吸引力"
+      ],
+      "constraints": [
+        "现金流与股权结构并不相同"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": [
+        "可能被投资者要求提高分红"
+      ]
+    },
+    {
+      "id": "actor_media",
+      "label": "财经媒体与分析师",
+      "kind": "media",
+      "aggregation": "cohort",
+      "goals": [
+        "解释特别分红和增持的信号",
+        "跟踪股东大会和实施进度"
+      ],
+      "constraints": [
+        "必须区分已公告方案和已实施结果"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    }
+  ],
+  "relationships": [
+    {
+      "source_actor_id": "actor_issuer",
+      "target_actor_id": "actor_controller",
+      "kind": "coordinates_capital_return",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_controller",
+      "target_actor_id": "actor_institutions",
+      "kind": "signals_long_term_commitment",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_regulator",
+      "target_actor_id": "actor_issuer",
+      "kind": "supervises_compliance",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_exchange",
+      "target_actor_id": "actor_issuer",
+      "kind": "supervises_disclosure",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_media",
+      "target_actor_id": "actor_retail",
+      "kind": "influences_information_set",
+      "visibility": "assumed"
+    }
+  ],
+  "allowed_actions": [
+    {
+      "type": "COMMUNICATE",
+      "description": "披露方案、观点、风险或执行进度。",
+      "visibility": "public"
+    },
+    {
+      "type": "REGULATE",
+      "description": "开展披露监管或交易监督。",
+      "visibility": "public"
+    },
+    {
+      "type": "OPERATE",
+      "description": "准备股东大会、分红实施或资本安排。",
+      "visibility": "either"
+    },
+    {
+      "type": "ALLOCATE",
+      "description": "调整匿名标的或同业风险敞口。",
+      "visibility": "private"
+    },
+    {
+      "type": "WAIT",
+      "description": "等待表决、实施或价格确认。",
+      "visibility": "either"
+    }
+  ],
+  "interventions": [
+    {
+      "id": "I0_CAPITAL_RETURN",
+      "at_round": 0,
+      "fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "visibility": "public"
+    }
+  ],
+  "forecast_targets": [
+    {
+      "id": "T1",
+      "kind": "market",
+      "definition": "D1收盘价相对D0收盘价的方向。",
+      "horizon": "next_trading_close",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T2",
+      "kind": "market",
+      "definition": "第5个交易日收盘价相对D0收盘价的方向。",
+      "horizon": "5_trading_days",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T3",
+      "kind": "market",
+      "definition": "第20个交易日收盘价相对D0收盘价的方向。",
+      "horizon": "20_trading_days",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T4",
+      "kind": "event",
+      "definition": "特别分红方案是否在20个自然日内获得股东大会批准。",
+      "horizon": "20_calendar_days",
+      "scoring": "brier"
+    },
+    {
+      "id": "T5",
+      "kind": "event",
+      "definition": "特别现金分红是否在35个自然日内完成发放。",
+      "horizon": "35_calendar_days",
+      "scoring": "brier"
+    }
+  ],
+  "run_config": {
+    "rounds": 12,
+    "replications": 20,
+    "seed_strategy": "deterministic_sequence",
+    "layers": [
+      "information",
+      "behavior"
+    ]
+  },
+  "provenance": {
+    "created_by": "FEVER-MiroFish blind benchmark",
+    "source_graph_artifact_id": null,
+    "notes": [
+      "真实公司、证券代码、日期、绝对金额和来源链接已从模型可见输入中移除。",
+      "时间戳是保持相对间隔的实验标签，不代表真实宏观年份。",
+      "真实映射和结果只保存在独立outcome文件，禁止进入模型提示。"
+    ]
+  }
+}

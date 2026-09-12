@@ -1,0 +1,371 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_platform_compliance_021",
+  "title": "匿名案例：数字平台行为规则合规调查",
+  "as_of": "2019-03-25T22:00:00+01:00",
+  "question": "司法辖区、年份、法规、企业、产品和市场代码均已匿名化。只使用D0已公开的信息，推演监管机构、移动生态平台、应用开发者、替代分发渠道、消费者、竞争者和投资者如何应对新的平台行为规则调查。",
+  "horizon": {
+    "kind": "calendar_days",
+    "value": 180,
+    "end_at": "2019-09-21T22:00:00+02:00"
+  },
+  "market": {
+    "region": "BLIND_DEVELOPED_EQUITY_MARKET",
+    "venues": [
+      "BLIND_US_EQUITY"
+    ],
+    "instruments": [
+      {
+        "symbol": "ASSET_U",
+        "name": "匿名移动生态平台运营商普通股",
+        "kind": "equity",
+        "currency": "USD"
+      }
+    ]
+  },
+  "facts": [
+    {
+      "id": "F1",
+      "observed_at": "2019-03-25T10:00:00+01:00",
+      "statement": "一个跨国监管机构依据刚开始全面适用的平台行为法规，对数家被指定为关键入口的平台企业启动不合规程序。匿名企业涉及应用商店引导规则和浏览器选择设计。",
+      "source_kind": "official",
+      "source_url": "https://benchmark.invalid/blind-platform-compliance-021/F1",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F2",
+      "observed_at": "2019-03-25T10:00:00+01:00",
+      "statement": "法规要求关键平台允许应用开发者免费告知消费者平台外的替代优惠并引导其完成购买。监管者怀疑匿名企业现有措施没有带来有效合规。",
+      "source_kind": "official",
+      "source_url": "https://benchmark.invalid/blind-platform-compliance-021/F2",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F3",
+      "observed_at": "2019-03-25T10:00:00+01:00",
+      "statement": "监管者同时收集匿名企业对替代应用商店、网页分发、新费用结构和其他合同条款的资料，但这些额外步骤在D0尚不是最终违规认定。",
+      "source_kind": "official",
+      "source_url": "https://benchmark.invalid/blind-platform-compliance-021/F3",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F4",
+      "observed_at": "2019-03-25T22:00:00+01:00",
+      "statement": "监管者计划在十二个月内完成程序；若最终认定违规，最高罚款可与企业全球营业额挂钩。D0没有初步违规意见、最终决定或罚款。匿名企业股票正常收盘。",
+      "source_kind": "official",
+      "source_url": "https://benchmark.invalid/blind-platform-compliance-021/F4",
+      "evidence_ref": null,
+      "confidence": 1.0
+    }
+  ],
+  "actors": [
+    {
+      "id": "actor_regulator",
+      "label": "跨国数字市场监管机构",
+      "kind": "regulator",
+      "aggregation": "organization",
+      "goals": [
+        "验证平台措施是否实现有效合规",
+        "提高数字市场可竞争性",
+        "形成可执行的补救要求"
+      ],
+      "constraints": [
+        "必须经过调查、初步意见和企业答辩程序"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_platform",
+      "label": "匿名移动生态平台运营商",
+      "kind": "issuer",
+      "aggregation": "organization",
+      "goals": [
+        "维持生态安全和商业模式",
+        "降低罚款与强制整改风险",
+        "保留对应用分发和支付的控制"
+      ],
+      "constraints": [
+        "必须在新法规下证明措施有效而不只是形式合规"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_developers",
+      "label": "应用开发者与数字内容企业",
+      "kind": "supplier",
+      "aggregation": "cohort",
+      "goals": [
+        "自由告知用户更便宜的购买渠道",
+        "降低分发费用和合同不确定性",
+        "扩大直接客户关系"
+      ],
+      "constraints": [
+        "仍依赖平台触达大量移动用户"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_alt_stores",
+      "label": "替代应用商店与网页分发服务",
+      "kind": "competitor",
+      "aggregation": "cohort",
+      "goals": [
+        "获得可持续的平台接入",
+        "吸引开发者和用户",
+        "建立可信安全与支付能力"
+      ],
+      "constraints": [
+        "新费用、资格和技术审核可能削弱商业可行性"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_consumers",
+      "label": "移动设备消费者",
+      "kind": "customer",
+      "aggregation": "cohort",
+      "goals": [
+        "获得价格选择和安全便利",
+        "避免复杂安装与支付风险"
+      ],
+      "constraints": [
+        "难以评估替代渠道的安全和总成本"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_rival_platforms",
+      "label": "其他关键数字平台",
+      "kind": "competitor",
+      "aggregation": "cohort",
+      "goals": [
+        "降低自身合规风险",
+        "比较不同整改路径的成本",
+        "争取开发者与监管信任"
+      ],
+      "constraints": [
+        "同期也可能处于监管程序中"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_member_authorities",
+      "label": "成员经济体的市场与消费者机关",
+      "kind": "government",
+      "aggregation": "cohort",
+      "goals": [
+        "协调执行新的平台规则",
+        "保护本地企业与消费者",
+        "避免监管冲突"
+      ],
+      "constraints": [
+        "主要调查权集中于跨国监管机构"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_investors",
+      "label": "大型科技与事件驱动投资者",
+      "kind": "institutional_investor",
+      "aggregation": "cohort",
+      "goals": [
+        "估计整改、罚款和利润率风险",
+        "区分短期标题冲击与长期商业模式变化"
+      ],
+      "constraints": [
+        "调查可能持续数月且补救范围不确定"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    }
+  ],
+  "relationships": [
+    {
+      "source_actor_id": "actor_regulator",
+      "target_actor_id": "actor_platform",
+      "kind": "investigates_compliance_of",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_platform",
+      "target_actor_id": "actor_developers",
+      "kind": "sets_distribution_terms_for",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_platform",
+      "target_actor_id": "actor_alt_stores",
+      "kind": "controls_technical_access_for",
+      "visibility": "private"
+    },
+    {
+      "source_actor_id": "actor_developers",
+      "target_actor_id": "actor_consumers",
+      "kind": "steers_offers_to",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_regulator",
+      "target_actor_id": "actor_developers",
+      "kind": "collects_market_evidence_from",
+      "visibility": "private"
+    },
+    {
+      "source_actor_id": "actor_member_authorities",
+      "target_actor_id": "actor_regulator",
+      "kind": "coordinates_enforcement_with",
+      "visibility": "private"
+    },
+    {
+      "source_actor_id": "actor_investors",
+      "target_actor_id": "actor_platform",
+      "kind": "prices_compliance_risk_of",
+      "visibility": "public"
+    }
+  ],
+  "allowed_actions": [
+    {
+      "type": "COMMUNICATE",
+      "description": "发布调查意见、合规说明、开发者反馈或投资者分析。",
+      "visibility": "public"
+    },
+    {
+      "type": "NEGOTIATE",
+      "description": "讨论合同条款、费用、技术接入或补救方案。",
+      "visibility": "private"
+    },
+    {
+      "type": "ALLOCATE",
+      "description": "调整平台股票或生态投资敞口。",
+      "visibility": "private"
+    },
+    {
+      "type": "OPERATE",
+      "description": "修改应用商店、浏览器选择、替代分发或用户流程。",
+      "visibility": "either"
+    },
+    {
+      "type": "REGULATE",
+      "description": "收集证据、发出初步意见、决定补救或罚款。",
+      "visibility": "public"
+    },
+    {
+      "type": "WAIT",
+      "description": "等待调查、答辩、技术调整或市场采用信号。",
+      "visibility": "either"
+    }
+  ],
+  "interventions": [
+    {
+      "id": "I0_PLATFORM_PROCEEDINGS",
+      "at_round": 0,
+      "fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "visibility": "public"
+    }
+  ],
+  "forecast_targets": [
+    {
+      "id": "T1",
+      "kind": "market",
+      "definition": "D1收盘价相对D0的匿名平台运营商普通股方向。",
+      "horizon": "next_market_observation",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T2",
+      "kind": "market",
+      "definition": "第5个后续收盘价相对D0的匿名平台运营商普通股方向。",
+      "horizon": "5_market_observations",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T3",
+      "kind": "market",
+      "definition": "第20个后续收盘价相对D0的匿名平台运营商普通股方向。",
+      "horizon": "20_market_observations",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T4",
+      "kind": "event",
+      "definition": "监管机构是否在100个自然日内向匿名平台运营商发出应用商店引导规则涉嫌违反新法规的初步意见。",
+      "horizon": "100_calendar_days",
+      "scoring": "brier"
+    },
+    {
+      "id": "T5",
+      "kind": "event",
+      "definition": "监管机构是否在180个自然日内依据该不合规程序对匿名平台运营商作出货币罚款。",
+      "horizon": "180_calendar_days",
+      "scoring": "brier"
+    }
+  ],
+  "run_config": {
+    "rounds": 12,
+    "replications": 20,
+    "seed_strategy": "deterministic_sequence",
+    "layers": [
+      "information",
+      "behavior"
+    ]
+  },
+  "provenance": {
+    "created_by": "FEVER-MiroFish blind benchmark",
+    "source_graph_artifact_id": null,
+    "notes": [
+      "真实司法辖区、年份、法规、企业、产品和市场代码均已匿名化。",
+      "真实结果只保存在独立outcome文件。"
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "expand": false,
+  "promote": false,
+  "reviewer": "assistant_content_review_not_independent_human_acceptance",
+  "manifest_sha256": "b80ec668dcc0a320c674008abcd98fbd53951e41176ec03d34f0ccca76e0e237",
+  "reason": "v9 introduces unsupported thresholds and repeats an already adjusted accounting comparison."
+}

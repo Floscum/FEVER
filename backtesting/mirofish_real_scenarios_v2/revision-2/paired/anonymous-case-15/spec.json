@@ -1,0 +1,360 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_gene_therapy_review_015",
+  "title": "匿名案例：罕见病基因疗法关键审批",
+  "as_of": "2018-05-15T16:00:00-04:00",
+  "question": "公司、产品、疾病、年份、监管机关具体名称与市场代码均已匿名化。只使用D0已公开的信息，推演监管者、公司、患者群体、临床专家、合作方和投资者在专家委员会以微弱多数支持加速审批后的行为。",
+  "horizon": {
+    "kind": "calendar_days",
+    "value": 45,
+    "end_at": "2018-06-29T16:00:00-04:00"
+  },
+  "market": {
+    "region": "BLIND_DEVELOPED_EQUITY_MARKET",
+    "venues": [
+      "BLIND_EQUITY_EXCHANGE"
+    ],
+    "instruments": [
+      {
+        "symbol": "ASSET_P",
+        "name": "匿名罕见病生物科技企业普通股",
+        "kind": "equity",
+        "currency": "USD"
+      }
+    ]
+  },
+  "facts": [
+    {
+      "id": "F1",
+      "observed_at": "2018-05-10T09:00:00-04:00",
+      "statement": "监管机关审评材料指出，这项一次性基因疗法提高了替代蛋白表达，但随机对照研究的临床功能结果存在不确定性，安全性和代理终点能否预测临床获益仍是核心争议。",
+      "source_kind": "official",
+      "source_url": "https://benchmark.invalid/blind-gene-therapy-review-015/F1",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F2",
+      "observed_at": "2018-05-12T19:00:00-04:00",
+      "statement": "外部专家委员会以8票赞成、6票反对的微弱多数认为现有证据支持通过加速路径审批；委员会意见对最终监管决定不具有约束力。",
+      "source_kind": "official",
+      "source_url": "https://benchmark.invalid/blind-gene-therapy-review-015/F2",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F3",
+      "observed_at": "2018-05-15T09:00:00-04:00",
+      "statement": "申请覆盖具有已确认基因突变且仍能行走的患者，公司正在为潜在商业化和生产供应做准备；监管机关可以批准、拒绝、延迟或缩小适用人群。",
+      "source_kind": "filing",
+      "source_url": "https://benchmark.invalid/blind-gene-therapy-review-015/F3",
+      "evidence_ref": null,
+      "confidence": 0.98
+    },
+    {
+      "id": "F4",
+      "observed_at": "2018-05-15T16:00:00-04:00",
+      "statement": "股票在委员会投票后的首个可交易日显著上涨，显示市场上调审批概率，但对标签范围、确认性试验和长期安全要求仍有分歧。",
+      "source_kind": "market_data",
+      "source_url": "https://benchmark.invalid/blind-gene-therapy-review-015/F4",
+      "evidence_ref": null,
+      "confidence": 0.98
+    }
+  ],
+  "actors": [
+    {
+      "id": "actor_regulator",
+      "label": "匿名药品与生物制品监管机关",
+      "kind": "regulator",
+      "aggregation": "organization",
+      "goals": [
+        "权衡未满足医疗需求与证据不确定性",
+        "设定可执行的标签和上市后要求"
+      ],
+      "constraints": [
+        "临床获益尚未确证",
+        "专家委员会意见不具约束力"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_issuer",
+      "label": "匿名罕见病生物科技企业",
+      "kind": "issuer",
+      "aggregation": "organization",
+      "goals": [
+        "取得及时且尽可能广的批准",
+        "准备生产与商业化",
+        "保护产品信誉"
+      ],
+      "constraints": [
+        "需满足标签、生产和确认性试验要求"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "会继续与监管机关完成审评"
+      ]
+    },
+    {
+      "id": "actor_committee",
+      "label": "外部临床与科学专家",
+      "kind": "analyst",
+      "aggregation": "cohort",
+      "goals": [
+        "评估获益风险",
+        "解释代理终点和临床数据"
+      ],
+      "constraints": [
+        "证据规模有限且专家意见分裂"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_patients",
+      "label": "患者家庭与倡议组织",
+      "kind": "customer",
+      "aggregation": "cohort",
+      "goals": [
+        "尽快获得治疗选择",
+        "争取更广覆盖",
+        "降低安全与支付障碍"
+      ],
+      "constraints": [
+        "疾病进展迅速且替代疗法有限"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_clinicians",
+      "label": "罕见病临床中心",
+      "kind": "customer",
+      "aggregation": "cohort",
+      "goals": [
+        "识别适格患者",
+        "评估获益风险",
+        "准备给药与监测"
+      ],
+      "constraints": [
+        "需要最终标签和安全管理要求"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_partner",
+      "label": "商业合作与制造伙伴",
+      "kind": "supplier",
+      "aggregation": "organization",
+      "goals": [
+        "扩大可验证产能",
+        "为上市准备供应链"
+      ],
+      "constraints": [
+        "需求取决于审批时间和标签范围"
+      ],
+      "observable_fact_ids": [
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_investors",
+      "label": "生物科技投资者",
+      "kind": "institutional_investor",
+      "aggregation": "cohort",
+      "goals": [
+        "判断审批概率、标签范围和峰值收入",
+        "管理二元监管风险"
+      ],
+      "constraints": [
+        "投票结果不等于最终决定"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_media",
+      "label": "医疗与财经媒体",
+      "kind": "media",
+      "aggregation": "cohort",
+      "goals": [
+        "解释分裂投票和审批路径",
+        "跟踪患者与监管观点"
+      ],
+      "constraints": [
+        "技术证据复杂且最终决定尚未作出"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    }
+  ],
+  "relationships": [
+    {
+      "source_actor_id": "actor_committee",
+      "target_actor_id": "actor_regulator",
+      "kind": "advises_benefit_risk_decision_of",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_issuer",
+      "target_actor_id": "actor_regulator",
+      "kind": "submits_evidence_and_negotiates_label_with",
+      "visibility": "private"
+    },
+    {
+      "source_actor_id": "actor_patients",
+      "target_actor_id": "actor_regulator",
+      "kind": "communicates_unmet_need_to",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_partner",
+      "target_actor_id": "actor_issuer",
+      "kind": "supports_manufacturing_and_launch_of",
+      "visibility": "private"
+    },
+    {
+      "source_actor_id": "actor_media",
+      "target_actor_id": "actor_investors",
+      "kind": "transmits_regulatory_signals_to",
+      "visibility": "public"
+    }
+  ],
+  "allowed_actions": [
+    {
+      "type": "COMMUNICATE",
+      "description": "发布科学、患者、审批、标签或商业化观点。",
+      "visibility": "public"
+    },
+    {
+      "type": "REGULATE",
+      "description": "批准、拒绝、延迟或缩小标签并设置上市后要求。",
+      "visibility": "public"
+    },
+    {
+      "type": "OPERATE",
+      "description": "准备生产、供应、患者识别、给药和安全监测。",
+      "visibility": "either"
+    },
+    {
+      "type": "ALLOCATE",
+      "description": "调整公司股票和生物科技风险敞口。",
+      "visibility": "private"
+    },
+    {
+      "type": "NEGOTIATE",
+      "description": "协商标签、确认性试验、生产条件和商业分工。",
+      "visibility": "private"
+    },
+    {
+      "type": "WAIT",
+      "description": "等待最终监管行动或补充数据。",
+      "visibility": "either"
+    }
+  ],
+  "interventions": [
+    {
+      "id": "I0_SPLIT_ADVISORY_VOTE",
+      "at_round": 0,
+      "fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "visibility": "public"
+    }
+  ],
+  "forecast_targets": [
+    {
+      "id": "T1",
+      "kind": "market",
+      "definition": "D1收盘价相对D0的匿名公司普通股方向。",
+      "horizon": "next_market_observation",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T2",
+      "kind": "market",
+      "definition": "第5个后续收盘价相对D0的匿名公司普通股方向。",
+      "horizon": "5_market_observations",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T3",
+      "kind": "market",
+      "definition": "第20个后续收盘价相对D0的匿名公司普通股方向。",
+      "horizon": "20_market_observations",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T4",
+      "kind": "event",
+      "definition": "监管机关是否在45个自然日内通过加速路径批准该基因疗法。",
+      "horizon": "45_calendar_days",
+      "scoring": "brier"
+    },
+    {
+      "id": "T5",
+      "kind": "event",
+      "definition": "初始批准标签是否在45个自然日内覆盖全部4至7岁仍能行走且具有已确认目标基因突变的患者。",
+      "horizon": "45_calendar_days",
+      "scoring": "brier"
+    }
+  ],
+  "run_config": {
+    "rounds": 12,
+    "replications": 20,
+    "seed_strategy": "deterministic_sequence",
+    "layers": [
+      "information",
+      "behavior"
+    ]
+  },
+  "provenance": {
+    "created_by": "FEVER-MiroFish blind benchmark",
+    "source_graph_artifact_id": null,
+    "notes": [
+      "真实公司、产品、疾病、年份、监管机关、市场代码和来源链接已从模型可见输入中移除。",
+      "真实映射和结果只保存在独立outcome文件，禁止进入任何预测、模拟或信号提示。"
+    ]
+  }
+}

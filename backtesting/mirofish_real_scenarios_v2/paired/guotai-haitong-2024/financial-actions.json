@@ -1,0 +1,241 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "real-guotai-haitong-2024",
+  "spec_sha256": "ee29c7f9c903c3415cbf8c84d894a6d147d5523bf666552815303b8cac0ec51c",
+  "simulation_id": "sim_direct_13823f2ff662",
+  "generated_at": "2026-09-12T04:31:01.826299+00:00",
+  "status": "completed",
+  "decisions": [
+    {
+      "id": "decision-actor_issuer-r2",
+      "round": 2,
+      "actor_id": "actor_issuer",
+      "action_type": "WAIT",
+      "decision_status": "intended",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [
+        "601211",
+        "600837"
+      ],
+      "rationale": "截至2024年9月6日收盘，公司已发布停牌公告并签署合作协议。当前处于交易推进的初始阶段，核心变量（换股比例、募集金额）尚未确定，方案需经董事会、股东大会和监管机构审批，存在重大不确定性。作为事件主体，首要目标是维持经营与融资能力、控制事件对客户和业务的影响。在缺少进一步可观察信息的情况下，最审慎的主要动作是等待内部方案细化与中介机构尽调结果，同时按披露义务在停牌期间定期公告进展。过早进行高强度的外部沟通或操作可能引发市场误解或增大不确定性，与公司已披露的审慎立场和约束不符。",
+      "constraint_refs": [
+        "actor_issuer:constraint:0",
+        "actor_issuer:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:0",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_regulator-r2",
+      "round": 2,
+      "actor_id": "actor_regulator",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "conditional",
+      "intensity": 0.6,
+      "instrument_refs": [
+        "601211",
+        "600837"
+      ],
+      "rationale": "截至截止时点，交易仅处于原则性约定阶段（F3），尚未形成具体交易文件，公司尚未提交需审批的正式申报材料（F4）。作为监管机构，无法在无受理文件的情况下启动审查程序。停牌期间公司将按进展履行披露义务（F5），当前最佳行动是等待公司披露具体换股比例、募集金额等关键要素，并提交正式申报文件后方可启动审批程序。我机构已通过社交媒体表达了监管关注（模拟记忆第2轮中的评论），下一步需等待申报材料实际到达。",
+      "constraint_refs": [
+        "actor_regulator:constraint:0",
+        "actor_regulator:constraint:1"
+      ],
+      "evidence_refs": [
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:1",
+      "visibility": "private",
+      "confidence": 0.9,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_exchange-r2",
+      "round": 2,
+      "actor_id": "actor_exchange",
+      "action_type": "WAIT",
+      "decision_status": "no_action",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "截至2024年9月6日收盘，国泰君安A股已按公告停牌，双方签署的是原则性合作协议，尚需董事会、股东大会及监管机构审批，存在重大不确定性。作为交易所，当前无需采取额外措施，应等待公司按停牌期间信息披露义务提交进展公告或复牌申请后再行研判。主动干预可能替代公司经营判断或越权替代监管审批，不符合约束要求。",
+      "constraint_refs": [
+        "actor_exchange:constraint:0",
+        "actor_exchange:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:2",
+      "visibility": "private",
+      "confidence": 0.95,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_institutions-r2",
+      "round": 2,
+      "actor_id": "actor_institutions",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": null,
+      "instrument_refs": [
+        "601211",
+        "600837"
+      ],
+      "rationale": "截至截止时点，国泰君安已公告拟吸收合并海通证券，A股已于9月6日起停牌（F2），但本次公告未给出换股比例或募集金额（F5），且协议仅作原则性约定（F3），交易需经双方董事会、股东大会及监管机构批准，能否实施仍存在不确定性（F4）。作为机构投资者，受流动性约束（约束1），在缺乏换股对价、复合材料估值基准以及审批确定性之前，无法进行有效的风险收益评估和资本配置。因此最优先动作是等待停牌期间的信息披露（F5），待关键变量（换股比、募集规模、审批进展）披露后再行决策。同时关注模拟平台中分析师帖子反映的市场情绪与关注焦点作为新增信息，但目前不构成调整仓位的充分依据。",
+      "constraint_refs": [
+        "actor_institutions:constraint:0",
+        "actor_institutions:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:3",
+      "visibility": "public",
+      "confidence": 0.9,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_brokers-r2",
+      "round": 2,
+      "actor_id": "actor_brokers",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "截至2024-09-06收盘后，我作为券商中介已观察到国泰君安与海通证券签署吸收合并合作协议（F3），国泰君安A股已自9月6日开市起停牌（F2）。但本次公告未给出换股比例或募集金额（F5），协议仅为原则性约定，正式交易文件尚待签署（F3），且需双方董事会、股东大会审议及监管机构批准后方可实施（F4）。由于关键交易条款缺失、审批路径不确定，我无法评估该融资交易的最终可行性与中介服务连续性。当前最审慎的选择是等待停牌期间后续公告披露具体方案后，再调整融资安排与中介服务判断。",
+      "constraint_refs": [
+        "actor_brokers:constraint:0",
+        "actor_brokers:constraint:1"
+      ],
+      "evidence_refs": [
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:4",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_competitors-r2",
+      "round": 2,
+      "actor_id": "actor_competitors",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "maintain",
+      "intensity": 0.3,
+      "instrument_refs": [
+        "601211",
+        "600837"
+      ],
+      "rationale": "作为行业竞争者，国泰君安与海通的吸收合并将显著改变券商竞争格局，合并后主体资产规模有望超越现有龙头。但当前关键信息仍不充分：换股比例和募集金额未披露（F5），交易协议仅为原则性约定（F3），且须经双方董事会、股东大会及监管批准后方可实施，存在较大不确定性（F4）。国泰君安A股已停牌，预计最长25个交易日（F2），在此期间关键条款将逐步明朗。我方受自身产能、成本和执行周期约束（constraint 1），无法在信息不足时即调整业务部署。因此，当前最合理的动作是维持现有竞争定位，等待停牌期间披露更多交易细节和整合方案后，再评估对细分市场格局的具体冲击和自身应对策略。",
+      "constraint_refs": [
+        "actor_competitors:constraint:0",
+        "actor_competitors:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:5",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_analysts-r2",
+      "round": 2,
+      "actor_id": "actor_analysts",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [
+        "601211"
+      ],
+      "rationale": "截至2024-09-06，国泰君安A股已进入停牌状态，市场交易行为不可观测（F2）。合并方案仅签署原则性协议（F3），换股比例与募集金额均未披露（F5），且交易尚需董事会、股东大会及监管批准，存在实施不确定性（F4）。当前缺乏足够事实来更新原有判断。下一决策周期的关键观察窗口为：(1)停牌期间公司按进展履行的信息披露（F5）；(2)正式交易文件签署后披露的换股比例与募集金额。在以上关键变量明确之前，主动沟通缺乏新事实支撑且可能将估计误判为承诺，违反约束要求。故选择WAIT，等待可观察事实积累后再调整判断。",
+      "constraint_refs": [
+        "actor_analysts:constraint:0",
+        "actor_analysts:constraint:1"
+      ],
+      "evidence_refs": [
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:6",
+      "visibility": "private",
+      "confidence": 0.95,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_media-r2",
+      "round": 2,
+      "actor_id": "actor_media",
+      "action_type": "WAIT",
+      "decision_status": "no_action",
+      "direction": "not_applicable",
+      "intensity": null,
+      "instrument_refs": [],
+      "rationale": "截至模拟第2轮，事实信息与上一轮无变化，未观察到新的可核实信息流入。F4明确重组存在不确定性，F5表明更多细节将在停牌期间陆续披露。作为财经媒体，在缺乏新增事实或对方新行动的情况下，贸然传播或评论将违反'只能使用分析截止时间前可观察信息'及'区分事实与推测'的约束。因此本轮选择等待，待官方披露换股比例或复牌公告等新增可观察事实后再进行核实与传播。",
+      "constraint_refs": [
+        "actor_media:constraint:0",
+        "actor_media:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:7",
+      "visibility": "private",
+      "confidence": 0.95,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    }
+  ],
+  "failures": [],
+  "warnings": [
+    "Decision confidence expresses action clarity, not forecast probability.",
+    "Interview decisions are simulated statements, not observed evidence."
+  ]
+}

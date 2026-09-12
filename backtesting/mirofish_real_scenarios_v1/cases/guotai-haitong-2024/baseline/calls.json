@@ -1,0 +1,502 @@
+[
+  {
+    "request_id": "7e2aea8de9a940d2b816df26650df722",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 2.4366938750026748,
+    "usage": {
+      "prompt_tokens": 3495,
+      "total_tokens": 3578,
+      "completion_tokens": 83,
+      "estimated_cost": 0.000218898,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00359397,
+    "charged_budget_usd": 0.0004942350000000001
+  },
+  {
+    "request_id": "a6841238305242e4940245ad62cecb7a",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 3.868818167014979,
+    "usage": {
+      "prompt_tokens": 3481,
+      "total_tokens": 3586,
+      "completion_tokens": 105,
+      "estimated_cost": 0.00033219000000000006,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0035887049999999998,
+    "charged_budget_usd": 0.0004982850000000001
+  },
+  {
+    "request_id": "3567f55a4bc64df286dd328ec7ac2b51",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 4.795815291930921,
+    "usage": {
+      "prompt_tokens": 3491,
+      "total_tokens": 3662,
+      "completion_tokens": 171,
+      "estimated_cost": 0.000234378,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0035926200000000004,
+    "charged_budget_usd": 0.000517455
+  },
+  {
+    "request_id": "4a85a0bf007044afba9a911824d45815",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 4.994346874998882,
+    "usage": {
+      "prompt_tokens": 3489,
+      "total_tokens": 3660,
+      "completion_tokens": 171,
+      "estimated_cost": 0.00023419800000000002,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0035897850000000003,
+    "charged_budget_usd": 0.0005171850000000001
+  },
+  {
+    "request_id": "f7619a3a0c874286b3155ec6a9a13cf7",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 6.946765540982597,
+    "usage": {
+      "prompt_tokens": 3495,
+      "total_tokens": 3730,
+      "completion_tokens": 235,
+      "estimated_cost": 0.000246258,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0035923500000000002,
+    "charged_budget_usd": 0.0005352750000000001
+  },
+  {
+    "request_id": "213d7aed88e24b4f9a6ee18df87c6b76",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 6.945783540955745,
+    "usage": {
+      "prompt_tokens": 3496,
+      "total_tokens": 3685,
+      "completion_tokens": 189,
+      "estimated_cost": 0.000238068,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0035950500000000002,
+    "charged_budget_usd": 0.00052299
+  },
+  {
+    "request_id": "05ea8497e3574b86a88a5dbd35ee3f8c",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 7.129356249934062,
+    "usage": {
+      "prompt_tokens": 3491,
+      "total_tokens": 3714,
+      "completion_tokens": 223,
+      "estimated_cost": 0.00024373800000000002,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0035926200000000004,
+    "charged_budget_usd": 0.000531495
+  },
+  {
+    "request_id": "77a27d2b42ef4d8d80fa5496dc7fc76e",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 11.678623124957085,
+    "usage": {
+      "prompt_tokens": 3487,
+      "total_tokens": 3853,
+      "completion_tokens": 366,
+      "estimated_cost": 0.00026911800000000005,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0035883,
+    "charged_budget_usd": 0.0005695650000000001
+  },
+  {
+    "request_id": "94c0d11be8364872a4a4de1dbe4f1786",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 2.4102813750505447,
+    "usage": {
+      "prompt_tokens": 6574,
+      "total_tokens": 6654,
+      "completion_tokens": 80,
+      "estimated_cost": 0.000366444,
+      "prompt_tokens_details": {
+        "cached_tokens": 3328,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00470205,
+    "charged_budget_usd": 0.00090909
+  },
+  {
+    "request_id": "ac8910fa22db4f49b68d83324eaed5ce",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 5.053678874974139,
+    "usage": {
+      "prompt_tokens": 6393,
+      "total_tokens": 6612,
+      "completion_tokens": 219,
+      "estimated_cost": 0.000375174,
+      "prompt_tokens_details": {
+        "cached_tokens": 3328,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004588785,
+    "charged_budget_usd": 0.0009221850000000001
+  },
+  {
+    "request_id": "27d7b10e930c4089bcd9a041a94c4e98",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 5.074340207967907,
+    "usage": {
+      "prompt_tokens": 6923,
+      "total_tokens": 7147,
+      "completion_tokens": 224,
+      "estimated_cost": 0.000423774,
+      "prompt_tokens_details": {
+        "cached_tokens": 3328,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004805055,
+    "charged_budget_usd": 0.000995085
+  },
+  {
+    "request_id": "f88c4e597cfe41ddb80a4f5ce2d392f9",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 5.247505499981344,
+    "usage": {
+      "prompt_tokens": 5988,
+      "total_tokens": 6240,
+      "completion_tokens": 252,
+      "estimated_cost": 0.000344664,
+      "prompt_tokens_details": {
+        "cached_tokens": 3328,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004541265,
+    "charged_budget_usd": 0.00087642
+  },
+  {
+    "request_id": "074240b75a214f938a50e5b7fcdb8c8f",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 5.506265625008382,
+    "usage": {
+      "prompt_tokens": 6513,
+      "total_tokens": 6751,
+      "completion_tokens": 238,
+      "estimated_cost": 0.000389394,
+      "prompt_tokens_details": {
+        "cached_tokens": 3328,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00465534,
+    "charged_budget_usd": 0.0009435150000000001
+  },
+  {
+    "request_id": "5194c275fb9441739f6120c04abd8520",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 6.689829707960598,
+    "usage": {
+      "prompt_tokens": 6571,
+      "total_tokens": 6905,
+      "completion_tokens": 334,
+      "estimated_cost": 0.000411894,
+      "prompt_tokens_details": {
+        "cached_tokens": 3328,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004698540000000001,
+    "charged_budget_usd": 0.0009772650000000002
+  },
+  {
+    "request_id": "caf9434138494d829522b161d11b2817",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 7.057803249917924,
+    "usage": {
+      "prompt_tokens": 5652,
+      "total_tokens": 6030,
+      "completion_tokens": 378,
+      "estimated_cost": 0.000337104,
+      "prompt_tokens_details": {
+        "cached_tokens": 3328,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0044312399999999995,
+    "charged_budget_usd": 0.0008650800000000002
+  },
+  {
+    "request_id": "97eaccf71f504f829e91f3dde6247381",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 8.22527020808775,
+    "usage": {
+      "prompt_tokens": 6554,
+      "total_tokens": 6908,
+      "completion_tokens": 354,
+      "estimated_cost": 0.000413964,
+      "prompt_tokens_details": {
+        "cached_tokens": 3328,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0046688400000000005,
+    "charged_budget_usd": 0.0009803700000000002
+  },
+  {
+    "request_id": "8851c9a0c3c44b928963ec8ac741632f",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 3.6111697918968275,
+    "usage": {
+      "prompt_tokens": 5916,
+      "total_tokens": 6140,
+      "completion_tokens": 224,
+      "estimated_cost": 0.00057276,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004573395,
+    "charged_budget_usd": 0.0008591400000000001
+  },
+  {
+    "request_id": "fdc3ccae06214174a8e3000028f7c85f",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 7.994484166963957,
+    "usage": {
+      "prompt_tokens": 6491,
+      "total_tokens": 6736,
+      "completion_tokens": 245,
+      "estimated_cost": 0.00062829,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004701375,
+    "charged_budget_usd": 0.000942435
+  },
+  {
+    "request_id": "59c007d799fb4a069de87817dd1ce1bf",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 8.272310541942716,
+    "usage": {
+      "prompt_tokens": 6215,
+      "total_tokens": 6498,
+      "completion_tokens": 283,
+      "estimated_cost": 0.00061029,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004538970000000001,
+    "charged_budget_usd": 0.000915435
+  },
+  {
+    "request_id": "c7a863a385da4c2d80d1abf0ecac02e8",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 8.803128625033423,
+    "usage": {
+      "prompt_tokens": 5686,
+      "total_tokens": 5997,
+      "completion_tokens": 311,
+      "estimated_cost": 0.0005677200000000001,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00451872,
+    "charged_budget_usd": 0.00085158
+  },
+  {
+    "request_id": "b06c9a18cf7f4eb595c14502cb9a9cf9",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 9.21608941606246,
+    "usage": {
+      "prompt_tokens": 6734,
+      "total_tokens": 7045,
+      "completion_tokens": 311,
+      "estimated_cost": 0.00066204,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00475038,
+    "charged_budget_usd": 0.00099306
+  },
+  {
+    "request_id": "80bc445a8a4349cf880b760393817f96",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 9.266522249905393,
+    "usage": {
+      "prompt_tokens": 6477,
+      "total_tokens": 6717,
+      "completion_tokens": 240,
+      "estimated_cost": 0.00062613,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004687200000000001,
+    "charged_budget_usd": 0.0009391950000000002
+  },
+  {
+    "request_id": "1a5b1f72f6574fcb89c83a1dceb4a4a2",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 9.340417583007365,
+    "usage": {
+      "prompt_tokens": 6171,
+      "total_tokens": 6456,
+      "completion_tokens": 285,
+      "estimated_cost": 0.00060669,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00451467,
+    "charged_budget_usd": 0.0009100350000000001
+  },
+  {
+    "request_id": "db0336631f0e43d7b58b2fc3809e7151",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 9.531427999958396,
+    "usage": {
+      "prompt_tokens": 6291,
+      "total_tokens": 6586,
+      "completion_tokens": 295,
+      "estimated_cost": 0.0006192900000000001,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004583385000000001,
+    "charged_budget_usd": 0.0009289350000000001
+  },
+  {
+    "request_id": "cc2d80e29dd54863b7486d280bffd661",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 46.47856116690673,
+    "usage": {
+      "prompt_tokens": 5460,
+      "total_tokens": 6981,
+      "completion_tokens": 1521,
+      "estimated_cost": 0.0007651800000000001,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.005003774999999999,
+    "charged_budget_usd": 0.00114777
+  }
+]

@@ -1,0 +1,95 @@
+{
+  "actor_selection": {
+    "mode": "auto",
+    "recommended_count": 6,
+    "applied_limit": 6,
+    "detected_stakeholder_type_count": 0,
+    "configured_count": 6,
+    "matched_event_profiles": [
+      {
+        "id": "earnings_guidance",
+        "matched_patterns": [
+          "净利润"
+        ],
+        "recommended_count": 6
+      }
+    ],
+    "selection_strategy": "literal_mentions_plus_event_structure_v4_entities",
+    "rationale": "从证据与研究问题中识别出 0 类显式利益相关方，并命中 1 类事件结构，按 4/6/8/10 分档建议最多 6 个核心参与方",
+    "identified_entity_count": 1,
+    "configured_entity_count": 1,
+    "unconfigured_entity_names": []
+  },
+  "actors": [
+    {
+      "id": "actor_issuer",
+      "label": "比亚迪（002594）",
+      "kind": "issuer",
+      "selection_reason": "问题或市场信息提供名称与代码；主体名称在 F1 中可核对。身份匹配不代表已验证证券代码或交易权限",
+      "focus": "代表比亚迪独立评估经营与交易条件，维护自身利益",
+      "constraints": [
+        "只能使用分析截止时间前可观察的信息",
+        "行动受现金、执行能力和已披露承诺约束，不假定有无限资源",
+        "只代表比亚迪作出自身权限内的决策；不能代替交易对方、股东或监管机构批准交易"
+      ]
+    },
+    {
+      "id": "actor_institutions",
+      "label": "机构投资者",
+      "kind": "institutional_investor",
+      "selection_reason": "事件结构 earnings_guidance 命中：净利润",
+      "focus": "权衡风险敞口、流动性和资本配置",
+      "constraints": [
+        "只能使用分析截止时间前可观察的信息",
+        "受投资授权和流动性约束，不假定能够无限增持或立即退出"
+      ]
+    },
+    {
+      "id": "actor_analysts",
+      "label": "分析师",
+      "kind": "analyst",
+      "selection_reason": "事件结构 earnings_guidance 命中：净利润",
+      "focus": "比较事实与原有判断，明确需要更新的假设",
+      "constraints": [
+        "只能使用分析截止时间前可观察的信息",
+        "区分已知事实与估计，不将研判当成公司承诺"
+      ]
+    },
+    {
+      "id": "actor_brokers",
+      "label": "券商与中介机构",
+      "kind": "broker",
+      "selection_reason": "事件结构 earnings_guidance 命中：净利润",
+      "focus": "评估融资、交易与中介服务的连续性",
+      "constraints": [
+        "只能使用分析截止时间前可观察的信息",
+        "受授信、资本和合同责任约束，不预设已有未披露融资承诺"
+      ]
+    },
+    {
+      "id": "actor_exchange",
+      "label": "交易所",
+      "kind": "exchange",
+      "selection_reason": "事件结构 earnings_guidance 命中：净利润",
+      "focus": "维护信息披露和交易秩序",
+      "constraints": [
+        "只能使用分析截止时间前可观察的信息",
+        "依据已知规则采取措施，不替代公司经营或监管审批"
+      ]
+    },
+    {
+      "id": "actor_competitors",
+      "label": "竞争者",
+      "kind": "competitor",
+      "selection_reason": "事件结构 earnings_guidance 命中：净利润",
+      "focus": "评估竞争格局变化并调整业务响应",
+      "constraints": [
+        "只能使用分析截止时间前可观察的信息",
+        "受自身产能、成本和执行周期限制，不预设可以立即承接全部需求"
+      ]
+    }
+  ],
+  "evidence_count": 5,
+  "notices": [],
+  "as_of": "2025-08-30T23:59:59+08:00"
+}

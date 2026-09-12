@@ -1,0 +1,395 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_prime_broker_default_009",
+  "title": "匿名案例：高杠杆客户违约与主经纪商损失",
+  "as_of": "2018-03-29T07:00:00-04:00",
+  "question": "日期、名称、代码、客户身份和绝对损失金额均已匿名化。只使用D0已公开的信息，推演高杠杆客户未满足追加保证金要求后，主经纪商、同业、监管者、客户与投资者的反应。",
+  "horizon": {
+    "kind": "calendar_days",
+    "value": 35,
+    "end_at": "2018-05-03T07:00:00-04:00"
+  },
+  "market": {
+    "region": "BLIND_GLOBAL",
+    "venues": [
+      "BLIND_US_ADR"
+    ],
+    "instruments": [
+      {
+        "symbol": "ASSET_I",
+        "name": "匿名全球券商集团I",
+        "kind": "equity",
+        "currency": "USD"
+      }
+    ]
+  },
+  "facts": [
+    {
+      "id": "F1",
+      "observed_at": "2018-03-29T05:30:00-04:00",
+      "statement": "一家全球券商集团披露，其美国子公司的某客户交易事件可能造成重大损失；对客户的初步索赔规模约相当于该集团市值的低个位数百分比。",
+      "source_kind": "official",
+      "source_url": "https://benchmark.invalid/blind-prime-broker-default-009/F1",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F2",
+      "observed_at": "2018-03-29T05:30:00-04:00",
+      "statement": "该集团表示损失仍取决于仓位平仓和市场波动；最近披露的核心一级资本比率显著高于最低监管要求，并判断运营和财务稳健性不会受到威胁。",
+      "source_kind": "official",
+      "source_url": "https://benchmark.invalid/blind-prime-broker-default-009/F2",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F3",
+      "observed_at": "2018-03-29T06:00:00-04:00",
+      "statement": "另一家全球银行披露，同一匿名高杠杆客户未满足追加保证金要求，多家银行正退出相关仓位；损失规模在D0仍无法准确量化。",
+      "source_kind": "filing",
+      "source_url": "https://benchmark.invalid/blind-prime-broker-default-009/F3",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F4",
+      "observed_at": "2018-03-29T06:30:00-04:00",
+      "statement": "市场已观察到相关集中持仓的大额折价交易；各主经纪商的平仓速度、抵押品和客户敞口不同，可能造成显著不同的最终损失。",
+      "source_kind": "news",
+      "source_url": "https://benchmark.invalid/blind-prime-broker-default-009/F4",
+      "evidence_ref": null,
+      "confidence": 0.95
+    }
+  ],
+  "actors": [
+    {
+      "id": "actor_exposed_broker",
+      "label": "匿名全球券商集团",
+      "kind": "issuer",
+      "aggregation": "organization",
+      "goals": [
+        "快速平仓并控制损失",
+        "维持资本充足与客户信任",
+        "准确更新市场"
+      ],
+      "constraints": [
+        "集中仓位的流动性和价格会在强制出售中恶化"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "资本缓冲可吸收当前估算范围"
+      ]
+    },
+    {
+      "id": "actor_defaulting_client",
+      "label": "匿名高杠杆客户",
+      "kind": "customer",
+      "aggregation": "organization",
+      "goals": [
+        "避免强制平仓",
+        "争取额外时间或融资",
+        "减少资产价值损失"
+      ],
+      "constraints": [
+        "未满足追加保证金且多家经纪商同时行动"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "跨机构总敞口高于任一机构单独观察"
+      ]
+    },
+    {
+      "id": "actor_peer_brokers",
+      "label": "其他主经纪商",
+      "kind": "broker",
+      "aggregation": "cohort",
+      "goals": [
+        "抢先降低客户敞口",
+        "保护抵押品价值",
+        "避免同业传染"
+      ],
+      "constraints": [
+        "同步抛售会加剧价格冲击"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "平仓次序会显著影响损失分布"
+      ]
+    },
+    {
+      "id": "actor_regulators",
+      "label": "跨境银行与证券监管机构",
+      "kind": "regulator",
+      "aggregation": "cohort",
+      "goals": [
+        "确认资本与流动性充足",
+        "了解集中与合成敞口",
+        "防止市场传染"
+      ],
+      "constraints": [
+        "信息分散在多个司法辖区和机构"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "会要求快速报告但不必立即处置券商"
+      ]
+    },
+    {
+      "id": "actor_broker_clients",
+      "label": "券商的其他机构客户",
+      "kind": "customer",
+      "aggregation": "cohort",
+      "goals": [
+        "确保资产与融资安排安全",
+        "避免服务中断",
+        "重新评估交易对手风险"
+      ],
+      "constraints": [
+        "迁移主经纪关系需要时间与操作成本"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": [
+        "重大损失可能触发额外尽调"
+      ]
+    },
+    {
+      "id": "actor_institutions",
+      "label": "机构股东与债券投资者",
+      "kind": "institutional_investor",
+      "aggregation": "cohort",
+      "goals": [
+        "估算最终损失与资本影响",
+        "判断风险控制缺陷是否系统性"
+      ],
+      "constraints": [
+        "D0只有初步索赔和资本口径"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "会把不确定性反映为风险折价"
+      ]
+    },
+    {
+      "id": "actor_retail",
+      "label": "个人投资者",
+      "kind": "retail_cohort",
+      "aggregation": "cohort",
+      "goals": [
+        "判断损失是否危及券商",
+        "管理开盘跳空风险"
+      ],
+      "constraints": [
+        "容易把重大损失等同于资不抵债"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_analysts",
+      "label": "银行与券商分析师",
+      "kind": "analyst",
+      "aggregation": "cohort",
+      "goals": [
+        "建立损失区间",
+        "评估资本、治理和盈利影响",
+        "比较同业处置速度"
+      ],
+      "constraints": [
+        "客户组合与衍生品净敞口不透明"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "会使用压力情景而非单点估计"
+      ]
+    },
+    {
+      "id": "actor_media",
+      "label": "财经媒体",
+      "kind": "media",
+      "aggregation": "cohort",
+      "goals": [
+        "追踪客户身份、平仓和同业损失",
+        "解释杠杆与主经纪机制"
+      ],
+      "constraints": [
+        "匿名客户和多家银行披露口径不一致"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    }
+  ],
+  "relationships": [
+    {
+      "source_actor_id": "actor_exposed_broker",
+      "target_actor_id": "actor_defaulting_client",
+      "kind": "extends_leverage_to",
+      "visibility": "private"
+    },
+    {
+      "source_actor_id": "actor_peer_brokers",
+      "target_actor_id": "actor_defaulting_client",
+      "kind": "liquidates_collateral_of",
+      "visibility": "private"
+    },
+    {
+      "source_actor_id": "actor_regulators",
+      "target_actor_id": "actor_exposed_broker",
+      "kind": "supervises_capital_of",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_broker_clients",
+      "target_actor_id": "actor_exposed_broker",
+      "kind": "monitors_counterparty_risk_of",
+      "visibility": "private"
+    },
+    {
+      "source_actor_id": "actor_media",
+      "target_actor_id": "actor_retail",
+      "kind": "shapes_solvency_narrative_for",
+      "visibility": "assumed"
+    }
+  ],
+  "allowed_actions": [
+    {
+      "type": "COMMUNICATE",
+      "description": "发布损失、资本、平仓进度、评级或研究观点。",
+      "visibility": "public"
+    },
+    {
+      "type": "REGULATE",
+      "description": "要求报告敞口、提高监督或采取审慎措施。",
+      "visibility": "either"
+    },
+    {
+      "type": "OPERATE",
+      "description": "平仓、提高保证金、收紧客户限额或调整风险管理。",
+      "visibility": "either"
+    },
+    {
+      "type": "ALLOCATE",
+      "description": "调整券商股票、债券或相关集中持仓敞口。",
+      "visibility": "private"
+    },
+    {
+      "type": "NEGOTIATE",
+      "description": "协商抵押品、融资、客户迁移或同业处置。",
+      "visibility": "private"
+    },
+    {
+      "type": "WAIT",
+      "description": "等待平仓完成、最终损失或监管评估。",
+      "visibility": "either"
+    }
+  ],
+  "interventions": [
+    {
+      "id": "I0_CLIENT_DEFAULT",
+      "at_round": 0,
+      "fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "visibility": "public"
+    }
+  ],
+  "forecast_targets": [
+    {
+      "id": "T1",
+      "kind": "market",
+      "definition": "D1收盘价相对D0收盘价的方向。",
+      "horizon": "next_trading_close",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T2",
+      "kind": "market",
+      "definition": "第5个交易日收盘价相对D0收盘价的方向。",
+      "horizon": "5_trading_days",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T3",
+      "kind": "market",
+      "definition": "第20个交易日收盘价相对D0收盘价的方向。",
+      "horizon": "20_trading_days",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T4",
+      "kind": "event",
+      "definition": "匿名券商是否在30个自然日内确认计入财务结果的相关损失不低于D0初步索赔估算。",
+      "horizon": "30_calendar_days",
+      "scoring": "brier"
+    },
+    {
+      "id": "T5",
+      "kind": "event",
+      "definition": "匿名券商是否在30个自然日内跌破最低监管资本要求或进入监管处置程序。",
+      "horizon": "30_calendar_days",
+      "scoring": "brier"
+    }
+  ],
+  "run_config": {
+    "rounds": 12,
+    "replications": 20,
+    "seed_strategy": "deterministic_sequence",
+    "layers": [
+      "information",
+      "behavior"
+    ]
+  },
+  "provenance": {
+    "created_by": "FEVER-MiroFish blind benchmark",
+    "source_graph_artifact_id": null,
+    "notes": [
+      "真实券商、客户、证券代码、日期、绝对损失金额和来源链接已从模型可见输入中移除。",
+      "时间戳是保持相对间隔的实验标签，不代表真实年份。",
+      "真实映射和结果只保存在独立outcome文件，禁止进入模型提示。"
+    ]
+  }
+}

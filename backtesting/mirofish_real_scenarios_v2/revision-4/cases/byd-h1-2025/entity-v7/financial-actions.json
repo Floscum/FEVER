@@ -1,0 +1,183 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "real-byd-h1-2025",
+  "spec_sha256": "ed8e6283fb80d31db86fd9dca48187d1aa2819f97c78b23285ba8f2a8b709077",
+  "simulation_id": "sim_direct_5df417c1fca7",
+  "generated_at": "2026-09-12T06:16:31.495409+00:00",
+  "status": "completed",
+  "decisions": [
+    {
+      "id": "decision-actor_issuer-r2",
+      "round": 2,
+      "actor_id": "actor_issuer",
+      "action_type": "WAIT",
+      "decision_status": "no_action",
+      "direction": "not_applicable",
+      "intensity": null,
+      "instrument_refs": [],
+      "rationale": "当前为抽象模拟第2轮结束，尚未出现需比亚迪作出经营或交易条件调整的具体对方行动或新增信息增量。公司2025年上半年经营数据已于F1-F5中完整披露，业绩整体符合预期：收入增长23.30%、现金流大幅改善124.52%、境外收入增速50.49%构成核心支撑。毛利率下降1.99个百分点已按质量保证费用转入营业成本口径调整，且研发投入增速53.05%体现技术储备加码。整体战略路径清晰，无紧急需调整的研判。后续决策需等待下半年度经营走势、关税政策变化或重大合作/竞标机会出现，以便在充分信息基础上作出最有利于公司利益的判断。",
+      "constraint_refs": [
+        "actor_issuer:constraint:0",
+        "actor_issuer:constraint:2"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:0",
+      "visibility": "private",
+      "confidence": 0.9,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_institutions-r2",
+      "round": 2,
+      "actor_id": "actor_institutions",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "conditional",
+      "intensity": 0.3,
+      "instrument_refs": [
+        "002594"
+      ],
+      "rationale": "比亚迪H1 2025数据呈现多空交织信号：营收增长23.30%与经营现金流增长124.52%为积极因素，但毛利率下降1.99个百分点（已按质量保证费用转入成本口径调整）意味着竞争与成本压力增大，归母净利增速(13.79%)显著低于营收增速。研发投入增长53.05%虽是长期技术投入的必要支出，但短期内对利润形成持续压制。境外收入增长50.49%贡献多元化亮点，但境外毛利率19.82%整体趋同，且受地缘政策不确定性影响。当前信号方向不统一，需等待Q3更多经营数据（如月度销量、价格走势、海外关税政策变化）以及竞争对手响应，再决定持仓调整方向与幅度。在流动性约束与投资授权范围内，不适合在当前信息不对称阶段做出激进调仓决策。",
+      "constraint_refs": [
+        "actor_institutions:constraint:0",
+        "actor_institutions:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:1",
+      "visibility": "private",
+      "confidence": 0.75,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_analysts-r2",
+      "round": 2,
+      "actor_id": "actor_analysts",
+      "action_type": "WAIT",
+      "decision_status": "no_action",
+      "direction": "not_applicable",
+      "intensity": null,
+      "instrument_refs": [],
+      "rationale": "截至2025年8月30日，比亚迪2025年半年报已披露核心财务数据。收入增长23.30%符合预期，但毛利率下降1.99个百分点（已按质量保证费用转入营业成本口径调整）与归母净利润增速（13.79%）低于收入增速这两个信号构成需要进一步验证的判断前提。当前缺少三个关键信息：(1)上年同期同口径毛利率的具体数值（仅知可调口径但未公布调整幅度）；(2)研发投入资本化率是否发生变化（308.80亿元研发投入同比+53.05%，远高于收入增速，但资本化比例影响当期利润）；(3)境外收入的高增长（+50.49%，占比36.46%）与境外毛利率19.82%的趋势可持续性。在缺少可比分析基础的情况下，贸然调整判断可能混淆已知事实与估计。计划等待下一轮可获得的信息（如行业产销数据、竞争对手半年报、或公司补充披露的追溯调整毛利率），再进行假设更新。",
+      "constraint_refs": [
+        "actor_analysts:constraint:0",
+        "actor_analysts:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:2",
+      "visibility": "private",
+      "confidence": 0.9,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_brokers-r2",
+      "round": 2,
+      "actor_id": "actor_brokers",
+      "action_type": "WAIT",
+      "decision_status": "intended",
+      "direction": "conditional",
+      "intensity": 0.6,
+      "instrument_refs": [
+        "002594"
+      ],
+      "rationale": "基于2025上半年数据，比亚迪整体营收与利润符合增长预期，且经营现金流大幅改善至318.33亿元。但需关注以下不确定性：一是毛利率同比下降1.99个百分点（已按新口径调整），研发投入同比增长53.05%压制品毛利率，若下半年价格战持续可能进一步压缩利润空间；二是境外收入占比36.46%、增速50.49%是积极信号，但境外毛利率19.82%略低于整体水平，需等待下半年是否受地缘关税政策冲击。作为券商，倾向于维持现有授信敞口不变，在下半年季报或公司业绩说明会获取更多关于毛利率趋势、海外工厂投产进度及资本开支计划等信息后再决定是否调整融资中介服务条件。当前仓位和融资安排可维持，暂无紧急调整必要。",
+      "constraint_refs": [
+        "actor_brokers:constraint:0",
+        "actor_brokers:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:3",
+      "visibility": "private",
+      "confidence": 0.75,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_exchange-r2",
+      "round": 2,
+      "actor_id": "actor_exchange",
+      "action_type": "WAIT",
+      "decision_status": "no_action",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [
+        "002594"
+      ],
+      "rationale": "截至2025-08-30，比亚迪已按规则披露2025年半年度报告，关键财务指标（F1-F5）均已公开。未发现重大遗漏、虚假记载或应问询而未问询的事项。研发投入同比+53.05%（F3）属合理商业决策范畴，无需替代经营判断；毛利率同比下降1.99个百分点（F4）已在公司披露中说明口径调整因素，属于可理解信息。各指标虽有增减变动但均处于正常经营波动范围内，无新增未公开重大信息，无需启动监管问询或停牌等干预措施。继续观察后续市场反应与公司持续性披露即可。",
+      "constraint_refs": [
+        "actor_exchange:constraint:0",
+        "actor_exchange:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:4",
+      "visibility": "public",
+      "confidence": 0.95,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_competitors-r2",
+      "round": 2,
+      "actor_id": "actor_competitors",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "maintain",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "比亚迪2025H1数据揭示三个关键信号：①研发投入增速（+53.05%）远超收入增速（+23.30%），表明其以短期利润换长期技术纵深；②境外收入占比已达36.46%且增速50.49%，全球化加速意味着海外市场将出现更激烈的渠道与品牌争夺；③汽车业务毛利率下降1.99个百分点至20.35%，虽部分由会计口径调整导致，但仍反映价格竞争压力加剧。作为竞争对手，在自身产能与成本约束下，我无法立即全面跟进其研发投入强度或海外扩张速度。需要等待更详细的季度细分数据以及自身下阶段产能规划评审结果，再决定是聚焦细分市场做差异化竞争、还是调整海外布局节奏。当前最审慎的策略是保持现有业务节奏，在内部完成对标分析报告后再制定资源重分配方案。",
+      "constraint_refs": [
+        "actor_competitors:constraint:0",
+        "actor_competitors:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:5",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    }
+  ],
+  "failures": [],
+  "warnings": [
+    "Decision confidence expresses action clarity, not forecast probability.",
+    "Interview decisions are simulated statements, not observed evidence."
+  ]
+}

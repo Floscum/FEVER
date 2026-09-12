@@ -1,0 +1,88 @@
+{
+  "case_id": "real-crowdstrike-outage-2024",
+  "source_graph_artifact_id": "real-public-crowdstrike-outage-2024",
+  "evidence_graph": {
+    "question": "CrowdStrike（CRWD）更新导致Windows客户系统中断后，未来7天各参与方可能如何响应？哪些二阶影响和恢复信号值得跟进？",
+    "nodes": [
+      {
+        "id": "E1",
+        "kind": "evidence",
+        "title": "",
+        "body": "",
+        "source_kind": "official",
+        "source_ref": "https://www.crowdstrike.com/en-us/blog/falcon-update-for-windows-hosts-technical-details/",
+        "source_data": {
+          "content": "CrowdStrike说明：2024年7月19日04:09 UTC发布Windows传感器配置更新，引发逻辑错误，导致部分系统崩溃和蓝屏。",
+          "published_at": "2024-07-20"
+        }
+      },
+      {
+        "id": "E2",
+        "kind": "evidence",
+        "title": "",
+        "body": "",
+        "source_kind": "official",
+        "source_ref": "https://www.crowdstrike.com/en-us/blog/falcon-update-for-windows-hosts-technical-details/",
+        "source_data": {
+          "content": "CrowdStrike称导致问题的配置更新已于7月19日05:27 UTC修正，并明确该事件不是网络攻击。",
+          "published_at": "2024-07-20"
+        }
+      },
+      {
+        "id": "E3",
+        "kind": "evidence",
+        "title": "",
+        "body": "",
+        "source_kind": "official",
+        "source_ref": "https://www.crowdstrike.com/en-us/blog/falcon-update-for-windows-hosts-technical-details/",
+        "source_data": {
+          "content": "运行Windows Falcon 7.11及以上版本、并在04:09至05:27 UTC期间下载该配置的系统可能受影响。",
+          "published_at": "2024-07-20"
+        }
+      },
+      {
+        "id": "E4",
+        "kind": "evidence",
+        "title": "",
+        "body": "",
+        "source_kind": "official",
+        "source_ref": "https://blogs.microsoft.com/blog/2024/07/20/helping-our-customers-through-the-crowdstrike-outage/",
+        "source_data": {
+          "content": "Microsoft在7月20日估计约850万台Windows设备受影响，占所有Windows设备不足1%；关键服务企业使用这些设备使经济社会影响扩大。",
+          "published_at": "2024-07-20"
+        }
+      },
+      {
+        "id": "E5",
+        "kind": "evidence",
+        "title": "",
+        "body": "",
+        "source_kind": "official",
+        "source_ref": "https://blogs.microsoft.com/blog/2024/07/20/helping-our-customers-through-the-crowdstrike-outage/",
+        "source_data": {
+          "content": "Microsoft已派出数百名工程师协助客户恢复，与CrowdStrike以及AWS、Google Cloud协作，并提供手工恢复文档与脚本。",
+          "published_at": "2024-07-20"
+        }
+      }
+    ],
+    "edges": []
+  },
+  "question": "CrowdStrike（CRWD）更新导致Windows客户系统中断后，未来7天各参与方可能如何响应？哪些二阶影响和恢复信号值得跟进？",
+  "as_of": "2024-07-20T23:59:59+00:00",
+  "horizon_days": 7,
+  "mode": "quick",
+  "market": {
+    "region": "US",
+    "venues": [
+      "NASDAQ"
+    ],
+    "instruments": [
+      {
+        "symbol": "CRWD",
+        "name": "CrowdStrike",
+        "kind": "equity",
+        "currency": "USD"
+      }
+    ]
+  }
+}

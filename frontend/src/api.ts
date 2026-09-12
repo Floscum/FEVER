@@ -96,6 +96,7 @@ export const api = {
       horizon_days?: number;
       mode?: "quick" | "calibrated";
       max_actors?: number;
+      rerun?: boolean;
     },
   ) => req<SimulationJob>(`/cases/${caseId}/simulations`, {
     method: "POST",
@@ -118,7 +119,10 @@ export const api = {
       configured_count: number;
       rationale: string;
     };
-    actors: Array<{ id: string; label: string; kind: string; selection_reason: string }>;
+    actors: Array<{ id: string; label: string; kind: string; selection_reason: string; focus?: string }>;
+    evidence_count?: number;
+    notices?: string[];
+    as_of?: string;
   }>(`/cases/${caseId}/simulations/preview`, {
     method: "POST",
     body: JSON.stringify(body),

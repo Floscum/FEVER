@@ -1,0 +1,20 @@
+{
+  "cases/anonymous-case-01.json": "11016bd075ab55061e29bb8c489f33f6147b4143d26d856b6a902bf5da4a801b",
+  "cases/anonymous-case-02.json": "835e27ea26865b8b3ebc2fb6dc55fa39a00293a5a71a667e8cfd2a4d9c9c44f0",
+  "cases/anonymous-case-03.json": "99e55efad9a402904ae731c936f3caa6966781bf82a586fc0579e5fdd8148723",
+  "cases/anonymous-case-04.json": "9aefb4d514d8dfa9bef796bf3e85dadba8cc46c5046ea93e7c6b42b452f7dc25",
+  "cases/anonymous-case-05.json": "f1604f9afff678a7896a2f35d2596d26d79bc5e3d67b58a7c804fefb2ca99659",
+  "cases/anonymous-case-06.json": "0e876e0255ac75923cc7e7e07aa5f13b972d460ba5afa851edb757d374e39a26",
+  "cases/anonymous-case-07.json": "2cc5937909999cef9ffa83c0f61f4c6ced00af27c24eea4e4b4e7bff1f82fdeb",
+  "cases/anonymous-case-08.json": "5146ed8386d3358c605b19e2159694bcadede6d399c4c7de94a47ff376d1457d",
+  "cases/anonymous-case-09.json": "707f437d8f2baad0a0aa27e9c863a76c63bc9c3880610cb871bdcd9ccd50fc6f",
+  "cases/anonymous-case-10.json": "d4f19fb0753a7ff8079ba9d824b09b1d0270b2eb3acfc95cd7ce6721af5692d7",
+  "cases/anonymous-case-11.json": "7fbf58d6ed4f31892d6af90490e4d9e5715835646bda85848783c57c0a6c6004",
+  "cases/anonymous-case-12.json": "b52a8becb5580fd2a5b709d5cedb70bd2d19dfa82ef864208124600f3a219adc",
+  "manifest.json": "ba11c575f42a945c8f70293f250f3b1e6e4ecf16591086d57921ad811f28b069",
+  "report.json": "13996d1806b9883ce2c25a992c8f8c33e815c8d700fbd29b87f43f9853ec7036",
+  "verify_results.py": "94388bd119345336d92417ad7c7c37b463a8a309ec4064b6ca55cfa757d9e8a2",
+  "execution-verifier.py": "792dc788d1f37f04d21663af192554302479b4e6647591de4d2e1fbf7a8a25cf",
+  "README.md": "044f4182e72d537b13e170228ccefa471b42cbd31b875439856c32c56389a252",
+  "sample-comparison.md": "db9d0134fab85c8306804db46c3913d2615e3964271d5a0052193e0cc865ff09"
+}

@@ -1,0 +1,197 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "real-crowdstrike-outage-2024",
+  "spec_sha256": "d089cb2af57574a13c909789e2c5f13527145bc9e38db4bda014d191face7c89",
+  "simulation_id": "sim_direct_27a28a540533",
+  "generated_at": "2026-09-12T04:33:46.819748+00:00",
+  "model_id": "deepseek-ai/DeepSeek-V4-Flash",
+  "prompt_version": "scenario-branch-compiler-v7",
+  "status": "completed",
+  "branches": [
+    {
+      "id": "branch-1",
+      "label": "监管问询——发行人应对",
+      "summary": "若监管机构在7月27日前向CrowdStrike发出正式问询函，要求提供事故分析报告和更新流程审计结果，CrowdStrike的客户沟通计划和流程改进承诺将受到严格外部审查，其公开透明的承诺需要配合监管步伐，可能延缓部分改进措施的执行速度，因为需优先回应监管文件请求。",
+      "actor_ids": [
+        "actor_regulator",
+        "actor_issuer"
+      ],
+      "trigger_conditions": [
+        "监管机构在2024年7月23日23:59UTC前通过公开渠道宣布已向CrowdStrike发出正式问询或信息请求函"
+      ],
+      "actions": [
+        {
+          "actor_id": "actor_regulator",
+          "action_type": "COMMUNICATE",
+          "decision_ref": "decision-actor_regulator-r2"
+        },
+        {
+          "actor_id": "actor_issuer",
+          "action_type": "COMMUNICATE",
+          "decision_ref": "decision-actor_issuer-r2"
+        }
+      ],
+      "consequences": [
+        "CrowdStrike在7月27日前的公开沟通节奏因资源调度向监管回应倾斜而放缓",
+        "客户因监管介入而对CrowdStrike的补偿和SLA改进方案的期待提高，若未在监管报告框架内回应，可能增加客户不满"
+      ],
+      "invalidation_conditions": [
+        "截至7月27日23:59UTC，未观察到任何监管机构公开宣布向CrowdStrike发出正式问询",
+        "CrowdStrike在7月27日前未发布任何需监管审查的事故分析报告更新"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F4",
+        "F5"
+      ],
+      "simulation_refs": [
+        "decision-actor_regulator-r2",
+        "decision-actor_issuer-r2"
+      ],
+      "novelty_claim": "连接监管沟通行动（actor_regulator）与发行人客户沟通计划的相互作用：监管启动问询会改变发行人优先回应事项，从而影响客户对补偿方案的感知时间线",
+      "confidence": 0.6,
+      "confidence_semantics": "branch_coherence_not_forecast_probability"
+    },
+    {
+      "id": "branch-2",
+      "label": "机构持仓信号——客户续约观望",
+      "summary": "若机构投资者在7月27日前公开声明维持或调整对CrowdStrike的敞口，该信号会被客户用于评估供应商稳定性。如果机构声明维持持仓（如模拟trace-19），客户可能将视为认证信号，削弱其立即切换供应商的紧迫感，延长其等待阶段；反之，若机构大幅减持信号公开，客户则会加速评估替代方案。",
+      "actor_ids": [
+        "actor_institutions",
+        "actor_customers"
+      ],
+      "trigger_conditions": [
+        "机构投资者在7月25日23:59UTC前通过公开文件或主要财经媒体发布对CRWD持仓调整或立场声明的实质性新信息"
+      ],
+      "actions": [
+        {
+          "actor_id": "actor_institutions",
+          "action_type": "COMMUNICATE",
+          "decision_ref": "decision-actor_institutions-r2"
+        },
+        {
+          "actor_id": "actor_customers",
+          "action_type": "WAIT",
+          "decision_ref": "decision-actor_customers-r2"
+        }
+      ],
+      "consequences": [
+        "客户在声明出现后3天内是否在公开渠道（如行业论坛、财报电话会）提及该声明作为评估CrowdStrike供应商稳定性的参考",
+        "客户的替代方案评估时间表若受到机构信号影响而提前或延后，将在7月27日前体现在其是否启动与替代供应商的正式接触"
+      ],
+      "invalidation_conditions": [
+        "截至7月27日23:59UTC，未观察到任何主要机构投资者公开发布与CRWD相关的持仓或立场新声明",
+        "客户在7月27日前未在任何可追溯渠道提及机构声明作为其决策依据"
+      ],
+      "evidence_refs": [
+        "F4",
+        "F5"
+      ],
+      "simulation_refs": [
+        "decision-actor_institutions-r2",
+        "decision-actor_customers-r2"
+      ],
+      "novelty_claim": "机构投资者的公开沟通决策（actor_institutions）作为影响客户切换意愿的外部锚定信号，超越了各自独立评估的基线逻辑",
+      "confidence": 0.5,
+      "confidence_semantics": "branch_coherence_not_forecast_probability"
+    },
+    {
+      "id": "branch-3",
+      "label": "机构持仓不被动摇——发行人独立应对",
+      "summary": "若机构投资者在7月27日前对CRWD保持静默或不调整立场，CrowdStrike将主要依靠客户沟通计划（如RCA分享和流程改进承诺）独立管理客户流失风险。客户若有批量发出赔偿或谈判请求，CrowdStrike需在无机构信号压力下直接回应，客户可能会利用媒体曝光作为杠杆。",
+      "actor_ids": [
+        "actor_institutions",
+        "actor_issuer"
+      ],
+      "trigger_conditions": [
+        "截至2024年7月27日23:59UTC，无任何主要机构投资者通过公开文件或财经媒体报道发布与CRWD相关的新持仓信息或立场声明"
+      ],
+      "actions": [
+        {
+          "actor_id": "actor_institutions",
+          "action_type": "COMMUNICATE",
+          "decision_ref": "decision-actor_institutions-r2"
+        },
+        {
+          "actor_id": "actor_issuer",
+          "action_type": "COMMUNICATE",
+          "decision_ref": "decision-actor_issuer-r2"
+        }
+      ],
+      "consequences": [
+        "客户向CrowdStrike提出的赔偿或SLA重新谈判请求在7月27日前更可能直接公开于行业媒体，而非先通过私下渠道",
+        "CrowdStrike的公开回应质量（如RCA深度、补偿方案明确度）将直接影响客户在7月27日后的续约决策紧迫性"
+      ],
+      "invalidation_conditions": [
+        "机构投资者在7月27日前发布了与上述条件不符的任何公开信号",
+        "客户在7月27日前未出现公开化的赔偿或谈判请求"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "simulation_refs": [
+        "decision-actor_institutions-r2",
+        "decision-actor_issuer-r2"
+      ],
+      "novelty_claim": "机构投资者不表达立场这一行为本身对发行人客户应对构成独立压力路径，区别于机构介入或退出情形",
+      "confidence": 0.55,
+      "confidence_semantics": "branch_coherence_not_forecast_probability"
+    },
+    {
+      "id": "branch-4",
+      "label": "监管问询触发——机构投资者重新评估",
+      "summary": "若监管机构在7月27日前向CrowdStrike发出正式问询函，该行动将触发机构投资者加速内部重新评估，因为监管风险敞口出现变化。机构投资者可能从维持现有敞口转向要求投后团队收集监管动向并评估法律责任敞口，影响其后续调仓节奏。",
+      "actor_ids": [
+        "actor_regulator",
+        "actor_institutions"
+      ],
+      "trigger_conditions": [
+        "监管机构在7月24日23:59UTC前发布向CrowdStrike发出正式问询或调查启动的公告"
+      ],
+      "actions": [
+        {
+          "actor_id": "actor_regulator",
+          "action_type": "COMMUNICATE",
+          "decision_ref": "decision-actor_regulator-r2"
+        },
+        {
+          "actor_id": "actor_institutions",
+          "action_type": "COMMUNICATE",
+          "decision_ref": "decision-actor_institutions-r2"
+        }
+      ],
+      "consequences": [
+        "机构投资者在7月27日前内部启动对CRWD监管风险的正式评估流程，表现为在公开投资者电话或文件中提及监管问询为新风险因素",
+        "监管问询推进的时间线可能使机构投资者的公开立场从静默转为有条件观察，影响其他市场参与者的预期"
+      ],
+      "invalidation_conditions": [
+        "截至7月27日23:59UTC，监管机构未发布任何向CrowdStrike的正式问询",
+        "机构投资者在7月27日前未以任何形式（如8-K、投资者会议记录）提及监管问询作为评估因素"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F4"
+      ],
+      "simulation_refs": [
+        "decision-actor_regulator-r2",
+        "decision-actor_institutions-r2"
+      ],
+      "novelty_claim": "监管行动从影响发行人转向影响机构投资者评估逻辑的纯传导链：监管问询本身改变机构的风险判断框架，非仅通过发行人回应间接传导",
+      "confidence": 0.6,
+      "confidence_semantics": "branch_coherence_not_forecast_probability"
+    }
+  ],
+  "warnings": [
+    "branch-1: bound deterministic actor slot to unique financial decisions",
+    "branch-2: bound deterministic actor slot to unique financial decisions",
+    "branch-3: bound deterministic actor slot to unique financial decisions",
+    "branch-4: bound deterministic actor slot to unique financial decisions",
+    "Branches are simulated hypotheses, not observed evidence.",
+    "Branch confidence expresses coherence, not occurrence probability."
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "expand": false,
+  "promote": false,
+  "reviewer": "assistant_content_review_not_independent_human_acceptance",
+  "manifest_sha256": "ee5f5c9edc592e524bd90a1097a7add4797cf3b59262f5787574ab527aca8ce2",
+  "reason": "v10 rejected the BYD case twice; content gate failed."
+}

@@ -1,0 +1,209 @@
+{
+  "case_id": "crowdstrike-outage-2024",
+  "variant": "v7",
+  "cohort": "public_pilot",
+  "artifact": {
+    "schema_version": "0.1.0",
+    "case_id": "real-crowdstrike-outage-2024",
+    "spec_sha256": "544d941cebfe9dfb62720269355a38984b6867adebee8c162e760b9b3419760b",
+    "simulation_id": "sim_direct_f6ac8b09bbb6",
+    "generated_at": "2026-09-12T06:09:50.600301+00:00",
+    "model_id": "deepseek-ai/DeepSeek-V4-Flash",
+    "prompt_version": "scenario-branch-compiler-v7",
+    "status": "completed",
+    "branches": [
+      {
+        "id": "branch-1",
+        "label": "客户施压与发行方补偿",
+        "summary": "若客户在恢复过程中发现数据丢失或关键服务中断时间超出预期，将公开要求CrowdStrike提供补偿或SLA豁免，迫使CrowdStrike在7天内发布客户补偿方案或服务条款调整。",
+        "actor_ids": [
+          "actor_customers",
+          "actor_issuer"
+        ],
+        "trigger_conditions": [
+          "在2024-07-21至2024-07-27期间，至少3家大型企业客户公开声明因CrowdStrike更新导致关键业务中断超过24小时",
+          "CrowdStrike在7天内未主动提出补偿方案"
+        ],
+        "actions": [
+          {
+            "actor_id": "actor_customers",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_customers-r2"
+          },
+          {
+            "actor_id": "actor_issuer",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_issuer-r2"
+          }
+        ],
+        "consequences": [
+          "CrowdStrike将被迫在7天内发布客户补偿计划或SLA豁免条款，增加短期财务支出",
+          "客户对CrowdStrike的信任度下降，但补偿方案可能暂时阻止大规模客户流失"
+        ],
+        "invalidation_conditions": [
+          "客户在7天内未公开提出补偿要求",
+          "CrowdStrike在7天内主动发布补偿方案且客户接受"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F4",
+          "F5"
+        ],
+        "simulation_refs": [
+          "decision-actor_customers-r2",
+          "decision-actor_issuer-r2"
+        ],
+        "novelty_claim": "该分支将客户等待决策与发行方观望决策串联，展示客户公开施压如何迫使发行方从观望转向补偿行动，超出事实中双方均等待的静态描述。",
+        "confidence": 0.6,
+        "confidence_semantics": "branch_coherence_not_forecast_probability"
+      },
+      {
+        "id": "branch-2",
+        "label": "供应商评估与竞争者营销",
+        "summary": "若供应商发现CrowdStrike的恢复进度慢于预期或客户抱怨增多，将公开评估CrowdStrike的供应链风险，同时竞争者利用此窗口期向受影响客户推广其变更管理优势。",
+        "actor_ids": [
+          "actor_suppliers",
+          "actor_competitors"
+        ],
+        "trigger_conditions": [
+          "在2024-07-21至2024-07-27期间，供应商发布关于CrowdStrike质量管控风险的公开评估报告",
+          "竞争者在此期间发起针对CrowdStrike客户的定向营销活动"
+        ],
+        "actions": [
+          {
+            "actor_id": "actor_suppliers",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_suppliers-r2"
+          },
+          {
+            "actor_id": "actor_competitors",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_competitors-r2"
+          }
+        ],
+        "consequences": [
+          "供应商的评估报告可能促使部分客户重新考虑安全供应商选择，增加竞争者的获客机会",
+          "竞争者通过营销活动可能获得少量客户试用，但大规模切换受转换成本限制"
+        ],
+        "invalidation_conditions": [
+          "供应商在7天内未发布任何公开评估",
+          "竞争者未发起定向营销活动或营销活动无客户响应"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F4"
+        ],
+        "simulation_refs": [
+          "decision-actor_suppliers-r2",
+          "decision-actor_competitors-r2"
+        ],
+        "novelty_claim": "该分支将供应商的风险评估与竞争者的营销行动串联，展示供应商的公开评估如何为竞争者创造获客窗口，超出事实中双方各自等待的独立状态。",
+        "confidence": 0.5,
+        "confidence_semantics": "branch_coherence_not_forecast_probability"
+      },
+      {
+        "id": "branch-3",
+        "label": "机构投资者关注与媒体深度报道",
+        "summary": "若机构投资者发现CrowdStrike的客户续约率或监管审查风险上升，将调整网络安全板块敞口并公开讨论，同时财经媒体跟进发布深度分析报道，放大市场关注。",
+        "actor_ids": [
+          "actor_institutions",
+          "actor_media"
+        ],
+        "trigger_conditions": [
+          "在2024-07-21至2024-07-27期间，机构投资者发布关于CrowdStrike客户续约风险或监管审查的分析报告",
+          "财经媒体在机构投资者报告发布后48小时内发布深度报道"
+        ],
+        "actions": [
+          {
+            "actor_id": "actor_institutions",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_institutions-r2"
+          },
+          {
+            "actor_id": "actor_media",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_media-r2"
+          }
+        ],
+        "consequences": [
+          "机构投资者的分析报告可能引发其他投资者重新评估CrowdStrike估值，导致股价波动",
+          "媒体的深度报道将扩大事件影响范围，增加监管和公众关注度"
+        ],
+        "invalidation_conditions": [
+          "机构投资者在7天内未发布任何公开分析",
+          "媒体未发布深度报道或报道内容与机构投资者分析无关"
+        ],
+        "evidence_refs": [
+          "F2",
+          "F4",
+          "F5"
+        ],
+        "simulation_refs": [
+          "decision-actor_institutions-r2",
+          "decision-actor_media-r2"
+        ],
+        "novelty_claim": "该分支将机构投资者的风险评估与媒体的报道行动串联，展示机构分析如何触发媒体放大效应，超出事实中双方各自等待的独立状态。",
+        "confidence": 0.5,
+        "confidence_semantics": "branch_coherence_not_forecast_probability"
+      },
+      {
+        "id": "branch-4",
+        "label": "供应商调整合作与发行方回应",
+        "summary": "若供应商因CrowdStrike事件调整合作条款或信用评估，将公开要求CrowdStrike提供更严格的质量管控承诺，迫使CrowdStrike在7天内发布供应商合作改进措施。",
+        "actor_ids": [
+          "actor_suppliers",
+          "actor_issuer"
+        ],
+        "trigger_conditions": [
+          "在2024-07-21至2024-07-27期间，供应商公开要求CrowdStrike提供变更管理流程改进的书面承诺",
+          "CrowdStrike在7天内未主动回应供应商要求"
+        ],
+        "actions": [
+          {
+            "actor_id": "actor_suppliers",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_suppliers-r2"
+          },
+          {
+            "actor_id": "actor_issuer",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_issuer-r2"
+          }
+        ],
+        "consequences": [
+          "CrowdStrike将被迫在7天内发布供应商合作改进措施，包括更严格的测试流程和应急响应协议",
+          "供应商的公开要求可能影响其他合作伙伴对CrowdStrike的信任，增加合作风险"
+        ],
+        "invalidation_conditions": [
+          "供应商在7天内未公开提出要求",
+          "CrowdStrike在7天内主动发布改进措施且供应商接受"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F5"
+        ],
+        "simulation_refs": [
+          "decision-actor_suppliers-r2",
+          "decision-actor_issuer-r2"
+        ],
+        "novelty_claim": "该分支将供应商的公开要求与发行方的回应行动串联，展示供应商如何通过施压迫使发行方从观望转向合作改进，超出事实中双方均等待的静态描述。",
+        "confidence": 0.5,
+        "confidence_semantics": "branch_coherence_not_forecast_probability"
+      }
+    ],
+    "warnings": [
+      "branch-1: bound deterministic actor slot to unique financial decisions",
+      "branch-2: bound deterministic actor slot to unique financial decisions",
+      "branch-3: bound deterministic actor slot to unique financial decisions",
+      "branch-4: bound deterministic actor slot to unique financial decisions",
+      "Branches are simulated hypotheses, not observed evidence.",
+      "Branch confidence expresses coherence, not occurrence probability."
+    ]
+  },
+  "elapsed_seconds": 17.405128416023217,
+  "attempt_count": 1,
+  "request_ids": [
+    "4ef984e590b749bfbc4158d68fe578f3"
+  ]
+}

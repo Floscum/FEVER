@@ -1,0 +1,360 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_short_report_014",
+  "title": "匿名案例：做空报告冲击新上市医疗企业",
+  "as_of": "2016-02-04T16:00:00-05:00",
+  "question": "公司、做空机构、年份、监管机关具体名称与市场代码均已匿名化。只使用D0已公开的信息，推演管理层、董事会、监管者、空头、股东和商业合作方如何应对一份指控公司披露与业务合规存在问题的做空报告。",
+  "horizon": {
+    "kind": "calendar_days",
+    "value": 35,
+    "end_at": "2016-03-10T16:00:00-05:00"
+  },
+  "market": {
+    "region": "BLIND_DEVELOPED_EQUITY_MARKET",
+    "venues": [
+      "BLIND_EQUITY_EXCHANGE"
+    ],
+    "instruments": [
+      {
+        "symbol": "ASSET_N",
+        "name": "匿名医疗保险科技企业普通股",
+        "kind": "equity",
+        "currency": "USD"
+      }
+    ]
+  },
+  "facts": [
+    {
+      "id": "F1",
+      "observed_at": "2016-01-07T16:00:00-05:00",
+      "statement": "该医疗保险科技企业最近通过与特殊目的收购公司合并完成上市，原管理团队继续担任核心职务，并获得公开市场和私募投资者资金。",
+      "source_kind": "filing",
+      "source_url": "https://benchmark.invalid/blind-short-report-014/F1",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F2",
+      "observed_at": "2016-02-04T08:00:00-05:00",
+      "statement": "一家公开持有空头立场的研究机构发布报告，指控公司没有充分披露政府调查、销售安排、关联关系和技术平台局限。",
+      "source_kind": "research",
+      "source_url": "https://benchmark.invalid/blind-short-report-014/F2",
+      "evidence_ref": null,
+      "confidence": 0.95
+    },
+    {
+      "id": "F3",
+      "observed_at": "2016-02-04T10:00:00-05:00",
+      "statement": "公司的收入高度依赖受监管的公共医疗保险项目，政府部门既是规则制定者也是重要付款方，合规争议可能影响客户、合作医生和投资者。",
+      "source_kind": "filing",
+      "source_url": "https://benchmark.invalid/blind-short-report-014/F3",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F4",
+      "observed_at": "2016-02-04T16:00:00-05:00",
+      "statement": "报告发布后股票成交量急增并显著下跌；截至D0收盘，公司尚未提交完整逐项回应，也没有宣布管理层变动。",
+      "source_kind": "market_data",
+      "source_url": "https://benchmark.invalid/blind-short-report-014/F4",
+      "evidence_ref": null,
+      "confidence": 0.98
+    }
+  ],
+  "actors": [
+    {
+      "id": "actor_issuer",
+      "label": "匿名医疗保险科技企业管理层",
+      "kind": "issuer",
+      "aggregation": "organization",
+      "goals": [
+        "反驳不实指控",
+        "维持政府项目资格",
+        "稳定客户和资本市场信心"
+      ],
+      "constraints": [
+        "公开回应必须与既有申报一致",
+        "调查信息受到法律程序约束"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "会准备正式回应"
+      ]
+    },
+    {
+      "id": "actor_board",
+      "label": "匿名公司董事会",
+      "kind": "issuer",
+      "aggregation": "organization",
+      "goals": [
+        "监督披露和合规",
+        "保护股东利益",
+        "评估管理层责任"
+      ],
+      "constraints": [
+        "必须基于可核实事实行动"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_short",
+      "label": "做空研究机构",
+      "kind": "analyst",
+      "aggregation": "organization",
+      "goals": [
+        "推动市场审视指控",
+        "维护报告可信度",
+        "从空头头寸获利"
+      ],
+      "constraints": [
+        "公开材料会受到公司和监管者核验"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_securities_regulator",
+      "label": "证券监管机关",
+      "kind": "regulator",
+      "aggregation": "organization",
+      "goals": [
+        "评估上市披露是否充分",
+        "维护市场完整性"
+      ],
+      "constraints": [
+        "是否调查以及调查范围通常不会立即公开"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_health_authorities",
+      "label": "医疗项目监管与执法机关",
+      "kind": "government",
+      "aggregation": "cohort",
+      "goals": [
+        "维护公共医疗项目合规",
+        "调查潜在不当安排"
+      ],
+      "constraints": [
+        "不同机关权限和程序不同"
+      ],
+      "observable_fact_ids": [
+        "F2",
+        "F3"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_investors",
+      "label": "机构与零售股东",
+      "kind": "institutional_investor",
+      "aggregation": "cohort",
+      "goals": [
+        "判断指控真伪和潜在损失",
+        "管理流动性与治理风险"
+      ],
+      "constraints": [
+        "D0缺少完整公司回应和调查文件"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_partners",
+      "label": "医生网络与商业合作方",
+      "kind": "supplier",
+      "aggregation": "cohort",
+      "goals": [
+        "维持合规业务关系",
+        "避免声誉和付款风险"
+      ],
+      "constraints": [
+        "依赖公司与政府项目的后续说明"
+      ],
+      "observable_fact_ids": [
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_media",
+      "label": "财经与医疗行业媒体",
+      "kind": "media",
+      "aggregation": "cohort",
+      "goals": [
+        "核验指控和回应",
+        "跟踪调查与诉讼"
+      ],
+      "constraints": [
+        "匿名来源和调查保密限制核验"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    }
+  ],
+  "relationships": [
+    {
+      "source_actor_id": "actor_short",
+      "target_actor_id": "actor_investors",
+      "kind": "publishes_allegations_to",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_board",
+      "target_actor_id": "actor_issuer",
+      "kind": "oversees_disclosure_and_management_of",
+      "visibility": "assumed"
+    },
+    {
+      "source_actor_id": "actor_securities_regulator",
+      "target_actor_id": "actor_issuer",
+      "kind": "may_request_records_from",
+      "visibility": "private"
+    },
+    {
+      "source_actor_id": "actor_health_authorities",
+      "target_actor_id": "actor_issuer",
+      "kind": "regulates_program_participation_of",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_media",
+      "target_actor_id": "actor_investors",
+      "kind": "transmits_verified_updates_to",
+      "visibility": "public"
+    }
+  ],
+  "allowed_actions": [
+    {
+      "type": "COMMUNICATE",
+      "description": "发布逐项回应、调查说明、法律观点或投资观点。",
+      "visibility": "public"
+    },
+    {
+      "type": "REGULATE",
+      "description": "发出资料要求、传票或启动正式调查。",
+      "visibility": "either"
+    },
+    {
+      "type": "OPERATE",
+      "description": "开展内部审查、调整合规流程或更换管理职责。",
+      "visibility": "either"
+    },
+    {
+      "type": "ALLOCATE",
+      "description": "买入、卖出、做空或对冲公司股票。",
+      "visibility": "private"
+    },
+    {
+      "type": "NEGOTIATE",
+      "description": "与监管者、合作方、保险方或董事会协商回应。",
+      "visibility": "private"
+    },
+    {
+      "type": "WAIT",
+      "description": "等待公司回应、监管文件、诉讼或新的市场信息。",
+      "visibility": "either"
+    }
+  ],
+  "interventions": [
+    {
+      "id": "I0_SHORT_REPORT",
+      "at_round": 0,
+      "fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "visibility": "public"
+    }
+  ],
+  "forecast_targets": [
+    {
+      "id": "T1",
+      "kind": "market",
+      "definition": "D1收盘价相对D0的匿名公司普通股方向。",
+      "horizon": "next_market_observation",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T2",
+      "kind": "market",
+      "definition": "第5个后续收盘价相对D0的匿名公司普通股方向。",
+      "horizon": "5_market_observations",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T3",
+      "kind": "market",
+      "definition": "第20个后续收盘价相对D0的匿名公司普通股方向。",
+      "horizon": "20_market_observations",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T4",
+      "kind": "event",
+      "definition": "证券监管机关是否在15个自然日内就报告涉及的披露或业务事项向公司发出正式调查通知、问询或传票。",
+      "horizon": "15_calendar_days",
+      "scoring": "brier"
+    },
+    {
+      "id": "T5",
+      "kind": "event",
+      "definition": "公司是否在35个自然日内宣布首席执行官或总裁辞去或被解除核心管理职务。",
+      "horizon": "35_calendar_days",
+      "scoring": "brier"
+    }
+  ],
+  "run_config": {
+    "rounds": 12,
+    "replications": 20,
+    "seed_strategy": "deterministic_sequence",
+    "layers": [
+      "information",
+      "behavior"
+    ]
+  },
+  "provenance": {
+    "created_by": "FEVER-MiroFish blind benchmark",
+    "source_graph_artifact_id": null,
+    "notes": [
+      "真实公司、做空机构、年份、监管机关名称、市场代码和来源链接已从模型可见输入中移除。",
+      "真实映射和结果只保存在独立outcome文件，禁止进入任何预测、模拟或信号提示。"
+    ]
+  }
+}

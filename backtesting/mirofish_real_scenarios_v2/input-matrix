@@ -1,0 +1,3042 @@
+{
+  "classification": "offline_input_configuration_matrix_not_simulation_quality",
+  "case_count": 36,
+  "checked_combinations": 432,
+  "passed_combinations": 432,
+  "model_calls": 0,
+  "raw_source_fact_text_preserved": true,
+  "outcome_files_read": false,
+  "checks": [
+    "source_data text admission",
+    "source timestamps and as_of",
+    "role caps",
+    "calendar horizon",
+    "spec references"
+  ],
+  "cases": [
+    {
+      "case_id": "a_share_policy_2023_08_27",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "a_share_policy_2023_08_27",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "a_share_policy_2023_08_27",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "a_share_policy_2023_08_27",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "a_share_policy_2023_08_27",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "a_share_policy_2023_08_27",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "a_share_policy_2023_08_27",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "a_share_policy_2023_08_27",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "a_share_policy_2023_08_27",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "a_share_policy_2023_08_27",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "a_share_policy_2023_08_27",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "a_share_policy_2023_08_27",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_aircraft_grounding_007",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_aircraft_grounding_007",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_aircraft_grounding_007",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_aircraft_grounding_007",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_aircraft_grounding_007",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_aircraft_grounding_007",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_aircraft_grounding_007",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_aircraft_grounding_007",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_aircraft_grounding_007",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_aircraft_grounding_007",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_aircraft_grounding_007",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_aircraft_grounding_007",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_activist_campaign_025",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_activist_campaign_025",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_activist_campaign_025",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_activist_campaign_025",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_activist_campaign_025",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_activist_campaign_025",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_activist_campaign_025",
+      "actor_cap": 8,
+      "configured_actors": 6,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_activist_campaign_025",
+      "actor_cap": 8,
+      "configured_actors": 6,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_activist_campaign_025",
+      "actor_cap": 8,
+      "configured_actors": 6,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_activist_campaign_025",
+      "actor_cap": 10,
+      "configured_actors": 6,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_activist_campaign_025",
+      "actor_cap": 10,
+      "configured_actors": 6,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_activist_campaign_025",
+      "actor_cap": 10,
+      "configured_actors": 6,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_merger_block_023",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_merger_block_023",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_merger_block_023",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_merger_block_023",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_merger_block_023",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_merger_block_023",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_merger_block_023",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_merger_block_023",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_merger_block_023",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_merger_block_023",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_merger_block_023",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_merger_block_023",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_restructuring_031",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_restructuring_031",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_restructuring_031",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_restructuring_031",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_restructuring_031",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_restructuring_031",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_restructuring_031",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_restructuring_031",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_restructuring_031",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_restructuring_031",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_restructuring_031",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_airline_restructuring_031",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_alzheimers_drug_review_026",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_alzheimers_drug_review_026",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_alzheimers_drug_review_026",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_alzheimers_drug_review_026",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_alzheimers_drug_review_026",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_alzheimers_drug_review_026",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_alzheimers_drug_review_026",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_alzheimers_drug_review_026",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_alzheimers_drug_review_026",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_alzheimers_drug_review_026",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_alzheimers_drug_review_026",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_alzheimers_drug_review_026",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_autonomous_permit_suspension_032",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_autonomous_permit_suspension_032",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_autonomous_permit_suspension_032",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_autonomous_permit_suspension_032",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_autonomous_permit_suspension_032",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_autonomous_permit_suspension_032",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_autonomous_permit_suspension_032",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_autonomous_permit_suspension_032",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_autonomous_permit_suspension_032",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_autonomous_permit_suspension_032",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_autonomous_permit_suspension_032",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_autonomous_permit_suspension_032",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_bank_control_capital_022",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_bank_control_capital_022",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_bank_control_capital_022",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_bank_control_capital_022",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_bank_control_capital_022",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_bank_control_capital_022",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_bank_control_capital_022",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_bank_control_capital_022",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_bank_control_capital_022",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_bank_control_capital_022",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_bank_control_capital_022",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_bank_control_capital_022",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_bank_liquidity_005",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_bank_liquidity_005",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_bank_liquidity_005",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_bank_liquidity_005",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_bank_liquidity_005",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_bank_liquidity_005",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_bank_liquidity_005",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_bank_liquidity_005",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_bank_liquidity_005",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_bank_liquidity_005",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_bank_liquidity_005",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_bank_liquidity_005",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_buyback_002",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_buyback_002",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_buyback_002",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_buyback_002",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_buyback_002",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_buyback_002",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_buyback_002",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_buyback_002",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_buyback_002",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_buyback_002",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_buyback_002",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_buyback_002",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_capital_return_001",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_capital_return_001",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_capital_return_001",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_capital_return_001",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_capital_return_001",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_capital_return_001",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_capital_return_001",
+      "actor_cap": 8,
+      "configured_actors": 6,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_capital_return_001",
+      "actor_cap": 8,
+      "configured_actors": 6,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_capital_return_001",
+      "actor_cap": 8,
+      "configured_actors": 6,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_capital_return_001",
+      "actor_cap": 10,
+      "configured_actors": 6,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_capital_return_001",
+      "actor_cap": 10,
+      "configured_actors": 6,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_capital_return_001",
+      "actor_cap": 10,
+      "configured_actors": 6,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_collateral_spiral_013",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_collateral_spiral_013",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_collateral_spiral_013",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_collateral_spiral_013",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_collateral_spiral_013",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_collateral_spiral_013",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_collateral_spiral_013",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_collateral_spiral_013",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_collateral_spiral_013",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_collateral_spiral_013",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_collateral_spiral_013",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_collateral_spiral_013",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_cyber_review_004",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_cyber_review_004",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_cyber_review_004",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_cyber_review_004",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_cyber_review_004",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_cyber_review_004",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_cyber_review_004",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_cyber_review_004",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_cyber_review_004",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_cyber_review_004",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_cyber_review_004",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_cyber_review_004",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_digital_asset_listing_011",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_digital_asset_listing_011",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_digital_asset_listing_011",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_digital_asset_listing_011",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_digital_asset_listing_011",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_digital_asset_listing_011",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_digital_asset_listing_011",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_digital_asset_listing_011",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_digital_asset_listing_011",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_digital_asset_listing_011",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_digital_asset_listing_011",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_digital_asset_listing_011",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_ev_price_cut_006",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_ev_price_cut_006",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_ev_price_cut_006",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_ev_price_cut_006",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_ev_price_cut_006",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_ev_price_cut_006",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_ev_price_cut_006",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_ev_price_cut_006",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_ev_price_cut_006",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_ev_price_cut_006",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_ev_price_cut_006",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_ev_price_cut_006",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_export_controls_019",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_export_controls_019",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_export_controls_019",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_export_controls_019",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_export_controls_019",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_export_controls_019",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_export_controls_019",
+      "actor_cap": 8,
+      "configured_actors": 6,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_export_controls_019",
+      "actor_cap": 8,
+      "configured_actors": 6,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_export_controls_019",
+      "actor_cap": 8,
+      "configured_actors": 6,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_export_controls_019",
+      "actor_cap": 10,
+      "configured_actors": 6,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_export_controls_019",
+      "actor_cap": 10,
+      "configured_actors": 6,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_export_controls_019",
+      "actor_cap": 10,
+      "configured_actors": 6,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_foreign_steel_acquisition_block_030",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_foreign_steel_acquisition_block_030",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_foreign_steel_acquisition_block_030",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_foreign_steel_acquisition_block_030",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_foreign_steel_acquisition_block_030",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_foreign_steel_acquisition_block_030",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_foreign_steel_acquisition_block_030",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_foreign_steel_acquisition_block_030",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_foreign_steel_acquisition_block_030",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_foreign_steel_acquisition_block_030",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_foreign_steel_acquisition_block_030",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_foreign_steel_acquisition_block_030",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_fx_intervention_012",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_fx_intervention_012",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_fx_intervention_012",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_fx_intervention_012",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_fx_intervention_012",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_fx_intervention_012",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_fx_intervention_012",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_fx_intervention_012",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_fx_intervention_012",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_fx_intervention_012",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_fx_intervention_012",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_fx_intervention_012",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_gene_therapy_review_015",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_gene_therapy_review_015",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_gene_therapy_review_015",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_gene_therapy_review_015",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_gene_therapy_review_015",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_gene_therapy_review_015",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_gene_therapy_review_015",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_gene_therapy_review_015",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_gene_therapy_review_015",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_gene_therapy_review_015",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_gene_therapy_review_015",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_gene_therapy_review_015",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_grocery_merger_injunction_029",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_grocery_merger_injunction_029",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_grocery_merger_injunction_029",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_grocery_merger_injunction_029",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_grocery_merger_injunction_029",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_grocery_merger_injunction_029",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_grocery_merger_injunction_029",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_grocery_merger_injunction_029",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_grocery_merger_injunction_029",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_grocery_merger_injunction_029",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_grocery_merger_injunction_029",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_grocery_merger_injunction_029",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_healthcare_cyber_disruption_024",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_healthcare_cyber_disruption_024",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_healthcare_cyber_disruption_024",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_healthcare_cyber_disruption_024",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_healthcare_cyber_disruption_024",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_healthcare_cyber_disruption_024",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_healthcare_cyber_disruption_024",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_healthcare_cyber_disruption_024",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_healthcare_cyber_disruption_024",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_healthcare_cyber_disruption_024",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_healthcare_cyber_disruption_024",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_healthcare_cyber_disruption_024",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_labor_escalation_017",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_labor_escalation_017",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_labor_escalation_017",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_labor_escalation_017",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_labor_escalation_017",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_labor_escalation_017",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_labor_escalation_017",
+      "actor_cap": 8,
+      "configured_actors": 6,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_labor_escalation_017",
+      "actor_cap": 8,
+      "configured_actors": 6,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_labor_escalation_017",
+      "actor_cap": 8,
+      "configured_actors": 6,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_labor_escalation_017",
+      "actor_cap": 10,
+      "configured_actors": 6,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_labor_escalation_017",
+      "actor_cap": 10,
+      "configured_actors": 6,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_labor_escalation_017",
+      "actor_cap": 10,
+      "configured_actors": 6,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_market_plumbing_008",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_market_plumbing_008",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_market_plumbing_008",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_market_plumbing_008",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_market_plumbing_008",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_market_plumbing_008",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_market_plumbing_008",
+      "actor_cap": 8,
+      "configured_actors": 6,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_market_plumbing_008",
+      "actor_cap": 8,
+      "configured_actors": 6,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_market_plumbing_008",
+      "actor_cap": 8,
+      "configured_actors": 6,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_market_plumbing_008",
+      "actor_cap": 10,
+      "configured_actors": 6,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_market_plumbing_008",
+      "actor_cap": 10,
+      "configured_actors": 6,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_market_plumbing_008",
+      "actor_cap": 10,
+      "configured_actors": 6,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_merger_remedy_018",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_merger_remedy_018",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_merger_remedy_018",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_merger_remedy_018",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_merger_remedy_018",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_merger_remedy_018",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_merger_remedy_018",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_merger_remedy_018",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_merger_remedy_018",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_merger_remedy_018",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_merger_remedy_018",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_merger_remedy_018",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_platform_compliance_021",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_platform_compliance_021",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_platform_compliance_021",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_platform_compliance_021",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_platform_compliance_021",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_platform_compliance_021",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_platform_compliance_021",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_platform_compliance_021",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_platform_compliance_021",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_platform_compliance_021",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_platform_compliance_021",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_platform_compliance_021",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_prime_broker_default_009",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_prime_broker_default_009",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_prime_broker_default_009",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_prime_broker_default_009",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_prime_broker_default_009",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_prime_broker_default_009",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_prime_broker_default_009",
+      "actor_cap": 8,
+      "configured_actors": 6,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_prime_broker_default_009",
+      "actor_cap": 8,
+      "configured_actors": 6,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_prime_broker_default_009",
+      "actor_cap": 8,
+      "configured_actors": 6,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_prime_broker_default_009",
+      "actor_cap": 10,
+      "configured_actors": 6,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_prime_broker_default_009",
+      "actor_cap": 10,
+      "configured_actors": 6,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_prime_broker_default_009",
+      "actor_cap": 10,
+      "configured_actors": 6,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_proxy_contest_020",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_proxy_contest_020",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_proxy_contest_020",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_proxy_contest_020",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_proxy_contest_020",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_proxy_contest_020",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_proxy_contest_020",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_proxy_contest_020",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_proxy_contest_020",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_proxy_contest_020",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_proxy_contest_020",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_proxy_contest_020",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_search_antitrust_liability_028",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_search_antitrust_liability_028",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_search_antitrust_liability_028",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_search_antitrust_liability_028",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_search_antitrust_liability_028",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_search_antitrust_liability_028",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_search_antitrust_liability_028",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_search_antitrust_liability_028",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_search_antitrust_liability_028",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_search_antitrust_liability_028",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_search_antitrust_liability_028",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_search_antitrust_liability_028",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_security_update_outage_027",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_security_update_outage_027",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_security_update_outage_027",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_security_update_outage_027",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_security_update_outage_027",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_security_update_outage_027",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_security_update_outage_027",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_security_update_outage_027",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_security_update_outage_027",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_security_update_outage_027",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_security_update_outage_027",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_security_update_outage_027",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_semiconductor_ceo_transition_033",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_semiconductor_ceo_transition_033",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_semiconductor_ceo_transition_033",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_semiconductor_ceo_transition_033",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_semiconductor_ceo_transition_033",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_semiconductor_ceo_transition_033",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_semiconductor_ceo_transition_033",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_semiconductor_ceo_transition_033",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_semiconductor_ceo_transition_033",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_semiconductor_ceo_transition_033",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_semiconductor_ceo_transition_033",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_semiconductor_ceo_transition_033",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_short_report_014",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_short_report_014",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_short_report_014",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_short_report_014",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_short_report_014",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_short_report_014",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_short_report_014",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_short_report_014",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_short_report_014",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_short_report_014",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_short_report_014",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_short_report_014",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_sovereign_deadline_010",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_sovereign_deadline_010",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_sovereign_deadline_010",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_sovereign_deadline_010",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_sovereign_deadline_010",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_sovereign_deadline_010",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_sovereign_deadline_010",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_sovereign_deadline_010",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_sovereign_deadline_010",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_sovereign_deadline_010",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_sovereign_deadline_010",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_sovereign_deadline_010",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_supply_alliance_016",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_supply_alliance_016",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_supply_alliance_016",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_supply_alliance_016",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_supply_alliance_016",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_supply_alliance_016",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_supply_alliance_016",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_supply_alliance_016",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_supply_alliance_016",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_supply_alliance_016",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_supply_alliance_016",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_supply_alliance_016",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_supply_disruption_003",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_supply_disruption_003",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_supply_disruption_003",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_supply_disruption_003",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_supply_disruption_003",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_supply_disruption_003",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_supply_disruption_003",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_supply_disruption_003",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_supply_disruption_003",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_supply_disruption_003",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_supply_disruption_003",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "blind_supply_disruption_003",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "broker_merger_2024_09_07",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "broker_merger_2024_09_07",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "broker_merger_2024_09_07",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "broker_merger_2024_09_07",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "broker_merger_2024_09_07",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "broker_merger_2024_09_07",
+      "actor_cap": 6,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "broker_merger_2024_09_07",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "broker_merger_2024_09_07",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "broker_merger_2024_09_07",
+      "actor_cap": 8,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "broker_merger_2024_09_07",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "broker_merger_2024_09_07",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "broker_merger_2024_09_07",
+      "actor_cap": 10,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "mu5735_2022_03_21",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "mu5735_2022_03_21",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "mu5735_2022_03_21",
+      "actor_cap": 4,
+      "configured_actors": 4,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "mu5735_2022_03_21",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "mu5735_2022_03_21",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "mu5735_2022_03_21",
+      "actor_cap": 6,
+      "configured_actors": 6,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "mu5735_2022_03_21",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "mu5735_2022_03_21",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "mu5735_2022_03_21",
+      "actor_cap": 8,
+      "configured_actors": 8,
+      "horizon_days": 90,
+      "fact_count": 4
+    },
+    {
+      "case_id": "mu5735_2022_03_21",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 7,
+      "fact_count": 4
+    },
+    {
+      "case_id": "mu5735_2022_03_21",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 30,
+      "fact_count": 4
+    },
+    {
+      "case_id": "mu5735_2022_03_21",
+      "actor_cap": 10,
+      "configured_actors": 8,
+      "horizon_days": 90,
+      "fact_count": 4
+    }
+  ]
+}

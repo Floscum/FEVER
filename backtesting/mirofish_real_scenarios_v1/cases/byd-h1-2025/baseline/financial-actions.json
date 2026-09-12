@@ -1,0 +1,243 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "real-byd-h1-2025",
+  "spec_sha256": "00d95bc7e3c2994a79bbded4902050441512fcac34f4306e593f7bf6586c72bc",
+  "simulation_id": "sim_direct_c2a874cf41ed",
+  "generated_at": "2026-09-12T04:29:59.669862+00:00",
+  "status": "completed",
+  "decisions": [
+    {
+      "id": "decision-actor_issuer-r2",
+      "round": 2,
+      "actor_id": "actor_issuer",
+      "action_type": "COMMUNICATE",
+      "decision_status": "intended",
+      "direction": "maintain",
+      "intensity": 0.7,
+      "instrument_refs": [
+        "002594"
+      ],
+      "rationale": "2025年上半年经营数据已披露，营收和经营性现金流均实现稳健增长，研发投入持续高增，境外收入占比显著提升至36.46%。尽管汽车业务毛利率因口径调整和产品结构变化有所下降，但整体财务质量良好。作为事件主体，当前最佳策略是主动与市场沟通，回应券商和投资者关注的核心议题（毛利率趋势、研发转化效率、海外扩张节奏），以稳定投资者预期和客户信心，维持融资能力与业务稳定性。主要不确定性在于后续市场竞争格局变化及毛利率是否企稳。",
+      "constraint_refs": [
+        "actor_issuer:constraint:0",
+        "actor_issuer:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:0",
+      "visibility": "public",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_institutions-r2",
+      "round": 2,
+      "actor_id": "actor_institutions",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "maintain",
+      "intensity": 0.4,
+      "instrument_refs": [
+        "002594"
+      ],
+      "rationale": "2025H1财报呈现多空并存的信号组合：营收与经营现金流强劲增长（F1/F2）叠加海外收入高速扩张（F5）构成正面支撑，但归母净利润增速显著落后营收增速（F2），且汽车业务毛利率同比下滑1.99个百分点（F4）反映价格竞争压力仍在。研发投入激增53.05%（F3）表明公司正以利润换取技术壁垒，但短期内构成利润拖累。当前信号需等待Q3数据验证毛利率走势与海外订单持续性的边际变化，因此选择保持现有仓位、暂不调整配置，视后续季度数据再做决策。",
+      "constraint_refs": [
+        "actor_institutions:constraint:0",
+        "actor_institutions:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:1",
+      "visibility": "private",
+      "confidence": 0.75,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_brokers-r2",
+      "round": 2,
+      "actor_id": "actor_brokers",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "基于H1财报数据，比亚迪营收与利润增速差扩大、毛利率下降1.99pct、研发投入激进（+53%）三个信号叠加，需等待更多信息来判断利润率拐点与境外增长可持续性。目前授信与中介服务无需调整，但不宜立即加仓或推介新融资安排。继续观察Q3境内价格战强度、境外毛利率走势及质量保证费用口径调整的全年影响后再做决策。",
+      "constraint_refs": [
+        "actor_brokers:constraint:0",
+        "actor_brokers:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:2",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_analysts-r2",
+      "round": 2,
+      "actor_id": "actor_analysts",
+      "action_type": "COMMUNICATE",
+      "decision_status": "intended",
+      "direction": "conditional",
+      "intensity": 0.6,
+      "instrument_refs": [
+        "002594"
+      ],
+      "rationale": "基于2025H1财报数据，营收增长23.30%但归母净利润仅增长13.79%，利润弹性明显下降。关键信号：研发投入增速53.05%远超利润增速，且汽车毛利率下降1.99个百分点至20.35%，反映价格竞争与研发投入双重挤压。但经营现金流增长124.52%至318.33亿元，净现比达2.05，利润质量优秀。海外收入增长50.49%至1353.58亿元，占比36.46%，全球化提速。需要向市场沟通的核心判断是：当前正处于'以短期利润换取技术护城河与全球市场份额'的战略投入期，毛利率压力是主动质量保证费用口径调整与被动价格竞争叠加的结果。将发布分析报告区分哪些是结构性压力(研发持续高投入)、哪些是阶段性调整(质量保证费用口径、海外扩张初期毛利率偏低)。主要不确定性在于下半年价格竞争强度及海外毛利率走势。",
+      "constraint_refs": [
+        "actor_analysts:constraint:0",
+        "actor_analysts:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:3",
+      "visibility": "public",
+      "confidence": 0.7,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_government-r2",
+      "round": 2,
+      "actor_id": "actor_government",
+      "action_type": "WAIT",
+      "decision_status": "no_action",
+      "direction": "maintain",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "比亚迪2025年上半年财报数据未触发任何需要政府立即干预或回应的阈值。营收增长23.30%、净利润增长13.79%和经营现金流增长124.52%均处于合理区间；研发投入增长53.05%符合国家产业创新鼓励方向；毛利率下降1.99个百分点幅度有限且部分源于会计口径调整，尚不足以构成行业风险信号。境外收入增长50.49%至占比36.46%表明国际化成效显著。当前宜保持观望，待更多行业季度数据（如Q3、全年累计）及同行对标数据出台后，再综合评估是否需要调整新能源汽车产业政策或启动行业运行监测程序。",
+      "constraint_refs": [
+        "actor_government:constraint:0",
+        "actor_government:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:4",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_regulator-r2",
+      "round": 2,
+      "actor_id": "actor_regulator",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": 0.6,
+      "instrument_refs": [
+        "002594"
+      ],
+      "rationale": "截至2025-08-30，比亚迪2025H1已披露财务数据整体符合增长趋势，但利润增速（+13.79%）显著低于营收增速（+23.30%），且核心汽车业务毛利率同比下降1.99个百分点。毛利率下降是否由质量保证费用口径调整这一会计处理变化主导、境外毛利率低于境内毛利率是否反映定价或成本结构差异、研发投入激增53%是否可持续——上述三个风险维度均需等待公司对中期问询的回复或后续季度数据（2025Q3）的披露来交叉验证。当前证据不足以启动正式调查或审批程序，但也不宜认定无风险，最优动作是保持关注状态，在下一个可观察信号出现后再评估是否升级为调查或需要公司补充说明。",
+      "constraint_refs": [
+        "actor_regulator:constraint:0",
+        "actor_regulator:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:5",
+      "visibility": "private",
+      "confidence": 0.8,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_media-r2",
+      "round": 2,
+      "actor_id": "actor_media",
+      "action_type": "COMMUNICATE",
+      "decision_status": "intended",
+      "direction": "not_applicable",
+      "intensity": 0.7,
+      "instrument_refs": [
+        "002594"
+      ],
+      "rationale": "截至2025年8月30日，比亚迪2025年半年报已完整披露（F1-F5）。作为财经媒体，我的核心目标是核实和传播对事件判断有用的新信息。目前已掌握完整财务数据，下一决策周期内最优先的动作是将这些关键信息整理并传播给受众群体，帮助市场参与者理解比亚迪在营收增长、毛利率结构性变化（F4）、研发高强度投入（F3）、经营现金流显著改善（F2）以及境外增长强劲（F5）等维度的综合表现。鉴于媒体擅长解释和传递公开信息而非制造独家消息，传播行为不涉及价格预测，完全基于已公告事实。主要不确定在于市场如何消化毛利率下降与研发投入加大的双重信号，但这不影响信息传播的基础价值。",
+      "constraint_refs": [
+        "actor_media:constraint:0",
+        "actor_media:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:6",
+      "visibility": "public",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_exchange-r2",
+      "round": 2,
+      "actor_id": "actor_exchange",
+      "action_type": "COMMUNICATE",
+      "decision_status": "intended",
+      "direction": "conditional",
+      "intensity": 0.6,
+      "instrument_refs": [
+        "002594"
+      ],
+      "rationale": "基于截至时点已公开披露的2025年半年报信息，已有多方评论和分析。作为交易所，首要任务是确保信息披露的充分性与合规性。注意到毛利率口径调整（质量保证费用转入营业成本）、研发投入增速（53.05%）显著高于净利润增速（13.79%）等关键财务特征已引发市场讨论。为维护信息披露和交易秩序，计划在未来决策周期内向比亚迪发出常规问询函，要求公司就海外营收增长的可持续性及毛利率降幅的后续趋势提供补充披露说明，同时对境外收入占比显著提升至36.46%的相关风险提示充分性进行确认。此举不替代公司经营或监管审批，依据《上市规则》信息披露章节执行。",
+      "constraint_refs": [
+        "actor_exchange:constraint:0",
+        "actor_exchange:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:7",
+      "visibility": "public",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    }
+  ],
+  "failures": [],
+  "warnings": [
+    "Decision confidence expresses action clarity, not forecast probability.",
+    "Interview decisions are simulated statements, not observed evidence."
+  ]
+}

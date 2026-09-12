@@ -1,0 +1,113 @@
+{
+  "experiment_id": "decision-support-trace-ablation-v1",
+  "protocol": {
+    "schema_version": "0.1.0",
+    "experiment_id": "decision-support-trace-ablation-v1",
+    "classification": "outcome_free_component_ablation",
+    "independent_unit": "frozen_event_case",
+    "selection": {
+      "case_ids": [
+        "anonymous-case-01",
+        "anonymous-case-02",
+        "anonymous-case-03",
+        "anonymous-case-04",
+        "anonymous-case-05",
+        "anonymous-case-06",
+        "anonymous-case-07",
+        "anonymous-case-08",
+        "anonymous-case-09",
+        "anonymous-case-10",
+        "anonymous-case-11",
+        "anonymous-case-12"
+      ],
+      "market_balance": {
+        "CN": 6,
+        "US": 6
+      },
+      "actor_budget_balance": {
+        "4": 4,
+        "6": 4,
+        "8": 4
+      },
+      "event_type_count": 6,
+      "cases_per_event_type": 2,
+      "selected_using_outcomes": false,
+      "selected_using_quality_scores": false
+    },
+    "variants": {
+      "with_traces": "Current v6 compiler with the frozen autonomous interaction summaries visible in the prompt.",
+      "without_traces": "The identical v6 prompt inputs and branch slots, except the autonomous interaction summaries are replaced by an empty list."
+    },
+    "controls": {
+      "same_spec": true,
+      "same_simulation_result_for_validation": true,
+      "same_financial_decisions": true,
+      "same_branch_slots": true,
+      "same_model": true,
+      "same_four_branch_budget": true,
+      "both_variants_regenerated": true,
+      "outcomes_read": false,
+      "outbound_prompts_anonymized": true,
+      "outbound_fields_removed": [
+        "original_case_id",
+        "gateway_job_id",
+        "security_symbols",
+        "benchmark_symbols",
+        "internal_source_refs",
+        "absolute_paths",
+        "calendar_dates"
+      ]
+    },
+    "quality": {
+      "absolute_single_set_judging": true,
+      "independent_repeats": 2,
+      "score_keys": [
+        "mechanism_coherence",
+        "monitoring_actionability",
+        "falsifiability",
+        "evidence_discipline",
+        "scenario_diversity"
+      ],
+      "branch_qualification_keys": [
+        "multi_actor_causal_chain",
+        "observable_trigger",
+        "specific_invalidation",
+        "decision_relevant",
+        "evidence_grounded"
+      ],
+      "qualification_rule": "all flags true in both repeats"
+    },
+    "decision_rule": {
+      "reliability_floor": 0.8,
+      "material_score_difference": 1.0,
+      "with_traces_add_value": "with_traces mean score is at least one point higher and its strict qualified rate is not lower",
+      "no_material_increment": "absolute mean score difference is below one",
+      "raw_traces_may_add_noise": "without_traces mean score is at least one point higher and its strict qualified rate is not lower",
+      "low_reliability": "if either variant has score-within-one or branch-flag repeat agreement below 80%, semantic direction is inconclusive"
+    },
+    "interpretation_limits": [
+      "This isolates trace visibility at compilation time, not the effect of simulation on the post-simulation decisions.",
+      "One scenario generation draw is used per variant and case.",
+      "The same economical model family generates and judges the scenarios.",
+      "No historical outcomes, price labels, forecast calibration, or trading returns are evaluated."
+    ]
+  },
+  "source_protocol_sha256": "bc25170bf78c514fb0ec39aceb34fc02e92ceeaa68f9ede7ce14ef19ae3aac77",
+  "display_protocol_sha256": "7ac2b5c1858002e36415d1cba917264668c6d5e95a7edfb8be9def1b7abd06fc",
+  "cases": [
+    "cases/anonymous-case-01.json",
+    "cases/anonymous-case-02.json",
+    "cases/anonymous-case-03.json",
+    "cases/anonymous-case-04.json",
+    "cases/anonymous-case-05.json",
+    "cases/anonymous-case-06.json",
+    "cases/anonymous-case-07.json",
+    "cases/anonymous-case-08.json",
+    "cases/anonymous-case-09.json",
+    "cases/anonymous-case-10.json",
+    "cases/anonymous-case-11.json",
+    "cases/anonymous-case-12.json"
+  ],
+  "input_rule": "without_traces uses the shared input with simulated_actions replaced by []; original case IDs are replaced in the display protocol",
+  "outcome_data_read": false
+}

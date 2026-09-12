@@ -1,0 +1,950 @@
+{
+  "case_id": "anonymous-case-06",
+  "market": "CN",
+  "event_type": "通胀数据意外",
+  "actor_budget": 4,
+  "decision_actor_ids": [
+    "actor_foreign",
+    "actor_government",
+    "actor_institutions",
+    "actor_issuer"
+  ],
+  "facts": [
+    {
+      "id": "F1",
+      "observed_at": "D0",
+      "statement": "中国CPI/PPI月度经济数据：CPI月度 | 统计局 预期:一致 前值:上月",
+      "source_kind": "official",
+      "source_url": "anonymized-source",
+      "evidence_ref": "E1",
+      "confidence": 0.8
+    }
+  ],
+  "source_hashes": {
+    "spec_sha256": "836b7dfdfbd313fd2e59680ffa0e055b569b09de1c831cbba31de8e46bb89bd5",
+    "simulation_result_sha256": "cecb98093cca8eb79e69bc71e8b72534fa7b0da42b7e89a016b5fa2f914135bf",
+    "financial_actions_sha256": "52179677eb8335650eaa58780e23bea60d99ccd5b16507d5beca3dd5e238ab7e"
+  },
+  "variants": {
+    "decisions_only": {
+      "generation": {
+        "status": "sealed",
+        "semantic_retries": 0,
+        "elapsed_seconds": 69.57342062500538,
+        "prompt_chars": 5448,
+        "visible_interactions": 0
+      },
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "CPI平稳下政府与统计局协同解读通道",
+          "summary": "政府与统计局均维持预期引导，强调通胀可控；若后续PPI数据未超预期下行，则双方继续协同发声巩固市场平稳预期",
+          "actor_ids": [
+            "actor_government",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_government",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_government-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "未来1个交易日内统计局按计划发布补充细分数据或解读",
+            "政府官方发布未出现与CPI解读冲突的其他经济判断"
+          ],
+          "consequences": [
+            "机构投资者更倾向采纳政府+统计局联合信号，维持或小幅增加配置",
+            "境外投资者因缺乏新信息维持等待，市场交易量维持当前水平"
+          ],
+          "invalidation_conditions": [
+            "统计局在D3前未发布任何CPI补充解读",
+            "政府在同窗口内发布与当前通胀可控论调相反的政策信号"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "机构加仓试探境外观望通道",
+          "summary": "机构投资者在CPI平稳后小步加仓中证传媒ETF，若境外投资者观察到境内资金流入且未出现PPI恶化，则可能由观望转为试探性配置",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_foreign"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "ALLOCATE",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_foreign",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_foreign-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "未来2个交易日内中证传媒ETF成交量出现温和放大（较前5日均值增幅超过15%）",
+            "同期无PPI或工业利润超预期下行公告"
+          ],
+          "consequences": [
+            "境外投资者结束等待，启动对境内ETF小额试探配置（intensity < 0.3）",
+            "机构投资者将境外资金流入视为验证信号，可能加速后续配置"
+          ],
+          "invalidation_conditions": [
+            "中证传媒ETF成交量在D3前未出现上述幅度的放大",
+            "境外投资者在D3前公开声明继续等待原因另有其他数据（如人民币汇率）"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "统计局补充数据触发机构重新平衡通道",
+          "summary": "若统计局发布CPI细项数据（如核心CPI或服务CPI），且显示消费结构潜在分化，机构投资者可能重新评估配置节奏，影响其加仓幅度",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "ALLOCATE",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "统计局在D1至D2间发布CPI主要分项环比数据",
+            "数据中至少一个消费类分项（如服务、耐用消费品）环比变动超出市场一致预期±0.2个百分点"
+          ],
+          "consequences": [
+            "机构投资者暂停原定加仓计划，转入为期2个交易日的内部评估",
+            "统计局因数据使用率上升而获得更高信息影响力，后续解读更受关注"
+          ],
+          "invalidation_conditions": [
+            "统计局未在D3前发布任何CPI分项数据",
+            "发布的分项数据全部与预期一致（差异在±0.1个百分点以内）"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "政府持续稳定信号与机构配置正反馈通道",
+          "summary": "政府持续发布经济平稳相关解读，机构投资者在CPI数据支撑下完成小幅加仓，随后政府获得更有利的基本面舆论环境，有可能强化下一轮解读力度",
+          "actor_ids": [
+            "actor_government",
+            "actor_institutions"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_government",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_government-r2"
+            },
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "ALLOCATE",
+              "decision_ref": "decision-actor_institutions-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "D1至D2内政府至少发布1次非CPI领域的稳经济官方言论",
+            "机构投资者在D2收盘前完成对中证传媒ETF的加仓"
+          ],
+          "consequences": [
+            "政府从“维护经济秩序”角度获得更多政策沟通空间（如提前预告后续经济工作重点）",
+            "机构投资者将政府更强力解读视为流动性环境宽松的额外信号，可能追加配置"
+          ],
+          "invalidation_conditions": [
+            "政府未在D2前发布CPI外的稳定经济言论",
+            "中证传媒ETF在D2收盘累计成交量未达过去一周均值的120%"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        }
+      ],
+      "quality": [
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 2,
+            "evidence_discipline": 2,
+            "scenario_diversity": 2
+          },
+          "total_score": 10,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            }
+          ]
+        },
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 2,
+            "evidence_discipline": 2,
+            "scenario_diversity": 2
+          },
+          "total_score": 10,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            }
+          ]
+        }
+      ],
+      "judge_reasons": [
+        "情景在因果链和可观测性上有基础构建，但机制趋同（均围绕CPI数据与政府/机构反应），且多数分支的 consequences 对决策者区分性弱，缺乏实质多样性。",
+        "四个分支均锚定D0事实F1，触发与失效条件可观察可验证，但分支1与4的因果链条部分重叠（均涉及政府信号与配置），多样性有限，且branch-1的因果关系缺少机构与境外的明确互动，故机制一致性中等。"
+      ],
+      "prompt": {
+        "system": "你是金融事件分支编译器，不是价格预测器。只使用输入中 as_of 时点可得事实\n和明确标为模拟的行为，生成恰好 4 条彼此有实质区别、未来可证伪的条件化事件分支。\n\n\n硬性要求：\n- 不得补充 as_of 之后的真实事件、公告、价格或人员结果；\n- 每条分支至少串联两个不同 actor 的动作，不能只是改写一个人的观点；\n- trigger_conditions 必须是未来可观察的“若……则进入该分支”条件；\n- consequences 是机制结果，不是已发生事实；\n- invalidation_conditions 必须说明什么观察会推翻该分支；\n- evidence_refs 只能引用输入中的 F 编号；\n- 按 branch_slots 的顺序生成分支；第 N 条分支必须描述第 N 个槽位中的所有角色及其相互影响；\n- 不要输出 actor_ids、actions、decision_ref 或 simulation_refs；系统会按数组位置确定性绑定\n  槽位中的角色及其已有 financial_decision，禁止自行概括、改写或新造动作；\n- confidence 只表示分支内部连贯性，不是发生概率；\n- novelty_claim 说明该分支比事实直接复述多出了哪段多主体传导；\n- 不得输出目标价格、收益率概率或 Agent 投票频率。\n\n只输出 JSON：\n{\"branches\":[{\"label\":\"简短名称\",\"summary\":\"条件化摘要\",\n\"trigger_conditions\":[\"...\"],\"consequences\":[\"...\"],\n\"invalidation_conditions\":[\"...\"],\"evidence_refs\":[\"F1\"],\n\"novelty_claim\":\"...\",\"confidence\":0.5}],\"warnings\":[]}。\n互动输入可能为空；其中内容仍是模拟消息，不是新增事实。不得凭空推断立场变化或因果影响。每条分支说明一方行动如何影响另一方的可行行动。触发和失效条件尽量指出观察对象与时间窗口；没有依据时不编造精确阈值。对缺少行动依据的传导使用条件表述，不把等待决策改写成已经采取新行动。",
+        "user": "{\"case_id\": \"anonymous-case-06\", \"as_of\": \"D0\", \"question\": \"严格基于 D0 时点可得信息，推演未来三个交易日各参与方行动及条件化传导机制。\", \"horizon\": {\"kind\": \"calendar_days\", \"value\": 3, \"end_at\": \"2024-11-28T23:59:59+00:00\"}, \"facts\": [{\"id\": \"F1\", \"statement\": \"中国CPI/PPI月度经济数据：CPI月度 | 统计局 预期:一致 前值:上月\"}], \"actors\": [{\"id\": \"actor_issuer\", \"label\": \"事件主体\", \"kind\": \"issuer\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_government\", \"label\": \"政府与司法机构\", \"kind\": \"government\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_institutions\", \"label\": \"机构投资者\", \"kind\": \"institutional_investor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_foreign\", \"label\": \"境外投资者\", \"kind\": \"foreign_investor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}], \"financial_decisions\": [{\"id\": \"decision-actor_issuer-r2\", \"round\": 2, \"actor_id\": \"actor_issuer\", \"action_type\": \"COMMUNICATE\", \"decision_status\": \"intended\", \"direction\": \"maintain\", \"intensity\": 0.6, \"instrument_refs\": [], \"rationale\": \"作为数据发布机构（统计局），在CPI与预期一致、前值持平的背景下，刚刚通过社交媒体发布了官方解读说明以引导市场预期、维护数据权威和制度公信力。未来一个决策周期内，最可能采取的是持续发布细化数据或进行补充性沟通，以稳定各方对物价形势的认知，防止单月数据被过度解读。不在金融操作层面采取行动，而是履行数据发布与解释职责，维护自身制度权威。\", \"constraint_refs\": [\"actor_issuer:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.8, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_government-r2\", \"round\": 2, \"actor_id\": \"actor_government\", \"action_type\": \"COMMUNICATE\", \"decision_status\": \"intended\", \"direction\": \"maintain\", \"intensity\": 0.6, \"instrument_refs\": [], \"rationale\": \"CPI数据与预期一致且与前值持平，反映通胀可控。作为政府机构，我选择通过公开渠道发布对数据的官方解读，强调经济平稳运行态势，引导市场预期稳定，维护制度公信力和经济秩序。行动强度中等，因为数据本身未出现异常波动，无须强力干预，但需主动发声以抢占信息主导权。主要不确定性在于后续PPI走势对制造业的影响，以及外部经济环境变化对国内物价的传导效应。\", \"constraint_refs\": [\"actor_government:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_institutions-r2\", \"round\": 2, \"actor_id\": \"actor_institutions\", \"action_type\": \"ALLOCATE\", \"decision_status\": \"conditional\", \"direction\": \"increase\", \"intensity\": 0.3, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"截至2024-11-25，最新CPI数据符合预期且与前值持平，反映通胀压力可控，为央行维持或适度宽松货币政策提供空间。作为机构投资者，我计划在下一决策周期内小幅增加对匿名标的1（中证传媒ETF）的配置，前提是后续发布的PPI数据未出现超预期下行、且工业利润数据不显著恶化。当前CPI平稳意味着内需消费端未出现通缩加速，传媒板块作为消费相关行业受益于稳定的宏观环境，但PPI走势的不确定性使加仓幅度保持谨慎（intensity=0.3）。主要不确定性在于PPI走势对制造业盈利的传导效应尚未完全验证，需等待更多交叉数据。\", \"constraint_refs\": [\"actor_institutions:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.7, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_foreign-r2\", \"round\": 2, \"actor_id\": \"actor_foreign\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"not_applicable\", \"intensity\": null, \"instrument_refs\": [], \"rationale\": \"截至时点仅有中国CPI/PPI月度经济数据公告，数值显示一致预期且前值与上月持平。作为境外投资者，当前数据未提供足够新的信息以触发仓位调整。通胀压力可控但缺乏方向性信号，货币政策边际调整空间仍有待后续数据确认。等待PPI后续趋势及更多宏观信号出现后再做配置决策更为审慎。\", \"constraint_refs\": [\"actor_foreign:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}], \"simulated_actions\": [], \"branch_slots\": [{\"slot_id\": \"slot-1\", \"actor_ids\": [\"actor_government\", \"actor_issuer\"], \"relationship_kind\": \"constrains_or_influences\", \"decision_refs\": [\"decision-actor_government-r2\", \"decision-actor_issuer-r2\"]}, {\"slot_id\": \"slot-2\", \"actor_ids\": [\"actor_institutions\", \"actor_foreign\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_foreign-r2\"]}, {\"slot_id\": \"slot-3\", \"actor_ids\": [\"actor_institutions\", \"actor_issuer\"], \"relationship_kind\": \"constrains_or_influences\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_issuer-r2\"]}, {\"slot_id\": \"slot-4\", \"actor_ids\": [\"actor_government\", \"actor_institutions\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_government-r2\", \"decision-actor_institutions-r2\"]}]}"
+      }
+    },
+    "filtered_interactions": {
+      "generation": {
+        "status": "sealed",
+        "semantic_retries": 0,
+        "elapsed_seconds": 88.19416387501406,
+        "prompt_chars": 6421,
+        "visible_interactions": 5
+      },
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "政府和数据发布机构联合引导预期、压制过度解读",
+          "summary": "如果数据发布后市场评论出现明显对CPI的过度解读，政府将联合数据发布机构在下一个公开表态窗口强化官方解读，将讨论焦点引向PPI分化风险，压缩机构投资者基于单月CPI平稳而简单看多消费板块的空间。",
+          "actor_ids": [
+            "actor_government",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_government",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_government-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "在D1时前，有至少两家非关联媒体或券商发出标题包含“通胀风险”或“通缩风险”的评论，且引用数据为单月CPI同比",
+            "数据发布后的前12小时内，社交平台上与CPI相关的非官方讨论量超过过去三个月同类数据发布后同期均值"
+          ],
+          "consequences": [
+            "机构投资者原定的谨慎加仓动作（ANON_ASSET）因政策表述中的风险提示而暂时搁置，仓位维持不变或小幅减持以避免与官方引导方向冲突",
+            "境外投资者观察到政策层面主动干预信息基调，其等待观望期延长至下一组工业利润或PPI数据发布"
+          ],
+          "invalidation_conditions": [
+            "D1盘中或D1收盘前，没有出现任何显著偏离官方解读的市场评论，新闻和社交讨论均以直接转发官方数据为准",
+            "数据发布24小时内，未见任何具有影响力的经济评论员或券商研究所发布与官方基调明显不同的解读"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "机构投资者先行小幅加仓，境外投资者跟随验证",
+          "summary": "若CPI数据发布后一到两日内无负面或分化信号，机构投资者将先行执行其预设的小幅加仓决策，并在仓位变化后向市场释放信号，境外投资者观察到国内机构的行为信号后，在下一个有效窗口从‘等待’转为‘评估能否小型试探性进入’。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_foreign"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "ALLOCATE",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_foreign",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_foreign-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "D1收盘前，主要上证指数或创业板指数未出现比数据发布前收盘点位更低的当日收盘价（即市场未对数据做出负面反馈）",
+            "D1交易时段内，与中证传媒ETF或类似消费类ETF相关的盘中成交量，比过去20个交易日的同一时段均值增加至少15%"
+          ],
+          "consequences": [
+            "机构投资者小幅加仓完成后，其半公开的分析评论中会包含‘CPI稳定，为适度操作提供窗口’的措辞，被境外投资者获取并视为信号",
+            "境外投资者在D2或D3决定增加对中国相关资产的桌面级内部研讨频率（不直接交易），并将跟踪名单中的国内机构重仓板块纳入进一步观察"
+          ],
+          "invalidation_conditions": [
+            "D1交易结束后，发布次日CPI的分项（如食品、能源）数据或地方物价调研信息，显示CPI平稳下隐藏了某细分项的上行或下行偏离",
+            "D1交易时段内，大盘指数在收盘前最后一个小时出现超过1%的跌幅，且成交量同步放量"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "机构投资者因PPI信号担忧取消加仓，促使数据发布机构回应分歧",
+          "summary": "如果CPI发布后的后续行业或区域工业数据暗示PPI通缩风险边际升高，机构投资者将取消加仓意向，转向对内需资产发表谨慎评论。数据发布机构为维护其数据体系的全面权威，会在下一次公开沟通中对PPI趋势做补充解释，间接约束政府原本计划的乐观基调。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "ALLOCATE",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "D2收盘前，彭博经济意外指数或类似先行指标中与中国PPI相关的成分出现超过0.5个标准差的意外下行",
+            "D1至D2期间，有至少一个大型制造业上市公司预告或发布符合预期的月度经营数据，但其成本端或出厂价格端出现同比下降超预期"
+          ],
+          "consequences": [
+            "机构投资者将原定的ANON_ASSET加仓改为维持现状，并在内部评估中将‘消费板块配置优先级’下调，释放或暗示行业侧重调整",
+            "数据发布机构在收到机构反馈后，转向‘PPI需结合产业结构评估’的表态，该表态比政府最初发布的‘总体稳定’口径更强调分化，使政府不再单方面强调经济稳固运行"
+          ],
+          "invalidation_conditions": [
+            "D2收盘时，与PPI相关性较高的工业品期货价格（如螺纹钢、铜）均未较数据发布前出现明显下跌或新低",
+            "D1-D2期间，没有上市公司在生产经营数据中或与分析师的交流中提到‘出厂价格压力’或‘成本与售价价差收窄’等措辞"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "政府主动发声领先于机构行动，但低信噪比导致境外投资者独立评估",
+          "summary": "若政府率先在数据发布12小时内发布正式表态（与计划一致），而机构投资者因正处于内部决策流程中未立即回应，政府表态的宏观叙述可能与机构基于消费数据的小幅加仓意图产生张力。境外投资者接收到双重、低对称性的信息后，将进入独立评估模式，既不跟随国内机构可能的行为，也不简单接受政府全口径表述。",
+          "actor_ids": [
+            "actor_government",
+            "actor_institutions"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_government",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_government-r2"
+            },
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "ALLOCATE",
+              "decision_ref": "decision-actor_institutions-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "政府官方解读在D0晚间（数据发布日当天）通过权威媒体或新闻发布会发出，内容包含‘工业领域需结合产业结构评估’的转折表述",
+            "D1开盘前30分钟内，机构投资者没有向流量较大的金融信息终端（如Wind、同花顺券商版）发送或更新任何关于ANON_ASSET的推荐或交易信号"
+          ],
+          "consequences": [
+            "机构投资者意识到政府表态的细致程度超出预期，暂缓加仓决定以避免在行业视角上短期与官方方向相左",
+            "境外投资者评估认为国内信息环境存在政府主动引导与机构谨慎沉默之间的不匹配，决定不加速进入，但也不撤回，仍维持观望状态、增加对中国宏观模型的情景分析次数"
+          ],
+          "invalidation_conditions": [
+            "政府正式解读未在数据发布次一个交易日前发出，或以极简方式（仅转载数据表）替代了结构化解读",
+            "机构投资者在D1开盘交易的前60分钟内即被观察到通过交易所龙虎榜数据或其他渠道实际执行了ANON_ASSET类资产的买入操作，表明其并未受政府表态影响"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        }
+      ],
+      "quality": [
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 2,
+            "evidence_discipline": 2,
+            "scenario_diversity": 2
+          },
+          "total_score": 10,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            }
+          ]
+        },
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 2,
+            "evidence_discipline": 2,
+            "scenario_diversity": 2
+          },
+          "total_score": 10,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": false,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            }
+          ]
+        }
+      ],
+      "judge_reasons": [
+        "各分支均涉及多参与者因果链，触发和失效条件具体可操作，但机制部分重复（如政策引导或机构反应循环），且多数依赖超越D0事实的外部信号，使情景多样性、证据纪律和机制连贯性仅达合格水平。",
+        "候选分支虽覆盖多种互动模式，但存在机制不完整、触发条件不可观察或决策无关的问题，整体评分中等。"
+      ],
+      "prompt": {
+        "system": "你是金融事件分支编译器，不是价格预测器。只使用输入中 as_of 时点可得事实\n和明确标为模拟的行为，生成恰好 4 条彼此有实质区别、未来可证伪的条件化事件分支。\n\n\n硬性要求：\n- 不得补充 as_of 之后的真实事件、公告、价格或人员结果；\n- 每条分支至少串联两个不同 actor 的动作，不能只是改写一个人的观点；\n- trigger_conditions 必须是未来可观察的“若……则进入该分支”条件；\n- consequences 是机制结果，不是已发生事实；\n- invalidation_conditions 必须说明什么观察会推翻该分支；\n- evidence_refs 只能引用输入中的 F 编号；\n- 按 branch_slots 的顺序生成分支；第 N 条分支必须描述第 N 个槽位中的所有角色及其相互影响；\n- 不要输出 actor_ids、actions、decision_ref 或 simulation_refs；系统会按数组位置确定性绑定\n  槽位中的角色及其已有 financial_decision，禁止自行概括、改写或新造动作；\n- confidence 只表示分支内部连贯性，不是发生概率；\n- novelty_claim 说明该分支比事实直接复述多出了哪段多主体传导；\n- 不得输出目标价格、收益率概率或 Agent 投票频率。\n\n只输出 JSON：\n{\"branches\":[{\"label\":\"简短名称\",\"summary\":\"条件化摘要\",\n\"trigger_conditions\":[\"...\"],\"consequences\":[\"...\"],\n\"invalidation_conditions\":[\"...\"],\"evidence_refs\":[\"F1\"],\n\"novelty_claim\":\"...\",\"confidence\":0.5}],\"warnings\":[]}。\n互动输入可能为空；其中内容仍是模拟消息，不是新增事实。不得凭空推断立场变化或因果影响。每条分支说明一方行动如何影响另一方的可行行动。触发和失效条件尽量指出观察对象与时间窗口；没有依据时不编造精确阈值。对缺少行动依据的传导使用条件表述，不把等待决策改写成已经采取新行动。",
+        "user": "{\"case_id\": \"anonymous-case-06\", \"as_of\": \"D0\", \"question\": \"严格基于 D0 时点可得信息，推演未来三个交易日各参与方行动及条件化传导机制。\", \"horizon\": {\"kind\": \"calendar_days\", \"value\": 3, \"end_at\": \"2024-11-28T23:59:59+00:00\"}, \"facts\": [{\"id\": \"F1\", \"statement\": \"中国CPI/PPI月度经济数据：CPI月度 | 统计局 预期:一致 前值:上月\"}], \"actors\": [{\"id\": \"actor_issuer\", \"label\": \"事件主体\", \"kind\": \"issuer\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_government\", \"label\": \"政府与司法机构\", \"kind\": \"government\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_institutions\", \"label\": \"机构投资者\", \"kind\": \"institutional_investor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_foreign\", \"label\": \"境外投资者\", \"kind\": \"foreign_investor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}], \"financial_decisions\": [{\"id\": \"decision-actor_issuer-r2\", \"round\": 2, \"actor_id\": \"actor_issuer\", \"action_type\": \"COMMUNICATE\", \"decision_status\": \"intended\", \"direction\": \"maintain\", \"intensity\": 0.6, \"instrument_refs\": [], \"rationale\": \"作为数据发布机构（统计局），在CPI与预期一致、前值持平的背景下，刚刚通过社交媒体发布了官方解读说明以引导市场预期、维护数据权威和制度公信力。未来一个决策周期内，最可能采取的是持续发布细化数据或进行补充性沟通，以稳定各方对物价形势的认知，防止单月数据被过度解读。不在金融操作层面采取行动，而是履行数据发布与解释职责，维护自身制度权威。\", \"constraint_refs\": [\"actor_issuer:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.8, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_government-r2\", \"round\": 2, \"actor_id\": \"actor_government\", \"action_type\": \"COMMUNICATE\", \"decision_status\": \"intended\", \"direction\": \"maintain\", \"intensity\": 0.6, \"instrument_refs\": [], \"rationale\": \"CPI数据与预期一致且与前值持平，反映通胀可控。作为政府机构，我选择通过公开渠道发布对数据的官方解读，强调经济平稳运行态势，引导市场预期稳定，维护制度公信力和经济秩序。行动强度中等，因为数据本身未出现异常波动，无须强力干预，但需主动发声以抢占信息主导权。主要不确定性在于后续PPI走势对制造业的影响，以及外部经济环境变化对国内物价的传导效应。\", \"constraint_refs\": [\"actor_government:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_institutions-r2\", \"round\": 2, \"actor_id\": \"actor_institutions\", \"action_type\": \"ALLOCATE\", \"decision_status\": \"conditional\", \"direction\": \"increase\", \"intensity\": 0.3, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"截至2024-11-25，最新CPI数据符合预期且与前值持平，反映通胀压力可控，为央行维持或适度宽松货币政策提供空间。作为机构投资者，我计划在下一决策周期内小幅增加对匿名标的1（中证传媒ETF）的配置，前提是后续发布的PPI数据未出现超预期下行、且工业利润数据不显著恶化。当前CPI平稳意味着内需消费端未出现通缩加速，传媒板块作为消费相关行业受益于稳定的宏观环境，但PPI走势的不确定性使加仓幅度保持谨慎（intensity=0.3）。主要不确定性在于PPI走势对制造业盈利的传导效应尚未完全验证，需等待更多交叉数据。\", \"constraint_refs\": [\"actor_institutions:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.7, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_foreign-r2\", \"round\": 2, \"actor_id\": \"actor_foreign\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"not_applicable\", \"intensity\": null, \"instrument_refs\": [], \"rationale\": \"截至时点仅有中国CPI/PPI月度经济数据公告，数值显示一致预期且前值与上月持平。作为境外投资者，当前数据未提供足够新的信息以触发仓位调整。通胀压力可控但缺乏方向性信号，货币政策边际调整空间仍有待后续数据确认。等待PPI后续趋势及更多宏观信号出现后再做配置决策更为审慎。\", \"constraint_refs\": [\"actor_foreign:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}], \"simulated_actions\": [{\"id\": \"trace-11\", \"actor_id\": \"actor_foreign\", \"action_type\": \"COMMUNICATE\", \"summary\": \"一致预期下的CPI数据值得关注。作为境外投资者，我会密切跟踪这些宏观指标来评估中国市场配置。前值环比变化是关键信号。\"}, {\"id\": \"trace-12\", \"actor_id\": \"actor_institutions\", \"action_type\": \"COMMUNICATE\", \"summary\": \"CPI符合预期与前值持平，反映了当前通胀压力可控。作为机构投资者，我们将密切关注后续PPI走势对制造业利润的影响，以及货币政策可能的边际调整空间。\"}, {\"id\": \"trace-21\", \"actor_id\": \"actor_government\", \"action_type\": \"COMMUNICATE\", \"summary\": \"CPI数据符合预期，表明当前通胀水平总体稳定可控。国家统计局将持续完善统计监测体系，为宏观调控提供可靠依据。PPI走势反映工业领域供需格局，需结合产业结构调整综合评估。建议市场参与者以官方数据发布为准绳，理性看待短期波动。\"}, {\"id\": \"trace-22\", \"actor_id\": \"actor_institutions\", \"action_type\": \"COMMUNICATE\", \"summary\": \"回复 @境外投资者 的评论：同意宏观指标对配置决策的重要性。从境内机构视角补充一点，当前CPI平稳而PPI走势分化是我们更关注的信号，可能影响不同板块的盈利预期调整。建议关注本月下旬的工业利润数据交叉验证。\"}, {\"id\": \"trace-23\", \"actor_id\": \"actor_issuer\", \"action_type\": \"COMMUNICATE\", \"summary\": \"【官方说明】本次发布的CPI/PPI月度数据基于全国统计调查结果，CPI与预期一致，前值持平上月，反映出当前物价水平总体稳定。PPI数据同步更新，制造业上游价格走势需结合行业细分数据综合研判。请各市场参与者以官方网站发布为准，勿对单月数据进行过度解读。后续我们将持续发布更多细化分类数据以供参考。\"}], \"branch_slots\": [{\"slot_id\": \"slot-1\", \"actor_ids\": [\"actor_government\", \"actor_issuer\"], \"relationship_kind\": \"constrains_or_influences\", \"decision_refs\": [\"decision-actor_government-r2\", \"decision-actor_issuer-r2\"]}, {\"slot_id\": \"slot-2\", \"actor_ids\": [\"actor_institutions\", \"actor_foreign\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_foreign-r2\"]}, {\"slot_id\": \"slot-3\", \"actor_ids\": [\"actor_institutions\", \"actor_issuer\"], \"relationship_kind\": \"constrains_or_influences\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_issuer-r2\"]}, {\"slot_id\": \"slot-4\", \"actor_ids\": [\"actor_government\", \"actor_institutions\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_government-r2\", \"decision-actor_institutions-r2\"]}]}"
+      }
+    },
+    "raw_interactions": {
+      "generation": {
+        "status": "sealed",
+        "semantic_retries": 0,
+        "elapsed_seconds": 60.73032816697378,
+        "prompt_chars": 7322,
+        "visible_interactions": 10
+      },
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "官方解读强化预期锚定",
+          "summary": "政府与统计局通过联合发布细化分类数据和补充说明，强化市场对CPI平稳的共识，压制PPI分化的过度解读，使机构投资者在数据确认期内维持原有仓位策略。",
+          "actor_ids": [
+            "actor_government",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_government",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_government-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "2024-11-26至2024-11-28间，统计局（actor_issuer）发布至少2条补充CPI/PPI细分数据的官方解读",
+            "同一时段内政府（actor_government）在公开渠道转发或重申该项解读，并强调'通胀整体可控'"
+          ],
+          "consequences": [
+            "机构投资者的配置调整因缺乏新增方向性信号而被延迟，其'conditional increase'决策保持等待状态",
+            "境外投资者的观望立场因信息一致而延续，无仓位变化"
+          ],
+          "invalidation_conditions": [
+            "统计局在此期间未发布任何补充说明",
+            "政府对CPI数据的官方表态出现与'通胀可控'相反的措辞"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "机构牵头引导境外跟随",
+          "summary": "机构投资者主动在公开平台引用PPI分化论据并构建看多逻辑，吸引境外投资者放弃等待，开始进行试探性调仓，形成外资内资共振的配置倾向。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_foreign"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "ALLOCATE",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_foreign",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_foreign-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "2024-11-26至2024-11-28间，机构投资者（actor_institutions）发布至少1条包含具体板块配置逻辑的公开分析",
+            "同一窗口内境外投资者（actor_foreign）在互动平台对该分析做出正面回应（如点赞或评论'同意'）"
+          ],
+          "consequences": [
+            "境外投资者从'不行动'转为小幅增加对中国权益类资产的敞口",
+            "机构投资者因境外反馈强化自身看多判断，可能将加仓强度由0.3提升至0.5"
+          ],
+          "invalidation_conditions": [
+            "机构投资者未发布任何新的策略性公开内容",
+            "境外投资者在此期间发表明确看空或继续观望的官方评论"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "机构施压统计局补充数据",
+          "summary": "机构投资者通过非公开询问或公开发问渠道，要求统计局对PPI细分数据进行更频密的披露，统计局为维持数据公信力而提前发布补充分类指数，改变信息供给节奏。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "ALLOCATE",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "2024-11-26至2024-11-28间，机构投资者在公开平台或互动中向统计局（actor_issuer）提出至少1次关于PPI分类数据的质询",
+            "统计局在此后48小时内发布至少1条新增的细分数据或临时解读"
+          ],
+          "consequences": [
+            "信息加速披露使机构投资者能够在原有加仓窗口期内获得更多交叉验证依据，从而提前执行有条件加仓",
+            "统计局面临后续数据对比压力，需就一次性补充发布做出额外说明"
+          ],
+          "invalidation_conditions": [
+            "机构投资者未发出任何指向统计局的公开质询",
+            "统计局在触发后48小时内未发布任何新增数据或解读"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "政府与机构共识受阻",
+          "summary": "尽管政府发布官方解读强调CPI平稳，但机构投资者在内部研判中发现PPI向下超预期迹象，公开反驳政府观点并引用其他同期工业数据，造成政策沟通与市场解读之间的公开分歧。",
+          "actor_ids": [
+            "actor_government",
+            "actor_institutions"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_government",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_government-r2"
+            },
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "ALLOCATE",
+              "decision_ref": "decision-actor_institutions-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "2024-11-26至2024-11-28间，政府发布至少1条官方解读声明",
+            "同一窗口内机构投资者发布至少1条明确反驳政府'通胀可控'结论的分析，并附有其他工业数据引用"
+          ],
+          "consequences": [
+            "境外投资者将该分歧解读为政策可信度下降，扩大观望范围至避免涉敞口",
+            "统计局被迫追加对PPI分类数据的独立解释以回应市场争议，弱化政府之前的解读权威"
+          ],
+          "invalidation_conditions": [
+            "政府在此期间未发布官方解读",
+            "机构投资者在此期间未发布任何对政府观点的反驳"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        }
+      ],
+      "quality": [
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 2,
+            "evidence_discipline": 2,
+            "scenario_diversity": 2
+          },
+          "total_score": 10,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            }
+          ]
+        },
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 2,
+            "evidence_discipline": 2,
+            "scenario_diversity": 2
+          },
+          "total_score": 10,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            }
+          ]
+        }
+      ],
+      "judge_reasons": [
+        "No free-form reason supplied.",
+        "每条分支仅一方初始动作触发反应，缺乏双方同步因果链；触发和失效条件具体可观察，但部分后果与初始动作不直接联动，因果链一致性和多样性一般；均以D0事实锚定。"
+      ],
+      "prompt": {
+        "system": "你是金融事件分支编译器，不是价格预测器。只使用输入中 as_of 时点可得事实\n和明确标为模拟的行为，生成恰好 4 条彼此有实质区别、未来可证伪的条件化事件分支。\n\n\n硬性要求：\n- 不得补充 as_of 之后的真实事件、公告、价格或人员结果；\n- 每条分支至少串联两个不同 actor 的动作，不能只是改写一个人的观点；\n- trigger_conditions 必须是未来可观察的“若……则进入该分支”条件；\n- consequences 是机制结果，不是已发生事实；\n- invalidation_conditions 必须说明什么观察会推翻该分支；\n- evidence_refs 只能引用输入中的 F 编号；\n- 按 branch_slots 的顺序生成分支；第 N 条分支必须描述第 N 个槽位中的所有角色及其相互影响；\n- 不要输出 actor_ids、actions、decision_ref 或 simulation_refs；系统会按数组位置确定性绑定\n  槽位中的角色及其已有 financial_decision，禁止自行概括、改写或新造动作；\n- confidence 只表示分支内部连贯性，不是发生概率；\n- novelty_claim 说明该分支比事实直接复述多出了哪段多主体传导；\n- 不得输出目标价格、收益率概率或 Agent 投票频率。\n\n只输出 JSON：\n{\"branches\":[{\"label\":\"简短名称\",\"summary\":\"条件化摘要\",\n\"trigger_conditions\":[\"...\"],\"consequences\":[\"...\"],\n\"invalidation_conditions\":[\"...\"],\"evidence_refs\":[\"F1\"],\n\"novelty_claim\":\"...\",\"confidence\":0.5}],\"warnings\":[]}。\n互动输入可能为空；其中内容仍是模拟消息，不是新增事实。不得凭空推断立场变化或因果影响。每条分支说明一方行动如何影响另一方的可行行动。触发和失效条件尽量指出观察对象与时间窗口；没有依据时不编造精确阈值。对缺少行动依据的传导使用条件表述，不把等待决策改写成已经采取新行动。",
+        "user": "{\"case_id\": \"anonymous-case-06\", \"as_of\": \"D0\", \"question\": \"严格基于 D0 时点可得信息，推演未来三个交易日各参与方行动及条件化传导机制。\", \"horizon\": {\"kind\": \"calendar_days\", \"value\": 3, \"end_at\": \"2024-11-28T23:59:59+00:00\"}, \"facts\": [{\"id\": \"F1\", \"statement\": \"中国CPI/PPI月度经济数据：CPI月度 | 统计局 预期:一致 前值:上月\"}], \"actors\": [{\"id\": \"actor_issuer\", \"label\": \"事件主体\", \"kind\": \"issuer\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_government\", \"label\": \"政府与司法机构\", \"kind\": \"government\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_institutions\", \"label\": \"机构投资者\", \"kind\": \"institutional_investor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_foreign\", \"label\": \"境外投资者\", \"kind\": \"foreign_investor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}], \"financial_decisions\": [{\"id\": \"decision-actor_issuer-r2\", \"round\": 2, \"actor_id\": \"actor_issuer\", \"action_type\": \"COMMUNICATE\", \"decision_status\": \"intended\", \"direction\": \"maintain\", \"intensity\": 0.6, \"instrument_refs\": [], \"rationale\": \"作为数据发布机构（统计局），在CPI与预期一致、前值持平的背景下，刚刚通过社交媒体发布了官方解读说明以引导市场预期、维护数据权威和制度公信力。未来一个决策周期内，最可能采取的是持续发布细化数据或进行补充性沟通，以稳定各方对物价形势的认知，防止单月数据被过度解读。不在金融操作层面采取行动，而是履行数据发布与解释职责，维护自身制度权威。\", \"constraint_refs\": [\"actor_issuer:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.8, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_government-r2\", \"round\": 2, \"actor_id\": \"actor_government\", \"action_type\": \"COMMUNICATE\", \"decision_status\": \"intended\", \"direction\": \"maintain\", \"intensity\": 0.6, \"instrument_refs\": [], \"rationale\": \"CPI数据与预期一致且与前值持平，反映通胀可控。作为政府机构，我选择通过公开渠道发布对数据的官方解读，强调经济平稳运行态势，引导市场预期稳定，维护制度公信力和经济秩序。行动强度中等，因为数据本身未出现异常波动，无须强力干预，但需主动发声以抢占信息主导权。主要不确定性在于后续PPI走势对制造业的影响，以及外部经济环境变化对国内物价的传导效应。\", \"constraint_refs\": [\"actor_government:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_institutions-r2\", \"round\": 2, \"actor_id\": \"actor_institutions\", \"action_type\": \"ALLOCATE\", \"decision_status\": \"conditional\", \"direction\": \"increase\", \"intensity\": 0.3, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"截至2024-11-25，最新CPI数据符合预期且与前值持平，反映通胀压力可控，为央行维持或适度宽松货币政策提供空间。作为机构投资者，我计划在下一决策周期内小幅增加对匿名标的1（中证传媒ETF）的配置，前提是后续发布的PPI数据未出现超预期下行、且工业利润数据不显著恶化。当前CPI平稳意味着内需消费端未出现通缩加速，传媒板块作为消费相关行业受益于稳定的宏观环境，但PPI走势的不确定性使加仓幅度保持谨慎（intensity=0.3）。主要不确定性在于PPI走势对制造业盈利的传导效应尚未完全验证，需等待更多交叉数据。\", \"constraint_refs\": [\"actor_institutions:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.7, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_foreign-r2\", \"round\": 2, \"actor_id\": \"actor_foreign\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"not_applicable\", \"intensity\": null, \"instrument_refs\": [], \"rationale\": \"截至时点仅有中国CPI/PPI月度经济数据公告，数值显示一致预期且前值与上月持平。作为境外投资者，当前数据未提供足够新的信息以触发仓位调整。通胀压力可控但缺乏方向性信号，货币政策边际调整空间仍有待后续数据确认。等待PPI后续趋势及更多宏观信号出现后再做配置决策更为审慎。\", \"constraint_refs\": [\"actor_foreign:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}], \"simulated_actions\": [{\"id\": \"trace-10\", \"kind\": \"simulated_action\", \"action_type\": \"SOCIAL_ENDORSEMENT\", \"summary\": \"点赞帖子 #1：中国CPI/PPI月度经济数据：CPI月度 | 统计局 预期:一致 前值:上月\", \"actor_id\": \"actor_government\"}, {\"id\": \"trace-11\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"一致预期下的CPI数据值得关注。作为境外投资者，我会密切跟踪这些宏观指标来评估中国市场配置。前值环比变化是关键信号。\", \"actor_id\": \"actor_foreign\"}, {\"id\": \"trace-12\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"CPI符合预期与前值持平，反映了当前通胀压力可控。作为机构投资者，我们将密切关注后续PPI走势对制造业利润的影响，以及货币政策可能的边际调整空间。\", \"actor_id\": \"actor_institutions\"}, {\"id\": \"trace-13\", \"kind\": \"simulated_action\", \"action_type\": \"SOCIAL_ENDORSEMENT\", \"summary\": \"点赞帖子 #1：中国CPI/PPI月度经济数据：CPI月度 | 统计局 预期:一致 前值:上月\", \"actor_id\": \"actor_institutions\"}, {\"id\": \"trace-14\", \"kind\": \"simulated_action\", \"action_type\": \"SEARCH_POSTS\", \"summary\": \"search_posts\", \"actor_id\": \"actor_issuer\"}, {\"id\": \"trace-15\", \"kind\": \"simulated_action\", \"action_type\": \"SEARCH_USER\", \"summary\": \"search_user\", \"actor_id\": \"actor_issuer\"}, {\"id\": \"trace-20\", \"kind\": \"simulated_action\", \"action_type\": \"LIKE_COMMENT\", \"summary\": \"like_comment\", \"actor_id\": \"actor_foreign\"}, {\"id\": \"trace-21\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"CPI数据符合预期，表明当前通胀水平总体稳定可控。国家统计局将持续完善统计监测体系，为宏观调控提供可靠依据。PPI走势反映工业领域供需格局，需结合产业结构调整综合评估。建议市场参与者以官方数据发布为准绳，理性看待短期波动。\", \"actor_id\": \"actor_government\"}, {\"id\": \"trace-22\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"回复 @境外投资者 的评论：同意宏观指标对配置决策的重要性。从境内机构视角补充一点，当前CPI平稳而PPI走势分化是我们更关注的信号，可能影响不同板块的盈利预期调整。建议关注本月下旬的工业利润数据交叉验证。\", \"actor_id\": \"actor_institutions\"}, {\"id\": \"trace-23\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"【官方说明】本次发布的CPI/PPI月度数据基于全国统计调查结果，CPI与预期一致，前值持平上月，反映出当前物价水平总体稳定。PPI数据同步更新，制造业上游价格走势需结合行业细分数据综合研判。请各市场参与者以官方网站发布为准，勿对单月数据进行过度解读。后续我们将持续发布更多细化分类数据以供参考。\", \"actor_id\": \"actor_issuer\"}], \"branch_slots\": [{\"slot_id\": \"slot-1\", \"actor_ids\": [\"actor_government\", \"actor_issuer\"], \"relationship_kind\": \"constrains_or_influences\", \"decision_refs\": [\"decision-actor_government-r2\", \"decision-actor_issuer-r2\"]}, {\"slot_id\": \"slot-2\", \"actor_ids\": [\"actor_institutions\", \"actor_foreign\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_foreign-r2\"]}, {\"slot_id\": \"slot-3\", \"actor_ids\": [\"actor_institutions\", \"actor_issuer\"], \"relationship_kind\": \"constrains_or_influences\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_issuer-r2\"]}, {\"slot_id\": \"slot-4\", \"actor_ids\": [\"actor_government\", \"actor_institutions\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_government-r2\", \"decision-actor_institutions-r2\"]}]}"
+      }
+    }
+  },
+  "usage": [
+    {
+      "case_id": "anonymous-case-06",
+      "variant": "filtered_interactions",
+      "phase": "generation",
+      "request_id": "8a5def5bded342f496db9acc6104e245",
+      "request_sha256": "ac1af1eb9d16d602831f079753238dfc2c05c65960b6e17cda2da4ed10fbc8ba",
+      "prompt_chars": 6421,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:11:01.424202+00:00",
+      "status": "completed",
+      "prompt_tokens": 2503,
+      "completion_tokens": 1543,
+      "total_tokens": 4046,
+      "estimated_cost": 0.00048457799999999994,
+      "finish_reason": "stop",
+      "elapsed_seconds": 88.1912903340417
+    },
+    {
+      "case_id": "anonymous-case-06",
+      "variant": "raw_interactions",
+      "phase": "generation",
+      "request_id": "226578867d8e4401a4743468109dc155",
+      "request_sha256": "0a2d956196145aad63eb83f49281c2f07198223ee40f32ba92a902e327bbea0a",
+      "prompt_chars": 7322,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:15:15.133704+00:00",
+      "status": "completed",
+      "prompt_tokens": 2812,
+      "completion_tokens": 1155,
+      "total_tokens": 3967,
+      "estimated_cost": 0.00044254799999999996,
+      "finish_reason": "stop",
+      "elapsed_seconds": 60.72757312498288
+    },
+    {
+      "case_id": "anonymous-case-06",
+      "variant": "decisions_only",
+      "phase": "generation",
+      "request_id": "f468c4eb84fc4d3698c989334ec529bb",
+      "request_sha256": "a9c74b73ed93dac33a22d42f3593c8b6a7ca0f715a17a43498e63f56fc49f4dd",
+      "prompt_chars": 5448,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:16:34.961995+00:00",
+      "status": "completed",
+      "prompt_tokens": 2081,
+      "completion_tokens": 970,
+      "total_tokens": 3051,
+      "estimated_cost": 0.00023286599999999998,
+      "finish_reason": "stop",
+      "elapsed_seconds": 69.56931570800953
+    },
+    {
+      "case_id": "anonymous-case-06",
+      "variant": "raw_interactions",
+      "phase": "quality",
+      "repeat": 1,
+      "request_id": "1107e82c7f084bbcbbbf5f4b7f77f4fe",
+      "request_sha256": "a5aa33beceb4cd428b5f1736540540e7c44baeeb91b5e2a804445ab521274283",
+      "prompt_chars": 4860,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:19:06.214592+00:00",
+      "status": "completed",
+      "prompt_tokens": 1989,
+      "completion_tokens": 298,
+      "total_tokens": 2287,
+      "estimated_cost": 0.00021421800000000001,
+      "finish_reason": "stop",
+      "elapsed_seconds": 9.592362166033126
+    },
+    {
+      "case_id": "anonymous-case-06",
+      "variant": "decisions_only",
+      "phase": "quality",
+      "repeat": 1,
+      "request_id": "8fcb181713504f93b1b9a27b94a3fab3",
+      "request_sha256": "b8933644336859b97416333ec6b673e621b7e1885ef33faff51897a86bc394db",
+      "prompt_chars": 4638,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:19:11.456739+00:00",
+      "status": "completed",
+      "prompt_tokens": 1902,
+      "completion_tokens": 306,
+      "total_tokens": 2208,
+      "estimated_cost": 0.00017096399999999998,
+      "finish_reason": "stop",
+      "elapsed_seconds": 9.04178862500703
+    },
+    {
+      "case_id": "anonymous-case-06",
+      "variant": "filtered_interactions",
+      "phase": "quality",
+      "repeat": 2,
+      "request_id": "e6ae16d755194e519dc48727585e5f50",
+      "request_sha256": "371161c608f20b642e2b6aaeb76ff316a284af4993eb41257dfbd617550c3858",
+      "prompt_chars": 5583,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:19:57.385216+00:00",
+      "status": "completed",
+      "prompt_tokens": 2446,
+      "completion_tokens": 289,
+      "total_tokens": 2735,
+      "estimated_cost": 0.00021686400000000002,
+      "finish_reason": "stop",
+      "elapsed_seconds": 9.186420165991876
+    },
+    {
+      "case_id": "anonymous-case-06",
+      "variant": "raw_interactions",
+      "phase": "quality",
+      "repeat": 2,
+      "request_id": "e5794134c51442dd86992b343a5f9501",
+      "request_sha256": "a5aa33beceb4cd428b5f1736540540e7c44baeeb91b5e2a804445ab521274283",
+      "prompt_chars": 4860,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:20:22.926880+00:00",
+      "status": "completed",
+      "prompt_tokens": 1989,
+      "completion_tokens": 310,
+      "total_tokens": 2299,
+      "estimated_cost": 0.00021637800000000003,
+      "finish_reason": "stop",
+      "elapsed_seconds": 8.642816209001467
+    },
+    {
+      "case_id": "anonymous-case-06",
+      "variant": "decisions_only",
+      "phase": "quality",
+      "repeat": 2,
+      "request_id": "61192cf2135c40759c746956547e8555",
+      "request_sha256": "b8933644336859b97416333ec6b673e621b7e1885ef33faff51897a86bc394db",
+      "prompt_chars": 4638,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:20:40.000310+00:00",
+      "status": "completed",
+      "prompt_tokens": 1902,
+      "completion_tokens": 322,
+      "total_tokens": 2224,
+      "estimated_cost": 0.00022914,
+      "finish_reason": "stop",
+      "elapsed_seconds": 12.304621874995064
+    },
+    {
+      "case_id": "anonymous-case-06",
+      "variant": "filtered_interactions",
+      "phase": "quality",
+      "repeat": 1,
+      "request_id": "764913dbfbe045ca8abe2f8cc059b45b",
+      "request_sha256": "371161c608f20b642e2b6aaeb76ff316a284af4993eb41257dfbd617550c3858",
+      "prompt_chars": 5583,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:20:55.548089+00:00",
+      "status": "completed",
+      "prompt_tokens": 2446,
+      "completion_tokens": 317,
+      "total_tokens": 2763,
+      "estimated_cost": 0.00011131200000000001,
+      "finish_reason": "stop",
+      "elapsed_seconds": 8.715936332999263
+    }
+  ]
+}

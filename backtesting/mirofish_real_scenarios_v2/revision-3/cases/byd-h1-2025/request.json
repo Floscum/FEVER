@@ -1,0 +1,74 @@
+{
+  "case_id": "real-byd-h1-2025",
+  "source_graph_artifact_id": "real-public-byd-h1-2025",
+  "evidence_graph": {
+    "question": "比亚迪（002594）发布2025年中报后，未来7天可能出现哪些经营和市场反应？各参与方有哪些分歧，下一步应核对哪些公开信号？",
+    "nodes": [
+      {
+        "id": "E1",
+        "kind": "evidence",
+        "title": "",
+        "body": "",
+        "source_kind": "filing",
+        "source_ref": "https://static.cninfo.com.cn/finalpage/2025-08-30/1224626653.PDF",
+        "source_data": {
+          "content": "2025年上半年，比亚迪营业收入3712.80948亿元，同比增长23.30%。",
+          "published_at": "2025-08-30"
+        }
+      },
+      {
+        "id": "E2",
+        "kind": "evidence",
+        "title": "",
+        "body": "",
+        "source_kind": "filing",
+        "source_ref": "https://static.cninfo.com.cn/finalpage/2025-08-30/1224626653.PDF",
+        "source_data": {
+          "content": "同期归母净利润155.10533亿元，同比增长13.79%；经营现金流净额318.33471亿元，同比增长124.52%。",
+          "published_at": "2025-08-30"
+        }
+      },
+      {
+        "id": "E3",
+        "kind": "evidence",
+        "title": "",
+        "body": "",
+        "source_kind": "filing",
+        "source_ref": "https://static.cninfo.com.cn/finalpage/2025-08-30/1224626653.PDF",
+        "source_data": {
+          "content": "同期研发投入308.80339亿元，同比增长53.05%。公司解释主要由职工薪酬及物料消耗增加所致。",
+          "published_at": "2025-08-30"
+        }
+      },
+      {
+        "id": "E4",
+        "kind": "evidence",
+        "title": "",
+        "body": "",
+        "source_kind": "filing",
+        "source_ref": "https://static.cninfo.com.cn/finalpage/2025-08-30/1224626653.PDF",
+        "source_data": {
+          "content": "汽车、汽车相关产品及其他产品毛利率20.35%，同比下降1.99个百分点。比较数据已按质量保证费用转入营业成本的口径调整。",
+          "published_at": "2025-08-30"
+        }
+      },
+      {
+        "id": "E5",
+        "kind": "evidence",
+        "title": "",
+        "body": "",
+        "source_kind": "filing",
+        "source_ref": "https://static.cninfo.com.cn/finalpage/2025-08-30/1224626653.PDF",
+        "source_data": {
+          "content": "同期境外收入1353.57667亿元，同比增长50.49%，占收入36.46%；境外毛利率19.82%。",
+          "published_at": "2025-08-30"
+        }
+      }
+    ],
+    "edges": []
+  },
+  "question": "比亚迪（002594）发布2025年中报后，未来7天可能出现哪些经营和市场反应？各参与方有哪些分歧，下一步应核对哪些公开信号？",
+  "as_of": "2025-08-30T23:59:59+08:00",
+  "horizon_days": 7,
+  "mode": "quick"
+}

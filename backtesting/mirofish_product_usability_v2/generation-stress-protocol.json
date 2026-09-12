@@ -1,0 +1,12 @@
+{
+  "classification": "post_pilot_generation_regression_not_confirmatory_quality_evaluation",
+  "reason": "All six revised pilot generations completed, but six of twelve judgments failed exact-quote validation after retries. Inspection found unsupported quantitative details that some judges still accepted. Stop the paid quality subtest; do not promote v8 based on it.",
+  "scope": "Same 24 cases, v7/v8 prompts, provider, anonymization and shared $0.50 / 192-call cap. Generate remaining 42 outputs only; no additional judges or simulation reruns.",
+  "product_decision": "Keep v7 as default. Add deterministic current decisions, observation windows and a number-review aid; v8 remains experimental.",
+  "metrics": "Report generation completion, coverage of decision actors and configured actors separately, branches with unanchored Arabic quantities, generation retries, latency and returned usage. Quantity matches are a review heuristic, not proof of grounding or hallucination.",
+  "code_sha256": {
+    "scripts/run_product_generation_stress.py": "d872d98460e6c051b510a921dadb1b6a3f4cf8f38f4da8190c5ea3b8e4804dd4",
+    "src/fever_mirofish/scenario_presentation.py": "01c80e2dec5225dbdbca3a9810db724732b4619a5780373e09e1c8bdb569c334"
+  },
+  "frozen_parent_manifest_sha256": "f9b08ba5cabaa12537324f61a7d584fff0cf7e15cd6a11c74a62a16b9402ffcc"
+}

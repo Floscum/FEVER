@@ -1,0 +1,599 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_digital_asset_listing_011",
+  "spec_sha256": "13dfcc649c74e61eb03624b94ef7150fc5746409e579c943106d3f591af076ea",
+  "generated_at": "2026-07-31T10:20:01.276882+00:00",
+  "status": "partial",
+  "runs": [
+    {
+      "run_id": "sim_ef7a0a69253e",
+      "seed": 158448565,
+      "status": "completed",
+      "events": [
+        {
+          "round": 0,
+          "actor_id": "actor_securities_regulator",
+          "action_type": "SEARCH_POSTS",
+          "summary": "search_posts",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_securities_regulator",
+          "action_type": "SEARCH_USER",
+          "summary": "search_user",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_exchanges",
+          "action_type": "COMMUNICATE",
+          "summary": "作为交易所，我们已提交完备的监控共享和现金申赎安排。关键在于无论统一审批还是单一先行路径，我们的规则变更和注册文件必须优先获得通过，以尽快上线产品。F1裁决已为审批扫清法律障碍，监管不应再以监控理由拖延。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_sponsors",
+          "action_type": "COMMUNICATE",
+          "summary": "作为申请方，我们已准备好全套监控共享和现金申赎安排。统一审批对所有申请人都更公平，但无论哪种路径，我们都会持续提交修订文件争取先发优势。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_sponsors",
+          "action_type": "COMMUNICATE",
+          "summary": "先发优势确实关键，所以我们一直在加紧完善托管和授权参与人安排。如果只批一家，我们希望能成为那一家。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_sponsors",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #4：做市商已准备套利机制，但流动性深度取决于最终批准数量和托管安排。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_sponsors",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #6：监管机构可能以市场监控不足为由继续延迟，但法院裁决增加了法律风险。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_market_makers",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #4：做市商已准备套利机制，但流动性深度取决于最终批准数量和托管安排。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_exchanges",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #2：若监管批准单一申请人，其他申请人将面临竞争劣势，但长期看市场可能容纳多产品。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_exchanges",
+          "action_type": "COMMUNICATE",
+          "summary": "正确。作为交易所，我们理解先行优势的竞争格局。但我们的注册文件质量、监控共享安排和托管方案已经在业内最为完善，无论监管选择统一审批还是单一先行路径，我们都已做好最快上线的准备。F2中提到的否决历史正是F1裁决要纠正的，监管不应再重蹈覆辙。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_retail",
+          "action_type": "COMMUNICATE",
+          "summary": "法院裁决确实增加了监管压力，但监管机构仍有程序性拖延空间。关键观察点是D0前是否有多家同时获批，还是单一先行。作为零售投资者，我更关注首批资金流入时点而非最终产品数量。短期波动交易策略上，我认为应该紧盯规则生效公告而非最终批准日。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_retail",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #4：做市商已准备套利机制，但流动性深度取决于最终批准数量和托管安排。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_exchanges",
+          "action_type": "COMMUNICATE",
+          "summary": "作为交易所，我们关注的核心是规则变更生效而非猜测监管日程。F4已明确：多家申请人的规则变更和注册文件处于并行审查状态。我们的监控共享安排完全满足监管要求，F1裁决更强化了监管必须给出合理一致解释的义务。任何以\"监控不足\"为由的拖延在法律上都站不住脚了。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_incumbent_trust",
+          "action_type": "SEARCH_POSTS",
+          "summary": "search_posts",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_incumbent_trust",
+          "action_type": "SEARCH_USER",
+          "summary": "search_user",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_securities_regulator",
+          "action_type": "WAIT",
+          "summary": "尽管法院裁决（F1）要求重新审视对现货产品与期货产品的差别处理理由，但截至当前时点，多个申请人提交的修订文件（F3）仍处于并行审查状态，尚未完成对监控共享、托管安排和现金申赎机制是否足以满足证券法关于防止欺诈和操纵（F2）要求的全面评估。在委员内部对统一审批与单一申请人先行路径仍存在分歧（约束1）的情况下，任何未经充分说明的批准或否决均可能再次引发法律挑战。因此，最审慎的选择是继续审查申请人补充材料，在形成与证券交易法律一致且足以回应法院质疑的完整记录之前暂不作出最终决定。",
+          "visibility": "public",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_exchanges",
+          "action_type": "COMMUNICATE",
+          "summary": "作为申请上市的证券交易所，我们的首要目标是尽快取得规则变更批准并上线产品。F1裁决已为审批扫清法律障碍，F3表明我们已提交包含监控共享、托管和现金申赎安排的完备修订文件。鉴于F4显示监管尚未发布最终批准令且存在并行审查，下一决策周期我们将主动与监管机构进行沟通，强调我们的注册文件质量和完善的监控安排已满足F2中监管曾提出的核心关切，并援引F1裁决要求监管对现货与期货产品采取一致处理标准。同时向监管阐明多申请人并行获批的可行性，以降低单一先行路径对我方的不利竞争影响。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_sponsors",
+          "action_type": "COMMUNICATE",
+          "summary": "选择对外沟通而非等待，原因有：F3显示多个申请方已提交修订文件并提出监控共享安排，若此时被动等待单一申请人先行路径，将面临竞争者独享先发优势的风险。F1提供了有利法律基础，但F4显示监管尚未发布最终批准令。因此下一周期最可能动作是在社交媒体或行业渠道主动发声，强调我方的托管、申赎安排已就绪（约束），并利用F1强调区别对待现货与期货产品的不合理性，推动统一审批或争取成为首批获批者。此举服务于取得批准并吸引首批资产及避免竞争者独享先发优势两大目标。主要不确定性在于F4中监管仍可能选择单一申请人路径，从而导致我方的沟通效果有限。",
+          "visibility": "public",
+          "evidence_refs": [
+            "F1",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_incumbent_trust",
+          "action_type": "WAIT",
+          "summary": "作为拟转换的既有封闭式信托，我的转换路径仍依赖规则与注册文件生效（约束）。截至D0，监管机构尚未发布最终批准令（F4），虽有上诉法院撤销此前否决（F1）及多家申请人提交修订文件并提出监控共享、托管和现金申赎安排（F3），但统一审批与单一申请人先行两种路径尚未明确（F4）。在监管信号明朗前提前发起公开沟通或操作动作，既无法改变审批节奏，也可能暴露自身谈判位置或引发不必要的市场预期变动。因此最优选择是维持现有资产规模和管理状态，继续观察并行审查进展，等待监管决策窗口开启后再根据路径选择采取对应行动。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_market_makers",
+          "action_type": "WAIT",
+          "summary": "作为做市商与授权参与人，我的核心职责是准备流动性和套利机制，但当前最终审批范围和上线日期尚未确定，这是最关键的约束。F4明确指出监管机构尚未发布最终批准令，市场同时讨论统一审批与单一申请人先行两种路径，这两种路径对流动性深度、托管安排和套利机制的设计差异很大。F3显示监控共享和现金申赎安排已就绪，这是积极信号，但F2的历史否决记录提示监管仍可能以欺诈、操纵和市场监控为由继续延迟。F1的法律裁决虽增加了审批可能性，但不等于自动批准。在审批路径和产品结构明确之前，提前大规模配置流动性或部署套利机制会带来不必要的运营风险。因此选择等待，保持准备状态，直到至少一个申请人的规则变更获得最终批准或审批路径明确为止。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_institutions",
+          "action_type": "WAIT",
+          "summary": "监管机构尚未发布最终批准令（F4），市场处于并行审查状态，路径不确定（统一审批或单一先行）。产品获批不等于监管认可底层资产（约束），评估新增需求、费用、流动性和托管风险需要明确的获批规则和产品细节。当前等待是最审慎选择，不作任何配置动作或公开表达。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_retail",
+          "action_type": "WAIT",
+          "summary": "截至模拟第3轮结束，我的社交互动记录和观察显示，虽然F1法院裁决增加了法律压力，但F4显示监管尚未发布最终批准令，且F2表明监管历史上以欺诈、操纵为由多次否决同类产品。F3中多个申请人已提交修订文件但均处于并行审查状态。社交媒体讨论中申请方和交易所都在强调自身优势，但缺乏明确的时间表信号。作为容易混淆'规则批准'与'产品实际交易'的零售投资者（constraint:0），我选择继续等待更明确的规则生效公告或首批批准信号，而非在当前不确定性下进行方向性配置。主要不确定性来自监管审批路径（统一审批vs单一先行）和时间节点。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_media",
+          "action_type": "COMMUNICATE",
+          "summary": "当前处于审批前传言密集阶段（F4），直接等待无法完成“追踪申请修改和监管决定”以及“比较申请人竞争位置”的目标。作为媒体，应当在不确定但信息充足时，通过发布基于已观察事实（F1、F3）的比较分析或进展综述，建立信息差异化。选择发布而非交易或押注，延续此前专注于事实梳理的媒体定位。主要不确定性在于监管机构最终审批顺序和时间；基于约束（传言频繁且可能互相矛盾），报道应注明“截至2017-01-05”并区分公告/传闻。",
+          "visibility": "public",
+          "evidence_refs": [
+            "F1",
+            "F3",
+            "F4"
+          ]
+        }
+      ],
+      "warnings": [
+        "The recorded seed controls Python agent scheduling only; provider-side LLM sampling remains unseeded."
+      ]
+    }
+  ],
+  "scenarios": [],
+  "forecast_target_results": [],
+  "simulation_graph": {
+    "nodes": [
+      {
+        "id": "actor_exchanges",
+        "kind": "actor",
+        "label": "申请上市的证券交易所"
+      },
+      {
+        "id": "actor_incumbent_trust",
+        "kind": "actor",
+        "label": "拟转换的既有封闭式信托"
+      },
+      {
+        "id": "actor_market_makers",
+        "kind": "actor",
+        "label": "做市商与授权参与人"
+      },
+      {
+        "id": "actor_retail",
+        "kind": "actor",
+        "label": "数字资产个人投资者"
+      },
+      {
+        "id": "actor_securities_regulator",
+        "kind": "actor",
+        "label": "匿名证券监管机构"
+      },
+      {
+        "id": "actor_sponsors",
+        "kind": "actor",
+        "label": "现货产品申请人"
+      },
+      {
+        "id": "trace-18",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_POSTS",
+        "summary": "search_posts"
+      },
+      {
+        "id": "trace-19",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user"
+      },
+      {
+        "id": "trace-20",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "作为交易所，我们已提交完备的监控共享和现金申赎安排。关键在于无论统一审批还是单一先行路径，我们的规则变更和注册文件必须优先获得通过，以尽快上线产品。F1裁决已为审批扫清法律障碍，监管不应再以监控理由拖延。"
+      },
+      {
+        "id": "trace-21",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "作为申请方，我们已准备好全套监控共享和现金申赎安排。统一审批对所有申请人都更公平，但无论哪种路径，我们都会持续提交修订文件争取先发优势。"
+      },
+      {
+        "id": "trace-22",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "先发优势确实关键，所以我们一直在加紧完善托管和授权参与人安排。如果只批一家，我们希望能成为那一家。"
+      },
+      {
+        "id": "trace-23",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #4：做市商已准备套利机制，但流动性深度取决于最终批准数量和托管安排。"
+      },
+      {
+        "id": "trace-24",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #6：监管机构可能以市场监控不足为由继续延迟，但法院裁决增加了法律风险。"
+      },
+      {
+        "id": "trace-28",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #4：做市商已准备套利机制，但流动性深度取决于最终批准数量和托管安排。"
+      },
+      {
+        "id": "trace-29",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #2：若监管批准单一申请人，其他申请人将面临竞争劣势，但长期看市场可能容纳多产品。"
+      },
+      {
+        "id": "trace-30",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "正确。作为交易所，我们理解先行优势的竞争格局。但我们的注册文件质量、监控共享安排和托管方案已经在业内最为完善，无论监管选择统一审批还是单一先行路径，我们都已做好最快上线的准备。F2中提到的否决历史正是F1裁决要纠正的，监管不应再重蹈覆辙。"
+      },
+      {
+        "id": "trace-31",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "法院裁决确实增加了监管压力，但监管机构仍有程序性拖延空间。关键观察点是D0前是否有多家同时获批，还是单一先行。作为零售投资者，我更关注首批资金流入时点而非最终产品数量。短期波动交易策略上，我认为应该紧盯规则生效公告而非最终批准日。"
+      },
+      {
+        "id": "trace-35",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #4：做市商已准备套利机制，但流动性深度取决于最终批准数量和托管安排。"
+      },
+      {
+        "id": "trace-36",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "作为交易所，我们关注的核心是规则变更生效而非猜测监管日程。F4已明确：多家申请人的规则变更和注册文件处于并行审查状态。我们的监控共享安排完全满足监管要求，F1裁决更强化了监管必须给出合理一致解释的义务。任何以\"监控不足\"为由的拖延在法律上都站不住脚了。"
+      },
+      {
+        "id": "trace-37",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_POSTS",
+        "summary": "search_posts"
+      },
+      {
+        "id": "trace-38",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user"
+      },
+      {
+        "id": "decision-actor_securities_regulator-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "尽管法院裁决（F1）要求重新审视对现货产品与期货产品的差别处理理由，但截至当前时点，多个申请人提交的修订文件（F3）仍处于并行审查状态，尚未完成对监控共享、托管安排和现金申赎机制是否足以满足证券法关于防止欺诈和操纵（F2）要求的全面评估。在委员内部对统一审批与单一申请人先行路径仍存在分歧（约束1）的情况下，任何未经充分说明的批准或否决均可能再次引发法律挑战。因此，最审慎的选择是继续审查申请人补充材料，在形成与证券交易法律一致且足以回应法院质疑的完整记录之前暂不作出最终决定。"
+      },
+      {
+        "id": "decision-actor_exchanges-r3",
+        "kind": "financial_decision",
+        "action_type": "COMMUNICATE",
+        "decision_status": "intended",
+        "direction": "conditional",
+        "intensity": 0.7,
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "作为申请上市的证券交易所，我们的首要目标是尽快取得规则变更批准并上线产品。F1裁决已为审批扫清法律障碍，F3表明我们已提交包含监控共享、托管和现金申赎安排的完备修订文件。鉴于F4显示监管尚未发布最终批准令且存在并行审查，下一决策周期我们将主动与监管机构进行沟通，强调我们的注册文件质量和完善的监控安排已满足F2中监管曾提出的核心关切，并援引F1裁决要求监管对现货与期货产品采取一致处理标准。同时向监管阐明多申请人并行获批的可行性，以降低单一先行路径对我方的不利竞争影响。"
+      },
+      {
+        "id": "decision-actor_sponsors-r3",
+        "kind": "financial_decision",
+        "action_type": "COMMUNICATE",
+        "decision_status": "conditional",
+        "direction": "increase",
+        "intensity": 0.7,
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "选择对外沟通而非等待，原因有：F3显示多个申请方已提交修订文件并提出监控共享安排，若此时被动等待单一申请人先行路径，将面临竞争者独享先发优势的风险。F1提供了有利法律基础，但F4显示监管尚未发布最终批准令。因此下一周期最可能动作是在社交媒体或行业渠道主动发声，强调我方的托管、申赎安排已就绪（约束），并利用F1强调区别对待现货与期货产品的不合理性，推动统一审批或争取成为首批获批者。此举服务于取得批准并吸引首批资产及避免竞争者独享先发优势两大目标。主要不确定性在于F4中监管仍可能选择单一申请人路径，从而导致我方的沟通效果有限。"
+      },
+      {
+        "id": "decision-actor_incumbent_trust-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "maintain",
+        "intensity": 0.0,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "作为拟转换的既有封闭式信托，我的转换路径仍依赖规则与注册文件生效（约束）。截至D0，监管机构尚未发布最终批准令（F4），虽有上诉法院撤销此前否决（F1）及多家申请人提交修订文件并提出监控共享、托管和现金申赎安排（F3），但统一审批与单一申请人先行两种路径尚未明确（F4）。在监管信号明朗前提前发起公开沟通或操作动作，既无法改变审批节奏，也可能暴露自身谈判位置或引发不必要的市场预期变动。因此最优选择是维持现有资产规模和管理状态，继续观察并行审查进展，等待监管决策窗口开启后再根据路径选择采取对应行动。"
+      },
+      {
+        "id": "decision-actor_market_makers-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "作为做市商与授权参与人，我的核心职责是准备流动性和套利机制，但当前最终审批范围和上线日期尚未确定，这是最关键的约束。F4明确指出监管机构尚未发布最终批准令，市场同时讨论统一审批与单一申请人先行两种路径，这两种路径对流动性深度、托管安排和套利机制的设计差异很大。F3显示监控共享和现金申赎安排已就绪，这是积极信号，但F2的历史否决记录提示监管仍可能以欺诈、操纵和市场监控为由继续延迟。F1的法律裁决虽增加了审批可能性，但不等于自动批准。在审批路径和产品结构明确之前，提前大规模配置流动性或部署套利机制会带来不必要的运营风险。因此选择等待，保持准备状态，直到至少一个申请人的规则变更获得最终批准或审批路径明确为止。"
+      },
+      {
+        "id": "actor_institutions",
+        "kind": "actor",
+        "label": "机构资产配置者"
+      },
+      {
+        "id": "decision-actor_institutions-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "confidence": 0.9,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "监管机构尚未发布最终批准令（F4），市场处于并行审查状态，路径不确定（统一审批或单一先行）。产品获批不等于监管认可底层资产（约束），评估新增需求、费用、流动性和托管风险需要明确的获批规则和产品细节。当前等待是最审慎选择，不作任何配置动作或公开表达。"
+      },
+      {
+        "id": "decision-actor_retail-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": 0.8,
+        "confidence": 0.75,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "截至模拟第3轮结束，我的社交互动记录和观察显示，虽然F1法院裁决增加了法律压力，但F4显示监管尚未发布最终批准令，且F2表明监管历史上以欺诈、操纵为由多次否决同类产品。F3中多个申请人已提交修订文件但均处于并行审查状态。社交媒体讨论中申请方和交易所都在强调自身优势，但缺乏明确的时间表信号。作为容易混淆'规则批准'与'产品实际交易'的零售投资者（constraint:0），我选择继续等待更明确的规则生效公告或首批批准信号，而非在当前不确定性下进行方向性配置。主要不确定性来自监管审批路径（统一审批vs单一先行）和时间节点。"
+      },
+      {
+        "id": "actor_media",
+        "kind": "actor",
+        "label": "金融与数字资产媒体"
+      },
+      {
+        "id": "decision-actor_media-r3",
+        "kind": "financial_decision",
+        "action_type": "COMMUNICATE",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": 0.6,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "当前处于审批前传言密集阶段（F4），直接等待无法完成“追踪申请修改和监管决定”以及“比较申请人竞争位置”的目标。作为媒体，应当在不确定但信息充足时，通过发布基于已观察事实（F1、F3）的比较分析或进展综述，建立信息差异化。选择发布而非交易或押注，延续此前专注于事实梳理的媒体定位。主要不确定性在于监管机构最终审批顺序和时间；基于约束（传言频繁且可能互相矛盾），报道应注明“截至2017-01-05”并区分公告/传闻。"
+      }
+    ],
+    "edges": [
+      {
+        "source": "actor_securities_regulator",
+        "target": "trace-18",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_securities_regulator",
+        "target": "trace-19",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_exchanges",
+        "target": "trace-20",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_sponsors",
+        "target": "trace-21",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_sponsors",
+        "target": "trace-22",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_sponsors",
+        "target": "trace-23",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_sponsors",
+        "target": "trace-24",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_market_makers",
+        "target": "trace-28",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_exchanges",
+        "target": "trace-29",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_exchanges",
+        "target": "trace-30",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_retail",
+        "target": "trace-31",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_retail",
+        "target": "trace-35",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_exchanges",
+        "target": "trace-36",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_incumbent_trust",
+        "target": "trace-37",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_incumbent_trust",
+        "target": "trace-38",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_securities_regulator",
+        "target": "decision-actor_securities_regulator-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_exchanges",
+        "target": "decision-actor_exchanges-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_sponsors",
+        "target": "decision-actor_sponsors-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_incumbent_trust",
+        "target": "decision-actor_incumbent_trust-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_market_makers",
+        "target": "decision-actor_market_makers-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_institutions",
+        "target": "decision-actor_institutions-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_retail",
+        "target": "decision-actor_retail-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_media",
+        "target": "decision-actor_media-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      }
+    ]
+  },
+  "warnings": [
+    "Integration smoke result only; it is not a calibrated financial forecast.",
+    "The upstream run monitor reported zero actions; SQLite was used as the authoritative source.",
+    "OASIS did not persist per-action round numbers, so exported events use round 0.",
+    "Rule-generated institutional profiles contain consumer-social attributes and require a financial profile compiler.",
+    "No forecast target result or scenario frequency was produced from this single run.",
+    "Structured financial decisions were elicited post-simulation and remain simulated claims."
+  ],
+  "provenance": {
+    "engine": "MiroFish/OASIS",
+    "engine_version": "60757b3c825d577a1d7a86ab1ba6d5c21f51c261",
+    "model": "deepseek-ai/DeepSeek-V4-Flash",
+    "raw_run_artifacts": [
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/mirofish/simulations/sim_ef7a0a69253e/reddit_simulation.db",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/mirofish/simulations/sim_ef7a0a69253e/simulation_config.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_digital_asset_listing_011-b3/sqlite-actions.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_digital_asset_listing_011-b3/raw-actions.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_digital_asset_listing_011-b3/financial-interviews-raw.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_digital_asset_listing_011-b3/financial-actions.json"
+    ]
+  }
+}

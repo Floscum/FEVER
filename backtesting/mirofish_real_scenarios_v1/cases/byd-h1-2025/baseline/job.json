@@ -1,0 +1,1181 @@
+{
+  "schema_version": "0.1.0",
+  "job_id": "simjob_c3d37e9541894ad2",
+  "case_id": "real-byd-h1-2025",
+  "source_graph_artifact_id": "real-public-byd-h1-2025",
+  "spec_sha256": "00d95bc7e3c2994a79bbded4902050441512fcac34f4306e593f7bf6586c72bc",
+  "reuse_key": "00d95bc7e3c2994a79bbded4902050441512fcac34f4306e593f7bf6586c72bc:quick:live:product-v7:presentation-v2:trace-v2",
+  "mode": "quick",
+  "gateway_mode": "live",
+  "status": "completed",
+  "stage": "completed",
+  "progress": 1.0,
+  "created_at": "2026-09-12T12:29:12+08:00",
+  "updated_at": "2026-09-12T12:30:22+08:00",
+  "started_at": "2026-09-12T12:29:12+08:00",
+  "finished_at": "2026-09-12T12:30:22+08:00",
+  "error": null,
+  "result": {
+    "schema_version": "0.1.0",
+    "job": {
+      "id": "simjob_c3d37e9541894ad2",
+      "status": "completed",
+      "mode": "quick"
+    },
+    "source": {
+      "case_id": "real-byd-h1-2025",
+      "evidence_graph_artifact_id": "real-public-byd-h1-2025",
+      "simulation_spec_sha256": "00d95bc7e3c2994a79bbded4902050441512fcac34f4306e593f7bf6586c72bc",
+      "as_of": "2025-08-30T23:59:59+08:00",
+      "question": "比亚迪（002594）发布2025年中报后，未来7天可能出现哪些经营和市场反应？各参与方有哪些分歧，下一步应核对哪些公开信号？",
+      "horizon_days": 7
+    },
+    "execution": {
+      "configured_actor_count": 8,
+      "actor_selection": {
+        "mode": "auto",
+        "recommended_count": 8,
+        "applied_limit": 8,
+        "detected_stakeholder_type_count": 0,
+        "configured_count": 8,
+        "matched_event_profiles": [
+          {
+            "id": "earnings_guidance",
+            "matched_patterns": [
+              "净利润"
+            ],
+            "recommended_count": 6
+          },
+          {
+            "id": "rate_policy",
+            "matched_patterns": [
+              "利率"
+            ],
+            "recommended_count": 8
+          }
+        ],
+        "selection_strategy": "literal_mentions_plus_event_structure_v2",
+        "rationale": "从证据与研究问题中识别出 0 类显式利益相关方，并命中 2 类事件结构，按 4/6/8/10 分档建议最多 8 个核心参与方"
+      },
+      "configured_actors": [
+        {
+          "id": "actor_issuer",
+          "label": "事件主体",
+          "kind": "issuer",
+          "selection_reason": "事件研究主体：始终纳入推演",
+          "focus": "维持经营与融资能力，控制事件对客户和业务的影响"
+        },
+        {
+          "id": "actor_institutions",
+          "label": "机构投资者",
+          "kind": "institutional_investor",
+          "selection_reason": "事件结构 rate_policy 命中：利率",
+          "focus": "权衡风险敞口、流动性和资本配置"
+        },
+        {
+          "id": "actor_brokers",
+          "label": "券商与中介机构",
+          "kind": "broker",
+          "selection_reason": "事件结构 rate_policy 命中：利率",
+          "focus": "评估融资、交易与中介服务的连续性"
+        },
+        {
+          "id": "actor_analysts",
+          "label": "分析师",
+          "kind": "analyst",
+          "selection_reason": "事件结构 rate_policy 命中：利率",
+          "focus": "比较事实与原有判断，明确需要更新的假设"
+        },
+        {
+          "id": "actor_government",
+          "label": "政府与司法机构",
+          "kind": "government",
+          "selection_reason": "事件结构 rate_policy 命中：利率",
+          "focus": "权衡公共利益、制度目标和政策执行效果"
+        },
+        {
+          "id": "actor_regulator",
+          "label": "监管机构",
+          "kind": "regulator",
+          "selection_reason": "事件结构 rate_policy 命中：利率",
+          "focus": "核实风险并评估调查、审批或补救措施"
+        },
+        {
+          "id": "actor_media",
+          "label": "财经媒体",
+          "kind": "media",
+          "selection_reason": "事件结构 rate_policy 命中：利率",
+          "focus": "核实和传播对事件判断有用的新信息"
+        },
+        {
+          "id": "actor_exchange",
+          "label": "交易所",
+          "kind": "exchange",
+          "selection_reason": "事件结构 earnings_guidance 命中：净利润",
+          "focus": "维护信息披露和交易秩序"
+        }
+      ],
+      "active_actor_counts": [
+        8
+      ],
+      "prepared_entity_counts": [
+        8
+      ],
+      "replication_count": 1,
+      "valid_decision_count": 8,
+      "decision_failure_count": 0,
+      "autonomous_action_count": 36,
+      "scenario_actor_count": 8,
+      "interaction_input": {
+        "version": "extractive-interactions-v2",
+        "input_count": 36,
+        "retained_count": 12,
+        "operational_count": 22,
+        "duplicate_count": 0,
+        "empty_count": 0,
+        "budget_dropped_count": 2,
+        "retained_summary_chars": 2055,
+        "retained_input_chars": 3192,
+        "semantics": "selected_simulated_messages_not_observed_facts_or_inferred_influence"
+      },
+      "scenario_compilation": {
+        "status": "completed"
+      },
+      "graph_backend": "direct",
+      "zep_bypassed": true
+    },
+    "scenarios": [
+      {
+        "id": "branch-1",
+        "label": "媒体追问引发公司补充说明",
+        "summary": "若媒体在发布财报分析后，对比亚迪的毛利率下降原因或研发投入转化效率提出深度追问，比亚迪可能选择主动发布补充公告或业务沟通会纪要，进一步解释质量保证费用口径调整的细节和研发投入的具体项目进展，以稳定市场预期。",
+        "run_count": 1,
+        "frequency": 1.0,
+        "probability_semantics": "uncalibrated_simulation_frequency",
+        "triggers": [
+          "在2025-09-06前，财经媒体（含actor_media或其同行）发布至少2篇对比亚迪毛利率下降或研发转化效率的质疑性报道，且被主流财经平台转载。"
+        ],
+        "consequences": [
+          "比亚迪的补充说明可能短时间内减少市场关于毛利率的负面解读，但若补充公告缺乏具体量化指引（如下半年毛利率目标），机构投资者的观望态度可能维持不变。"
+        ],
+        "invalidation_conditions": [
+          "媒体未在7天内发表任何关于毛利率或研发效率的深度追问报道；或比亚迪明确拒绝就财报细节发布补充说明。"
+        ],
+        "actor_ids": [
+          "actor_media",
+          "actor_issuer"
+        ],
+        "evidence_refs": [
+          "F4",
+          "F3"
+        ],
+        "simulation_refs": [
+          "decision-actor_media-r2",
+          "decision-actor_issuer-r2"
+        ],
+        "novelty_claim": "该分支超出事实复述的部分在于：媒体主动追问的行为，如何迫使公司在其原定期沟通计划之外额外披露信息，从而改变信息环境的透明度。",
+        "confidence": 0.6,
+        "confidence_semantics": "branch_coherence_not_forecast_probability",
+        "starting_decisions": [
+          {
+            "actor_id": "actor_media",
+            "action_type": "COMMUNICATE",
+            "decision_status": "intended",
+            "rationale": "截至2025年8月30日，比亚迪2025年半年报已完整披露（F1-F5）。作为财经媒体，我的核心目标是核实和传播对事件判断有用的新信息。目前已掌握完整财务数据，下一决策周期内最优先的动作是将这些关键信息整理并传播给受众群体，帮助市场参与者理解比亚迪在营收增长、毛利率结构性变化（F4）、研发高强度投入（F3）、经营现金流显著改善（F2）以及境外增长强劲（F5）等维度的综合表现。鉴于媒体擅长解释和传递公开信息而非制造独家消息，传播行为不涉及价格预测，完全基于已公告事实。主要不确定在于市场如何消化毛利率下降与研发投入加大的双重信号，但这不影响信息传播的基础价值。",
+            "decision_ref": "decision-actor_media-r2"
+          },
+          {
+            "actor_id": "actor_issuer",
+            "action_type": "COMMUNICATE",
+            "decision_status": "intended",
+            "rationale": "2025年上半年经营数据已披露，营收和经营性现金流均实现稳健增长，研发投入持续高增，境外收入占比显著提升至36.46%。尽管汽车业务毛利率因口径调整和产品结构变化有所下降，但整体财务质量良好。作为事件主体，当前最佳策略是主动与市场沟通，回应券商和投资者关注的核心议题（毛利率趋势、研发转化效率、海外扩张节奏），以稳定投资者预期和客户信心，维持融资能力与业务稳定性。主要不确定性在于后续市场竞争格局变化及毛利率是否企稳。",
+            "decision_ref": "decision-actor_issuer-r2"
+          }
+        ],
+        "observations": [
+          {
+            "kind": "trigger",
+            "signal": "在2025-09-06前，财经媒体（含actor_media或其同行）发布至少2篇对比亚迪毛利率下降或研发转化效率的质疑性报道，且被主流财经平台转载。",
+            "source": "依据资料 F4、F3 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F4",
+              "F3"
+            ]
+          },
+          {
+            "kind": "invalidation",
+            "signal": "媒体未在7天内发表任何关于毛利率或研发效率的深度追问报道；或比亚迪明确拒绝就财报细节发布补充说明。",
+            "source": "依据资料 F4、F3 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F4",
+              "F3"
+            ]
+          }
+        ],
+        "review_notices": []
+      },
+      {
+        "id": "branch-2",
+        "label": "交易所问询引发分析师两极分化",
+        "summary": "若交易所向比亚迪发出关于毛利率口径调整和境外收入风险披露的问询函，部分分析师可能下调盈利预测并降低评级，另一些分析师则可能认为问询函只是在确认合规、增强信心，从而维持或上调评级，导致市场观点分歧加大。",
+        "run_count": 1,
+        "frequency": 1.0,
+        "probability_semantics": "uncalibrated_simulation_frequency",
+        "triggers": [
+          "在2025-09-06前，深圳证券交易所公开披露就比亚迪2025半年报发出问询函，且问询内容涉及F4（毛利率口径调整）和F5（境外收入风险提示）。"
+        ],
+        "consequences": [
+          "若问询函后，调降评级和维持评级的两派分析师报告同时发布，可能引发股价短期波动加大，但若公司回复迅速且充分，分歧可能重新收敛。"
+        ],
+        "invalidation_conditions": [
+          "交易所未在7天内发出该问询函；或问询函不涉及毛利率和境外收入，只要求常规说明；或分析师群体整体认为问询无影响，评级未出现明显分化。"
+        ],
+        "actor_ids": [
+          "actor_analysts",
+          "actor_exchange"
+        ],
+        "evidence_refs": [
+          "F4",
+          "F5"
+        ],
+        "simulation_refs": [
+          "decision-actor_analysts-r2",
+          "decision-actor_exchange-r2"
+        ],
+        "novelty_claim": "该分支超越事实复述的多主体传导是：交易所的合规确认行动（发出问询函）如何成为分析师之间已有分歧的催化剂，放大了市场观点的分散度。",
+        "confidence": 0.55,
+        "confidence_semantics": "branch_coherence_not_forecast_probability",
+        "starting_decisions": [
+          {
+            "actor_id": "actor_analysts",
+            "action_type": "COMMUNICATE",
+            "decision_status": "intended",
+            "rationale": "基于2025H1财报数据，营收增长23.30%但归母净利润仅增长13.79%，利润弹性明显下降。关键信号：研发投入增速53.05%远超利润增速，且汽车毛利率下降1.99个百分点至20.35%，反映价格竞争与研发投入双重挤压。但经营现金流增长124.52%至318.33亿元，净现比达2.05，利润质量优秀。海外收入增长50.49%至1353.58亿元，占比36.46%，全球化提速。需要向市场沟通的核心判断是：当前正处于'以短期利润换取技术护城河与全球市场份额'的战略投入期，毛利率压力是主动质量保证费用口径调整与被动价格竞争叠加的结果。将发布分析报告区分哪些是结构性压力(研发持续高投入)、哪些是阶段性调整(质量保证费用口径、海外扩张初期毛利率偏低)。主要不确定性在于下半年价格竞争强度及海外毛利率走势。",
+            "decision_ref": "decision-actor_analysts-r2"
+          },
+          {
+            "actor_id": "actor_exchange",
+            "action_type": "COMMUNICATE",
+            "decision_status": "intended",
+            "rationale": "基于截至时点已公开披露的2025年半年报信息，已有多方评论和分析。作为交易所，首要任务是确保信息披露的充分性与合规性。注意到毛利率口径调整（质量保证费用转入营业成本）、研发投入增速（53.05%）显著高于净利润增速（13.79%）等关键财务特征已引发市场讨论。为维护信息披露和交易秩序，计划在未来决策周期内向比亚迪发出常规问询函，要求公司就海外营收增长的可持续性及毛利率降幅的后续趋势提供补充披露说明，同时对境外收入占比显著提升至36.46%的相关风险提示充分性进行确认。此举不替代公司经营或监管审批，依据《上市规则》信息披露章节执行。",
+            "decision_ref": "decision-actor_exchange-r2"
+          }
+        ],
+        "observations": [
+          {
+            "kind": "trigger",
+            "signal": "在2025-09-06前，深圳证券交易所公开披露就比亚迪2025半年报发出问询函，且问询内容涉及F4（毛利率口径调整）和F5（境外收入风险提示）。",
+            "source": "依据资料 F4、F5 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F4",
+              "F5"
+            ]
+          },
+          {
+            "kind": "invalidation",
+            "signal": "交易所未在7天内发出该问询函；或问询函不涉及毛利率和境外收入，只要求常规说明；或分析师群体整体认为问询无影响，评级未出现明显分化。",
+            "source": "依据资料 F4、F5 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F4",
+              "F5"
+            ]
+          }
+        ],
+        "review_notices": []
+      },
+      {
+        "id": "branch-3",
+        "label": "监管关注信号引发机构重新评估",
+        "summary": "若监管机构在公开渠道明确表达对比亚迪汽车业务毛利率持续下降和研发投入/利润增速背离的关注，机构投资者可能将此视为政策风险信号，从而将先前的观望调整为小幅减仓或对冲策略。",
+        "run_count": 1,
+        "frequency": 1.0,
+        "probability_semantics": "uncalibrated_simulation_frequency",
+        "triggers": [
+          "在2025-09-06前，证监会或地方证监局在公开讲话或书面材料中，点名提到比亚迪的利润增速与研发投入增速差异或毛利率下降幅度，并表示将纳入更为密切的日常监测。"
+        ],
+        "consequences": [
+          "机构投资者的减持或对冲行为可能导致比亚迪股价在消息公布后出现2-3个交易日的调整，但若监管表态仅为技术性关注而非处罚，市场可能快速修复。"
+        ],
+        "invalidation_conditions": [
+          "监管机构未在7天内发布任何以比亚迪为具体案例的数据监测声明；或声明中未提及比亚迪利润/研发背离问题；或机构投资者整体认为监管措辞温和，未调整仓位。"
+        ],
+        "actor_ids": [
+          "actor_regulator",
+          "actor_institutions"
+        ],
+        "evidence_refs": [
+          "F3",
+          "F4"
+        ],
+        "simulation_refs": [
+          "decision-actor_regulator-r2",
+          "decision-actor_institutions-r2"
+        ],
+        "novelty_claim": "该分支的新颖传导链条是：监管的‘常规关注’公开化如何被机构解读为实质性风险，从而触发其从等待（WAIT）向防御性行动转变，改变市场供需。",
+        "confidence": 0.5,
+        "confidence_semantics": "branch_coherence_not_forecast_probability",
+        "starting_decisions": [
+          {
+            "actor_id": "actor_regulator",
+            "action_type": "WAIT",
+            "decision_status": "conditional",
+            "rationale": "截至2025-08-30，比亚迪2025H1已披露财务数据整体符合增长趋势，但利润增速（+13.79%）显著低于营收增速（+23.30%），且核心汽车业务毛利率同比下降1.99个百分点。毛利率下降是否由质量保证费用口径调整这一会计处理变化主导、境外毛利率低于境内毛利率是否反映定价或成本结构差异、研发投入激增53%是否可持续——上述三个风险维度均需等待公司对中期问询的回复或后续季度数据（2025Q3）的披露来交叉验证。当前证据不足以启动正式调查或审批程序，但也不宜认定无风险，最优动作是保持关注状态，在下一个可观察信号出现后再评估是否升级为调查或需要公司补充说明。",
+            "decision_ref": "decision-actor_regulator-r2"
+          },
+          {
+            "actor_id": "actor_institutions",
+            "action_type": "WAIT",
+            "decision_status": "conditional",
+            "rationale": "2025H1财报呈现多空并存的信号组合：营收与经营现金流强劲增长（F1/F2）叠加海外收入高速扩张（F5）构成正面支撑，但归母净利润增速显著落后营收增速（F2），且汽车业务毛利率同比下滑1.99个百分点（F4）反映价格竞争压力仍在。研发投入激增53.05%（F3）表明公司正以利润换取技术壁垒，但短期内构成利润拖累。当前信号需等待Q3数据验证毛利率走势与海外订单持续性的边际变化，因此选择保持现有仓位、暂不调整配置，视后续季度数据再做决策。",
+            "decision_ref": "decision-actor_institutions-r2"
+          }
+        ],
+        "observations": [
+          {
+            "kind": "trigger",
+            "signal": "在2025-09-06前，证监会或地方证监局在公开讲话或书面材料中，点名提到比亚迪的利润增速与研发投入增速差异或毛利率下降幅度，并表示将纳入更为密切的日常监测。",
+            "source": "依据资料 F3、F4 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F3",
+              "F4"
+            ]
+          },
+          {
+            "kind": "invalidation",
+            "signal": "监管机构未在7天内发布任何以比亚迪为具体案例的数据监测声明；或声明中未提及比亚迪利润/研发背离问题；或机构投资者整体认为监管措辞温和，未调整仓位。",
+            "source": "依据资料 F3、F4 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F3",
+              "F4"
+            ]
+          }
+        ],
+        "review_notices": [
+          "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：3个交易日。"
+        ]
+      },
+      {
+        "id": "branch-4",
+        "label": "券商看空观点引发政府产业研究启动",
+        "summary": "若有重要券商发布看空比亚迪报告，着重强调毛利率压力和政策调整风险，可能引起主管产业政策的政府部门注意，进而启动一轮内部研究，评估是否需要更新新能源车产业补贴或技术标准，从而间接影响市场预期。",
+        "run_count": 1,
+        "frequency": 1.0,
+        "probability_semantics": "uncalibrated_simulation_frequency",
+        "triggers": [
+          "在2025-09-06前，至少一家大型券商发布深度研报，将比亚迪2025H1投资评级调降至‘卖出’或‘减持’，且报告标题或摘要直接提及‘政府补贴退坡’或‘产业政策风险’。"
+        ],
+        "consequences": [
+          "政府部门内部启动研究不意味着政策立即调整，但若该信息被媒体获知并报道，可能加剧市场对政策走向的不确定性，从而放大券商的看空影响，推动更多机构投资者被动等待。"
+        ],
+        "invalidation_conditions": [
+          "券商未在7天内发布任何将比亚迪调至卖出或减持评级的研报；或研报中未涉及政府政策风险；或政府部门确认未因任何市场报告而启动内部研究程序。"
+        ],
+        "actor_ids": [
+          "actor_brokers",
+          "actor_government"
+        ],
+        "evidence_refs": [
+          "F4"
+        ],
+        "simulation_refs": [
+          "decision-actor_brokers-r2",
+          "decision-actor_government-r2"
+        ],
+        "novelty_claim": "该分支的新颖性在于：券商观点（中介）的力量如何穿透金融市场，影响政府（非市场行为者）进入其政策流程，再通过媒体反馈引发市场连锁等待。",
+        "confidence": 0.45,
+        "confidence_semantics": "branch_coherence_not_forecast_probability",
+        "starting_decisions": [
+          {
+            "actor_id": "actor_brokers",
+            "action_type": "WAIT",
+            "decision_status": "conditional",
+            "rationale": "基于H1财报数据，比亚迪营收与利润增速差扩大、毛利率下降1.99pct、研发投入激进（+53%）三个信号叠加，需等待更多信息来判断利润率拐点与境外增长可持续性。目前授信与中介服务无需调整，但不宜立即加仓或推介新融资安排。继续观察Q3境内价格战强度、境外毛利率走势及质量保证费用口径调整的全年影响后再做决策。",
+            "decision_ref": "decision-actor_brokers-r2"
+          },
+          {
+            "actor_id": "actor_government",
+            "action_type": "WAIT",
+            "decision_status": "no_action",
+            "rationale": "比亚迪2025年上半年财报数据未触发任何需要政府立即干预或回应的阈值。营收增长23.30%、净利润增长13.79%和经营现金流增长124.52%均处于合理区间；研发投入增长53.05%符合国家产业创新鼓励方向；毛利率下降1.99个百分点幅度有限且部分源于会计口径调整，尚不足以构成行业风险信号。境外收入增长50.49%至占比36.46%表明国际化成效显著。当前宜保持观望，待更多行业季度数据（如Q3、全年累计）及同行对标数据出台后，再综合评估是否需要调整新能源汽车产业政策或启动行业运行监测程序。",
+            "decision_ref": "decision-actor_government-r2"
+          }
+        ],
+        "observations": [
+          {
+            "kind": "trigger",
+            "signal": "在2025-09-06前，至少一家大型券商发布深度研报，将比亚迪2025H1投资评级调降至‘卖出’或‘减持’，且报告标题或摘要直接提及‘政府补贴退坡’或‘产业政策风险’。",
+            "source": "依据资料 F4 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F4"
+            ]
+          },
+          {
+            "kind": "invalidation",
+            "signal": "券商未在7天内发布任何将比亚迪调至卖出或减持评级的研报；或研报中未涉及政府政策风险；或政府部门确认未因任何市场报告而启动内部研究程序。",
+            "source": "依据资料 F4 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F4"
+            ]
+          }
+        ],
+        "review_notices": []
+      }
+    ],
+    "evidence": [
+      {
+        "id": "F1",
+        "observed_at": "2025-08-30T00:00:00+08:00",
+        "time_basis": "source_published_at",
+        "statement": "2025年上半年，比亚迪营业收入3712.80948亿元，同比增长23.30%。",
+        "source_kind": "filing",
+        "source_url": "https://static.cninfo.com.cn/finalpage/2025-08-30/1224626653.PDF",
+        "evidence_ref": "E1",
+        "confidence": 0.5
+      },
+      {
+        "id": "F2",
+        "observed_at": "2025-08-30T00:00:00+08:00",
+        "time_basis": "source_published_at",
+        "statement": "同期归母净利润155.10533亿元，同比增长13.79%；经营现金流净额318.33471亿元，同比增长124.52%。",
+        "source_kind": "filing",
+        "source_url": "https://static.cninfo.com.cn/finalpage/2025-08-30/1224626653.PDF",
+        "evidence_ref": "E2",
+        "confidence": 0.5
+      },
+      {
+        "id": "F3",
+        "observed_at": "2025-08-30T00:00:00+08:00",
+        "time_basis": "source_published_at",
+        "statement": "同期研发投入308.80339亿元，同比增长53.05%。公司解释主要由职工薪酬及物料消耗增加所致。",
+        "source_kind": "filing",
+        "source_url": "https://static.cninfo.com.cn/finalpage/2025-08-30/1224626653.PDF",
+        "evidence_ref": "E3",
+        "confidence": 0.5
+      },
+      {
+        "id": "F4",
+        "observed_at": "2025-08-30T00:00:00+08:00",
+        "time_basis": "source_published_at",
+        "statement": "汽车、汽车相关产品及其他产品毛利率20.35%，同比下降1.99个百分点。比较数据已按质量保证费用转入营业成本的口径调整。",
+        "source_kind": "filing",
+        "source_url": "https://static.cninfo.com.cn/finalpage/2025-08-30/1224626653.PDF",
+        "evidence_ref": "E4",
+        "confidence": 0.5
+      },
+      {
+        "id": "F5",
+        "observed_at": "2025-08-30T00:00:00+08:00",
+        "time_basis": "source_published_at",
+        "statement": "同期境外收入1353.57667亿元，同比增长50.49%，占收入36.46%；境外毛利率19.82%。",
+        "source_kind": "filing",
+        "source_url": "https://static.cninfo.com.cn/finalpage/2025-08-30/1224626653.PDF",
+        "evidence_ref": "E5",
+        "confidence": 0.5
+      }
+    ],
+    "notices": [],
+    "probability_calibration": {
+      "available": false,
+      "reason": "quick mode is scenario-only; B3 requires three replications and structured B1"
+    },
+    "simulation_graph": {
+      "nodes": [
+        {
+          "id": "actor_analysts",
+          "kind": "actor",
+          "label": "分析师"
+        },
+        {
+          "id": "actor_brokers",
+          "kind": "actor",
+          "label": "券商与中介机构"
+        },
+        {
+          "id": "actor_exchange",
+          "kind": "actor",
+          "label": "交易所"
+        },
+        {
+          "id": "actor_government",
+          "kind": "actor",
+          "label": "政府与司法机构"
+        },
+        {
+          "id": "actor_institutions",
+          "kind": "actor",
+          "label": "机构投资者"
+        },
+        {
+          "id": "actor_issuer",
+          "kind": "actor",
+          "label": "事件主体"
+        },
+        {
+          "id": "actor_media",
+          "kind": "actor",
+          "label": "财经媒体"
+        },
+        {
+          "id": "actor_regulator",
+          "kind": "actor",
+          "label": "监管机构"
+        },
+        {
+          "id": "trace-22",
+          "kind": "simulated_action",
+          "action_type": "SEARCH_POSTS",
+          "summary": "search_posts"
+        },
+        {
+          "id": "trace-23",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #1：2025年上半年，比亚迪营业收入3712.80948亿元，同比增长23.30%。"
+        },
+        {
+          "id": "trace-24",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #2：同期归母净利润155.10533亿元，同比增长13.79%；经营现金流净额318.33471亿元，同比增长124.52%。"
+        },
+        {
+          "id": "trace-25",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #3：同期研发投入308.80339亿元，同比增长53.05%。公司解释主要由职工薪酬及物料消耗增加所致。"
+        },
+        {
+          "id": "trace-26",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #4：汽车、汽车相关产品及其他产品毛利率20.35%，同比下降1.99个百分点。比较数据已按质量保证费用转入营业成本的口径调整。"
+        },
+        {
+          "id": "trace-27",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #5：同期境外收入1353.57667亿元，同比增长50.49%，占收入36.46%；境外毛利率19.82%。"
+        },
+        {
+          "id": "trace-28",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #1：2025年上半年，比亚迪营业收入3712.80948亿元，同比增长23.30%。"
+        },
+        {
+          "id": "trace-29",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #2：同期归母净利润155.10533亿元，同比增长13.79%；经营现金流净额318.33471亿元，同比增长124.52%。"
+        },
+        {
+          "id": "trace-30",
+          "kind": "simulated_action",
+          "action_type": "COMMUNICATE",
+          "summary": "【分析】比亚迪2025H1营收3712.81亿元（+23.30%），归母净利润155.11亿元（+13.79%），利润增速低于营收增速，主要受汽车业务毛利率下降1.99个百分点至20.35%影响。值得关注的是研发投入达308.80亿元（+53.05%），远超利润增速，体现公司持续高强度技术投入战略。境外收入1353.58亿元（+50.49%），占比36.46%，全球化程度显著提升。经营现金流净额318.33亿元（+124.52%），现金流质量改善明显。整体来看，以利润换技术和市场份额的战略特征突出。"
+        },
+        {
+          "id": "trace-31",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #3：同期研发投入308.80339亿元，同比增长53.05%。公司解释主要由职工薪酬及物料消耗增加所致。"
+        },
+        {
+          "id": "trace-32",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #4：汽车、汽车相关产品及其他产品毛利率20.35%，同比下降1.99个百分点。比较数据已按质量保证费用转入营业成本的口径调整。"
+        },
+        {
+          "id": "trace-33",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #5：同期境外收入1353.57667亿元，同比增长50.49%，占收入36.46%；境外毛利率19.82%。"
+        },
+        {
+          "id": "trace-34",
+          "kind": "simulated_action",
+          "action_type": "SEARCH_POSTS",
+          "summary": "search_posts"
+        },
+        {
+          "id": "trace-35",
+          "kind": "simulated_action",
+          "action_type": "SEARCH_USER",
+          "summary": "search_user"
+        },
+        {
+          "id": "trace-36",
+          "kind": "simulated_action",
+          "action_type": "COMMUNICATE",
+          "summary": "2025年上半年比亚迪营收3712.81亿元，同比增长23.30%，感谢市场和客户的支持与信任。"
+        },
+        {
+          "id": "trace-37",
+          "kind": "simulated_action",
+          "action_type": "COMMUNICATE",
+          "summary": "归母净利润155.11亿元，经营现金流净额318.33亿元，同比增长124.52%，现金流稳健增长，为公司持续发展提供坚实基础。"
+        },
+        {
+          "id": "trace-38",
+          "kind": "simulated_action",
+          "action_type": "COMMUNICATE",
+          "summary": "研发投入308.80亿元，同比增长53.05%。技术创新始终是比亚迪的核心驱动力，持续投入为未来竞争力打下基础。"
+        },
+        {
+          "id": "trace-39",
+          "kind": "simulated_action",
+          "action_type": "COMMUNICATE",
+          "summary": "毛利率变化主要源于质量保证费用口径调整及产品结构变化，整体经营质量持续提升。"
+        },
+        {
+          "id": "trace-40",
+          "kind": "simulated_action",
+          "action_type": "COMMUNICATE",
+          "summary": "境外收入1353.58亿元，同比增长50.49%，占比36.46%。国际化战略稳步推进，海外市场增长强劲。感谢全球用户的认可！"
+        },
+        {
+          "id": "trace-41",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #1：2025年上半年，比亚迪营业收入3712.80948亿元，同比增长23.30%。"
+        },
+        {
+          "id": "trace-42",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #2：同期归母净利润155.10533亿元，同比增长13.79%；经营现金流净额318.33471亿元，同比增长124.52%。"
+        },
+        {
+          "id": "trace-43",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #3：同期研发投入308.80339亿元，同比增长53.05%。公司解释主要由职工薪酬及物料消耗增加所致。"
+        },
+        {
+          "id": "trace-44",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #4：汽车、汽车相关产品及其他产品毛利率20.35%，同比下降1.99个百分点。比较数据已按质量保证费用转入营业成本的口径调整。"
+        },
+        {
+          "id": "trace-45",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #5：同期境外收入1353.57667亿元，同比增长50.49%，占收入36.46%；境外毛利率19.82%。"
+        },
+        {
+          "id": "trace-46",
+          "kind": "simulated_action",
+          "action_type": "COMMUNICATE",
+          "summary": "【券商分析】营收3712亿同比+23.3%符合预期，但需关注Q2单季增速是否边际放缓。核心亮点在经营现金流同比+124.5%，说明营运效率显著改善。不过毛利下滑1.99pct值得警惕，价格战叠加质量保证费用口径调整是主因。建议关注后续毛利率走势与海外扩张节奏。"
+        },
+        {
+          "id": "trace-55",
+          "kind": "simulated_action",
+          "action_type": "LIKE_COMMENT",
+          "summary": "like_comment"
+        },
+        {
+          "id": "trace-56",
+          "kind": "simulated_action",
+          "action_type": "LIKE_COMMENT",
+          "summary": "like_comment"
+        },
+        {
+          "id": "trace-57",
+          "kind": "simulated_action",
+          "action_type": "COMMUNICATE",
+          "summary": "【政府观察】比亚迪2025年上半年财报数据体现了中国新能源汽车产业的强劲发展态势。营收增长23.30%、研发投入增长53.05%至308.80亿元，表明企业在技术创新上持续高投入，符合国家产业升级政策导向。境外收入增长50.49%、占比36.46%，反映中国制造国际竞争力提升。同时，汽车业务毛利率下降1.99个百分点至20.35%，需关注行业产能与价格竞争态势。整体来看，该企业经营现金流增长124.52%，财务健康度良好。我们将持续关注行业运行数据，为产业政策调整提供决策参考。"
+        },
+        {
+          "id": "trace-58",
+          "kind": "simulated_action",
+          "action_type": "COMMUNICATE",
+          "summary": "【交易所提示】本平台以上财务数据及分析均已公开披露。提醒各方注意：①毛利率口径调整（质量保证费用转入营业成本）属会计准则合规变更，投资者可比对历史数据调整后口径；②境外收入占比提升至36.46%，相关信息披露充分性符合监管要求；③研发投入53.05%高增速与净利润13.79%增速之差，系公司主动战略选择，市场应予以独立判断。本所不评价公司经营决策，仅确认上述信息已依法充分披露。"
+        },
+        {
+          "id": "trace-59",
+          "kind": "simulated_action",
+          "action_type": "COMMUNICATE",
+          "summary": "【机构投资者视角】已看完BYD 2025H1全套财务数据。几点观察：（1）营收3712亿+23.3%符合规模扩张预期，但净利增速13.79%显著落后，利潤率承压是核心关注点。（2）研发投入308.8亿（+53.05%）强度极高，约占营收8.32%，远超行业均值，这是典型的\"以利润换技术壁垒\"策略。（3）经营现金流318亿（+124.52%）大幅改善是亮点，现金流覆盖研发投入有余，资产负债表质量可接受。（4）毛利率下滑1.99pct需审慎看待：部分为质量保证费口径调整的会计因素，但价格竞争压力真实存在。（5）海外收入1353.58亿（+50.49%）占比36.46%是最大结构性亮点，海外毛利率19.82%接近国内水平，全球化进展超预期。整体评估：量增利薄格局延续，但现金流改善+海外扩张+高强度R&D构成中期正向信号。需跟踪下半年毛利率走势及海外订单可持续性。维持中性偏正面评价，关注Q3数据验证趋势。"
+        },
+        {
+          "id": "trace-60",
+          "kind": "simulated_action",
+          "action_type": "LIKE_COMMENT",
+          "summary": "like_comment"
+        },
+        {
+          "id": "trace-61",
+          "kind": "simulated_action",
+          "action_type": "COMMUNICATE",
+          "summary": "【券商视角】归母净利155亿(+13.79%)低于营收增速，净利率约4.18%有所承压。但经营现金流318亿(+124.52%)大幅改善，表明回款能力和营运资本管理显著优化。利润与现金流背离值得深入拆解——可能是存货周转改善和应付账款管理加强所致。需关注下半年现金流持续性。"
+        },
+        {
+          "id": "trace-62",
+          "kind": "simulated_action",
+          "action_type": "COMMUNICATE",
+          "summary": "【分析师补充】针对已有分析，我补充几个关键比较点：(1) 营收+23.3% vs 归母净利+13.79%，利润弹性系数约0.59，反映价格竞争与研发投入双重挤压。(2) 研发投入308.8亿占营收8.32%，这一比例在整车企业中处于领先水平，远超行业均值。(3) 经营现金流318.33亿远超净利润155.11亿，净现比高达2.05，利润质量优秀。(4) 境外收入占比36.46%但毛利率19.82%低于境内整体水平，海外扩张正处于\"以量换利\"阶段。建议跟踪下半年海外毛利率趋势。"
+        },
+        {
+          "id": "trace-63",
+          "kind": "simulated_action",
+          "action_type": "COMMUNICATE",
+          "summary": "【监管关注】注意到汽车业务毛利率同比下降1.99个百分点至20.35%，且比较数据已按质量保证费用转入营业成本的口径调整。请关注：1）毛利率下降的持续性及对盈利能力的影响；2）质量保证费用口径调整的会计处理合规性及可比性；3）境外毛利率19.82%低于整体水平，需关注海外业务风险。上述数据将纳入后续常规监测范围。"
+        },
+        {
+          "id": "trace-64",
+          "kind": "simulated_action",
+          "action_type": "LIKE_COMMENT",
+          "summary": "like_comment"
+        },
+        {
+          "id": "trace-65",
+          "kind": "simulated_action",
+          "action_type": "COMMUNICATE",
+          "summary": "补充一点：境外收入1353.58亿元，同比+50.49%，占比达36.46%，境外毛利率19.82%——虽然低于境内水平但差距不大，说明海外定价能力和成本控制较好。同时经营现金流+124.52%意味着利润的现金转化率大幅提高，这是质量改善的重要信号。建议持续关注下半年海外扩张进度和毛利率走势。"
+        },
+        {
+          "id": "decision-actor_issuer-r2",
+          "kind": "financial_decision",
+          "action_type": "COMMUNICATE",
+          "decision_status": "intended",
+          "direction": "maintain",
+          "intensity": 0.7,
+          "confidence": 0.85,
+          "probability_semantics": "decision_clarity_not_forecast_probability",
+          "summary": "2025年上半年经营数据已披露，营收和经营性现金流均实现稳健增长，研发投入持续高增，境外收入占比显著提升至36.46%。尽管汽车业务毛利率因口径调整和产品结构变化有所下降，但整体财务质量良好。作为事件主体，当前最佳策略是主动与市场沟通，回应券商和投资者关注的核心议题（毛利率趋势、研发转化效率、海外扩张节奏），以稳定投资者预期和客户信心，维持融资能力与业务稳定性。主要不确定性在于后续市场竞争格局变化及毛利率是否企稳。"
+        },
+        {
+          "id": "decision-actor_institutions-r2",
+          "kind": "financial_decision",
+          "action_type": "WAIT",
+          "decision_status": "conditional",
+          "direction": "maintain",
+          "intensity": 0.4,
+          "confidence": 0.75,
+          "probability_semantics": "decision_clarity_not_forecast_probability",
+          "summary": "2025H1财报呈现多空并存的信号组合：营收与经营现金流强劲增长（F1/F2）叠加海外收入高速扩张（F5）构成正面支撑，但归母净利润增速显著落后营收增速（F2），且汽车业务毛利率同比下滑1.99个百分点（F4）反映价格竞争压力仍在。研发投入激增53.05%（F3）表明公司正以利润换取技术壁垒，但短期内构成利润拖累。当前信号需等待Q3数据验证毛利率走势与海外订单持续性的边际变化，因此选择保持现有仓位、暂不调整配置，视后续季度数据再做决策。"
+        },
+        {
+          "id": "decision-actor_brokers-r2",
+          "kind": "financial_decision",
+          "action_type": "WAIT",
+          "decision_status": "conditional",
+          "direction": "not_applicable",
+          "intensity": 0.0,
+          "confidence": 0.85,
+          "probability_semantics": "decision_clarity_not_forecast_probability",
+          "summary": "基于H1财报数据，比亚迪营收与利润增速差扩大、毛利率下降1.99pct、研发投入激进（+53%）三个信号叠加，需等待更多信息来判断利润率拐点与境外增长可持续性。目前授信与中介服务无需调整，但不宜立即加仓或推介新融资安排。继续观察Q3境内价格战强度、境外毛利率走势及质量保证费用口径调整的全年影响后再做决策。"
+        },
+        {
+          "id": "decision-actor_analysts-r2",
+          "kind": "financial_decision",
+          "action_type": "COMMUNICATE",
+          "decision_status": "intended",
+          "direction": "conditional",
+          "intensity": 0.6,
+          "confidence": 0.7,
+          "probability_semantics": "decision_clarity_not_forecast_probability",
+          "summary": "基于2025H1财报数据，营收增长23.30%但归母净利润仅增长13.79%，利润弹性明显下降。关键信号：研发投入增速53.05%远超利润增速，且汽车毛利率下降1.99个百分点至20.35%，反映价格竞争与研发投入双重挤压。但经营现金流增长124.52%至318.33亿元，净现比达2.05，利润质量优秀。海外收入增长50.49%至1353.58亿元，占比36.46%，全球化提速。需要向市场沟通的核心判断是：当前正处于'以短期利润换取技术护城河与全球市场份额'的战略投入期，毛利率压力是主动质量保证费用口径调整与被动价格竞争叠加的结果。将发布分析报告区分哪些是结构性压力(研发持续高投入)、哪些是阶段性调整(质量保证费用口径、海外扩张初期毛利率偏低)。主要不确定性在于下半年价格竞争强度及海外毛利率走势。"
+        },
+        {
+          "id": "decision-actor_government-r2",
+          "kind": "financial_decision",
+          "action_type": "WAIT",
+          "decision_status": "no_action",
+          "direction": "maintain",
+          "intensity": 0.0,
+          "confidence": 0.85,
+          "probability_semantics": "decision_clarity_not_forecast_probability",
+          "summary": "比亚迪2025年上半年财报数据未触发任何需要政府立即干预或回应的阈值。营收增长23.30%、净利润增长13.79%和经营现金流增长124.52%均处于合理区间；研发投入增长53.05%符合国家产业创新鼓励方向；毛利率下降1.99个百分点幅度有限且部分源于会计口径调整，尚不足以构成行业风险信号。境外收入增长50.49%至占比36.46%表明国际化成效显著。当前宜保持观望，待更多行业季度数据（如Q3、全年累计）及同行对标数据出台后，再综合评估是否需要调整新能源汽车产业政策或启动行业运行监测程序。"
+        },
+        {
+          "id": "decision-actor_regulator-r2",
+          "kind": "financial_decision",
+          "action_type": "WAIT",
+          "decision_status": "conditional",
+          "direction": "not_applicable",
+          "intensity": 0.6,
+          "confidence": 0.8,
+          "probability_semantics": "decision_clarity_not_forecast_probability",
+          "summary": "截至2025-08-30，比亚迪2025H1已披露财务数据整体符合增长趋势，但利润增速（+13.79%）显著低于营收增速（+23.30%），且核心汽车业务毛利率同比下降1.99个百分点。毛利率下降是否由质量保证费用口径调整这一会计处理变化主导、境外毛利率低于境内毛利率是否反映定价或成本结构差异、研发投入激增53%是否可持续——上述三个风险维度均需等待公司对中期问询的回复或后续季度数据（2025Q3）的披露来交叉验证。当前证据不足以启动正式调查或审批程序，但也不宜认定无风险，最优动作是保持关注状态，在下一个可观察信号出现后再评估是否升级为调查或需要公司补充说明。"
+        },
+        {
+          "id": "decision-actor_media-r2",
+          "kind": "financial_decision",
+          "action_type": "COMMUNICATE",
+          "decision_status": "intended",
+          "direction": "not_applicable",
+          "intensity": 0.7,
+          "confidence": 0.85,
+          "probability_semantics": "decision_clarity_not_forecast_probability",
+          "summary": "截至2025年8月30日，比亚迪2025年半年报已完整披露（F1-F5）。作为财经媒体，我的核心目标是核实和传播对事件判断有用的新信息。目前已掌握完整财务数据，下一决策周期内最优先的动作是将这些关键信息整理并传播给受众群体，帮助市场参与者理解比亚迪在营收增长、毛利率结构性变化（F4）、研发高强度投入（F3）、经营现金流显著改善（F2）以及境外增长强劲（F5）等维度的综合表现。鉴于媒体擅长解释和传递公开信息而非制造独家消息，传播行为不涉及价格预测，完全基于已公告事实。主要不确定在于市场如何消化毛利率下降与研发投入加大的双重信号，但这不影响信息传播的基础价值。"
+        },
+        {
+          "id": "decision-actor_exchange-r2",
+          "kind": "financial_decision",
+          "action_type": "COMMUNICATE",
+          "decision_status": "intended",
+          "direction": "conditional",
+          "intensity": 0.6,
+          "confidence": 0.85,
+          "probability_semantics": "decision_clarity_not_forecast_probability",
+          "summary": "基于截至时点已公开披露的2025年半年报信息，已有多方评论和分析。作为交易所，首要任务是确保信息披露的充分性与合规性。注意到毛利率口径调整（质量保证费用转入营业成本）、研发投入增速（53.05%）显著高于净利润增速（13.79%）等关键财务特征已引发市场讨论。为维护信息披露和交易秩序，计划在未来决策周期内向比亚迪发出常规问询函，要求公司就海外营收增长的可持续性及毛利率降幅的后续趋势提供补充披露说明，同时对境外收入占比显著提升至36.46%的相关风险提示充分性进行确认。此举不替代公司经营或监管审批，依据《上市规则》信息披露章节执行。"
+        },
+        {
+          "id": "branch-1",
+          "kind": "scenario",
+          "summary": "若媒体在发布财报分析后，对比亚迪的毛利率下降原因或研发投入转化效率提出深度追问，比亚迪可能选择主动发布补充公告或业务沟通会纪要，进一步解释质量保证费用口径调整的细节和研发投入的具体项目进展，以稳定市场预期。",
+          "triggers": [
+            "在2025-09-06前，财经媒体（含actor_media或其同行）发布至少2篇对比亚迪毛利率下降或研发转化效率的质疑性报道，且被主流财经平台转载。"
+          ],
+          "consequences": [
+            "比亚迪的补充说明可能短时间内减少市场关于毛利率的负面解读，但若补充公告缺乏具体量化指引（如下半年毛利率目标），机构投资者的观望态度可能维持不变。"
+          ],
+          "invalidation_conditions": [
+            "媒体未在7天内发表任何关于毛利率或研发效率的深度追问报道；或比亚迪明确拒绝就财报细节发布补充说明。"
+          ],
+          "novelty_claim": "该分支超出事实复述的部分在于：媒体主动追问的行为，如何迫使公司在其原定期沟通计划之外额外披露信息，从而改变信息环境的透明度。",
+          "confidence": 0.6,
+          "probability_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-2",
+          "kind": "scenario",
+          "summary": "若交易所向比亚迪发出关于毛利率口径调整和境外收入风险披露的问询函，部分分析师可能下调盈利预测并降低评级，另一些分析师则可能认为问询函只是在确认合规、增强信心，从而维持或上调评级，导致市场观点分歧加大。",
+          "triggers": [
+            "在2025-09-06前，深圳证券交易所公开披露就比亚迪2025半年报发出问询函，且问询内容涉及F4（毛利率口径调整）和F5（境外收入风险提示）。"
+          ],
+          "consequences": [
+            "若问询函后，调降评级和维持评级的两派分析师报告同时发布，可能引发股价短期波动加大，但若公司回复迅速且充分，分歧可能重新收敛。"
+          ],
+          "invalidation_conditions": [
+            "交易所未在7天内发出该问询函；或问询函不涉及毛利率和境外收入，只要求常规说明；或分析师群体整体认为问询无影响，评级未出现明显分化。"
+          ],
+          "novelty_claim": "该分支超越事实复述的多主体传导是：交易所的合规确认行动（发出问询函）如何成为分析师之间已有分歧的催化剂，放大了市场观点的分散度。",
+          "confidence": 0.55,
+          "probability_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-3",
+          "kind": "scenario",
+          "summary": "若监管机构在公开渠道明确表达对比亚迪汽车业务毛利率持续下降和研发投入/利润增速背离的关注，机构投资者可能将此视为政策风险信号，从而将先前的观望调整为小幅减仓或对冲策略。",
+          "triggers": [
+            "在2025-09-06前，证监会或地方证监局在公开讲话或书面材料中，点名提到比亚迪的利润增速与研发投入增速差异或毛利率下降幅度，并表示将纳入更为密切的日常监测。"
+          ],
+          "consequences": [
+            "机构投资者的减持或对冲行为可能导致比亚迪股价在消息公布后出现2-3个交易日的调整，但若监管表态仅为技术性关注而非处罚，市场可能快速修复。"
+          ],
+          "invalidation_conditions": [
+            "监管机构未在7天内发布任何以比亚迪为具体案例的数据监测声明；或声明中未提及比亚迪利润/研发背离问题；或机构投资者整体认为监管措辞温和，未调整仓位。"
+          ],
+          "novelty_claim": "该分支的新颖传导链条是：监管的‘常规关注’公开化如何被机构解读为实质性风险，从而触发其从等待（WAIT）向防御性行动转变，改变市场供需。",
+          "confidence": 0.5,
+          "probability_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-4",
+          "kind": "scenario",
+          "summary": "若有重要券商发布看空比亚迪报告，着重强调毛利率压力和政策调整风险，可能引起主管产业政策的政府部门注意，进而启动一轮内部研究，评估是否需要更新新能源车产业补贴或技术标准，从而间接影响市场预期。",
+          "triggers": [
+            "在2025-09-06前，至少一家大型券商发布深度研报，将比亚迪2025H1投资评级调降至‘卖出’或‘减持’，且报告标题或摘要直接提及‘政府补贴退坡’或‘产业政策风险’。"
+          ],
+          "consequences": [
+            "政府部门内部启动研究不意味着政策立即调整，但若该信息被媒体获知并报道，可能加剧市场对政策走向的不确定性，从而放大券商的看空影响，推动更多机构投资者被动等待。"
+          ],
+          "invalidation_conditions": [
+            "券商未在7天内发布任何将比亚迪调至卖出或减持评级的研报；或研报中未涉及政府政策风险；或政府部门确认未因任何市场报告而启动内部研究程序。"
+          ],
+          "novelty_claim": "该分支的新颖性在于：券商观点（中介）的力量如何穿透金融市场，影响政府（非市场行为者）进入其政策流程，再通过媒体反馈引发市场连锁等待。",
+          "confidence": 0.45,
+          "probability_semantics": "branch_coherence_not_forecast_probability"
+        }
+      ],
+      "edges": [
+        {
+          "source": "actor_government",
+          "target": "trace-22",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_institutions",
+          "target": "trace-23",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_institutions",
+          "target": "trace-24",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_institutions",
+          "target": "trace-25",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_institutions",
+          "target": "trace-26",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_institutions",
+          "target": "trace-27",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_exchange",
+          "target": "trace-28",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_exchange",
+          "target": "trace-29",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_media",
+          "target": "trace-30",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_exchange",
+          "target": "trace-31",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_exchange",
+          "target": "trace-32",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_exchange",
+          "target": "trace-33",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_regulator",
+          "target": "trace-34",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_regulator",
+          "target": "trace-35",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_issuer",
+          "target": "trace-36",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_issuer",
+          "target": "trace-37",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_issuer",
+          "target": "trace-38",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_issuer",
+          "target": "trace-39",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_issuer",
+          "target": "trace-40",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_analysts",
+          "target": "trace-41",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_analysts",
+          "target": "trace-42",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_analysts",
+          "target": "trace-43",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_analysts",
+          "target": "trace-44",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_analysts",
+          "target": "trace-45",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_brokers",
+          "target": "trace-46",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_issuer",
+          "target": "trace-55",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_issuer",
+          "target": "trace-56",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_government",
+          "target": "trace-57",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_exchange",
+          "target": "trace-58",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_institutions",
+          "target": "trace-59",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_brokers",
+          "target": "trace-60",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_brokers",
+          "target": "trace-61",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_analysts",
+          "target": "trace-62",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_regulator",
+          "target": "trace-63",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_media",
+          "target": "trace-64",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_media",
+          "target": "trace-65",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_issuer",
+          "target": "decision-actor_issuer-r2",
+          "relation": "SIMULATED_FINANCIAL_DECISION"
+        },
+        {
+          "source": "actor_institutions",
+          "target": "decision-actor_institutions-r2",
+          "relation": "SIMULATED_FINANCIAL_DECISION"
+        },
+        {
+          "source": "actor_brokers",
+          "target": "decision-actor_brokers-r2",
+          "relation": "SIMULATED_FINANCIAL_DECISION"
+        },
+        {
+          "source": "actor_analysts",
+          "target": "decision-actor_analysts-r2",
+          "relation": "SIMULATED_FINANCIAL_DECISION"
+        },
+        {
+          "source": "actor_government",
+          "target": "decision-actor_government-r2",
+          "relation": "SIMULATED_FINANCIAL_DECISION"
+        },
+        {
+          "source": "actor_regulator",
+          "target": "decision-actor_regulator-r2",
+          "relation": "SIMULATED_FINANCIAL_DECISION"
+        },
+        {
+          "source": "actor_media",
+          "target": "decision-actor_media-r2",
+          "relation": "SIMULATED_FINANCIAL_DECISION"
+        },
+        {
+          "source": "actor_exchange",
+          "target": "decision-actor_exchange-r2",
+          "relation": "SIMULATED_FINANCIAL_DECISION"
+        },
+        {
+          "source": "decision-actor_media-r2",
+          "target": "branch-1",
+          "relation": "CONTRIBUTES_TO_SCENARIO"
+        },
+        {
+          "source": "decision-actor_issuer-r2",
+          "target": "branch-1",
+          "relation": "CONTRIBUTES_TO_SCENARIO"
+        },
+        {
+          "source": "decision-actor_analysts-r2",
+          "target": "branch-2",
+          "relation": "CONTRIBUTES_TO_SCENARIO"
+        },
+        {
+          "source": "decision-actor_exchange-r2",
+          "target": "branch-2",
+          "relation": "CONTRIBUTES_TO_SCENARIO"
+        },
+        {
+          "source": "decision-actor_regulator-r2",
+          "target": "branch-3",
+          "relation": "CONTRIBUTES_TO_SCENARIO"
+        },
+        {
+          "source": "decision-actor_institutions-r2",
+          "target": "branch-3",
+          "relation": "CONTRIBUTES_TO_SCENARIO"
+        },
+        {
+          "source": "decision-actor_brokers-r2",
+          "target": "branch-4",
+          "relation": "CONTRIBUTES_TO_SCENARIO"
+        },
+        {
+          "source": "decision-actor_government-r2",
+          "target": "branch-4",
+          "relation": "CONTRIBUTES_TO_SCENARIO"
+        }
+      ]
+    },
+    "warnings": [
+      "Integration smoke result only; it is not a calibrated financial forecast.",
+      "The upstream run monitor reported zero actions; SQLite was used as the authoritative source.",
+      "OASIS did not persist per-action round numbers, so exported events use round 0.",
+      "Rule-generated institutional profiles contain consumer-social attributes and require a financial profile compiler.",
+      "Structured financial decisions were elicited post-simulation and remain simulated claims.",
+      "Single-run scenario frequency is uncalibrated and must not be read as probability."
+    ],
+    "audit": {
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "gateway_mode": "live"
+    }
+  },
+  "reused": false
+}

@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "prepared_at": "2026-09-12",
+  "classification": "named_public_historical_product_acceptance_not_forecast_backtest",
+  "provider": "DeepInfra",
+  "model": "deepseek-ai/DeepSeek-V4-Flash",
+  "max_calls": 192,
+  "max_cost_usd": 0.5,
+  "max_output_tokens_per_request": 5000,
+  "max_request_bytes": 131072,
+  "cases": [
+    {
+      "id": "byd-h1-2025",
+      "title": "比亚迪 2025 年中报：增长、利润率与投入",
+      "request_sha256": "a6aa43048ff8ec4fe453a9eefba821ce9ff6b05b93577e86205123d563622efd",
+      "baseline_actor_count": 8,
+      "baseline_actors": [
+        "事件主体",
+        "机构投资者",
+        "券商与中介机构",
+        "分析师",
+        "政府与司法机构",
+        "监管机构",
+        "财经媒体",
+        "交易所"
+      ]
+    },
+    {
+      "id": "guotai-haitong-2024",
+      "title": "国泰君安吸收合并海通证券：停牌与审批不确定性",
+      "request_sha256": "2b64254a164f7ca1e3d687658f63f84aed5ecafe42d277ec51ae116455fe70c4",
+      "baseline_actor_count": 8,
+      "baseline_actors": [
+        "事件主体",
+        "监管机构",
+        "交易所",
+        "机构投资者",
+        "券商与中介机构",
+        "竞争者",
+        "分析师",
+        "财经媒体"
+      ]
+    },
+    {
+      "id": "crowdstrike-outage-2024",
+      "title": "CrowdStrike 服务中断：技术修复与客户恢复",
+      "request_sha256": "615d549c461c819e1417c6bf67fd1ea540093f13d3667eba445d5f714ddbc9f8",
+      "baseline_actor_count": 4,
+      "baseline_actors": [
+        "事件主体",
+        "客户",
+        "监管机构",
+        "机构投资者"
+      ]
+    }
+  ]
+}

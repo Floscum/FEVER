@@ -1,0 +1,598 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_bank_liquidity_005",
+  "spec_sha256": "d44db77c798ec3464794a60f2076c6ff8d381ab945d89894e6b3238807896e23",
+  "generated_at": "2026-07-29T07:31:48.565277+00:00",
+  "status": "partial",
+  "runs": [
+    {
+      "run_id": "sim_11ca2133984f",
+      "seed": 1512872415,
+      "status": "completed",
+      "events": [
+        {
+          "round": 0,
+          "actor_id": "actor_regulators",
+          "action_type": "SEARCH_POSTS",
+          "summary": "search_posts",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_regulators",
+          "action_type": "SEARCH_POSTS",
+          "summary": "search_posts",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_equity_investors",
+          "action_type": "SEARCH_POSTS",
+          "summary": "search_posts",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_peer_banks",
+          "action_type": "SEARCH_USER",
+          "summary": "search_user",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_peer_banks",
+          "action_type": "SEARCH_POSTS",
+          "summary": "search_posts",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_vc",
+          "action_type": "SEARCH_POSTS",
+          "summary": "search_posts",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_vc",
+          "action_type": "SEARCH_USER",
+          "summary": "search_user",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_peer_banks",
+          "action_type": "COMMUNICATE",
+          "summary": "作为同业机构，我们正在评估与该行的交易对手敞口。证券出售损失规模、融资仅覆盖损失的125%、存款集中于高风险科技/生命科学企业——这三个因素叠加表明该行流动性压力显著。我们将审慎检视同业拆借及衍生品交易对手额度。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_depositors",
+          "action_type": "COMMUNICATE",
+          "summary": "作为企业存款人，我们正在紧急评估本行存款风险。亏损确认规模相当于拟融资额的80%，而融资总额仅为损失的125%，这意味着资本缺口并未完全填补。考虑到客户集中在风投支持的科创企业，存款波动性可能进一步加剧。建议各企业客户重新评估未保险存款敞口。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_peer_banks",
+          "action_type": "SEARCH_USER",
+          "summary": "search_user",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_peer_banks",
+          "action_type": "SEARCH_USER",
+          "summary": "search_user",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_vc",
+          "action_type": "COMMUNICATE",
+          "summary": "作为被投企业的主要现金管理方，我们正在连夜评估该行的资产质量和流动性。关键观察：融资总额仅覆盖损失的125%，资本缺口仍存；客户存款高度集中在VC-backed科技/生命科学企业，波动性风险极大。我们将立即向组合公司发出建议：降低在该行的未受保存款敞口，分散存放运营资金。同时提醒各被投企业核查自身的FDIC保险覆盖上限。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_vc",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #2：作为被投企业的主要现金管理方，我们正在评估该银行的资产质量和即时流动性状况。鉴于客户存款高度集中且银行已出现重大损失，我们将建议被投企业考虑降低在该行的未保险存款敞口，确保运营资金安全。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_bank",
+          "action_type": "OPERATE",
+          "summary": "作为匿名区域银行，我的核心矛盾是：证券出售已确认重大损失（约束0），融资尚未完成（约束1），而存款人信心正在动摇——同业机构正在评估交易对手敞口，企业存款人建议客户降低未保险存款敞口。我必须立即采取操作：启动与长期客户型投资者的密切沟通，加速落实F2中已获认购承诺的融资安排；同时针对F3中提到的客户现金消耗高于预期、存款低于预测的情况，主动联系核心科技和生命科学企业客户，提供定制化流动性管理方案以稳定存款。此外，需开始执行F3中计划将定期借款规模提高一倍的安排，确保未来两周内流动性储备充裕。这些操作的核心是赶在存款外逃形成自我实现的螺旋之前，用实际金融动作而非口头安抚来重建市场信任。主要不确定性在于：(1)融资认购方是否会因市场负面情绪而推迟交割；(2)高度互联的科技/生命科学企业客户是否出现同步存款转移。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_depositors",
+          "action_type": "COMMUNICATE",
+          "summary": "作为企业存款人，首要目标是确保工资与运营资金可用并降低未保险余额风险。银行已确认相当于拟融资额80%的一次性税后损失（F1），且客户存款低于预测、现金消耗高于预期（F3），客户高度集中在风投支持的科技和生命科学企业。虽然银行计划融资（F2），但融资总额仅为损失的125%，资本缓冲不足。由于转移大额企业存款需要快速协调（约束），我需要立即与其他企业存款人进行沟通，评估共同行动方案，以便在D1开盘后能及时降低未保险存款敞口。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_vc",
+          "action_type": "ALLOCATE",
+          "summary": "D0收盘后，该区域银行公告出售几乎全部可供出售证券并确认重大损失（F1），同时启动股权融资但计划融资总额仅为确认损失的125%（F2），资本缺口未完全填补。银行承认客户现金消耗高于预期、存款低于预测，且客户高度集中在风险投资支持的科技和生命科学企业（F3），这与我们的被投企业高度重叠。鉴于我们对银行资产质量和即时流动性信息有限（约束），最佳行动是主动保护被投企业现金：在下一决策周期内，将集中向组合公司发出存款分散建议，引导其降低在该行的未受保存款敞口，分散至多家大型银行以确保运营资金安全。该行动为条件性执行——取决于FDIC保险上限核查情况及是否有其他被投企业率先发起存款转移。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_equity_investors",
+          "action_type": "WAIT",
+          "summary": "D0收盘后银行才公布资产出售损失和融资计划，区域银行指数基金E当日收盘波动有限，说明市场尚未对事件充分定价。融资由普通股和强制可转换优先股构成，且仅获得一家长期客户型投资者的认购承诺，定价和完成情况存在重大不确定性。存款流失和客户集中度高是结构性隐患，但损失规模和计划融资额的相对关系（融资额约为损失125%）显示资本缺口可能可控。需要等待下个交易日后市场的流动性数据、融资认购率以及同行信用利差变化才能做出决策，目前保持指数敞口不变并观察。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_regulators",
+          "action_type": "WAIT",
+          "summary": "该银行已公告重大损失和补充资本计划（F1、F2），融资规模覆盖损失的125%且获得基石投资者认购承诺，短期偿付能力尚存缓冲。但客户存款高度集中在风险投资支持的科技和生命科学企业（F3），存款流出压力未缓解，且定期借款将翻倍——这可能在流动性指标上形成交叉压力。F4显示外部市场尚未定价该信息。作为监管机构，我需等待D+1开盘后存款流出数据及融资实际完成进度，再决定是否启动早期干预或流动性支持。过早公开表态可能触发不必要的恐慌挤兑，且受限于不能事前承诺超出法定范围的保护。因此选择条件性等待，密切监控存款变动和同业传染信号后再做进一步行动。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_central_bank",
+          "action_type": "WAIT",
+          "summary": "该银行已启动资本补充计划且融资方案获得认购承诺，当前未出现流动性急剧恶化或跨机构传染的明确迹象。市场反应仅在收盘后有限波动，需等待D1交易时段的实际价格与流动性压力数据，以评估是否需要动用流动性工具。若后续观察到相似负债结构机构出现存款外逃或融资成本飙升，则启动紧急流动性支持。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_peer_banks",
+          "action_type": "WAIT",
+          "summary": "作为同业机构，当前时点该区域银行已公布亏损确认和融资计划，但融资尚未完成交割，区域银行指数基金波动有限（F4），表明市场尚未形成恐慌性定价。我的目标是管理交易对手风险和维护自身流动性，但当前缺乏足够信息判断该行融资能否成功完成（约束：不能保证问题银行的融资或收购完成）。需等待D+1开盘后观察以下信号再决策：（1）该行股价及信用违约互换价格变动；（2）客户存款外流情况数据；（3）融资认购的实际完成率。过早行动（如缩减同业额度）可能引发不必要的市场猜疑或流动性传染，反而加剧自身风险。因此选择有条件等待，保持观察姿态。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_retail",
+          "action_type": "WAIT",
+          "summary": "D0收盘后公布的F1-F4信息表明问题个案银行存在显著的科技客户集中度和存款流出压力，但区域银行指数基金当日波动有限，尚未形成板块性传染信号。作为个人投资者，我难以实时验证存款流是否扩散，也不容易区分个案与板块的系统性风险。当前最合理的行动是暂时不调仓，等待D1市场开盘后价格信号及该银行新股发行结果，再判断是否降低指数基金持仓。盲目提前减仓可能造成恐慌交易损失，违背控制损失的目标。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_media",
+          "action_type": "WAIT",
+          "summary": "D0收盘后公布的资产出售损失和融资计划已在当日市场收盘后发布，区域银行指数基金当日波动有限，表明市场尚未充分定价。我需要等待下一个交易日开盘后，观察市场对资本损失与融资结构的反应，特别是区分一次性税后损失（资本损失）与存款流出（流动性缺口）之间的传导关系，以及客户集中度带来的信用损失风险。在融资计划实际生效前，过早评论可能混淆资本损失与流动性缺口，因此选择观望。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        }
+      ],
+      "warnings": [
+        "The recorded seed controls Python agent scheduling only; provider-side LLM sampling remains unseeded."
+      ]
+    }
+  ],
+  "scenarios": [],
+  "forecast_target_results": [],
+  "simulation_graph": {
+    "nodes": [
+      {
+        "id": "actor_depositors",
+        "kind": "actor",
+        "label": "企业存款人"
+      },
+      {
+        "id": "actor_equity_investors",
+        "kind": "actor",
+        "label": "银行股权投资者"
+      },
+      {
+        "id": "actor_peer_banks",
+        "kind": "actor",
+        "label": "大型银行与同业机构"
+      },
+      {
+        "id": "actor_regulators",
+        "kind": "actor",
+        "label": "银行监管与存款保险机构"
+      },
+      {
+        "id": "actor_vc",
+        "kind": "actor",
+        "label": "风险投资与私募机构"
+      },
+      {
+        "id": "trace-15",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_POSTS",
+        "summary": "search_posts"
+      },
+      {
+        "id": "trace-16",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_POSTS",
+        "summary": "search_posts"
+      },
+      {
+        "id": "trace-17",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_POSTS",
+        "summary": "search_posts"
+      },
+      {
+        "id": "trace-18",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user"
+      },
+      {
+        "id": "trace-19",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_POSTS",
+        "summary": "search_posts"
+      },
+      {
+        "id": "trace-23",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_POSTS",
+        "summary": "search_posts"
+      },
+      {
+        "id": "trace-24",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user"
+      },
+      {
+        "id": "trace-25",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "作为同业机构，我们正在评估与该行的交易对手敞口。证券出售损失规模、融资仅覆盖损失的125%、存款集中于高风险科技/生命科学企业——这三个因素叠加表明该行流动性压力显著。我们将审慎检视同业拆借及衍生品交易对手额度。"
+      },
+      {
+        "id": "trace-26",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "作为企业存款人，我们正在紧急评估本行存款风险。亏损确认规模相当于拟融资额的80%，而融资总额仅为损失的125%，这意味着资本缺口并未完全填补。考虑到客户集中在风投支持的科创企业，存款波动性可能进一步加剧。建议各企业客户重新评估未保险存款敞口。"
+      },
+      {
+        "id": "trace-30",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user"
+      },
+      {
+        "id": "trace-31",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user"
+      },
+      {
+        "id": "trace-33",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "作为被投企业的主要现金管理方，我们正在连夜评估该行的资产质量和流动性。关键观察：融资总额仅覆盖损失的125%，资本缺口仍存；客户存款高度集中在VC-backed科技/生命科学企业，波动性风险极大。我们将立即向组合公司发出建议：降低在该行的未受保存款敞口，分散存放运营资金。同时提醒各被投企业核查自身的FDIC保险覆盖上限。"
+      },
+      {
+        "id": "trace-34",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #2：作为被投企业的主要现金管理方，我们正在评估该银行的资产质量和即时流动性状况。鉴于客户存款高度集中且银行已出现重大损失，我们将建议被投企业考虑降低在该行的未保险存款敞口，确保运营资金安全。"
+      },
+      {
+        "id": "actor_bank",
+        "kind": "actor",
+        "label": "匿名区域银行"
+      },
+      {
+        "id": "decision-actor_bank-r3",
+        "kind": "financial_decision",
+        "action_type": "OPERATE",
+        "decision_status": "conditional",
+        "direction": "increase",
+        "intensity": 0.7,
+        "confidence": 0.75,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "作为匿名区域银行，我的核心矛盾是：证券出售已确认重大损失（约束0），融资尚未完成（约束1），而存款人信心正在动摇——同业机构正在评估交易对手敞口，企业存款人建议客户降低未保险存款敞口。我必须立即采取操作：启动与长期客户型投资者的密切沟通，加速落实F2中已获认购承诺的融资安排；同时针对F3中提到的客户现金消耗高于预期、存款低于预测的情况，主动联系核心科技和生命科学企业客户，提供定制化流动性管理方案以稳定存款。此外，需开始执行F3中计划将定期借款规模提高一倍的安排，确保未来两周内流动性储备充裕。这些操作的核心是赶在存款外逃形成自我实现的螺旋之前，用实际金融动作而非口头安抚来重建市场信任。主要不确定性在于：(1)融资认购方是否会因市场负面情绪而推迟交割；(2)高度互联的科技/生命科学企业客户是否出现同步存款转移。"
+      },
+      {
+        "id": "decision-actor_depositors-r3",
+        "kind": "financial_decision",
+        "action_type": "COMMUNICATE",
+        "decision_status": "intended",
+        "direction": "decrease",
+        "intensity": 0.7,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "作为企业存款人，首要目标是确保工资与运营资金可用并降低未保险余额风险。银行已确认相当于拟融资额80%的一次性税后损失（F1），且客户存款低于预测、现金消耗高于预期（F3），客户高度集中在风投支持的科技和生命科学企业。虽然银行计划融资（F2），但融资总额仅为损失的125%，资本缓冲不足。由于转移大额企业存款需要快速协调（约束），我需要立即与其他企业存款人进行沟通，评估共同行动方案，以便在D1开盘后能及时降低未保险存款敞口。"
+      },
+      {
+        "id": "decision-actor_vc-r3",
+        "kind": "financial_decision",
+        "action_type": "ALLOCATE",
+        "decision_status": "conditional",
+        "direction": "decrease",
+        "intensity": 0.7,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "D0收盘后，该区域银行公告出售几乎全部可供出售证券并确认重大损失（F1），同时启动股权融资但计划融资总额仅为确认损失的125%（F2），资本缺口未完全填补。银行承认客户现金消耗高于预期、存款低于预测，且客户高度集中在风险投资支持的科技和生命科学企业（F3），这与我们的被投企业高度重叠。鉴于我们对银行资产质量和即时流动性信息有限（约束），最佳行动是主动保护被投企业现金：在下一决策周期内，将集中向组合公司发出存款分散建议，引导其降低在该行的未受保存款敞口，分散至多家大型银行以确保运营资金安全。该行动为条件性执行——取决于FDIC保险上限核查情况及是否有其他被投企业率先发起存款转移。"
+      },
+      {
+        "id": "decision-actor_equity_investors-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "maintain",
+        "intensity": 0.3,
+        "confidence": 0.75,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "D0收盘后银行才公布资产出售损失和融资计划，区域银行指数基金E当日收盘波动有限，说明市场尚未对事件充分定价。融资由普通股和强制可转换优先股构成，且仅获得一家长期客户型投资者的认购承诺，定价和完成情况存在重大不确定性。存款流失和客户集中度高是结构性隐患，但损失规模和计划融资额的相对关系（融资额约为损失125%）显示资本缺口可能可控。需要等待下个交易日后市场的流动性数据、融资认购率以及同行信用利差变化才能做出决策，目前保持指数敞口不变并观察。"
+      },
+      {
+        "id": "decision-actor_regulators-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "conditional",
+        "intensity": 0.4,
+        "confidence": 0.7,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "该银行已公告重大损失和补充资本计划（F1、F2），融资规模覆盖损失的125%且获得基石投资者认购承诺，短期偿付能力尚存缓冲。但客户存款高度集中在风险投资支持的科技和生命科学企业（F3），存款流出压力未缓解，且定期借款将翻倍——这可能在流动性指标上形成交叉压力。F4显示外部市场尚未定价该信息。作为监管机构，我需等待D+1开盘后存款流出数据及融资实际完成进度，再决定是否启动早期干预或流动性支持。过早公开表态可能触发不必要的恐慌挤兑，且受限于不能事前承诺超出法定范围的保护。因此选择条件性等待，密切监控存款变动和同业传染信号后再做进一步行动。"
+      },
+      {
+        "id": "actor_central_bank",
+        "kind": "actor",
+        "label": "中央银行"
+      },
+      {
+        "id": "decision-actor_central_bank-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "该银行已启动资本补充计划且融资方案获得认购承诺，当前未出现流动性急剧恶化或跨机构传染的明确迹象。市场反应仅在收盘后有限波动，需等待D1交易时段的实际价格与流动性压力数据，以评估是否需要动用流动性工具。若后续观察到相似负债结构机构出现存款外逃或融资成本飙升，则启动紧急流动性支持。"
+      },
+      {
+        "id": "decision-actor_peer_banks-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": null,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "作为同业机构，当前时点该区域银行已公布亏损确认和融资计划，但融资尚未完成交割，区域银行指数基金波动有限（F4），表明市场尚未形成恐慌性定价。我的目标是管理交易对手风险和维护自身流动性，但当前缺乏足够信息判断该行融资能否成功完成（约束：不能保证问题银行的融资或收购完成）。需等待D+1开盘后观察以下信号再决策：（1）该行股价及信用违约互换价格变动；（2）客户存款外流情况数据；（3）融资认购的实际完成率。过早行动（如缩减同业额度）可能引发不必要的市场猜疑或流动性传染，反而加剧自身风险。因此选择有条件等待，保持观察姿态。"
+      },
+      {
+        "id": "actor_retail",
+        "kind": "actor",
+        "label": "个人投资者"
+      },
+      {
+        "id": "decision-actor_retail-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "D0收盘后公布的F1-F4信息表明问题个案银行存在显著的科技客户集中度和存款流出压力，但区域银行指数基金当日波动有限，尚未形成板块性传染信号。作为个人投资者，我难以实时验证存款流是否扩散，也不容易区分个案与板块的系统性风险。当前最合理的行动是暂时不调仓，等待D1市场开盘后价格信号及该银行新股发行结果，再判断是否降低指数基金持仓。盲目提前减仓可能造成恐慌交易损失，违背控制损失的目标。"
+      },
+      {
+        "id": "actor_media",
+        "kind": "actor",
+        "label": "金融媒体与分析师"
+      },
+      {
+        "id": "decision-actor_media-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "D0收盘后公布的资产出售损失和融资计划已在当日市场收盘后发布，区域银行指数基金当日波动有限，表明市场尚未充分定价。我需要等待下一个交易日开盘后，观察市场对资本损失与融资结构的反应，特别是区分一次性税后损失（资本损失）与存款流出（流动性缺口）之间的传导关系，以及客户集中度带来的信用损失风险。在融资计划实际生效前，过早评论可能混淆资本损失与流动性缺口，因此选择观望。"
+      }
+    ],
+    "edges": [
+      {
+        "source": "actor_regulators",
+        "target": "trace-15",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_regulators",
+        "target": "trace-16",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_equity_investors",
+        "target": "trace-17",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_peer_banks",
+        "target": "trace-18",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_peer_banks",
+        "target": "trace-19",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_vc",
+        "target": "trace-23",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_vc",
+        "target": "trace-24",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_peer_banks",
+        "target": "trace-25",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_depositors",
+        "target": "trace-26",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_peer_banks",
+        "target": "trace-30",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_peer_banks",
+        "target": "trace-31",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_vc",
+        "target": "trace-33",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_vc",
+        "target": "trace-34",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_bank",
+        "target": "decision-actor_bank-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_depositors",
+        "target": "decision-actor_depositors-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_vc",
+        "target": "decision-actor_vc-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_equity_investors",
+        "target": "decision-actor_equity_investors-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_regulators",
+        "target": "decision-actor_regulators-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_central_bank",
+        "target": "decision-actor_central_bank-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_peer_banks",
+        "target": "decision-actor_peer_banks-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_retail",
+        "target": "decision-actor_retail-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_media",
+        "target": "decision-actor_media-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      }
+    ]
+  },
+  "warnings": [
+    "Integration smoke result only; it is not a calibrated financial forecast.",
+    "The upstream run monitor reported zero actions; SQLite was used as the authoritative source.",
+    "OASIS did not persist per-action round numbers, so exported events use round 0.",
+    "Rule-generated institutional profiles contain consumer-social attributes and require a financial profile compiler.",
+    "No forecast target result or scenario frequency was produced from this single run.",
+    "Structured financial decisions were elicited post-simulation and remain simulated claims."
+  ],
+  "provenance": {
+    "engine": "MiroFish/OASIS",
+    "engine_version": "60757b3c825d577a1d7a86ab1ba6d5c21f51c261",
+    "model": "deepseek-ai/DeepSeek-V4-Flash",
+    "raw_run_artifacts": [
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/mirofish/simulations/sim_11ca2133984f/reddit_simulation.db",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/mirofish/simulations/sim_11ca2133984f/simulation_config.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_bank_liquidity_005-b3/sqlite-actions.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_bank_liquidity_005-b3/raw-actions.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_bank_liquidity_005-b3/financial-interviews-raw.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_bank_liquidity_005-b3/financial-actions.json"
+    ]
+  }
+}

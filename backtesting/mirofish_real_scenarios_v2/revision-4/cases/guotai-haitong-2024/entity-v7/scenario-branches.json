@@ -1,0 +1,195 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "real-guotai-haitong-2024",
+  "spec_sha256": "517592b8ef64f3c3c8705465f98671b4ecbd0a4221b47488520ea56b2c1ba4be",
+  "simulation_id": "sim_direct_743c83958016",
+  "generated_at": "2026-09-12T06:19:02.405458+00:00",
+  "model_id": "deepseek-ai/DeepSeek-V4-Flash",
+  "prompt_version": "scenario-branch-compiler-v7",
+  "status": "completed",
+  "branches": [
+    {
+      "id": "branch-1",
+      "label": "分析师报告触发竞争者加速布局",
+      "summary": "若分析师于复牌前发布首份包含换股比例预期或业务协同预测的正式研报，竞争者可能基于该研报启动内部战略评估，并加速在分析师未覆盖的区域市场或业务线扩展，以抢占整合窗口期。",
+      "actor_ids": [
+        "actor_analysts",
+        "actor_competitors"
+      ],
+      "trigger_conditions": [
+        "分析师在2024-10-06前发布涵盖国泰君安/海通证券交易的正式研报，并明确提出对换股比例区间或业务整合难度的量化判断"
+      ],
+      "actions": [
+        {
+          "actor_id": "actor_analysts",
+          "action_type": "WAIT",
+          "decision_ref": "decision-actor_analysts-r2"
+        },
+        {
+          "actor_id": "actor_competitors",
+          "action_type": "WAIT",
+          "decision_ref": "decision-actor_competitors-r2"
+        }
+      ],
+      "consequences": [
+        "竞争者将研报数据作为输入，调整自身在投行、资管等重叠业务线的资源分配方案",
+        "竞争者内部可能加快评估是否主动与另一家中型券商合并以维持相对排名"
+      ],
+      "invalidation_conditions": [
+        "2024-10-06前无任何分析师发布包含新量化条件的研报",
+        "竞争者公开声明未进行任何战略调整或业务布局变化"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F3",
+        "F5"
+      ],
+      "simulation_refs": [
+        "decision-actor_analysts-r2",
+        "decision-actor_competitors-r2"
+      ],
+      "novelty_claim": "该分支在已有F1-F5事实基础上，额外构建分析师研判触发竞争者采取防御性加速行动的多主体传导链条，而非仅停留于双方等待状态。",
+      "confidence": 0.35,
+      "confidence_semantics": "branch_coherence_not_forecast_probability"
+    },
+    {
+      "id": "branch-2",
+      "label": "交易所延长停牌引发机构赎回压力",
+      "summary": "若基准停牌期限到期前国泰君安未发布明确复牌公告且交易所未确认是否延长停牌，机构投资者可能因流动性约束无法等待而先行减仓海通证券相关替代仓位，从而在复牌后形成主动卖出压力。",
+      "actor_ids": [
+        "actor_exchange",
+        "actor_institutions"
+      ],
+      "trigger_conditions": [
+        "距基准预计25个交易日届满（约2024-10-10）前3个交易日，交易所未发出任何关于复牌日的确认或延期通知"
+      ],
+      "actions": [
+        {
+          "actor_id": "actor_exchange",
+          "action_type": "WAIT",
+          "decision_ref": "decision-actor_exchange-r2"
+        },
+        {
+          "actor_id": "actor_institutions",
+          "action_type": "WAIT",
+          "decision_ref": "decision-actor_institutions-r2"
+        }
+      ],
+      "consequences": [
+        "机构投资者将基于组合流动性要求，于复牌前通过大宗交易或二级市场减仓海通证券或与海通深度关联的标的以降低敞口",
+        "复牌后国泰君安股票因卖盘集中而面临短期下跌压力"
+      ],
+      "invalidation_conditions": [
+        "交易所于预计停牌期届满前正式公告复牌日期或延期安排",
+        "机构投资者披露其持仓占基金净值比例极低且无流动性压力"
+      ],
+      "evidence_refs": [
+        "F2",
+        "F5"
+      ],
+      "simulation_refs": [
+        "decision-actor_exchange-r2",
+        "decision-actor_institutions-r2"
+      ],
+      "novelty_claim": "该分支连接交易所的停牌管理决策与机构投资者的流动性约束，推导出期限不确定性可能引发主动减仓这一额外传导路径，超越各自单独等待的条件。",
+      "confidence": 0.35,
+      "confidence_semantics": "branch_coherence_not_forecast_probability"
+    },
+    {
+      "id": "branch-3",
+      "label": "中介承销受阻促使海通证券要求条款调整",
+      "summary": "若中介机构因监管顾虑或资本约束宣布不参与配套融资承销，海通证券作为被合并方可能要求国泰君安重新谈判换股比例或筹资结构，以保障其股东价值不因融资难度下降。",
+      "actor_ids": [
+        "actor_brokers",
+        "actor_issuer_600837"
+      ],
+      "trigger_conditions": [
+        "2024-10-06前有至少一家头部券商或银行公开表示不参与本次合并的配套融资承销或授信"
+      ],
+      "actions": [
+        {
+          "actor_id": "actor_brokers",
+          "action_type": "WAIT",
+          "decision_ref": "decision-actor_brokers-r2"
+        },
+        {
+          "actor_id": "actor_issuer_600837",
+          "action_type": "WAIT",
+          "decision_ref": "decision-actor_issuer_600837-r2"
+        }
+      ],
+      "consequences": [
+        "海通证券将以融资方案不可执行为由，主张推迟董事会审议直至替代融资方出现",
+        "国泰君安可能被迫调整配套资金募集规模或结构，并相应修改换股对价"
+      ],
+      "invalidation_conditions": [
+        "2024-10-06前无任何中介机构公开拒绝参与配套融资",
+        "海通证券正式确认接受原定融资框架并推进审议程序"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F4",
+        "F5"
+      ],
+      "simulation_refs": [
+        "decision-actor_brokers-r2",
+        "decision-actor_issuer_600837-r2"
+      ],
+      "novelty_claim": "该分支从中介机构的行为约束出发，推导其拒绝参与的可能如何转化为海通证券对交易条款的重新博弈，而不仅是等待方案的单纯延期。",
+      "confidence": 0.3,
+      "confidence_semantics": "branch_coherence_not_forecast_probability"
+    },
+    {
+      "id": "branch-4",
+      "label": "监管提前介入要求补充披露",
+      "summary": "若监管机构在等待期内主动发出问询函或召开非正式会议，要求国泰君安补充提供本次交易的估值基准、协同效益测算或竞争影响分析，则国泰君安需调整信息披露节奏并推迟正式文件签署。",
+      "actor_ids": [
+        "actor_regulator",
+        "actor_issuer"
+      ],
+      "trigger_conditions": [
+        "交易所在预审或日常沟通中单向监管机构传递需额外材料的建议后，监管机构在2024-10-06前向国泰君安发出书面问询或要求补充披露的通知"
+      ],
+      "actions": [
+        {
+          "actor_id": "actor_regulator",
+          "action_type": "WAIT",
+          "decision_ref": "decision-actor_regulator-r2"
+        },
+        {
+          "actor_id": "actor_issuer",
+          "action_type": "WAIT",
+          "decision_ref": "decision-actor_issuer-r2"
+        }
+      ],
+      "consequences": [
+        "国泰君安将不得不延后董事会审议时间表并申请延长停牌直至完成补充说明",
+        "监管要求一旦公开，将向市场释放交易整合复杂程度高于预期的信号，间接影响机构持仓意愿"
+      ],
+      "invalidation_conditions": [
+        "2024-10-06前监管机构未发出任何形式的问询或补充通知",
+        "国泰君安主动且提前披露本次交易的估值报告或协同效益分析，消除监管疑虑"
+      ],
+      "evidence_refs": [
+        "F2",
+        "F4"
+      ],
+      "simulation_refs": [
+        "decision-actor_regulator-r2",
+        "decision-actor_issuer-r2"
+      ],
+      "novelty_claim": "该分支将监管机构从被动等待角色转为主动介入者，并构建其行动如何通过强制补充披露链条间接改变国泰君安停牌与复牌节奏的传导机制。",
+      "confidence": 0.35,
+      "confidence_semantics": "branch_coherence_not_forecast_probability"
+    }
+  ],
+  "warnings": [
+    "所有分支均基于As of时点事实并添加多主体条件化传导，不包含未知事件或未来价格预测。",
+    "branch-1: bound deterministic actor slot to unique financial decisions",
+    "branch-2: bound deterministic actor slot to unique financial decisions",
+    "branch-3: bound deterministic actor slot to unique financial decisions",
+    "branch-4: bound deterministic actor slot to unique financial decisions",
+    "Branches are simulated hypotheses, not observed evidence.",
+    "Branch confidence expresses coherence, not occurrence probability."
+  ]
+}

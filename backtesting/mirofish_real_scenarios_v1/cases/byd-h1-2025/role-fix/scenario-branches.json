@@ -1,0 +1,200 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "real-byd-h1-2025",
+  "spec_sha256": "113b2d9c974e69d3b475b66eef726a8dfb8c2f9d3f094931e5422a7344a0318b",
+  "simulation_id": "sim_direct_c5d0a549768d",
+  "generated_at": "2026-09-12T04:39:08.164467+00:00",
+  "model_id": "deepseek-ai/DeepSeek-V4-Flash",
+  "prompt_version": "scenario-branch-compiler-v7",
+  "status": "completed",
+  "branches": [
+    {
+      "id": "branch-1",
+      "label": "交易所问询引发主动澄清",
+      "summary": "若交易所向比亚迪发出关于境外收入和毛利率的问询函，比亚迪将发布补充公告详细说明Q2毛利率变动区间及境外业务地缘风险对冲措施，分析师据此调整短期盈利预测并下调目标价，券商则更新研报重新评估中期增长动力。",
+      "actor_ids": [
+        "actor_exchange",
+        "actor_issuer"
+      ],
+      "trigger_conditions": [
+        "未来7天内交易所向比亚迪发出书面问询，要求就境外收入占比至36.46%的地缘政治风险和毛利率变动1.99个百分点的竞争格局进行补充说明",
+        "比亚迪在收到问询后3个交易日内发布补充公告"
+      ],
+      "actions": [
+        {
+          "actor_id": "actor_exchange",
+          "action_type": "COMMUNICATE",
+          "decision_ref": "decision-actor_exchange-r2"
+        },
+        {
+          "actor_id": "actor_issuer",
+          "action_type": "COMMUNICATE",
+          "decision_ref": "decision-actor_issuer-r2"
+        }
+      ],
+      "consequences": [
+        "分析师团队将基于补充公告中的毛利率变动区间和境外风险措辞，调整2025年全年净利润预测（上修或下调均有可能）",
+        "券商机构根据补充信息更新研报，重新评估研发投入转化效率和境外增长的可持续性，并由此调整对股价的短期看法"
+      ],
+      "invalidation_conditions": [
+        "7天内交易所未发出针对性问询函",
+        "比亚迪主动发布毛利率详细拆分但交易所未要求",
+        "分析师或券商在补充公告发布前即公开调整观点"
+      ],
+      "evidence_refs": [
+        "F4",
+        "F5"
+      ],
+      "simulation_refs": [
+        "decision-actor_exchange-r2",
+        "decision-actor_issuer-r2"
+      ],
+      "novelty_claim": "该分支超越了交易所仅做常规提示的场景，描述了交易所问询如何触发公司主动披露附加信息，进而传导至分析师和券商更新其分析和研究产出。",
+      "confidence": 0.65,
+      "confidence_semantics": "branch_coherence_not_forecast_probability"
+    },
+    {
+      "id": "branch-2",
+      "label": "券商下调评级与分析师修正预测",
+      "summary": "若一份主要券商在7天内公开将比亚迪评级从买入下调至持有或减持，理由是毛利率趋势恶化，分析师团队将迫使第三方数据验证并重新评估产能利用率，从而引发连锁修正预测，且其他券商同步调整。",
+      "actor_ids": [
+        "actor_analysts",
+        "actor_brokers"
+      ],
+      "trigger_conditions": [
+        "未来7天内至少一家头部券商（如中信、中金或华泰）发布研报，将比亚迪评级从买入/增持下调至持有或减持",
+        "下调理由明确指向毛利率低于预期或价格战对盈利侵蚀"
+      ],
+      "actions": [
+        {
+          "actor_id": "actor_analysts",
+          "action_type": "WAIT",
+          "decision_ref": "decision-actor_analysts-r2"
+        },
+        {
+          "actor_id": "actor_brokers",
+          "action_type": "WAIT",
+          "decision_ref": "decision-actor_brokers-r2"
+        }
+      ],
+      "consequences": [
+        "分析师团队中的一家或多家为验证毛利率趋势，公开引用第三方批发数据（如乘联会月度份额）来修正其2025年下半年净利润预测",
+        "其他券商为避免落后于市场情绪，在收到该下调报告后48小时内发布跟进或自行调整的研报"
+      ],
+      "invalidation_conditions": [
+        "7天内无券商发布下调评级报告",
+        "券商只调整目标价但未改变评级",
+        "分析师团队在未见券商下调报告的情况下主动调降预测"
+      ],
+      "evidence_refs": [
+        "F4",
+        "F2"
+      ],
+      "simulation_refs": [
+        "decision-actor_analysts-r2",
+        "decision-actor_brokers-r2"
+      ],
+      "novelty_claim": "该分支补充了券商先行动、分析师被动响应的传导链条，而输入仅显示双方均处于等待，本分支展示了当一方打破等待时如何影响另一方。",
+      "confidence": 0.55,
+      "confidence_semantics": "branch_coherence_not_forecast_probability"
+    },
+    {
+      "id": "branch-3",
+      "label": "机构增持与竞争者加速海外产能",
+      "summary": "若机构投资者在7天内基于境外收入增速和现金流质量增持比亚迪股份并公开披露增持动作，竞争者将把该信号解读为对比亚迪海外利润壁垒的长期看好，从而被迫提前宣布加速海外产能布局计划。",
+      "actor_ids": [
+        "actor_institutions",
+        "actor_competitors"
+      ],
+      "trigger_conditions": [
+        "未来7天内机构投资者通过大宗交易或集中交易增持比亚迪股份，且增持动作被交易所披露或媒体报道",
+        "增持理由明确引用境外收入增长或现金流改善"
+      ],
+      "actions": [
+        {
+          "actor_id": "actor_institutions",
+          "action_type": "WAIT",
+          "decision_ref": "decision-actor_institutions-r2"
+        },
+        {
+          "actor_id": "actor_competitors",
+          "action_type": "WAIT",
+          "decision_ref": "decision-actor_competitors-r2"
+        }
+      ],
+      "consequences": [
+        "竞争者（如吉利、长城）在增持消息公开后一周内通过投资者交流平台或简报表态将加快海外工厂建设或评估新的海外产能投资",
+        "机构投资者因增持动作曝光而引发其他机构持仓调整压力，追踪资金可能短期推动股价波动"
+      ],
+      "invalidation_conditions": [
+        "7天内无机构可查的增持动作",
+        "增持理由未提及境外收入或现金流",
+        "竞争者已在7天前宣布过类似产能计划"
+      ],
+      "evidence_refs": [
+        "F5",
+        "F2"
+      ],
+      "simulation_refs": [
+        "decision-actor_institutions-r2",
+        "decision-actor_competitors-r2"
+      ],
+      "novelty_claim": "该分支串联了机构投资者的实际买入动作如何被竞争者解读为行业信号并迫使对方采取投资决策，输入中双方均等待，本分支打破僵局。",
+      "confidence": 0.5,
+      "confidence_semantics": "branch_coherence_not_forecast_probability"
+    },
+    {
+      "id": "branch-4",
+      "label": "公司主动沟通后分析师维持预测并由券商转向怀疑",
+      "summary": "若比亚迪在7天内主动召开业务沟通会或发布投资者简报，强调毛利率口径调整后的实际降幅低于1个百分点且境外业务利润边际改善，分析师维持现有预测不变，但券商反而因缺乏详细数据而出具更谨慎的研究观点。",
+      "actor_ids": [
+        "actor_analysts",
+        "actor_issuer"
+      ],
+      "trigger_conditions": [
+        "未来7天内比亚迪主动举办投资者沟通会或发布专项简报，声明剔除质量保证费用口径调整后毛利率实际降幅小于1个百分点",
+        "分析师团队在沟通会后48小时内公开表示维持原有盈利预测不变"
+      ],
+      "actions": [
+        {
+          "actor_id": "actor_analysts",
+          "action_type": "WAIT",
+          "decision_ref": "decision-actor_analysts-r2"
+        },
+        {
+          "actor_id": "actor_issuer",
+          "action_type": "COMMUNICATE",
+          "decision_ref": "decision-actor_issuer-r2"
+        }
+      ],
+      "consequences": [
+        "券商机构因对公司主动沟通中缺乏毛利率拆分数据（如未提供Q2单独口径）而产生疑虑，在会后72小时内发布研报将评级调为中性或暂不评级",
+        "公司股价在沟通会消息推动下先上涨，但随券商谨慎研报发布后出现回调"
+      ],
+      "invalidation_conditions": [
+        "7天内比亚迪未举办沟通会或发布简报",
+        "分析师团队在沟通会后主动下调了预测",
+        "券商机构在沟通会后上调评级而非调降"
+      ],
+      "evidence_refs": [
+        "F4",
+        "F3"
+      ],
+      "simulation_refs": [
+        "decision-actor_analysts-r2",
+        "decision-actor_issuer-r2"
+      ],
+      "novelty_claim": "该分支描述了公司主动沟通本应稳定预期，但信息的缺乏反而引发券商疑虑并对冲分析师稳定反应的效果，展示了多主体间信息传导的逆效应。",
+      "confidence": 0.6,
+      "confidence_semantics": "branch_coherence_not_forecast_probability"
+    }
+  ],
+  "warnings": [
+    "branch-1: bound deterministic actor slot to unique financial decisions",
+    "branch-2: bound deterministic actor slot to unique financial decisions",
+    "branch-3: bound deterministic actor slot to unique financial decisions",
+    "branch-4: bound deterministic actor slot to unique financial decisions",
+    "Branches are simulated hypotheses, not observed evidence.",
+    "Branch confidence expresses coherence, not occurrence probability."
+  ]
+}

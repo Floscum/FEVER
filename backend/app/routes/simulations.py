@@ -25,6 +25,7 @@ class StartSimulationRequest(BaseModel):
     horizon_days: int = Field(default=30, ge=1, le=365)
     mode: Literal["quick"] = "quick"
     max_actors: int | None = Field(default=None, ge=4, le=10)
+    rerun: bool = False
     market: dict[str, Any] | None = None
 
 

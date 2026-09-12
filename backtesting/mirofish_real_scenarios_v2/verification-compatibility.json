@@ -1,0 +1,5 @@
+{
+  "reason": "Python 3.12 float summation differs from Python 3.9 in two currency fields by less than 2e-17 USD. Verification now uses finite numeric tolerance 1e-12; all raw inputs, responses, calls and metrics remain unchanged.",
+  "previous_verifier_sha256": "cdfab6482f98a51f3032457a3aacbc3428158b0f933119bfb70ef4c4913bff06",
+  "unchanged_metrics_sha256": "a01901e82b87046485787b1882749d870206902b3d9a21c3b1e17a75d4b415bd"
+}

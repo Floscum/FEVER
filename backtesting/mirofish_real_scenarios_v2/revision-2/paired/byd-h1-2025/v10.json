@@ -1,0 +1,12 @@
+{
+  "case_id": "byd-h1-2025",
+  "variant": "v10",
+  "cohort": "public_pilot",
+  "artifact": null,
+  "elapsed_seconds": 35.872814500005916,
+  "attempt_count": 2,
+  "request_ids": [
+    "2bf4b9a7717344fa8134514926593807",
+    "02460c136c964573be7550161f78e027"
+  ]
+}

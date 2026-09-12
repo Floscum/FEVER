@@ -1,0 +1,1264 @@
+{
+  "schema_version": "0.1.0",
+  "job_id": "simjob_fa2afdbc1e9c460d",
+  "case_id": "real-guotai-haitong-2024",
+  "source_graph_artifact_id": "real-public-guotai-haitong-2024",
+  "spec_sha256": "ee29c7f9c903c3415cbf8c84d894a6d147d5523bf666552815303b8cac0ec51c",
+  "reuse_key": "ee29c7f9c903c3415cbf8c84d894a6d147d5523bf666552815303b8cac0ec51c:quick:live:product-v7:presentation-v2:trace-v2",
+  "mode": "quick",
+  "gateway_mode": "live",
+  "status": "completed",
+  "stage": "completed",
+  "progress": 1.0,
+  "created_at": "2026-09-12T12:30:24+08:00",
+  "updated_at": "2026-09-12T12:31:52+08:00",
+  "started_at": "2026-09-12T12:30:24+08:00",
+  "finished_at": "2026-09-12T12:31:52+08:00",
+  "error": null,
+  "result": {
+    "schema_version": "0.1.0",
+    "job": {
+      "id": "simjob_fa2afdbc1e9c460d",
+      "status": "completed",
+      "mode": "quick"
+    },
+    "source": {
+      "case_id": "real-guotai-haitong-2024",
+      "evidence_graph_artifact_id": "real-public-guotai-haitong-2024",
+      "simulation_spec_sha256": "ee29c7f9c903c3415cbf8c84d894a6d147d5523bf666552815303b8cac0ec51c",
+      "as_of": "2024-09-06T23:59:59+08:00",
+      "question": "国泰君安（601211）与海通证券（600837）筹划重组并停牌后，未来30天各参与方可能如何响应？请找出影响交易推进的分歧和需要跟进的公开信号。",
+      "horizon_days": 30
+    },
+    "execution": {
+      "configured_actor_count": 8,
+      "actor_selection": {
+        "mode": "auto",
+        "recommended_count": 8,
+        "applied_limit": 8,
+        "detected_stakeholder_type_count": 3,
+        "configured_count": 8,
+        "matched_event_profiles": [
+          {
+            "id": "ma_capital",
+            "matched_patterns": [
+              "重组"
+            ],
+            "recommended_count": 8
+          }
+        ],
+        "selection_strategy": "literal_mentions_plus_event_structure_v2",
+        "rationale": "从证据与研究问题中识别出 3 类显式利益相关方，并命中 1 类事件结构，按 4/6/8/10 分档建议最多 8 个核心参与方"
+      },
+      "configured_actors": [
+        {
+          "id": "actor_issuer",
+          "label": "事件主体",
+          "kind": "issuer",
+          "selection_reason": "事件研究主体：始终纳入推演",
+          "focus": "维持经营与融资能力，控制事件对客户和业务的影响"
+        },
+        {
+          "id": "actor_regulator",
+          "label": "监管机构",
+          "kind": "regulator",
+          "selection_reason": "证据或研究问题命中：监管、监管机构",
+          "focus": "核实风险并评估调查、审批或补救措施"
+        },
+        {
+          "id": "actor_exchange",
+          "label": "交易所",
+          "kind": "exchange",
+          "selection_reason": "证据或研究问题命中：停牌",
+          "focus": "维护信息披露和交易秩序"
+        },
+        {
+          "id": "actor_institutions",
+          "label": "机构投资者",
+          "kind": "institutional_investor",
+          "selection_reason": "证据或研究问题命中：机构",
+          "focus": "权衡风险敞口、流动性和资本配置"
+        },
+        {
+          "id": "actor_brokers",
+          "label": "券商与中介机构",
+          "kind": "broker",
+          "selection_reason": "事件结构 ma_capital 命中：重组",
+          "focus": "评估融资、交易与中介服务的连续性"
+        },
+        {
+          "id": "actor_competitors",
+          "label": "竞争者",
+          "kind": "competitor",
+          "selection_reason": "事件结构 ma_capital 命中：重组",
+          "focus": "评估竞争格局变化并调整业务响应"
+        },
+        {
+          "id": "actor_analysts",
+          "label": "分析师",
+          "kind": "analyst",
+          "selection_reason": "事件结构 ma_capital 命中：重组",
+          "focus": "比较事实与原有判断，明确需要更新的假设"
+        },
+        {
+          "id": "actor_media",
+          "label": "财经媒体",
+          "kind": "media",
+          "selection_reason": "事件结构 ma_capital 命中：重组",
+          "focus": "核实和传播对事件判断有用的新信息"
+        }
+      ],
+      "active_actor_counts": [
+        8
+      ],
+      "prepared_entity_counts": [
+        8
+      ],
+      "replication_count": 1,
+      "valid_decision_count": 8,
+      "decision_failure_count": 0,
+      "autonomous_action_count": 31,
+      "scenario_actor_count": 8,
+      "interaction_input": {
+        "version": "extractive-interactions-v2",
+        "input_count": 31,
+        "retained_count": 9,
+        "operational_count": 22,
+        "duplicate_count": 0,
+        "empty_count": 0,
+        "budget_dropped_count": 0,
+        "retained_summary_chars": 1512,
+        "retained_input_chars": 2378,
+        "semantics": "selected_simulated_messages_not_observed_facts_or_inferred_influence"
+      },
+      "scenario_compilation": {
+        "status": "completed"
+      },
+      "graph_backend": "direct",
+      "zep_bypassed": true
+    },
+    "scenarios": [
+      {
+        "id": "branch-1",
+        "label": "监管提前介入方案设计",
+        "summary": "监管机构在停牌期间主动沟通，要求公司就换股比例与募集金额的合规性提供补充说明，从而影响事件主体的方案可选项。公司为回应监管关注，可能在正式交易文件中加入保护性条款（如延长锁定期或设置业绩承诺），这将使交易文件的复杂度和审批时间拉长。",
+        "run_count": 1,
+        "frequency": 1.0,
+        "probability_semantics": "uncalibrated_simulation_frequency",
+        "triggers": [
+          "在停牌第10个交易日前，监管机构发布针对该交易的公开问询函或关注函，要求公司补充披露换股定价依据、募集资金用途或反垄断影响分析。",
+          "事件主体在收到关注函后5个工作日内发布补充公告，说明将根据监管意见调整方案细节。"
+        ],
+        "consequences": [
+          "正式交易文件的签署时间将推迟至停牌第20个交易日之后，而非原先预计的前半段。",
+          "调整后的交易文件中将出现此前未明确的锁定期条款或业绩承诺，增加海通证券原股东的未来退出约束。",
+          "机构投资者和券商的评估将因监管介入而转向保守，持仓调整或融资安排将更加审慎。"
+        ],
+        "invalidation_conditions": [
+          "停牌全期监管机构未以书面形式就该交易发出任何问询或关注。",
+          "公司未发布任何补充说明，最终方案内容与原则性协议在结构上一致，无新增保护性条款。"
+        ],
+        "actor_ids": [
+          "actor_regulator",
+          "actor_issuer"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F4"
+        ],
+        "simulation_refs": [
+          "decision-actor_regulator-r2",
+          "decision-actor_issuer-r2"
+        ],
+        "novelty_claim": "本分支超越了‘监管等待申报材料’的基线，描述了监管在申报前主动介入方案设计，从而改变事件主体行动空间的多步骤传导。",
+        "confidence": 0.6,
+        "confidence_semantics": "branch_coherence_not_forecast_probability",
+        "starting_decisions": [
+          {
+            "actor_id": "actor_regulator",
+            "action_type": "WAIT",
+            "decision_status": "conditional",
+            "rationale": "截至截止时点，交易仅处于原则性约定阶段（F3），尚未形成具体交易文件，公司尚未提交需审批的正式申报材料（F4）。作为监管机构，无法在无受理文件的情况下启动审查程序。停牌期间公司将按进展履行披露义务（F5），当前最佳行动是等待公司披露具体换股比例、募集金额等关键要素，并提交正式申报文件后方可启动审批程序。我机构已通过社交媒体表达了监管关注（模拟记忆第2轮中的评论），下一步需等待申报材料实际到达。",
+            "decision_ref": "decision-actor_regulator-r2"
+          },
+          {
+            "actor_id": "actor_issuer",
+            "action_type": "WAIT",
+            "decision_status": "intended",
+            "rationale": "截至2024年9月6日收盘，公司已发布停牌公告并签署合作协议。当前处于交易推进的初始阶段，核心变量（换股比例、募集金额）尚未确定，方案需经董事会、股东大会和监管机构审批，存在重大不确定性。作为事件主体，首要目标是维持经营与融资能力、控制事件对客户和业务的影响。在缺少进一步可观察信息的情况下，最审慎的主要动作是等待内部方案细化与中介机构尽调结果，同时按披露义务在停牌期间定期公告进展。过早进行高强度的外部沟通或操作可能引发市场误解或增大不确定性，与公司已披露的审慎立场和约束不符。",
+            "decision_ref": "decision-actor_issuer-r2"
+          }
+        ],
+        "observations": [
+          {
+            "kind": "trigger",
+            "signal": "在停牌第10个交易日前，监管机构发布针对该交易的公开问询函或关注函，要求公司补充披露换股定价依据、募集资金用途或反垄断影响分析。",
+            "source": "依据资料 F1、F4 的原始来源及后续更新",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4"
+            ]
+          },
+          {
+            "kind": "trigger",
+            "signal": "事件主体在收到关注函后5个工作日内发布补充公告，说明将根据监管意见调整方案细节。",
+            "source": "依据资料 F1、F4 的原始来源及后续更新",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4"
+            ]
+          },
+          {
+            "kind": "invalidation",
+            "signal": "停牌全期监管机构未以书面形式就该交易发出任何问询或关注。",
+            "source": "依据资料 F1、F4 的原始来源及后续更新",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4"
+            ]
+          },
+          {
+            "kind": "invalidation",
+            "signal": "公司未发布任何补充说明，最终方案内容与原则性协议在结构上一致，无新增保护性条款。",
+            "source": "依据资料 F1、F4 的原始来源及后续更新",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4"
+            ]
+          }
+        ],
+        "review_notices": [
+          "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：10个交易日、5个工作日、20个交易日。"
+        ]
+      },
+      {
+        "id": "branch-2",
+        "label": "竞争者公开异议引发分析师下调预期",
+        "summary": "竞争者在停牌期间通过公开渠道表达对合并后市场集中度的担忧并呼吁反垄断审查，分析师据此调整对合并成功的概率估计，并将分析报告基调转向悲观。竞争者的公开反对行动影响了分析师群体的判断框架。",
+        "run_count": 1,
+        "frequency": 1.0,
+        "probability_semantics": "uncalibrated_simulation_frequency",
+        "triggers": [
+          "在停牌第10至第20个交易日之间，至少一家明确标识为券商的竞争者通过媒体采访或正式声明，公开表示本次交易可能导致细分业务垄断并应被纳入反垄断审查。",
+          "在竞争者公开表态后的5个交易日内，至少有三家券商发布将交易成功概率从“高”调整至“中低”或以下评级的研报。"
+        ],
+        "consequences": [
+          "分析师群体对该交易的综合成功概率预期下降，其研报中的不确定性表述从‘主要条款尚需明确’升级为‘监管阻力可能实质性影响结果’。",
+          "竞争者的表态被媒体放大后，机构投资者在等待复牌期间更倾向于计提合并失败的风险，影响其复牌后可能的交易方向。",
+          "事件主体需在后续沟通中额外回应反垄断关切，增加信息披露中关于市场集中度分析的内容。"
+        ],
+        "invalidation_conditions": [
+          "停牌期间无任何竞争者公开提及该交易。",
+          "虽然有竞争者评论，但分析师报告的关键结论（如交易成功概率）未发生可观察上修或下调。"
+        ],
+        "actor_ids": [
+          "actor_competitors",
+          "actor_analysts"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F4"
+        ],
+        "simulation_refs": [
+          "decision-actor_competitors-r2",
+          "decision-actor_analysts-r2"
+        ],
+        "novelty_claim": "本分支以竞争者主动发声作为起点，传导至分析师更新研判，构成了外部压力传导的完整链条，超越了基线中双方各自等待的孤立行为。",
+        "confidence": 0.5,
+        "confidence_semantics": "branch_coherence_not_forecast_probability",
+        "starting_decisions": [
+          {
+            "actor_id": "actor_competitors",
+            "action_type": "WAIT",
+            "decision_status": "conditional",
+            "rationale": "作为行业竞争者，国泰君安与海通的吸收合并将显著改变券商竞争格局，合并后主体资产规模有望超越现有龙头。但当前关键信息仍不充分：换股比例和募集金额未披露（F5），交易协议仅为原则性约定（F3），且须经双方董事会、股东大会及监管批准后方可实施，存在较大不确定性（F4）。国泰君安A股已停牌，预计最长25个交易日（F2），在此期间关键条款将逐步明朗。我方受自身产能、成本和执行周期约束（constraint 1），无法在信息不足时即调整业务部署。因此，当前最合理的动作是维持现有竞争定位，等待停牌期间披露更多交易细节和整合方案后，再评估对细分市场格局的具体冲击和自身应对策略。",
+            "decision_ref": "decision-actor_competitors-r2"
+          },
+          {
+            "actor_id": "actor_analysts",
+            "action_type": "WAIT",
+            "decision_status": "conditional",
+            "rationale": "截至2024-09-06，国泰君安A股已进入停牌状态，市场交易行为不可观测（F2）。合并方案仅签署原则性协议（F3），换股比例与募集金额均未披露（F5），且交易尚需董事会、股东大会及监管批准，存在实施不确定性（F4）。当前缺乏足够事实来更新原有判断。下一决策周期的关键观察窗口为：(1)停牌期间公司按进展履行的信息披露（F5）；(2)正式交易文件签署后披露的换股比例与募集金额。在以上关键变量明确之前，主动沟通缺乏新事实支撑且可能将估计误判为承诺，违反约束要求。故选择WAIT，等待可观察事实积累后再调整判断。",
+            "decision_ref": "decision-actor_analysts-r2"
+          }
+        ],
+        "observations": [
+          {
+            "kind": "trigger",
+            "signal": "在停牌第10至第20个交易日之间，至少一家明确标识为券商的竞争者通过媒体采访或正式声明，公开表示本次交易可能导致细分业务垄断并应被纳入反垄断审查。",
+            "source": "依据资料 F1、F4 的原始来源及后续更新",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4"
+            ]
+          },
+          {
+            "kind": "trigger",
+            "signal": "在竞争者公开表态后的5个交易日内，至少有三家券商发布将交易成功概率从“高”调整至“中低”或以下评级的研报。",
+            "source": "依据资料 F1、F4 的原始来源及后续更新",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4"
+            ]
+          },
+          {
+            "kind": "invalidation",
+            "signal": "停牌期间无任何竞争者公开提及该交易。",
+            "source": "依据资料 F1、F4 的原始来源及后续更新",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4"
+            ]
+          },
+          {
+            "kind": "invalidation",
+            "signal": "虽然有竞争者评论，但分析师报告的关键结论（如交易成功概率）未发生可观察上修或下调。",
+            "source": "依据资料 F1、F4 的原始来源及后续更新",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4"
+            ]
+          }
+        ],
+        "review_notices": [
+          "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：20个交易日、5个交易日。"
+        ]
+      },
+      {
+        "id": "branch-3",
+        "label": "配套融资风险评估促使券商与机构提前磋商",
+        "summary": "券商(中介机构)在缺少交易细节的情况下，主动与机构投资者沟通可能的融资安排可行性，以评估后续服务条件。机构投资者基于沟通反馈，逐步形成对不同换股情景的应对预案。券商的行为首先打破了等待状态，影响了机构的准备姿态。",
+        "run_count": 1,
+        "frequency": 1.0,
+        "probability_semantics": "uncalibrated_simulation_frequency",
+        "triggers": [
+          "在停牌第15个交易日之前，至少一家负责该交易的券商发布一份内部或半公开的融资方案分析，涉及不同募集金额情景下的资本占用影响。",
+          "跟进该券商分析的机构投资者随后在投资者交流平台上发布讨论，内容至少提及“已评估三种换股比例情景下的持仓影响”。"
+        ],
+        "consequences": [
+          "券商中介的服务评估从全等待转向部分活跃，其融资方案分析将影响后续提供的服务范围或费率。",
+          "机构投资者的内部决策提前进入情景推演阶段，复牌后对方案的反应时间将缩短，减少了因信息不足而暂停交易的概率。",
+          "若最终换股比例与券商分析的基准情景差异超过20%，则需重新评估对流动性安排和套利空间的预判。"
+        ],
+        "invalidation_conditions": [
+          "停牌期间所有券商未发布任何融资或交易结构相关的分析师询或尽调纪要文字记录。",
+          "机构投资者未在有记录的交流平台上讨论情景假设或换股比例边际情景。",
+          "所有已发布的券商文档仅引用原则性约定内容，无新增测算数字或情景假设。"
+        ],
+        "actor_ids": [
+          "actor_brokers",
+          "actor_institutions"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F5"
+        ],
+        "simulation_refs": [
+          "decision-actor_brokers-r2",
+          "decision-actor_institutions-r2"
+        ],
+        "novelty_claim": "本分支构建了中介机构先于公告采取行动，并传导至机构投资者改变其准备状态的多主体链条，而非各方均执行‘等待’决策的简单复现。",
+        "confidence": 0.55,
+        "confidence_semantics": "branch_coherence_not_forecast_probability",
+        "starting_decisions": [
+          {
+            "actor_id": "actor_brokers",
+            "action_type": "WAIT",
+            "decision_status": "conditional",
+            "rationale": "截至2024-09-06收盘后，我作为券商中介已观察到国泰君安与海通证券签署吸收合并合作协议（F3），国泰君安A股已自9月6日开市起停牌（F2）。但本次公告未给出换股比例或募集金额（F5），协议仅为原则性约定，正式交易文件尚待签署（F3），且需双方董事会、股东大会审议及监管机构批准后方可实施（F4）。由于关键交易条款缺失、审批路径不确定，我无法评估该融资交易的最终可行性与中介服务连续性。当前最审慎的选择是等待停牌期间后续公告披露具体方案后，再调整融资安排与中介服务判断。",
+            "decision_ref": "decision-actor_brokers-r2"
+          },
+          {
+            "actor_id": "actor_institutions",
+            "action_type": "WAIT",
+            "decision_status": "conditional",
+            "rationale": "截至截止时点，国泰君安已公告拟吸收合并海通证券，A股已于9月6日起停牌（F2），但本次公告未给出换股比例或募集金额（F5），且协议仅作原则性约定（F3），交易需经双方董事会、股东大会及监管机构批准，能否实施仍存在不确定性（F4）。作为机构投资者，受流动性约束（约束1），在缺乏换股对价、复合材料估值基准以及审批确定性之前，无法进行有效的风险收益评估和资本配置。因此最优先动作是等待停牌期间的信息披露（F5），待关键变量（换股比、募集规模、审批进展）披露后再行决策。同时关注模拟平台中分析师帖子反映的市场情绪与关注焦点作为新增信息，但目前不构成调整仓位的充分依据。",
+            "decision_ref": "decision-actor_institutions-r2"
+          }
+        ],
+        "observations": [
+          {
+            "kind": "trigger",
+            "signal": "在停牌第15个交易日之前，至少一家负责该交易的券商发布一份内部或半公开的融资方案分析，涉及不同募集金额情景下的资本占用影响。",
+            "source": "依据资料 F1、F5 的原始来源及后续更新",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F5"
+            ]
+          },
+          {
+            "kind": "trigger",
+            "signal": "跟进该券商分析的机构投资者随后在投资者交流平台上发布讨论，内容至少提及“已评估三种换股比例情景下的持仓影响”。",
+            "source": "依据资料 F1、F5 的原始来源及后续更新",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F5"
+            ]
+          },
+          {
+            "kind": "invalidation",
+            "signal": "停牌期间所有券商未发布任何融资或交易结构相关的分析师询或尽调纪要文字记录。",
+            "source": "依据资料 F1、F5 的原始来源及后续更新",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F5"
+            ]
+          },
+          {
+            "kind": "invalidation",
+            "signal": "机构投资者未在有记录的交流平台上讨论情景假设或换股比例边际情景。",
+            "source": "依据资料 F1、F5 的原始来源及后续更新",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F5"
+            ]
+          },
+          {
+            "kind": "invalidation",
+            "signal": "所有已发布的券商文档仅引用原则性约定内容，无新增测算数字或情景假设。",
+            "source": "依据资料 F1、F5 的原始来源及后续更新",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F5"
+            ]
+          }
+        ],
+        "review_notices": [
+          "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：15个交易日、20%。"
+        ]
+      },
+      {
+        "id": "branch-4",
+        "label": "媒体曝光分歧迫使交易所升级信息披露规则",
+        "summary": "财经媒体在停牌期间通过追踪H股交易线索曝光国泰君安与海通在换股条件上的内部分歧，引发市场关注。交易所因此发布临时补充公告要求，要求双方披露更多细节来澄清分歧，以维护交易秩序。媒体的调查性报道直接引发了交易所的制度回应。",
+        "run_count": 1,
+        "frequency": 1.0,
+        "probability_semantics": "uncalibrated_simulation_frequency",
+        "triggers": [
+          "在停牌第7个交易日后，一家主要财经媒体发布独家报道，内容至少包括对‘匿名信源’描述的合并方在换股比例计算方法或表决机制方面的分歧。",
+          "该报道发布后的3个交易日内，交易所向国泰君安发出函件，要求停牌期间额外披露与媒体报道内容相关的澄清信息，并说明是否对正式文件构成影响。"
+        ],
+        "consequences": [
+          "公司为回应交易所要求，在停牌期间发布比原先承诺的每5日更密集的信息披露，例如发布与正式交易文件起草进度相关的澄清公告。",
+          "媒体因成功发掘独家信息并引发监管回应，获得信誉提升和更大的舆论影响力，可能继续深挖审批中的潜在分歧。",
+          "交易所的新要求使“停牌时间不超过25个交易日”的计划面临更大压力，复牌时间更可能接近上限而非提前。"
+        ],
+        "invalidation_conditions": [
+          "停牌期间无媒体依据可查的信源（非匿名、非推测性）报道关于交易双方的实质性分歧。",
+          "交易所未要求任何额外澄清，公司仍按每5交易日的标准节奏发布进展公告。",
+          "任何媒体报道若事后被公司或权威方明确否认且无后续证据支撑，则该分支被推翻。"
+        ],
+        "actor_ids": [
+          "actor_exchange",
+          "actor_media"
+        ],
+        "evidence_refs": [
+          "F2",
+          "F5"
+        ],
+        "simulation_refs": [
+          "decision-actor_exchange-r2",
+          "decision-actor_media-r2"
+        ],
+        "novelty_claim": "本分支引入了媒体通过曝光分歧触发交易所制度反应的新传导路径，超越了单纯的信息等待循环，体现了外部监督与规则执行方的互动。",
+        "confidence": 0.5,
+        "confidence_semantics": "branch_coherence_not_forecast_probability",
+        "starting_decisions": [
+          {
+            "actor_id": "actor_exchange",
+            "action_type": "WAIT",
+            "decision_status": "no_action",
+            "rationale": "截至2024年9月6日收盘，国泰君安A股已按公告停牌，双方签署的是原则性合作协议，尚需董事会、股东大会及监管机构审批，存在重大不确定性。作为交易所，当前无需采取额外措施，应等待公司按停牌期间信息披露义务提交进展公告或复牌申请后再行研判。主动干预可能替代公司经营判断或越权替代监管审批，不符合约束要求。",
+            "decision_ref": "decision-actor_exchange-r2"
+          },
+          {
+            "actor_id": "actor_media",
+            "action_type": "WAIT",
+            "decision_status": "no_action",
+            "rationale": "截至模拟第2轮，事实信息与上一轮无变化，未观察到新的可核实信息流入。F4明确重组存在不确定性，F5表明更多细节将在停牌期间陆续披露。作为财经媒体，在缺乏新增事实或对方新行动的情况下，贸然传播或评论将违反'只能使用分析截止时间前可观察信息'及'区分事实与推测'的约束。因此本轮选择等待，待官方披露换股比例或复牌公告等新增可观察事实后再进行核实与传播。",
+            "decision_ref": "decision-actor_media-r2"
+          }
+        ],
+        "observations": [
+          {
+            "kind": "trigger",
+            "signal": "在停牌第7个交易日后，一家主要财经媒体发布独家报道，内容至少包括对‘匿名信源’描述的合并方在换股比例计算方法或表决机制方面的分歧。",
+            "source": "依据资料 F2、F5 的原始来源及后续更新",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F2",
+              "F5"
+            ]
+          },
+          {
+            "kind": "trigger",
+            "signal": "该报道发布后的3个交易日内，交易所向国泰君安发出函件，要求停牌期间额外披露与媒体报道内容相关的澄清信息，并说明是否对正式文件构成影响。",
+            "source": "依据资料 F2、F5 的原始来源及后续更新",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F2",
+              "F5"
+            ]
+          },
+          {
+            "kind": "invalidation",
+            "signal": "停牌期间无媒体依据可查的信源（非匿名、非推测性）报道关于交易双方的实质性分歧。",
+            "source": "依据资料 F2、F5 的原始来源及后续更新",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F2",
+              "F5"
+            ]
+          },
+          {
+            "kind": "invalidation",
+            "signal": "交易所未要求任何额外澄清，公司仍按每5交易日的标准节奏发布进展公告。",
+            "source": "依据资料 F2、F5 的原始来源及后续更新",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F2",
+              "F5"
+            ]
+          },
+          {
+            "kind": "invalidation",
+            "signal": "任何媒体报道若事后被公司或权威方明确否认且无后续证据支撑，则该分支被推翻。",
+            "source": "依据资料 F2、F5 的原始来源及后续更新",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F2",
+              "F5"
+            ]
+          }
+        ],
+        "review_notices": [
+          "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：7个交易日、3个交易日、5交易日。"
+        ]
+      }
+    ],
+    "evidence": [
+      {
+        "id": "F1",
+        "observed_at": "2024-09-06T00:00:00+08:00",
+        "time_basis": "source_published_at",
+        "statement": "国泰君安拟以向海通证券A股、H股换股股东分别发行对应股份的方式吸收合并海通证券，并发行A股募集配套资金。",
+        "source_kind": "filing",
+        "source_url": "https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=10470824&stockid=",
+        "evidence_ref": "E1",
+        "confidence": 0.5
+      },
+      {
+        "id": "F2",
+        "observed_at": "2024-09-06T00:00:00+08:00",
+        "time_basis": "source_published_at",
+        "statement": "国泰君安A股从2024年9月6日开市起停牌，公告预计停牌不超过25个交易日；该期限为预计，未披露确定复牌日。",
+        "source_kind": "filing",
+        "source_url": "https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=10470824&stockid=",
+        "evidence_ref": "E2",
+        "confidence": 0.5
+      },
+      {
+        "id": "F3",
+        "observed_at": "2024-09-06T00:00:00+08:00",
+        "time_basis": "source_published_at",
+        "statement": "双方于2024年9月5日签署合作协议，目前仅就重组作出原则性约定，具体方案以进一步签署的交易文件为准。",
+        "source_kind": "filing",
+        "source_url": "https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=10470824&stockid=",
+        "evidence_ref": "E3",
+        "confidence": 0.5
+      },
+      {
+        "id": "F4",
+        "observed_at": "2024-09-06T00:00:00+08:00",
+        "time_basis": "source_published_at",
+        "statement": "交易及正式文件需双方各自董事会、股东大会审议，并获得有权监管机构批准后才能实施，能否实施仍存在不确定性。",
+        "source_kind": "filing",
+        "source_url": "https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=10470824&stockid=",
+        "evidence_ref": "E4",
+        "confidence": 0.5
+      },
+      {
+        "id": "F5",
+        "observed_at": "2024-09-06T00:00:00+08:00",
+        "time_basis": "source_published_at",
+        "statement": "停牌期间公司将按进展履行披露义务，相关事项确定后及时公告并申请复牌。本次公告没有给出换股比例或募集金额。",
+        "source_kind": "filing",
+        "source_url": "https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=10470824&stockid=",
+        "evidence_ref": "E5",
+        "confidence": 0.5
+      }
+    ],
+    "notices": [],
+    "probability_calibration": {
+      "available": false,
+      "reason": "quick mode is scenario-only; B3 requires three replications and structured B1"
+    },
+    "simulation_graph": {
+      "nodes": [
+        {
+          "id": "actor_analysts",
+          "kind": "actor",
+          "label": "分析师"
+        },
+        {
+          "id": "actor_brokers",
+          "kind": "actor",
+          "label": "券商与中介机构"
+        },
+        {
+          "id": "actor_competitors",
+          "kind": "actor",
+          "label": "竞争者"
+        },
+        {
+          "id": "actor_exchange",
+          "kind": "actor",
+          "label": "交易所"
+        },
+        {
+          "id": "actor_institutions",
+          "kind": "actor",
+          "label": "机构投资者"
+        },
+        {
+          "id": "actor_issuer",
+          "kind": "actor",
+          "label": "事件主体"
+        },
+        {
+          "id": "actor_media",
+          "kind": "actor",
+          "label": "财经媒体"
+        },
+        {
+          "id": "actor_regulator",
+          "kind": "actor",
+          "label": "监管机构"
+        },
+        {
+          "id": "trace-25",
+          "kind": "simulated_action",
+          "action_type": "SEARCH_USER",
+          "summary": "search_user"
+        },
+        {
+          "id": "trace-26",
+          "kind": "simulated_action",
+          "action_type": "SEARCH_USER",
+          "summary": "search_user"
+        },
+        {
+          "id": "trace-27",
+          "kind": "simulated_action",
+          "action_type": "SEARCH_POSTS",
+          "summary": "search_posts"
+        },
+        {
+          "id": "trace-28",
+          "kind": "simulated_action",
+          "action_type": "SEARCH_POSTS",
+          "summary": "search_posts"
+        },
+        {
+          "id": "trace-29",
+          "kind": "simulated_action",
+          "action_type": "SEARCH_USER",
+          "summary": "search_user"
+        },
+        {
+          "id": "trace-30",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #1：国泰君安拟以向海通证券A股、H股换股股东分别发行对应股份的方式吸收合并海通证券，并发行A股募集配套资金。"
+        },
+        {
+          "id": "trace-31",
+          "kind": "simulated_action",
+          "action_type": "COMMUNICATE",
+          "summary": "作为合并事件的主体方，我们确认上述信息属实。本次吸收合并是证券行业的重要整合，目前双方已签署合作协议，具体换股比例和募集金额将在后续交易文件中明确披露。请您关注后续公告，我们将按监管要求在停牌期间及时履行信息披露义务。"
+        },
+        {
+          "id": "trace-32",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #2：国泰君安A股从2024年9月6日开市起停牌，公告预计停牌不超过25个交易日；该期限为预计，未披露确定复牌日。"
+        },
+        {
+          "id": "trace-33",
+          "kind": "simulated_action",
+          "action_type": "SEARCH_USER",
+          "summary": "search_user"
+        },
+        {
+          "id": "trace-34",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #3：双方于2024年9月5日签署合作协议，目前仅就重组作出原则性约定，具体方案以进一步签署的交易文件为准。"
+        },
+        {
+          "id": "trace-35",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #4：交易及正式文件需双方各自董事会、股东大会审议，并获得有权监管机构批准后才能实施，能否实施仍存在不确定性。"
+        },
+        {
+          "id": "trace-36",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #5：停牌期间公司将按进展履行披露义务，相关事项确定后及时公告并申请复牌。本次公告没有给出换股比例或募集金额。"
+        },
+        {
+          "id": "trace-37",
+          "kind": "simulated_action",
+          "action_type": "COMMUNICATE",
+          "summary": "【事件分析】国泰君安吸收合并海通证券：关键节点与不确定性解读\n\n事实层面：F1-双方已签署协议，拟通过换股方式合并；F2-国泰君安A股自9月6日起停牌，预计不超25个交易日；F3-目前仅为原则性约定；F4-需董事会、股东大会及监管审批，存在不确定性；F5-换股比例及募集金额尚未披露。\n\n媒体观察：这是中国证券业近年来最大规模的合并案。目前市场缺乏的关键变量（换股比例、配套募资规模）仍为未知数。投资者需关注：①25个交易日后的复牌安排；②监管审批进度（尤其涉及反垄断与金融牌照整合）；③双方股东会表决结果。建议以公开披露为准，避免对未定事项进行价格押注。#国泰君安 #海通证券 #券商合并"
+        },
+        {
+          "id": "trace-46",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #6：【事件分析】国泰君安吸收合并海通证券：关键节点与不确定性解读\n\n事实层面：F1-双方已签署协议，拟通过换股方式合并；F2-国泰君安A股自9月6日起停牌，预计不超25个交易日；F3-目前仅为原则性约定；F4-需董事会、股东大会及监管审批，存在不确定性；F5-换股比例及募集金额尚未披露。\n\n媒体观察：这是中国证券业近年来最大规模的合并案。目前市场缺乏的关键变量（换股比例、配套募资规模）仍为未知数。投资者需关注：①25个交易日后的复牌安排；②监管审批进度（尤其涉及反垄断与金融牌照整合）；③双方股东会表决结果。建议以公开披露为准，避免对未定事项进行价格押注。#国泰君安 #海通证券 #券商合并"
+        },
+        {
+          "id": "trace-47",
+          "kind": "simulated_action",
+          "action_type": "COMMUNICATE",
+          "summary": "感谢对该事件的梳理分析。作为当事方，我们确认您对F1-F5的事实归纳准确。补充几点：1）停牌期间我们将严格按照交易所规则每5个交易日披露一次进展；2）目前重组各项工作正在有序推进中，中介机构已进场开展尽职调查与估值工作；3）最终换股比例将基于经审计的财务数据和评估结果确定，请投资者以后续正式公告为准。我们理解市场关注，但在方案明确前不宜过度解读。"
+        },
+        {
+          "id": "trace-48",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #6：【事件分析】国泰君安吸收合并海通证券：关键节点与不确定性解读\n\n事实层面：F1-双方已签署协议，拟通过换股方式合并；F2-国泰君安A股自9月6日起停牌，预计不超25个交易日；F3-目前仅为原则性约定；F4-需董事会、股东大会及监管审批，存在不确定性；F5-换股比例及募集金额尚未披露。\n\n媒体观察：这是中国证券业近年来最大规模的合并案。目前市场缺乏的关键变量（换股比例、配套募资规模）仍为未知数。投资者需关注：①25个交易日后的复牌安排；②监管审批进度（尤其涉及反垄断与金融牌照整合）；③双方股东会表决结果。建议以公开披露为准，避免对未定事项进行价格押注。#国泰君安 #海通证券 #券商合并"
+        },
+        {
+          "id": "trace-49",
+          "kind": "simulated_action",
+          "action_type": "COMMUNICATE",
+          "summary": "作为机构投资者，赞同分析框架。补充两点：（1）流动性角度，停牌期间需关注ETF及指数基金可能面临的被动调仓压力；（2）资本配置上，若换股比例定价偏低，对海通A股持有者存在套利空间，但F4所述审批不确定性意味着需对极端情景（如监管否决）预设退出路径。建议大家以公开披露为准，勿对未定变量提前下注。"
+        },
+        {
+          "id": "trace-50",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #1：国泰君安拟以向海通证券A股、H股换股股东分别发行对应股份的方式吸收合并海通证券，并发行A股募集配套资金。"
+        },
+        {
+          "id": "trace-51",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #2：国泰君安A股从2024年9月6日开市起停牌，公告预计停牌不超过25个交易日；该期限为预计，未披露确定复牌日。"
+        },
+        {
+          "id": "trace-52",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #3：双方于2024年9月5日签署合作协议，目前仅就重组作出原则性约定，具体方案以进一步签署的交易文件为准。"
+        },
+        {
+          "id": "trace-53",
+          "kind": "simulated_action",
+          "action_type": "COMMUNICATE",
+          "summary": "同意分析框架。补充几点可观察的约束条件：①\"不超过25个交易日\"是预计期限，并非承诺，需关注第20个交易日前后是否发布进展公告；②本次仅签署原则性协议（F3），实际换股比例尚未确定，不应以市场传闻替代公告信息；③监管审批层面需同时关注证监会与反垄断局的审查，两机构审批节奏不同。建议区分\"确定事实\"与\"合理预期\"，在下一份正式交易文件披露前保持研判开放性。#分析师视角"
+        },
+        {
+          "id": "trace-54",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #4：交易及正式文件需双方各自董事会、股东大会审议，并获得有权监管机构批准后才能实施，能否实施仍存在不确定性。"
+        },
+        {
+          "id": "trace-55",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #5：停牌期间公司将按进展履行披露义务，相关事项确定后及时公告并申请复牌。本次公告没有给出换股比例或募集金额。"
+        },
+        {
+          "id": "trace-56",
+          "kind": "simulated_action",
+          "action_type": "LIKE_COMMENT",
+          "summary": "like_comment"
+        },
+        {
+          "id": "trace-57",
+          "kind": "simulated_action",
+          "action_type": "COMMUNICATE",
+          "summary": "【更新】注意到官方账号已在post 1下确认信息属实并承诺后续披露。作为媒体，我们提醒读者注意：①协议签署日(9月5日)至停牌日(9月6日)之间的时间窗口——期间是否已有H股交易值得关注；②\"原则性约定\"的法律含义——与最终协议的偏差空间；③25个交易日的倒计时可从9月6日起算。我们将持续跟踪后续公告。#国泰君安 #海通证券 #券商合并"
+        },
+        {
+          "id": "trace-58",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #1：国泰君安拟以向海通证券A股、H股换股股东分别发行对应股份的方式吸收合并海通证券，并发行A股募集配套资金。"
+        },
+        {
+          "id": "trace-59",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #2：国泰君安A股从2024年9月6日开市起停牌，公告预计停牌不超过25个交易日；该期限为预计，未披露确定复牌日。"
+        },
+        {
+          "id": "trace-60",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #4：交易及正式文件需双方各自董事会、股东大会审议，并获得有权监管机构批准后才能实施，能否实施仍存在不确定性。"
+        },
+        {
+          "id": "trace-61",
+          "kind": "simulated_action",
+          "action_type": "COMMUNICATE",
+          "summary": "作为行业竞争者，关注到国泰君安与海通的合并将重塑券商竞争格局。合并后资产规模将超越中信证券成为行业新龙头。不过目前换股比例和募集金额尚未披露，交易还需董事会、股东大会及监管审批，不确定性较大。在停牌期间我们将持续跟踪进展，评估对自身业务定位的影响和竞争策略调整方向。"
+        },
+        {
+          "id": "trace-62",
+          "kind": "simulated_action",
+          "action_type": "COMMUNICATE",
+          "summary": "【监管关注】本机构注意到该交易需经有权监管机构批准的前提条件。目前交易方案尚处于原则性约定阶段，具体换股比例、募集金额等关键要素尚未披露。我机构将持续关注信息披露合规情况，核实交易是否满足相关监管要求。各方应依法履行信息披露义务，确保投资者合法权益。"
+        },
+        {
+          "id": "trace-63",
+          "kind": "simulated_action",
+          "action_type": "COMMUNICATE",
+          "summary": "【监管回应】分析较为客观，补充几点：（1）该合并案需履行的审批程序包括但不限于：双方董事会审议、股东大会批准、反垄断审查、证券行业监管审批等，尚存在不确定性；（2）停牌期限为预估值，具体复牌时间以公司后续公告为准；（3）我机构将依据法定职责，在申报材料提交后依法开展审核工作，具体审批时限视材料完备程度而定。建议市场参与者以公开披露信息为准，审慎决策。"
+        },
+        {
+          "id": "decision-actor_issuer-r2",
+          "kind": "financial_decision",
+          "action_type": "WAIT",
+          "decision_status": "intended",
+          "direction": "not_applicable",
+          "intensity": 0.0,
+          "confidence": 0.85,
+          "probability_semantics": "decision_clarity_not_forecast_probability",
+          "summary": "截至2024年9月6日收盘，公司已发布停牌公告并签署合作协议。当前处于交易推进的初始阶段，核心变量（换股比例、募集金额）尚未确定，方案需经董事会、股东大会和监管机构审批，存在重大不确定性。作为事件主体，首要目标是维持经营与融资能力、控制事件对客户和业务的影响。在缺少进一步可观察信息的情况下，最审慎的主要动作是等待内部方案细化与中介机构尽调结果，同时按披露义务在停牌期间定期公告进展。过早进行高强度的外部沟通或操作可能引发市场误解或增大不确定性，与公司已披露的审慎立场和约束不符。"
+        },
+        {
+          "id": "decision-actor_regulator-r2",
+          "kind": "financial_decision",
+          "action_type": "WAIT",
+          "decision_status": "conditional",
+          "direction": "conditional",
+          "intensity": 0.6,
+          "confidence": 0.9,
+          "probability_semantics": "decision_clarity_not_forecast_probability",
+          "summary": "截至截止时点，交易仅处于原则性约定阶段（F3），尚未形成具体交易文件，公司尚未提交需审批的正式申报材料（F4）。作为监管机构，无法在无受理文件的情况下启动审查程序。停牌期间公司将按进展履行披露义务（F5），当前最佳行动是等待公司披露具体换股比例、募集金额等关键要素，并提交正式申报文件后方可启动审批程序。我机构已通过社交媒体表达了监管关注（模拟记忆第2轮中的评论），下一步需等待申报材料实际到达。"
+        },
+        {
+          "id": "decision-actor_exchange-r2",
+          "kind": "financial_decision",
+          "action_type": "WAIT",
+          "decision_status": "no_action",
+          "direction": "not_applicable",
+          "intensity": 0.0,
+          "confidence": 0.95,
+          "probability_semantics": "decision_clarity_not_forecast_probability",
+          "summary": "截至2024年9月6日收盘，国泰君安A股已按公告停牌，双方签署的是原则性合作协议，尚需董事会、股东大会及监管机构审批，存在重大不确定性。作为交易所，当前无需采取额外措施，应等待公司按停牌期间信息披露义务提交进展公告或复牌申请后再行研判。主动干预可能替代公司经营判断或越权替代监管审批，不符合约束要求。"
+        },
+        {
+          "id": "decision-actor_institutions-r2",
+          "kind": "financial_decision",
+          "action_type": "WAIT",
+          "decision_status": "conditional",
+          "direction": "not_applicable",
+          "intensity": null,
+          "confidence": 0.9,
+          "probability_semantics": "decision_clarity_not_forecast_probability",
+          "summary": "截至截止时点，国泰君安已公告拟吸收合并海通证券，A股已于9月6日起停牌（F2），但本次公告未给出换股比例或募集金额（F5），且协议仅作原则性约定（F3），交易需经双方董事会、股东大会及监管机构批准，能否实施仍存在不确定性（F4）。作为机构投资者，受流动性约束（约束1），在缺乏换股对价、复合材料估值基准以及审批确定性之前，无法进行有效的风险收益评估和资本配置。因此最优先动作是等待停牌期间的信息披露（F5），待关键变量（换股比、募集规模、审批进展）披露后再行决策。同时关注模拟平台中分析师帖子反映的市场情绪与关注焦点作为新增信息，但目前不构成调整仓位的充分依据。"
+        },
+        {
+          "id": "decision-actor_brokers-r2",
+          "kind": "financial_decision",
+          "action_type": "WAIT",
+          "decision_status": "conditional",
+          "direction": "not_applicable",
+          "intensity": 0.0,
+          "confidence": 0.85,
+          "probability_semantics": "decision_clarity_not_forecast_probability",
+          "summary": "截至2024-09-06收盘后，我作为券商中介已观察到国泰君安与海通证券签署吸收合并合作协议（F3），国泰君安A股已自9月6日开市起停牌（F2）。但本次公告未给出换股比例或募集金额（F5），协议仅为原则性约定，正式交易文件尚待签署（F3），且需双方董事会、股东大会审议及监管机构批准后方可实施（F4）。由于关键交易条款缺失、审批路径不确定，我无法评估该融资交易的最终可行性与中介服务连续性。当前最审慎的选择是等待停牌期间后续公告披露具体方案后，再调整融资安排与中介服务判断。"
+        },
+        {
+          "id": "decision-actor_competitors-r2",
+          "kind": "financial_decision",
+          "action_type": "WAIT",
+          "decision_status": "conditional",
+          "direction": "maintain",
+          "intensity": 0.3,
+          "confidence": 0.85,
+          "probability_semantics": "decision_clarity_not_forecast_probability",
+          "summary": "作为行业竞争者，国泰君安与海通的吸收合并将显著改变券商竞争格局，合并后主体资产规模有望超越现有龙头。但当前关键信息仍不充分：换股比例和募集金额未披露（F5），交易协议仅为原则性约定（F3），且须经双方董事会、股东大会及监管批准后方可实施，存在较大不确定性（F4）。国泰君安A股已停牌，预计最长25个交易日（F2），在此期间关键条款将逐步明朗。我方受自身产能、成本和执行周期约束（constraint 1），无法在信息不足时即调整业务部署。因此，当前最合理的动作是维持现有竞争定位，等待停牌期间披露更多交易细节和整合方案后，再评估对细分市场格局的具体冲击和自身应对策略。"
+        },
+        {
+          "id": "decision-actor_analysts-r2",
+          "kind": "financial_decision",
+          "action_type": "WAIT",
+          "decision_status": "conditional",
+          "direction": "not_applicable",
+          "intensity": 0.0,
+          "confidence": 0.95,
+          "probability_semantics": "decision_clarity_not_forecast_probability",
+          "summary": "截至2024-09-06，国泰君安A股已进入停牌状态，市场交易行为不可观测（F2）。合并方案仅签署原则性协议（F3），换股比例与募集金额均未披露（F5），且交易尚需董事会、股东大会及监管批准，存在实施不确定性（F4）。当前缺乏足够事实来更新原有判断。下一决策周期的关键观察窗口为：(1)停牌期间公司按进展履行的信息披露（F5）；(2)正式交易文件签署后披露的换股比例与募集金额。在以上关键变量明确之前，主动沟通缺乏新事实支撑且可能将估计误判为承诺，违反约束要求。故选择WAIT，等待可观察事实积累后再调整判断。"
+        },
+        {
+          "id": "decision-actor_media-r2",
+          "kind": "financial_decision",
+          "action_type": "WAIT",
+          "decision_status": "no_action",
+          "direction": "not_applicable",
+          "intensity": null,
+          "confidence": 0.95,
+          "probability_semantics": "decision_clarity_not_forecast_probability",
+          "summary": "截至模拟第2轮，事实信息与上一轮无变化，未观察到新的可核实信息流入。F4明确重组存在不确定性，F5表明更多细节将在停牌期间陆续披露。作为财经媒体，在缺乏新增事实或对方新行动的情况下，贸然传播或评论将违反'只能使用分析截止时间前可观察信息'及'区分事实与推测'的约束。因此本轮选择等待，待官方披露换股比例或复牌公告等新增可观察事实后再进行核实与传播。"
+        },
+        {
+          "id": "branch-1",
+          "kind": "scenario",
+          "summary": "监管机构在停牌期间主动沟通，要求公司就换股比例与募集金额的合规性提供补充说明，从而影响事件主体的方案可选项。公司为回应监管关注，可能在正式交易文件中加入保护性条款（如延长锁定期或设置业绩承诺），这将使交易文件的复杂度和审批时间拉长。",
+          "triggers": [
+            "在停牌第10个交易日前，监管机构发布针对该交易的公开问询函或关注函，要求公司补充披露换股定价依据、募集资金用途或反垄断影响分析。",
+            "事件主体在收到关注函后5个工作日内发布补充公告，说明将根据监管意见调整方案细节。"
+          ],
+          "consequences": [
+            "正式交易文件的签署时间将推迟至停牌第20个交易日之后，而非原先预计的前半段。",
+            "调整后的交易文件中将出现此前未明确的锁定期条款或业绩承诺，增加海通证券原股东的未来退出约束。",
+            "机构投资者和券商的评估将因监管介入而转向保守，持仓调整或融资安排将更加审慎。"
+          ],
+          "invalidation_conditions": [
+            "停牌全期监管机构未以书面形式就该交易发出任何问询或关注。",
+            "公司未发布任何补充说明，最终方案内容与原则性协议在结构上一致，无新增保护性条款。"
+          ],
+          "novelty_claim": "本分支超越了‘监管等待申报材料’的基线，描述了监管在申报前主动介入方案设计，从而改变事件主体行动空间的多步骤传导。",
+          "confidence": 0.6,
+          "probability_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-2",
+          "kind": "scenario",
+          "summary": "竞争者在停牌期间通过公开渠道表达对合并后市场集中度的担忧并呼吁反垄断审查，分析师据此调整对合并成功的概率估计，并将分析报告基调转向悲观。竞争者的公开反对行动影响了分析师群体的判断框架。",
+          "triggers": [
+            "在停牌第10至第20个交易日之间，至少一家明确标识为券商的竞争者通过媒体采访或正式声明，公开表示本次交易可能导致细分业务垄断并应被纳入反垄断审查。",
+            "在竞争者公开表态后的5个交易日内，至少有三家券商发布将交易成功概率从“高”调整至“中低”或以下评级的研报。"
+          ],
+          "consequences": [
+            "分析师群体对该交易的综合成功概率预期下降，其研报中的不确定性表述从‘主要条款尚需明确’升级为‘监管阻力可能实质性影响结果’。",
+            "竞争者的表态被媒体放大后，机构投资者在等待复牌期间更倾向于计提合并失败的风险，影响其复牌后可能的交易方向。",
+            "事件主体需在后续沟通中额外回应反垄断关切，增加信息披露中关于市场集中度分析的内容。"
+          ],
+          "invalidation_conditions": [
+            "停牌期间无任何竞争者公开提及该交易。",
+            "虽然有竞争者评论，但分析师报告的关键结论（如交易成功概率）未发生可观察上修或下调。"
+          ],
+          "novelty_claim": "本分支以竞争者主动发声作为起点，传导至分析师更新研判，构成了外部压力传导的完整链条，超越了基线中双方各自等待的孤立行为。",
+          "confidence": 0.5,
+          "probability_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-3",
+          "kind": "scenario",
+          "summary": "券商(中介机构)在缺少交易细节的情况下，主动与机构投资者沟通可能的融资安排可行性，以评估后续服务条件。机构投资者基于沟通反馈，逐步形成对不同换股情景的应对预案。券商的行为首先打破了等待状态，影响了机构的准备姿态。",
+          "triggers": [
+            "在停牌第15个交易日之前，至少一家负责该交易的券商发布一份内部或半公开的融资方案分析，涉及不同募集金额情景下的资本占用影响。",
+            "跟进该券商分析的机构投资者随后在投资者交流平台上发布讨论，内容至少提及“已评估三种换股比例情景下的持仓影响”。"
+          ],
+          "consequences": [
+            "券商中介的服务评估从全等待转向部分活跃，其融资方案分析将影响后续提供的服务范围或费率。",
+            "机构投资者的内部决策提前进入情景推演阶段，复牌后对方案的反应时间将缩短，减少了因信息不足而暂停交易的概率。",
+            "若最终换股比例与券商分析的基准情景差异超过20%，则需重新评估对流动性安排和套利空间的预判。"
+          ],
+          "invalidation_conditions": [
+            "停牌期间所有券商未发布任何融资或交易结构相关的分析师询或尽调纪要文字记录。",
+            "机构投资者未在有记录的交流平台上讨论情景假设或换股比例边际情景。",
+            "所有已发布的券商文档仅引用原则性约定内容，无新增测算数字或情景假设。"
+          ],
+          "novelty_claim": "本分支构建了中介机构先于公告采取行动，并传导至机构投资者改变其准备状态的多主体链条，而非各方均执行‘等待’决策的简单复现。",
+          "confidence": 0.55,
+          "probability_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-4",
+          "kind": "scenario",
+          "summary": "财经媒体在停牌期间通过追踪H股交易线索曝光国泰君安与海通在换股条件上的内部分歧，引发市场关注。交易所因此发布临时补充公告要求，要求双方披露更多细节来澄清分歧，以维护交易秩序。媒体的调查性报道直接引发了交易所的制度回应。",
+          "triggers": [
+            "在停牌第7个交易日后，一家主要财经媒体发布独家报道，内容至少包括对‘匿名信源’描述的合并方在换股比例计算方法或表决机制方面的分歧。",
+            "该报道发布后的3个交易日内，交易所向国泰君安发出函件，要求停牌期间额外披露与媒体报道内容相关的澄清信息，并说明是否对正式文件构成影响。"
+          ],
+          "consequences": [
+            "公司为回应交易所要求，在停牌期间发布比原先承诺的每5日更密集的信息披露，例如发布与正式交易文件起草进度相关的澄清公告。",
+            "媒体因成功发掘独家信息并引发监管回应，获得信誉提升和更大的舆论影响力，可能继续深挖审批中的潜在分歧。",
+            "交易所的新要求使“停牌时间不超过25个交易日”的计划面临更大压力，复牌时间更可能接近上限而非提前。"
+          ],
+          "invalidation_conditions": [
+            "停牌期间无媒体依据可查的信源（非匿名、非推测性）报道关于交易双方的实质性分歧。",
+            "交易所未要求任何额外澄清，公司仍按每5交易日的标准节奏发布进展公告。",
+            "任何媒体报道若事后被公司或权威方明确否认且无后续证据支撑，则该分支被推翻。"
+          ],
+          "novelty_claim": "本分支引入了媒体通过曝光分歧触发交易所制度反应的新传导路径，超越了单纯的信息等待循环，体现了外部监督与规则执行方的互动。",
+          "confidence": 0.5,
+          "probability_semantics": "branch_coherence_not_forecast_probability"
+        }
+      ],
+      "edges": [
+        {
+          "source": "actor_competitors",
+          "target": "trace-25",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_competitors",
+          "target": "trace-26",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_analysts",
+          "target": "trace-27",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_competitors",
+          "target": "trace-28",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_analysts",
+          "target": "trace-29",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_brokers",
+          "target": "trace-30",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_issuer",
+          "target": "trace-31",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_brokers",
+          "target": "trace-32",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_regulator",
+          "target": "trace-33",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_brokers",
+          "target": "trace-34",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_brokers",
+          "target": "trace-35",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_brokers",
+          "target": "trace-36",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_media",
+          "target": "trace-37",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_brokers",
+          "target": "trace-46",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_issuer",
+          "target": "trace-47",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_institutions",
+          "target": "trace-48",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_institutions",
+          "target": "trace-49",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_exchange",
+          "target": "trace-50",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_exchange",
+          "target": "trace-51",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_exchange",
+          "target": "trace-52",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_analysts",
+          "target": "trace-53",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_exchange",
+          "target": "trace-54",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_exchange",
+          "target": "trace-55",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_media",
+          "target": "trace-56",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_media",
+          "target": "trace-57",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_competitors",
+          "target": "trace-58",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_competitors",
+          "target": "trace-59",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_competitors",
+          "target": "trace-60",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_competitors",
+          "target": "trace-61",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_regulator",
+          "target": "trace-62",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_regulator",
+          "target": "trace-63",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_issuer",
+          "target": "decision-actor_issuer-r2",
+          "relation": "SIMULATED_FINANCIAL_DECISION"
+        },
+        {
+          "source": "actor_regulator",
+          "target": "decision-actor_regulator-r2",
+          "relation": "SIMULATED_FINANCIAL_DECISION"
+        },
+        {
+          "source": "actor_exchange",
+          "target": "decision-actor_exchange-r2",
+          "relation": "SIMULATED_FINANCIAL_DECISION"
+        },
+        {
+          "source": "actor_institutions",
+          "target": "decision-actor_institutions-r2",
+          "relation": "SIMULATED_FINANCIAL_DECISION"
+        },
+        {
+          "source": "actor_brokers",
+          "target": "decision-actor_brokers-r2",
+          "relation": "SIMULATED_FINANCIAL_DECISION"
+        },
+        {
+          "source": "actor_competitors",
+          "target": "decision-actor_competitors-r2",
+          "relation": "SIMULATED_FINANCIAL_DECISION"
+        },
+        {
+          "source": "actor_analysts",
+          "target": "decision-actor_analysts-r2",
+          "relation": "SIMULATED_FINANCIAL_DECISION"
+        },
+        {
+          "source": "actor_media",
+          "target": "decision-actor_media-r2",
+          "relation": "SIMULATED_FINANCIAL_DECISION"
+        },
+        {
+          "source": "decision-actor_regulator-r2",
+          "target": "branch-1",
+          "relation": "CONTRIBUTES_TO_SCENARIO"
+        },
+        {
+          "source": "decision-actor_issuer-r2",
+          "target": "branch-1",
+          "relation": "CONTRIBUTES_TO_SCENARIO"
+        },
+        {
+          "source": "decision-actor_competitors-r2",
+          "target": "branch-2",
+          "relation": "CONTRIBUTES_TO_SCENARIO"
+        },
+        {
+          "source": "decision-actor_analysts-r2",
+          "target": "branch-2",
+          "relation": "CONTRIBUTES_TO_SCENARIO"
+        },
+        {
+          "source": "decision-actor_brokers-r2",
+          "target": "branch-3",
+          "relation": "CONTRIBUTES_TO_SCENARIO"
+        },
+        {
+          "source": "decision-actor_institutions-r2",
+          "target": "branch-3",
+          "relation": "CONTRIBUTES_TO_SCENARIO"
+        },
+        {
+          "source": "decision-actor_exchange-r2",
+          "target": "branch-4",
+          "relation": "CONTRIBUTES_TO_SCENARIO"
+        },
+        {
+          "source": "decision-actor_media-r2",
+          "target": "branch-4",
+          "relation": "CONTRIBUTES_TO_SCENARIO"
+        }
+      ]
+    },
+    "warnings": [
+      "Integration smoke result only; it is not a calibrated financial forecast.",
+      "The upstream run monitor reported zero actions; SQLite was used as the authoritative source.",
+      "OASIS did not persist per-action round numbers, so exported events use round 0.",
+      "Rule-generated institutional profiles contain consumer-social attributes and require a financial profile compiler.",
+      "Structured financial decisions were elicited post-simulation and remain simulated claims.",
+      "Single-run scenario frequency is uncalibrated and must not be read as probability."
+    ],
+    "audit": {
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "gateway_mode": "live"
+    }
+  },
+  "reused": false
+}

@@ -1,0 +1,376 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "real-crowdstrike-outage-2024",
+  "title": "CrowdStrike（CRWD）更新导致Windows客户系统中断后，未来7天各参与方可能如何响应？哪些二阶影响和恢复信号值得跟进？",
+  "as_of": "2024-07-20T23:59:59+00:00",
+  "question": "CrowdStrike（CRWD）更新导致Windows客户系统中断后，未来7天各参与方可能如何响应？哪些二阶影响和恢复信号值得跟进？",
+  "horizon": {
+    "kind": "calendar_days",
+    "value": 7,
+    "end_at": "2024-07-27T23:59:59+00:00"
+  },
+  "market": {
+    "region": "US",
+    "venues": [
+      "NASDAQ"
+    ],
+    "instruments": [
+      {
+        "symbol": "CRWD",
+        "name": "CrowdStrike",
+        "kind": "equity",
+        "currency": "USD"
+      }
+    ]
+  },
+  "facts": [
+    {
+      "id": "F1",
+      "observed_at": "2024-07-20T00:00:00+00:00",
+      "time_basis": "source_published_at",
+      "statement": "CrowdStrike说明：2024年7月19日04:09 UTC发布Windows传感器配置更新，引发逻辑错误，导致部分系统崩溃和蓝屏。",
+      "source_kind": "official",
+      "source_url": "https://www.crowdstrike.com/en-us/blog/falcon-update-for-windows-hosts-technical-details/",
+      "evidence_ref": "E1",
+      "confidence": 0.5
+    },
+    {
+      "id": "F2",
+      "observed_at": "2024-07-20T00:00:00+00:00",
+      "time_basis": "source_published_at",
+      "statement": "CrowdStrike称导致问题的配置更新已于7月19日05:27 UTC修正，并明确该事件不是网络攻击。",
+      "source_kind": "official",
+      "source_url": "https://www.crowdstrike.com/en-us/blog/falcon-update-for-windows-hosts-technical-details/",
+      "evidence_ref": "E2",
+      "confidence": 0.5
+    },
+    {
+      "id": "F3",
+      "observed_at": "2024-07-20T00:00:00+00:00",
+      "time_basis": "source_published_at",
+      "statement": "运行Windows Falcon 7.11及以上版本、并在04:09至05:27 UTC期间下载该配置的系统可能受影响。",
+      "source_kind": "official",
+      "source_url": "https://www.crowdstrike.com/en-us/blog/falcon-update-for-windows-hosts-technical-details/",
+      "evidence_ref": "E3",
+      "confidence": 0.5
+    },
+    {
+      "id": "F4",
+      "observed_at": "2024-07-20T00:00:00+00:00",
+      "time_basis": "source_published_at",
+      "statement": "Microsoft在7月20日估计约850万台Windows设备受影响，占所有Windows设备不足1%；关键服务企业使用这些设备使经济社会影响扩大。",
+      "source_kind": "official",
+      "source_url": "https://blogs.microsoft.com/blog/2024/07/20/helping-our-customers-through-the-crowdstrike-outage/",
+      "evidence_ref": "E4",
+      "confidence": 0.5
+    },
+    {
+      "id": "F5",
+      "observed_at": "2024-07-20T00:00:00+00:00",
+      "time_basis": "source_published_at",
+      "statement": "Microsoft已派出数百名工程师协助客户恢复，与CrowdStrike以及AWS、Google Cloud协作，并提供手工恢复文档与脚本。",
+      "source_kind": "official",
+      "source_url": "https://blogs.microsoft.com/blog/2024/07/20/helping-our-customers-through-the-crowdstrike-outage/",
+      "evidence_ref": "E5",
+      "confidence": 0.5
+    }
+  ],
+  "actors": [
+    {
+      "id": "actor_issuer",
+      "label": "CrowdStrike（CRWD）",
+      "kind": "issuer",
+      "aggregation": "organization",
+      "goals": [
+        "代表CrowdStrike独立评估经营与交易条件，维护自身利益",
+        "根据对方行动与新增信息调整判断"
+      ],
+      "constraints": [
+        "只能使用分析截止时间前可观察的信息",
+        "行动受现金、执行能力和已披露承诺约束，不假定有无限资源",
+        "只代表CrowdStrike作出自身权限内的决策；不能代替交易对方、股东或监管机构批准交易"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "assumptions": [
+        "上述目标与资源约束是角色建模假设，具体资源、权限和私有信息仍以证据为准"
+      ],
+      "selection_reason": "问题或市场信息提供名称与代码；主体名称在 F1、F2、F5 中可核对。身份匹配不代表已验证证券代码或交易权限",
+      "identity": {
+        "name": "CrowdStrike",
+        "symbol": "CRWD",
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F5"
+        ]
+      }
+    },
+    {
+      "id": "actor_customers",
+      "label": "客户",
+      "kind": "customer",
+      "aggregation": "cohort",
+      "goals": [
+        "保障产品或服务连续性，权衡成本和替代方案",
+        "根据对方行动与新增信息调整判断"
+      ],
+      "constraints": [
+        "只能使用分析截止时间前可观察的信息",
+        "考虑合同、转换成本和替代供给，不假定需求可以即时转移"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "assumptions": [
+        "上述目标与资源约束是角色建模假设，具体资源、权限和私有信息仍以证据为准"
+      ],
+      "selection_reason": "证据或研究问题命中：客户"
+    },
+    {
+      "id": "actor_suppliers",
+      "label": "供应商",
+      "kind": "supplier",
+      "aggregation": "cohort",
+      "goals": [
+        "保障回款与订单稳定，评估交付和信用风险",
+        "根据对方行动与新增信息调整判断"
+      ],
+      "constraints": [
+        "只能使用分析截止时间前可观察的信息",
+        "受合同、产能和客户依赖约束，不假定可立即替换所有订单"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "assumptions": [
+        "上述目标与资源约束是角色建模假设，具体资源、权限和私有信息仍以证据为准"
+      ],
+      "selection_reason": "事件结构 operational_disruption 命中：系统中断、系统崩溃"
+    },
+    {
+      "id": "actor_competitors",
+      "label": "竞争者",
+      "kind": "competitor",
+      "aggregation": "cohort",
+      "goals": [
+        "评估竞争格局变化并调整业务响应",
+        "根据对方行动与新增信息调整判断"
+      ],
+      "constraints": [
+        "只能使用分析截止时间前可观察的信息",
+        "受自身产能、成本和执行周期限制，不预设可以立即承接全部需求"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "assumptions": [
+        "上述目标与资源约束是角色建模假设，具体资源、权限和私有信息仍以证据为准"
+      ],
+      "selection_reason": "事件结构 operational_disruption 命中：系统中断、系统崩溃"
+    },
+    {
+      "id": "actor_institutions",
+      "label": "机构投资者",
+      "kind": "institutional_investor",
+      "aggregation": "cohort",
+      "goals": [
+        "权衡风险敞口、流动性和资本配置",
+        "根据对方行动与新增信息调整判断"
+      ],
+      "constraints": [
+        "只能使用分析截止时间前可观察的信息",
+        "受投资授权和流动性约束，不假定能够无限增持或立即退出"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "assumptions": [
+        "上述目标与资源约束是角色建模假设，具体资源、权限和私有信息仍以证据为准"
+      ],
+      "selection_reason": "事件结构 operational_disruption 命中：系统中断、系统崩溃"
+    },
+    {
+      "id": "actor_media",
+      "label": "财经媒体",
+      "kind": "media",
+      "aggregation": "cohort",
+      "goals": [
+        "核实和传播对事件判断有用的新信息",
+        "根据对方行动与新增信息调整判断"
+      ],
+      "constraints": [
+        "只能使用分析截止时间前可观察的信息",
+        "区分事实、消息与推测，不凭空增加独家信息"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "assumptions": [
+        "上述目标与资源约束是角色建模假设，具体资源、权限和私有信息仍以证据为准"
+      ],
+      "selection_reason": "事件结构 operational_disruption 命中：系统中断、系统崩溃"
+    }
+  ],
+  "relationships": [
+    {
+      "source_actor_id": "actor_customers",
+      "target_actor_id": "actor_issuer",
+      "kind": "constrains_or_influences",
+      "visibility": "assumed"
+    },
+    {
+      "source_actor_id": "actor_suppliers",
+      "target_actor_id": "actor_issuer",
+      "kind": "constrains_or_influences",
+      "visibility": "assumed"
+    },
+    {
+      "source_actor_id": "actor_competitors",
+      "target_actor_id": "actor_issuer",
+      "kind": "constrains_or_influences",
+      "visibility": "assumed"
+    },
+    {
+      "source_actor_id": "actor_institutions",
+      "target_actor_id": "actor_issuer",
+      "kind": "constrains_or_influences",
+      "visibility": "assumed"
+    },
+    {
+      "source_actor_id": "actor_media",
+      "target_actor_id": "actor_issuer",
+      "kind": "constrains_or_influences",
+      "visibility": "assumed"
+    },
+    {
+      "source_actor_id": "actor_issuer",
+      "target_actor_id": "actor_media",
+      "kind": "communicates_actions_to",
+      "visibility": "assumed"
+    }
+  ],
+  "allowed_actions": [
+    {
+      "type": "COMMUNICATE",
+      "description": "公开沟通与预期管理",
+      "visibility": "public"
+    },
+    {
+      "type": "OPERATE",
+      "description": "调整业务、产品或治理",
+      "visibility": "either"
+    },
+    {
+      "type": "REGULATE",
+      "description": "调查、批准、限制或补救",
+      "visibility": "public"
+    },
+    {
+      "type": "ALLOCATE",
+      "description": "调整资本或风险敞口",
+      "visibility": "private"
+    },
+    {
+      "type": "NEGOTIATE",
+      "description": "协商交易或治理条件",
+      "visibility": "private"
+    },
+    {
+      "type": "WAIT",
+      "description": "等待更多证据或对方行动",
+      "visibility": "either"
+    }
+  ],
+  "interventions": [
+    {
+      "id": "I0_FEVER_EVIDENCE",
+      "at_round": 0,
+      "fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "visibility": "public"
+    }
+  ],
+  "forecast_targets": [
+    {
+      "id": "T1",
+      "kind": "event",
+      "definition": "CrowdStrike（CRWD）更新导致Windows客户系统中断后，未来7天各参与方可能如何响应？哪些二阶影响和恢复信号值得跟进？",
+      "horizon": "7_calendar_days",
+      "scoring": "brier"
+    }
+  ],
+  "run_config": {
+    "rounds": 3,
+    "replications": 3,
+    "seed_strategy": "deterministic_sequence",
+    "layers": [
+      "information",
+      "behavior"
+    ]
+  },
+  "provenance": {
+    "created_by": "FEVER SimulationSpecBuilder v1",
+    "source_graph_artifact_id": "real-public-crowdstrike-outage-2024",
+    "notes": [
+      "Scenario-first integration input; simulation output is not evidence.",
+      "Quick mode executes one partial replication from a three-replication spec."
+    ],
+    "actor_selection": {
+      "mode": "auto",
+      "recommended_count": 6,
+      "applied_limit": 6,
+      "detected_stakeholder_type_count": 1,
+      "configured_count": 6,
+      "matched_event_profiles": [
+        {
+          "id": "operational_disruption",
+          "matched_patterns": [
+            "系统中断",
+            "系统崩溃"
+          ],
+          "recommended_count": 6
+        }
+      ],
+      "selection_strategy": "literal_mentions_plus_event_structure_v4_entities",
+      "rationale": "从证据与研究问题中识别出 1 类显式利益相关方，并命中 1 类事件结构，按 4/6/8/10 分档建议最多 6 个核心参与方",
+      "identified_entity_count": 1,
+      "configured_entity_count": 1,
+      "unconfigured_entity_names": []
+    },
+    "evidence_timing": {
+      "excluded_future_ids": [],
+      "unknown_time_ids": []
+    }
+  }
+}

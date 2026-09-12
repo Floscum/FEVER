@@ -1,0 +1,185 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "real-byd-h1-2025",
+  "spec_sha256": "00d95bc7e3c2994a79bbded4902050441512fcac34f4306e593f7bf6586c72bc",
+  "simulation_id": "sim_direct_c2a874cf41ed",
+  "generated_at": "2026-09-12T04:30:22.391115+00:00",
+  "model_id": "deepseek-ai/DeepSeek-V4-Flash",
+  "prompt_version": "scenario-branch-compiler-v7",
+  "status": "completed",
+  "branches": [
+    {
+      "id": "branch-1",
+      "label": "媒体追问引发公司补充说明",
+      "summary": "若媒体在发布财报分析后，对比亚迪的毛利率下降原因或研发投入转化效率提出深度追问，比亚迪可能选择主动发布补充公告或业务沟通会纪要，进一步解释质量保证费用口径调整的细节和研发投入的具体项目进展，以稳定市场预期。",
+      "actor_ids": [
+        "actor_media",
+        "actor_issuer"
+      ],
+      "trigger_conditions": [
+        "在2025-09-06前，财经媒体（含actor_media或其同行）发布至少2篇对比亚迪毛利率下降或研发转化效率的质疑性报道，且被主流财经平台转载。"
+      ],
+      "actions": [
+        {
+          "actor_id": "actor_media",
+          "action_type": "COMMUNICATE",
+          "decision_ref": "decision-actor_media-r2"
+        },
+        {
+          "actor_id": "actor_issuer",
+          "action_type": "COMMUNICATE",
+          "decision_ref": "decision-actor_issuer-r2"
+        }
+      ],
+      "consequences": [
+        "比亚迪的补充说明可能短时间内减少市场关于毛利率的负面解读，但若补充公告缺乏具体量化指引（如下半年毛利率目标），机构投资者的观望态度可能维持不变。"
+      ],
+      "invalidation_conditions": [
+        "媒体未在7天内发表任何关于毛利率或研发效率的深度追问报道；或比亚迪明确拒绝就财报细节发布补充说明。"
+      ],
+      "evidence_refs": [
+        "F4",
+        "F3"
+      ],
+      "simulation_refs": [
+        "decision-actor_media-r2",
+        "decision-actor_issuer-r2"
+      ],
+      "novelty_claim": "该分支超出事实复述的部分在于：媒体主动追问的行为，如何迫使公司在其原定期沟通计划之外额外披露信息，从而改变信息环境的透明度。",
+      "confidence": 0.6,
+      "confidence_semantics": "branch_coherence_not_forecast_probability"
+    },
+    {
+      "id": "branch-2",
+      "label": "交易所问询引发分析师两极分化",
+      "summary": "若交易所向比亚迪发出关于毛利率口径调整和境外收入风险披露的问询函，部分分析师可能下调盈利预测并降低评级，另一些分析师则可能认为问询函只是在确认合规、增强信心，从而维持或上调评级，导致市场观点分歧加大。",
+      "actor_ids": [
+        "actor_analysts",
+        "actor_exchange"
+      ],
+      "trigger_conditions": [
+        "在2025-09-06前，深圳证券交易所公开披露就比亚迪2025半年报发出问询函，且问询内容涉及F4（毛利率口径调整）和F5（境外收入风险提示）。"
+      ],
+      "actions": [
+        {
+          "actor_id": "actor_analysts",
+          "action_type": "COMMUNICATE",
+          "decision_ref": "decision-actor_analysts-r2"
+        },
+        {
+          "actor_id": "actor_exchange",
+          "action_type": "COMMUNICATE",
+          "decision_ref": "decision-actor_exchange-r2"
+        }
+      ],
+      "consequences": [
+        "若问询函后，调降评级和维持评级的两派分析师报告同时发布，可能引发股价短期波动加大，但若公司回复迅速且充分，分歧可能重新收敛。"
+      ],
+      "invalidation_conditions": [
+        "交易所未在7天内发出该问询函；或问询函不涉及毛利率和境外收入，只要求常规说明；或分析师群体整体认为问询无影响，评级未出现明显分化。"
+      ],
+      "evidence_refs": [
+        "F4",
+        "F5"
+      ],
+      "simulation_refs": [
+        "decision-actor_analysts-r2",
+        "decision-actor_exchange-r2"
+      ],
+      "novelty_claim": "该分支超越事实复述的多主体传导是：交易所的合规确认行动（发出问询函）如何成为分析师之间已有分歧的催化剂，放大了市场观点的分散度。",
+      "confidence": 0.55,
+      "confidence_semantics": "branch_coherence_not_forecast_probability"
+    },
+    {
+      "id": "branch-3",
+      "label": "监管关注信号引发机构重新评估",
+      "summary": "若监管机构在公开渠道明确表达对比亚迪汽车业务毛利率持续下降和研发投入/利润增速背离的关注，机构投资者可能将此视为政策风险信号，从而将先前的观望调整为小幅减仓或对冲策略。",
+      "actor_ids": [
+        "actor_regulator",
+        "actor_institutions"
+      ],
+      "trigger_conditions": [
+        "在2025-09-06前，证监会或地方证监局在公开讲话或书面材料中，点名提到比亚迪的利润增速与研发投入增速差异或毛利率下降幅度，并表示将纳入更为密切的日常监测。"
+      ],
+      "actions": [
+        {
+          "actor_id": "actor_regulator",
+          "action_type": "WAIT",
+          "decision_ref": "decision-actor_regulator-r2"
+        },
+        {
+          "actor_id": "actor_institutions",
+          "action_type": "WAIT",
+          "decision_ref": "decision-actor_institutions-r2"
+        }
+      ],
+      "consequences": [
+        "机构投资者的减持或对冲行为可能导致比亚迪股价在消息公布后出现2-3个交易日的调整，但若监管表态仅为技术性关注而非处罚，市场可能快速修复。"
+      ],
+      "invalidation_conditions": [
+        "监管机构未在7天内发布任何以比亚迪为具体案例的数据监测声明；或声明中未提及比亚迪利润/研发背离问题；或机构投资者整体认为监管措辞温和，未调整仓位。"
+      ],
+      "evidence_refs": [
+        "F3",
+        "F4"
+      ],
+      "simulation_refs": [
+        "decision-actor_regulator-r2",
+        "decision-actor_institutions-r2"
+      ],
+      "novelty_claim": "该分支的新颖传导链条是：监管的‘常规关注’公开化如何被机构解读为实质性风险，从而触发其从等待（WAIT）向防御性行动转变，改变市场供需。",
+      "confidence": 0.5,
+      "confidence_semantics": "branch_coherence_not_forecast_probability"
+    },
+    {
+      "id": "branch-4",
+      "label": "券商看空观点引发政府产业研究启动",
+      "summary": "若有重要券商发布看空比亚迪报告，着重强调毛利率压力和政策调整风险，可能引起主管产业政策的政府部门注意，进而启动一轮内部研究，评估是否需要更新新能源车产业补贴或技术标准，从而间接影响市场预期。",
+      "actor_ids": [
+        "actor_brokers",
+        "actor_government"
+      ],
+      "trigger_conditions": [
+        "在2025-09-06前，至少一家大型券商发布深度研报，将比亚迪2025H1投资评级调降至‘卖出’或‘减持’，且报告标题或摘要直接提及‘政府补贴退坡’或‘产业政策风险’。"
+      ],
+      "actions": [
+        {
+          "actor_id": "actor_brokers",
+          "action_type": "WAIT",
+          "decision_ref": "decision-actor_brokers-r2"
+        },
+        {
+          "actor_id": "actor_government",
+          "action_type": "WAIT",
+          "decision_ref": "decision-actor_government-r2"
+        }
+      ],
+      "consequences": [
+        "政府部门内部启动研究不意味着政策立即调整，但若该信息被媒体获知并报道，可能加剧市场对政策走向的不确定性，从而放大券商的看空影响，推动更多机构投资者被动等待。"
+      ],
+      "invalidation_conditions": [
+        "券商未在7天内发布任何将比亚迪调至卖出或减持评级的研报；或研报中未涉及政府政策风险；或政府部门确认未因任何市场报告而启动内部研究程序。"
+      ],
+      "evidence_refs": [
+        "F4"
+      ],
+      "simulation_refs": [
+        "decision-actor_brokers-r2",
+        "decision-actor_government-r2"
+      ],
+      "novelty_claim": "该分支的新颖性在于：券商观点（中介）的力量如何穿透金融市场，影响政府（非市场行为者）进入其政策流程，再通过媒体反馈引发市场连锁等待。",
+      "confidence": 0.45,
+      "confidence_semantics": "branch_coherence_not_forecast_probability"
+    }
+  ],
+  "warnings": [
+    "所有分支均基于as_of时点的事实和模拟动作构建，不含其后真实事件。",
+    "分支的触发条件均以未来可观察事件（如媒体追问、问询函、监管言论、研报评调）为锚，不预测股价或收益率。",
+    "branch-1: bound deterministic actor slot to unique financial decisions",
+    "branch-2: bound deterministic actor slot to unique financial decisions",
+    "branch-3: bound deterministic actor slot to unique financial decisions",
+    "branch-4: bound deterministic actor slot to unique financial decisions",
+    "Branches are simulated hypotheses, not observed evidence.",
+    "Branch confidence expresses coherence, not occurrence probability."
+  ]
+}

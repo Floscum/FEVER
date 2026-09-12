@@ -1,0 +1,209 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_labor_escalation_017",
+  "spec_sha256": "da721a3a4384b57f59d13b7b2caa590425e40f7d78854188237e9e787bd439b8",
+  "simulation_id": "sim_11319f398fe5",
+  "generated_at": "2026-07-31T15:54:45.351985+00:00",
+  "status": "completed",
+  "decisions": [
+    {
+      "id": "decision-actor_union-r3",
+      "round": 3,
+      "actor_id": "actor_union",
+      "action_type": "NEGOTIATE",
+      "decision_status": "intended",
+      "direction": "conditional",
+      "intensity": 0.8,
+      "instrument_refs": [],
+      "rationale": "距离D0午夜到期还有最后几个小时窗口，三份合同即将到期但尚未破裂。工会已获得罢工授权并宣布选择性停工策略作为筹码，但核心诉求——工资增长、生活成本调整、临时工转正、分级工资与工厂关闭保障——仍未解决。三家企业报价和进展不同，而罢工基金有限，因此在这最后关头应集中全部谈判力量对各企业施压，争取至少在一到两家企业取得突破，以分化企业阵营、维持成员团结并保留谈判杠杆。如果能在到期前达成部分协议，即使选择性停工按计划启动，也会为后续谈判创造更有利的格局。",
+      "constraint_refs": [
+        "actor_union:constraint:0",
+        "actor_union:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:0",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_workers-r3",
+      "round": 3,
+      "actor_id": "actor_workers",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "作为一线工人，我的行动必须服从全国策略和本地通知，不能擅自决定停工。劳动合同今晚才到期，工会已宣布将采用逐步扩大的选择性停工策略而非立即全面罢工。我需要等待本地工会的具体通知，同时观察三家企业今晚及明早的谈判结果，了解各自的报价进展后再决定是否参与停工。过早行动既违反组织纪律，又会在停工期间白白损失收入。目前保持正常出勤、等待指令是最合理的做法。",
+      "constraint_refs": [
+        "actor_workers:constraint:0",
+        "actor_workers:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:1",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_company_a-r3",
+      "round": 3,
+      "actor_id": "actor_company_a",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": null,
+      "instrument_refs": [],
+      "rationale": "鉴于F2工会选择逐步扩大停工策略，以及F3显示三家企业报价与进展不同，我的最优选项是继续观察对手方谈判结果与竞争企业让步幅度，避免过早出价抬高自身长期劳动成本或向工会透露过多底线。等待竞争对手公布更多实质让步细节后再调整谈判策略，可同时服务于维持关键工厂生产的短期目标和控制长期劳动成本的长期目标，并提高最终达成可批准协议的确定性。主要不确定性是工会可能因拖延而扩大停工范围至核心工厂，以及投资者情绪对ASSET_Q的间接压力。",
+      "constraint_refs": [
+        "actor_company_a:constraint:0",
+        "actor_company_a:constraint:1"
+      ],
+      "evidence_refs": [
+        "F2",
+        "F3"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:2",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_company_b-r3",
+      "round": 3,
+      "actor_id": "actor_company_b",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "合同已在D0午夜到期，工会采取逐步扩大的选择性停工策略，尚未直接波及我方。我公司零部件与组装网络相互依赖，贸然公开表态或改变操作可能引发供应链连锁反应或提前激化劳资冲突。当前最审慎的做法是继续保持内部谈判，观察工会动向和其他两家企业的进展，在必要时根据实际停工范围调整库存与产能分配。主要不确定性在于工会是否会将我公司纳入下一批停工地点以及我方谈判进度能否赶在扩散前达成临时协议。",
+      "constraint_refs": [
+        "actor_company_b:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:3",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_company_c-r3",
+      "round": 3,
+      "actor_id": "actor_company_c",
+      "action_type": "COMMUNICATE",
+      "decision_status": "conditional",
+      "direction": "maintain",
+      "intensity": 0.6,
+      "instrument_refs": [],
+      "rationale": "作为部分条款落后于另外两家的制造企业C，当前最优先的是避免主力产品停产并保护转型投资。工会已宣布选择性停工策略且可根据各企业谈判进展临时增加参与地点（F2），这意味着我们一旦无法取得进展，可能被优先列为目标。我需要在正式谈判中传递愿意在关键分歧（F3）上展现灵活性的信号，同时不暴露自身弱势条款，以争取时间调整报价、缩小与另外两家企业的差距，避免成为首个被选中的停工目标。主动沟通但保留条件，是当前风险收益比最高的选择。",
+      "constraint_refs": [
+        "actor_company_c:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:4",
+      "visibility": "private",
+      "confidence": 0.75,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_suppliers-r3",
+      "round": 3,
+      "actor_id": "actor_suppliers",
+      "action_type": "OPERATE",
+      "decision_status": "conditional",
+      "direction": "conditional",
+      "intensity": 0.7,
+      "instrument_refs": [],
+      "rationale": "工会已宣布采用逐步扩大的选择性停工策略，意味着停工可能随时波及我供货的工厂，而我无法确定下一批停工地点。为了在不确定性增加的情况下维持订单和现金流，我必须提前调整库存与生产计划：在短期内适当增加关键零部件的安全库存，同时与部分非关键客户协商适当延迟交货周期，避免因突发停工导致积压或断供。因此选择运营动作，具体实施方向视各合作企业谈判进展而定。",
+      "constraint_refs": [
+        "actor_suppliers:constraint:0"
+      ],
+      "evidence_refs": [
+        "F2",
+        "F3"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:5",
+      "visibility": "private",
+      "confidence": 0.8,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_government-r3",
+      "round": 3,
+      "actor_id": "actor_government",
+      "action_type": "COMMUNICATE",
+      "decision_status": "intended",
+      "direction": "not_applicable",
+      "intensity": 0.6,
+      "instrument_refs": [],
+      "rationale": "作为劳动与产业政策机关，我的首要目标是降低经济与就业冲击，并鼓励集体谈判达成协议。当前三份全国劳动合同已在D0午夜到期，工会已宣布将实施逐步扩大的选择性停工策略（F2），而工资增长、生活成本调整、临时工转正等核心分歧仍未解决（F3）。我已在社交媒体上发布声明呼吁继续对话并提供调解支持，工会回应确认将按原计划推进停工。在私营企业集体谈判由劳资双方主导的约束下（constraint:0），我不能直接干预谈判内容或强制协议。因此，下一决策周期最可能采取的主要动作是继续与各方沟通：一方面敦促三家企业提高报价诚意以缩小分歧，另一方面向工会传递尽早达成协议对工人整体利益的重要性。通过持续沟通渠道保持对话温度，为可能的突破性进展创造条件。主要不确定性在于各企业谈判进展差异较大，以及工会是否会按计划扩大停工范围。",
+      "constraint_refs": [
+        "actor_government:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:6",
+      "visibility": "public",
+      "confidence": 0.8,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_investors-r3",
+      "round": 3,
+      "actor_id": "actor_investors",
+      "action_type": "WAIT",
+      "decision_status": "no_action",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "截至当前时点，三份劳动合同刚于午夜到期，工会已宣布选择性停工策略但尚未公布具体首批参与地点与时间。三家企业谈判仍在进行中，各自报价和进展差异不明，无法判断哪家企业最先面临停工或更快达成协议。选择性策略使生产冲击路径不确定，需要等待工会下一步行动信号（首次宣布停工地点与规模）以及各企业谈判进展的实质性消息，才能对停工持续时间与利润影响做出有意义的估计，也才能比较三家企业谈判风险。立即做出仓位调整或公开表态缺乏足够信息支撑，因此最优选择是继续观察。",
+      "constraint_refs": [
+        "actor_investors:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:7",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    }
+  ],
+  "failures": [],
+  "warnings": [
+    "Decision confidence expresses action clarity, not forecast probability.",
+    "Interview decisions are simulated statements, not observed evidence."
+  ]
+}

@@ -1,0 +1,315 @@
+{
+  "experiment_id": "product-usability-experiment-v2",
+  "revision": 2,
+  "prior_manifest_sha256": "6b4695b84c280d015e79fd948a0bcebb49726452d54c221881e5dc7a8a1e4cd8",
+  "pilot_revision_reason": "Draft v8 assigned some responses to the wrong role and invented observation deadlines. Revision 2 requires explicit actor IDs and first-person responses; windows are assigned from the requested horizon. Existing costs and call counts carry forward under the unchanged $0.50 / 192-call ceiling.",
+  "registered_at": "2026-09-06T16:04:53.622257+00:00",
+  "protocol": {
+    "case_count": 24,
+    "pilot": [
+      "anonymous-case-05",
+      "anonymous-case-18",
+      "anonymous-case-24"
+    ],
+    "variants": [
+      "v7",
+      "v8"
+    ],
+    "selection": "Existing anonymized replay cases 001–025, excluding 016 because no completed decision run exists; no outcome files or prior quality scores used",
+    "controls": "Identical facts, question, horizon, actors, decisions, filtered interactions, deterministic slots and provider; input JSON equality checked",
+    "question_anonymization": "Preserve original question and numeric horizon, remove dates, security codes, local paths and source URLs",
+    "scope": "Compiler product regression using completed simulations; does not rerun simulation, test new role selection, or measure prediction accuracy",
+    "pilot_gate": "All 6 generations and 12 quote-validated judgments complete; inspect action timing and observation cards before expanding. Pilot remains included and reported separately.",
+    "quality_repeats": 2,
+    "criteria": [
+      "action_time_clear",
+      "observable",
+      "falsifiable",
+      "grounded",
+      "multi_actor"
+    ],
+    "judge_system": "你是事件研究产物的复核者。只用给定事实、约束和模拟决策，逐条判断输出是否便于研究者使用。不要猜测真实结果，也不要按文风、篇幅或字段数量打分。\n当前模拟决策与未来条件响应属于不同时间：WAIT 是合法起点，明确条件下转为行动可以合理；不得把它写成已采取的行动。角色假设、模拟消息不是事实。\n逐条判断五项：\naction_time_clear：清楚区分事实、当前模拟起点与未来假设，没有把未来响应说成已发生。\nobservable：触发能指明可核对的事件或指标，并能判断去哪里或在何时复核；散文或独立字段都可，不能只说“出现变化”“市场反应”。\nfalsifiable：失效条件能推翻该分支的核心传导，而非只重复“触发未出现”或“预期不及”。\ngrounded：关键机制与引用事实或明确角色约束有依据，没有捏造已知资源、数值、期限或真实结果；假设本身不要求已经发生，但不能违反给定约束。\nmulti_actor：至少两方存在明确的行动响应关系，说明一方怎样改变另一方的选择，而非罗列角色或只表达共同观望。\n每项返回 pass 布尔值、quote（从该分支输出中逐字摘取一个短片段，不能拼接或加省略号）和 reason（简述理由）。缺少要素时 quote 摘取与缺失最相关的原句，reason 指出缺失。每个 quote 和 reason 各不超过60个汉字。\n不要输出总分。只输出 JSON：{\"branches\":[{\"index\":1,\"criteria\":{\"action_time_clear\":{\"pass\":true,\"quote\":\"…\",\"reason\":\"…\"},\"observable\":{\"pass\":true,\"quote\":\"…\",\"reason\":\"…\"},\"falsifiable\":{\"pass\":true,\"quote\":\"…\",\"reason\":\"…\"},\"grounded\":{\"pass\":true,\"quote\":\"…\",\"reason\":\"…\"},\"multi_actor\":{\"pass\":true,\"quote\":\"…\",\"reason\":\"…\"}}}]}。",
+    "watchlist_rule": "First four criteria true in BOTH passes; multi_actor reported separately; only compare direction if repeat agreement >=80% in both arms",
+    "limitations": [
+      "same model generates and judges",
+      "development replay cases, not a new holdout",
+      "one generation per case/version",
+      "field structure reveals format, version names hidden from judge",
+      "model review is not human acceptance",
+      "four facts per case remain concise"
+    ],
+    "provider": "DeepInfra (api.deepinfra.com)",
+    "model": "deepseek-ai/DeepSeek-V4-Flash",
+    "calls_without_retries": 144,
+    "max_calls": 192,
+    "max_total_tokens": 1200000,
+    "max_estimated_usd": 0.5,
+    "workers": 3,
+    "sdk_retries": 0,
+    "max_semantic_retries": 1,
+    "per_request": "30000 UTF-8 prompt bytes, max 5000 output tokens; conservative dollar reservation including in-flight requests",
+    "token_threshold": "Checked before dispatch; at most three in-flight requests may pass the token threshold",
+    "pricing_source": "https://deepinfra.com/deepseek-ai/DeepSeek-V4-Flash",
+    "pricing_checked": "2026-09-06",
+    "authorization": "User approved DeepInfra/DeepSeek anonymous event inputs and requested further iteration and larger testing; incremental cap $0.50 keeps old and new authorized experiment caps under $1 of actual reserved spend"
+  },
+  "protocol_sha256": "7f7a2cf57314a862394c345b94ba06ebc13b33203c7adf8899fda7faf7f3a957",
+  "code_sha256": {
+    "scripts/run_product_iteration.py": "741e2a7e6aa94953f135bba4c863494d319db8d6e76cfc22bfd978b216f5b10b",
+    "scripts/verify_product_iteration.py": "39a55a0becc8fc16569f617e48718b5f39eaae0d0e3c9d4cc1e6fc36d032fd7b",
+    "scripts/product_experiment_budget.py": "d5bf5d5358826e8fa7fdbe89a055340ad66231bad965e3db866f84e3db6041a8",
+    "src/fever_mirofish/product_scenarios.py": "4684327268e85b1daa0ec8ded04a67a18ddc738edca3c54655cd9f2bf3775d52",
+    "src/fever_mirofish/scenario_branches.py": "190ade9d7674ea26ae648b44afb8db90736961ca1e2dfe4fe2abf9818b9d726f",
+    "src/fever_mirofish/trace_digest.py": "0913d14e323ec4bcb3cb69127d213809eead3fa0e9d49cc0a96ab40aad7513a7",
+    "src/fever_mirofish/contracts.py": "b1cebba39ba0b7eead0a3d7360bf11f66fd607de424d80d748c27be6742864db",
+    "scripts/run_trace_ablation_experiment.py": "a5c18e1935f636bcfb1371240a3bb72176faf6c166e245c5c42ccd72eb8304eb",
+    "scripts/run_compiler_decision_support_diagnostic.py": "5819b0269c5d3b00b4c55c75c6021beb794dfa78c5c77f22aee0bfe5731c88f0",
+    "src/fever_mirofish/usage_ledger.py": "b6f8e57016d8153ab44e93c846f0b4ef7175c2a7c29bfef301291ec0bd079ee2"
+  },
+  "generation_prompt_sha256": {
+    "anonymous-case-01": {
+      "v7": "78149980c97fbad7ed5d1aab836109950509c60a5b20ba8460bd246d34744add",
+      "v8": "78c9024fe3b55de8c1754f0c7dc3ad55786060fd42ea136345b948822455ea3f"
+    },
+    "anonymous-case-02": {
+      "v7": "c206d2be11a3c8a0c27817cba41ac228356061d494c725e32ab93202f146c60b",
+      "v8": "0ea7a08f92018b7f82257bbad7992f0b005d858594879125ba1afeeffcc672cd"
+    },
+    "anonymous-case-03": {
+      "v7": "b8fd3c40a9ffda92fea0bb7c7100512c95b79c26d5c0c9d9b62741927f60c498",
+      "v8": "0eef5cf78ec46a9498cf8b3c1490e81c55461cfdc3a81fc86212881da3fd96d5"
+    },
+    "anonymous-case-04": {
+      "v7": "1d010ada6317ff250b1b689438871b59adaba783432e2dac56fbaad71932b034",
+      "v8": "909ed6732ba4155173225e9ef64b0af084720aa219223743010c228fd2115514"
+    },
+    "anonymous-case-05": {
+      "v7": "c2a24c9e9dcea4f7c498cea748fd5b9b5115f6bb0465a3c8ff41c55d43080763",
+      "v8": "04b33cf74062f00af05f405a66e3b02a9b696d5baddf48d2673c8dbb8ebfe83c"
+    },
+    "anonymous-case-06": {
+      "v7": "9b78267b40a240760a173df6e6d2ee356c262d5abb4034670e691c285d3aa361",
+      "v8": "b3dc19412d5d811c2e27adf39da2dc1547bf9897682929d0ff4ee8292d316482"
+    },
+    "anonymous-case-07": {
+      "v7": "c8f6d400f4c7c95a22ecd1a6b7cf9d0beadc3a8bb6bdb1af8be44c15e6b555c6",
+      "v8": "645745f1576cdbce667acb742f803137584cf1a066ad8018e2bde26cc9d60955"
+    },
+    "anonymous-case-08": {
+      "v7": "7ae3aa3198b336664295707404473ea43356a8af548bb25d5713af38034490e8",
+      "v8": "44a0998dc4bc2e1befc390677a352ea31c54652cfafe6b03dc3131b729ea3d1d"
+    },
+    "anonymous-case-09": {
+      "v7": "3a76cd9689dbfa5aa660c7fd771356e430ad08a02bf5808eae6fe702b64e4fee",
+      "v8": "ed3094dda2826d301a4eafa14856231857e1401b9dc02061d84ac8a6e121de03"
+    },
+    "anonymous-case-10": {
+      "v7": "b26be9195ff503f42257c9b9429abdf6824a9ccfe1fc6a79d25cd1498d75fb8c",
+      "v8": "e68db432d1bab5b41774cefe34f4adc4d5ccad03e89e87e702ac1553c3f0d603"
+    },
+    "anonymous-case-11": {
+      "v7": "391d943659df022f5301ce8f86bb2d18a74a4b7b559756c4ad00153ffa14ffa3",
+      "v8": "d9dc940d63ebd32b39a2b07ca4975f314ed7307e25afb7aafd7f8dcebddac7ab"
+    },
+    "anonymous-case-12": {
+      "v7": "4e9695f0328fc0a8311ab540fe2dd2db1af62982299250b31f4362bbc0b382da",
+      "v8": "8b9e9568563ff23b63a8c335bcc0f463854a6b7099bf33fd8d107d2b904c5568"
+    },
+    "anonymous-case-13": {
+      "v7": "4c27cd70c92714373d706ca3f58be749c84576bf7bdb7a02d9397866221fd87f",
+      "v8": "575468ce2c99d9159c8dfd20bda4524d5da826c804cc3467dfcda8b0b3759141"
+    },
+    "anonymous-case-14": {
+      "v7": "1df942034a093ae4893be4e7a3eb89f47765258ef05cf7fe9daa20cd09c7ac38",
+      "v8": "1b37db3fe148583279c56b098d21d3a7b79f309aa6beeff83003952a2817295e"
+    },
+    "anonymous-case-15": {
+      "v7": "7cc92ca4214ae449ba491b6e420d28a6c07d0e5bd6e374038d0b5c0a09d3f4b9",
+      "v8": "84551b659cd15ed7990014e84f383992906ca6f63691638b02ecfa10f9e95c88"
+    },
+    "anonymous-case-17": {
+      "v7": "5618669a8660c1803324aadf7e0d2605668d96effe674ce7b67bf15974b98bbf",
+      "v8": "1ae77156b95233ccd1d7d5211aae47fd9bfb234b81a41b5ce015b23e369756d4"
+    },
+    "anonymous-case-18": {
+      "v7": "5873fed45d4ed2310fa8ec86bb1f3946fbd9871966401fa7ac23a346a15e985c",
+      "v8": "f4f0364b90bd4e29fd16c6d55755f771a9fd4b43920d4b1d0f2bc4a176b79bad"
+    },
+    "anonymous-case-19": {
+      "v7": "986045b78fbe979064868957686a4e327cfe236b09c4c20a81c2b965c6f3915a",
+      "v8": "065e32e3b7b3a6124be707a406a762983ecb8b6eed3eec01238db9a083ba22e0"
+    },
+    "anonymous-case-20": {
+      "v7": "53e654d2d992ac8e01a6ab650557ef50ae334eaca39ab97f00c2f55c18455576",
+      "v8": "c801301426a9c242fcdf507b5bb318c7245da44d19906ff9e91b20c253b8f3f0"
+    },
+    "anonymous-case-21": {
+      "v7": "9ed206d95b576100bf4cba3a5a804d0ba6165fd433c75a4f58b5fefd8b7a456f",
+      "v8": "d019ad9af261565a8b71aea66f2fd8b74bd8f8d78510658040cd2c12fbff5f13"
+    },
+    "anonymous-case-22": {
+      "v7": "fa7162de6d5d4f78057f0be92c76320c48fa8fe19e812344c165aaa7e54fe3c4",
+      "v8": "4e9f10f68029cacfbf5bd8f089ef9e337ea0af430da87044fb7dd1d329c50cbd"
+    },
+    "anonymous-case-23": {
+      "v7": "405e81e65b5e3164af1f06d3fcc2eed3a4f4992e19e5deb22a94fb810988e418",
+      "v8": "ed6cec1c1764e2d2b35497c99574429bdb5d8956fb5b4b9872811168d0882f94"
+    },
+    "anonymous-case-24": {
+      "v7": "17ef9398ee14753ec0cc2674f0d1a77b9ca0ecd882c4241c22b81e4f144d4f4c",
+      "v8": "404bd5a44bd397f50470d9488bccf895d149c3243adac12e355d734b76b9c5d9"
+    },
+    "anonymous-case-25": {
+      "v7": "c354b4306e4134b8c4f521acda8608a2dd70eb4e8794d8829ffc49cf376bd276",
+      "v8": "276c0ce007450945fc8628ee05141820d9b8f0ba562919aea65a6202a751f6a3"
+    }
+  },
+  "included_case_ids": [
+    "anonymous-case-01",
+    "anonymous-case-02",
+    "anonymous-case-03",
+    "anonymous-case-04",
+    "anonymous-case-05",
+    "anonymous-case-06",
+    "anonymous-case-07",
+    "anonymous-case-08",
+    "anonymous-case-09",
+    "anonymous-case-10",
+    "anonymous-case-11",
+    "anonymous-case-12",
+    "anonymous-case-13",
+    "anonymous-case-14",
+    "anonymous-case-15",
+    "anonymous-case-17",
+    "anonymous-case-18",
+    "anonymous-case-19",
+    "anonymous-case-20",
+    "anonymous-case-21",
+    "anonymous-case-22",
+    "anonymous-case-23",
+    "anonymous-case-24",
+    "anonymous-case-25"
+  ],
+  "input_sha256": {
+    "anonymous-case-01": {
+      "spec_sha256": "5fd3cba33034fb4779fe0f9d32cc6d28b08ca6125bc6f5bad95d95b8995fd689",
+      "simulation_result_sha256": "d4a4469c82176208d561b90c185ca2c1a95119b3b9c89facb49d0347e7f7eb41",
+      "financial_actions_sha256": "898981af20b186f6fd30ae824b478ec31b0b1071568ff9b18062bc54594c528b"
+    },
+    "anonymous-case-02": {
+      "spec_sha256": "b7de71742f0f3610eb5698c600df7a644f949406d6cc3ed9640e789717cde0bc",
+      "simulation_result_sha256": "03362a198823633baba660fd5717444df51cd89f19d46cf63fd0d8672caedebd",
+      "financial_actions_sha256": "5fc5ec94e930ddac4e5d62a01dc43e22545a2eb3467a0b5047f9f51f8f07f8fe"
+    },
+    "anonymous-case-03": {
+      "spec_sha256": "a263d9045a55e54893be23b4981ee00f29a90f8aa4c1f5c31c29a2a0100bceb8",
+      "simulation_result_sha256": "b7d61cf7cc7407a3245504322d9a908b182a6c3a1cb23b2234c7a644d8b83ac4",
+      "financial_actions_sha256": "b605ecc8f6d3a2220c0bcbf168a84b153c6f6302c7b71cd86d86d0f8f72b5123"
+    },
+    "anonymous-case-04": {
+      "spec_sha256": "55e9dca1054991bb0a3164d8a780ed32797dec6e9a84795dfcf1aa513f102dd0",
+      "simulation_result_sha256": "7f70211aa2f450b7d73b862908cdbe36bebad88e1c98262a2eb0f8a7bb255ec8",
+      "financial_actions_sha256": "ab58382b7fd737a0ed553dc24eca632461ff694785f5f3e003bddd91a284a267"
+    },
+    "anonymous-case-05": {
+      "spec_sha256": "d44db77c798ec3464794a60f2076c6ff8d381ab945d89894e6b3238807896e23",
+      "simulation_result_sha256": "db113e0c65dc7ba76cf91de672bc9760702a1289f27cfed21c879f948ac92510",
+      "financial_actions_sha256": "5122de0aba09774a1c13e8a806f0e70b56c81f3ae5a97e7465454819ae504be0"
+    },
+    "anonymous-case-06": {
+      "spec_sha256": "5ac5093942037b134fa6beefbc9d362e9ba78a9b559b7282c16ae1f758c369c5",
+      "simulation_result_sha256": "204aad87bd964ec19b4611371cd5923f96a7ffb6dae78532b4e9254d8f063308",
+      "financial_actions_sha256": "538dec6dfc7bdf82782f96411de9a32948d3e19a5e1cb2cb937b80478743b27e"
+    },
+    "anonymous-case-07": {
+      "spec_sha256": "5654c32885dc3447431fae87c676099e79eb84235985c0b99fde12e6e2e0a49a",
+      "simulation_result_sha256": "f785cf2e94af9b30b849571b57e08824669eeb3fdbfe67492f73472766dbf660",
+      "financial_actions_sha256": "b1181ad62ad2386fc7c33180bb72143265cb87c7e1bd571618734ca52dab7c58"
+    },
+    "anonymous-case-08": {
+      "spec_sha256": "dc767e945afcfb6a04d2fa6bdfafecc58b7416d12efa10821b52f5f087052191",
+      "simulation_result_sha256": "a80972996b400c5f25ed8ddf9f3c23a642833d98028c5511fb285bbfc8a618b1",
+      "financial_actions_sha256": "b735c1513f2c91e03d4cae2db568864b877bd9f99961eef1c3127aa260d0e423"
+    },
+    "anonymous-case-09": {
+      "spec_sha256": "ddf328886769e3c9fc947368894443a35865af847c6dc0c0cb6ec56d47712735",
+      "simulation_result_sha256": "f4058c0dad0361926f0a0a894645563e40e1724a31125a12e68aecab8a46539e",
+      "financial_actions_sha256": "a49406fea0696d3d8f72c86084d2e62f00636d6f99bde6284fa8f64474e66a24"
+    },
+    "anonymous-case-10": {
+      "spec_sha256": "e4685457dc59ed6f14b4862bb806cbd02f4b9db40360a899c857a3cb7192772e",
+      "simulation_result_sha256": "91c958f376d889296a9bf5a6b25ec87996e88cd7cf5d563fbce2e208ab0ceeb2",
+      "financial_actions_sha256": "69a00dd81adf388b85f8eab19357af056bd1c5a6e158bbe0014302df7ff4d8b1"
+    },
+    "anonymous-case-11": {
+      "spec_sha256": "13dfcc649c74e61eb03624b94ef7150fc5746409e579c943106d3f591af076ea",
+      "simulation_result_sha256": "40ccaac5077a2ca8e95da377f387d45df263187a778c69a3a4502b4aae72d58e",
+      "financial_actions_sha256": "e9b24f5af7e96c47e6af3e7f2521121504a7f73dcaf14870158f273327eebfc1"
+    },
+    "anonymous-case-12": {
+      "spec_sha256": "274b5eb9c67efde45428d1a618a1cb69272ae2bcffc90e84500468cb3e089fad",
+      "simulation_result_sha256": "1523d72df9ebd45f6515d9132599af6cb41ebc3023ad84836d99a96d36f3ae03",
+      "financial_actions_sha256": "225b1f834d6f3398c5ccf3a771faa545eab3d9e5f0d91123cef9a512579ed4b5"
+    },
+    "anonymous-case-13": {
+      "spec_sha256": "84fad4fce06a93007f2eb3ced9f978d328a117502fbe9a28c31a32ea3adc930d",
+      "simulation_result_sha256": "b723504fd35d3e7175f2a0475c3a1032873efe1a2e6d62ff1102109e062eaf0e",
+      "financial_actions_sha256": "1c46dce6480a57677dc58b9d2eaa6c672a9e2bf3741e43b7ef39f6be0a1f12c0"
+    },
+    "anonymous-case-14": {
+      "spec_sha256": "0b5a2ccc40091ee1b0c9a6dbe7c3673b4f85cee3401002486e4edc8a0b13f89f",
+      "simulation_result_sha256": "1216220178329d005ed0676ffb2fdb69e6cd605b2bd55da1a9bc24dbbd3d8b6a",
+      "financial_actions_sha256": "3d9a512076703150974fe91567446b11ed4649a59b85fd0ec513fba40eadbe15"
+    },
+    "anonymous-case-15": {
+      "spec_sha256": "67f6d589a9612f6e8b8bbca4fb45c1d0b310774e185a3e11fb211e32e7ed447a",
+      "simulation_result_sha256": "f2ba612e25d64314bb326d787caad0ce2748ca1805f8bd0f7095d48e15210eeb",
+      "financial_actions_sha256": "413be19502e446d89b1a5d8470f03209922c45d09546906c9ac20bb294b7648c"
+    },
+    "anonymous-case-17": {
+      "spec_sha256": "da721a3a4384b57f59d13b7b2caa590425e40f7d78854188237e9e787bd439b8",
+      "simulation_result_sha256": "2f9b5c9bf6d8472e0ba915b5faf8a2078cfa64a597033b76a89e9a0b43311e0e",
+      "financial_actions_sha256": "a59b254d001bae19dc21910bcd3b8e5be34fc5124f3475bd0517df1114c67d87"
+    },
+    "anonymous-case-18": {
+      "spec_sha256": "1a9335a39a42aff658cc6d6a3bb99f50619b374439381ec11cd26ca31a2455fe",
+      "simulation_result_sha256": "ecee6704127b7eb361831ac327a9e88ae1a35de0232331911ab4e603c60755e1",
+      "financial_actions_sha256": "9ab6d28fe359b569e1c031ed313f213fcf4eabc11fb03cbea90e15ed45ceb5b3"
+    },
+    "anonymous-case-19": {
+      "spec_sha256": "0c3964543d1218c27afb58df80f2d1c5fa77cb11afe45264a0f1c309b06759f8",
+      "simulation_result_sha256": "800b4daac69c80383d6aade99a392e45f60ef6c82b6d2796a2ccea170802671b",
+      "financial_actions_sha256": "c41270613781e68c9204228a41ed90b3984260e7152deff7c7b7366b906b294d"
+    },
+    "anonymous-case-20": {
+      "spec_sha256": "d4ac5c6a1c5204069c86b004d8a346a31703e92f6536ac4c3535c2c145328cc2",
+      "simulation_result_sha256": "0ac323df5c80adbcb87104efd78407fa5ecba25a2bce01cae3d12f93c7d6335e",
+      "financial_actions_sha256": "f8bc6a605d173182c4891406d3f85b0ea9a86f35908c47232111c859b8d787d8"
+    },
+    "anonymous-case-21": {
+      "spec_sha256": "92b1669eba1249b74b3e7ceba274f032a0e27374b5f79b500f64ae9853b5cc4f",
+      "simulation_result_sha256": "80b965d834215796e7cd1377857c2f201e7ddb88f936a41556c78eb9b8b50cc3",
+      "financial_actions_sha256": "1290972999d1f6675b33673303da3e768b23e1ab4c31f351c028b95c2892c97e"
+    },
+    "anonymous-case-22": {
+      "spec_sha256": "27dcffac1caf3423c61b313128804c267b945fb6dada932e417814217cb6d100",
+      "simulation_result_sha256": "83202097889856cc029d817decf937a265b7beb536490f39ddc8356934d0c07a",
+      "financial_actions_sha256": "19b5840e311956acb9203f7c8ec6b4e98c73d118f6184259db29ef15fd688016"
+    },
+    "anonymous-case-23": {
+      "spec_sha256": "717d98404024e5ed817b64e7908f04c341b269141622c16eaa3702f6b98742bc",
+      "simulation_result_sha256": "04813a2a386e18f82b3d53e9fe7aba71fc1628561bcd37f2bfdd8ee8ba6d0771",
+      "financial_actions_sha256": "7c2a4e523129c0796d5a0582b3e2f279e5d15213506982da5491b8d1174c3704"
+    },
+    "anonymous-case-24": {
+      "spec_sha256": "9519894eb69f278bf4c7d530070515d892bbc1fda2634b96d13924676b993679",
+      "simulation_result_sha256": "993733a17fc51a811ba6c21c2d9dff54916e83ecafe3521a4e6331c8c734bdc3",
+      "financial_actions_sha256": "10e5a3b24b73fb22f24cedc6ab2d41954f44a518718686ea497dbc21e88c90bd"
+    },
+    "anonymous-case-25": {
+      "spec_sha256": "7c25e313568c41d908dae7d5f33f23f733357218618db9f1ad194d629836c9ec",
+      "simulation_result_sha256": "bd4d9a02d43b53ab82e7d3247c052ad60271b447ceae34984d238013483c4637",
+      "financial_actions_sha256": "58909d09716bc0e3d3315ed97a3424e6236a2249312e63ef7b50981e86a75612"
+    }
+  }
+}

@@ -1,0 +1,620 @@
+{
+  "anonymous_case_id": "anonymous-case-11",
+  "configured_actor_count": 8,
+  "decision_actor_count": 8,
+  "fact_count": 4,
+  "fact_chars": 245,
+  "input": {
+    "case_id": "anonymous-case-11",
+    "as_of": "D0",
+    "question": "资产、监管机构、申请人、交易所、年份和代码均已匿名化。只使用D0已公开的信息，推演法院裁决后多个现货数字资产交易产品申请的监管与市场路径。",
+    "horizon": {
+      "kind": "calendar_days",
+      "value": 35,
+      "end_at": "D0 + stated horizon"
+    },
+    "facts": [
+      {
+        "id": "F1",
+        "statement": "上诉法院撤销监管机构此前对一只现货数字资产交易产品的否决，认为监管机构没有充分解释其对现货产品与同资产期货产品采取不同处理的理由。"
+      },
+      {
+        "id": "F2",
+        "statement": "在法院裁决前，监管机构多年来已经否决二十余份同类现货产品交易所规则申请，核心关切包括欺诈、操纵和市场监控。"
+      },
+      {
+        "id": "F3",
+        "statement": "多个全国性证券交易所和资产管理申请人已经提交修订文件，相关申请涉及同一种现货数字资产，并提出监控共享、托管和现金申赎安排。"
+      },
+      {
+        "id": "F4",
+        "statement": "截至D0，监管机构尚未发布最终批准令；多家申请人的规则变更和注册文件处于并行审查状态，市场同时讨论统一审批与单一申请人先行两种路径。"
+      }
+    ],
+    "actors": [
+      {
+        "id": "actor_securities_regulator",
+        "label": "匿名证券监管机构",
+        "kind": "regulator",
+        "goals": [
+          "依法回应法院裁决",
+          "防止欺诈和操纵",
+          "维持申请人之间的程序公平"
+        ],
+        "constraints": [
+          "必须解释决定与证券交易法律的一致性",
+          "委员内部可能存在分歧"
+        ]
+      },
+      {
+        "id": "actor_exchanges",
+        "label": "申请上市的证券交易所",
+        "kind": "exchange",
+        "goals": [
+          "取得规则变更批准",
+          "尽快上线产品",
+          "满足监控要求"
+        ],
+        "constraints": [
+          "上市依赖监管批准和有效注册文件"
+        ]
+      },
+      {
+        "id": "actor_sponsors",
+        "label": "现货产品申请人",
+        "kind": "issuer",
+        "goals": [
+          "取得批准并吸引首批资产",
+          "降低费率与运营摩擦",
+          "避免竞争者独享先发优势"
+        ],
+        "constraints": [
+          "托管、授权参与人和申赎安排需在上线前就绪"
+        ]
+      },
+      {
+        "id": "actor_incumbent_trust",
+        "label": "拟转换的既有封闭式信托",
+        "kind": "issuer",
+        "goals": [
+          "转换为可申赎产品",
+          "缩小净值折价",
+          "保留资产规模"
+        ],
+        "constraints": [
+          "转换路径仍依赖规则与注册文件生效"
+        ]
+      },
+      {
+        "id": "actor_market_makers",
+        "label": "做市商与授权参与人",
+        "kind": "broker",
+        "goals": [
+          "准备流动性和套利机制",
+          "控制现货与份额价格偏离",
+          "管理运营风险"
+        ],
+        "constraints": [
+          "最终审批范围和上线日期尚未确定"
+        ]
+      },
+      {
+        "id": "actor_institutions",
+        "label": "机构资产配置者",
+        "kind": "institutional_investor",
+        "goals": [
+          "评估受监管产品带来的新增需求",
+          "比较费用、流动性和托管风险"
+        ],
+        "constraints": [
+          "不能将产品批准等同于监管机构认可底层资产"
+        ]
+      },
+      {
+        "id": "actor_retail",
+        "label": "数字资产个人投资者",
+        "kind": "retail_cohort",
+        "goals": [
+          "判断审批概率和资金流影响",
+          "交易短期消息波动"
+        ],
+        "constraints": [
+          "容易混淆规则批准、注册生效和产品实际交易"
+        ]
+      },
+      {
+        "id": "actor_media",
+        "label": "金融与数字资产媒体",
+        "kind": "media",
+        "goals": [
+          "追踪申请修改和监管决定",
+          "比较申请人竞争位置"
+        ],
+        "constraints": [
+          "审批前传言频繁且可能互相矛盾"
+        ]
+      }
+    ],
+    "financial_decisions": [
+      {
+        "id": "decision-actor_securities_regulator-r3",
+        "round": 3,
+        "actor_id": "actor_securities_regulator",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "尽管法院裁决（F1）要求重新审视对现货产品与期货产品的差别处理理由，但截至当前时点，多个申请人提交的修订文件（F3）仍处于并行审查状态，尚未完成对监控共享、托管安排和现金申赎机制是否足以满足证券法关于防止欺诈和操纵（F2）要求的全面评估。在委员内部对统一审批与单一申请人先行路径仍存在分歧（约束1）的情况下，任何未经充分说明的批准或否决均可能再次引发法律挑战。因此，最审慎的选择是继续审查申请人补充材料，在形成与证券交易法律一致且足以回应法院质疑的完整记录之前暂不作出最终决定。",
+        "constraint_refs": [
+          "actor_securities_regulator:constraint:0",
+          "actor_securities_regulator:constraint:1"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "public",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_exchanges-r3",
+        "round": 3,
+        "actor_id": "actor_exchanges",
+        "action_type": "COMMUNICATE",
+        "decision_status": "intended",
+        "direction": "conditional",
+        "intensity": 0.7,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "作为申请上市的证券交易所，我们的首要目标是尽快取得规则变更批准并上线产品。F1裁决已为审批扫清法律障碍，F3表明我们已提交包含监控共享、托管和现金申赎安排的完备修订文件。鉴于F4显示监管尚未发布最终批准令且存在并行审查，下一决策周期我们将主动与监管机构进行沟通，强调我们的注册文件质量和完善的监控安排已满足F2中监管曾提出的核心关切，并援引F1裁决要求监管对现货与期货产品采取一致处理标准。同时向监管阐明多申请人并行获批的可行性，以降低单一先行路径对我方的不利竞争影响。",
+        "constraint_refs": [
+          "actor_exchanges:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_sponsors-r3",
+        "round": 3,
+        "actor_id": "actor_sponsors",
+        "action_type": "COMMUNICATE",
+        "decision_status": "conditional",
+        "direction": "increase",
+        "intensity": 0.7,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "选择对外沟通而非等待，原因有：F3显示多个申请方已提交修订文件并提出监控共享安排，若此时被动等待单一申请人先行路径，将面临竞争者独享先发优势的风险。F1提供了有利法律基础，但F4显示监管尚未发布最终批准令。因此下一周期最可能动作是在社交媒体或行业渠道主动发声，强调我方的托管、申赎安排已就绪（约束），并利用F1强调区别对待现货与期货产品的不合理性，推动统一审批或争取成为首批获批者。此举服务于取得批准并吸引首批资产及避免竞争者独享先发优势两大目标。主要不确定性在于F4中监管仍可能选择单一申请人路径，从而导致我方的沟通效果有限。",
+        "constraint_refs": [
+          "actor_sponsors:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "public",
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_incumbent_trust-r3",
+        "round": 3,
+        "actor_id": "actor_incumbent_trust",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "maintain",
+        "intensity": 0.0,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "作为拟转换的既有封闭式信托，我的转换路径仍依赖规则与注册文件生效（约束）。截至D0，监管机构尚未发布最终批准令（F4），虽有上诉法院撤销此前否决（F1）及多家申请人提交修订文件并提出监控共享、托管和现金申赎安排（F3），但统一审批与单一申请人先行两种路径尚未明确（F4）。在监管信号明朗前提前发起公开沟通或操作动作，既无法改变审批节奏，也可能暴露自身谈判位置或引发不必要的市场预期变动。因此最优选择是维持现有资产规模和管理状态，继续观察并行审查进展，等待监管决策窗口开启后再根据路径选择采取对应行动。",
+        "constraint_refs": [
+          "actor_incumbent_trust:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_market_makers-r3",
+        "round": 3,
+        "actor_id": "actor_market_makers",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "作为做市商与授权参与人，我的核心职责是准备流动性和套利机制，但当前最终审批范围和上线日期尚未确定，这是最关键的约束。F4明确指出监管机构尚未发布最终批准令，市场同时讨论统一审批与单一申请人先行两种路径，这两种路径对流动性深度、托管安排和套利机制的设计差异很大。F3显示监控共享和现金申赎安排已就绪，这是积极信号，但F2的历史否决记录提示监管仍可能以欺诈、操纵和市场监控为由继续延迟。F1的法律裁决虽增加了审批可能性，但不等于自动批准。在审批路径和产品结构明确之前，提前大规模配置流动性或部署套利机制会带来不必要的运营风险。因此选择等待，保持准备状态，直到至少一个申请人的规则变更获得最终批准或审批路径明确为止。",
+        "constraint_refs": [
+          "actor_market_makers:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_institutions-r3",
+        "round": 3,
+        "actor_id": "actor_institutions",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "监管机构尚未发布最终批准令（F4），市场处于并行审查状态，路径不确定（统一审批或单一先行）。产品获批不等于监管认可底层资产（约束），评估新增需求、费用、流动性和托管风险需要明确的获批规则和产品细节。当前等待是最审慎选择，不作任何配置动作或公开表达。",
+        "constraint_refs": [
+          "actor_institutions:constraint:0"
+        ],
+        "evidence_refs": [
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.9,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_retail-r3",
+        "round": 3,
+        "actor_id": "actor_retail",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": 0.8,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "截至模拟第3轮结束，我的社交互动记录和观察显示，虽然F1法院裁决增加了法律压力，但F4显示监管尚未发布最终批准令，且F2表明监管历史上以欺诈、操纵为由多次否决同类产品。F3中多个申请人已提交修订文件但均处于并行审查状态。社交媒体讨论中申请方和交易所都在强调自身优势，但缺乏明确的时间表信号。作为容易混淆'规则批准'与'产品实际交易'的零售投资者（constraint:0），我选择继续等待更明确的规则生效公告或首批批准信号，而非在当前不确定性下进行方向性配置。主要不确定性来自监管审批路径（统一审批vs单一先行）和时间节点。",
+        "constraint_refs": [
+          "actor_retail:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.75,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_media-r3",
+        "round": 3,
+        "actor_id": "actor_media",
+        "action_type": "COMMUNICATE",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": 0.6,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "当前处于审批前传言密集阶段（F4），直接等待无法完成“追踪申请修改和监管决定”以及“比较申请人竞争位置”的目标。作为媒体，应当在不确定但信息充足时，通过发布基于已观察事实（F1、F3）的比较分析或进展综述，建立信息差异化。选择发布而非交易或押注，延续此前专注于事实梳理的媒体定位。主要不确定性在于监管机构最终审批顺序和时间；基于约束（传言频繁且可能互相矛盾），报道应注明“截至2017-01-05”并区分公告/传闻。",
+        "constraint_refs": [
+          "actor_media:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "public",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      }
+    ],
+    "simulated_actions": [
+      {
+        "id": "trace-20",
+        "actor_id": "actor_exchanges",
+        "action_type": "COMMUNICATE",
+        "summary": "作为交易所，我们已提交完备的监控共享和现金申赎安排。关键在于无论统一审批还是单一先行路径，我们的规则变更和注册文件必须优先获得通过，以尽快上线产品。F1裁决已为审批扫清法律障碍，监管不应再以监控理由拖延。"
+      },
+      {
+        "id": "trace-21",
+        "actor_id": "actor_sponsors",
+        "action_type": "COMMUNICATE",
+        "summary": "作为申请方，我们已准备好全套监控共享和现金申赎安排。统一审批对所有申请人都更公平，但无论哪种路径，我们都会持续提交修订文件争取先发优势。"
+      },
+      {
+        "id": "trace-22",
+        "actor_id": "actor_sponsors",
+        "action_type": "COMMUNICATE",
+        "summary": "先发优势确实关键，所以我们一直在加紧完善托管和授权参与人安排。如果只批一家，我们希望能成为那一家。"
+      },
+      {
+        "id": "trace-30",
+        "actor_id": "actor_exchanges",
+        "action_type": "COMMUNICATE",
+        "summary": "正确。作为交易所，我们理解先行优势的竞争格局。但我们的注册文件质量、监控共享安排和托管方案已经在业内最为完善，无论监管选择统一审批还是单一先行路径，我们都已做好最快上线的准备。F2中提到的否决历史正是F1裁决要纠正的，监管不应再重蹈覆辙。"
+      },
+      {
+        "id": "trace-31",
+        "actor_id": "actor_retail",
+        "action_type": "COMMUNICATE",
+        "summary": "法院裁决确实增加了监管压力，但监管机构仍有程序性拖延空间。关键观察点是D0前是否有多家同时获批，还是单一先行。作为零售投资者，我更关注首批资金流入时点而非最终产品数量。短期波动交易策略上，我认为应该紧盯规则生效公告而非最终批准日。"
+      },
+      {
+        "id": "trace-36",
+        "actor_id": "actor_exchanges",
+        "action_type": "COMMUNICATE",
+        "summary": "作为交易所，我们关注的核心是规则变更生效而非猜测监管日程。F4已明确：多家申请人的规则变更和注册文件处于并行审查状态。我们的监控共享安排完全满足监管要求，F1裁决更强化了监管必须给出合理一致解释的义务。任何以\"监控不足\"为由的拖延在法律上都站不住脚了。"
+      }
+    ],
+    "branch_slots": [
+      {
+        "slot_id": "slot-1",
+        "actor_ids": [
+          "actor_exchanges",
+          "actor_retail"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_exchanges-r3",
+          "decision-actor_retail-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-2",
+        "actor_ids": [
+          "actor_sponsors",
+          "actor_incumbent_trust"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_sponsors-r3",
+          "decision-actor_incumbent_trust-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-3",
+        "actor_ids": [
+          "actor_market_makers",
+          "actor_media"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_market_makers-r3",
+          "decision-actor_media-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-4",
+        "actor_ids": [
+          "actor_securities_regulator",
+          "actor_institutions"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_securities_regulator-r3",
+          "decision-actor_institutions-r3"
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "v7": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "交易所说服零售提前布局",
+          "summary": "如果交易所通过公开沟通成功将F1裁决描述为审批必然提速的信号，则零售投资者可能提前涌入市场，推高相关资产价格，从而为交易所争取监管关注提供市场数据支持。",
+          "actor_ids": [
+            "actor_exchanges",
+            "actor_retail"
+          ],
+          "trigger_conditions": [
+            "交易所再次公开强调F1裁决，呼吁市场预期审批加速（观察窗口：D0后的5个交易日内）",
+            "零售投资者社交媒体讨论量增加30%以上"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_exchanges",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_exchanges-r3"
+            },
+            {
+              "actor_id": "actor_retail",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_retail-r3"
+            }
+          ],
+          "consequences": [
+            "交易所获得更强的市场支持证据，用以向监管证明产品需求",
+            "若审批未如期而至，零售投资者面临短期价格回落风险"
+          ],
+          "invalidation_conditions": [
+            "交易所未在D0后的5个交易日内发布任何新的公开沟通",
+            "零售投资讨论量未出现显著增长"
+          ],
+          "evidence_refs": [
+            "F1"
+          ],
+          "simulation_refs": [
+            "decision-actor_exchanges-r3",
+            "decision-actor_retail-r3"
+          ],
+          "novelty_claim": "该分支说明了交易所的沟通策略如何通过零售投资者的行为反馈，反过来影响交易所自身的监管举证能力，而非只是单方面市场反应。",
+          "confidence": 0.5,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-2",
+          "label": "申请人吸引信托转换先行",
+          "summary": "如果现货申请人主动向拟转换的封闭式信托提出合作框架（如共享托管安排），则信托可能评估转换后产品的流动性优势，提前启动内部评估，从而加速自身转换进程。",
+          "actor_ids": [
+            "actor_sponsors",
+            "actor_incumbent_trust"
+          ],
+          "trigger_conditions": [
+            "申请人在D0后的10个交易日内公开或私下向信托发出合作信号",
+            "信托开始评估转换对折价缩窄的具体影响"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_sponsors",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_sponsors-r3"
+            },
+            {
+              "actor_id": "actor_incumbent_trust",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_incumbent_trust-r3"
+            }
+          ],
+          "consequences": [
+            "申请人获得一个潜在的早期转换合作伙伴，提高单一审批路径下的竞争力",
+            "信托若评估正面，可能提前与监管沟通转换细节，增加审批复杂性"
+          ],
+          "invalidation_conditions": [
+            "申请人未在指定窗口内发出合作信号",
+            "信托公开声明未考虑转换合作"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_sponsors-r3",
+            "decision-actor_incumbent_trust-r3"
+          ],
+          "novelty_claim": "该分支展示了两个issuer之间的竞争与合作关系：一个激进争取先发优势的申请者与一个原本等待的信托，通过合作可能同时改变各自的行动路径。",
+          "confidence": 0.5,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-3",
+          "label": "媒体报道引发做市商规避风险",
+          "summary": "如果媒体在追踪申请进展时，重点报道F2提到的历史否决原因（欺诈与操纵），则做市商可能因对监管再否决的担忧而暂停部分流动性准备，从而暂时减少市场深度。",
+          "actor_ids": [
+            "actor_market_makers",
+            "actor_media"
+          ],
+          "trigger_conditions": [
+            "媒体在D0后的7个交易日内发布专题报道，突出F2提及的历史否决理由",
+            "做市商随后减少针对该资产的对冲头寸"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_market_makers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_market_makers-r3"
+            },
+            {
+              "actor_id": "actor_media",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_media-r3"
+            }
+          ],
+          "consequences": [
+            "市场短期流动性下降，可能放大审批结果公布时的价格波动",
+            "媒体将进一步报道流动性变化，形成‘监管风险–流动性收缩’的循环聚焦"
+          ],
+          "invalidation_conditions": [
+            "媒体未发布任何突出F2的专题报道",
+            "做市商的流动性准备数据未发生反向变化"
+          ],
+          "evidence_refs": [
+            "F2"
+          ],
+          "simulation_refs": [
+            "decision-actor_market_makers-r3",
+            "decision-actor_media-r3"
+          ],
+          "novelty_claim": "该分支连接了媒体议程设置与做市商的风险管理决定，说明外部报道如何直接作用于关键市场基础设施参与者的运营决策，而非仅是信息传播。",
+          "confidence": 0.5,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-4",
+          "label": "机构等待信号迫使监管明确路径",
+          "summary": "如果机构投资者通过非公开渠道持续向监管询问审批时间表，而监管同时面临内部路径分歧，则机构集体‘等待’的立场可能迫使监管在D0后的30天内通过非正式指引（如声明或会议纪要）告知审批顺序，以避免市场预期混乱。",
+          "actor_ids": [
+            "actor_securities_regulator",
+            "actor_institutions"
+          ],
+          "trigger_conditions": [
+            "多家机构在D0后的两周内联系监管要求沟通审批时间",
+            "监管内部会议纪要显示路径分歧已影响决策进度"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_securities_regulator",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_securities_regulator-r3"
+            },
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r3"
+            }
+          ],
+          "consequences": [
+            "若监管发布指引，市场预期将迅速收敛于特定审批路径",
+            "机构随后调整资产配置计划，影响产品上市初期的资金流规模"
+          ],
+          "invalidation_conditions": [
+            "机构未在两周内集体或分别接触监管",
+            "监管公开声明审批流程不会因外部询问而调整"
+          ],
+          "evidence_refs": [
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_securities_regulator-r3",
+            "decision-actor_institutions-r3"
+          ],
+          "novelty_claim": "该分支揭示的是需求方（机构）的集体无行动如何通过监管的程序敏感点，间接塑造监管的沟通策略，从而反向锁定机构自身的未来决策空间。",
+          "confidence": 0.5,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        }
+      ],
+      "generation": {
+        "semantic_retries": 0,
+        "elapsed_seconds": 30.89739333401667
+      },
+      "judgments": []
+    }
+  }
+}

@@ -1,0 +1,537 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_bank_control_capital_022",
+  "spec_sha256": "27dcffac1caf3423c61b313128804c267b945fb6dada932e417814217cb6d100",
+  "generated_at": "2026-08-05T03:26:51.591296+00:00",
+  "status": "partial",
+  "runs": [
+    {
+      "run_id": "sim_d2f5d0b5f149",
+      "seed": 853997351,
+      "status": "completed",
+      "events": [
+        {
+          "round": 0,
+          "actor_id": "actor_bank_regulator",
+          "action_type": "COMMUNICATE",
+          "summary": "作为银行审慎监管机构，我们注意到该行披露的内部控制重大缺陷和商誉减值问题。CEO离任后董事会任命具有监管经验的新领导者是积极信号，但D0阶段尚无接管决定、公开资本承诺或最终整改时间表，我们将持续密切监测该行的资本充足状况和整改进展，适时采取必要监管措施。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_depositors",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #4：银行内部控制缺陷和商誉减值引发对存款安全的担忧，我们将密切关注银行是否寻求资本补充或面临监管接管。新领导者的经验可能有助于缓解风险。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_issuer",
+          "action_type": "COMMUNICATE",
+          "summary": "我行注意到市场各方的关注。确认已披露的贷款审查内控缺陷、商誉减值及管理层变动信息。董事会任命的新领导团队正积极推进整改评估工作，将与监管机构保持密切沟通。在制定明确的整改时间表和资本方案后，将及时向市场披露。感谢各方的耐心与信任。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_depositors",
+          "action_type": "COMMUNICATE",
+          "summary": "作为存款客户，我非常关注存款安全问题。内部控制缺陷和商誉减值确实令人担忧。新领导人的监管经验是积极信号，但在看到明确的整改方案和资本承诺之前，我会保持高度警惕。希望银行能尽快公布时间表，稳定储户信心。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_board",
+          "action_type": "COMMUNICATE",
+          "summary": "作为董事会及管理层，我们确认已注意到关于内部控制重大缺陷和商誉减值的问题。我们已迅速采取行动：任命具有丰富监管经验的新CEO来领导整改工作。目前管理层正在全面评估整改方案，将尽快制定明确的时间表和资本计划。我们致力于透明沟通，维护所有利益相关方的利益。请关注后续正式公告。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_depositors",
+          "action_type": "COMMUNICATE",
+          "summary": "作为长期存款客户，感谢银行的坦诚沟通。我们理解整改需要时间，但存款安全是我们的首要关切。请问贵行在整改期间，是否有具体的措施保障现有储户的资金安全和流动性需求？同时也希望贵行能尽快公布整改时间表，这有助于稳定储户信心。我们会密切关注后续披露。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_depositors",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #6：我行注意到市场各方的关注。确认已披露的贷款审查内控缺陷、商誉减值及管理层变动信息。董事会任命的新领导团队正积极推进整改评估工作，将与监管机构保持密切沟通。在制定明确的整改时间表和资本方案后，将及时向市场披露。感谢各方的耐心与信任。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_capital",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #5：作为潜在资本提供方，我们评估银行内部控制缺陷和商誉减值带来的投资机会，但需看到明确的整改方案和监管立场。新领导者的任命是初步积极信号。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_capital",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #1：一家区域银行披露贷款审查内部控制存在重大缺陷，并将延迟提交年度报告，同时确认大额商誉减值。首席执行官已于此前一周离任，董事会任命了具监管经验的新领导者。D0尚无接管决定、公开资本承诺或最终整改时间表。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_capital",
+          "action_type": "COMMUNICATE",
+          "summary": "同意你的评估。作为同样关注该行资本结构的机构方，我认为目前D0阶段的核心变数是：1) 新领导层的整改方案质量与可信度；2) 监管方是否会在短期内提出资本补充要求。我们正在做尽职调查，但在明确的整改时间表和资本承诺出台前，不会做出任何资本承诺。建议保持关注但暂不行动。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_depositors",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #7：作为董事会及管理层，我们确认已注意到关于内部控制重大缺陷和商誉减值的问题。我们已迅速采取行动：任命具有丰富监管经验的新CEO来领导整改工作。目前管理层正在全面评估整改方案，将尽快制定明确的时间表和资本计划。我们致力于透明沟通，维护所有利益相关方的利益。请关注后续正式公告。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_bank_regulator",
+          "action_type": "COMMUNICATE",
+          "summary": "注意到贵行董事会的公开声明。任命具有监管经验的新CEO并着手制定整改时间表和资本计划是符合预期的方向。作为银行审慎监管机构，我们期待收到正式的整改方案和时间表，并将据此评估是否需要采取进一步监管措施。请保持透明沟通，及时向监管方和公众更新进展。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_board",
+          "action_type": "COMMUNICATE",
+          "summary": "感谢监管机构的关注。董事会高度重视此次反馈，新任CEO已与监管团队建立直接沟通渠道。我们承诺将尽快提交具备可行性的整改时间表和资本评估方案，同时确保整改工作的质量和透明度。期待与贵机构保持密切协作。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_board",
+          "action_type": "COMMUNICATE",
+          "summary": "理解贵方的审慎立场。我们正在推进全面的尽职调查和整改方案评估，董事会和管理层对银行的长期价值保持信心。在合适时机，我们会公开讨论资本结构优化计划。建议保持联系，届时可深入探讨合作可能性。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_board",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #4：银行内部控制缺陷和商誉减值引发对存款安全的担忧，我们将密切关注银行是否寻求资本补充或面临监管接管。新领导者的经验可能有助于缓解风险。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_issuer",
+          "action_type": "OPERATE",
+          "summary": "作为区域银行，已通过公开声明向市场传递了整改推进信号。当前最优先的动作是内部运营层面的整改推进——新领导团队已就位，需要尽快完成内部控制缺陷的评估、制定整改方案框架并启动与监管的非正式沟通。对外已发声明稳定市场预期，对内必须在D0做出任何决定前主动推进实质性运营整改，以争取监管信任和资本方支持。主要不确定性在于整改范围的实际深度和监管初始态度。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_bank_regulator",
+          "action_type": "WAIT",
+          "summary": "截至D0，该区域银行已披露内部控制重大缺陷和商誉减值，CEO离任后董事会任命了具监管经验的新领导者，这是积极信号。然而，D0尚无接管决定、公开资本承诺或最终整改时间表，信息不完整。作为银行审慎监管机构，在当前阶段最合理的行动是等待银行新任管理层提交正式的整改方案和资本计划，并观察其后续执行情况，再决定是否采取监管措施。银行管理层已公开表示正在评估整改方案，应给予其一定时间窗口完成评估。过早采取监管行动可能带来不必要的市场恐慌，也不符合D0信息不完整的实际情况。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_depositors",
+          "action_type": "WAIT",
+          "summary": "作为存款客户，核心利益是存款安全而非股权收益。当前事实显示：F1内部控制和F2商誉减值暴露了银行风险，但F3新领导者的任命是积极信号，F4表明监管尚未接管、银行也暂无最终方案。在D0信息仍不完整、其他参与方可能策略性行动的条件下，贸然提款或公开施压可能造成不必要的恐慌或触发挤兑风险，反而损害自身利益。最佳策略是等待F4中的关键缺失信息——整改时间表和资本承诺——公布后再做判断。同时也持续关注新领导团队的表现和监管方的后续立场。这一时期保持观望、维持存款不动是最符合经济激励的制度性选择。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_board",
+          "action_type": "WAIT",
+          "summary": "截至当前时点，董事会已披露F1（内部控制重大缺陷）和F2（商誉减值），并已完成F3（任命具监管经验的新CEO）。然而F4显示D0尚无接管决定、公开资本承诺或最终整改时间表——这些关键外部变量和监管立场尚未明确。在D0信息不完整且其他参与方可能采取策略性行动的约束下，董事会应采取克制姿态，避免在监管立场和资本提供方诉求明确前做出任何可能限制后续选择的公开承诺或资本动作。当前最佳策略是等待新CEO完成对整改方案的全面评估，并与监管方进行充分沟通后，再制定并向市场传达完整的时间表和资本计划。过早行动可能削弱董事会后续谈判地位或被迫承诺不切实际的整改期限。",
+          "visibility": "public",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_capital",
+          "action_type": "WAIT",
+          "summary": "作为潜在资本提供方，当前D0阶段信息严重不完整：银行内部控制缺陷与商誉减值的真实深度未知，整改方案和时间表尚未明确，监管接管决定或资本承诺也未出台。虽然新任命的具备监管经验的领导层是积极信号，但远不足以支撑资本配置决策。在监管立场明朗化、银行公布具体整改计划之前，等待是最符合机构投资者制度约束与经济激励的选择。此时任何资本承诺或沟通都可能暴露自身谈判劣势或被其他参与方策略性利用。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_creditors",
+          "action_type": "WAIT",
+          "summary": "银行内部控制缺陷和商誉减值暴露信用风险，CEO已更换但整改方案未定。D0尚无接管决定或资本承诺，作为债权人需等待管理层整改评估结果及监管动向，避免过早调整头寸导致策略性损失。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        }
+      ],
+      "warnings": [
+        "The recorded seed controls Python agent scheduling only; provider-side LLM sampling remains unseeded."
+      ]
+    }
+  ],
+  "scenarios": [],
+  "forecast_target_results": [],
+  "simulation_graph": {
+    "nodes": [
+      {
+        "id": "actor_bank_regulator",
+        "kind": "actor",
+        "label": "银行审慎监管机构"
+      },
+      {
+        "id": "actor_board",
+        "kind": "actor",
+        "label": "董事会与管理层"
+      },
+      {
+        "id": "actor_capital",
+        "kind": "actor",
+        "label": "潜在资本提供方"
+      },
+      {
+        "id": "actor_depositors",
+        "kind": "actor",
+        "label": "存款客户"
+      },
+      {
+        "id": "actor_issuer",
+        "kind": "actor",
+        "label": "匿名区域银行"
+      },
+      {
+        "id": "trace-15",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "作为银行审慎监管机构，我们注意到该行披露的内部控制重大缺陷和商誉减值问题。CEO离任后董事会任命具有监管经验的新领导者是积极信号，但D0阶段尚无接管决定、公开资本承诺或最终整改时间表，我们将持续密切监测该行的资本充足状况和整改进展，适时采取必要监管措施。"
+      },
+      {
+        "id": "trace-16",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #4：银行内部控制缺陷和商誉减值引发对存款安全的担忧，我们将密切关注银行是否寻求资本补充或面临监管接管。新领导者的经验可能有助于缓解风险。"
+      },
+      {
+        "id": "trace-17",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "我行注意到市场各方的关注。确认已披露的贷款审查内控缺陷、商誉减值及管理层变动信息。董事会任命的新领导团队正积极推进整改评估工作，将与监管机构保持密切沟通。在制定明确的整改时间表和资本方案后，将及时向市场披露。感谢各方的耐心与信任。"
+      },
+      {
+        "id": "trace-18",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "作为存款客户，我非常关注存款安全问题。内部控制缺陷和商誉减值确实令人担忧。新领导人的监管经验是积极信号，但在看到明确的整改方案和资本承诺之前，我会保持高度警惕。希望银行能尽快公布时间表，稳定储户信心。"
+      },
+      {
+        "id": "trace-22",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "作为董事会及管理层，我们确认已注意到关于内部控制重大缺陷和商誉减值的问题。我们已迅速采取行动：任命具有丰富监管经验的新CEO来领导整改工作。目前管理层正在全面评估整改方案，将尽快制定明确的时间表和资本计划。我们致力于透明沟通，维护所有利益相关方的利益。请关注后续正式公告。"
+      },
+      {
+        "id": "trace-23",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "作为长期存款客户，感谢银行的坦诚沟通。我们理解整改需要时间，但存款安全是我们的首要关切。请问贵行在整改期间，是否有具体的措施保障现有储户的资金安全和流动性需求？同时也希望贵行能尽快公布整改时间表，这有助于稳定储户信心。我们会密切关注后续披露。"
+      },
+      {
+        "id": "trace-24",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #6：我行注意到市场各方的关注。确认已披露的贷款审查内控缺陷、商誉减值及管理层变动信息。董事会任命的新领导团队正积极推进整改评估工作，将与监管机构保持密切沟通。在制定明确的整改时间表和资本方案后，将及时向市场披露。感谢各方的耐心与信任。"
+      },
+      {
+        "id": "trace-25",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #5：作为潜在资本提供方，我们评估银行内部控制缺陷和商誉减值带来的投资机会，但需看到明确的整改方案和监管立场。新领导者的任命是初步积极信号。"
+      },
+      {
+        "id": "trace-26",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #1：一家区域银行披露贷款审查内部控制存在重大缺陷，并将延迟提交年度报告，同时确认大额商誉减值。首席执行官已于此前一周离任，董事会任命了具监管经验的新领导者。D0尚无接管决定、公开资本承诺或最终整改时间表。"
+      },
+      {
+        "id": "trace-27",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "同意你的评估。作为同样关注该行资本结构的机构方，我认为目前D0阶段的核心变数是：1) 新领导层的整改方案质量与可信度；2) 监管方是否会在短期内提出资本补充要求。我们正在做尽职调查，但在明确的整改时间表和资本承诺出台前，不会做出任何资本承诺。建议保持关注但暂不行动。"
+      },
+      {
+        "id": "trace-31",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #7：作为董事会及管理层，我们确认已注意到关于内部控制重大缺陷和商誉减值的问题。我们已迅速采取行动：任命具有丰富监管经验的新CEO来领导整改工作。目前管理层正在全面评估整改方案，将尽快制定明确的时间表和资本计划。我们致力于透明沟通，维护所有利益相关方的利益。请关注后续正式公告。"
+      },
+      {
+        "id": "trace-32",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "注意到贵行董事会的公开声明。任命具有监管经验的新CEO并着手制定整改时间表和资本计划是符合预期的方向。作为银行审慎监管机构，我们期待收到正式的整改方案和时间表，并将据此评估是否需要采取进一步监管措施。请保持透明沟通，及时向监管方和公众更新进展。"
+      },
+      {
+        "id": "trace-33",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "感谢监管机构的关注。董事会高度重视此次反馈，新任CEO已与监管团队建立直接沟通渠道。我们承诺将尽快提交具备可行性的整改时间表和资本评估方案，同时确保整改工作的质量和透明度。期待与贵机构保持密切协作。"
+      },
+      {
+        "id": "trace-34",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "理解贵方的审慎立场。我们正在推进全面的尽职调查和整改方案评估，董事会和管理层对银行的长期价值保持信心。在合适时机，我们会公开讨论资本结构优化计划。建议保持联系，届时可深入探讨合作可能性。"
+      },
+      {
+        "id": "trace-35",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #4：银行内部控制缺陷和商誉减值引发对存款安全的担忧，我们将密切关注银行是否寻求资本补充或面临监管接管。新领导者的经验可能有助于缓解风险。"
+      },
+      {
+        "id": "decision-actor_issuer-r3",
+        "kind": "financial_decision",
+        "action_type": "OPERATE",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": 0.7,
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "作为区域银行，已通过公开声明向市场传递了整改推进信号。当前最优先的动作是内部运营层面的整改推进——新领导团队已就位，需要尽快完成内部控制缺陷的评估、制定整改方案框架并启动与监管的非正式沟通。对外已发声明稳定市场预期，对内必须在D0做出任何决定前主动推进实质性运营整改，以争取监管信任和资本方支持。主要不确定性在于整改范围的实际深度和监管初始态度。"
+      },
+      {
+        "id": "decision-actor_bank_regulator-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.6,
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "截至D0，该区域银行已披露内部控制重大缺陷和商誉减值，CEO离任后董事会任命了具监管经验的新领导者，这是积极信号。然而，D0尚无接管决定、公开资本承诺或最终整改时间表，信息不完整。作为银行审慎监管机构，在当前阶段最合理的行动是等待银行新任管理层提交正式的整改方案和资本计划，并观察其后续执行情况，再决定是否采取监管措施。银行管理层已公开表示正在评估整改方案，应给予其一定时间窗口完成评估。过早采取监管行动可能带来不必要的市场恐慌，也不符合D0信息不完整的实际情况。"
+      },
+      {
+        "id": "decision-actor_depositors-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "作为存款客户，核心利益是存款安全而非股权收益。当前事实显示：F1内部控制和F2商誉减值暴露了银行风险，但F3新领导者的任命是积极信号，F4表明监管尚未接管、银行也暂无最终方案。在D0信息仍不完整、其他参与方可能策略性行动的条件下，贸然提款或公开施压可能造成不必要的恐慌或触发挤兑风险，反而损害自身利益。最佳策略是等待F4中的关键缺失信息——整改时间表和资本承诺——公布后再做判断。同时也持续关注新领导团队的表现和监管方的后续立场。这一时期保持观望、维持存款不动是最符合经济激励的制度性选择。"
+      },
+      {
+        "id": "decision-actor_board-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "截至当前时点，董事会已披露F1（内部控制重大缺陷）和F2（商誉减值），并已完成F3（任命具监管经验的新CEO）。然而F4显示D0尚无接管决定、公开资本承诺或最终整改时间表——这些关键外部变量和监管立场尚未明确。在D0信息不完整且其他参与方可能采取策略性行动的约束下，董事会应采取克制姿态，避免在监管立场和资本提供方诉求明确前做出任何可能限制后续选择的公开承诺或资本动作。当前最佳策略是等待新CEO完成对整改方案的全面评估，并与监管方进行充分沟通后，再制定并向市场传达完整的时间表和资本计划。过早行动可能削弱董事会后续谈判地位或被迫承诺不切实际的整改期限。"
+      },
+      {
+        "id": "decision-actor_capital-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "confidence": 0.9,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "作为潜在资本提供方，当前D0阶段信息严重不完整：银行内部控制缺陷与商誉减值的真实深度未知，整改方案和时间表尚未明确，监管接管决定或资本承诺也未出台。虽然新任命的具备监管经验的领导层是积极信号，但远不足以支撑资本配置决策。在监管立场明朗化、银行公布具体整改计划之前，等待是最符合机构投资者制度约束与经济激励的选择。此时任何资本承诺或沟通都可能暴露自身谈判劣势或被其他参与方策略性利用。"
+      },
+      {
+        "id": "actor_creditors",
+        "kind": "actor",
+        "label": "债权人与交易对手"
+      },
+      {
+        "id": "decision-actor_creditors-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "银行内部控制缺陷和商誉减值暴露信用风险，CEO已更换但整改方案未定。D0尚无接管决定或资本承诺，作为债权人需等待管理层整改评估结果及监管动向，避免过早调整头寸导致策略性损失。"
+      }
+    ],
+    "edges": [
+      {
+        "source": "actor_bank_regulator",
+        "target": "trace-15",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_depositors",
+        "target": "trace-16",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_issuer",
+        "target": "trace-17",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_depositors",
+        "target": "trace-18",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_board",
+        "target": "trace-22",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_depositors",
+        "target": "trace-23",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_depositors",
+        "target": "trace-24",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_capital",
+        "target": "trace-25",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_capital",
+        "target": "trace-26",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_capital",
+        "target": "trace-27",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_depositors",
+        "target": "trace-31",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_bank_regulator",
+        "target": "trace-32",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_board",
+        "target": "trace-33",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_board",
+        "target": "trace-34",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_board",
+        "target": "trace-35",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_issuer",
+        "target": "decision-actor_issuer-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_bank_regulator",
+        "target": "decision-actor_bank_regulator-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_depositors",
+        "target": "decision-actor_depositors-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_board",
+        "target": "decision-actor_board-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_capital",
+        "target": "decision-actor_capital-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_creditors",
+        "target": "decision-actor_creditors-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      }
+    ]
+  },
+  "warnings": [
+    "Integration smoke result only; it is not a calibrated financial forecast.",
+    "The upstream run monitor reported zero actions; SQLite was used as the authoritative source.",
+    "OASIS did not persist per-action round numbers, so exported events use round 0.",
+    "Rule-generated institutional profiles contain consumer-social attributes and require a financial profile compiler.",
+    "No forecast target result or scenario frequency was produced from this single run.",
+    "Structured financial decisions were elicited post-simulation and remain simulated claims."
+  ],
+  "provenance": {
+    "engine": "MiroFish/OASIS",
+    "engine_version": "60757b3c825d577a1d7a86ab1ba6d5c21f51c261",
+    "model": "deepseek-ai/DeepSeek-V4-Flash",
+    "raw_run_artifacts": [
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/mirofish/simulations/sim_d2f5d0b5f149/reddit_simulation.db",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/mirofish/simulations/sim_d2f5d0b5f149/simulation_config.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/formal-runs/blind-scenario-formal-v7b/blind_bank_control_capital_022/core/replication-00/sqlite-actions.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/formal-runs/blind-scenario-formal-v7b/blind_bank_control_capital_022/core/replication-00/raw-actions.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/formal-runs/blind-scenario-formal-v7b/blind_bank_control_capital_022/core/replication-00/financial-interviews-raw.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/formal-runs/blind-scenario-formal-v7b/blind_bank_control_capital_022/core/replication-00/financial-actions.json"
+    ]
+  }
+}

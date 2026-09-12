@@ -1,0 +1,102 @@
+[
+  {
+    "job": "anonymous-case-05 v8",
+    "error_type": "ValueError",
+    "reason": "conditional_responses must have one entry per slot actor, in slot order"
+  },
+  {
+    "job": "anonymous-case-05 v8 1",
+    "error_type": "ValueError",
+    "reason": "quote must be an exact contiguous excerpt from that branch, without added ellipses"
+  },
+  {
+    "job": "anonymous-case-24 v7 1",
+    "error_type": "ValueError",
+    "reason": "quote must be an exact contiguous excerpt from that branch, without added ellipses"
+  },
+  {
+    "job": "anonymous-case-18 v8 1",
+    "error_type": "ValueError",
+    "reason": "quote must be an exact contiguous excerpt from that branch, without added ellipses"
+  },
+  {
+    "job": "anonymous-case-05 v7 2",
+    "error_type": "ValueError",
+    "reason": "quote must be an exact contiguous excerpt from that branch, without added ellipses"
+  },
+  {
+    "job": "anonymous-case-05 v7 1",
+    "error_type": "ValueError",
+    "reason": "quote must be an exact contiguous excerpt from that branch, without added ellipses"
+  },
+  {
+    "job": "anonymous-case-24 v8 2",
+    "error_type": "ValueError",
+    "reason": "quote must be an exact contiguous excerpt from that branch, without added ellipses"
+  },
+  {
+    "job": "anonymous-case-02 v8",
+    "error_type": "ValueError",
+    "reason": "observation references must be included in branch evidence_refs"
+  },
+  {
+    "job": "anonymous-case-03 v8",
+    "error_type": "ValueError",
+    "reason": "conditional response actor_ids must match this slot: ['actor_ports', 'actor_media']"
+  },
+  {
+    "job": "anonymous-case-07 v8",
+    "error_type": "ValueError",
+    "reason": "conditional_responses must have one entry per slot actor"
+  },
+  {
+    "job": "anonymous-case-09 v8",
+    "error_type": "ValueError",
+    "reason": "observation references must be included in branch evidence_refs"
+  },
+  {
+    "job": "anonymous-case-11 v8",
+    "error_type": "ValueError",
+    "reason": "scenario response must contain exactly 4 branches"
+  },
+  {
+    "job": "anonymous-case-23 v8",
+    "error_type": "ValueError",
+    "reason": "conditional response actor_ids must match this slot: ['actor_buyer', 'actor_court_regulator']"
+  },
+  {
+    "job": "anonymous-case-04 v8",
+    "error_type": "ValueError",
+    "reason": "observation references must be included in branch evidence_refs"
+  },
+  {
+    "job": "anonymous-case-12 v8",
+    "error_type": "ValueError",
+    "reason": "observation references must be included in branch evidence_refs"
+  },
+  {
+    "job": "anonymous-case-19 v8",
+    "error_type": "ValueError",
+    "reason": "scenario response must contain exactly 4 branches"
+  },
+  {
+    "job": "anonymous-case-17 v8",
+    "error_type": "ValueError",
+    "reason": "observation references must be included in branch evidence_refs"
+  },
+  {
+    "job": "anonymous-case-10 v8",
+    "error_type": "ValueError",
+    "reason": "conditional response actor_ids must match this slot: ['actor_rating', 'actor_investors']"
+  },
+  {
+    "job": "anonymous-case-22 v8",
+    "error_type": "ValueError",
+    "reason": "observation references must be included in branch evidence_refs"
+  },
+  {
+    "job": "anonymous-case-06 v8",
+    "error_type": "ValueError",
+    "reason": "observation references must be included in branch evidence_refs"
+  }
+]

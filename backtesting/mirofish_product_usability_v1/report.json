@@ -1,0 +1,967 @@
+{
+  "experiment_id": "product-usability-experiment-v1",
+  "case_count": 12,
+  "registered_case_count": 12,
+  "complete": true,
+  "variants": {
+    "decisions_only": {
+      "completed_generations": 12,
+      "scheduled_generations": 12,
+      "generation_completion_rate": 1.0,
+      "quality_case_count": 12,
+      "branch_count": 48,
+      "decision_actor_coverage": 1.0,
+      "mean_quality_score_out_of_20": 8.25,
+      "watchlist_usable_rate": 0.3333333333333333,
+      "strict_qualified_rate": 0.0625,
+      "mean_dimension_scores": {
+        "mechanism_coherence": 1.625,
+        "monitoring_actionability": 1.5833333333333333,
+        "falsifiability": 1.6666666666666667,
+        "evidence_discipline": 1.5416666666666667,
+        "scenario_diversity": 1.8333333333333333
+      },
+      "conservative_branch_flags": {
+        "multi_actor_causal_chain": 0.3333333333333333,
+        "observable_trigger": 0.7708333333333334,
+        "specific_invalidation": 0.8958333333333334,
+        "decision_relevant": 0.4375,
+        "evidence_grounded": 0.4375
+      },
+      "judge_flag_agreement": 0.6791666666666667,
+      "judge_score_within_one": 0.8833333333333333,
+      "median_generation_seconds": 48.284240645501995,
+      "generation_calls": 13,
+      "generation_failures": 0,
+      "semantic_retries": 1,
+      "generation_prompt_tokens": 34715,
+      "generation_completion_tokens": 13621,
+      "generation_estimated_cost": 0.004617666,
+      "visible_interaction_count": 0,
+      "initial_prompt_chars": 84124
+    },
+    "filtered_interactions": {
+      "completed_generations": 12,
+      "scheduled_generations": 12,
+      "generation_completion_rate": 1.0,
+      "quality_case_count": 12,
+      "branch_count": 48,
+      "decision_actor_coverage": 1.0,
+      "mean_quality_score_out_of_20": 10.458333333333334,
+      "watchlist_usable_rate": 0.3333333333333333,
+      "strict_qualified_rate": 0.1875,
+      "mean_dimension_scores": {
+        "mechanism_coherence": 2.0833333333333335,
+        "monitoring_actionability": 1.9583333333333333,
+        "falsifiability": 2.2083333333333335,
+        "evidence_discipline": 1.8333333333333333,
+        "scenario_diversity": 2.375
+      },
+      "conservative_branch_flags": {
+        "multi_actor_causal_chain": 0.4583333333333333,
+        "observable_trigger": 0.4166666666666667,
+        "specific_invalidation": 0.8333333333333334,
+        "decision_relevant": 0.375,
+        "evidence_grounded": 0.6875
+      },
+      "judge_flag_agreement": 0.6666666666666666,
+      "judge_score_within_one": 0.7833333333333333,
+      "median_generation_seconds": 68.29671352051082,
+      "generation_calls": 15,
+      "generation_failures": 0,
+      "semantic_retries": 3,
+      "generation_prompt_tokens": 48626,
+      "generation_completion_tokens": 17477,
+      "generation_estimated_cost": 0.00641628,
+      "visible_interaction_count": 78,
+      "initial_prompt_chars": 105000
+    },
+    "raw_interactions": {
+      "completed_generations": 12,
+      "scheduled_generations": 12,
+      "generation_completion_rate": 1.0,
+      "quality_case_count": 12,
+      "branch_count": 48,
+      "decision_actor_coverage": 1.0,
+      "mean_quality_score_out_of_20": 9.083333333333334,
+      "watchlist_usable_rate": 0.2708333333333333,
+      "strict_qualified_rate": 0.0625,
+      "mean_dimension_scores": {
+        "mechanism_coherence": 1.8333333333333333,
+        "monitoring_actionability": 1.7083333333333333,
+        "falsifiability": 1.9166666666666667,
+        "evidence_discipline": 1.5416666666666667,
+        "scenario_diversity": 2.0833333333333335
+      },
+      "conservative_branch_flags": {
+        "multi_actor_causal_chain": 0.2708333333333333,
+        "observable_trigger": 0.75,
+        "specific_invalidation": 0.8958333333333334,
+        "decision_relevant": 0.375,
+        "evidence_grounded": 0.3541666666666667
+      },
+      "judge_flag_agreement": 0.6666666666666666,
+      "judge_score_within_one": 0.8833333333333333,
+      "median_generation_seconds": 48.84702075002133,
+      "generation_calls": 13,
+      "generation_failures": 0,
+      "semantic_retries": 1,
+      "generation_prompt_tokens": 48423,
+      "generation_completion_tokens": 13043,
+      "generation_estimated_cost": 0.005802642,
+      "visible_interaction_count": 190,
+      "initial_prompt_chars": 124839
+    }
+  },
+  "cases": [
+    {
+      "case_id": "anonymous-case-01",
+      "event_type": "公司指引上调/下调",
+      "variants": {
+        "decisions_only": {
+          "score": 9,
+          "scores": {
+            "mechanism_coherence": 1.5,
+            "monitoring_actionability": 1.5,
+            "falsifiability": 1.5,
+            "evidence_discipline": 2,
+            "scenario_diversity": 2.5
+          },
+          "watchlist_usable_rate": 0,
+          "strict_qualified_rate": 0,
+          "flags": {
+            "multi_actor_causal_chain": 0.25,
+            "observable_trigger": 1,
+            "specific_invalidation": 1,
+            "decision_relevant": 0.25,
+            "evidence_grounded": 0
+          },
+          "flag_agreement": 0.6,
+          "score_within_one": 1
+        },
+        "filtered_interactions": {
+          "score": 8,
+          "scores": {
+            "mechanism_coherence": 1.5,
+            "monitoring_actionability": 1.5,
+            "falsifiability": 2,
+            "evidence_discipline": 1.5,
+            "scenario_diversity": 1.5
+          },
+          "watchlist_usable_rate": 0,
+          "strict_qualified_rate": 0,
+          "flags": {
+            "multi_actor_causal_chain": 0,
+            "observable_trigger": 0,
+            "specific_invalidation": 1,
+            "decision_relevant": 0,
+            "evidence_grounded": 1
+          },
+          "flag_agreement": 0.4,
+          "score_within_one": 0
+        },
+        "raw_interactions": {
+          "score": 11,
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2.5,
+            "falsifiability": 2.5,
+            "evidence_discipline": 2,
+            "scenario_diversity": 2
+          },
+          "watchlist_usable_rate": 1,
+          "strict_qualified_rate": 0.5,
+          "flags": {
+            "multi_actor_causal_chain": 0.5,
+            "observable_trigger": 1,
+            "specific_invalidation": 1,
+            "decision_relevant": 1,
+            "evidence_grounded": 1
+          },
+          "flag_agreement": 0.9,
+          "score_within_one": 0.6
+        }
+      }
+    },
+    {
+      "case_id": "anonymous-case-02",
+      "event_type": "增长/就业数据意外",
+      "variants": {
+        "decisions_only": {
+          "score": 7.5,
+          "scores": {
+            "mechanism_coherence": 1.5,
+            "monitoring_actionability": 1.5,
+            "falsifiability": 1.5,
+            "evidence_discipline": 1,
+            "scenario_diversity": 2
+          },
+          "watchlist_usable_rate": 0,
+          "strict_qualified_rate": 0,
+          "flags": {
+            "multi_actor_causal_chain": 0.25,
+            "observable_trigger": 0.25,
+            "specific_invalidation": 1,
+            "decision_relevant": 1,
+            "evidence_grounded": 0
+          },
+          "flag_agreement": 0.55,
+          "score_within_one": 1
+        },
+        "filtered_interactions": {
+          "score": 7.5,
+          "scores": {
+            "mechanism_coherence": 1.5,
+            "monitoring_actionability": 1.5,
+            "falsifiability": 1.5,
+            "evidence_discipline": 1,
+            "scenario_diversity": 2
+          },
+          "watchlist_usable_rate": 0.5,
+          "strict_qualified_rate": 0,
+          "flags": {
+            "multi_actor_causal_chain": 0,
+            "observable_trigger": 0.75,
+            "specific_invalidation": 0.75,
+            "decision_relevant": 0,
+            "evidence_grounded": 1
+          },
+          "flag_agreement": 0.5,
+          "score_within_one": 1
+        },
+        "raw_interactions": {
+          "score": 6.5,
+          "scores": {
+            "mechanism_coherence": 1,
+            "monitoring_actionability": 1,
+            "falsifiability": 1.5,
+            "evidence_discipline": 1.5,
+            "scenario_diversity": 1.5
+          },
+          "watchlist_usable_rate": 0.5,
+          "strict_qualified_rate": 0,
+          "flags": {
+            "multi_actor_causal_chain": 0,
+            "observable_trigger": 1,
+            "specific_invalidation": 1,
+            "decision_relevant": 0.25,
+            "evidence_grounded": 0.5
+          },
+          "flag_agreement": 0.65,
+          "score_within_one": 1
+        }
+      }
+    },
+    {
+      "case_id": "anonymous-case-03",
+      "event_type": "并购/分拆/再融资",
+      "variants": {
+        "decisions_only": {
+          "score": 7.5,
+          "scores": {
+            "mechanism_coherence": 1.5,
+            "monitoring_actionability": 1,
+            "falsifiability": 2,
+            "evidence_discipline": 1.5,
+            "scenario_diversity": 1.5
+          },
+          "watchlist_usable_rate": 0,
+          "strict_qualified_rate": 0,
+          "flags": {
+            "multi_actor_causal_chain": 0.25,
+            "observable_trigger": 1,
+            "specific_invalidation": 1,
+            "decision_relevant": 0,
+            "evidence_grounded": 0
+          },
+          "flag_agreement": 0.7,
+          "score_within_one": 1
+        },
+        "filtered_interactions": {
+          "score": 11.5,
+          "scores": {
+            "mechanism_coherence": 2.5,
+            "monitoring_actionability": 2.5,
+            "falsifiability": 2.5,
+            "evidence_discipline": 2,
+            "scenario_diversity": 2
+          },
+          "watchlist_usable_rate": 0.75,
+          "strict_qualified_rate": 0.5,
+          "flags": {
+            "multi_actor_causal_chain": 0.5,
+            "observable_trigger": 0.75,
+            "specific_invalidation": 1,
+            "decision_relevant": 0.5,
+            "evidence_grounded": 1
+          },
+          "flag_agreement": 0.85,
+          "score_within_one": 0.8
+        },
+        "raw_interactions": {
+          "score": 9.5,
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 1.5,
+            "evidence_discipline": 1.5,
+            "scenario_diversity": 2.5
+          },
+          "watchlist_usable_rate": 0.75,
+          "strict_qualified_rate": 0,
+          "flags": {
+            "multi_actor_causal_chain": 0,
+            "observable_trigger": 0.75,
+            "specific_invalidation": 0.75,
+            "decision_relevant": 0.5,
+            "evidence_grounded": 0.75
+          },
+          "flag_agreement": 0.6,
+          "score_within_one": 1
+        }
+      }
+    },
+    {
+      "case_id": "anonymous-case-04",
+      "event_type": "政策利率调整",
+      "variants": {
+        "decisions_only": {
+          "score": 4.5,
+          "scores": {
+            "mechanism_coherence": 1,
+            "monitoring_actionability": 1.5,
+            "falsifiability": 1,
+            "evidence_discipline": 0.5,
+            "scenario_diversity": 0.5
+          },
+          "watchlist_usable_rate": 0,
+          "strict_qualified_rate": 0,
+          "flags": {
+            "multi_actor_causal_chain": 0,
+            "observable_trigger": 0.25,
+            "specific_invalidation": 0.75,
+            "decision_relevant": 0,
+            "evidence_grounded": 0
+          },
+          "flag_agreement": 0.65,
+          "score_within_one": 1
+        },
+        "filtered_interactions": {
+          "score": 9.5,
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 1.5,
+            "falsifiability": 2,
+            "evidence_discipline": 1.5,
+            "scenario_diversity": 2.5
+          },
+          "watchlist_usable_rate": 0,
+          "strict_qualified_rate": 0,
+          "flags": {
+            "multi_actor_causal_chain": 0,
+            "observable_trigger": 0,
+            "specific_invalidation": 1,
+            "decision_relevant": 0,
+            "evidence_grounded": 1
+          },
+          "flag_agreement": 0.75,
+          "score_within_one": 1
+        },
+        "raw_interactions": {
+          "score": 8,
+          "scores": {
+            "mechanism_coherence": 1.5,
+            "monitoring_actionability": 1.5,
+            "falsifiability": 2,
+            "evidence_discipline": 1.5,
+            "scenario_diversity": 1.5
+          },
+          "watchlist_usable_rate": 0,
+          "strict_qualified_rate": 0,
+          "flags": {
+            "multi_actor_causal_chain": 0,
+            "observable_trigger": 1,
+            "specific_invalidation": 1,
+            "decision_relevant": 0,
+            "evidence_grounded": 0
+          },
+          "flag_agreement": 0.8,
+          "score_within_one": 1
+        }
+      }
+    },
+    {
+      "case_id": "anonymous-case-05",
+      "event_type": "财报超预期/不及预期",
+      "variants": {
+        "decisions_only": {
+          "score": 13.5,
+          "scores": {
+            "mechanism_coherence": 2.5,
+            "monitoring_actionability": 2.5,
+            "falsifiability": 3,
+            "evidence_discipline": 2.5,
+            "scenario_diversity": 3
+          },
+          "watchlist_usable_rate": 0.5,
+          "strict_qualified_rate": 0.25,
+          "flags": {
+            "multi_actor_causal_chain": 0.5,
+            "observable_trigger": 0.75,
+            "specific_invalidation": 1,
+            "decision_relevant": 0.75,
+            "evidence_grounded": 0.75
+          },
+          "flag_agreement": 0.8,
+          "score_within_one": 0.2
+        },
+        "filtered_interactions": {
+          "score": 14,
+          "scores": {
+            "mechanism_coherence": 3,
+            "monitoring_actionability": 3,
+            "falsifiability": 2.5,
+            "evidence_discipline": 2.5,
+            "scenario_diversity": 3
+          },
+          "watchlist_usable_rate": 0.75,
+          "strict_qualified_rate": 0.5,
+          "flags": {
+            "multi_actor_causal_chain": 0.75,
+            "observable_trigger": 1,
+            "specific_invalidation": 0.75,
+            "decision_relevant": 0.75,
+            "evidence_grounded": 0.75
+          },
+          "flag_agreement": 0.9,
+          "score_within_one": 1
+        },
+        "raw_interactions": {
+          "score": 12,
+          "scores": {
+            "mechanism_coherence": 2.5,
+            "monitoring_actionability": 2,
+            "falsifiability": 2,
+            "evidence_discipline": 2.5,
+            "scenario_diversity": 3
+          },
+          "watchlist_usable_rate": 0.75,
+          "strict_qualified_rate": 0.25,
+          "flags": {
+            "multi_actor_causal_chain": 1,
+            "observable_trigger": 0.75,
+            "specific_invalidation": 1,
+            "decision_relevant": 0.25,
+            "evidence_grounded": 1
+          },
+          "flag_agreement": 0.9,
+          "score_within_one": 1
+        }
+      }
+    },
+    {
+      "case_id": "anonymous-case-06",
+      "event_type": "通胀数据意外",
+      "variants": {
+        "decisions_only": {
+          "score": 10,
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 2,
+            "evidence_discipline": 2,
+            "scenario_diversity": 2
+          },
+          "watchlist_usable_rate": 1,
+          "strict_qualified_rate": 0,
+          "flags": {
+            "multi_actor_causal_chain": 0.75,
+            "observable_trigger": 1,
+            "specific_invalidation": 1,
+            "decision_relevant": 0,
+            "evidence_grounded": 1
+          },
+          "flag_agreement": 0.8,
+          "score_within_one": 1
+        },
+        "filtered_interactions": {
+          "score": 10,
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 2,
+            "evidence_discipline": 2,
+            "scenario_diversity": 2
+          },
+          "watchlist_usable_rate": 0.75,
+          "strict_qualified_rate": 0.25,
+          "flags": {
+            "multi_actor_causal_chain": 0.5,
+            "observable_trigger": 0.75,
+            "specific_invalidation": 1,
+            "decision_relevant": 0.75,
+            "evidence_grounded": 1
+          },
+          "flag_agreement": 0.8,
+          "score_within_one": 1
+        },
+        "raw_interactions": {
+          "score": 10,
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 2,
+            "evidence_discipline": 2,
+            "scenario_diversity": 2
+          },
+          "watchlist_usable_rate": 0,
+          "strict_qualified_rate": 0,
+          "flags": {
+            "multi_actor_causal_chain": 0,
+            "observable_trigger": 1,
+            "specific_invalidation": 1,
+            "decision_relevant": 1,
+            "evidence_grounded": 0
+          },
+          "flag_agreement": 0.65,
+          "score_within_one": 1
+        }
+      }
+    },
+    {
+      "case_id": "anonymous-case-07",
+      "event_type": "公司指引上调/下调",
+      "variants": {
+        "decisions_only": {
+          "score": 7,
+          "scores": {
+            "mechanism_coherence": 1.5,
+            "monitoring_actionability": 1.5,
+            "falsifiability": 1.5,
+            "evidence_discipline": 1.5,
+            "scenario_diversity": 1
+          },
+          "watchlist_usable_rate": 0.5,
+          "strict_qualified_rate": 0.5,
+          "flags": {
+            "multi_actor_causal_chain": 1,
+            "observable_trigger": 1,
+            "specific_invalidation": 1,
+            "decision_relevant": 0.75,
+            "evidence_grounded": 0.5
+          },
+          "flag_agreement": 0.85,
+          "score_within_one": 0.8
+        },
+        "filtered_interactions": {
+          "score": 10.5,
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2.5,
+            "falsifiability": 2.5,
+            "evidence_discipline": 1.5,
+            "scenario_diversity": 2
+          },
+          "watchlist_usable_rate": 0,
+          "strict_qualified_rate": 0,
+          "flags": {
+            "multi_actor_causal_chain": 0.25,
+            "observable_trigger": 0.25,
+            "specific_invalidation": 0.75,
+            "decision_relevant": 0.75,
+            "evidence_grounded": 0
+          },
+          "flag_agreement": 0.5,
+          "score_within_one": 1
+        },
+        "raw_interactions": {
+          "score": 5,
+          "scores": {
+            "mechanism_coherence": 1,
+            "monitoring_actionability": 1,
+            "falsifiability": 1,
+            "evidence_discipline": 1,
+            "scenario_diversity": 1
+          },
+          "watchlist_usable_rate": 0,
+          "strict_qualified_rate": 0,
+          "flags": {
+            "multi_actor_causal_chain": 0,
+            "observable_trigger": 0,
+            "specific_invalidation": 0,
+            "decision_relevant": 0,
+            "evidence_grounded": 0
+          },
+          "flag_agreement": 0,
+          "score_within_one": 0
+        }
+      }
+    },
+    {
+      "case_id": "anonymous-case-08",
+      "event_type": "增长/就业数据意外",
+      "variants": {
+        "decisions_only": {
+          "score": 8,
+          "scores": {
+            "mechanism_coherence": 1.5,
+            "monitoring_actionability": 1,
+            "falsifiability": 2,
+            "evidence_discipline": 1.5,
+            "scenario_diversity": 2
+          },
+          "watchlist_usable_rate": 0.75,
+          "strict_qualified_rate": 0,
+          "flags": {
+            "multi_actor_causal_chain": 0.75,
+            "observable_trigger": 0.75,
+            "specific_invalidation": 1,
+            "decision_relevant": 0,
+            "evidence_grounded": 1
+          },
+          "flag_agreement": 0.8,
+          "score_within_one": 1
+        },
+        "filtered_interactions": {
+          "score": 9.5,
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 1,
+            "falsifiability": 2,
+            "evidence_discipline": 2,
+            "scenario_diversity": 2.5
+          },
+          "watchlist_usable_rate": 0.25,
+          "strict_qualified_rate": 0,
+          "flags": {
+            "multi_actor_causal_chain": 0.5,
+            "observable_trigger": 0.25,
+            "specific_invalidation": 0.75,
+            "decision_relevant": 0,
+            "evidence_grounded": 0.5
+          },
+          "flag_agreement": 0.5,
+          "score_within_one": 1
+        },
+        "raw_interactions": {
+          "score": 10,
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 2,
+            "evidence_discipline": 1.5,
+            "scenario_diversity": 2.5
+          },
+          "watchlist_usable_rate": 0,
+          "strict_qualified_rate": 0,
+          "flags": {
+            "multi_actor_causal_chain": 0.75,
+            "observable_trigger": 1,
+            "specific_invalidation": 1,
+            "decision_relevant": 0.75,
+            "evidence_grounded": 0
+          },
+          "flag_agreement": 0.7,
+          "score_within_one": 1
+        }
+      }
+    },
+    {
+      "case_id": "anonymous-case-09",
+      "event_type": "并购/分拆/再融资",
+      "variants": {
+        "decisions_only": {
+          "score": 9.5,
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 1.5,
+            "evidence_discipline": 2,
+            "scenario_diversity": 2
+          },
+          "watchlist_usable_rate": 0,
+          "strict_qualified_rate": 0,
+          "flags": {
+            "multi_actor_causal_chain": 0.25,
+            "observable_trigger": 0.25,
+            "specific_invalidation": 1,
+            "decision_relevant": 0.5,
+            "evidence_grounded": 0
+          },
+          "flag_agreement": 0.4,
+          "score_within_one": 1
+        },
+        "filtered_interactions": {
+          "score": 10,
+          "scores": {
+            "mechanism_coherence": 1.5,
+            "monitoring_actionability": 1.5,
+            "falsifiability": 2.5,
+            "evidence_discipline": 1.5,
+            "scenario_diversity": 3
+          },
+          "watchlist_usable_rate": 0,
+          "strict_qualified_rate": 0,
+          "flags": {
+            "multi_actor_causal_chain": 0,
+            "observable_trigger": 0.25,
+            "specific_invalidation": 1,
+            "decision_relevant": 0,
+            "evidence_grounded": 0
+          },
+          "flag_agreement": 0.45,
+          "score_within_one": 1
+        },
+        "raw_interactions": {
+          "score": 11,
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 3,
+            "evidence_discipline": 1.5,
+            "scenario_diversity": 2.5
+          },
+          "watchlist_usable_rate": 0.25,
+          "strict_qualified_rate": 0,
+          "flags": {
+            "multi_actor_causal_chain": 0.5,
+            "observable_trigger": 0.25,
+            "specific_invalidation": 1,
+            "decision_relevant": 0,
+            "evidence_grounded": 1
+          },
+          "flag_agreement": 0.55,
+          "score_within_one": 1
+        }
+      }
+    },
+    {
+      "case_id": "anonymous-case-10",
+      "event_type": "政策利率调整",
+      "variants": {
+        "decisions_only": {
+          "score": 8.5,
+          "scores": {
+            "mechanism_coherence": 1.5,
+            "monitoring_actionability": 1.5,
+            "falsifiability": 1.5,
+            "evidence_discipline": 2,
+            "scenario_diversity": 2
+          },
+          "watchlist_usable_rate": 0.25,
+          "strict_qualified_rate": 0,
+          "flags": {
+            "multi_actor_causal_chain": 0,
+            "observable_trigger": 1,
+            "specific_invalidation": 0.25,
+            "decision_relevant": 0,
+            "evidence_grounded": 1
+          },
+          "flag_agreement": 0.65,
+          "score_within_one": 0.6
+        },
+        "filtered_interactions": {
+          "score": 15.5,
+          "scores": {
+            "mechanism_coherence": 3,
+            "monitoring_actionability": 3,
+            "falsifiability": 3,
+            "evidence_discipline": 3,
+            "scenario_diversity": 3.5
+          },
+          "watchlist_usable_rate": 1,
+          "strict_qualified_rate": 1,
+          "flags": {
+            "multi_actor_causal_chain": 1,
+            "observable_trigger": 1,
+            "specific_invalidation": 1,
+            "decision_relevant": 1,
+            "evidence_grounded": 1
+          },
+          "flag_agreement": 1,
+          "score_within_one": 0.2
+        },
+        "raw_interactions": {
+          "score": 10,
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 2.5,
+            "evidence_discipline": 1.5,
+            "scenario_diversity": 2
+          },
+          "watchlist_usable_rate": 0,
+          "strict_qualified_rate": 0,
+          "flags": {
+            "multi_actor_causal_chain": 0,
+            "observable_trigger": 0.75,
+            "specific_invalidation": 1,
+            "decision_relevant": 0.75,
+            "evidence_grounded": 0
+          },
+          "flag_agreement": 0.75,
+          "score_within_one": 1
+        }
+      }
+    },
+    {
+      "case_id": "anonymous-case-11",
+      "event_type": "财报超预期/不及预期",
+      "variants": {
+        "decisions_only": {
+          "score": 8.5,
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 1.5,
+            "evidence_discipline": 1,
+            "scenario_diversity": 2
+          },
+          "watchlist_usable_rate": 0,
+          "strict_qualified_rate": 0,
+          "flags": {
+            "multi_actor_causal_chain": 0,
+            "observable_trigger": 1,
+            "specific_invalidation": 0.75,
+            "decision_relevant": 1,
+            "evidence_grounded": 0
+          },
+          "flag_agreement": 0.55,
+          "score_within_one": 1
+        },
+        "filtered_interactions": {
+          "score": 9.5,
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 1.5,
+            "falsifiability": 1.5,
+            "evidence_discipline": 2,
+            "scenario_diversity": 2.5
+          },
+          "watchlist_usable_rate": 0,
+          "strict_qualified_rate": 0,
+          "flags": {
+            "multi_actor_causal_chain": 1,
+            "observable_trigger": 0,
+            "specific_invalidation": 0,
+            "decision_relevant": 0,
+            "evidence_grounded": 1
+          },
+          "flag_agreement": 0.8,
+          "score_within_one": 1
+        },
+        "raw_interactions": {
+          "score": 11.5,
+          "scores": {
+            "mechanism_coherence": 2.5,
+            "monitoring_actionability": 2,
+            "falsifiability": 2.5,
+            "evidence_discipline": 1.5,
+            "scenario_diversity": 3
+          },
+          "watchlist_usable_rate": 0,
+          "strict_qualified_rate": 0,
+          "flags": {
+            "multi_actor_causal_chain": 0.5,
+            "observable_trigger": 1,
+            "specific_invalidation": 1,
+            "decision_relevant": 0,
+            "evidence_grounded": 0
+          },
+          "flag_agreement": 0.8,
+          "score_within_one": 1
+        }
+      }
+    },
+    {
+      "case_id": "anonymous-case-12",
+      "event_type": "通胀数据意外",
+      "variants": {
+        "decisions_only": {
+          "score": 5.5,
+          "scores": {
+            "mechanism_coherence": 1,
+            "monitoring_actionability": 1,
+            "falsifiability": 1,
+            "evidence_discipline": 1,
+            "scenario_diversity": 1.5
+          },
+          "watchlist_usable_rate": 1,
+          "strict_qualified_rate": 0,
+          "flags": {
+            "multi_actor_causal_chain": 0,
+            "observable_trigger": 1,
+            "specific_invalidation": 1,
+            "decision_relevant": 1,
+            "evidence_grounded": 1
+          },
+          "flag_agreement": 0.8,
+          "score_within_one": 1
+        },
+        "filtered_interactions": {
+          "score": 10,
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 2.5,
+            "evidence_discipline": 1.5,
+            "scenario_diversity": 2
+          },
+          "watchlist_usable_rate": 0,
+          "strict_qualified_rate": 0,
+          "flags": {
+            "multi_actor_causal_chain": 1,
+            "observable_trigger": 0,
+            "specific_invalidation": 1,
+            "decision_relevant": 0.75,
+            "evidence_grounded": 0
+          },
+          "flag_agreement": 0.55,
+          "score_within_one": 0.4
+        },
+        "raw_interactions": {
+          "score": 4.5,
+          "scores": {
+            "mechanism_coherence": 1.5,
+            "monitoring_actionability": 0.5,
+            "falsifiability": 0.5,
+            "evidence_discipline": 0.5,
+            "scenario_diversity": 1.5
+          },
+          "watchlist_usable_rate": 0,
+          "strict_qualified_rate": 0,
+          "flags": {
+            "multi_actor_causal_chain": 0,
+            "observable_trigger": 0.5,
+            "specific_invalidation": 1,
+            "decision_relevant": 0,
+            "evidence_grounded": 0
+          },
+          "flag_agreement": 0.7,
+          "score_within_one": 1
+        }
+      }
+    }
+  ],
+  "usage": {
+    "attempts": 113,
+    "completed": 113,
+    "failed": 0,
+    "total_tokens": 353395,
+    "estimated_cost": 0.028548108,
+    "cost_source": "provider_response; currency not inferred"
+  },
+  "semantic_verdict": "inconclusive_incomplete_or_low_repeat_agreement",
+  "paired_differences": {
+    "filtered_minus_decisions_only": {
+      "paired_cases": 12,
+      "mean_quality_difference": 2.2083333333333335,
+      "mean_watchlist_rate_difference": 0.0
+    },
+    "filtered_minus_raw_interactions": {
+      "paired_cases": 12,
+      "mean_quality_difference": 1.375,
+      "mean_watchlist_rate_difference": 0.0625
+    }
+  }
+}

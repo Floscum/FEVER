@@ -1,0 +1,431 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "real-byd-h1-2025",
+  "title": "比亚迪（002594）发布2025年中报后，未来7天可能出现哪些经营和市场反应？各参与方有哪些分歧，下一步应核对哪些公开信号？",
+  "as_of": "2025-08-30T23:59:59+08:00",
+  "question": "比亚迪（002594）发布2025年中报后，未来7天可能出现哪些经营和市场反应？各参与方有哪些分歧，下一步应核对哪些公开信号？",
+  "horizon": {
+    "kind": "calendar_days",
+    "value": 7,
+    "end_at": "2025-09-06T23:59:59+08:00"
+  },
+  "market": {
+    "region": "CN",
+    "venues": [
+      "SZSE"
+    ],
+    "instruments": [
+      {
+        "symbol": "002594",
+        "name": "A股 002594",
+        "kind": "equity",
+        "currency": "CNY"
+      }
+    ]
+  },
+  "facts": [
+    {
+      "id": "F1",
+      "observed_at": "2025-08-30T00:00:00+08:00",
+      "time_basis": "source_published_at",
+      "statement": "2025年上半年，比亚迪营业收入3712.80948亿元，同比增长23.30%。",
+      "source_kind": "filing",
+      "source_url": "https://static.cninfo.com.cn/finalpage/2025-08-30/1224626653.PDF",
+      "evidence_ref": "E1",
+      "confidence": 0.5
+    },
+    {
+      "id": "F2",
+      "observed_at": "2025-08-30T00:00:00+08:00",
+      "time_basis": "source_published_at",
+      "statement": "同期归母净利润155.10533亿元，同比增长13.79%；经营现金流净额318.33471亿元，同比增长124.52%。",
+      "source_kind": "filing",
+      "source_url": "https://static.cninfo.com.cn/finalpage/2025-08-30/1224626653.PDF",
+      "evidence_ref": "E2",
+      "confidence": 0.5
+    },
+    {
+      "id": "F3",
+      "observed_at": "2025-08-30T00:00:00+08:00",
+      "time_basis": "source_published_at",
+      "statement": "同期研发投入308.80339亿元，同比增长53.05%。公司解释主要由职工薪酬及物料消耗增加所致。",
+      "source_kind": "filing",
+      "source_url": "https://static.cninfo.com.cn/finalpage/2025-08-30/1224626653.PDF",
+      "evidence_ref": "E3",
+      "confidence": 0.5
+    },
+    {
+      "id": "F4",
+      "observed_at": "2025-08-30T00:00:00+08:00",
+      "time_basis": "source_published_at",
+      "statement": "汽车、汽车相关产品及其他产品毛利率20.35%，同比下降1.99个百分点。比较数据已按质量保证费用转入营业成本的口径调整。",
+      "source_kind": "filing",
+      "source_url": "https://static.cninfo.com.cn/finalpage/2025-08-30/1224626653.PDF",
+      "evidence_ref": "E4",
+      "confidence": 0.5
+    },
+    {
+      "id": "F5",
+      "observed_at": "2025-08-30T00:00:00+08:00",
+      "time_basis": "source_published_at",
+      "statement": "同期境外收入1353.57667亿元，同比增长50.49%，占收入36.46%；境外毛利率19.82%。",
+      "source_kind": "filing",
+      "source_url": "https://static.cninfo.com.cn/finalpage/2025-08-30/1224626653.PDF",
+      "evidence_ref": "E5",
+      "confidence": 0.5
+    }
+  ],
+  "actors": [
+    {
+      "id": "actor_issuer",
+      "label": "事件主体",
+      "kind": "issuer",
+      "aggregation": "organization",
+      "goals": [
+        "维持经营与融资能力，控制事件对客户和业务的影响",
+        "根据对方行动与新增信息调整判断"
+      ],
+      "constraints": [
+        "只能使用分析截止时间前可观察的信息",
+        "行动受现金、执行能力和已披露承诺约束，不假定有无限资源"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "assumptions": [
+        "上述目标与资源约束是角色建模假设，具体资源、权限和私有信息仍以证据为准"
+      ],
+      "selection_reason": "事件研究主体：始终纳入推演"
+    },
+    {
+      "id": "actor_institutions",
+      "label": "机构投资者",
+      "kind": "institutional_investor",
+      "aggregation": "cohort",
+      "goals": [
+        "权衡风险敞口、流动性和资本配置",
+        "根据对方行动与新增信息调整判断"
+      ],
+      "constraints": [
+        "只能使用分析截止时间前可观察的信息",
+        "受投资授权和流动性约束，不假定能够无限增持或立即退出"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "assumptions": [
+        "上述目标与资源约束是角色建模假设，具体资源、权限和私有信息仍以证据为准"
+      ],
+      "selection_reason": "事件结构 rate_policy 命中：利率"
+    },
+    {
+      "id": "actor_brokers",
+      "label": "券商与中介机构",
+      "kind": "broker",
+      "aggregation": "cohort",
+      "goals": [
+        "评估融资、交易与中介服务的连续性",
+        "根据对方行动与新增信息调整判断"
+      ],
+      "constraints": [
+        "只能使用分析截止时间前可观察的信息",
+        "受授信、资本和合同责任约束，不预设已有未披露融资承诺"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "assumptions": [
+        "上述目标与资源约束是角色建模假设，具体资源、权限和私有信息仍以证据为准"
+      ],
+      "selection_reason": "事件结构 rate_policy 命中：利率"
+    },
+    {
+      "id": "actor_analysts",
+      "label": "分析师",
+      "kind": "analyst",
+      "aggregation": "cohort",
+      "goals": [
+        "比较事实与原有判断，明确需要更新的假设",
+        "根据对方行动与新增信息调整判断"
+      ],
+      "constraints": [
+        "只能使用分析截止时间前可观察的信息",
+        "区分已知事实与估计，不将研判当成公司承诺"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "assumptions": [
+        "上述目标与资源约束是角色建模假设，具体资源、权限和私有信息仍以证据为准"
+      ],
+      "selection_reason": "事件结构 rate_policy 命中：利率"
+    },
+    {
+      "id": "actor_government",
+      "label": "政府与司法机构",
+      "kind": "government",
+      "aggregation": "organization",
+      "goals": [
+        "权衡公共利益、制度目标和政策执行效果",
+        "根据对方行动与新增信息调整判断"
+      ],
+      "constraints": [
+        "只能使用分析截止时间前可观察的信息",
+        "遵守司法或政策程序，不代替其他机构作出决定"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "assumptions": [
+        "上述目标与资源约束是角色建模假设，具体资源、权限和私有信息仍以证据为准"
+      ],
+      "selection_reason": "事件结构 rate_policy 命中：利率"
+    },
+    {
+      "id": "actor_regulator",
+      "label": "监管机构",
+      "kind": "regulator",
+      "aggregation": "organization",
+      "goals": [
+        "核实风险并评估调查、审批或补救措施",
+        "根据对方行动与新增信息调整判断"
+      ],
+      "constraints": [
+        "只能使用分析截止时间前可观察的信息",
+        "只能在自身权限和程序内行动，不预设审批结果或时间表"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "assumptions": [
+        "上述目标与资源约束是角色建模假设，具体资源、权限和私有信息仍以证据为准"
+      ],
+      "selection_reason": "事件结构 rate_policy 命中：利率"
+    },
+    {
+      "id": "actor_media",
+      "label": "财经媒体",
+      "kind": "media",
+      "aggregation": "cohort",
+      "goals": [
+        "核实和传播对事件判断有用的新信息",
+        "根据对方行动与新增信息调整判断"
+      ],
+      "constraints": [
+        "只能使用分析截止时间前可观察的信息",
+        "区分事实、消息与推测，不凭空增加独家信息"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "assumptions": [
+        "上述目标与资源约束是角色建模假设，具体资源、权限和私有信息仍以证据为准"
+      ],
+      "selection_reason": "事件结构 rate_policy 命中：利率"
+    },
+    {
+      "id": "actor_exchange",
+      "label": "交易所",
+      "kind": "exchange",
+      "aggregation": "organization",
+      "goals": [
+        "维护信息披露和交易秩序",
+        "根据对方行动与新增信息调整判断"
+      ],
+      "constraints": [
+        "只能使用分析截止时间前可观察的信息",
+        "依据已知规则采取措施，不替代公司经营或监管审批"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "assumptions": [
+        "上述目标与资源约束是角色建模假设，具体资源、权限和私有信息仍以证据为准"
+      ],
+      "selection_reason": "事件结构 earnings_guidance 命中：净利润"
+    }
+  ],
+  "relationships": [
+    {
+      "source_actor_id": "actor_institutions",
+      "target_actor_id": "actor_issuer",
+      "kind": "constrains_or_influences",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_brokers",
+      "target_actor_id": "actor_issuer",
+      "kind": "constrains_or_influences",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_analysts",
+      "target_actor_id": "actor_issuer",
+      "kind": "constrains_or_influences",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_government",
+      "target_actor_id": "actor_issuer",
+      "kind": "constrains_or_influences",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_regulator",
+      "target_actor_id": "actor_issuer",
+      "kind": "constrains_or_influences",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_media",
+      "target_actor_id": "actor_issuer",
+      "kind": "constrains_or_influences",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_exchange",
+      "target_actor_id": "actor_issuer",
+      "kind": "constrains_or_influences",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_issuer",
+      "target_actor_id": "actor_exchange",
+      "kind": "communicates_actions_to",
+      "visibility": "public"
+    }
+  ],
+  "allowed_actions": [
+    {
+      "type": "COMMUNICATE",
+      "description": "公开沟通与预期管理",
+      "visibility": "public"
+    },
+    {
+      "type": "OPERATE",
+      "description": "调整业务、产品或治理",
+      "visibility": "either"
+    },
+    {
+      "type": "REGULATE",
+      "description": "调查、批准、限制或补救",
+      "visibility": "public"
+    },
+    {
+      "type": "ALLOCATE",
+      "description": "调整资本或风险敞口",
+      "visibility": "private"
+    },
+    {
+      "type": "NEGOTIATE",
+      "description": "协商交易或治理条件",
+      "visibility": "private"
+    },
+    {
+      "type": "WAIT",
+      "description": "等待更多证据或对方行动",
+      "visibility": "either"
+    }
+  ],
+  "interventions": [
+    {
+      "id": "I0_FEVER_EVIDENCE",
+      "at_round": 0,
+      "fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "visibility": "public"
+    }
+  ],
+  "forecast_targets": [
+    {
+      "id": "T1",
+      "kind": "event",
+      "definition": "比亚迪（002594）发布2025年中报后，未来7天可能出现哪些经营和市场反应？各参与方有哪些分歧，下一步应核对哪些公开信号？",
+      "horizon": "7_calendar_days",
+      "scoring": "brier"
+    }
+  ],
+  "run_config": {
+    "rounds": 3,
+    "replications": 3,
+    "seed_strategy": "deterministic_sequence",
+    "layers": [
+      "information",
+      "behavior"
+    ]
+  },
+  "provenance": {
+    "created_by": "FEVER SimulationSpecBuilder v1",
+    "source_graph_artifact_id": "real-public-byd-h1-2025",
+    "notes": [
+      "Scenario-first integration input; simulation output is not evidence.",
+      "Quick mode executes one partial replication from a three-replication spec."
+    ],
+    "actor_selection": {
+      "mode": "auto",
+      "recommended_count": 8,
+      "applied_limit": 8,
+      "detected_stakeholder_type_count": 0,
+      "configured_count": 8,
+      "matched_event_profiles": [
+        {
+          "id": "earnings_guidance",
+          "matched_patterns": [
+            "净利润"
+          ],
+          "recommended_count": 6
+        },
+        {
+          "id": "rate_policy",
+          "matched_patterns": [
+            "利率"
+          ],
+          "recommended_count": 8
+        }
+      ],
+      "selection_strategy": "literal_mentions_plus_event_structure_v2",
+      "rationale": "从证据与研究问题中识别出 0 类显式利益相关方，并命中 2 类事件结构，按 4/6/8/10 分档建议最多 8 个核心参与方"
+    },
+    "evidence_timing": {
+      "excluded_future_ids": [],
+      "unknown_time_ids": []
+    }
+  }
+}

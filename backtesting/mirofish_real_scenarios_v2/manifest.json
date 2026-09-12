@@ -1,0 +1,672 @@
+{
+  "version": 2,
+  "prepared_at": "2026-09-12",
+  "provider": "DeepInfra",
+  "model": "deepseek-ai/DeepSeek-V4-Flash",
+  "max_calls": 192,
+  "max_cost_usd": 0.5,
+  "max_output_tokens_per_request": 5000,
+  "max_request_bytes": 131072,
+  "temperature": 0,
+  "cases": [
+    {
+      "id": "byd-h1-2025",
+      "request_sha256": "a6aa43048ff8ec4fe453a9eefba821ce9ff6b05b93577e86205123d563622efd"
+    },
+    {
+      "id": "guotai-haitong-2024",
+      "request_sha256": "2b64254a164f7ca1e3d687658f63f84aed5ecafe42d277ec51ae116455fe70c4"
+    },
+    {
+      "id": "crowdstrike-outage-2024",
+      "request_sha256": "615d549c461c819e1417c6bf67fd1ea540093f13d3667eba445d5f714ddbc9f8"
+    }
+  ],
+  "paired_cases": [
+    {
+      "id": "byd-h1-2025",
+      "input_sha256": {
+        "spec": "43b2dc41697e40156ed2b44c70222206a81c170e47b402e53d85c8f0216d456f",
+        "simulation-result": "c13d51572761d442981b378a4fa5a445da3af8c1fdec5fae96135199055c24ae",
+        "financial-actions": "2f49056b5cab243174205505daafbe7caaf0a2c69ed4dd98487cd9291bc13310"
+      },
+      "cohort": "public_pilot",
+      "prior_run": "role-fix"
+    },
+    {
+      "id": "guotai-haitong-2024",
+      "input_sha256": {
+        "spec": "fe420989d2e389c870a49f13fc433d355a889e633539d09b57637ae7d3c83581",
+        "simulation-result": "82c63ea1627de0394fbb0e9166e1184527d37d5f82ca1b6271b17dcb69b94b4c",
+        "financial-actions": "fd61316d43e0f97365edcba462dca4d61485577ee3a5cc54876caa3f1bf47527"
+      },
+      "cohort": "public_pilot",
+      "prior_run": "baseline"
+    },
+    {
+      "id": "crowdstrike-outage-2024",
+      "input_sha256": {
+        "spec": "d11820c24cac92f1a7e932a1f7a19f7cdccea5075f120e229c912dbf15886a36",
+        "simulation-result": "5bbcaf528a6c093bc9d0c73816a306ac51ce52c026d0114c102c26cf61ae6128",
+        "financial-actions": "1e6f882aa43a68d93482c0f035d39b24c6e9bd7566adb13af680f9d27b9a5542"
+      },
+      "cohort": "public_pilot",
+      "prior_run": "role-fix"
+    },
+    {
+      "id": "anonymous-case-01",
+      "input_sha256": {
+        "spec": "e0af4c16fa24934a460a132436c39e4b010986287ddb4bf9a1b5e15f6f35c6b0",
+        "simulation-result": "956046e06dbcab69336a70db2fb691e9b26f0f30196ed9858ba92ce78489b10a",
+        "financial-actions": "09719f6ad60b7157845418354a2fdef6b650d9e099cef456336fd278d3512e1b"
+      },
+      "cohort": "replay_extension",
+      "anonymization": {
+        "case_id": "blind_capital_return_001",
+        "number": 1,
+        "anonymous_case_id": "anonymous-case-01",
+        "configured_actor_count": 8,
+        "decision_actor_count": 7,
+        "fact_count": 4,
+        "fact_chars": 208,
+        "spec_path": "examples/replays/blind_capital_return_001/spec.json",
+        "spec_sha256": "5fd3cba33034fb4779fe0f9d32cc6d28b08ca6125bc6f5bad95d95b8995fd689",
+        "simulation_result_path": ".data/smoke-runs/blind_capital_return_001-b3/simulation-result.json",
+        "simulation_result_sha256": "d4a4469c82176208d561b90c185ca2c1a95119b3b9c89facb49d0347e7f7eb41",
+        "financial_actions_path": ".data/smoke-runs/blind_capital_return_001-b3/financial-actions.json",
+        "financial_actions_sha256": "898981af20b186f6fd30ae824b478ec31b0b1071568ff9b18062bc54594c528b"
+      }
+    },
+    {
+      "id": "anonymous-case-02",
+      "input_sha256": {
+        "spec": "3ed94bf2cfab1e0603250b79090bf412a469af57177c7daaffb7c812e884ecf6",
+        "simulation-result": "9fd156d3ff16774cbacde16d9d2b06c082cc74ab35d082619f8b5309e0d5a080",
+        "financial-actions": "ab63649a11f27c0b2b8db46af5c058b92407280fcfc4ba58f64ded097545a386"
+      },
+      "cohort": "replay_extension",
+      "anonymization": {
+        "case_id": "blind_buyback_002",
+        "number": 2,
+        "anonymous_case_id": "anonymous-case-02",
+        "configured_actor_count": 9,
+        "decision_actor_count": 9,
+        "fact_count": 4,
+        "fact_chars": 207,
+        "spec_path": "examples/replays/blind_buyback_002/spec.json",
+        "spec_sha256": "b7de71742f0f3610eb5698c600df7a644f949406d6cc3ed9640e789717cde0bc",
+        "simulation_result_path": ".data/smoke-runs/blind_buyback_002-b3/simulation-result.json",
+        "simulation_result_sha256": "03362a198823633baba660fd5717444df51cd89f19d46cf63fd0d8672caedebd",
+        "financial_actions_path": ".data/smoke-runs/blind_buyback_002-b3/financial-actions.json",
+        "financial_actions_sha256": "5fc5ec94e930ddac4e5d62a01dc43e22545a2eb3467a0b5047f9f51f8f07f8fe"
+      }
+    },
+    {
+      "id": "anonymous-case-03",
+      "input_sha256": {
+        "spec": "7823af6af04919020be31dd9079870d619d897a882bb070434c7604a7fc2a362",
+        "simulation-result": "901bf8906dcbc5a6700db1b7b4bc5e909dcd9fa4160e34a114371683841234dd",
+        "financial-actions": "a244d571c1aa88813a835e7f11a4992cf0ca35683a48a7f4b38d85dcce521d28"
+      },
+      "cohort": "replay_extension",
+      "anonymization": {
+        "case_id": "blind_supply_disruption_003",
+        "number": 3,
+        "anonymous_case_id": "anonymous-case-03",
+        "configured_actor_count": 9,
+        "decision_actor_count": 8,
+        "fact_count": 4,
+        "fact_chars": 210,
+        "spec_path": "examples/replays/blind_supply_disruption_003/spec.json",
+        "spec_sha256": "a263d9045a55e54893be23b4981ee00f29a90f8aa4c1f5c31c29a2a0100bceb8",
+        "simulation_result_path": ".data/smoke-runs/blind_supply_disruption_003-b3/simulation-result.json",
+        "simulation_result_sha256": "b7d61cf7cc7407a3245504322d9a908b182a6c3a1cb23b2234c7a644d8b83ac4",
+        "financial_actions_path": ".data/smoke-runs/blind_supply_disruption_003-b3/financial-actions.json",
+        "financial_actions_sha256": "b605ecc8f6d3a2220c0bcbf168a84b153c6f6302c7b71cd86d86d0f8f72b5123"
+      }
+    },
+    {
+      "id": "anonymous-case-04",
+      "input_sha256": {
+        "spec": "53e9eb07258f9d4ea3028cd5b55b270a2f236bd02ede47b5fe917a9b5dbeb94c",
+        "simulation-result": "6e54553c036fa8736b4bb466eb742fe11da73f4cc07b55da7acb8c48f3c3fd93",
+        "financial-actions": "7eb705a68688b4691e8937e993a47c5f92c0db91a191d4961e43b4153e8bdcfe"
+      },
+      "cohort": "replay_extension",
+      "anonymization": {
+        "case_id": "blind_cyber_review_004",
+        "number": 4,
+        "anonymous_case_id": "anonymous-case-04",
+        "configured_actor_count": 9,
+        "decision_actor_count": 9,
+        "fact_count": 4,
+        "fact_chars": 181,
+        "spec_path": "examples/replays/blind_cyber_review_004/spec.json",
+        "spec_sha256": "55e9dca1054991bb0a3164d8a780ed32797dec6e9a84795dfcf1aa513f102dd0",
+        "simulation_result_path": ".data/smoke-runs/blind_cyber_review_004-b3/simulation-result.json",
+        "simulation_result_sha256": "7f70211aa2f450b7d73b862908cdbe36bebad88e1c98262a2eb0f8a7bb255ec8",
+        "financial_actions_path": ".data/smoke-runs/blind_cyber_review_004-b3/financial-actions.json",
+        "financial_actions_sha256": "ab58382b7fd737a0ed553dc24eca632461ff694785f5f3e003bddd91a284a267"
+      }
+    },
+    {
+      "id": "anonymous-case-05",
+      "input_sha256": {
+        "spec": "6a5613c31543ebd2c7b3e42645dfe7e4b27c497e403145abb8210612987dab21",
+        "simulation-result": "d6921f77a271ec50b869da0d3423f991e800f72c2e58d8f67b144350b7e5cfba",
+        "financial-actions": "4928438c91738db7550dc1825e39608e77a6c8a45cece1691d8c8a520724bee7"
+      },
+      "cohort": "replay_extension",
+      "anonymization": {
+        "case_id": "blind_bank_liquidity_005",
+        "number": 5,
+        "anonymous_case_id": "anonymous-case-05",
+        "configured_actor_count": 9,
+        "decision_actor_count": 9,
+        "fact_count": 4,
+        "fact_chars": 221,
+        "spec_path": "examples/replays/blind_bank_liquidity_005/spec.json",
+        "spec_sha256": "d44db77c798ec3464794a60f2076c6ff8d381ab945d89894e6b3238807896e23",
+        "simulation_result_path": ".data/smoke-runs/blind_bank_liquidity_005-b3/simulation-result.json",
+        "simulation_result_sha256": "db113e0c65dc7ba76cf91de672bc9760702a1289f27cfed21c879f948ac92510",
+        "financial_actions_path": ".data/smoke-runs/blind_bank_liquidity_005-b3/financial-actions.json",
+        "financial_actions_sha256": "5122de0aba09774a1c13e8a806f0e70b56c81f3ae5a97e7465454819ae504be0"
+      }
+    },
+    {
+      "id": "anonymous-case-06",
+      "input_sha256": {
+        "spec": "c1b948d405bf306ed7c965f097ad6e6d9512e72f7f3863894734ac7dc96976b3",
+        "simulation-result": "e7033916ca1b807c4a209891f1a89f3aabcda5351f607f7c897a9c67b56929d3",
+        "financial-actions": "00cdb513b169a8d76dce62ccb30a2cdf628094cbd95c1eae2a889146d281b462"
+      },
+      "cohort": "replay_extension",
+      "anonymization": {
+        "case_id": "blind_ev_price_cut_006",
+        "number": 6,
+        "anonymous_case_id": "anonymous-case-06",
+        "configured_actor_count": 9,
+        "decision_actor_count": 8,
+        "fact_count": 4,
+        "fact_chars": 202,
+        "spec_path": "examples/replays/blind_ev_price_cut_006/spec.json",
+        "spec_sha256": "5ac5093942037b134fa6beefbc9d362e9ba78a9b559b7282c16ae1f758c369c5",
+        "simulation_result_path": ".data/smoke-runs/blind_ev_price_cut_006-b3/simulation-result.json",
+        "simulation_result_sha256": "204aad87bd964ec19b4611371cd5923f96a7ffb6dae78532b4e9254d8f063308",
+        "financial_actions_path": ".data/smoke-runs/blind_ev_price_cut_006-b3/financial-actions.json",
+        "financial_actions_sha256": "538dec6dfc7bdf82782f96411de9a32948d3e19a5e1cb2cb937b80478743b27e"
+      }
+    },
+    {
+      "id": "anonymous-case-07",
+      "input_sha256": {
+        "spec": "9c15bcfd13115d411389c98f7dd29ea90334fae61112f01774fdf78154e9b2a8",
+        "simulation-result": "a8442eed45d34bc95776f2ff26f24bd0c6a15cd526c51fa63d42283afe12d816",
+        "financial-actions": "69e393133e7020ca40fbaecda3e74d65734b85f79c90ee94389c535fbf95109b"
+      },
+      "cohort": "replay_extension",
+      "anonymization": {
+        "case_id": "blind_aircraft_grounding_007",
+        "number": 7,
+        "anonymous_case_id": "anonymous-case-07",
+        "configured_actor_count": 9,
+        "decision_actor_count": 9,
+        "fact_count": 4,
+        "fact_chars": 158,
+        "spec_path": "examples/replays/blind_aircraft_grounding_007/spec.json",
+        "spec_sha256": "5654c32885dc3447431fae87c676099e79eb84235985c0b99fde12e6e2e0a49a",
+        "simulation_result_path": ".data/smoke-runs/blind_aircraft_grounding_007-b3/simulation-result.json",
+        "simulation_result_sha256": "f785cf2e94af9b30b849571b57e08824669eeb3fdbfe67492f73472766dbf660",
+        "financial_actions_path": ".data/smoke-runs/blind_aircraft_grounding_007-b3/financial-actions.json",
+        "financial_actions_sha256": "b1181ad62ad2386fc7c33180bb72143265cb87c7e1bd571618734ca52dab7c58"
+      }
+    },
+    {
+      "id": "anonymous-case-08",
+      "input_sha256": {
+        "spec": "4cc5be1845cf27b87edcb403b0cba9b99861d2bfda0fcd8d2bfdbee8c224f88c",
+        "simulation-result": "1e54345c568b97f28a89b8a6e972d4ef1d1c331a5f7f2f786854261b5b15e774",
+        "financial-actions": "ff908078842ec1d0b29b2576eb40dcd950802c87e67114e20c504c67088c4379"
+      },
+      "cohort": "replay_extension",
+      "anonymization": {
+        "case_id": "blind_market_plumbing_008",
+        "number": 8,
+        "anonymous_case_id": "anonymous-case-08",
+        "configured_actor_count": 9,
+        "decision_actor_count": 9,
+        "fact_count": 4,
+        "fact_chars": 186,
+        "spec_path": "examples/replays/blind_market_plumbing_008/spec.json",
+        "spec_sha256": "dc767e945afcfb6a04d2fa6bdfafecc58b7416d12efa10821b52f5f087052191",
+        "simulation_result_path": ".data/smoke-runs/blind_market_plumbing_008-b3/simulation-result.json",
+        "simulation_result_sha256": "a80972996b400c5f25ed8ddf9f3c23a642833d98028c5511fb285bbfc8a618b1",
+        "financial_actions_path": ".data/smoke-runs/blind_market_plumbing_008-b3/financial-actions.json",
+        "financial_actions_sha256": "b735c1513f2c91e03d4cae2db568864b877bd9f99961eef1c3127aa260d0e423"
+      }
+    },
+    {
+      "id": "anonymous-case-09",
+      "input_sha256": {
+        "spec": "1c7eb8b2d8685f1d321a22e1dfaf1a70fe56cedfc3d3b46c0b7515ed1c47e68d",
+        "simulation-result": "cd0311670bfb90f5189ca261d3f82a1f9cfa6ce75aacec564b47b86d71e5e382",
+        "financial-actions": "2d2409d4737a5e5004592937b045764a0c53e92597cf19fcfe1e8a8718930fb9"
+      },
+      "cohort": "replay_extension",
+      "anonymization": {
+        "case_id": "blind_prime_broker_default_009",
+        "number": 9,
+        "anonymous_case_id": "anonymous-case-09",
+        "configured_actor_count": 9,
+        "decision_actor_count": 9,
+        "fact_count": 4,
+        "fact_chars": 238,
+        "spec_path": "examples/replays/blind_prime_broker_default_009/spec.json",
+        "spec_sha256": "ddf328886769e3c9fc947368894443a35865af847c6dc0c0cb6ec56d47712735",
+        "simulation_result_path": ".data/smoke-runs/blind_prime_broker_default_009-b3/simulation-result.json",
+        "simulation_result_sha256": "f4058c0dad0361926f0a0a894645563e40e1724a31125a12e68aecab8a46539e",
+        "financial_actions_path": ".data/smoke-runs/blind_prime_broker_default_009-b3/financial-actions.json",
+        "financial_actions_sha256": "a49406fea0696d3d8f72c86084d2e62f00636d6f99bde6284fa8f64474e66a24"
+      }
+    },
+    {
+      "id": "anonymous-case-10",
+      "input_sha256": {
+        "spec": "4295a8bb6923a4a513732eca2a280042f2dfde3f422e4d0d8d269493bc175f76",
+        "simulation-result": "bbd33a382e6b6878e9427453667f54711603b2d8dfb5d31b07b662d5278e1c21",
+        "financial-actions": "2e74e50afb36426a51727414269093294860f7a7cdbbc36b86610ff162b752d8"
+      },
+      "cohort": "replay_extension",
+      "anonymization": {
+        "case_id": "blind_sovereign_deadline_010",
+        "number": 10,
+        "anonymous_case_id": "anonymous-case-10",
+        "configured_actor_count": 8,
+        "decision_actor_count": 8,
+        "fact_count": 4,
+        "fact_chars": 229,
+        "spec_path": "examples/replays/blind_sovereign_deadline_010/spec.json",
+        "spec_sha256": "e4685457dc59ed6f14b4862bb806cbd02f4b9db40360a899c857a3cb7192772e",
+        "simulation_result_path": ".data/smoke-runs/blind_sovereign_deadline_010-b3/simulation-result.json",
+        "simulation_result_sha256": "91c958f376d889296a9bf5a6b25ec87996e88cd7cf5d563fbce2e208ab0ceeb2",
+        "financial_actions_path": ".data/smoke-runs/blind_sovereign_deadline_010-b3/financial-actions.json",
+        "financial_actions_sha256": "69a00dd81adf388b85f8eab19357af056bd1c5a6e158bbe0014302df7ff4d8b1"
+      }
+    },
+    {
+      "id": "anonymous-case-11",
+      "input_sha256": {
+        "spec": "7496d0f90ca62700e8f82c92239fd4cffeecfa072bbf15947f33a7c9aaf4fa97",
+        "simulation-result": "8afa4d1f49f23b19935ab512f4fb21a50eb3d4c6c2f0fdbcfa45d6f1932f7a9b",
+        "financial-actions": "13a4fb43099f8f67d31397d05554ba9c28b2f4c266a15af01455d286783c27ef"
+      },
+      "cohort": "replay_extension",
+      "anonymization": {
+        "case_id": "blind_digital_asset_listing_011",
+        "number": 11,
+        "anonymous_case_id": "anonymous-case-11",
+        "configured_actor_count": 8,
+        "decision_actor_count": 8,
+        "fact_count": 4,
+        "fact_chars": 245,
+        "spec_path": "examples/replays/blind_digital_asset_listing_011/spec.json",
+        "spec_sha256": "13dfcc649c74e61eb03624b94ef7150fc5746409e579c943106d3f591af076ea",
+        "simulation_result_path": ".data/smoke-runs/blind_digital_asset_listing_011-b3/simulation-result.json",
+        "simulation_result_sha256": "40ccaac5077a2ca8e95da377f387d45df263187a778c69a3a4502b4aae72d58e",
+        "financial_actions_path": ".data/smoke-runs/blind_digital_asset_listing_011-b3/financial-actions.json",
+        "financial_actions_sha256": "e9b24f5af7e96c47e6af3e7f2521121504a7f73dcaf14870158f273327eebfc1"
+      }
+    },
+    {
+      "id": "anonymous-case-12",
+      "input_sha256": {
+        "spec": "f29dd72f03edce61d163575ac08af0a3bcd9cbf2b8edb800a6170aa93b892052",
+        "simulation-result": "1547028823a7e5c3267fc2e8297e1f9315767098642f4cfbf19f4f18f478ecab",
+        "financial-actions": "9e1e0fa79168a28583689f332829b42939b7163eb3ebeccd3cb9ac0d56d9b708"
+      },
+      "cohort": "replay_extension",
+      "anonymization": {
+        "case_id": "blind_fx_intervention_012",
+        "number": 12,
+        "anonymous_case_id": "anonymous-case-12",
+        "configured_actor_count": 8,
+        "decision_actor_count": 8,
+        "fact_count": 4,
+        "fact_chars": 219,
+        "spec_path": "examples/replays/blind_fx_intervention_012/spec.json",
+        "spec_sha256": "274b5eb9c67efde45428d1a618a1cb69272ae2bcffc90e84500468cb3e089fad",
+        "simulation_result_path": ".data/smoke-runs/blind_fx_intervention_012-b3/simulation-result.json",
+        "simulation_result_sha256": "1523d72df9ebd45f6515d9132599af6cb41ebc3023ad84836d99a96d36f3ae03",
+        "financial_actions_path": ".data/smoke-runs/blind_fx_intervention_012-b3/financial-actions.json",
+        "financial_actions_sha256": "225b1f834d6f3398c5ccf3a771faa545eab3d9e5f0d91123cef9a512579ed4b5"
+      }
+    },
+    {
+      "id": "anonymous-case-13",
+      "input_sha256": {
+        "spec": "98d69a586431f3e793d845bcff4ab60b6440b2e0404d902c71923392ffcd67ed",
+        "simulation-result": "76661fcb09952ddd36cd8cbc119a845809dd3bb70cd11e2835780f945519f28f",
+        "financial-actions": "11e13444b8505a4b3a1aa0a2e34e5b57723b704a00bfc8ddfcee8c25b0bbe84b"
+      },
+      "cohort": "replay_extension",
+      "anonymization": {
+        "case_id": "blind_collateral_spiral_013",
+        "number": 13,
+        "anonymous_case_id": "anonymous-case-13",
+        "configured_actor_count": 7,
+        "decision_actor_count": 7,
+        "fact_count": 4,
+        "fact_chars": 189,
+        "spec_path": "examples/replays/blind_collateral_spiral_013/spec.json",
+        "spec_sha256": "84fad4fce06a93007f2eb3ced9f978d328a117502fbe9a28c31a32ea3adc930d",
+        "simulation_result_path": ".data/smoke-runs/blind_collateral_spiral_013-b3/simulation-result.json",
+        "simulation_result_sha256": "b723504fd35d3e7175f2a0475c3a1032873efe1a2e6d62ff1102109e062eaf0e",
+        "financial_actions_path": ".data/smoke-runs/blind_collateral_spiral_013-b3/financial-actions.json",
+        "financial_actions_sha256": "1c46dce6480a57677dc58b9d2eaa6c672a9e2bf3741e43b7ef39f6be0a1f12c0"
+      }
+    },
+    {
+      "id": "anonymous-case-14",
+      "input_sha256": {
+        "spec": "5158ee901e4ba717e31830679a9a4fb3a711ba98eb99ba937bd730e87bd16441",
+        "simulation-result": "d0f7880a95ca02887a3027cf1f7bf26cb4c7856cb3b25088ee52a9908595c10a",
+        "financial-actions": "feee3693665578e7ce7787ab5c0b9a64592067b4fa3e70036f6f4d3ae299a19a"
+      },
+      "cohort": "replay_extension",
+      "anonymization": {
+        "case_id": "blind_short_report_014",
+        "number": 14,
+        "anonymous_case_id": "anonymous-case-14",
+        "configured_actor_count": 8,
+        "decision_actor_count": 8,
+        "fact_count": 4,
+        "fact_chars": 221,
+        "spec_path": "examples/replays/blind_short_report_014/spec.json",
+        "spec_sha256": "0b5a2ccc40091ee1b0c9a6dbe7c3673b4f85cee3401002486e4edc8a0b13f89f",
+        "simulation_result_path": ".data/smoke-runs/blind_short_report_014-b3/simulation-result.json",
+        "simulation_result_sha256": "1216220178329d005ed0676ffb2fdb69e6cd605b2bd55da1a9bc24dbbd3d8b6a",
+        "financial_actions_path": ".data/smoke-runs/blind_short_report_014-b3/financial-actions.json",
+        "financial_actions_sha256": "3d9a512076703150974fe91567446b11ed4649a59b85fd0ec513fba40eadbe15"
+      }
+    },
+    {
+      "id": "anonymous-case-15",
+      "input_sha256": {
+        "spec": "f934fc7a4cb706c5232bacc4bfcc786356aa2171424551a04054f32be4ac3fbd",
+        "simulation-result": "d5aace4e83de8560bb771fdc45108b0d67d9ccb7afa0c811a4744acd147f75bc",
+        "financial-actions": "1f73e4b0fa719bbf3bd14e95e9f5645a64fb7b95cb874f302befe3e85e346a05"
+      },
+      "cohort": "replay_extension",
+      "anonymization": {
+        "case_id": "blind_gene_therapy_review_015",
+        "number": 15,
+        "anonymous_case_id": "anonymous-case-15",
+        "configured_actor_count": 8,
+        "decision_actor_count": 8,
+        "fact_count": 4,
+        "fact_chars": 251,
+        "spec_path": "examples/replays/blind_gene_therapy_review_015/spec.json",
+        "spec_sha256": "67f6d589a9612f6e8b8bbca4fb45c1d0b310774e185a3e11fb211e32e7ed447a",
+        "simulation_result_path": ".data/smoke-runs/blind_gene_therapy_review_015-b3/simulation-result.json",
+        "simulation_result_sha256": "f2ba612e25d64314bb326d787caad0ce2748ca1805f8bd0f7095d48e15210eeb",
+        "financial_actions_path": ".data/smoke-runs/blind_gene_therapy_review_015-b3/financial-actions.json",
+        "financial_actions_sha256": "413be19502e446d89b1a5d8470f03209922c45d09546906c9ac20bb294b7648c"
+      }
+    },
+    {
+      "id": "anonymous-case-17",
+      "input_sha256": {
+        "spec": "b87db18c1e561ba9536c199b71e7e7d7e373d7ee75c228644ad6cddd6b9b4867",
+        "simulation-result": "e1672a4f3b43198fb6eeff336aaa7364404dd03c6372da41647c4c64b57359d7",
+        "financial-actions": "b19f551e5c19d9620de4add83ee01dd89950f158af374ab706897389550650ee"
+      },
+      "cohort": "replay_extension",
+      "anonymization": {
+        "case_id": "blind_labor_escalation_017",
+        "number": 17,
+        "anonymous_case_id": "anonymous-case-17",
+        "configured_actor_count": 8,
+        "decision_actor_count": 8,
+        "fact_count": 4,
+        "fact_chars": 222,
+        "spec_path": "examples/replays/blind_labor_escalation_017/spec.json",
+        "spec_sha256": "da721a3a4384b57f59d13b7b2caa590425e40f7d78854188237e9e787bd439b8",
+        "simulation_result_path": ".data/smoke-runs/blind_labor_escalation_017-b3/simulation-result.json",
+        "simulation_result_sha256": "2f9b5c9bf6d8472e0ba915b5faf8a2078cfa64a597033b76a89e9a0b43311e0e",
+        "financial_actions_path": ".data/smoke-runs/blind_labor_escalation_017-b3/financial-actions.json",
+        "financial_actions_sha256": "a59b254d001bae19dc21910bcd3b8e5be34fc5124f3475bd0517df1114c67d87"
+      }
+    },
+    {
+      "id": "anonymous-case-18",
+      "input_sha256": {
+        "spec": "d4ad27429a420fb7f18fd6420dc802d21af41dd967354f86493f40e2c4e9c03e",
+        "simulation-result": "970d71fad1b971574839c803224a4ce323afc9d98af9c395b53dfd84a6f3061c",
+        "financial-actions": "0f5ceea70f8f5cc2feea84632532a83955b1b02cfe7cbf93db15681a8e1bc738"
+      },
+      "cohort": "replay_extension",
+      "anonymization": {
+        "case_id": "blind_merger_remedy_018",
+        "number": 18,
+        "anonymous_case_id": "anonymous-case-18",
+        "configured_actor_count": 8,
+        "decision_actor_count": 8,
+        "fact_count": 4,
+        "fact_chars": 238,
+        "spec_path": "examples/replays/blind_merger_remedy_018/spec.json",
+        "spec_sha256": "1a9335a39a42aff658cc6d6a3bb99f50619b374439381ec11cd26ca31a2455fe",
+        "simulation_result_path": ".data/smoke-runs/blind_merger_remedy_018-b3/simulation-result.json",
+        "simulation_result_sha256": "ecee6704127b7eb361831ac327a9e88ae1a35de0232331911ab4e603c60755e1",
+        "financial_actions_path": ".data/smoke-runs/blind_merger_remedy_018-b3/financial-actions.json",
+        "financial_actions_sha256": "9ab6d28fe359b569e1c031ed313f213fcf4eabc11fb03cbea90e15ed45ceb5b3"
+      }
+    },
+    {
+      "id": "anonymous-case-19",
+      "input_sha256": {
+        "spec": "eeaa6a8c390a802750381f4d04e2e0e844f716b537673d7f4c3bb1074cc7e521",
+        "simulation-result": "b619d14d6de21fbe6c06a301692d09199e671ec92ff5422363c4afe05c896668",
+        "financial-actions": "0c84ab5cda6b64809d946a07f2ad4c7916723a6ee23738af49aa3ef16fd0e1c7"
+      },
+      "cohort": "replay_extension",
+      "anonymization": {
+        "case_id": "blind_export_controls_019",
+        "number": 19,
+        "anonymous_case_id": "anonymous-case-19",
+        "configured_actor_count": 8,
+        "decision_actor_count": 8,
+        "fact_count": 4,
+        "fact_chars": 229,
+        "spec_path": "examples/replays/blind_export_controls_019/spec.json",
+        "spec_sha256": "0c3964543d1218c27afb58df80f2d1c5fa77cb11afe45264a0f1c309b06759f8",
+        "simulation_result_path": ".data/smoke-runs/blind_export_controls_019-b3/simulation-result.json",
+        "simulation_result_sha256": "800b4daac69c80383d6aade99a392e45f60ef6c82b6d2796a2ccea170802671b",
+        "financial_actions_path": ".data/smoke-runs/blind_export_controls_019-b3/financial-actions.json",
+        "financial_actions_sha256": "c41270613781e68c9204228a41ed90b3984260e7152deff7c7b7366b906b294d"
+      }
+    },
+    {
+      "id": "anonymous-case-20",
+      "input_sha256": {
+        "spec": "5e8e047777840b10e980d39ffe18a9c21fb2e12a8dc89c5d6c03a7a2c3124513",
+        "simulation-result": "b03a007041b91a240938f665fdc90538f869e553552098f95205b85a5defdb29",
+        "financial-actions": "547553a8e57cdd6bedf456632fb61ea5aaef81e6177176a910fa0573003b61f7"
+      },
+      "cohort": "replay_extension",
+      "anonymization": {
+        "case_id": "blind_proxy_contest_020",
+        "number": 20,
+        "anonymous_case_id": "anonymous-case-20",
+        "configured_actor_count": 8,
+        "decision_actor_count": 8,
+        "fact_count": 4,
+        "fact_chars": 231,
+        "spec_path": "examples/replays/blind_proxy_contest_020/spec.json",
+        "spec_sha256": "d4ac5c6a1c5204069c86b004d8a346a31703e92f6536ac4c3535c2c145328cc2",
+        "simulation_result_path": ".data/smoke-runs/blind_proxy_contest_020-b3/simulation-result.json",
+        "simulation_result_sha256": "0ac323df5c80adbcb87104efd78407fa5ecba25a2bce01cae3d12f93c7d6335e",
+        "financial_actions_path": ".data/smoke-runs/blind_proxy_contest_020-b3/financial-actions.json",
+        "financial_actions_sha256": "f8bc6a605d173182c4891406d3f85b0ea9a86f35908c47232111c859b8d787d8"
+      }
+    },
+    {
+      "id": "anonymous-case-21",
+      "input_sha256": {
+        "spec": "7aa70368f9c3d0eb039fd02cddff661d73da43720671668ac5b3fc1d78e94a34",
+        "simulation-result": "0398c7c1880ff6f988f1649b401148b0783becc516604dd95949705cc2e1b654",
+        "financial-actions": "f2b5043b76044bd9d5b02574f8f3230e4528d1d0f88c1c327e5a9e834f1f38c0"
+      },
+      "cohort": "replay_extension",
+      "anonymization": {
+        "case_id": "blind_platform_compliance_021",
+        "number": 21,
+        "anonymous_case_id": "anonymous-case-21",
+        "configured_actor_count": 8,
+        "decision_actor_count": 8,
+        "fact_count": 4,
+        "fact_chars": 263,
+        "spec_path": "examples/replays/blind_platform_compliance_021/spec.json",
+        "spec_sha256": "92b1669eba1249b74b3e7ceba274f032a0e27374b5f79b500f64ae9853b5cc4f",
+        "simulation_result_path": ".data/smoke-runs/blind_platform_compliance_021-b3/simulation-result.json",
+        "simulation_result_sha256": "80b965d834215796e7cd1377857c2f201e7ddb88f936a41556c78eb9b8b50cc3",
+        "financial_actions_path": ".data/smoke-runs/blind_platform_compliance_021-b3/financial-actions.json",
+        "financial_actions_sha256": "1290972999d1f6675b33673303da3e768b23e1ab4c31f351c028b95c2892c97e"
+      }
+    },
+    {
+      "id": "anonymous-case-22",
+      "input_sha256": {
+        "spec": "d9414fc5371dcd32d8d3770920faae1b7619b28d071a89172caa1716a6f13cd4",
+        "simulation-result": "31ee0169401515a8f55e7c80e552128cbc140b8996d8586c0690f9c8954fd6cf",
+        "financial-actions": "a5fc57f2933671c3bf2480176d66fdf8b58fde8f3fc435f8ef619980f484a4aa"
+      },
+      "cohort": "replay_extension",
+      "anonymization": {
+        "case_id": "blind_bank_control_capital_022",
+        "number": 22,
+        "anonymous_case_id": "anonymous-case-22",
+        "configured_actor_count": 8,
+        "decision_actor_count": 6,
+        "fact_count": 4,
+        "fact_chars": 115,
+        "spec_path": "examples/replays/blind_bank_control_capital_022/spec.json",
+        "spec_sha256": "27dcffac1caf3423c61b313128804c267b945fb6dada932e417814217cb6d100",
+        "simulation_result_path": ".data/formal-runs/blind-scenario-formal-v7b/blind_bank_control_capital_022/core/replication-00/simulation-result.json",
+        "simulation_result_sha256": "83202097889856cc029d817decf937a265b7beb536490f39ddc8356934d0c07a",
+        "financial_actions_path": ".data/formal-runs/blind-scenario-formal-v7b/blind_bank_control_capital_022/core/replication-00/financial-actions.json",
+        "financial_actions_sha256": "19b5840e311956acb9203f7c8ec6b4e98c73d118f6184259db29ef15fd688016"
+      }
+    },
+    {
+      "id": "anonymous-case-23",
+      "input_sha256": {
+        "spec": "930136019407fac2c028255002fa27f71879783858b8fde9e251f71f78164048",
+        "simulation-result": "6ff578c60a11e8692494caea68dfe30752f6938ddcdaff1c0745d43b57ff1985",
+        "financial-actions": "e9fa0d8efeb5782c4f078397e09b569f79c3d31b74fbb7d35c706b96c017118a"
+      },
+      "cohort": "replay_extension",
+      "anonymization": {
+        "case_id": "blind_airline_merger_block_023",
+        "number": 23,
+        "anonymous_case_id": "anonymous-case-23",
+        "configured_actor_count": 8,
+        "decision_actor_count": 6,
+        "fact_count": 4,
+        "fact_chars": 110,
+        "spec_path": "examples/replays/blind_airline_merger_block_023/spec.json",
+        "spec_sha256": "717d98404024e5ed817b64e7908f04c341b269141622c16eaa3702f6b98742bc",
+        "simulation_result_path": ".data/formal-runs/blind-scenario-formal-v7b/blind_airline_merger_block_023/core/replication-00/simulation-result.json",
+        "simulation_result_sha256": "04813a2a386e18f82b3d53e9fe7aba71fc1628561bcd37f2bfdd8ee8ba6d0771",
+        "financial_actions_path": ".data/formal-runs/blind-scenario-formal-v7b/blind_airline_merger_block_023/core/replication-00/financial-actions.json",
+        "financial_actions_sha256": "7c2a4e523129c0796d5a0582b3e2f279e5d15213506982da5491b8d1174c3704"
+      }
+    },
+    {
+      "id": "anonymous-case-24",
+      "input_sha256": {
+        "spec": "35985e5d6a5da317eb7b7811c9924d1f19c0be566f337279002e9c2134976f20",
+        "simulation-result": "9ee84eb3dec70f1f84cdaa1b2f6d14ea2c9f522e7635b19826c32224c0f1e103",
+        "financial-actions": "f2623e122d5c14a199aa79fe393b42aadb1a9ca81d96a4bc48775913d36ac3d2"
+      },
+      "cohort": "replay_extension",
+      "anonymization": {
+        "case_id": "blind_healthcare_cyber_disruption_024",
+        "number": 24,
+        "anonymous_case_id": "anonymous-case-24",
+        "configured_actor_count": 8,
+        "decision_actor_count": 6,
+        "fact_count": 4,
+        "fact_chars": 123,
+        "spec_path": "examples/replays/blind_healthcare_cyber_disruption_024/spec.json",
+        "spec_sha256": "9519894eb69f278bf4c7d530070515d892bbc1fda2634b96d13924676b993679",
+        "simulation_result_path": ".data/formal-runs/blind-scenario-formal-v7b/blind_healthcare_cyber_disruption_024/core/replication-00/simulation-result.json",
+        "simulation_result_sha256": "993733a17fc51a811ba6c21c2d9dff54916e83ecafe3521a4e6331c8c734bdc3",
+        "financial_actions_path": ".data/formal-runs/blind-scenario-formal-v7b/blind_healthcare_cyber_disruption_024/core/replication-00/financial-actions.json",
+        "financial_actions_sha256": "10e5a3b24b73fb22f24cedc6ab2d41954f44a518718686ea497dbc21e88c90bd"
+      }
+    },
+    {
+      "id": "anonymous-case-25",
+      "input_sha256": {
+        "spec": "0c08bab1a2dbd0544edac045b8431a735071963ce782d5950af72951dc835958",
+        "simulation-result": "6d8334e77339c0f0f291083d6a8c52c8a82e3cfd20f376f40d95baa3305c2338",
+        "financial-actions": "ce4d22badb24b7a7613a9842e264d90d68b4dc9d0d6cabdb4b47971ad75c04c7"
+      },
+      "cohort": "replay_extension",
+      "anonymization": {
+        "case_id": "blind_airline_activist_campaign_025",
+        "number": 25,
+        "anonymous_case_id": "anonymous-case-25",
+        "configured_actor_count": 8,
+        "decision_actor_count": 6,
+        "fact_count": 4,
+        "fact_chars": 117,
+        "spec_path": "examples/replays/blind_airline_activist_campaign_025/spec.json",
+        "spec_sha256": "7c25e313568c41d908dae7d5f33f23f733357218618db9f1ad194d629836c9ec",
+        "simulation_result_path": ".data/formal-runs/blind-scenario-formal-v7b/blind_airline_activist_campaign_025/core/replication-00/simulation-result.json",
+        "simulation_result_sha256": "bd4d9a02d43b53ab82e7d3247c052ad60271b447ceae34984d238013483c4637",
+        "financial_actions_path": ".data/formal-runs/blind-scenario-formal-v7b/blind_airline_activist_campaign_025/core/replication-00/financial-actions.json",
+        "financial_actions_sha256": "58909d09716bc0e3d3315ed97a3424e6236a2249312e63ef7b50981e86a75612"
+      }
+    }
+  ],
+  "design": "3 named public development cases then 24 existing anonymous replay cases, each freshly compiled by v7 and v9 from identical frozen simulations; separately 3 fresh entity-aware quick simulations using v9. No outcomes or model judging.",
+  "code_sha256": {
+    "src/fever_mirofish/__init__.py": "a95a573622549e21c1a400c406ade3c3c2639e8d80501f5f32d8297ed2a68af9",
+    "src/fever_mirofish/actor_mapping.py": "feb814301bbcbf2ddfab4427d0a9c55ce5a55bd394df3c6134e7e4bc29185844",
+    "src/fever_mirofish/b3_analysis.py": "9475892f08905b4c76b3ba3874bffd4dff68be17b180cf36339eb36a7d7497e1",
+    "src/fever_mirofish/benchmark.py": "96d3ad022a9e5861a899f9018db7ce9dcd84c4886d9f9cf862223d0b3e3bd65b",
+    "src/fever_mirofish/calibration.py": "54d3a2056cc840bc793cc0894e104ef607ce6576eeaa729cae8da341659320cf",
+    "src/fever_mirofish/contracts.py": "efc3c282924c9eb3b88170556453ae3d4648391dd2250b4011f6e06ea0b57233",
+    "src/fever_mirofish/decision_support_eval.py": "658f317e5fbd0442fbfd8c9366ccab6ab4a080f12522bbefb654c313efabd8ac",
+    "src/fever_mirofish/entity_roles.py": "39fee555804e19695f0d6be6509f9ac32754885ee5a727c89216f9f209d74aad",
+    "src/fever_mirofish/fever_adapter.py": "b99f5000e95068dce1fafbb6d1785c9e75596b7b9dbdf98d664e72a715a50d38",
+    "src/fever_mirofish/financial_actions.py": "a49a6399ab83a63bff21850a72afc153ac0d666f4744c5403637168b586306d1",
+    "src/fever_mirofish/financial_profiles.py": "7bbdffe288f32f84ddbf7f424021d6e8c35452a89a05edd2586c9711c320a69c",
+    "src/fever_mirofish/focused_scenarios.py": "e25eaf15519bc76b9dc788a82b5ad693aee46a12918ed3e17f4c5af4ec30d9c2",
+    "src/fever_mirofish/forecasting.py": "f051576f53e072a2f5634fdc03e76ed37fe68ba3eb44ae64fcd7eea6ab5ac3f3",
+    "src/fever_mirofish/formal_execution.py": "75b6a9113483000873b394b5cf6ac6b17aa72a965845310b88f074815be03f15",
+    "src/fever_mirofish/gateway.py": "de17ba5dfe851d9ab9b520ee3bae2718cfb8dc7fd861aa84978d1e86c472f4da",
+    "src/fever_mirofish/generation_audit.py": "1a32d542bb1d7962c87e1472f8a1a13ba123a1e220f824fb39cd2a5b43e64fe5",
+    "src/fever_mirofish/graph_analysis.py": "de9a929ae8993c128830bed434a7bfff16a7c072cf3b554f03f3226fa862fcc2",
+    "src/fever_mirofish/mirofish_client.py": "de12dda6414fa51a6e988a084f30b6fd0bd45dda814d76fe23edc2b87aedbe3a",
+    "src/fever_mirofish/oasis_sqlite.py": "5ae9cccca182163604c97ea4b460be8e5f6cd49295ed5da9006e6a876c48be66",
+    "src/fever_mirofish/paired_effects.py": "00519687b9bc9f3d7a83eb6cedf8cc6a4b8a7d49b37ad46fd11a40a11e102a7d",
+    "src/fever_mirofish/probability_ensemble.py": "d5d940e3a4f2e7b793501a4b40ef40d01f1b530b259aa6fed7f236a1a2537467",
+    "src/fever_mirofish/probability_updates.py": "f15990ed8127d245e71a40a09fe7dda0e4156c0e031b40d0af385983f803a85c",
+    "src/fever_mirofish/product_scenarios.py": "4684327268e85b1daa0ec8ded04a67a18ddc738edca3c54655cd9f2bf3775d52",
+    "src/fever_mirofish/randomness.py": "80364a7f6d06c49c80b8a7b85b0f2cab9aa6c8223c21b5525c052bff78eb5fe2",
+    "src/fever_mirofish/runtime_config.py": "37f5871330b1cb3d5c5a9d89892478c6fee90131a529b37c9a151680e58695f2",
+    "src/fever_mirofish/scale_experiment.py": "33a97217ca6df45a14aca00681c4fd912807f059c9b64af163bd4954eb15024b",
+    "src/fever_mirofish/scenario_branches.py": "dd803422befbafa5e6d4df412d7c13d5ecdf4c23b1d59376c4d6be09253479a4",
+    "src/fever_mirofish/scenario_presentation.py": "9d0575951f324154298fadf79465413a3360a9a86bba17fcc28a4de067d8fffe",
+    "src/fever_mirofish/seed_renderer.py": "a6510c534202aa59bad697346a6d28f287168f14e3cfea75f69590074e7808f5",
+    "src/fever_mirofish/smoke_profile.py": "c06fe363afd6dc152dbaf84dce86f947abb26ced1ed7dae740d0ff6ef36e2afa",
+    "src/fever_mirofish/trace_digest.py": "0913d14e323ec4bcb3cb69127d213809eead3fa0e9d49cc0a96ab40aad7513a7",
+    "src/fever_mirofish/usage_ledger.py": "b6f8e57016d8153ab44e93c846f0b4ef7175c2a7c29bfef301291ec0bd079ee2",
+    "src/fever_mirofish/workflow.py": "00d828d3f827f89f71e850042a63be28e482758eec2a443e87d5987737b242f9",
+    "scripts/generate_scenario_branches.py": "7735bd12eb41e2e3659a10a66cd91a7954586635dfd70c4fc081108e2f265dbe",
+    "scripts/run_real_scenarios.py": "c7d0d9f02c10232769072effb997c7b1a4fce03b0df9168ef25dc0585693d172",
+    "scripts/run_real_scenarios_v2.py": "34ff9aca0fec2cfe3386c33899132359f47e974bba950d508eea182db24ce951"
+  }
+}

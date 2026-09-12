@@ -1,0 +1,13 @@
+{
+  "checked_at": "2026-09-12",
+  "local_fever_head": "a0449a4d113c2f6e1ba452349cb55c886cd35a7a",
+  "github_fork_head": "a0449a4d113c2f6e1ba452349cb55c886cd35a7a",
+  "github_upstream_head": "7857afb2d31022605a6edfba1957147e2fd06f29",
+  "fork_only_commits": 0,
+  "upstream_only_commits": 152,
+  "merge_base": "a0449a4d113c2f6e1ba452349cb55c886cd35a7a",
+  "upstream_recent": "7857afb Enhance README with logo and project details\n313be28 Merge pull request #12 from guxiaofengu-ops/feature/live-assertion-evaluation\n02f6cbb Measure existing forecast capability with frozen live evaluations\nbf96445 Merge pull request #10 from vixuowis/dev-3.12\n32bbd4f chore: bump 3.12.0 → 3.12.1 · 仓库目录结构整理",
+  "root_remote_configured": false,
+  "local_uncommitted_changes": true,
+  "temporary_git_dir": "/var/folders/xg/ktd6v9nj3szccdg9t4gw4x_m0000gn/T/fever-github-status-btvldn_9"
+}

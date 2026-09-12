@@ -1,0 +1,238 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "real-guotai-haitong-2024",
+  "spec_sha256": "517592b8ef64f3c3c8705465f98671b4ecbd0a4221b47488520ea56b2c1ba4be",
+  "simulation_id": "sim_direct_743c83958016",
+  "generated_at": "2026-09-12T06:18:25.765431+00:00",
+  "status": "completed",
+  "decisions": [
+    {
+      "id": "decision-actor_issuer-r2",
+      "round": 2,
+      "actor_id": "actor_issuer",
+      "action_type": "WAIT",
+      "decision_status": "no_action",
+      "direction": "not_applicable",
+      "intensity": null,
+      "instrument_refs": [
+        "601211",
+        "600837"
+      ],
+      "rationale": "截至2024年9月6日，国泰君安已公告拟吸收合并海通证券并停牌，目前仅签署原则性合作协议，具体方案尚未确定，换股比例和募集金额均未披露。交易实施需经双方董事会、股东大会及监管机构批准，存在重大不确定性。在停牌期间，公司无法进行公开市场操作，也不具备谈判新条款的依据。因此当前最优策略是等待内部工作推进至可披露阶段，再根据确定的交易文件和监管反馈做出后续决策。",
+      "constraint_refs": [
+        "actor_issuer:constraint:0",
+        "actor_issuer:constraint:1",
+        "actor_issuer:constraint:2"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:0",
+      "visibility": "private",
+      "confidence": 0.9,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_issuer_600837-r2",
+      "round": 2,
+      "actor_id": "actor_issuer_600837",
+      "action_type": "WAIT",
+      "decision_status": "no_action",
+      "direction": "not_applicable",
+      "intensity": null,
+      "instrument_refs": [
+        "600837",
+        "601211"
+      ],
+      "rationale": "截至2024年9月6日，国泰君安A股（601211）已停牌，海通证券（600837）是否同步停牌尚未确认。双方于9月5日签署的合作协议仅为原则性约定，换股比例及募集金额等核心交易要素均未披露。交易需经双方董事会、股东大会及有权监管机构批准，能否实施仍存在不确定性。在当前状态下，海通证券作为被合并方，自身没有主动调整经营或交易条件的依据，也无须对外传递新信息或启动谈判——因为实质性条款尚未成形、正式交易文件尚未签署。因此本周期最审慎合理的选择是不采取任何对外金融动作，等待国泰君安进一步披露具体交易方案及复牌安排，再基于可观察信息做后续判断。",
+      "constraint_refs": [
+        "actor_issuer_600837:constraint:0",
+        "actor_issuer_600837:constraint:1",
+        "actor_issuer_600837:constraint:2"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:1",
+      "visibility": "private",
+      "confidence": 0.95,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_regulator-r2",
+      "round": 2,
+      "actor_id": "actor_regulator",
+      "action_type": "WAIT",
+      "decision_status": "no_action",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "根据截至2024年9月6日收盘的可观察事实，国泰君安与海通证券仅于2024年9月5日签署原则性合作协议，具体交易方案尚未形成正式文件，换股比例、募集金额等核心要素均未披露（F3、F5）。该交易尚需双方董事会、股东大会审议及有权监管机构批准，能否实施仍存在重大不确定性（F4）。截至当前时点，公司刚于9月6日开市停牌，尚无需要本机构采取实质性监管措施或沟通行动的新信息或违规线索。因此，本决策周期最适当的做法是等待公司按进展履行披露义务（F5），待后续获取更详细的交易文件及相关审议进展后再行评估，符合约束要求：不预设审批结果或时间表，不使用截止时点后不可观察的信息。",
+      "constraint_refs": [
+        "actor_regulator:constraint:0",
+        "actor_regulator:constraint:1"
+      ],
+      "evidence_refs": [
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:2",
+      "visibility": "private",
+      "confidence": 0.95,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_exchange-r2",
+      "round": 2,
+      "actor_id": "actor_exchange",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": null,
+      "instrument_refs": [
+        "601211",
+        "600837"
+      ],
+      "rationale": "截至截止时点，公司已按规则启动停牌程序（F2），本次重组仍处于原则性约定阶段（F3），核心交易要素（换股比例、募集金额）尚未披露（F5），且交易需经多重审批且存在不确定性（F4）。作为交易所，我的职责是维护信息披露秩序和监督规则执行，而非替代公司经营或监管审批。当前公司已按要求停牌并承诺按进展履行披露义务，我暂无新的规则执行或监管干预的必要，等待公司后续提交复牌申请或披露实质性进展是最合适的动作。",
+      "constraint_refs": [
+        "actor_exchange:constraint:0",
+        "actor_exchange:constraint:1"
+      ],
+      "evidence_refs": [
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:3",
+      "visibility": "private",
+      "confidence": 0.95,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_institutions-r2",
+      "round": 2,
+      "actor_id": "actor_institutions",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "maintain",
+      "intensity": 0.0,
+      "instrument_refs": [
+        "601211",
+        "600837"
+      ],
+      "rationale": "基于截至公告事实F1-F5，该吸收合并交易处于原则性约定阶段，尚未披露换股比例与募集金额两项核心交易要素（F5），无法对国泰君安（601211）和海通证券（600837）进行相对估值比价。交易需经双方董事会、股东大会及监管机构批准（F4），实施路径存在多重审批不确定性。国泰君安A股已于2024年9月6日停牌（F2），复牌时间未定。作为机构投资者，在缺乏定价对价核心参数且审批不确定性未消除的时点下，优先选择维持现有持仓不变、不调整敞口也不进行增量配置，等待后续交易文件签署及换股比例等关键信息披露后再做决策。该期间将持续跟踪信息披露进展（F5维护的披露义务机制）。",
+      "constraint_refs": [
+        "actor_institutions:constraint:0",
+        "actor_institutions:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:4",
+      "visibility": "private",
+      "confidence": 0.95,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_brokers-r2",
+      "round": 2,
+      "actor_id": "actor_brokers",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": null,
+      "instrument_refs": [],
+      "rationale": "截至当前时点，国泰君安吸收合并海通证券仅签署原则性合作协议，具体换股比例、募集金额等核心交易参数均未披露（F5）。交易尚需双方董事会、股东大会及监管机构多重审批，能否实施存在不确定性（F4）。作为中介机构，在不掌握具体交易文件及未确认融资承诺的情况下（约束F1、F2），不具备提供连续融资、交易或中介服务的充分依据。因此选择等待，待换股比例、募集方案及复牌时间等关键信息明确后再评估中介业务介入的可行性。停牌期间公司承诺按进展履行披露义务（F5），这是后续获取信息的法定渠道。",
+      "constraint_refs": [
+        "actor_brokers:constraint:0",
+        "actor_brokers:constraint:1"
+      ],
+      "evidence_refs": [
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:5",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_competitors-r2",
+      "round": 2,
+      "actor_id": "actor_competitors",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "conditional",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "截至2024年9月6日，国泰君安吸收合并海通证券仅完成原则性签约，换股比例和配套募资金额等核心定价条款（F5）均未披露，交易仍需经各自董事会、股东大会及监管机构批准（F4），能否实施存在不确定性。作为竞争者，评估本次合并对行业竞争格局的影响需依赖具体交易要素和监管审批结果。在关键条款和审批进展明朗前，最审慎的做法是暂行等待，保留资源与产能，收集复牌后更多信息后再做业务响应调整。",
+      "constraint_refs": [
+        "actor_competitors:constraint:0",
+        "actor_competitors:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:6",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_analysts-r2",
+      "round": 2,
+      "actor_id": "actor_analysts",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "截至截止时点，F1+F3显示合并仅处于原则性约定阶段，F4提示交易仍需三重审批，F5明确未给出换股比例或募集金额——核心定价要素尚未可知，不具备形成方向性判断的基础。模拟第2轮中，我在社交媒体发表了分析意见（区分事实与估计），监管方也发布了提示性回应，但均未产生可观察的新事实打破原有信息边界。因此选择等待，直到后续交易文件披露换股比例或其他实质性条款后，再更新研判。",
+      "constraint_refs": [
+        "actor_analysts:constraint:0",
+        "actor_analysts:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:7",
+      "visibility": "private",
+      "confidence": 0.95,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    }
+  ],
+  "failures": [],
+  "warnings": [
+    "Decision confidence expresses action clarity, not forecast probability.",
+    "Interview decisions are simulated statements, not observed evidence."
+  ]
+}

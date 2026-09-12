@@ -1,0 +1,622 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_proxy_contest_020",
+  "spec_sha256": "d4ac5c6a1c5204069c86b004d8a346a31703e92f6536ac4c3535c2c145328cc2",
+  "generated_at": "2026-07-31T17:06:55.321382+00:00",
+  "status": "partial",
+  "runs": [
+    {
+      "run_id": "sim_e41cf162e687",
+      "seed": 845468015,
+      "status": "completed",
+      "events": [
+        {
+          "round": 0,
+          "actor_id": "actor_board",
+          "action_type": "SEARCH_POSTS",
+          "summary": "search_posts",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_board",
+          "action_type": "SEARCH_USER",
+          "summary": "search_user",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_retail",
+          "action_type": "SEARCH_POSTS",
+          "summary": "search_posts",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_activist_b",
+          "action_type": "SEARCH_POSTS",
+          "summary": "search_posts",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_activist_b",
+          "action_type": "SEARCH_USER",
+          "summary": "search_user",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_index_funds",
+          "action_type": "SEARCH_USER",
+          "summary": "search_user",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_index_funds",
+          "action_type": "SEARCH_POSTS",
+          "summary": "search_posts",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_board",
+          "action_type": "COMMUNICATE",
+          "summary": "我们尊重不同股东的意见，但必须指出：我们的十二名候选人具有丰富的行业经验和治理专长。现任董事会与管理层正在推进切实的成本削减、流媒体转型和治理改革，这些成果已有数据支撑。更换董事会多数成员将带来重大不确定性，破坏正在进行的战略执行。我们呼吁股东基于事实和长期价值做出判断。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_proxy_advisers",
+          "action_type": "SEARCH_USER",
+          "summary": "search_user",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_proxy_advisers",
+          "action_type": "SEARCH_USER",
+          "summary": "search_user",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_proxy_advisers",
+          "action_type": "SEARCH_USER",
+          "summary": "search_user",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_proxy_advisers",
+          "action_type": "SEARCH_USER",
+          "summary": "search_user",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_board",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #1：我们推荐全部十二名现任董事候选人，他们正在推进成本、流媒体、治理和继任改革，以确保公司战略连续性。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_board",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #4：管理层正在推进成本、流媒体、治理和继任改革，以证明经营改善和价值创造。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_board",
+          "action_type": "COMMUNICATE",
+          "summary": "尊敬的机构投资者，感谢您对此次代理投票的审慎态度。我代表现任董事会，诚邀您查阅我们最新的治理改革进展报告和长期战略规划文件。我们的十二名候选人团队在过去一个周期内推动了成本结构优化和流媒体业务增长，同时在董事会独立性和继任规划方面取得了可验证的进展。我们相信，事实和数据将表明继续支持现任团队是符合股东长期最佳利益的选择。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_index_funds",
+          "action_type": "COMMUNICATE",
+          "summary": "作为受托机构投资者，我们正在全面评估此次代理投票。现有董事会提出的成本削减、流媒体转型和治理改革方向正确，且已有可追踪的执行数据。我们认同董事会的连续性价值，但异议股东对长期表现和资本配置的批评也值得重视。我们将在截止前基于治理质量、董事独立性和战略合理性做出最终投票决定。我们倾向于支持现任董事会整体名单，但会密切关注初步投票反馈，不排除在特定席位支持个别高质量异议候选人。代理顾问的最终意见也将纳入考量。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_board",
+          "action_type": "COMMUNICATE",
+          "summary": "股东大会临近，三套代理卡和通用代理规则下投票动员尤为重要。我已对异议股东的批评进行了公开回应（评论Post 2），并向机构投资者（Post 3）发出了交流邀请。但作为发行人董事会，下一步需要主动与关键机构股东和代理投票顾问进行一对一沟通，递送治理改革进展的详细材料，回应长期表现和继任质疑。同时需协调管理层（Post 4的内容）共同向市场传达一致的改革叙事。当前异议股东已形成两个阵营（F2），大型机构态度仍在评估中（F3），因此必须加大沟通力度，争取最后时点的投票支持。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_management",
+          "action_type": "COMMUNICATE",
+          "summary": "在代理争夺的关键期，作为管理层必须主动向股东传递经营改善和价值创造的证据，以争取支持并维持执行权限。当前已有改革措施（成本、流媒体、治理、继任），但异议股东同时发起挑战，需要通过进一步沟通巩固现有支持者、说服摇摆股东，从而降低代理争夺的分散注意力和成本风险。主要不确定性在于投票最终结果，但沟通能提高我方叙事的影响力。",
+          "visibility": "public",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_activist_a",
+          "action_type": "COMMUNICATE",
+          "summary": "股东大会投票在即，需说服大型机构和零售股东投票支持我方两名候选人。目前有三套代理卡和通用代理规则，最后时点动员尤为关键。第一组活动人士（我方）需要与第二组异议股东和现任董事会的主张形成差异化，争取摇摆股东的支持。选择COMMUNICATE而非WAIT，因为约束要求主动说服；不选择ALLOCATE是因为当前时点没有新的仓位调整信息，且市场已在评估不确定性。",
+          "visibility": "public",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_activist_b",
+          "action_type": "COMMUNICATE",
+          "summary": "作为持股和公众关注低于主要争夺双方的第三股力量，当前代理争夺进入关键阶段——三套代理卡并存、通用代理规则使最后时点投票动员尤为重要。我们既不能像管理层那样依赖在位优势，也不能像第一组或第二组活动人士那样已有明确提名阵容。此时必须通过定向沟通（私下面见大型机构股东和代理投票顾问），在F3所述的不同支持意见中争取中间摇摆票，同时清晰传递我们不同于管理层和另一活动人士的改革方案，才能为最终使三名候选人进入董事会创造条件。公开大规模动员成本过高且可能提前暴露实力，不宜此时进行。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F2",
+            "F3"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_index_funds",
+          "action_type": "WAIT",
+          "summary": "作为受托机构投资者，我已完成初步审议但尚未最终表态。三套代理卡和通用代理规则使投票动员与最后时点决定尤为重要（F3）。我需要等待代理投票顾问（ISS/Glass Lewis）的最终建议、观察其他大型机构股东在最后阶段的实际投票趋势，并收集更多关于现任董事会改革执行效果的定量证据。现任董事会推荐完整公司名单并主张改革推进（F1），而两组异议股东从不同角度提出批评（F2），我必须区分公开表达与实际投票行为。市场正在评估治理变化和管理层战略执行的不确定性（F4），在截止前保持延迟判断并收集更多信息是最符合受托责任的审慎做法。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_proxy_advisers",
+          "action_type": "WAIT",
+          "summary": "当前正处于代理争夺的最终阶段，三套代理卡和通用代理规则使投票动员与最后时点决定尤为重要。我需要继续观察大型机构股东、代理投票顾问、创始家族成员和商业领袖的公开表态积累，以及公司管理层推进改革的实质性证据，再结合两组异议股东的具体提案内容，才能向机构客户形成有依据的投票建议。目前各方主张均基于公开声明，尚需更多投票意向信号和最终委托投票数据。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_retail",
+          "action_type": "WAIT",
+          "summary": "作为零售/员工股东，代理材料信息量巨大且复杂（F1、F2三方竞争提名），各阵营的治理主张和战略路径存在根本差异（现任董事主张连续性改革vs异议股东批评长期表现和资本配置）。我对不同提名的实际商业影响和治理效果缺乏足够分析能力，无法在投票动员的关键时点做出明确决策。F3表明大型机构、顾问和创始家族支持意见分裂，更增加判断难度。F4显示股价正常收盘，市场仍在消化不确定性。因此我计划继续观察投票结果的初步信号以及各阵营更清晰的立场说明，避免在材料理解不充分的情况下冲动投票或调整持仓。未来将基于更明确的投票倾向和市场反馈再做决策。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_investors",
+          "action_type": "WAIT",
+          "summary": "当前投票结果高度不确定，三套代理卡及通用代理规则使最后时点动员极为关键。公开背书不等于已投票，机构持仓调整信号不清晰，且D0股票正常收盘无异常价格压力。以管理短期事件风险为目标，在无额外定价或仓位信息前，维持现有敞口，等待代理计票或更明确的市场信号再行动。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        }
+      ],
+      "warnings": [
+        "The recorded seed controls Python agent scheduling only; provider-side LLM sampling remains unseeded."
+      ]
+    }
+  ],
+  "scenarios": [],
+  "forecast_target_results": [],
+  "simulation_graph": {
+    "nodes": [
+      {
+        "id": "actor_activist_b",
+        "kind": "actor",
+        "label": "匿名异议股东集团B"
+      },
+      {
+        "id": "actor_board",
+        "kind": "actor",
+        "label": "匿名公司现任董事会"
+      },
+      {
+        "id": "actor_index_funds",
+        "kind": "actor",
+        "label": "大型指数与长期机构股东"
+      },
+      {
+        "id": "actor_proxy_advisers",
+        "kind": "actor",
+        "label": "代理投票顾问"
+      },
+      {
+        "id": "actor_retail",
+        "kind": "actor",
+        "label": "零售与员工股东"
+      },
+      {
+        "id": "trace-16",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_POSTS",
+        "summary": "search_posts"
+      },
+      {
+        "id": "trace-17",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user"
+      },
+      {
+        "id": "trace-18",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_POSTS",
+        "summary": "search_posts"
+      },
+      {
+        "id": "trace-20",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_POSTS",
+        "summary": "search_posts"
+      },
+      {
+        "id": "trace-21",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user"
+      },
+      {
+        "id": "trace-25",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user"
+      },
+      {
+        "id": "trace-26",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_POSTS",
+        "summary": "search_posts"
+      },
+      {
+        "id": "trace-28",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "我们尊重不同股东的意见，但必须指出：我们的十二名候选人具有丰富的行业经验和治理专长。现任董事会与管理层正在推进切实的成本削减、流媒体转型和治理改革，这些成果已有数据支撑。更换董事会多数成员将带来重大不确定性，破坏正在进行的战略执行。我们呼吁股东基于事实和长期价值做出判断。"
+      },
+      {
+        "id": "trace-32",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user"
+      },
+      {
+        "id": "trace-33",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user"
+      },
+      {
+        "id": "trace-34",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user"
+      },
+      {
+        "id": "trace-35",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user"
+      },
+      {
+        "id": "trace-36",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #1：我们推荐全部十二名现任董事候选人，他们正在推进成本、流媒体、治理和继任改革，以确保公司战略连续性。"
+      },
+      {
+        "id": "trace-37",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #4：管理层正在推进成本、流媒体、治理和继任改革，以证明经营改善和价值创造。"
+      },
+      {
+        "id": "trace-38",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "尊敬的机构投资者，感谢您对此次代理投票的审慎态度。我代表现任董事会，诚邀您查阅我们最新的治理改革进展报告和长期战略规划文件。我们的十二名候选人团队在过去一个周期内推动了成本结构优化和流媒体业务增长，同时在董事会独立性和继任规划方面取得了可验证的进展。我们相信，事实和数据将表明继续支持现任团队是符合股东长期最佳利益的选择。"
+      },
+      {
+        "id": "trace-39",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "作为受托机构投资者，我们正在全面评估此次代理投票。现有董事会提出的成本削减、流媒体转型和治理改革方向正确，且已有可追踪的执行数据。我们认同董事会的连续性价值，但异议股东对长期表现和资本配置的批评也值得重视。我们将在截止前基于治理质量、董事独立性和战略合理性做出最终投票决定。我们倾向于支持现任董事会整体名单，但会密切关注初步投票反馈，不排除在特定席位支持个别高质量异议候选人。代理顾问的最终意见也将纳入考量。"
+      },
+      {
+        "id": "decision-actor_board-r3",
+        "kind": "financial_decision",
+        "action_type": "COMMUNICATE",
+        "decision_status": "conditional",
+        "direction": "maintain",
+        "intensity": 0.8,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "股东大会临近，三套代理卡和通用代理规则下投票动员尤为重要。我已对异议股东的批评进行了公开回应（评论Post 2），并向机构投资者（Post 3）发出了交流邀请。但作为发行人董事会，下一步需要主动与关键机构股东和代理投票顾问进行一对一沟通，递送治理改革进展的详细材料，回应长期表现和继任质疑。同时需协调管理层（Post 4的内容）共同向市场传达一致的改革叙事。当前异议股东已形成两个阵营（F2），大型机构态度仍在评估中（F3），因此必须加大沟通力度，争取最后时点的投票支持。"
+      },
+      {
+        "id": "actor_management",
+        "kind": "actor",
+        "label": "匿名公司管理层"
+      },
+      {
+        "id": "decision-actor_management-r3",
+        "kind": "financial_decision",
+        "action_type": "COMMUNICATE",
+        "decision_status": "intended",
+        "direction": "maintain",
+        "intensity": 0.7,
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "在代理争夺的关键期，作为管理层必须主动向股东传递经营改善和价值创造的证据，以争取支持并维持执行权限。当前已有改革措施（成本、流媒体、治理、继任），但异议股东同时发起挑战，需要通过进一步沟通巩固现有支持者、说服摇摆股东，从而降低代理争夺的分散注意力和成本风险。主要不确定性在于投票最终结果，但沟通能提高我方叙事的影响力。"
+      },
+      {
+        "id": "actor_activist_a",
+        "kind": "actor",
+        "label": "匿名异议股东集团A"
+      },
+      {
+        "id": "decision-actor_activist_a-r3",
+        "kind": "financial_decision",
+        "action_type": "COMMUNICATE",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": 0.8,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "股东大会投票在即，需说服大型机构和零售股东投票支持我方两名候选人。目前有三套代理卡和通用代理规则，最后时点动员尤为关键。第一组活动人士（我方）需要与第二组异议股东和现任董事会的主张形成差异化，争取摇摆股东的支持。选择COMMUNICATE而非WAIT，因为约束要求主动说服；不选择ALLOCATE是因为当前时点没有新的仓位调整信息，且市场已在评估不确定性。"
+      },
+      {
+        "id": "decision-actor_activist_b-r3",
+        "kind": "financial_decision",
+        "action_type": "COMMUNICATE",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": 0.6,
+        "confidence": 0.75,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "作为持股和公众关注低于主要争夺双方的第三股力量，当前代理争夺进入关键阶段——三套代理卡并存、通用代理规则使最后时点投票动员尤为重要。我们既不能像管理层那样依赖在位优势，也不能像第一组或第二组活动人士那样已有明确提名阵容。此时必须通过定向沟通（私下面见大型机构股东和代理投票顾问），在F3所述的不同支持意见中争取中间摇摆票，同时清晰传递我们不同于管理层和另一活动人士的改革方案，才能为最终使三名候选人进入董事会创造条件。公开大规模动员成本过高且可能提前暴露实力，不宜此时进行。"
+      },
+      {
+        "id": "decision-actor_index_funds-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.8,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "作为受托机构投资者，我已完成初步审议但尚未最终表态。三套代理卡和通用代理规则使投票动员与最后时点决定尤为重要（F3）。我需要等待代理投票顾问（ISS/Glass Lewis）的最终建议、观察其他大型机构股东在最后阶段的实际投票趋势，并收集更多关于现任董事会改革执行效果的定量证据。现任董事会推荐完整公司名单并主张改革推进（F1），而两组异议股东从不同角度提出批评（F2），我必须区分公开表达与实际投票行为。市场正在评估治理变化和管理层战略执行的不确定性（F4），在截止前保持延迟判断并收集更多信息是最符合受托责任的审慎做法。"
+      },
+      {
+        "id": "decision-actor_proxy_advisers-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.7,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "当前正处于代理争夺的最终阶段，三套代理卡和通用代理规则使投票动员与最后时点决定尤为重要。我需要继续观察大型机构股东、代理投票顾问、创始家族成员和商业领袖的公开表态积累，以及公司管理层推进改革的实质性证据，再结合两组异议股东的具体提案内容，才能向机构客户形成有依据的投票建议。目前各方主张均基于公开声明，尚需更多投票意向信号和最终委托投票数据。"
+      },
+      {
+        "id": "decision-actor_retail-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "conditional",
+        "intensity": 0.6,
+        "confidence": 0.75,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "作为零售/员工股东，代理材料信息量巨大且复杂（F1、F2三方竞争提名），各阵营的治理主张和战略路径存在根本差异（现任董事主张连续性改革vs异议股东批评长期表现和资本配置）。我对不同提名的实际商业影响和治理效果缺乏足够分析能力，无法在投票动员的关键时点做出明确决策。F3表明大型机构、顾问和创始家族支持意见分裂，更增加判断难度。F4显示股价正常收盘，市场仍在消化不确定性。因此我计划继续观察投票结果的初步信号以及各阵营更清晰的立场说明，避免在材料理解不充分的情况下冲动投票或调整持仓。未来将基于更明确的投票倾向和市场反馈再做决策。"
+      },
+      {
+        "id": "actor_investors",
+        "kind": "actor",
+        "label": "媒体与事件驱动投资者"
+      },
+      {
+        "id": "decision-actor_investors-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "maintain",
+        "intensity": 0.0,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "当前投票结果高度不确定，三套代理卡及通用代理规则使最后时点动员极为关键。公开背书不等于已投票，机构持仓调整信号不清晰，且D0股票正常收盘无异常价格压力。以管理短期事件风险为目标，在无额外定价或仓位信息前，维持现有敞口，等待代理计票或更明确的市场信号再行动。"
+      }
+    ],
+    "edges": [
+      {
+        "source": "actor_board",
+        "target": "trace-16",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_board",
+        "target": "trace-17",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_retail",
+        "target": "trace-18",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_activist_b",
+        "target": "trace-20",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_activist_b",
+        "target": "trace-21",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_index_funds",
+        "target": "trace-25",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_index_funds",
+        "target": "trace-26",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_board",
+        "target": "trace-28",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_proxy_advisers",
+        "target": "trace-32",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_proxy_advisers",
+        "target": "trace-33",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_proxy_advisers",
+        "target": "trace-34",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_proxy_advisers",
+        "target": "trace-35",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_board",
+        "target": "trace-36",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_board",
+        "target": "trace-37",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_board",
+        "target": "trace-38",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_index_funds",
+        "target": "trace-39",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_board",
+        "target": "decision-actor_board-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_management",
+        "target": "decision-actor_management-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_activist_a",
+        "target": "decision-actor_activist_a-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_activist_b",
+        "target": "decision-actor_activist_b-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_index_funds",
+        "target": "decision-actor_index_funds-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_proxy_advisers",
+        "target": "decision-actor_proxy_advisers-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_retail",
+        "target": "decision-actor_retail-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_investors",
+        "target": "decision-actor_investors-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      }
+    ]
+  },
+  "warnings": [
+    "Integration smoke result only; it is not a calibrated financial forecast.",
+    "The upstream run monitor reported zero actions; SQLite was used as the authoritative source.",
+    "OASIS did not persist per-action round numbers, so exported events use round 0.",
+    "Rule-generated institutional profiles contain consumer-social attributes and require a financial profile compiler.",
+    "No forecast target result or scenario frequency was produced from this single run.",
+    "Structured financial decisions were elicited post-simulation and remain simulated claims."
+  ],
+  "provenance": {
+    "engine": "MiroFish/OASIS",
+    "engine_version": "60757b3c825d577a1d7a86ab1ba6d5c21f51c261",
+    "model": "deepseek-ai/DeepSeek-V4-Flash",
+    "raw_run_artifacts": [
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/mirofish/simulations/sim_e41cf162e687/reddit_simulation.db",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/mirofish/simulations/sim_e41cf162e687/simulation_config.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_proxy_contest_020-b3/sqlite-actions.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_proxy_contest_020-b3/raw-actions.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_proxy_contest_020-b3/financial-interviews-raw.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_proxy_contest_020-b3/financial-actions.json"
+    ]
+  }
+}

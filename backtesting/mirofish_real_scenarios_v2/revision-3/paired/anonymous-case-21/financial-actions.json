@@ -1,0 +1,212 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_platform_compliance_021",
+  "spec_sha256": "92b1669eba1249b74b3e7ceba274f032a0e27374b5f79b500f64ae9853b5cc4f",
+  "simulation_id": "sim_f41587afd969",
+  "generated_at": "2026-07-31T17:17:17.456587+00:00",
+  "status": "completed",
+  "decisions": [
+    {
+      "id": "decision-actor_regulator-r3",
+      "round": 3,
+      "actor_id": "actor_regulator",
+      "action_type": "COMMUNICATE",
+      "decision_status": "intended",
+      "direction": "not_applicable",
+      "intensity": 0.7,
+      "instrument_refs": [],
+      "rationale": "作为监管机构，在程序启动初期（D0后不久）且尚未形成初步意见的阶段，最优先的动作是向所有市场参与者（消费者、开发者、替代平台）传递一致的监管意涵，明确正在进行的调查范围、法规要求和程序时间表。这有助于稳定市场预期、收集合规证据，并为后续正式程序奠定基础。当前尚处于信息收集和初步评估阶段，距离初步意见和最终决定仍有十二个月窗口，不宜过早采取监管强制动作。F1明确已启动不合规程序，F2显示怀疑现有措施未有效合规，F3说明正在收集额外资料——这些事实支持对外沟通以推动信息回流的必要性，而非立即监管干预。",
+      "constraint_refs": [
+        "actor_regulator:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:0",
+      "visibility": "public",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_platform-r3",
+      "round": 3,
+      "actor_id": "actor_platform",
+      "action_type": "OPERATE",
+      "decision_status": "intended",
+      "direction": "maintain",
+      "intensity": 0.7,
+      "instrument_refs": [],
+      "rationale": "监管程序刚启动，D0尚无初步违规意见。必须在十二个月内证明现有措施有效而非仅形式合规。立即启动内部合规措施升级：重新设计应用商店引导规则和浏览器选择界面，确保开发者能实质性地免费告知用户平台外替代优惠，同时保留对分发和支付的控制架构。主动与监管机构沟通合规进展，建立可验证的透明度机制。这是降低罚款与强制整改风险、同时维持商业模式的关键窗口期。",
+      "constraint_refs": [
+        "actor_platform:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:1",
+      "visibility": "private",
+      "confidence": 0.8,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_developers-r3",
+      "round": 3,
+      "actor_id": "actor_developers",
+      "action_type": "OPERATE",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": 0.6,
+      "instrument_refs": [],
+      "rationale": "作为应用开发者与数字内容企业，监管启动不合规程序是关键机遇窗口。F2明确法规已赋予我们免费告知消费者替代优惠的权利，而监管怀疑匿名企业未有效合规。当前最佳行动是主动准备替代分发渠道的对接方案（如网页分发、替代应用商店），以便在合规路线明确后第一时间引导用户至更便宜渠道，降低分发费用并扩大直接客户关系。但F1表明程序刚启动且F3收集资料尚未形成最终认定，透明操作以避免与主平台直接对抗仍是审慎选择。",
+      "constraint_refs": [
+        "actor_developers:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:2",
+      "visibility": "public",
+      "confidence": 0.75,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_alt_stores-r3",
+      "round": 3,
+      "actor_id": "actor_alt_stores",
+      "action_type": "OPERATE",
+      "decision_status": "conditional",
+      "direction": "increase",
+      "intensity": 0.7,
+      "instrument_refs": [],
+      "rationale": "监管机构已启动不合规程序（F1），要求关键平台允许开发者免费告知消费者替代优惠（F2），这为替代分发渠道创造了结构性机会。我将主动推进平台接入准备工作，吸引观望中的开发者和用户。具体动作包括：优化安全审核流程和支付系统以建立可信度，同时与开发者社区沟通费用透明度和技术接入方案，抓住监管窗口期扩大市场份额。但需密切监控匿名平台可能出台的新费用或资格门槛（约束），因此采取有条件的积极推进策略。",
+      "constraint_refs": [
+        "actor_alt_stores:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:3",
+      "visibility": "private",
+      "confidence": 0.8,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_consumers-r3",
+      "round": 3,
+      "actor_id": "actor_consumers",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "作为移动设备消费者，我既希望获得更多价格选择和便利，又担忧替代渠道的安全性和支付风险。当前监管程序刚刚启动（F1），合规结果和替代渠道的安全标准都尚未明确（F2、F3）。我难以评估替代渠道的安全和总成本（约束），因此最谨慎的做法是等待监管程序有进一步结果，看清哪些替代渠道真正安全可靠、能避免复杂安装和支付风险，再做出消费选择。",
+      "constraint_refs": [
+        "actor_consumers:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:4",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_rival_platforms-r3",
+      "round": 3,
+      "actor_id": "actor_rival_platforms",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": 0.6,
+      "instrument_refs": [],
+      "rationale": "作为其他关键数字平台，我方同期也可能处于监管程序中。当前跨国监管机构已对匿名企业启动不合规程序，但D0阶段尚无初步违规意见或最终决定。我方需要密切观察程序进展，以评估不同整改路径的成本与效果：若匿名企业的现有措施被认定无效，监管者将明确合规边界，我方可直接参考；若其措施被局部认可，我方也能避免过早投入不确定的高成本整改。此外，等待期间我方可以合规审计取代公开调整，降低自身被监管盯上的概率，同时在开发者群体中通过已有沟通保持存在感，而不冒进做出可能引起监管注意的公开动作。主要不确定性在于十二个月内监管结论的时间表和具体合规标准。",
+      "constraint_refs": [
+        "actor_rival_platforms:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:5",
+      "visibility": "private",
+      "confidence": 0.8,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_member_authorities-r3",
+      "round": 3,
+      "actor_id": "actor_member_authorities",
+      "action_type": "COMMUNICATE",
+      "decision_status": "intended",
+      "direction": "not_applicable",
+      "intensity": null,
+      "instrument_refs": [],
+      "rationale": "作为成员经济体的市场与消费者机关，我的核心任务是协调新平台规则的执行，同时保护本地企业与消费者。目前跨国监管机构已启动不合规程序（F1），但调查尚在早期——没有初步违规意见或最终决定（F4）。主要调查权集中在跨国机构，我直接采取监管行动可能越权且造成监管冲突。最合适的动作是进行公开沟通表态：一方面明确支持跨国监管推进合规，以保护本地开发者获取平等引导权（F2）；另一方面表达对消费者安全和替代渠道可靠性（F3）的关注，提醒各方平衡开放与保护。这种沟通既展示参与、服务于协调目标，又避免越权干预调查进程。",
+      "constraint_refs": [
+        "actor_member_authorities:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:6",
+      "visibility": "public",
+      "confidence": 0.95,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_investors-r3",
+      "round": 3,
+      "actor_id": "actor_investors",
+      "action_type": "WAIT",
+      "decision_status": "no_action",
+      "direction": "maintain",
+      "intensity": 0.0,
+      "instrument_refs": [
+        "ASSET_U"
+      ],
+      "rationale": "监管程序刚启动，D0无初步违规意见或罚款，股票正常收盘，尚无法区分短期标题冲击与长期商业模式变化。调查可能持续十二个月，补救范围不确定，需等待监管机构进一步证据收集和初步意见，以评估整改成本、罚款基数及对应用商店佣金模式的实质性影响。当前最合理动作为按兵不动，不调整仓位。",
+      "constraint_refs": [
+        "actor_investors:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:7",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    }
+  ],
+  "failures": [],
+  "warnings": [
+    "Decision confidence expresses action clarity, not forecast probability.",
+    "Interview decisions are simulated statements, not observed evidence."
+  ]
+}

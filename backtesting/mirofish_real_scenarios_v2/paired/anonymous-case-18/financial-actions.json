@@ -1,0 +1,216 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_merger_remedy_018",
+  "spec_sha256": "1a9335a39a42aff658cc6d6a3bb99f50619b374439381ec11cd26ca31a2455fe",
+  "simulation_id": "sim_217a54e8fe3a",
+  "generated_at": "2026-07-31T16:41:35.692281+00:00",
+  "status": "completed",
+  "decisions": [
+    {
+      "id": "decision-actor_regulator-r3",
+      "round": 3,
+      "actor_id": "actor_regulator",
+      "action_type": "WAIT",
+      "decision_status": "no_action",
+      "direction": "not_applicable",
+      "intensity": null,
+      "instrument_refs": [],
+      "rationale": "第一阶段调查已于F2/F3所述启动，法定57天期限仍在进行中，尚无足够证据作出放行、要求承诺或转入深入审查的决定。需要等待独立权利买方资质、激励与能力的完整评估结果，以及跨司法辖区其他竞争执法机关可能启动的程序信息。市场解读（如股价波动预期）不构成监管决策依据。当前最佳行动是保持法定调查程序正常运行，在期限内收集充分证据后作出正式决定。任何提前表态或干预都可能影响程序公正性。",
+      "constraint_refs": [
+        "actor_regulator:constraint:0",
+        "actor_regulator:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:0",
+      "visibility": "public",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_acquirer-r3",
+      "round": 3,
+      "actor_id": "actor_acquirer",
+      "action_type": "WAIT",
+      "decision_status": "intended",
+      "direction": "maintain",
+      "intensity": 0.8,
+      "instrument_refs": [],
+      "rationale": "在当前阶段，监管机关已启动第一阶段调查并明确法定决定期限为57天，最关键的动作是按监管程序推进而非主动施压。任何公开沟通或运营调整都可能被视为试图影响审查过程，反而不利于取得许可。应保持低调配合态度，等待监管机关的正式决定。主要不确定性在于：补救措施的可执行性评估、独立第三方资质审查结论，以及是否会被转入深入审查。同时其他司法辖区程序仍在进行，过早行动可能引发不必要的关注。等待是最符合当前阶段目标的策略。",
+      "constraint_refs": [
+        "actor_acquirer:constraint:0",
+        "actor_acquirer:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:1",
+      "visibility": "private",
+      "confidence": 0.8,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_target-r3",
+      "round": 3,
+      "actor_id": "actor_target",
+      "action_type": "COMMUNICATE",
+      "decision_status": "intended",
+      "direction": "maintain",
+      "intensity": 0.7,
+      "instrument_refs": [
+        "ASSET_R"
+      ],
+      "rationale": "作为目标公司，在监管机关启动第一阶段调查的关键窗口期，最优先的动作是主动与员工、客户及市场沟通，稳定各方对交易进展和业务连续性的预期。新的重组方案（F2）已提交但尚未获监管放行（F3），市场存在不确定性（F4），客户和员工的疑虑可能影响产品路线和运营稳定。通过清晰的对外沟通，重申公司对补救结构的支持、强调独立第三方的资质安排，以及承诺在57天调查期内全力配合监管并维持正常业务运作，直接服务于'完成交易'和'维持员工、客户和产品路线稳定'两大目标。主要不确定性在于监管调查结果不可预测（F3），以及跨司法辖区程序可能带来额外要求。",
+      "constraint_refs": [
+        "actor_target:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:2",
+      "visibility": "public",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_rights_buyer-r3",
+      "round": 3,
+      "actor_id": "actor_rights_buyer",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "重组交易（F2）已进入第一阶段调查（F3），法定决定期限未到，且调查结果不确定；我方作为独立买方需要等待监管明确资产剥离范围和条件后，才能基于批发定价能力（约束）设计商业化授权方案。当前等待可降低提前介入的法律与商业风险。",
+      "constraint_refs": [
+        "actor_rights_buyer:constraint:0"
+      ],
+      "evidence_refs": [
+        "F2",
+        "F3"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:3",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_cloud_rivals-r3",
+      "round": 3,
+      "actor_id": "actor_cloud_rivals",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": null,
+      "instrument_refs": [],
+      "rationale": "作为云服务竞争者，我需要保持获取热门内容的机会并争取公平授权条件。目前监管机关已启动新调查（F3），新交易将区域外内容分发权转让给独立第三方（F2），该第三方能否有效执行商业安排直接决定我的授权机会。在57天审查期内，任何主动沟通或运营调整都可能因调查结果未明而失效，且F1表明原始交易已被禁止，说明监管有利我立场。最佳策略是等待第一阶段调查结果，届时基于确定性采取行动。",
+      "constraint_refs": [
+        "actor_cloud_rivals:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:4",
+      "visibility": "private",
+      "confidence": 0.8,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_other_regulators-r3",
+      "round": 3,
+      "actor_id": "actor_other_regulators",
+      "action_type": "WAIT",
+      "decision_status": "intended",
+      "direction": "not_applicable",
+      "intensity": null,
+      "instrument_refs": [],
+      "rationale": "主审机关的第一阶段调查尚在进行中，法定57天决定期限未届满。作为其他司法辖区竞争执法机关，我需要等待主审机关的调查结果和最终决定，以获取更完整的关于补救结构实际执行方案的信息，再评估该补救结构是否符合本辖区的法律标准和程序要求。在本辖区启动独立审查或程序之前，有足够证据表明独立第三方资质、跨司法辖区监督机制等关键要素仍需主审机关先行明确。观望有助于节省公共资源，避免在主审机关结论出台前做出冲突性判断。",
+      "constraint_refs": [
+        "actor_other_regulators:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:5",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_customers-r3",
+      "round": 3,
+      "actor_id": "actor_customers",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": 0.7,
+      "instrument_refs": [],
+      "rationale": "作为数字内容消费者与企业客户，我的目标是获得更多平台选择和合理价格，保持内容连续可用。目前最终授权条款尚未落地，F3显示监管机关为重组交易启动了第一阶段调查，法定决定期限为57个自然日，但不保证放行。在监管结果明确之前，任何单方面沟通或谈判都缺乏实质依据。补救措施能否有效维持竞争（如F2所述将特定区域外十五年云分发权转让给独立第三方）仍需观察评估。最理性的策略是等待第一阶段调查结果，届时根据监管决定再调整立场，以获得更有利的条款保障消费者权益。",
+      "constraint_refs": [
+        "actor_customers:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:6",
+      "visibility": "private",
+      "confidence": 0.8,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_investors-r3",
+      "round": 3,
+      "actor_id": "actor_investors",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "maintain",
+      "intensity": 0.7,
+      "instrument_refs": [
+        "ASSET_R"
+      ],
+      "rationale": "当前处于监管第一阶段调查启动初期（法定57个自然日内），独立第三方买方资质、跨司法辖区程序协调及补救措施可执行性均未明朗。收购方股票维持正常收盘状态，市场尚未定价重组交易的新概率分布。在监管机关就独立第三方资质、转让协议反竞争限制及跨境执行机制给出明确指引前，任何方向的头寸调整均面临过高的信息不对称风险。等待第一阶段决定或转入深入审查的信号出现，再根据实际监管信号管理收购方和目标公司的风险敞口。",
+      "constraint_refs": [
+        "actor_investors:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:7",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    }
+  ],
+  "failures": [],
+  "warnings": [
+    "Decision confidence expresses action clarity, not forecast probability.",
+    "Interview decisions are simulated statements, not observed evidence."
+  ]
+}

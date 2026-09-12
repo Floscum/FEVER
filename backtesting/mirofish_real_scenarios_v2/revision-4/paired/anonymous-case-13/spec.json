@@ -1,0 +1,341 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_collateral_spiral_013",
+  "title": "匿名案例：财政冲击后的抵押品去杠杆",
+  "as_of": "2017-09-23T17:00:00+01:00",
+  "question": "国家、官员、年份、机构名与市场代码均已匿名化。只使用D0已公开的信息，推演财政机关、中央银行、养老金、资产管理人、交易商和投资者如何应对长期主权债券的急剧重定价与抵押品压力。",
+  "horizon": {
+    "kind": "calendar_days",
+    "value": 35,
+    "end_at": "2017-10-28T17:00:00+01:00"
+  },
+  "market": {
+    "region": "BLIND_DEVELOPED_MARKET",
+    "venues": [
+      "BLIND_FOREIGN_EXCHANGE_MARKET"
+    ],
+    "instruments": [
+      {
+        "symbol": "ASSET_M",
+        "name": "匿名本币兑储备货币即期汇率",
+        "kind": "fx",
+        "currency": "USD"
+      }
+    ]
+  },
+  "facts": [
+    {
+      "id": "F1",
+      "observed_at": "2017-09-23T09:00:00+01:00",
+      "statement": "新政府公布大规模减税、能源支持与供给侧改革方案，并取消原定企业税率上调；方案公布时没有同时发布独立财政预测。",
+      "source_kind": "official",
+      "source_url": "https://benchmark.invalid/blind-collateral-spiral-013/F1",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F2",
+      "observed_at": "2017-09-23T12:00:00+01:00",
+      "statement": "财政机关表示未来数周还会公布更多增长措施，中期财政计划和独立预测将在更晚日期发布。",
+      "source_kind": "official",
+      "source_url": "https://benchmark.invalid/blind-collateral-spiral-013/F2",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F3",
+      "observed_at": "2017-09-23T16:00:00+01:00",
+      "statement": "长期主权债券收益率快速上升、本币明显走弱；使用负债驱动投资策略的养老金需要为衍生品头寸补充抵押品。",
+      "source_kind": "market_data",
+      "source_url": "https://benchmark.invalid/blind-collateral-spiral-013/F3",
+      "evidence_ref": null,
+      "confidence": 0.95
+    },
+    {
+      "id": "F4",
+      "observed_at": "2017-09-23T16:30:00+01:00",
+      "statement": "中央银行此前已宣布紧缩政策并计划出售主权债券，但同时负有维护金融稳定和核心市场运转的职责。",
+      "source_kind": "official",
+      "source_url": "https://benchmark.invalid/blind-collateral-spiral-013/F4",
+      "evidence_ref": null,
+      "confidence": 1.0
+    }
+  ],
+  "actors": [
+    {
+      "id": "actor_fiscal",
+      "label": "匿名财政机关",
+      "kind": "government",
+      "aggregation": "organization",
+      "goals": [
+        "推动增长方案",
+        "维持财政可信度",
+        "稳定融资条件"
+      ],
+      "constraints": [
+        "独立财政预测尚未发布",
+        "市场对无资金来源措施敏感"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_central_bank",
+      "label": "匿名中央银行",
+      "kind": "regulator",
+      "aggregation": "organization",
+      "goals": [
+        "维持物价稳定",
+        "恢复核心债券市场秩序",
+        "避免信用条件传染"
+      ],
+      "constraints": [
+        "稳定工具不能被市场误解为永久货币宽松"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "会持续监测市场流动性和抵押品压力"
+      ]
+    },
+    {
+      "id": "actor_pensions",
+      "label": "养老金与负债驱动投资基金",
+      "kind": "institutional_investor",
+      "aggregation": "cohort",
+      "goals": [
+        "满足抵押品追缴",
+        "控制杠杆",
+        "避免被迫抛售"
+      ],
+      "constraints": [
+        "长期债券价格下跌会放大流动性需求"
+      ],
+      "observable_fact_ids": [
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_managers",
+      "label": "养老金资产管理人",
+      "kind": "institutional_investor",
+      "aggregation": "cohort",
+      "goals": [
+        "筹集现金",
+        "调整对冲和杠杆",
+        "保护客户偿付能力"
+      ],
+      "constraints": [
+        "短期可出售资产和交易对手额度有限"
+      ],
+      "observable_fact_ids": [
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_dealers",
+      "label": "主权债券交易商与清算交易对手",
+      "kind": "broker",
+      "aggregation": "cohort",
+      "goals": [
+        "控制库存风险",
+        "收取足额保证金",
+        "维持做市"
+      ],
+      "constraints": [
+        "市场深度快速下降"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_investors",
+      "label": "全球宏观与外汇投资者",
+      "kind": "foreign_investor",
+      "aggregation": "cohort",
+      "goals": [
+        "判断财政与货币政策一致性",
+        "管理汇率和利率风险"
+      ],
+      "constraints": [
+        "缺乏基金抵押品缺口的完整数据"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_media",
+      "label": "财经媒体与分析机构",
+      "kind": "media",
+      "aggregation": "cohort",
+      "goals": [
+        "解释财政方案和市场压力",
+        "跟踪政策回应"
+      ],
+      "constraints": [
+        "基金层面信息披露滞后"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    }
+  ],
+  "relationships": [
+    {
+      "source_actor_id": "actor_fiscal",
+      "target_actor_id": "actor_investors",
+      "kind": "signals_fiscal_path_to",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_central_bank",
+      "target_actor_id": "actor_dealers",
+      "kind": "provides_market_operations_to",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_dealers",
+      "target_actor_id": "actor_managers",
+      "kind": "issues_collateral_calls_to",
+      "visibility": "private"
+    },
+    {
+      "source_actor_id": "actor_managers",
+      "target_actor_id": "actor_pensions",
+      "kind": "manages_hedges_for",
+      "visibility": "private"
+    },
+    {
+      "source_actor_id": "actor_media",
+      "target_actor_id": "actor_investors",
+      "kind": "transmits_policy_signals_to",
+      "visibility": "public"
+    }
+  ],
+  "allowed_actions": [
+    {
+      "type": "COMMUNICATE",
+      "description": "发布财政路径、市场运行、抵押品或风险观点。",
+      "visibility": "public"
+    },
+    {
+      "type": "REGULATE",
+      "description": "启动、调整或结束金融稳定市场操作。",
+      "visibility": "public"
+    },
+    {
+      "type": "OPERATE",
+      "description": "补充抵押品、出售资产、调整对冲或提供市场流动性。",
+      "visibility": "either"
+    },
+    {
+      "type": "ALLOCATE",
+      "description": "调整主权债券、本币、现金和海外资产配置。",
+      "visibility": "private"
+    },
+    {
+      "type": "NEGOTIATE",
+      "description": "协商保证金、交易额度或财政政策调整。",
+      "visibility": "either"
+    },
+    {
+      "type": "WAIT",
+      "description": "等待政策说明、独立预测或新的市场价格。",
+      "visibility": "either"
+    }
+  ],
+  "interventions": [
+    {
+      "id": "I0_FISCAL_COLLATERAL_SHOCK",
+      "at_round": 0,
+      "fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "visibility": "public"
+    }
+  ],
+  "forecast_targets": [
+    {
+      "id": "T1",
+      "kind": "market",
+      "definition": "D1观测值相对D0的匿名本币兑储备货币即期汇率方向。",
+      "horizon": "next_market_observation",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T2",
+      "kind": "market",
+      "definition": "第5个后续市场观测值相对D0的匿名本币兑储备货币即期汇率方向。",
+      "horizon": "5_market_observations",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T3",
+      "kind": "market",
+      "definition": "第20个后续市场观测值相对D0的匿名本币兑储备货币即期汇率方向。",
+      "horizon": "20_market_observations",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T4",
+      "kind": "event",
+      "definition": "中央银行是否在7个自然日内开始临时购买长期主权债券以恢复市场秩序。",
+      "horizon": "7_calendar_days",
+      "scoring": "brier"
+    },
+    {
+      "id": "T5",
+      "kind": "event",
+      "definition": "政府是否在7个自然日内正式恢复此前计划的企业税率上调。",
+      "horizon": "7_calendar_days",
+      "scoring": "brier"
+    }
+  ],
+  "run_config": {
+    "rounds": 12,
+    "replications": 20,
+    "seed_strategy": "deterministic_sequence",
+    "layers": [
+      "information",
+      "behavior"
+    ]
+  },
+  "provenance": {
+    "created_by": "FEVER-MiroFish blind benchmark",
+    "source_graph_artifact_id": null,
+    "notes": [
+      "真实国家、政府、年份、税率、市场代码和来源链接已从模型可见输入中移除。",
+      "真实映射和结果只保存在独立outcome文件，禁止进入任何预测、模拟或信号提示。"
+    ]
+  }
+}

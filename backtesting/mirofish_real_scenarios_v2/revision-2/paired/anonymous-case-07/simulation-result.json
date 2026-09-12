@@ -1,0 +1,540 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_aircraft_grounding_007",
+  "spec_sha256": "5654c32885dc3447431fae87c676099e79eb84235985c0b99fde12e6e2e0a49a",
+  "generated_at": "2026-07-29T08:46:50.087278+00:00",
+  "status": "partial",
+  "runs": [
+    {
+      "run_id": "sim_659a805d039e",
+      "seed": 617745191,
+      "status": "completed",
+      "events": [
+        {
+          "round": 0,
+          "actor_id": "actor_media",
+          "action_type": "SEARCH_USER",
+          "summary": "search_user",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_media",
+          "action_type": "SEARCH_POSTS",
+          "summary": "search_posts",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_institutions",
+          "action_type": "SEARCH_USER",
+          "summary": "search_user",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_institutions",
+          "action_type": "SEARCH_POSTS",
+          "summary": "search_posts",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_investigators",
+          "action_type": "SEARCH_USER",
+          "summary": "search_user",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_institutions",
+          "action_type": "FOLLOW",
+          "summary": "follow",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_institutions",
+          "action_type": "FOLLOW",
+          "summary": "follow",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_institutions",
+          "action_type": "FOLLOW",
+          "summary": "follow",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_aviation_regulator",
+          "action_type": "SEARCH_POSTS",
+          "summary": "search_posts",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_aviation_regulator",
+          "action_type": "SEARCH_USER",
+          "summary": "search_user",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_manufacturer",
+          "action_type": "WAIT",
+          "summary": "D0缺少完整残骸检查与生产记录前，主动扩大操作可能引发过度停飞或猜测。当前通过F3已宣布支持调查，需等待客户检查结果和技术团队初步数据后再决定下一步沟通或操作方向。主要不确定性在于失效原因是否涉及全子型号、同构型机队范围，以及涉事航空公司检查结果。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_incident_airline",
+          "action_type": "WAIT",
+          "summary": "已主动停飞全部同子型号机队（F2），安全优先于运力。当前结构失效原因和检查范围均未确定（F4），需等待制造商技术支持和调查进展（F3）再决定后续行动。立即操作可能基于不完整信息，故暂不采取公开沟通或谈判，作进一步观察。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_peer_airlines",
+          "action_type": "WAIT",
+          "summary": "事故涉及较新的子型号，但结构失效原因和同构型影响尚未确定。作为运营同子型号的同行，首要任务是等待制造商（F3）和监管机构（F7）的正式调查结论与检查口径，在此之前不宜自行停飞或公开表态，以免引发不必要的旅客恐慌或机队混乱。已内部准备预防性检查及替代运力方案，但执行取决于官方指引。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_aviation_regulator",
+          "action_type": "WAIT",
+          "summary": "截至当前时点，结构失效原因、是否涉及同构型机队以及检查范围均未确定。涉事航空公司已主动停飞同子型号机队，制造商已介入调查。作为监管机构，必须根据早期证据确定命令范围，在当前信息不充分的情况下贸然发布强制性检查命令可能造成不当影响。因此选择等待调查初步结论，同时密切监视事态发展，为后续精细化界定受影响构型和制定检查方案做准备。",
+          "visibility": "public",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_investigators",
+          "action_type": "WAIT",
+          "summary": "在D0时点，F4明确指出结构失效原因、是否涉及同构型机队以及检查范围仍未确定。作为独立事故调查机构，不能过早下结论。当前首要任务是收集和保全物理证据、等待制造商技术团队初步分析报告以及监管机构早期评估结果（参考F3和post_id 7）。在证据链形成前，任何监管建议或公开沟通都可能基于不完整信息，违反约束0。因此选择等待，保持静默观察，待获得更多事实后再决定下一步行动。该行为不涉及任何金融工具交易。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_passengers",
+          "action_type": "WAIT",
+          "summary": "作为航空旅客，我无法判断子型号与构型差异，涉事飞机为较新子型号，但失效原因和检查范围尚未确定。当前事实显示涉事航空公司已主动停飞同子型号机队，但未明确是否涉及更广的同构型机队。我倾向于等待更多官方检查结果和安全公告，再决定是否调整未来航班预订，以避免可疑机型风险。目前不采取任何改变预订的公开动作，仅保持观察。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_institutions",
+          "action_type": "WAIT",
+          "summary": "截至D0，事故原因未明，检查范围待定，无法区分是局部缺陷还是系统性问题。涉事航司主动停飞其全部同一子型号机队（数十架），但这是该航司的单方面行为，不代表监管命令或制造商召回。制造商仅表态正在收集信息并提供技术支持。D0时点无法量化监管干预的可能范围以及最终返工/赔偿责任成本。若过早调整仓位，可能因信息不足而误判风险性质（局部 vs 系统）。作为机构投资者，我的约束要求我只使用截至时点可见事实，因此我选择等待后续调查和监管公告，获取更多证据后再做配置决策。对ASSET_G不采取任何行动，保持当前敞口不变，观望下一轮信息更新。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_retail",
+          "action_type": "WAIT",
+          "summary": "当前事实仅显示涉事航司停飞同一子型号机队（数十架），制造商仍在收集信息，且结构失效原因和是否涉及同构型机队均未确定。我容易混淆子型号与整个产品系列，因此不能仅因单一型号事件就判定制造商会触发广泛停飞。周末消息后跳空风险存在，但信息不足无法判断方向，选择等待D1确认检查范围或制造商正式声明后再行动，避免盲目操作。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F2",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_media",
+          "action_type": "WAIT",
+          "summary": "当前事件仅过去数小时，F4明确结构失效原因、是否涉及同构型机队以及检查范围仍未确定。作为航空与财经媒体，过早发布分析可能导致基于不完整信息的误导性传播。早期现场信息可能快速变化（约束0），因此选择等待监管机构（F1中提及的监管方不活跃但F7已暗示将评估）和制造商（F3）发布更多技术细节，以及涉事航空公司检查结果（F2）。在检查范围和构型差异的官方信息明确前，任何关于ASSET_G的结论都缺乏证据基础，因此维持观望。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        }
+      ],
+      "warnings": [
+        "The recorded seed controls Python agent scheduling only; provider-side LLM sampling remains unseeded."
+      ]
+    }
+  ],
+  "scenarios": [],
+  "forecast_target_results": [],
+  "simulation_graph": {
+    "nodes": [
+      {
+        "id": "actor_aviation_regulator",
+        "kind": "actor",
+        "label": "主要航空安全监管机构"
+      },
+      {
+        "id": "actor_institutions",
+        "kind": "actor",
+        "label": "机构投资者"
+      },
+      {
+        "id": "actor_investigators",
+        "kind": "actor",
+        "label": "独立事故调查机构"
+      },
+      {
+        "id": "actor_media",
+        "kind": "actor",
+        "label": "航空与财经媒体"
+      },
+      {
+        "id": "trace-22",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user"
+      },
+      {
+        "id": "trace-23",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_POSTS",
+        "summary": "search_posts"
+      },
+      {
+        "id": "trace-24",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user"
+      },
+      {
+        "id": "trace-25",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_POSTS",
+        "summary": "search_posts"
+      },
+      {
+        "id": "trace-29",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user"
+      },
+      {
+        "id": "trace-30",
+        "kind": "simulated_action",
+        "action_type": "FOLLOW",
+        "summary": "follow"
+      },
+      {
+        "id": "trace-31",
+        "kind": "simulated_action",
+        "action_type": "FOLLOW",
+        "summary": "follow"
+      },
+      {
+        "id": "trace-32",
+        "kind": "simulated_action",
+        "action_type": "FOLLOW",
+        "summary": "follow"
+      },
+      {
+        "id": "trace-33",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_POSTS",
+        "summary": "search_posts"
+      },
+      {
+        "id": "trace-34",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user"
+      },
+      {
+        "id": "actor_manufacturer",
+        "kind": "actor",
+        "label": "匿名航空制造商"
+      },
+      {
+        "id": "decision-actor_manufacturer-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.6,
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "D0缺少完整残骸检查与生产记录前，主动扩大操作可能引发过度停飞或猜测。当前通过F3已宣布支持调查，需等待客户检查结果和技术团队初步数据后再决定下一步沟通或操作方向。主要不确定性在于失效原因是否涉及全子型号、同构型机队范围，以及涉事航空公司检查结果。"
+      },
+      {
+        "id": "actor_incident_airline",
+        "kind": "actor",
+        "label": "涉事航空公司"
+      },
+      {
+        "id": "decision-actor_incident_airline-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": null,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "已主动停飞全部同子型号机队（F2），安全优先于运力。当前结构失效原因和检查范围均未确定（F4），需等待制造商技术支持和调查进展（F3）再决定后续行动。立即操作可能基于不完整信息，故暂不采取公开沟通或谈判，作进一步观察。"
+      },
+      {
+        "id": "actor_peer_airlines",
+        "kind": "actor",
+        "label": "运营同子型号的其他航空公司"
+      },
+      {
+        "id": "decision-actor_peer_airlines-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "事故涉及较新的子型号，但结构失效原因和同构型影响尚未确定。作为运营同子型号的同行，首要任务是等待制造商（F3）和监管机构（F7）的正式调查结论与检查口径，在此之前不宜自行停飞或公开表态，以免引发不必要的旅客恐慌或机队混乱。已内部准备预防性检查及替代运力方案，但执行取决于官方指引。"
+      },
+      {
+        "id": "decision-actor_aviation_regulator-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.5,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "截至当前时点，结构失效原因、是否涉及同构型机队以及检查范围均未确定。涉事航空公司已主动停飞同子型号机队，制造商已介入调查。作为监管机构，必须根据早期证据确定命令范围，在当前信息不充分的情况下贸然发布强制性检查命令可能造成不当影响。因此选择等待调查初步结论，同时密切监视事态发展，为后续精细化界定受影响构型和制定检查方案做准备。"
+      },
+      {
+        "id": "decision-actor_investigators-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "confidence": 0.95,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "在D0时点，F4明确指出结构失效原因、是否涉及同构型机队以及检查范围仍未确定。作为独立事故调查机构，不能过早下结论。当前首要任务是收集和保全物理证据、等待制造商技术团队初步分析报告以及监管机构早期评估结果（参考F3和post_id 7）。在证据链形成前，任何监管建议或公开沟通都可能基于不完整信息，违反约束0。因此选择等待，保持静默观察，待获得更多事实后再决定下一步行动。该行为不涉及任何金融工具交易。"
+      },
+      {
+        "id": "actor_passengers",
+        "kind": "actor",
+        "label": "航空旅客"
+      },
+      {
+        "id": "decision-actor_passengers-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "maintain",
+        "intensity": 0.5,
+        "confidence": 0.7,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "作为航空旅客，我无法判断子型号与构型差异，涉事飞机为较新子型号，但失效原因和检查范围尚未确定。当前事实显示涉事航空公司已主动停飞同子型号机队，但未明确是否涉及更广的同构型机队。我倾向于等待更多官方检查结果和安全公告，再决定是否调整未来航班预订，以避免可疑机型风险。目前不采取任何改变预订的公开动作，仅保持观察。"
+      },
+      {
+        "id": "decision-actor_institutions-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "截至D0，事故原因未明，检查范围待定，无法区分是局部缺陷还是系统性问题。涉事航司主动停飞其全部同一子型号机队（数十架），但这是该航司的单方面行为，不代表监管命令或制造商召回。制造商仅表态正在收集信息并提供技术支持。D0时点无法量化监管干预的可能范围以及最终返工/赔偿责任成本。若过早调整仓位，可能因信息不足而误判风险性质（局部 vs 系统）。作为机构投资者，我的约束要求我只使用截至时点可见事实，因此我选择等待后续调查和监管公告，获取更多证据后再做配置决策。对ASSET_G不采取任何行动，保持当前敞口不变，观望下一轮信息更新。"
+      },
+      {
+        "id": "actor_retail",
+        "kind": "actor",
+        "label": "个人投资者"
+      },
+      {
+        "id": "decision-actor_retail-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "当前事实仅显示涉事航司停飞同一子型号机队（数十架），制造商仍在收集信息，且结构失效原因和是否涉及同构型机队均未确定。我容易混淆子型号与整个产品系列，因此不能仅因单一型号事件就判定制造商会触发广泛停飞。周末消息后跳空风险存在，但信息不足无法判断方向，选择等待D1确认检查范围或制造商正式声明后再行动，避免盲目操作。"
+      },
+      {
+        "id": "decision-actor_media-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "confidence": 0.9,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "当前事件仅过去数小时，F4明确结构失效原因、是否涉及同构型机队以及检查范围仍未确定。作为航空与财经媒体，过早发布分析可能导致基于不完整信息的误导性传播。早期现场信息可能快速变化（约束0），因此选择等待监管机构（F1中提及的监管方不活跃但F7已暗示将评估）和制造商（F3）发布更多技术细节，以及涉事航空公司检查结果（F2）。在检查范围和构型差异的官方信息明确前，任何关于ASSET_G的结论都缺乏证据基础，因此维持观望。"
+      }
+    ],
+    "edges": [
+      {
+        "source": "actor_media",
+        "target": "trace-22",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_media",
+        "target": "trace-23",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_institutions",
+        "target": "trace-24",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_institutions",
+        "target": "trace-25",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_investigators",
+        "target": "trace-29",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_institutions",
+        "target": "trace-30",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_institutions",
+        "target": "trace-31",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_institutions",
+        "target": "trace-32",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_aviation_regulator",
+        "target": "trace-33",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_aviation_regulator",
+        "target": "trace-34",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_manufacturer",
+        "target": "decision-actor_manufacturer-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_incident_airline",
+        "target": "decision-actor_incident_airline-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_peer_airlines",
+        "target": "decision-actor_peer_airlines-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_aviation_regulator",
+        "target": "decision-actor_aviation_regulator-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_investigators",
+        "target": "decision-actor_investigators-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_passengers",
+        "target": "decision-actor_passengers-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_institutions",
+        "target": "decision-actor_institutions-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_retail",
+        "target": "decision-actor_retail-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_media",
+        "target": "decision-actor_media-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      }
+    ]
+  },
+  "warnings": [
+    "Integration smoke result only; it is not a calibrated financial forecast.",
+    "The upstream run monitor reported zero actions; SQLite was used as the authoritative source.",
+    "OASIS did not persist per-action round numbers, so exported events use round 0.",
+    "Rule-generated institutional profiles contain consumer-social attributes and require a financial profile compiler.",
+    "No forecast target result or scenario frequency was produced from this single run.",
+    "Structured financial decisions were elicited post-simulation and remain simulated claims."
+  ],
+  "provenance": {
+    "engine": "MiroFish/OASIS",
+    "engine_version": "60757b3c825d577a1d7a86ab1ba6d5c21f51c261",
+    "model": "deepseek-ai/DeepSeek-V4-Flash",
+    "raw_run_artifacts": [
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/mirofish/simulations/sim_659a805d039e/reddit_simulation.db",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/mirofish/simulations/sim_659a805d039e/simulation_config.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_aircraft_grounding_007-b3/sqlite-actions.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_aircraft_grounding_007-b3/raw-actions.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_aircraft_grounding_007-b3/financial-interviews-raw.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_aircraft_grounding_007-b3/financial-actions.json"
+    ]
+  }
+}

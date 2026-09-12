@@ -1,0 +1,63 @@
+{
+  "case_count": 24,
+  "registered_case_count": 24,
+  "variants": {
+    "v7": {
+      "generated_cases": 24,
+      "judged_cases": 1,
+      "branch_count": 96,
+      "judged_branches": 4,
+      "decision_actor_coverage": 1.0,
+      "configured_actor_coverage": 0.9447236180904522,
+      "observation_card_branches": 0,
+      "usable_watchlist_rate": 1.0,
+      "all_criteria_rate": 1.0,
+      "criterion_rates": {
+        "action_time_clear": 1.0,
+        "observable": 1.0,
+        "falsifiable": 1.0,
+        "grounded": 1.0,
+        "multi_actor": 1.0
+      },
+      "repeat_agreement": 1.0,
+      "median_generation_seconds": 60.294234313012566,
+      "generation_retries": 6,
+      "generation_calls": 31,
+      "generation_cost_usd": 0.017547066,
+      "cost_recorded_calls": 30
+    },
+    "v8": {
+      "generated_cases": 11,
+      "judged_cases": 0,
+      "branch_count": 44,
+      "judged_branches": 0,
+      "decision_actor_coverage": 1.0,
+      "configured_actor_coverage": 0.9438202247191011,
+      "observation_card_branches": 44,
+      "usable_watchlist_rate": null,
+      "all_criteria_rate": null,
+      "criterion_rates": {
+        "action_time_clear": null,
+        "observable": null,
+        "falsifiable": null,
+        "grounded": null,
+        "multi_actor": null
+      },
+      "repeat_agreement": null,
+      "median_generation_seconds": 176.6934338750434,
+      "generation_retries": 8,
+      "generation_calls": 50,
+      "generation_cost_usd": 0.035972567999999996,
+      "cost_recorded_calls": 50
+    }
+  },
+  "complete": false,
+  "quality_direction_reliable": false,
+  "calls": 101,
+  "provider_failures": 0,
+  "interrupted_requests_without_usage": 1,
+  "interrupted_cost_upper_bound_usd": 0.00437589,
+  "total_tokens": 616238,
+  "estimated_cost_usd": 0.064124442,
+  "cost_recorded_calls": 100
+}

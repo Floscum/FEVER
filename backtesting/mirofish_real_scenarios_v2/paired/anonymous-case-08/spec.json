@@ -1,0 +1,394 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_market_plumbing_008",
+  "title": "匿名案例：极端散户交易与市场基础设施压力",
+  "as_of": "2017-01-27T23:59:59-05:00",
+  "question": "日期、名称、代码和绝对价格均已匿名化。只使用D0已公开的信息，推演极端上涨、高空头敞口和集中散户交易如何影响经纪商、清算基础设施、空头、发行人和监管机构。",
+  "horizon": {
+    "kind": "calendar_days",
+    "value": 35,
+    "end_at": "2017-03-03T23:59:59-05:00"
+  },
+  "market": {
+    "region": "BLIND_US",
+    "venues": [
+      "BLIND_US_EQUITY",
+      "BLIND_US_OPTIONS"
+    ],
+    "instruments": [
+      {
+        "symbol": "ASSET_H",
+        "name": "匿名消费零售企业H",
+        "kind": "equity",
+        "currency": "USD"
+      }
+    ]
+  },
+  "facts": [
+    {
+      "id": "F1",
+      "observed_at": "2017-01-27T16:30:00-05:00",
+      "statement": "匿名标的在连续四个交易日内上涨超过四倍，D0单日再上涨超过一倍，成交量和盘中振幅均处于极端水平。",
+      "source_kind": "market_data",
+      "source_url": "https://benchmark.invalid/blind-market-plumbing-008/F1",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F2",
+      "observed_at": "2017-01-27T17:00:00-05:00",
+      "statement": "公开市场数据显示，此前报告期的卖空头寸超过可交易基准股数，价格上涨可能迫使部分空头回补。",
+      "source_kind": "market_data",
+      "source_url": "https://benchmark.invalid/blind-market-plumbing-008/F2",
+      "evidence_ref": null,
+      "confidence": 0.95
+    },
+    {
+      "id": "F3",
+      "observed_at": "2017-01-27T18:00:00-05:00",
+      "statement": "散户社交社区形成高度看多的协同行动叙事，零售订单、期权活动和媒体关注同时快速增加。",
+      "source_kind": "news",
+      "source_url": "https://benchmark.invalid/blind-market-plumbing-008/F3",
+      "evidence_ref": null,
+      "confidence": 0.95
+    },
+    {
+      "id": "F4",
+      "observed_at": "2017-01-27T20:00:00-05:00",
+      "statement": "至少一家零售经纪商已在D0前提高该标的初始和维持保证金；极端波动也会提高中央清算机构对经纪商的抵押品要求。",
+      "source_kind": "news",
+      "source_url": "https://benchmark.invalid/blind-market-plumbing-008/F4",
+      "evidence_ref": null,
+      "confidence": 0.95
+    }
+  ],
+  "actors": [
+    {
+      "id": "actor_issuer",
+      "label": "匿名消费零售企业",
+      "kind": "issuer",
+      "aggregation": "organization",
+      "goals": [
+        "维护持续交易与企业声誉",
+        "利用关注推进业务转型",
+        "保留融资选择"
+      ],
+      "constraints": [
+        "短期价格波动远超基本面信息变化"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": [
+        "不会直接控制二级市场订单"
+      ]
+    },
+    {
+      "id": "actor_bullish_retail",
+      "label": "集中看多的个人投资者",
+      "kind": "retail_cohort",
+      "aggregation": "cohort",
+      "goals": [
+        "维持上涨动量",
+        "迫使空头回补",
+        "公开传播看多叙事"
+      ],
+      "constraints": [
+        "杠杆、保证金和经纪商交易权限可能变化"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "部分参与者把持仓视为群体行动"
+      ]
+    },
+    {
+      "id": "actor_short_funds",
+      "label": "持有空头敞口的投资机构",
+      "kind": "institutional_investor",
+      "aggregation": "cohort",
+      "goals": [
+        "控制挤仓损失",
+        "获得流动性",
+        "降低借券和保证金压力"
+      ],
+      "constraints": [
+        "回补本身可能继续推高价格"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": [
+        "各机构的风险承受能力不同"
+      ]
+    },
+    {
+      "id": "actor_retail_brokers",
+      "label": "零售经纪商",
+      "kind": "broker",
+      "aggregation": "cohort",
+      "goals": [
+        "维持客户交易服务",
+        "满足清算抵押品要求",
+        "控制集中风险"
+      ],
+      "constraints": [
+        "即时存款需求可能超过可调度流动性"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "可调整保证金、订单类型或开仓权限"
+      ]
+    },
+    {
+      "id": "actor_clearing",
+      "label": "中央清算与交易基础设施",
+      "kind": "exchange",
+      "aggregation": "organization",
+      "goals": [
+        "确保交易结算",
+        "覆盖经纪商违约风险",
+        "维护市场连续性"
+      ],
+      "constraints": [
+        "风险模型会对极端波动和集中度快速响应"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F4"
+      ],
+      "assumptions": [
+        "会按规则提高抵押品而非判断市场方向"
+      ]
+    },
+    {
+      "id": "actor_market_makers",
+      "label": "做市商与订单执行商",
+      "kind": "broker",
+      "aggregation": "cohort",
+      "goals": [
+        "管理库存和期权对冲",
+        "维持报价",
+        "控制跳跃风险"
+      ],
+      "constraints": [
+        "订单高度单边时对冲成本急升"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_regulators",
+      "label": "证券监管与自律机构",
+      "kind": "regulator",
+      "aggregation": "cohort",
+      "goals": [
+        "维护公平有序市场",
+        "监督经纪商资本与客户沟通",
+        "调查潜在操纵"
+      ],
+      "constraints": [
+        "价格极端上涨本身不自动构成违法"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "会区分市场基础设施问题与发行人披露问题"
+      ]
+    },
+    {
+      "id": "actor_long_institutions",
+      "label": "长期机构持有人",
+      "kind": "institutional_investor",
+      "aggregation": "cohort",
+      "goals": [
+        "在极端价格中管理退出和借券收益",
+        "避免流动性冲击"
+      ],
+      "constraints": [
+        "大额卖出可能加剧波动"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_media",
+      "label": "财经与社交媒体",
+      "kind": "media",
+      "aggregation": "cohort",
+      "goals": [
+        "解释挤仓、订单限制与清算机制",
+        "追踪群体情绪"
+      ],
+      "constraints": [
+        "高频信息中存在传闻与因果误判"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    }
+  ],
+  "relationships": [
+    {
+      "source_actor_id": "actor_clearing",
+      "target_actor_id": "actor_retail_brokers",
+      "kind": "sets_collateral_requirements_for",
+      "visibility": "private"
+    },
+    {
+      "source_actor_id": "actor_retail_brokers",
+      "target_actor_id": "actor_bullish_retail",
+      "kind": "controls_order_access_for",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_bullish_retail",
+      "target_actor_id": "actor_short_funds",
+      "kind": "increases_mark_to_market_pressure_on",
+      "visibility": "assumed"
+    },
+    {
+      "source_actor_id": "actor_market_makers",
+      "target_actor_id": "actor_clearing",
+      "kind": "settles_transactions_through",
+      "visibility": "private"
+    },
+    {
+      "source_actor_id": "actor_media",
+      "target_actor_id": "actor_bullish_retail",
+      "kind": "amplifies_attention_of",
+      "visibility": "assumed"
+    }
+  ],
+  "allowed_actions": [
+    {
+      "type": "COMMUNICATE",
+      "description": "发布交易限制、资本安排、风险提示或研究观点。",
+      "visibility": "public"
+    },
+    {
+      "type": "REGULATE",
+      "description": "实施波动控制、监督经纪商或调查交易行为。",
+      "visibility": "public"
+    },
+    {
+      "type": "OPERATE",
+      "description": "调整保证金、开仓权限、做市或清算安排。",
+      "visibility": "either"
+    },
+    {
+      "type": "ALLOCATE",
+      "description": "买入、卖出、回补、对冲或降低集中敞口。",
+      "visibility": "private"
+    },
+    {
+      "type": "NEGOTIATE",
+      "description": "协商额外资本、信贷额度、抵押品或订单执行。",
+      "visibility": "private"
+    },
+    {
+      "type": "WAIT",
+      "description": "等待波动、结算需求或监管口径稳定。",
+      "visibility": "either"
+    }
+  ],
+  "interventions": [
+    {
+      "id": "I0_EXTREME_TRADING",
+      "at_round": 0,
+      "fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "visibility": "public"
+    }
+  ],
+  "forecast_targets": [
+    {
+      "id": "T1",
+      "kind": "market",
+      "definition": "D1收盘价相对D0收盘价的方向。",
+      "horizon": "next_trading_close",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T2",
+      "kind": "market",
+      "definition": "第5个交易日收盘价相对D0收盘价的方向。",
+      "horizon": "5_trading_days",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T3",
+      "kind": "market",
+      "definition": "第20个交易日收盘价相对D0收盘价的方向。",
+      "horizon": "20_trading_days",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T4",
+      "kind": "event",
+      "definition": "至少一家主要零售经纪商是否在2个自然日内限制客户新增长仓买入，但仍允许平仓卖出。",
+      "horizon": "2_calendar_days",
+      "scoring": "brier"
+    },
+    {
+      "id": "T5",
+      "kind": "event",
+      "definition": "匿名发行人是否在10个自然日内宣布新的场内股票发行计划。",
+      "horizon": "10_calendar_days",
+      "scoring": "brier"
+    }
+  ],
+  "run_config": {
+    "rounds": 12,
+    "replications": 20,
+    "seed_strategy": "deterministic_sequence",
+    "layers": [
+      "information",
+      "behavior"
+    ]
+  },
+  "provenance": {
+    "created_by": "FEVER-MiroFish blind benchmark",
+    "source_graph_artifact_id": null,
+    "notes": [
+      "真实发行人、经纪商、证券代码、日期、绝对价格和来源链接已从模型可见输入中移除。",
+      "时间戳是保持相对间隔的实验标签，不代表真实年份。",
+      "真实映射和结果只保存在独立outcome文件，禁止进入模型提示。"
+    ]
+  }
+}

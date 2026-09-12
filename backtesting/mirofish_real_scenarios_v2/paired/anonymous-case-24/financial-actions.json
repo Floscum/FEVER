@@ -1,0 +1,161 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_healthcare_cyber_disruption_024",
+  "spec_sha256": "9519894eb69f278bf4c7d530070515d892bbc1fda2634b96d13924676b993679",
+  "simulation_id": "sim_1e63c675f126",
+  "generated_at": "2026-08-05T03:45:00.239939+00:00",
+  "status": "completed",
+  "decisions": [
+    {
+      "id": "decision-actor_operator-r3",
+      "round": 3,
+      "actor_id": "actor_operator",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": 0.7,
+      "instrument_refs": [],
+      "rationale": "截至当前时点，D0信息仍不完整：患者数据是否外泄（F4）、监管调查范围和流动性援助需求均未确定。母公司已公告调查和恢复正在进行，但无法给出完整影响范围与恢复日期（F3）。作为运营方，已切断受影响的系统控制风险（F2），但公开承诺披露范围和监管配合的前提是调查取得明确结论。当前优先任务是完成内部取证和影响评估，过早公开不完整信息可能引发更大混乱或法律责任。因此选择等待调查得出阶段性结论后再决定下一步沟通与操作动作。",
+      "constraint_refs": [
+        "actor_operator:constraint:0"
+      ],
+      "evidence_refs": [
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:0",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_health_regulator-r3",
+      "round": 3,
+      "actor_id": "actor_health_regulator",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "当前信息高度不完整：虽然已知攻击者疑似国家关联并已切断部分系统，但患者数据是否外泄、监管调查范围和流动性援助需求均未确定。作为监管机构，在D0信息不完整且其他参与方可能采取策略性行动的条件下，提前启动正式监管行动可能引发不必要的信息不对称风险。最佳选择是等待运营方在60天内提交正式数据泄露报告，并收集更多证据后再决定是否需要启动合规调查或对匿名医疗集团采取监管措施。公众情绪虽有压力，但制度框架要求证据充分后再行动。",
+      "constraint_refs": [
+        "actor_health_regulator:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:1",
+      "visibility": "public",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_providers-r3",
+      "round": 3,
+      "actor_id": "actor_providers",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "maintain",
+      "intensity": 0.4,
+      "instrument_refs": [],
+      "rationale": "截至当前时点（2019-02-21），F1至F4均显示D0信息不完整：运营方已切断系统（F2），但影响范围与恢复日期不明（F3），数据是否泄露及监管调查范围均未确定（F4）。作为医院与诊所，我已在公开声明中表达支持透明调查并主动联系患者提供指导，但尚未掌握足够证据判断是否需启动正式谈判或调整金融仓位。贸然行动可能暴露自身运营脆弱性或引发不当市场信号，而母公司已承诺调查（F3），监管机构保留30天调查权。因此，选择WAIT，等待运营方进一步调查结果（如60天数据泄露报告）或监管措施明朗化后再决定后续行动。核心不确定性在于数据泄露范围和交易中断持续时间对现金流的实际冲击程度。",
+      "constraint_refs": [
+        "actor_providers:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:2",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_pharmacies-r3",
+      "round": 3,
+      "actor_id": "actor_pharmacies",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "作为药房与药品渠道的核心利益维护者，在D0信息不完整且事实显示影响范围、患者数据泄露、监管调查和流动性援助均未确定的情况下，最理性的公共金融动作是等待母公司调查和系统恢复结果，避免过早表态或调整仓位引发额外市场压力或监管风险。我将持续观察事态发展，待关键不确定性（如数据泄露确认、恢复日期）明确后再采取行动。",
+      "constraint_refs": [
+        "actor_pharmacies:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:3",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_patients-r3",
+      "round": 3,
+      "actor_id": "actor_patients",
+      "action_type": "COMMUNICATE",
+      "decision_status": "intended",
+      "direction": "not_applicable",
+      "intensity": 0.7,
+      "instrument_refs": [],
+      "rationale": "作为患者与参保人代表，当前信息极度不完整（F4关键事项未确定），但交易中断已直接影响药房和医疗机构的正常服务（F2），患者核心利益受到实质性威胁。我选择在公共渠道发声，联合其他患者群体向运营方和监管机构施压，要求尽快明确数据泄露范围、提供流动性援助安排，并建立受害者赔偿机制。公开表达可以形成社会关注压力，推动信息透明化，同时不涉及任何金融资产操作，符合制度约束和经济激励。",
+      "constraint_refs": [
+        "actor_patients:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:4",
+      "visibility": "public",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_insurers-r3",
+      "round": 3,
+      "actor_id": "actor_insurers",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "当前D0信息高度不完整：F4明确指出患者数据是否外泄、监管调查范围和流动性援助需求均未确定，F3确认母公司无法给出完整影响范围与恢复日期。作为保险支付方，在信息不足以评估对理赔支付流程、数据暴露风险敞口及流动性需求的真实影响前，采取观望策略最符合制度约束与经济激励。盲目公开表态可能被其他参与方策略性利用，因此首选内部风险评估，等待运营方60天报告或监管进一步行动后再调整公开动作。",
+      "constraint_refs": [
+        "actor_insurers:constraint:0"
+      ],
+      "evidence_refs": [
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:5",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    }
+  ],
+  "failures": [],
+  "warnings": [
+    "Decision confidence expresses action clarity, not forecast probability.",
+    "Interview decisions are simulated statements, not observed evidence."
+  ]
+}

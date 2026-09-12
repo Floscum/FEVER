@@ -1,0 +1,623 @@
+{
+  "anonymous_case_id": "anonymous-case-19",
+  "configured_actor_count": 8,
+  "decision_actor_count": 8,
+  "fact_count": 4,
+  "fact_chars": 229,
+  "input": {
+    "case_id": "anonymous-case-19",
+    "as_of": "D0",
+    "question": "国家、年份、公司、产品、目的地和市场代码均已匿名化。只使用D0已公开的信息，推演政府、芯片企业、客户、云服务商、供应链、竞争者和投资者如何应对新的先进计算产品许可限制。",
+    "horizon": {
+      "kind": "calendar_days",
+      "value": 30,
+      "end_at": "D0 + stated horizon"
+    },
+    "facts": [
+      {
+        "id": "F1",
+        "statement": "出口管理机关公布临时最终规则，扩大对超过性能阈值的先进计算芯片、系统及特定最终用户的许可要求，覆盖若干受限目的地和总部位于相关地区的客户。"
+      },
+      {
+        "id": "F2",
+        "statement": "受影响企业披露多款现有及未来产品可能受限，申请许可证不保证获批或及时处理；规则按公告计划在发布三十日后生效。"
+      },
+      {
+        "id": "F3",
+        "statement": "企业认为全球需求强劲，预计新增限制不会对近期财务结果产生有意义影响，但可能影响产品开发、客户支持、供应安排和部分运营地点。"
+      },
+      {
+        "id": "F4",
+        "statement": "公司股票在D0正常收盘。投资者需要区分短期订单重排、许可执行时点与长期市场准入和竞争影响。"
+      }
+    ],
+    "actors": [
+      {
+        "id": "actor_export_regulator",
+        "label": "匿名出口管理机关",
+        "kind": "regulator",
+        "goals": [
+          "限制先进计算能力用于国家安全敏感用途",
+          "降低供应链意外中断"
+        ],
+        "constraints": [
+          "需要发布、解释和执行复杂技术阈值"
+        ]
+      },
+      {
+        "id": "actor_issuer",
+        "label": "匿名先进计算芯片企业",
+        "kind": "issuer",
+        "goals": [
+          "服务合规客户和完成已有订单",
+          "开发符合规则的新产品",
+          "保护全球收入增长"
+        ],
+        "constraints": [
+          "许可结果和时点不确定",
+          "部分产品和系统直接受限"
+        ]
+      },
+      {
+        "id": "actor_restricted_customers",
+        "label": "受限地区企业与研究客户",
+        "kind": "customer",
+        "goals": [
+          "获得先进计算能力",
+          "寻找许可、替代产品和本地供应"
+        ],
+        "constraints": [
+          "采购主体和最终用途可能触发许可"
+        ]
+      },
+      {
+        "id": "actor_cloud_providers",
+        "label": "全球云计算服务商",
+        "kind": "customer",
+        "goals": [
+          "维持算力扩张和客户服务",
+          "遵守跨境限制"
+        ],
+        "constraints": [
+          "数据中心和客户分布跨越多个地区"
+        ]
+      },
+      {
+        "id": "actor_supply_chain",
+        "label": "制造、封装与系统供应链",
+        "kind": "supplier",
+        "goals": [
+          "维持产能利用和交付",
+          "重排地区与产品组合"
+        ],
+        "constraints": [
+          "生产周期长且高端产能有限"
+        ]
+      },
+      {
+        "id": "actor_competitors",
+        "label": "其他芯片与加速器供应商",
+        "kind": "competitor",
+        "goals": [
+          "争取客户和市场份额",
+          "开发符合阈值的替代产品"
+        ],
+        "constraints": [
+          "可能受同类规则约束"
+        ]
+      },
+      {
+        "id": "actor_foreign_governments",
+        "label": "受影响地区政府与贸易机关",
+        "kind": "government",
+        "goals": [
+          "保障本地计算供应",
+          "回应跨境技术限制"
+        ],
+        "constraints": [
+          "获取领先产品和制造能力受限"
+        ]
+      },
+      {
+        "id": "actor_investors",
+        "label": "半导体与科技投资者",
+        "kind": "institutional_investor",
+        "goals": [
+          "区分短期财务与长期竞争影响",
+          "评估许可证和替代产品路径"
+        ],
+        "constraints": [
+          "规则文本复杂且执行仍可能变化"
+        ]
+      }
+    ],
+    "financial_decisions": [
+      {
+        "id": "decision-actor_export_regulator-r3",
+        "round": 3,
+        "actor_id": "actor_export_regulator",
+        "action_type": "COMMUNICATE",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": 0.4,
+        "instrument_refs": [],
+        "rationale": "规则已公布但尚未生效（三十日后生效），目前处于规则解释与合规指引窗口期。作为出口管理机关，当前核心任务是向受影响企业与客户澄清技术阈值认定标准、许可申请路径及例外情形，以降低因不确定性导致的供应链意外中断。社交媒体上已出现企业主动披露受限情况和客户寻求合规方案，需通过公开沟通回应这些关切，帮助市场准确理解规则边界，避免因误解引发匆忙的订单重排或供应链决策。",
+        "constraint_refs": [
+          "actor_export_regulator:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "public",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_issuer-r3",
+        "round": 3,
+        "actor_id": "actor_issuer",
+        "action_type": "OPERATE",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.7,
+        "instrument_refs": [],
+        "rationale": "截至F1-F3公告但规则尚未生效（三十日后生效），当前处于客户订单重排与合规评估窗口期。作为先进计算芯片企业，首要任务是为合规客户确认可执行的供应路径，同时启动符合新性能阈值的替代产品开发。F3明确全球需求强劲且近期财务不受显著影响，因此不应消极等待，而应主动运营：按客户所在地和最终用途分类订单，将受限订单引导至申请许可或转向合规产品线，对非受限区域加速交付以锁定收入。主要不确定性在于许可审批结果和时点（约束0）以及部分产品线直接受限（约束1），故动作强度设定为0.7（积极但不冒进），决策状态为conditional，取决于客户合规分类结果和工程部门对新产品阈值的评估反馈。",
+        "constraint_refs": [
+          "actor_issuer:constraint:0",
+          "actor_issuer:constraint:1"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_restricted_customers-r3",
+        "round": 3,
+        "actor_id": "actor_restricted_customers",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.6,
+        "instrument_refs": [],
+        "rationale": "作为受限地区客户，我面临采购主体和最终用途可能触发许可的约束。F1显示规则已公布但三十日后才生效；F2表明许可证申请不保证获批。目前规则尚未生效，我已点赞并关注了其他受限客户关于评估许可路径和接触替代供应商的讨论，但缺乏足够明确的信息来做出最终采购决策。我计划在规则生效前继续收集信息、评估合规风险，并在规则生效后的短期内根据实际执行情况决定是否推进许可申请或转向替代供应方案。当前主动行动可能因不确定性导致资源浪费或合规风险。",
+        "constraint_refs": [
+          "actor_restricted_customers:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.65,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_cloud_providers-r3",
+        "round": 3,
+        "actor_id": "actor_cloud_providers",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "规则将在三十日后生效，目前尚在过渡期内，具体许可执行细节和获批不确定性较高，作为客户需要观察受影响供应商的产品调整和许可申请进展，避免过早调整算力采购计划造成运营中断。同时全球需求强劲，短期财务影响有限，但长期产品开发和支持安排存疑，因此本周期内维持现有合作与订单，不主动发起沟通或谈判。",
+        "constraint_refs": [
+          "actor_cloud_providers:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_supply_chain-r3",
+        "round": 3,
+        "actor_id": "actor_supply_chain",
+        "action_type": "OPERATE",
+        "decision_status": "intended",
+        "direction": "conditional",
+        "intensity": 0.6,
+        "instrument_refs": [],
+        "rationale": "作为制造封装与系统供应链供应商，F1新规与F2的30日生效窗口迫使我立即调整产能分配。高端产能有限且生产周期长，无法等待观望。F3中受影响企业表态全球需求强劲且短期财务影响有限，但明确提及供应安排可能变动。我需要在规则生效前启动产能再平衡：将受限目的地订单逐步替换为合规地区客户需求，优先保障已获得或有望获批许可证的高价值订单交付。此举旨在维持产能利用率，同时提前应对地区组合调整。主要不确定性在于许可证审批时效和客户替代方案落地速度，但等待只会加剧交付延误风险。",
+        "constraint_refs": [
+          "actor_supply_chain:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.75,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_competitors-r3",
+        "round": 3,
+        "actor_id": "actor_competitors",
+        "action_type": "OPERATE",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": 0.7,
+        "instrument_refs": [],
+        "rationale": "作为其他芯片与加速器供应商，新规F1扩大了对超阈值芯片的许可要求，F2显示受影响企业多款产品受限且许可证申请不保证获批，这形成了显著的客户外溢机会。我在模拟中已主动接触受限地区客户并表达替代供应意愿（post 2评论），用户7的分析也建议跟踪替代供应商接触进展。F3确认全球需求强劲，短期不会受冲击，说明市场基本面支撑充分。当前需加速开发符合阈值的替代产品以抢占受限客户订单窗口，在规则30日生效前争取产品验证与客户导入。主要不确定性在于替代产品是否能及时达到性能阈值要求并通过合规审查。",
+        "constraint_refs": [
+          "actor_competitors:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_foreign_governments-r3",
+        "round": 3,
+        "actor_id": "actor_foreign_governments",
+        "action_type": "COMMUNICATE",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": 0.6,
+        "instrument_refs": [],
+        "rationale": "作为受影响地区政府与贸易机关，在当前规则即将生效、先进计算芯片供应面临限制的关键窗口期，首要行动是与本地企业、替代供应商及出口管理机关进行正式沟通。F1显示出口管理机关已公布扩大许可要求的临时最终规则，F2证实受影响企业披露产品可能受限且许可证申请不保证获批，F3显示企业认为新增限制不影响近期财务但可能影响产品开发与供应安排。因此，我选择立即启动多边沟通渠道：一是与本地计算用户和采购主体协调合规替代方案，二是与出口管理机关交涉申请流程优先级与豁免路径，三是与第三方供应商探讨合规供应安排。此行动旨在规则生效前争取缓冲空间，并为后续保障本地计算供应筑牢信息基础。主要不确定性在于许可证审批节奏和替代产品开发周期。",
+        "constraint_refs": [
+          "actor_foreign_governments:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "public",
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_investors-r3",
+        "round": 3,
+        "actor_id": "actor_investors",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "maintain",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "规则文本复杂且执行仍可能变化，当前距离正式生效尚有三十日窗口期。D0收盘正常表明市场尚未形成一致预期，短期订单重排与许可执行时点的实际影响需要观察生效后的首批审批案例和客户替代供应商接触进展。全球需求强劲的公开表述与长期市场准入限制之间存在张力，过早调整仓位可能因信息不完整而误判方向。WAIT动作允许在规则生效前后积累更多实证信号，再决定是否调整对ASSET_S的配置方向。",
+        "constraint_refs": [
+          "actor_investors:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      }
+    ],
+    "simulated_actions": [
+      {
+        "id": "trace-16",
+        "actor_id": "actor_competitors",
+        "action_type": "COMMUNICATE",
+        "summary": "我们正在开发符合新阈值要求的替代产品，可以为您提供合规的先进计算解决方案。如有兴趣，我们可以进一步讨论具体需求与合作方式。"
+      },
+      {
+        "id": "trace-22",
+        "actor_id": "actor_competitors",
+        "action_type": "COMMUNICATE",
+        "summary": "对于现有产品受限的情况，我们正在加速开发符合阈值要求的替代方案。市场格局正在变化，这对所有参与者都是挑战也是机遇。"
+      },
+      {
+        "id": "trace-24",
+        "actor_id": "actor_issuer",
+        "action_type": "COMMUNICATE",
+        "summary": "作为先进计算芯片企业，我们正在严格评估新规对产品线和客户的影响。我们致力于为合规客户提供合法路径，同时继续开发符合新阈值要求的产品。全球需求依然强劲，我们将调整供应安排以服务合规市场。"
+      },
+      {
+        "id": "trace-27",
+        "actor_id": "actor_investors",
+        "action_type": "COMMUNICATE",
+        "summary": "同意分析框架。关键观察：D0收盘正常说明市场尚未完全定价；需关注D1开盘情绪反应与第5日实际订单数据。长远看，替代产品路径和许可证审批节奏将决定竞争格局重塑速度，建议跟踪受限客户的替代供应商接触进展。"
+      },
+      {
+        "id": "trace-31",
+        "actor_id": "actor_competitors",
+        "action_type": "COMMUNICATE",
+        "summary": "很欣赏您对合规客户的承诺。不过市场格局正在变化，许多受限地区的客户将需要替代方案来维持其先进计算能力。我们正在开发符合阈值要求的产品来服务这一需求。"
+      },
+      {
+        "id": "trace-34",
+        "actor_id": "actor_export_regulator",
+        "action_type": "COMMUNICATE",
+        "summary": "作为出口管理机关，我们注意到贵企业已主动披露产品受限情况。请通过正式渠道提交具体产品技术参数与性能阈值对照表，以便我们评估是否适用许可例外。新规将在公告后三十日生效，建议提前准备申请材料。许可证审批将基于技术参数、最终用户及最终用途综合评估。"
+      },
+      {
+        "id": "trace-35",
+        "actor_id": "actor_export_regulator",
+        "action_type": "COMMUNICATE",
+        "summary": "作为出口管理机关，我们注意到受限地区客户的合规诉求。建议贵方通过官方渠道提交最终用户及最终用途声明，我们可协助判断是否适用许可例外情形。寻找替代供应商时，请确保新供应方案亦符合性能阈值规定，避免二次违规风险。"
+      },
+      {
+        "id": "trace-36",
+        "actor_id": "actor_export_regulator",
+        "action_type": "COMMUNICATE",
+        "summary": "认可贵企业对合规路径的承诺。我们鼓励企业主动提交技术参数评估申请，以明确新产品是否突破性能阈值。合规调整期的配合将有助于降低供应链意外中断，也请同步关注许可证申请窗口期。"
+      }
+    ],
+    "branch_slots": [
+      {
+        "slot_id": "slot-1",
+        "actor_ids": [
+          "actor_competitors",
+          "actor_foreign_governments"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_competitors-r3",
+          "decision-actor_foreign_governments-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-2",
+        "actor_ids": [
+          "actor_export_regulator",
+          "actor_supply_chain"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_export_regulator-r3",
+          "decision-actor_supply_chain-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-3",
+        "actor_ids": [
+          "actor_issuer",
+          "actor_restricted_customers"
+        ],
+        "relationship_kind": "supplies_covered_products_to",
+        "decision_refs": [
+          "decision-actor_issuer-r3",
+          "decision-actor_restricted_customers-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-4",
+        "actor_ids": [
+          "actor_investors",
+          "actor_cloud_providers"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_investors-r3",
+          "decision-actor_cloud_providers-r3"
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "v7": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "竞争替代与政府协调",
+          "summary": "竞争者主动向受限客户提供替代方案，政府推动合规替代供应协调，形成需求切换与政策调整的互动",
+          "actor_ids": [
+            "actor_competitors",
+            "actor_foreign_governments"
+          ],
+          "trigger_conditions": [
+            "竞争者公开承诺在规则生效前提供合规替代产品技术指标验证",
+            "受限地区政府正式启动与替代供应商的合规供货谈判"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_competitors",
+              "action_type": "OPERATE",
+              "decision_ref": "decision-actor_competitors-r3"
+            },
+            {
+              "actor_id": "actor_foreign_governments",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_foreign_governments-r3"
+            }
+          ],
+          "consequences": [
+            "客户加速评估替代方案，推动竞争者获得初步订单或验证合同",
+            "政府协调可能促使出口管理机关考虑更宽泛的许可例外或过渡安排"
+          ],
+          "invalidation_conditions": [
+            "规则生效后竞争者未发布符合阈值的产品规格",
+            "政府未发出任何公开沟通或企业协调行动"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_competitors-r3",
+            "decision-actor_foreign_governments-r3"
+          ],
+          "novelty_claim": "该分支比仅陈述竞争者开发替代产品和政府沟通多出了两者间的联动：政府协调直接增加竞争者的合规客户触达，竞争者提前供货又能为政府谈判提供实质筹码",
+          "confidence": 0.7,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-2",
+          "label": "监管澄清与供应链重排",
+          "summary": "出口管理机关发布技术参数指南，供应链据此提前启动产能再平衡，双方形成规则细化驱动实际调整的传导",
+          "actor_ids": [
+            "actor_export_regulator",
+            "actor_supply_chain"
+          ],
+          "trigger_conditions": [
+            "出口管理机关公开提供产品技术参数与性能阈值的对照指引",
+            "供应链企业宣布调整受限地区订单排产计划"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_export_regulator",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_export_regulator-r3"
+            },
+            {
+              "actor_id": "actor_supply_chain",
+              "action_type": "OPERATE",
+              "decision_ref": "decision-actor_supply_chain-r3"
+            }
+          ],
+          "consequences": [
+            "供应链将受限封装产能转移至合规地区客户，产能利用率维持但地区结构变化",
+            "出口管理机关根据供应链反馈调整许可审批优先级或提供加速通道"
+          ],
+          "invalidation_conditions": [
+            "出口管理机关未发布任何额外技术参数指引",
+            "供应链企业未公开宣布订单重排或产能调整"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_export_regulator-r3",
+            "decision-actor_supply_chain-r3"
+          ],
+          "novelty_claim": "该分支在监管解释与供应链运营之间建立了双向反馈：出口管理机关为供应链提供确定性，供应链的实际调整又为监管提供了执行反馈",
+          "confidence": 0.75,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-3",
+          "label": "企业客户保留与许可博弈",
+          "summary": "受影响企业按客户合规分类运营，受限客户等待许可决策，双方形成供应路径与合规诉求的拉锯",
+          "actor_ids": [
+            "actor_issuer",
+            "actor_restricted_customers"
+          ],
+          "trigger_conditions": [
+            "受影响企业公开宣布对客户分类并启动许可申请流程",
+            "受限客户正式提交最终用户声明并寻求许可例外认定"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "OPERATE",
+              "decision_ref": "decision-actor_issuer-r3"
+            },
+            {
+              "actor_id": "actor_restricted_customers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_restricted_customers-r3"
+            }
+          ],
+          "consequences": [
+            "许可申请积压使得出口管理机关需明确审批优先级或加派人手",
+            "短期内部分订单转为等待状态，影响季度收入确认节奏"
+          ],
+          "invalidation_conditions": [
+            "受影响企业未对客户进行合规分类操作",
+            "受限客户在规则生效前未提交任何许可申请或声明"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_issuer-r3",
+            "decision-actor_restricted_customers-r3"
+          ],
+          "novelty_claim": "该分支将企业的customer-sorting运营与客户的许可博弈结合：企业的分类决定了客户能获得的许可路径，客户的实际申请进展又反向影响企业的收入可见度",
+          "confidence": 0.7,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-4",
+          "label": "投资者观望与云服务商采购冻结",
+          "summary": "投资者维持D0仓位等待规则执行信号，云服务商推迟采购调整，双方共同形成市场短期静默与信息积累",
+          "actor_ids": [
+            "actor_investors",
+            "actor_cloud_providers"
+          ],
+          "trigger_conditions": [
+            "规则生效日前后投资者持仓变动小于正常波动范围",
+            "云服务商未发布任何重大采购计划变更公告"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_investors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_investors-r3"
+            },
+            {
+              "actor_id": "actor_cloud_providers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_cloud_providers-r3"
+            }
+          ],
+          "consequences": [
+            "规则生效后首批许可审批结果和订单数据成为市场定价核心依据",
+            "云服务商推迟决策使得供应商的可见订单窗口延长但不确定性增加"
+          ],
+          "invalidation_conditions": [
+            "投资者在规则生效前出现显著方向性调仓",
+            "云服务商提前宣布调整现有采购合同"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_investors-r3",
+            "decision-actor_cloud_providers-r3"
+          ],
+          "novelty_claim": "该分支将投资者的等待与云服务商的推迟联动：双方都选择观望使得短期市场未定价，但规则执行信号一旦出现会因积累的需求而放大市场反应",
+          "confidence": 0.75,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        }
+      ],
+      "generation": {
+        "semantic_retries": 0,
+        "elapsed_seconds": 38.70633649994852
+      },
+      "judgments": []
+    }
+  }
+}

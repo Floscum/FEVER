@@ -1,0 +1,395 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_aircraft_grounding_007",
+  "title": "匿名案例：单一机型的空中结构事件",
+  "as_of": "2019-01-05T23:30:00-08:00",
+  "question": "日期、名称、代码和机型均已匿名化。只使用D0已公开的信息，推演制造商、航空公司、监管机构、乘客与投资者对一次空中结构事件的反应。",
+  "horizon": {
+    "kind": "calendar_days",
+    "value": 35,
+    "end_at": "2019-02-09T23:30:00-08:00"
+  },
+  "market": {
+    "region": "BLIND_GLOBAL",
+    "venues": [
+      "BLIND_US_EQUITY"
+    ],
+    "instruments": [
+      {
+        "symbol": "ASSET_G",
+        "name": "匿名航空制造商G",
+        "kind": "equity",
+        "currency": "USD"
+      }
+    ]
+  },
+  "facts": [
+    {
+      "id": "F1",
+      "observed_at": "2019-01-05T19:55:00-08:00",
+      "statement": "一家航空公司的窄体客机起飞后不久发生机身面板脱落和快速失压，并安全返回出发机场；机上人员仅报告轻伤。",
+      "source_kind": "official",
+      "source_url": "https://benchmark.invalid/blind-aircraft-grounding-007/F1",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F2",
+      "observed_at": "2019-01-05T21:30:00-08:00",
+      "statement": "涉事航空公司主动停飞其全部同一子型号机队，等待检查；该机队规模为数十架。",
+      "source_kind": "official",
+      "source_url": "https://benchmark.invalid/blind-aircraft-grounding-007/F2",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F3",
+      "observed_at": "2019-01-05T22:00:00-08:00",
+      "statement": "制造商表示已知悉事件，正在收集信息，并由技术团队支持调查。",
+      "source_kind": "official",
+      "source_url": "https://benchmark.invalid/blind-aircraft-grounding-007/F3",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F4",
+      "observed_at": "2019-01-05T23:00:00-08:00",
+      "statement": "涉事飞机属于较新的子型号；结构失效原因、是否涉及同构型机队以及检查范围在D0仍未确定。",
+      "source_kind": "news",
+      "source_url": "https://benchmark.invalid/blind-aircraft-grounding-007/F4",
+      "evidence_ref": null,
+      "confidence": 0.95
+    }
+  ],
+  "actors": [
+    {
+      "id": "actor_manufacturer",
+      "label": "匿名航空制造商",
+      "kind": "issuer",
+      "aggregation": "organization",
+      "goals": [
+        "协助查明原因",
+        "恢复客户与监管信任",
+        "控制停飞和返工范围"
+      ],
+      "constraints": [
+        "D0缺少完整残骸检查与生产记录"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "会优先提供检查与技术支持"
+      ]
+    },
+    {
+      "id": "actor_incident_airline",
+      "label": "涉事航空公司",
+      "kind": "customer",
+      "aggregation": "organization",
+      "goals": [
+        "确保乘客安全",
+        "尽快完成检查",
+        "减少航班中断"
+      ],
+      "constraints": [
+        "同一子型号停飞会压缩可用运力"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "安全处置优先于短期运力"
+      ]
+    },
+    {
+      "id": "actor_peer_airlines",
+      "label": "运营同子型号的其他航空公司",
+      "kind": "customer",
+      "aggregation": "cohort",
+      "goals": [
+        "评估机队安全",
+        "避免非必要停飞",
+        "维护旅客信心"
+      ],
+      "constraints": [
+        "依赖制造商和监管机构给出检查口径"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "会准备预防性检查和替代运力"
+      ]
+    },
+    {
+      "id": "actor_aviation_regulator",
+      "label": "主要航空安全监管机构",
+      "kind": "regulator",
+      "aggregation": "organization",
+      "goals": [
+        "防止同类事故",
+        "界定受影响构型",
+        "确保复飞前完成检查"
+      ],
+      "constraints": [
+        "必须根据早期证据确定命令范围"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "可能先采取临时措施再逐步细化"
+      ]
+    },
+    {
+      "id": "actor_investigators",
+      "label": "独立事故调查机构",
+      "kind": "government",
+      "aggregation": "organization",
+      "goals": [
+        "保存证据",
+        "确定失效链条",
+        "提出安全建议"
+      ],
+      "constraints": [
+        "初期信息不完整且调查需要时间"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "不会在证据不足时给出最终原因"
+      ]
+    },
+    {
+      "id": "actor_passengers",
+      "label": "航空旅客",
+      "kind": "customer",
+      "aggregation": "cohort",
+      "goals": [
+        "避免可疑机型风险",
+        "获得透明安全信息"
+      ],
+      "constraints": [
+        "难以判断子型号与构型差异"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F4"
+      ],
+      "assumptions": [
+        "部分旅客会调整预订偏好"
+      ]
+    },
+    {
+      "id": "actor_institutions",
+      "label": "机构投资者",
+      "kind": "institutional_investor",
+      "aggregation": "cohort",
+      "goals": [
+        "评估停飞、检查和生产质量成本",
+        "区分局部缺陷与系统性问题"
+      ],
+      "constraints": [
+        "D0无法量化监管范围和最终成本"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "会提高短期风险折价"
+      ]
+    },
+    {
+      "id": "actor_retail",
+      "label": "个人投资者",
+      "kind": "retail_cohort",
+      "aggregation": "cohort",
+      "goals": [
+        "判断事件是否触发广泛停飞",
+        "控制周末消息后的跳空风险"
+      ],
+      "constraints": [
+        "容易混淆单一子型号与整个产品系列"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_media",
+      "label": "航空与财经媒体",
+      "kind": "media",
+      "aggregation": "cohort",
+      "goals": [
+        "跟踪检查范围、监管命令和调查进展",
+        "解释构型差异"
+      ],
+      "constraints": [
+        "早期现场信息可能快速变化"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    }
+  ],
+  "relationships": [
+    {
+      "source_actor_id": "actor_aviation_regulator",
+      "target_actor_id": "actor_peer_airlines",
+      "kind": "sets_airworthiness_requirements_for",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_investigators",
+      "target_actor_id": "actor_manufacturer",
+      "kind": "requests_evidence_from",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_manufacturer",
+      "target_actor_id": "actor_incident_airline",
+      "kind": "provides_technical_support_to",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_media",
+      "target_actor_id": "actor_passengers",
+      "kind": "shapes_risk_perception_of",
+      "visibility": "assumed"
+    },
+    {
+      "source_actor_id": "actor_institutions",
+      "target_actor_id": "actor_manufacturer",
+      "kind": "prices_expected_costs_of",
+      "visibility": "assumed"
+    }
+  ],
+  "allowed_actions": [
+    {
+      "type": "COMMUNICATE",
+      "description": "发布安全通报、调查进展、运营安排或研究观点。",
+      "visibility": "public"
+    },
+    {
+      "type": "REGULATE",
+      "description": "发布停飞、检查、复飞或适航要求。",
+      "visibility": "public"
+    },
+    {
+      "type": "OPERATE",
+      "description": "停飞、检查、修复、调配运力或调整生产。",
+      "visibility": "either"
+    },
+    {
+      "type": "ALLOCATE",
+      "description": "调整匿名标的、航空公司或行业风险敞口。",
+      "visibility": "private"
+    },
+    {
+      "type": "NEGOTIATE",
+      "description": "协商检查成本、交付、赔偿或替代运力。",
+      "visibility": "private"
+    },
+    {
+      "type": "WAIT",
+      "description": "等待现场证据、监管口径或检查结果。",
+      "visibility": "either"
+    }
+  ],
+  "interventions": [
+    {
+      "id": "I0_STRUCTURE_EVENT",
+      "at_round": 0,
+      "fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "visibility": "public"
+    }
+  ],
+  "forecast_targets": [
+    {
+      "id": "T1",
+      "kind": "market",
+      "definition": "D1收盘价相对D0收盘价的方向。",
+      "horizon": "next_trading_close",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T2",
+      "kind": "market",
+      "definition": "第5个交易日收盘价相对D0收盘价的方向。",
+      "horizon": "5_trading_days",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T3",
+      "kind": "market",
+      "definition": "第20个交易日收盘价相对D0收盘价的方向。",
+      "horizon": "20_trading_days",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T4",
+      "kind": "event",
+      "definition": "主要航空安全监管机构是否在2个自然日内临时停飞与涉事结构构型相同的该子型号飞机。",
+      "horizon": "2_calendar_days",
+      "scoring": "brier"
+    },
+    {
+      "id": "T5",
+      "kind": "event",
+      "definition": "主要航空安全监管机构是否在3个自然日内停飞该制造商整个相关产品系列的全部子型号。",
+      "horizon": "3_calendar_days",
+      "scoring": "brier"
+    }
+  ],
+  "run_config": {
+    "rounds": 12,
+    "replications": 20,
+    "seed_strategy": "deterministic_sequence",
+    "layers": [
+      "information",
+      "behavior"
+    ]
+  },
+  "provenance": {
+    "created_by": "FEVER-MiroFish blind benchmark",
+    "source_graph_artifact_id": null,
+    "notes": [
+      "真实制造商、航空公司、机型、证券代码、日期和来源链接已从模型可见输入中移除。",
+      "时间戳是保持相对间隔的实验标签，不代表真实年份。",
+      "真实映射和结果只保存在独立outcome文件，禁止进入模型提示。"
+    ]
+  }
+}

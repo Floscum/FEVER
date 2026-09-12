@@ -1,0 +1,384 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_ev_price_cut_006",
+  "title": "匿名案例：领先电动车企业的大幅降价",
+  "as_of": "2020-02-07T23:59:59+08:00",
+  "question": "日期、名称、代码和绝对价格均已匿名化。只使用D0已公开的信息，推演消费者、竞争者、渠道和投资者对电动车企业再次大幅降价的反应。",
+  "horizon": {
+    "kind": "calendar_days",
+    "value": 35,
+    "end_at": "2020-03-13T23:59:59+08:00"
+  },
+  "market": {
+    "region": "BLIND_GLOBAL",
+    "venues": [
+      "BLIND_US_EQUITY"
+    ],
+    "instruments": [
+      {
+        "symbol": "ASSET_F",
+        "name": "匿名电动车企业F",
+        "kind": "equity",
+        "currency": "USD"
+      }
+    ]
+  },
+  "facts": [
+    {
+      "id": "F1",
+      "observed_at": "2020-02-07T08:00:00+08:00",
+      "statement": "一家领先电动车企业将其最大海外市场两款主力车型的全系售价下调约6%至13.5%，这是不到三个月内的第二次降价。",
+      "source_kind": "company_statement",
+      "source_url": "https://benchmark.invalid/blind-ev-price-cut-006/F1",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F2",
+      "observed_at": "2020-02-07T09:00:00+08:00",
+      "statement": "两次降价叠加近期购车激励后，部分车型价格较四个月前低约13%至24%，并更接近本地畅销竞争车型。",
+      "source_kind": "news",
+      "source_url": "https://benchmark.invalid/blind-ev-price-cut-006/F2",
+      "evidence_ref": null,
+      "confidence": 0.95
+    },
+    {
+      "id": "F3",
+      "observed_at": "2020-02-07T09:00:00+08:00",
+      "statement": "该企业最近一个月的本地零售销量明显回落；行业补贴到期、需求走弱和竞争加剧同时影响市场。",
+      "source_kind": "market_data",
+      "source_url": "https://benchmark.invalid/blind-ev-price-cut-006/F3",
+      "evidence_ref": null,
+      "confidence": 0.95
+    },
+    {
+      "id": "F4",
+      "observed_at": "2020-02-07T23:00:00+08:00",
+      "statement": "D0匿名标的收盘上涨约2.5%，但此前一年已出现大幅回撤；市场同时担忧需求和利润率，也可能把降价解释为扩大销量。",
+      "source_kind": "market_data",
+      "source_url": "https://benchmark.invalid/blind-ev-price-cut-006/F4",
+      "evidence_ref": null,
+      "confidence": 1.0
+    }
+  ],
+  "actors": [
+    {
+      "id": "actor_automaker",
+      "label": "匿名领先电动车企业",
+      "kind": "issuer",
+      "aggregation": "organization",
+      "goals": [
+        "扩大销量与产能利用率",
+        "维护市场份额",
+        "控制降价对利润率的影响"
+      ],
+      "constraints": [
+        "透明直销定价会立即影响新旧客户预期"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "具有比部分竞争者更大的降价空间"
+      ]
+    },
+    {
+      "id": "actor_recent_buyers",
+      "label": "近期已提车客户",
+      "kind": "customer",
+      "aggregation": "cohort",
+      "goals": [
+        "争取价格补偿",
+        "维护车辆残值与公平感"
+      ],
+      "constraints": [
+        "既有购车合同未必承诺后续价格保护"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2"
+      ],
+      "assumptions": [
+        "部分客户会协同行动表达不满"
+      ]
+    },
+    {
+      "id": "actor_new_buyers",
+      "label": "潜在购车客户",
+      "kind": "customer",
+      "aggregation": "cohort",
+      "goals": [
+        "以更低总成本购车",
+        "判断价格是否继续下降"
+      ],
+      "constraints": [
+        "补贴、交付时间和替代车型同时影响决策"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": [
+        "降价会释放一部分被压抑需求"
+      ]
+    },
+    {
+      "id": "actor_ev_competitors",
+      "label": "本地电动车竞争者",
+      "kind": "competitor",
+      "aggregation": "cohort",
+      "goals": [
+        "维护订单和市场份额",
+        "避免利润率过度下降"
+      ],
+      "constraints": [
+        "成本结构和现金储备不同，跟随降价能力有限"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": [
+        "会比较促销、配置调整和直接降价"
+      ]
+    },
+    {
+      "id": "actor_suppliers",
+      "label": "电池与零部件供应商",
+      "kind": "supplier",
+      "aggregation": "cohort",
+      "goals": [
+        "维持订单量",
+        "避免价格压力过度向上游传导"
+      ],
+      "constraints": [
+        "短期无法完全改变已签订产能与价格安排"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": [
+        "销量增长可能部分抵消单车价格压力"
+      ]
+    },
+    {
+      "id": "actor_regulator",
+      "label": "市场与消费者监管机构",
+      "kind": "regulator",
+      "aggregation": "cohort",
+      "goals": [
+        "维护消费者权益与市场秩序",
+        "监督宣传和合同履行"
+      ],
+      "constraints": [
+        "正常市场化调价本身不必然违法"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_institutions",
+      "label": "机构投资者",
+      "kind": "institutional_investor",
+      "aggregation": "cohort",
+      "goals": [
+        "权衡销量弹性与利润率",
+        "评估价格战的竞争优势"
+      ],
+      "constraints": [
+        "短期订单与利润贡献尚未公布"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "对降价是需求危机还是主动扩张存在分歧"
+      ]
+    },
+    {
+      "id": "actor_retail",
+      "label": "个人投资者",
+      "kind": "retail_cohort",
+      "aggregation": "cohort",
+      "goals": [
+        "判断价格战对股价的影响",
+        "控制高波动风险"
+      ],
+      "constraints": [
+        "容易只关注销量或利润率的单一叙事"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_media",
+      "label": "汽车与财经媒体",
+      "kind": "media",
+      "aggregation": "cohort",
+      "goals": [
+        "跟踪客户反应、交付等待时间和竞争者定价",
+        "解释价格战机制"
+      ],
+      "constraints": [
+        "早期订单传闻可能缺少可验证口径"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    }
+  ],
+  "relationships": [
+    {
+      "source_actor_id": "actor_automaker",
+      "target_actor_id": "actor_recent_buyers",
+      "kind": "sets_transaction_price_for",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_automaker",
+      "target_actor_id": "actor_ev_competitors",
+      "kind": "changes_competitive_price_anchor",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_ev_competitors",
+      "target_actor_id": "actor_new_buyers",
+      "kind": "competes_for",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_suppliers",
+      "target_actor_id": "actor_automaker",
+      "kind": "supplies_components_to",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_media",
+      "target_actor_id": "actor_retail",
+      "kind": "influences_information_set",
+      "visibility": "assumed"
+    }
+  ],
+  "allowed_actions": [
+    {
+      "type": "COMMUNICATE",
+      "description": "发布定价、补偿、销量、订单或研究观点。",
+      "visibility": "public"
+    },
+    {
+      "type": "REGULATE",
+      "description": "回应消费者投诉并监督合同与市场秩序。",
+      "visibility": "public"
+    },
+    {
+      "type": "OPERATE",
+      "description": "调整价格、产量、交付或销售安排。",
+      "visibility": "either"
+    },
+    {
+      "type": "ALLOCATE",
+      "description": "调整匿名标的或行业风险敞口。",
+      "visibility": "private"
+    },
+    {
+      "type": "NEGOTIATE",
+      "description": "协商客户补偿、供应价格或竞争方案。",
+      "visibility": "private"
+    },
+    {
+      "type": "WAIT",
+      "description": "等待订单、交付、竞争者价格或利润率确认。",
+      "visibility": "either"
+    }
+  ],
+  "interventions": [
+    {
+      "id": "I0_PRICE_CUT",
+      "at_round": 0,
+      "fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "visibility": "public"
+    }
+  ],
+  "forecast_targets": [
+    {
+      "id": "T1",
+      "kind": "market",
+      "definition": "D1收盘价相对D0收盘价的方向。",
+      "horizon": "next_trading_close",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T2",
+      "kind": "market",
+      "definition": "第5个交易日收盘价相对D0收盘价的方向。",
+      "horizon": "5_trading_days",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T3",
+      "kind": "market",
+      "definition": "第20个交易日收盘价相对D0收盘价的方向。",
+      "horizon": "20_trading_days",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T4",
+      "kind": "event",
+      "definition": "近期已提车客户是否在3个自然日内出现线下集体抗议或公开补偿诉求。",
+      "horizon": "3_calendar_days",
+      "scoring": "brier"
+    },
+    {
+      "id": "T5",
+      "kind": "event",
+      "definition": "至少一家主要本地电动车竞争者是否在15个自然日内宣布实质性降价。",
+      "horizon": "15_calendar_days",
+      "scoring": "brier"
+    }
+  ],
+  "run_config": {
+    "rounds": 12,
+    "replications": 20,
+    "seed_strategy": "deterministic_sequence",
+    "layers": [
+      "information",
+      "behavior"
+    ]
+  },
+  "provenance": {
+    "created_by": "FEVER-MiroFish blind benchmark",
+    "source_graph_artifact_id": null,
+    "notes": [
+      "真实企业、竞争者、证券代码、日期、绝对售价和来源链接已从模型可见输入中移除。",
+      "时间戳是保持相对间隔的实验标签，不代表真实年份。",
+      "真实映射和结果只保存在独立outcome文件，禁止进入模型提示。"
+    ]
+  }
+}

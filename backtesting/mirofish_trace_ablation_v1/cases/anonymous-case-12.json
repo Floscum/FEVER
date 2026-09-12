@@ -1,0 +1,770 @@
+{
+  "case_id": "anonymous-case-12",
+  "market": "US",
+  "event_type": "通胀数据意外",
+  "actor_budget": 4,
+  "source_hashes": {
+    "spec_sha256": "a1f1cff594e3e5a83fd78bc672dda55534b32e9f416a0c3a5cad0590adf2451d",
+    "simulation_result_sha256": "71907803c4d6d4eff64b1f1d4c7e1135ea13443307d26773d386eb88c9fd52f7",
+    "financial_actions_sha256": "55cdb1c1406f014b6a2daf49e2894d43cfda0dd38df8d26cb1831e62f5fa0d9d"
+  },
+  "shared_input": {
+    "case_id": "anonymous-case-12",
+    "as_of": "D0",
+    "question": "严格基于 D0 时点可得信息，推演未来三个交易日各参与方行动及条件化传导机制。",
+    "horizon": {
+      "kind": "calendar_days",
+      "value": 3,
+      "end_at": "2026-01-06T23:59:59+00:00"
+    },
+    "facts": [
+      {
+        "id": "F1",
+        "statement": "US Consumer Price Index D0-date：PCE | BEA consensus: market prev: last"
+      }
+    ],
+    "actors": [
+      {
+        "id": "actor_issuer",
+        "label": "事件主体",
+        "kind": "issuer",
+        "goals": [
+          "维护自身制度或经济利益",
+          "根据新增信息调整行动"
+        ],
+        "constraints": [
+          "只能使用分析截止时间前可观察的信息"
+        ]
+      },
+      {
+        "id": "actor_government",
+        "label": "政府与司法机构",
+        "kind": "government",
+        "goals": [
+          "维护自身制度或经济利益",
+          "根据新增信息调整行动"
+        ],
+        "constraints": [
+          "只能使用分析截止时间前可观察的信息"
+        ]
+      },
+      {
+        "id": "actor_institutions",
+        "label": "机构投资者",
+        "kind": "institutional_investor",
+        "goals": [
+          "维护自身制度或经济利益",
+          "根据新增信息调整行动"
+        ],
+        "constraints": [
+          "只能使用分析截止时间前可观察的信息"
+        ]
+      },
+      {
+        "id": "actor_foreign",
+        "label": "境外投资者",
+        "kind": "foreign_investor",
+        "goals": [
+          "维护自身制度或经济利益",
+          "根据新增信息调整行动"
+        ],
+        "constraints": [
+          "只能使用分析截止时间前可观察的信息"
+        ]
+      }
+    ],
+    "financial_decisions": [
+      {
+        "id": "decision-actor_issuer-r2",
+        "round": 2,
+        "actor_id": "actor_issuer",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "截至2026-01-03，F1仅展示PCE数据标题行，未包含实际数值、环比/同比变化、市场预期偏离程度或修订信息，不足以支撑政策沟通或运营调整。作为数据发布机构，在缺乏完整数据点和市场反应观察的情况下，最合理的选择是等待下一轮公布周期或补充数据，再决定是否需要发布修正说明或额外沟通。当前无新增可观察信息要求立即行动。",
+        "constraint_refs": [
+          "actor_issuer:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.95,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_government-r2",
+        "round": 2,
+        "actor_id": "actor_government",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "截至2026-01-03，已观察到的PCE/CPI数据仅为一个数据点（F1），尚不足以构成调整政策或监管行动的依据。作为政府与司法机构，需等待更多后续数据、BEA官方详细报告及市场共识逐步形成，才能评估通胀趋势是否偏离目标区间。当前采取等待观望策略，避免基于单一数据点做出过早反应，符合维护制度稳定与经济利益的约束。主要不确定性在于后续通胀数据的连续走势及全球宏观环境变化。",
+        "constraint_refs": [
+          "actor_government:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_institutions-r2",
+        "round": 2,
+        "actor_id": "actor_institutions",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "截至2026-01-03的PCE数据仅为单一数据点，缺乏环比/同比趋势、核心PCE分项以及市场反应等可观察信息。作为机构投资者，我的约束是只能使用分析截止时间前可观察的事实，而当前仅有一条BEA发布的PCE数据公告，没有历史对比值、市场预期差值或美联储反应信号。在无法形成完整图景之前，最符合制度利益和审慎原则的做法是等待更多可验证信息（如后续核心PCE分项、就业数据、联储官员评论）积累后再做配置调整。若未来观察到通胀持续高于目标的证据，可能考虑对匿名标的1等信用债仓位进行久期调整。",
+        "constraint_refs": [
+          "actor_institutions:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_foreign-r2",
+        "round": 2,
+        "actor_id": "actor_foreign",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": null,
+        "instrument_refs": [],
+        "rationale": "截至2026-01-03的PCE数据（F1）为BEA共识性指标，未显示超出预期的通胀波动信号。作为境外投资者，当前缺乏足够的新增信息来调整资产配置或仓位方向。匿名标的1企业债市场的风险溢价与利率路径仍存在不确定性，在更明确的宏观信号出现前维持观望是符合维护自身经济利益的最审慎选择。",
+        "constraint_refs": [
+          "actor_foreign:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      }
+    ],
+    "simulated_actions": [
+      {
+        "id": "trace-10",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_POSTS",
+        "summary": "search_posts",
+        "actor_id": "actor_government"
+      },
+      {
+        "id": "trace-11",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user",
+        "actor_id": "actor_government"
+      },
+      {
+        "id": "trace-12",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #1：US Consumer Price Index D0-date：PCE | BEA consensus: market prev: last",
+        "actor_id": "actor_foreign"
+      },
+      {
+        "id": "trace-13",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user",
+        "actor_id": "actor_institutions"
+      },
+      {
+        "id": "trace-14",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_POSTS",
+        "summary": "search_posts",
+        "actor_id": "actor_institutions"
+      },
+      {
+        "id": "trace-20",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user",
+        "actor_id": "actor_foreign"
+      },
+      {
+        "id": "trace-21",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_POSTS",
+        "summary": "search_posts",
+        "actor_id": "actor_foreign"
+      },
+      {
+        "id": "trace-22",
+        "kind": "simulated_action",
+        "action_type": "FOLLOW",
+        "summary": "follow",
+        "actor_id": "actor_institutions"
+      },
+      {
+        "id": "trace-23",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "Official BEA statement: The December 2025 PCE data reflects the latest available readings as of the D0-date release. Market participants should refer to the full BEA release for detailed methodology and revision notes. Further data available at bea.gov.",
+        "actor_id": "actor_issuer"
+      },
+      {
+        "id": "trace-24",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "[官方关注] 我方正在监测美国PCE及CPI数据变化，评估其对全球经济稳定及制度运行的影响。通胀指标的变化将作为调整经济政策的重要参考依据。将持续跟踪相关数据并开展分析。",
+        "actor_id": "actor_government"
+      }
+    ],
+    "branch_slots": [
+      {
+        "slot_id": "slot-1",
+        "actor_ids": [
+          "actor_foreign",
+          "actor_government"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_foreign-r2",
+          "decision-actor_government-r2"
+        ]
+      },
+      {
+        "slot_id": "slot-2",
+        "actor_ids": [
+          "actor_institutions",
+          "actor_issuer"
+        ],
+        "relationship_kind": "constrains_or_influences",
+        "decision_refs": [
+          "decision-actor_institutions-r2",
+          "decision-actor_issuer-r2"
+        ]
+      },
+      {
+        "slot_id": "slot-3",
+        "actor_ids": [
+          "actor_foreign",
+          "actor_institutions"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_foreign-r2",
+          "decision-actor_institutions-r2"
+        ]
+      },
+      {
+        "slot_id": "slot-4",
+        "actor_ids": [
+          "actor_government",
+          "actor_institutions"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_government-r2",
+          "decision-actor_institutions-r2"
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "with_traces": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "境外施压与政府回应",
+          "summary": "境外投资者在D0后继续监测PCE数据，若发现核心PCE高于预期，会公开质疑BEA数据透明度或通胀处理方式，政府为维护制度稳定，主动发布声明强调数据方法论并可能承诺加强监测，以此安抚市场。",
+          "actor_ids": [
+            "actor_foreign",
+            "actor_government"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_foreign",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_foreign-r2"
+            },
+            {
+              "actor_id": "actor_government",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_government-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "未来三个交易日内，BEA发布完整的12月PCE报告显示核心PCE环比高于0.25%",
+            "境外投资者在公开平台或媒体上发表批评数据可靠性的言论次数增加"
+          ],
+          "consequences": [
+            "政府通过官方渠道发布声明或问答，详细解释PCE统计口径与修订流程，并承诺增加临时数据发布频率",
+            "境外投资者在观察到政府回应后，部分撤回批评，转为观望并保持仓位不变"
+          ],
+          "invalidation_conditions": [
+            "未来三个交易日内未出现任何境外投资者对PCE数据的公开质疑或批评",
+            "BEA后续修订数据显示之前预估的PCE偏离度消失，核心PCE低于0.2%"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "机构对发行人数据的反向验证",
+          "summary": "机构投资者在等待期间，主动向事件主体请求BEA的PCE分项与修订说明，若事件主体未能及时提供详细数据或表现出数据滞后，机构投资者会转向独立数据源，降低对该主体数据参考的依赖。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "未来三个交易日内，机构投资者通过正式渠道向BEA询问核心PCE的详细分项数据",
+            "事件主体回复中显示数据未能覆盖D0之后的最新修正版本"
+          ],
+          "consequences": [
+            "机构投资者开始采购或引用其他独立经济数据服务（如ADP、ISM）替代单一PCE指标",
+            "事件主体意识到数据需求变化，可能调整未来数据发布的格式或提前披露修订计划"
+          ],
+          "invalidation_conditions": [
+            "未来三个交易日内，事件主体主动发布了补充数据或修订说明，满足机构需求",
+            "机构投资者未提出任何数据请求，保持观望（decision-actor_institutions-r2）"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "境内外投资者分歧引发交易活动",
+          "summary": "境外投资者基于对PCE持续高位的担忧，开始在远期市场做空债券，而机构投资者认为数据偏离只是暂时的，选择逢低买入，两方交易行为引发市场流动性增加和买卖价差扩大。",
+          "actor_ids": [
+            "actor_foreign",
+            "actor_institutions"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_foreign",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_foreign-r2"
+            },
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "D1或D2的PCE初值或分项数据超过市场共识0.1个百分点",
+            "境外投资者在期货或掉期市场增加空头头寸的规模提高20%以上（以未平仓合约衡量）"
+          ],
+          "consequences": [
+            "机构投资者利用卖压增配信用债或利率债，与境外空头形成对赌，导致当日债券成交量显著增大",
+            "买压与卖压相互抵消，但价差扩大，部分中介机构提高保证金要求，增加后续波动性"
+          ],
+          "invalidation_conditions": [
+            "未来三个交易日内无PCE实际数据更新，或市场共识迅速认可数据（无分歧）",
+            "境外投资者与机构投资者的仓位变化方向一致，未出现显著相反持仓"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "政府介入纠正机构预期偏差",
+          "summary": "若机构投资者因PCE数据解读过度偏向紧缩而大规模减仓，政府通过非正式沟通（如领导发言或工作论文）暗示通胀可控，引导机构重新评估政策路径，从而避免市场超调。",
+          "actor_ids": [
+            "actor_government",
+            "actor_institutions"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_government",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_government-r2"
+            },
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "机构投资者公开或私下表达PCE数据将导致美联储提前加息的预期，并因此卖出长期债券",
+            "政府D2监测到机构仓位调整后，发布或引用倾向性分析指出核心PCE中住房分项滞后性被高估"
+          ],
+          "consequences": [
+            "机构投资者重新审视模型假设，部分回补债券仓位，使D3的收益率曲线从陡峭化转为平坦化",
+            "政府避免了因市场错误定价而引发的制度成本，但削弱了自身不干预市场的承诺可信度"
+          ],
+          "invalidation_conditions": [
+            "未来三个交易日内机构投资者的仓位无明显变动，维持等待（decision-actor_institutions-r2）",
+            "政府发布的所有声明都保持中立，没有暗示对政策路径的具体看法"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        }
+      ],
+      "quality": [
+        {
+          "scores": {
+            "mechanism_coherence": 1,
+            "monitoring_actionability": 1,
+            "falsifiability": 2,
+            "evidence_discipline": 1,
+            "scenario_diversity": 3
+          },
+          "total_score": 8,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": false,
+              "specific_invalidation": false,
+              "decision_relevant": false,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": false,
+              "specific_invalidation": false,
+              "decision_relevant": false,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": false,
+              "specific_invalidation": false,
+              "decision_relevant": false,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": false,
+              "specific_invalidation": false,
+              "decision_relevant": false,
+              "evidence_grounded": false
+            }
+          ]
+        },
+        {
+          "scores": {
+            "mechanism_coherence": 0,
+            "monitoring_actionability": 1,
+            "falsifiability": 1,
+            "evidence_discipline": 0,
+            "scenario_diversity": 1
+          },
+          "total_score": 3,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": false
+            }
+          ]
+        }
+      ]
+    },
+    "without_traces": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "境外资本外流倒逼财政干预",
+          "summary": "若境外投资者基于PCE数据解读率先减仓，其行动引发资本市场波动，政府为维护稳定而提前出台汇率或资本管控措施。",
+          "actor_ids": [
+            "actor_foreign",
+            "actor_government"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_foreign",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_foreign-r2"
+            },
+            {
+              "actor_id": "actor_government",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_government-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "D1交易日境外投资者公开披露减持本币债券仓位超过5%",
+            "D1交易日汇率单日波动超过2%触发央行中间价干预"
+          ],
+          "consequences": [
+            "政府启动临时宏观审慎措施限制跨境资本流动",
+            "机构投资者被迫调整套期保值头寸增加本币负债成本"
+          ],
+          "invalidation_conditions": [
+            "境外投资者在D1-D3交易日整体维持净买入",
+            "汇率在3个交易日内均未触及央行干预区间"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "机构静默施压发行人主动沟通",
+          "summary": "机构投资者因无法从PCE数据判断利率走向，私下向发行人发出信号要求其披露更多经营数据以对冲政策不确定性；发行人被迫发布非强制性业务更新以满足机构关切。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "D1交易日机构投资者通过一对一会议向发行人表达数据透明度需求",
+            "D2交易日前发行人内部会议纪要显示决定提前发布季度运营亮点"
+          ],
+          "consequences": [
+            "发行人披露的提前信息压低信用利差约10-15个基点",
+            "机构投资者据此逐步增持发行人债券降低自身久期风险"
+          ],
+          "invalidation_conditions": [
+            "机构投资者在D1-D3未主动联系发行人管理层",
+            "发行人在3个交易日内无任何超出法定的信息披露"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "境外抛售与机构跟风产生流动性恐慌",
+          "summary": "境外投资者率先降低风险敞口，机构投资者观察到同行行动后采取相同方向操作，两者形成竞相抛售负反馈，导致信用利差短期急剧走阔。",
+          "actor_ids": [
+            "actor_foreign",
+            "actor_institutions"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_foreign",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_foreign-r2"
+            },
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "D1交易日境外投资者在二级市场卖出金额超过该品种日均交易量两倍",
+            "D2交易日机构投资者在路透终端出现集中卖盘申报且报价持续下行"
+          ],
+          "consequences": [
+            "国债期货和信用债互换价差在D3收盘前显著走宽超过25个基点",
+            "做市商大幅扩大买卖价差并降低名义报价量",
+            "境内外投资者之间形成无信息基础的恐慌性正反馈"
+          ],
+          "invalidation_conditions": [
+            "D1-D3信用利差走阔幅度始终低于10个基点",
+            "D1后境外和机构投资者均转向净买入状态"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "政府释放稳定信号引导机构接盘",
+          "summary": "政府预判到市场波动风险，提前通过窗口指导或会议纪要释放维稳意图，机构投资者配合执行买入操作以平抑境外抛售压力。",
+          "actor_ids": [
+            "actor_government",
+            "actor_institutions"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_government",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_government-r2"
+            },
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "D1交易日政府通过公开非正式渠道释放 ‘利率水平在均衡区间’ 的信号",
+            "D2交易日至少三家主要机构接到窗口指导后合计净买入超过5亿元",
+            "D3交易日境外投资者卖出压力减弱且利差回落"
+          ],
+          "consequences": [
+            "信用利差在D3前收窄至PCE公布前水平",
+            "境外投资者认为政策底部明确而再次入场推高资产价格"
+          ],
+          "invalidation_conditions": [
+            "D1-D3并未出现任何官方或半官方维稳言论",
+            "机构投资者D2持仓数据显示其维持净卖出状态",
+            "信用利差D3不降反升超过波幅上限"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        }
+      ],
+      "quality": [
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 3,
+            "evidence_discipline": 1,
+            "scenario_diversity": 2
+          },
+          "total_score": 10,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": false,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": false,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": false
+            }
+          ]
+        },
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 2,
+            "evidence_discipline": 2,
+            "scenario_diversity": 3
+          },
+          "total_score": 11,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

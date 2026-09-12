@@ -1,0 +1,355 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_export_controls_019",
+  "title": "匿名案例：先进计算产品出口许可收紧",
+  "as_of": "2018-10-17T16:00:00-04:00",
+  "question": "国家、年份、公司、产品、目的地和市场代码均已匿名化。只使用D0已公开的信息，推演政府、芯片企业、客户、云服务商、供应链、竞争者和投资者如何应对新的先进计算产品许可限制。",
+  "horizon": {
+    "kind": "calendar_days",
+    "value": 30,
+    "end_at": "2018-11-16T16:00:00-05:00"
+  },
+  "market": {
+    "region": "BLIND_DEVELOPED_EQUITY_MARKET",
+    "venues": [
+      "BLIND_EQUITY_EXCHANGE"
+    ],
+    "instruments": [
+      {
+        "symbol": "ASSET_S",
+        "name": "匿名先进计算芯片企业普通股",
+        "kind": "equity",
+        "currency": "USD"
+      }
+    ]
+  },
+  "facts": [
+    {
+      "id": "F1",
+      "observed_at": "2018-10-17T09:00:00-04:00",
+      "statement": "出口管理机关公布临时最终规则，扩大对超过性能阈值的先进计算芯片、系统及特定最终用户的许可要求，覆盖若干受限目的地和总部位于相关地区的客户。",
+      "source_kind": "official",
+      "source_url": "https://benchmark.invalid/blind-export-controls-019/F1",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F2",
+      "observed_at": "2018-10-17T11:00:00-04:00",
+      "statement": "受影响企业披露多款现有及未来产品可能受限，申请许可证不保证获批或及时处理；规则按公告计划在发布三十日后生效。",
+      "source_kind": "filing",
+      "source_url": "https://benchmark.invalid/blind-export-controls-019/F2",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F3",
+      "observed_at": "2018-10-17T12:00:00-04:00",
+      "statement": "企业认为全球需求强劲，预计新增限制不会对近期财务结果产生有意义影响，但可能影响产品开发、客户支持、供应安排和部分运营地点。",
+      "source_kind": "filing",
+      "source_url": "https://benchmark.invalid/blind-export-controls-019/F3",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F4",
+      "observed_at": "2018-10-17T16:00:00-04:00",
+      "statement": "公司股票在D0正常收盘。投资者需要区分短期订单重排、许可执行时点与长期市场准入和竞争影响。",
+      "source_kind": "market_data",
+      "source_url": "https://benchmark.invalid/blind-export-controls-019/F4",
+      "evidence_ref": null,
+      "confidence": 0.98
+    }
+  ],
+  "actors": [
+    {
+      "id": "actor_export_regulator",
+      "label": "匿名出口管理机关",
+      "kind": "regulator",
+      "aggregation": "organization",
+      "goals": [
+        "限制先进计算能力用于国家安全敏感用途",
+        "降低供应链意外中断"
+      ],
+      "constraints": [
+        "需要发布、解释和执行复杂技术阈值"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_issuer",
+      "label": "匿名先进计算芯片企业",
+      "kind": "issuer",
+      "aggregation": "organization",
+      "goals": [
+        "服务合规客户和完成已有订单",
+        "开发符合规则的新产品",
+        "保护全球收入增长"
+      ],
+      "constraints": [
+        "许可结果和时点不确定",
+        "部分产品和系统直接受限"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_restricted_customers",
+      "label": "受限地区企业与研究客户",
+      "kind": "customer",
+      "aggregation": "cohort",
+      "goals": [
+        "获得先进计算能力",
+        "寻找许可、替代产品和本地供应"
+      ],
+      "constraints": [
+        "采购主体和最终用途可能触发许可"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_cloud_providers",
+      "label": "全球云计算服务商",
+      "kind": "customer",
+      "aggregation": "cohort",
+      "goals": [
+        "维持算力扩张和客户服务",
+        "遵守跨境限制"
+      ],
+      "constraints": [
+        "数据中心和客户分布跨越多个地区"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_supply_chain",
+      "label": "制造、封装与系统供应链",
+      "kind": "supplier",
+      "aggregation": "cohort",
+      "goals": [
+        "维持产能利用和交付",
+        "重排地区与产品组合"
+      ],
+      "constraints": [
+        "生产周期长且高端产能有限"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_competitors",
+      "label": "其他芯片与加速器供应商",
+      "kind": "competitor",
+      "aggregation": "cohort",
+      "goals": [
+        "争取客户和市场份额",
+        "开发符合阈值的替代产品"
+      ],
+      "constraints": [
+        "可能受同类规则约束"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_foreign_governments",
+      "label": "受影响地区政府与贸易机关",
+      "kind": "government",
+      "aggregation": "cohort",
+      "goals": [
+        "保障本地计算供应",
+        "回应跨境技术限制"
+      ],
+      "constraints": [
+        "获取领先产品和制造能力受限"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_investors",
+      "label": "半导体与科技投资者",
+      "kind": "institutional_investor",
+      "aggregation": "cohort",
+      "goals": [
+        "区分短期财务与长期竞争影响",
+        "评估许可证和替代产品路径"
+      ],
+      "constraints": [
+        "规则文本复杂且执行仍可能变化"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    }
+  ],
+  "relationships": [
+    {
+      "source_actor_id": "actor_export_regulator",
+      "target_actor_id": "actor_issuer",
+      "kind": "imposes_license_requirements_on",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_issuer",
+      "target_actor_id": "actor_restricted_customers",
+      "kind": "supplies_covered_products_to",
+      "visibility": "private"
+    },
+    {
+      "source_actor_id": "actor_issuer",
+      "target_actor_id": "actor_supply_chain",
+      "kind": "reallocates_product_orders_through",
+      "visibility": "private"
+    },
+    {
+      "source_actor_id": "actor_competitors",
+      "target_actor_id": "actor_restricted_customers",
+      "kind": "offers_alternative_products_to",
+      "visibility": "private"
+    },
+    {
+      "source_actor_id": "actor_foreign_governments",
+      "target_actor_id": "actor_export_regulator",
+      "kind": "responds_diplomatically_to",
+      "visibility": "public"
+    }
+  ],
+  "allowed_actions": [
+    {
+      "type": "COMMUNICATE",
+      "description": "解释规则、财务影响、客户需求或竞争反应。",
+      "visibility": "public"
+    },
+    {
+      "type": "REGULATE",
+      "description": "调整生效时间、解释范围、审批许可证或执法。",
+      "visibility": "public"
+    },
+    {
+      "type": "OPERATE",
+      "description": "重排供应、开发替代产品或调整服务地区。",
+      "visibility": "either"
+    },
+    {
+      "type": "NEGOTIATE",
+      "description": "申请许可证并与客户、供应链或政府沟通条件。",
+      "visibility": "private"
+    },
+    {
+      "type": "ALLOCATE",
+      "description": "调整资本、库存、产能和股票敞口。",
+      "visibility": "private"
+    },
+    {
+      "type": "WAIT",
+      "description": "等待规则解释、许可证或客户响应。",
+      "visibility": "either"
+    }
+  ],
+  "interventions": [
+    {
+      "id": "I0_EXPORT_RULE",
+      "at_round": 0,
+      "fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "visibility": "public"
+    }
+  ],
+  "forecast_targets": [
+    {
+      "id": "T1",
+      "kind": "market",
+      "definition": "D1收盘价相对D0的匿名芯片企业普通股方向。",
+      "horizon": "next_market_observation",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T2",
+      "kind": "market",
+      "definition": "第5个后续收盘价相对D0的匿名芯片企业普通股方向。",
+      "horizon": "5_market_observations",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T3",
+      "kind": "market",
+      "definition": "第20个后续收盘价相对D0的匿名芯片企业普通股方向。",
+      "horizon": "20_market_observations",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T4",
+      "kind": "event",
+      "definition": "出口管理机关是否在10个自然日内把部分数据中心产品的许可要求从原三十日缓冲期提前为立即生效。",
+      "horizon": "10_calendar_days",
+      "scoring": "brier"
+    },
+    {
+      "id": "T5",
+      "kind": "event",
+      "definition": "企业是否在10个自然日内通过正式监管披露下调当前季度公开收入指引。",
+      "horizon": "10_calendar_days",
+      "scoring": "brier"
+    }
+  ],
+  "run_config": {
+    "rounds": 12,
+    "replications": 20,
+    "seed_strategy": "deterministic_sequence",
+    "layers": [
+      "information",
+      "behavior"
+    ]
+  },
+  "provenance": {
+    "created_by": "FEVER-MiroFish blind benchmark",
+    "source_graph_artifact_id": null,
+    "notes": [
+      "真实国家、年份、公司、产品、目的地和代码均已匿名化。",
+      "真实结果只保存在独立outcome文件。"
+    ]
+  }
+}

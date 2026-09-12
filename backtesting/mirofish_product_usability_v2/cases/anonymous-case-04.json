@@ -1,0 +1,675 @@
+{
+  "anonymous_case_id": "anonymous-case-04",
+  "configured_actor_count": 9,
+  "decision_actor_count": 9,
+  "fact_count": 4,
+  "fact_chars": 181,
+  "input": {
+    "case_id": "anonymous-case-04",
+    "as_of": "D0",
+    "question": "日期、名称、代码和绝对估值均已匿名化。只使用D0已公开的信息，推演网络安全审查、应用分发限制、平台运营与投资者反应。",
+    "horizon": {
+      "kind": "calendar_days",
+      "value": 35,
+      "end_at": "D0 + stated horizon"
+    },
+    "facts": [
+      {
+        "id": "F1",
+        "statement": "国家网络安全审查机构宣布对一家大型出行平台实施网络安全审查；为配合审查，平台在审查期间停止新用户注册。"
+      },
+      {
+        "id": "F2",
+        "statement": "平台表示将积极配合审查、全面排查风险，并称现有用户服务在审查期间可正常使用。"
+      },
+      {
+        "id": "F3",
+        "statement": "该平台两天前刚在境外完成大型首次公开发行，上市后面临境内数据监管与境外证券披露的双重约束。"
+      },
+      {
+        "id": "F4",
+        "statement": "D0收盘时匿名标的仍高于发行价约10%，但较前一交易日下跌约5%；监管公告在当日交易前已公开。"
+      }
+    ],
+    "actors": [
+      {
+        "id": "actor_platform",
+        "label": "匿名出行平台",
+        "kind": "issuer",
+        "goals": [
+          "维持现有服务",
+          "完成审查整改",
+          "稳定用户和资本市场信心"
+        ],
+        "constraints": [
+          "审查期间不得新增用户",
+          "必须遵守数据与境外披露要求"
+        ]
+      },
+      {
+        "id": "actor_cyber_regulator",
+        "label": "网络安全审查机构",
+        "kind": "regulator",
+        "goals": [
+          "防范国家数据安全风险",
+          "监督个人信息合规"
+        ],
+        "constraints": [
+          "依据公开法律和审查程序采取措施"
+        ]
+      },
+      {
+        "id": "actor_app_stores",
+        "label": "移动应用商店",
+        "kind": "exchange",
+        "goals": [
+          "遵守应用分发监管要求",
+          "控制平台合规风险"
+        ],
+        "constraints": [
+          "不能自行判断审查最终结论"
+        ]
+      },
+      {
+        "id": "actor_drivers",
+        "label": "平台司机群体",
+        "kind": "supplier",
+        "goals": [
+          "维持订单和收入",
+          "降低平台中断风险"
+        ],
+        "constraints": [
+          "无法影响监管决定"
+        ]
+      },
+      {
+        "id": "actor_users",
+        "label": "现有用户",
+        "kind": "customer",
+        "goals": [
+          "继续获得出行服务",
+          "保护个人信息"
+        ],
+        "constraints": [
+          "只能观察公开通报和应用可用性"
+        ]
+      },
+      {
+        "id": "actor_us_exchange",
+        "label": "境外交易所与证券监管方",
+        "kind": "exchange",
+        "goals": [
+          "维护上市披露完整性",
+          "管理异常交易风险"
+        ],
+        "constraints": [
+          "不能决定境内网络安全审查"
+        ]
+      },
+      {
+        "id": "actor_institutions",
+        "label": "机构投资者",
+        "kind": "institutional_investor",
+        "goals": [
+          "评估监管路径与平台价值",
+          "控制新股持仓风险"
+        ],
+        "constraints": [
+          "审查范围和持续时间尚不明确"
+        ]
+      },
+      {
+        "id": "actor_retail",
+        "label": "个人投资者",
+        "kind": "retail_cohort",
+        "goals": [
+          "判断上市初期价格风险",
+          "控制追涨与恐慌损失"
+        ],
+        "constraints": [
+          "容易把审查启动误解为最终处罚结论"
+        ]
+      },
+      {
+        "id": "actor_media",
+        "label": "财经与科技媒体",
+        "kind": "media",
+        "goals": [
+          "解释跨境上市与数据监管冲突",
+          "跟踪审查进展"
+        ],
+        "constraints": [
+          "必须区分已宣布措施与推测中的进一步限制"
+        ]
+      }
+    ],
+    "financial_decisions": [
+      {
+        "id": "decision-actor_platform-r3",
+        "round": 3,
+        "actor_id": "actor_platform",
+        "action_type": "COMMUNICATE",
+        "decision_status": "intended",
+        "direction": "maintain",
+        "intensity": 0.7,
+        "instrument_refs": [],
+        "rationale": "当前处于审查启动后的第3轮模拟，市场存在对强制下架和股价持续下跌的担忧（如F4显示较前一交易日下跌约5%）。作为平台主体，首要任务是稳定用户和资本市场信心，同时配合审查整改。我已通过公开声明表示积极配合审查、现有服务正常（F2），但面对不实猜测（如'会被强制下架'），需要进一步释放清晰信号来稳定预期。选择COMMUNICATE而非OPERATE，是因为审查期间新增用户已被禁止（约束0），运营层面可主动调整的空间有限；选择COMMUNICATE而非WAIT，是因为沉默可能被解读为不确定性加大，加剧市场恐慌。主要传导机制：通过公开沟通重申配合审查的积极态度、强调现有服务不受影响、说明信息披露合规安排，从而降低用户和投资者的不确定性预期。主要不确定性在于审查结论和时限尚不明确，以及境外投资者对此事件的解读。",
+        "constraint_refs": [
+          "actor_platform:constraint:0",
+          "actor_platform:constraint:1"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "public",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_cyber_regulator-r3",
+        "round": 3,
+        "actor_id": "actor_cyber_regulator",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "当前网络安全审查刚刚启动第一轮，平台已表态配合审查并暂停新用户注册。作为审查机构，核心职责是依法推进审查程序、收集证据、评估风险，而非在市场层面立即采取进一步监管升级措施。现有事实中，平台正在配合整改，用户服务正常运行，尚未出现严重违规证据或紧急风险情形。因此，下一周期最适宜的动作是等待审查进展，让审查按照法定程序持续推进，同时评估平台提交的整改方案和风险排查报告。过早施加额外监管措施可能干扰审查程序的有序进行，也不符合依法行政的约束。",
+        "constraint_refs": [
+          "actor_cyber_regulator:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "public",
+        "confidence": 0.9,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_app_stores-r3",
+        "round": 3,
+        "actor_id": "actor_app_stores",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "截至当前时点，我未收到任何监管机构或审查部门的正式通知要求对该出行平台应用实施分发限制。依据约束，我不能自行判断审查最终结论，因此不需要针对该平台采取主动分发限制动作。现有事实仅表明平台在配合审查并停止新用户注册，现有服务正常，F4的价格波动属于市场行为且与我的合规目标无直接关联。我的最优选择是等待正式通知后再行动，以控制合规风险并遵守监管要求。",
+        "constraint_refs": [
+          "actor_app_stores:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "public",
+        "confidence": 0.95,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_drivers-r3",
+        "round": 3,
+        "actor_id": "actor_drivers",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "作为平台司机，现有用户服务在审查期间可正常使用（F2），短期订单和收入尚未受直接影响。但新用户停止注册（F1）意味着未来订单增长可能放缓，这让我担忧长期收入。由于无法影响监管决定（约束），没有其他可主动采取的有效动作来改变现状。管理层表态配合审查，我认为现阶段最优选择是继续观察事态发展，等审查结果明确后再做下一步打算。",
+        "constraint_refs": [
+          "actor_drivers:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_users-r3",
+        "round": 3,
+        "actor_id": "actor_users",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "maintain",
+        "intensity": 0.5,
+        "instrument_refs": [],
+        "rationale": "现有用户服务可正常使用，因此继续使用现有功能满足出行需求；同时保护个人信息的考虑使我选择暂时观望，等待审查结果和平台后续措施，暂不调整使用行为或账户操作。",
+        "constraint_refs": [
+          "actor_users:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_us_exchange-r3",
+        "round": 3,
+        "actor_id": "actor_us_exchange",
+        "action_type": "REGULATE",
+        "decision_status": "conditional",
+        "direction": "increase",
+        "intensity": 0.6,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "作为境外交易所，我的核心目标是维护上市披露完整性。虽然我不能决定网络安全审查，但审查公告（F1）及平台回应（F2）构成重大事件，可能影响投资者决策。该平台两天前刚IPO（F3），上市前未必充分披露境内数据监管风险。股价已下跌5%（F4），但审查影响尚未在信息披露中充分体现。我将要求发行人就审查对经营的影响发布补充披露公告，如未主动回应，则启动问询程序，以确保投资者获得及时且完整的重大信息。",
+        "constraint_refs": [
+          "actor_us_exchange:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_institutions-r3",
+        "round": 3,
+        "actor_id": "actor_institutions",
+        "action_type": "COMMUNICATE",
+        "decision_status": "conditional",
+        "direction": "maintain",
+        "intensity": 0.3,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "审查启动仅两天，平台刚完成境外IPO，境内数据监管与境外信披的双重约束尚未显现明确解决路径。现有用户服务正常是短期缓冲，但新用户注册暂停将影响增长指标。在审查范围和持续时间明确前，不适宜做出重大多空方向性动作。选择与同业机构沟通，交换对监管路径的不同情景推演（短期整改vs升级扩大），以便在后续审查结果公布时快速响应。动作强度较低，因为仅通过私下渠道交流，不做公开喊话或仓位变动。",
+        "constraint_refs": [
+          "actor_institutions:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.75,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_retail-r3",
+        "round": 3,
+        "actor_id": "actor_retail",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": null,
+        "instrument_refs": [],
+        "rationale": "审查刚刚启动，尚未公布任何结论。作为个人投资者，我容易把审查启动误解为最终处罚结论，这可能导致恐慌性决策。当前股价仅较发行价高10%，且已较前日下跌5%，说明市场已在消化消息。但审查期间停止新用户注册，经营基本面将受短期影响；审查结果存在不确定性，可能是处罚也可能是整改后放行。在审查结论明确之前，任何增持或减持都可能基于不完整信息。因此选择观望等待更多信息，以避免追涨或恐慌损失。",
+        "constraint_refs": [
+          "actor_retail:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_media-r3",
+        "round": 3,
+        "actor_id": "actor_media",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "审查刚刚启动，截至目前所有已宣布措施（审查启动、停止新用户注册）均已公开，平台也已表态配合并承诺现有用户服务正常。但审查尚未形成任何初步结论或后续限制措施，境外证券披露义务的具体冲突点也尚未显露。作为追踪审查进展的媒体，在这个节点应首先等待审查推进，获取更多事实后再分析跨境监管冲突的具体表现，避免对推测中的进一步限制进行过早解读。",
+        "constraint_refs": [
+          "actor_media:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.9,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      }
+    ],
+    "simulated_actions": [
+      {
+        "id": "trace-26",
+        "actor_id": "actor_platform",
+        "action_type": "COMMUNICATE",
+        "summary": "平台D：我们正在积极配合国家网络安全审查，全面排查数据安全风险。审查期间现有用户服务正常，出行不受影响。我们将确保境内外信息披露的合规与完整，维护用户、司机与投资者的权益。感谢大家的理解与支持。"
+      },
+      {
+        "id": "trace-31",
+        "actor_id": "actor_institutions",
+        "action_type": "COMMUNICATE",
+        "summary": "作为机构投资者，关注D平台网络安全审查的监管路径。关键观察点：(1)审查范围是否仅限数据合规还是扩大至业务模式；(2)境外上市后的双重信息披露约束如何协调；(3)新用户注册暂停的持续时间是短期整改还是长期升级。现有用户服务正常是积极信号，但需等待审查结果明确后再做仓位调整。现阶段保持观望，不急于做方向性判断。"
+      },
+      {
+        "id": "trace-32",
+        "actor_id": "actor_retail",
+        "action_type": "COMMUNICATE",
+        "summary": "作为个人投资者，我觉得短期确实要警惕追涨风险。审查刚刚启动，结果还不确定，但市场情绪已经被影响了。我会先观望，等审查有明确结论再考虑是否建仓。"
+      },
+      {
+        "id": "trace-36",
+        "actor_id": "actor_drivers",
+        "action_type": "COMMUNICATE",
+        "summary": "作为平台司机，已经看到审查公告。虽然平台说现有用户服务正常，但新用户停止注册，长期来看单量增长肯定会受影响。希望审查尽快结束，别影响我们的收入。"
+      },
+      {
+        "id": "trace-37",
+        "actor_id": "actor_media",
+        "action_type": "COMMUNICATE",
+        "summary": "分析：平台D两天前刚完成境外大型IPO，随即启动网络安全审查。这凸显了跨境上市公司面临的双重困境——境内数据安全法规要求严格审查、停止新用户注册；而境外证券法要求持续、完整的信息披露。两种法律体系的冲突正在从理论走向实践，后续需关注审查结论对上市公司持续责任的界定。"
+      },
+      {
+        "id": "trace-39",
+        "actor_id": "actor_cyber_regulator",
+        "action_type": "COMMUNICATE",
+        "summary": "感谢您的理性分析。需要明确的是：本次网络安全审查严格依据《网络安全法》《数据安全法》开展，审查范围聚焦于数据安全和个人信息保护合规，并非针对商业模式。关于境外上市后的信息披****露协调问题，审查机构已依法与相关监管部门建立了信息共享机制。新用户注册暂停是审查期间的临时性技术措施，具体持续时间取决于审查进展和平台整改情况。"
+      },
+      {
+        "id": "trace-40",
+        "actor_id": "actor_cyber_regulator",
+        "action_type": "COMMUNICATE",
+        "summary": "需要澄清：网络安全审查的目的是防范国家数据安全风险和保护个人信息权益，并非针对平台商业收入。审查结果将基于事实和法律作出，不宜将监管措施与短期商业指标简单关联。"
+      }
+    ],
+    "branch_slots": [
+      {
+        "slot_id": "slot-1",
+        "actor_ids": [
+          "actor_us_exchange",
+          "actor_platform"
+        ],
+        "relationship_kind": "supervises_listing_disclosure",
+        "decision_refs": [
+          "decision-actor_us_exchange-r3",
+          "decision-actor_platform-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-2",
+        "actor_ids": [
+          "actor_institutions",
+          "actor_cyber_regulator",
+          "actor_app_stores"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_institutions-r3",
+          "decision-actor_cyber_regulator-r3",
+          "decision-actor_app_stores-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-3",
+        "actor_ids": [
+          "actor_drivers",
+          "actor_retail"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_drivers-r3",
+          "decision-actor_retail-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-4",
+        "actor_ids": [
+          "actor_users",
+          "actor_media"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_users-r3",
+          "decision-actor_media-r3"
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "v7": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "境外交易所介入信披与平台应对",
+          "summary": "境外交易所因担心网络安全审查构成重大事件且IPO前未充分披露此类风险，主动要求平台就审查对经营的影响发布补充披露公告。平台为同时满足监管要求和境外信披义务，在强制公告之外还主动与交易所沟通说明审查范围和整改方案，避免停牌或持续股价波动。此时平台剩余的运营执行资源（如用户活动）不变，但信披成本增加，且交易所若对平台回复不满意则可能在后续启动正式问询程序。",
+          "actor_ids": [
+            "actor_us_exchange",
+            "actor_platform"
+          ],
+          "trigger_conditions": [
+            "境外交易所（actor_us_exchange）在D0+3日内向平台发送问询或要求主动披露网络安全审查对经营影响的函件",
+            "平台在D0+5日内发布补充披露公告，且公告中引用了审查机构（actor_cyber_regulator）的公开表态（如审查范围、临时措施性质）"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_us_exchange",
+              "action_type": "REGULATE",
+              "decision_ref": "decision-actor_us_exchange-r3"
+            },
+            {
+              "actor_id": "actor_platform",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_platform-r3"
+            }
+          ],
+          "consequences": [
+            "平台需在10日内完成补充披露，消耗财务和法务资源，短期运营现金流承压",
+            "现有用户和司机因看到平台主动信披而维持使用，应用商店（actor_app_stores）在此期间不会主动下架",
+            "境外交易所根据平台回复质量可能延长观察期（30日内不做终止上市动作），但投资者情绪分化：机构投资者部分缓解担忧，个人投资者仍因新用户停摆而减持"
+          ],
+          "invalidation_conditions": [
+            "境外交易所未在D0+5日内发出任何信披问询或正式要求",
+            "平台直接拒绝补充披露且未说明理由，导致交易所启动停牌程序"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_us_exchange-r3",
+            "decision-actor_platform-r3"
+          ],
+          "novelty_claim": "该分支超越事实复述，通过境外交易所与平台的信披互动，建立起‘监管审查→境外信披义务冲突→平台资源再分配（信披成本挤占运营投入）’的双主体传导链，解释为何审查消息本身虽已公开但股价可能因额外信披要求而进一步承压。",
+          "confidence": 0.65,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-2",
+          "label": "机构研究与监管澄清触发应用商店行动",
+          "summary": "机构投资者在私下交流中意识到审查范围可能从数据合规扩大到业务模式，于是公开或向监管机构提交质疑函。网络安全审查机构（actor_cyber_regulator）为平息市场过度解读，在媒体上发布澄清声明，强调审查聚焦数据安全而非商业模式。移动应用商店（actor_app_stores）在接到监管正式通知（或机构投资者推动的舆论压力）之前，仍然维持等待姿态；但若后续收到官方通知要求下架，则会立即行动。该分支中监管的沟通是主动的，旨在限制市场恐慌，但也因引起更多关注而增加了应用商店后续接到下架通知的概率。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_cyber_regulator",
+            "actor_app_stores"
+          ],
+          "trigger_conditions": [
+            "机构投资者在D0+2周内发布行业报告或通过媒体（actor_media）发声，质疑审查可能涉及业务模式（如出行定价、司机分成）",
+            "网络安全审查机构在D0+3周内通过官方渠道发布澄清声明，明确审查仅限数据安全与个人信息保护"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_institutions-r3"
+            },
+            {
+              "actor_id": "actor_cyber_regulator",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_cyber_regulator-r3"
+            },
+            {
+              "actor_id": "actor_app_stores",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_app_stores-r3"
+            }
+          ],
+          "consequences": [
+            "平台股价因监管澄清而暂时趋稳，但新用户停止注册的基本面压制持续，股价波动区间缩窄至±5%",
+            "应用商店在此期间未收到任何下架通知，继续正常提供平台应用下载",
+            "机构投资者中部分（约30%）恢复缓慢建仓，但总体仓位仍低（<3%），因为审查持续时间未知"
+          ],
+          "invalidation_conditions": [
+            "审查机构未在D0+3周内发布任何关于审查范围的澄清",
+            "应用商店在D0+2周内主动或被动要求下架平台应用",
+            "机构投资者未就审查范围公开发声"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_institutions-r3",
+            "decision-actor_cyber_regulator-r3",
+            "decision-actor_app_stores-r3"
+          ],
+          "novelty_claim": "该分支通过机构投资者公开质疑与监管澄清的互动，构建了从‘金融噪声解读→官方权威界定→市场主体预期收敛’的三角色传导，超越单纯复述（监管已澄清）或股价反应（已有跌幅）。",
+          "confidence": 0.55,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-3",
+          "label": "司机与个人投资者的信心断裂与互相强化",
+          "summary": "随着审查时间推进（D0+10日左右），司机新订单增长确认放缓，通过内部群或社交平台开始抱怨收入下降。个人投资者看到司机群体负面情绪扩散，同时注意到应用商店未变化但新用户注册无进展，从而认定基本面恶化，纷纷减持，推动股价跌破发行价。司机因看到股价下跌和个人投资者离场，进一步降低对平台未来的预期，部分转向其他出行平台（但受限于合同不能立即停止接单）。该分支中司机和散户的悲观相互反馈，形成‘新用户停摆→订单增速放缓→司机收入下降→散户减持→股价下跌→平台融资压力’的闭环。",
+          "actor_ids": [
+            "actor_drivers",
+            "actor_retail"
+          ],
+          "trigger_conditions": [
+            "D0+10日内，至少有3家财经媒体或社交平台报道司机群体对收入下降的普遍抱怨（样本>50名司机）",
+            "D0+15日内，平台股价连续3个交易日低于发行价（-1%以内），且日均成交量超过D0前5日均量的1.5倍"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_drivers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_drivers-r3"
+            },
+            {
+              "actor_id": "actor_retail",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_retail-r3"
+            }
+          ],
+          "consequences": [
+            "部分司机减少接单时间（日均在线时长下降10-15%），但未大规模退网（注销账户<1%）",
+            "个人投资者在D0+30日内累计卖出占总流通股的5-8%，股价低点较D0收盘价低15-20%",
+            "平台管理层因股价持续低迷，开始与承销商沟通是否启动稳定股价措施（如延期锁定期、回购），但受限于审查期间的交易限制"
+          ],
+          "invalidation_conditions": [
+            "新闻或社交平台上未出现司机集体抱怨收入下降的可信报道（如样本不足10人）",
+            "股价在D0+15日内始终高于发行价",
+            "个人投资者净买入而非减持"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_drivers-r3",
+            "decision-actor_retail-r3"
+          ],
+          "novelty_claim": "该分支超越事实复述，通过司机收入感知与个人投资者减持行为的双向反馈，构建了‘供应端情绪→资本市场定价→供应端预期修正’的跨群体传导，解释为何审查技术措施（停止新用户注册）能通过微观主体互动放大为系统性股价压力。",
+          "confidence": 0.6,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-4",
+          "label": "现有用户稳定但媒体放大恐慌引发短期崩盘",
+          "summary": "现有用户在审查启动后最初两周内保持使用（出行需求不因监管而消失），应用可用性未受影响。然而财经和科技媒体将审查描述为‘数据监管冲突从理论走向实践’并聚焦于‘双重要约束可能导致平台被强制整改’等极端情形。报道被用户看到后，部分用户因担忧未来服务中断开始备份数据并注册替代平台，但并未立即卸载（因现有服务正常）。媒体报道同时放大散户情绪，导致一轮短期放量下跌，但跌幅因缺乏基本面恶化（用户活跃度仍高）而迅速反弹。该分支中媒体起到了信息放大器作用，但用户的实际行为（等待而非行动）削弱了长期冲击。",
+          "actor_ids": [
+            "actor_users",
+            "actor_media"
+          ],
+          "trigger_conditions": [
+            "D0+7日内，不少于2家主流财经媒体发布深度报道，标题或导语中包含‘数据监管冲突’、‘双重约束’、‘强制整改’等关键词",
+            "D0+10日内，平台应用在主流应用商店的下载排名无变化（仍在前200名），但活跃度（日均订单量）未出现同比下滑超过5%"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_users",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_users-r3"
+            },
+            {
+              "actor_id": "actor_media",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_media-r3"
+            }
+          ],
+          "consequences": [
+            "股价在媒体报道发布当日较前一交易日下跌8-12%，但在7日内回撤至下跌3-5%区间，因为用户实际行为未显著恶化",
+            "现有用户群体中约5-8%注册了替代出行应用，但主要使用习惯未变（每周使用次数下降<2%）",
+            "媒体因后续未出现事实性验证（如正式下架或处罚）而逐步弱化相关报道，转向等待审查结论"
+          ],
+          "invalidation_conditions": [
+            "现有用户在D0+10日内月活跃度下降超过20%（表明大规模弃用）",
+            "应用商店在D0+10日内将平台应用下架",
+            "股价在媒体报道后单日下跌<5%，未形成恐慌"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_users-r3",
+            "decision-actor_media-r3"
+          ],
+          "novelty_claim": "该分支超越事实复述，通过媒体极端化解读与用户实际行为（等待、不卸载）之间的落差，构建了‘信息噪声→短期市场超跌→基本面确认后反弹’的多主体传导，揭示为何在审查仅停止新用户注册的情况下，媒体能引发却无法持续推动下跌。",
+          "confidence": 0.7,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        }
+      ],
+      "generation": {
+        "semantic_retries": 0,
+        "elapsed_seconds": 89.89755345799495
+      },
+      "judgments": []
+    }
+  }
+}

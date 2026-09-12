@@ -1,0 +1,1194 @@
+{
+  "anonymous_case_id": "anonymous-case-24",
+  "configured_actor_count": 8,
+  "decision_actor_count": 6,
+  "fact_count": 4,
+  "fact_chars": 123,
+  "input": {
+    "case_id": "anonymous-case-24",
+    "as_of": "D0",
+    "question": "真实日期、名称、证券代码和司法辖区均已匿名化。只使用D0已经公开的信息，推演各参与方未来行动及市场反应。",
+    "horizon": {
+      "kind": "calendar_days",
+      "value": 60,
+      "end_at": "D0 + stated horizon"
+    },
+    "facts": [
+      {
+        "id": "F1",
+        "statement": "一家全国性医疗支付与理赔网络发现疑似国家关联威胁者进入系统。"
+      },
+      {
+        "id": "F2",
+        "statement": "运营方为隔离事件切断多个系统，药房和医疗机构开始报告交易中断。"
+      },
+      {
+        "id": "F3",
+        "statement": "母公司表示调查和恢复正在进行，但D0无法给出完整影响范围与恢复日期。"
+      },
+      {
+        "id": "F4",
+        "statement": "患者数据是否外泄、监管调查范围和流动性援助需求均未确定。"
+      }
+    ],
+    "actors": [
+      {
+        "id": "actor_operator",
+        "label": "匿名医疗网络运营方",
+        "kind": "issuer",
+        "goals": [
+          "维护匿名医疗网络运营方的核心利益",
+          "根据新增证据调整公开行动"
+        ],
+        "constraints": [
+          "D0信息不完整，且其他参与方可能采取策略性行动"
+        ]
+      },
+      {
+        "id": "actor_health_regulator",
+        "label": "医疗隐私监管机构",
+        "kind": "regulator",
+        "goals": [
+          "维护医疗隐私监管机构的核心利益",
+          "根据新增证据调整公开行动"
+        ],
+        "constraints": [
+          "D0信息不完整，且其他参与方可能采取策略性行动"
+        ]
+      },
+      {
+        "id": "actor_providers",
+        "label": "医院与诊所",
+        "kind": "customer",
+        "goals": [
+          "维护医院与诊所的核心利益",
+          "根据新增证据调整公开行动"
+        ],
+        "constraints": [
+          "D0信息不完整，且其他参与方可能采取策略性行动"
+        ]
+      },
+      {
+        "id": "actor_pharmacies",
+        "label": "药房与药品渠道",
+        "kind": "customer",
+        "goals": [
+          "维护药房与药品渠道的核心利益",
+          "根据新增证据调整公开行动"
+        ],
+        "constraints": [
+          "D0信息不完整，且其他参与方可能采取策略性行动"
+        ]
+      },
+      {
+        "id": "actor_patients",
+        "label": "患者与参保人",
+        "kind": "customer",
+        "goals": [
+          "维护患者与参保人的核心利益",
+          "根据新增证据调整公开行动"
+        ],
+        "constraints": [
+          "D0信息不完整，且其他参与方可能采取策略性行动"
+        ]
+      },
+      {
+        "id": "actor_insurers",
+        "label": "保险支付方",
+        "kind": "competitor",
+        "goals": [
+          "维护保险支付方的核心利益",
+          "根据新增证据调整公开行动"
+        ],
+        "constraints": [
+          "D0信息不完整，且其他参与方可能采取策略性行动"
+        ]
+      },
+      {
+        "id": "actor_institutions",
+        "label": "机构投资者",
+        "kind": "institutional_investor",
+        "goals": [
+          "维护机构投资者的核心利益",
+          "根据新增证据调整公开行动"
+        ],
+        "constraints": [
+          "D0信息不完整，且其他参与方可能采取策略性行动"
+        ]
+      },
+      {
+        "id": "actor_media",
+        "label": "医疗与安全媒体",
+        "kind": "media",
+        "goals": [
+          "维护医疗与安全媒体的核心利益",
+          "根据新增证据调整公开行动"
+        ],
+        "constraints": [
+          "D0信息不完整，且其他参与方可能采取策略性行动"
+        ]
+      }
+    ],
+    "financial_decisions": [
+      {
+        "id": "decision-actor_operator-r3",
+        "round": 3,
+        "actor_id": "actor_operator",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.7,
+        "instrument_refs": [],
+        "rationale": "截至当前时点，D0信息仍不完整：患者数据是否外泄（F4）、监管调查范围和流动性援助需求均未确定。母公司已公告调查和恢复正在进行，但无法给出完整影响范围与恢复日期（F3）。作为运营方，已切断受影响的系统控制风险（F2），但公开承诺披露范围和监管配合的前提是调查取得明确结论。当前优先任务是完成内部取证和影响评估，过早公开不完整信息可能引发更大混乱或法律责任。因此选择等待调查得出阶段性结论后再决定下一步沟通与操作动作。",
+        "constraint_refs": [
+          "actor_operator:constraint:0"
+        ],
+        "evidence_refs": [
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_health_regulator-r3",
+        "round": 3,
+        "actor_id": "actor_health_regulator",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "当前信息高度不完整：虽然已知攻击者疑似国家关联并已切断部分系统，但患者数据是否外泄、监管调查范围和流动性援助需求均未确定。作为监管机构，在D0信息不完整且其他参与方可能采取策略性行动的条件下，提前启动正式监管行动可能引发不必要的信息不对称风险。最佳选择是等待运营方在60天内提交正式数据泄露报告，并收集更多证据后再决定是否需要启动合规调查或对匿名医疗集团采取监管措施。公众情绪虽有压力，但制度框架要求证据充分后再行动。",
+        "constraint_refs": [
+          "actor_health_regulator:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "public",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_providers-r3",
+        "round": 3,
+        "actor_id": "actor_providers",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "maintain",
+        "intensity": 0.4,
+        "instrument_refs": [],
+        "rationale": "截至当前时点（D0-date），F1至F4均显示D0信息不完整：运营方已切断系统（F2），但影响范围与恢复日期不明（F3），数据是否泄露及监管调查范围均未确定（F4）。作为医院与诊所，我已在公开声明中表达支持透明调查并主动联系患者提供指导，但尚未掌握足够证据判断是否需启动正式谈判或调整金融仓位。贸然行动可能暴露自身运营脆弱性或引发不当市场信号，而母公司已承诺调查（F3），监管机构保留30天调查权。因此，选择WAIT，等待运营方进一步调查结果（如60天数据泄露报告）或监管措施明朗化后再决定后续行动。核心不确定性在于数据泄露范围和交易中断持续时间对现金流的实际冲击程度。",
+        "constraint_refs": [
+          "actor_providers:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_pharmacies-r3",
+        "round": 3,
+        "actor_id": "actor_pharmacies",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "作为药房与药品渠道的核心利益维护者，在D0信息不完整且事实显示影响范围、患者数据泄露、监管调查和流动性援助均未确定的情况下，最理性的公共金融动作是等待母公司调查和系统恢复结果，避免过早表态或调整仓位引发额外市场压力或监管风险。我将持续观察事态发展，待关键不确定性（如数据泄露确认、恢复日期）明确后再采取行动。",
+        "constraint_refs": [
+          "actor_pharmacies:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_patients-r3",
+        "round": 3,
+        "actor_id": "actor_patients",
+        "action_type": "COMMUNICATE",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": 0.7,
+        "instrument_refs": [],
+        "rationale": "作为患者与参保人代表，当前信息极度不完整（F4关键事项未确定），但交易中断已直接影响药房和医疗机构的正常服务（F2），患者核心利益受到实质性威胁。我选择在公共渠道发声，联合其他患者群体向运营方和监管机构施压，要求尽快明确数据泄露范围、提供流动性援助安排，并建立受害者赔偿机制。公开表达可以形成社会关注压力，推动信息透明化，同时不涉及任何金融资产操作，符合制度约束和经济激励。",
+        "constraint_refs": [
+          "actor_patients:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "public",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_insurers-r3",
+        "round": 3,
+        "actor_id": "actor_insurers",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "当前D0信息高度不完整：F4明确指出患者数据是否外泄、监管调查范围和流动性援助需求均未确定，F3确认母公司无法给出完整影响范围与恢复日期。作为保险支付方，在信息不足以评估对理赔支付流程、数据暴露风险敞口及流动性需求的真实影响前，采取观望策略最符合制度约束与经济激励。盲目公开表态可能被其他参与方策略性利用，因此首选内部风险评估，等待运营方60天报告或监管进一步行动后再调整公开动作。",
+        "constraint_refs": [
+          "actor_insurers:constraint:0"
+        ],
+        "evidence_refs": [
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      }
+    ],
+    "simulated_actions": [
+      {
+        "id": "trace-18",
+        "actor_id": "actor_patients",
+        "action_type": "COMMUNICATE",
+        "summary": "作为患者和参保人，我完全支持公开透明！我们的健康数据关系到每个人的切身利益，运营方必须立即公布受影响范围，不能隐瞒任何信息。"
+      },
+      {
+        "id": "trace-19",
+        "actor_id": "actor_patients",
+        "action_type": "COMMUNICATE",
+        "summary": "提醒大家立即更改所有与医疗相关的密码，密切关注个人信用报告和医保使用记录。我们需要联合起来向监管机构施压，要求尽快明确患者数据是否外泄以及赔偿方案。"
+      },
+      {
+        "id": "trace-26",
+        "actor_id": "actor_providers",
+        "action_type": "COMMUNICATE",
+        "summary": "作为医疗机构代表，我们密切关注此次网络事件。患者的健康数据安全是我们的首要关切。我们支持透明调查，也理解运营方正在采取控制措施。在此过渡期，我们将主动联系受影响患者，提供身份保护指导，并与运营方保持沟通以确保交易尽快恢复。我们呼吁各方以事实为基础理性沟通，共同维护医疗体系的稳定运行。"
+      },
+      {
+        "id": "trace-28",
+        "actor_id": "actor_operator",
+        "action_type": "COMMUNICATE",
+        "summary": "感谢您的提醒，这些建议非常中肯。作为运营方，我们建议所有患者和参保人密切关注个人医保使用记录，如发现异常可联系我们的客服热线获得协助。我们正在与网络安全专家合作评估数据安全状况，后续将提供进一步的风险防范指导。感谢大家的理解与配合。"
+      },
+      {
+        "id": "trace-29",
+        "actor_id": "actor_operator",
+        "action_type": "COMMUNICATE",
+        "summary": "收到监管部门的意见。我方确认将在60天期限内提交正式的数据泄露报告。目前调查团队正在全面开展工作，我们将积极配合监管机构的任何合规审查，确保事件调查的透明性和完整性。同时，我们也将定期向监管部门汇报调查进展。"
+      },
+      {
+        "id": "trace-33",
+        "actor_id": "actor_operator",
+        "action_type": "COMMUNICATE",
+        "summary": "感谢医疗机构伙伴的理解与支持。我们正在优先恢复药房和医疗机构的交易处理能力，确保患者能够及时获得所需服务。我们已建立专项沟通渠道，与各合作医疗机构保持每日信息同步。如发现任何可疑的数据使用行为，请立即通过专用安全渠道向我们报告，我们将优先处理。"
+      },
+      {
+        "id": "trace-35",
+        "actor_id": "actor_providers",
+        "action_type": "COMMUNICATE",
+        "summary": "感谢运营方的及时通报。作为医疗机构代表，我们确认已注意到系统中断对药房和诊疗交易的影响。我方愿意配合调查，同时希望在过渡期内获得关于手工处理结算的临时方案指导，以减轻对患者诊疗服务的影响。期待进一步的更新。"
+      }
+    ],
+    "branch_slots": [
+      {
+        "slot_id": "slot-1",
+        "actor_ids": [
+          "actor_patients",
+          "actor_operator"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_patients-r3",
+          "decision-actor_operator-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-2",
+        "actor_ids": [
+          "actor_providers",
+          "actor_health_regulator"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_providers-r3",
+          "decision-actor_health_regulator-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-3",
+        "actor_ids": [
+          "actor_insurers",
+          "actor_pharmacies"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_insurers-r3",
+          "decision-actor_pharmacies-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-4",
+        "actor_ids": [
+          "actor_patients",
+          "actor_providers"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_patients-r3",
+          "decision-actor_providers-r3"
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "v7": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "患者施压与运营商信息缓冲",
+          "summary": "患者公开施压要求立即公开数据泄露范围（F1/F2），但运营商因调查未完成而暂缓完整信息披露（F3，private WAIT决策），仅提供通用建议与监管承诺。患者集体行动若触发媒体负面报道，可能迫使运营商提前公开部分调查结果，但若调查确认数据未泄露，则患者行动失去动能。",
+          "actor_ids": [
+            "actor_patients",
+            "actor_operator"
+          ],
+          "trigger_conditions": [
+            "患者公开声明在D0+7天内被主流媒体报道并引发公众对数据泄露的广泛质疑。",
+            "运营方在D0+7天内没有发布新的数据泄露确认声明。"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_patients",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_patients-r3"
+            },
+            {
+              "actor_id": "actor_operator",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_operator-r3"
+            }
+          ],
+          "consequences": [
+            "运营方可能为缓解舆论压力而在正式报告截止日前发布阶段性发现。",
+            "患者群体基于有限的运营方回应，可能决定升级行动，包括向监管机构提交集体投诉。"
+          ],
+          "invalidation_conditions": [
+            "运营方在D0+7天内主动发布明确的数据泄露确认或否认声明。",
+            "媒体在D0+7天内未对患者声明进行有影响力的报道。"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_patients-r3",
+            "decision-actor_operator-r3"
+          ],
+          "novelty_claim": "本分支将患者公开施压（COMMUNICATE）与运营方基于private WAIT决策的信息保守立场串联，展示了舆论压力如何可能改变运营方信息披露的时间表，而非仅复述已知的‘信息不完整’描述。",
+          "confidence": 0.7,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-2",
+          "label": "监管等待与机构主动告知",
+          "summary": "医院与诊所准备配合调查并提供临时结算方案指南，但监管机构选择等待正式报告后再启动合规审查。若医院主动联系监管机构并要求指导（如模拟对话所示），监管机构可能要求其在60天报告提交前保持现状，从而限制医院的自主行动空间。",
+          "actor_ids": [
+            "actor_providers",
+            "actor_health_regulator"
+          ],
+          "trigger_conditions": [
+            "医院或诊所在D0+14天内通过正式渠道向监管机构提交临时结算方案的指导请求。",
+            "监管机构未立即发布新规，而是回复表示将在审查运营方报告期间，依赖现有《紧急情况操作指南》处理。"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_providers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_providers-r3"
+            },
+            {
+              "actor_id": "actor_health_regulator",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_health_regulator-r3"
+            }
+          ],
+          "consequences": [
+            "医院与诊所的自主调整方案受限，必须按监管机构的现有框架操作，增加其运营复杂性。",
+            "若交易中断持续，这种受限状态可能推动医院联盟共同要求监管机构加速行动。"
+          ],
+          "invalidation_conditions": [
+            "监管机构在收到请求后与医院联合发布新的临时操作标准。",
+            "运营方在D0+14天内恢复了核心交易系统。"
+          ],
+          "evidence_refs": [
+            "F2",
+            "F3",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_providers-r3",
+            "decision-actor_health_regulator-r3"
+          ],
+          "novelty_claim": "本分支展示了医院主动寻求指导的行动如何被监管机构的被动等待策略所约束，从而产生并非单一参与者所能决定的行政摩擦，超越了简单复述‘双方都等待’的现状。",
+          "confidence": 0.65,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-3",
+          "label": "药房中断与保险理赔挤压",
+          "summary": "药房因交易系统中断面临无法正常核销保险理赔的情况（F2），而保险支付方目前选择静待信息明朗（private WAIT）。若中断持续导致药房向保险方提交大量手工索赔，可能迫使保险方无法继续等待，必须紧急调整临时理赔处理流程，否则药房将面临现金流压力并可能向媒体抱怨。",
+          "actor_ids": [
+            "actor_insurers",
+            "actor_pharmacies"
+          ],
+          "trigger_conditions": [
+            "系统中断在D0+21天内仍未完全恢复。"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_insurers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_insurers-r3"
+            },
+            {
+              "actor_id": "actor_pharmacies",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_pharmacies-r3"
+            }
+          ],
+          "consequences": [
+            "保险支付方可能发布临时指令，要求药房保留纸质凭证并对特定种类药品启动快速人工预授权。",
+            "若保险方未及时反应，药房可能联合向医疗媒体公开表达对理赔延迟的忧虑，促使舆论关注保险方的应对能力。"
+          ],
+          "invalidation_conditions": [
+            "运营方在D0+21天内宣布系统已完全恢复。",
+            "保险支付方在中断发生第一周内即主动发布了临时理赔处理流程。"
+          ],
+          "evidence_refs": [
+            "F2",
+            "F3",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_insurers-r3",
+            "decision-actor_pharmacies-r3"
+          ],
+          "novelty_claim": "本分支将系统中断从‘单一运营方技术问题’转化为药房与保险支付方之间的理赔流程挤压，展示了等待决策在面对持续运营压力时如何失效，并触发新的供应链级后果。",
+          "confidence": 0.75,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-4",
+          "label": "患者担忧驱动医疗机构主动防护",
+          "summary": "患者已公开呼吁他人更改密码并监控个人信用记录（模拟trace-19）。若患者群体因此大量涌入医院与诊所咨询数据安全风险，将迫使医院与诊所不能仅维持‘支持透明调查’的声明，而必须立即启动内部患者通知和身份保护指导计划，即使信息尚不完整。",
+          "actor_ids": [
+            "actor_patients",
+            "actor_providers"
+          ],
+          "trigger_conditions": [
+            "患者就个人数据安全问题的咨询量在D0+10天内相比事件前增加10倍。",
+            "医院证实其呼叫中心和前台收到大量关于‘如何防止身份盗用’的重复询问。"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_patients",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_patients-r3"
+            },
+            {
+              "actor_id": "actor_providers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_providers-r3"
+            }
+          ],
+          "consequences": [
+            "医院与诊所可能发布自己的患者安全指南，并公开呼吁运营方提供受影响患者名单以进行定向保护，即便运营方表示调查未结束。",
+            "运营方可能因医疗机构对患者名单的直接要求而面临保护与隐私合规之间的两难，导致公开回应口径出现微妙变化。"
+          ],
+          "invalidation_conditions": [
+            "患者行动没有引起可观测的批量性咨询。",
+            "运营方在患者咨询高峰前主动发布了详尽的白名单和查询工具。"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_patients-r3",
+            "decision-actor_providers-r3"
+          ],
+          "novelty_claim": "本分支将患者一方的预防性言论转化为对医疗机构的务实压力，迫使医疗机构超越其原有的‘支持透明调查’表态而采取具体行动，显示了服务需求变化如何逆向塑造上游危机响应，而不仅仅是患者单方面呼吁。",
+          "confidence": 0.7,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        }
+      ],
+      "generation": {
+        "semantic_retries": 0,
+        "elapsed_seconds": 101.02625049999915
+      },
+      "judgments": [
+        {
+          "branches": [
+            {
+              "index": 1,
+              "criteria": {
+                "action_time_clear": {
+                  "pass": false,
+                  "quote": "患者公开施压要求立即公开数据泄露范围（F1/F2），但运营商因调查未完成而暂缓完整信息披露（F3，private WAIT决策），仅提供通用建议与监管承诺。",
+                  "reason": "该句将模拟决策中的WAIT状态写成已发生的暂缓行为，把未来条件响应当作了已发生事实。"
+                },
+                "observable": {
+                  "pass": true,
+                  "quote": "患者公开声明在D0+7天内被主流媒体报道并引发公众对数据泄露的广泛质疑。",
+                  "reason": "触发指明D0+7天内可核对的具体事件（媒体报道和公众质疑），可判断复核时间和地点。"
+                },
+                "falsifiable": {
+                  "pass": true,
+                  "quote": "运营方在D0+7天内主动发布明确的数据泄露确认或否认声明。",
+                  "reason": "失效条件能推翻患者施压导致信息缓冲的核心传导，而非只重复触发未出现。"
+                },
+                "grounded": {
+                  "pass": true,
+                  "quote": "患者公开施压要求立即公开数据泄露范围（F1/F2）",
+                  "reason": "关键机制基于事实F1和F2，患者行动符合角色约束，未捏造已知资源或期限。"
+                },
+                "multi_actor": {
+                  "pass": true,
+                  "quote": "患者集体行动若触发媒体负面报道，可能迫使运营商提前公开部分调查结果",
+                  "reason": "显示患者行动如何改变运营商选择，存在至少两方的明确行动响应关系。"
+                }
+              }
+            },
+            {
+              "index": 2,
+              "criteria": {
+                "action_time_clear": {
+                  "pass": false,
+                  "quote": "医院与诊所准备配合调查并提供临时结算方案指南，但监管机构选择等待正式报告后再启动合规审查。",
+                  "reason": "将未来条件响应（监管等待）写成了已经采取的行动，未区分模拟起点与未来假设。"
+                },
+                "observable": {
+                  "pass": true,
+                  "quote": "医院或诊所在D0+14天内通过正式渠道向监管机构提交临时结算方案的指导请求。",
+                  "reason": "触发指明了D0+14天内可核对的具体事件和渠道，方便判断复核时间和地点。"
+                },
+                "falsifiable": {
+                  "pass": true,
+                  "quote": "监管机构在收到请求后与医院联合发布新的临时操作标准。",
+                  "reason": "失效条件能推翻医院行动受限的核心传导，而非只重复触发未出现。"
+                },
+                "grounded": {
+                  "pass": true,
+                  "quote": "医院与诊所准备配合调查并提供临时结算方案指南",
+                  "reason": "关键机制引用事实F2和F3，角色行动符合约束，未捏造已知资源或数值。"
+                },
+                "multi_actor": {
+                  "pass": true,
+                  "quote": "医院或诊所在D0+14天内通过正式渠道向监管机构提交临时结算方案的指导请求。",
+                  "reason": "显示医院向监管机构发起行动请求，存在两方之间的明确响应关系。"
+                }
+              }
+            },
+            {
+              "index": 3,
+              "criteria": {
+                "action_time_clear": {
+                  "pass": false,
+                  "quote": "药房因交易系统中断面临无法正常核销保险理赔的情况（F2），而保险支付方目前选择静待信息明朗（private WAIT）。",
+                  "reason": "将保险方的private WAIT决策写成了已发生的行动，混淆了模拟起点与未来假设。"
+                },
+                "observable": {
+                  "pass": true,
+                  "quote": "系统中断在D0+21天内仍未完全恢复。",
+                  "reason": "触发指明了D0+21天内可核对的具体期限和事件（系统中断未恢复），方便判断复核地点。"
+                },
+                "falsifiable": {
+                  "pass": true,
+                  "quote": "运营方在D0+21天内宣布系统已完全恢复。",
+                  "reason": "失效条件能推翻药房中断与理赔挤压的核心传导，而非只重复触发未出现。"
+                },
+                "grounded": {
+                  "pass": true,
+                  "quote": "药房因交易系统中断面临无法正常核销保险理赔的情况（F2）",
+                  "reason": "关键机制基于事实F2，角色行动符合约束，未捏造已知信息或期限。"
+                },
+                "multi_actor": {
+                  "pass": true,
+                  "quote": "若中断持续导致药房向保险方提交大量手工索赔，可能迫使保险方无法继续等待",
+                  "reason": "显示药房行动如何改变保险方的等待选择，存在两方之间的明确响应关系。"
+                }
+              }
+            },
+            {
+              "index": 4,
+              "criteria": {
+                "action_time_clear": {
+                  "pass": true,
+                  "quote": "患者已公开呼吁他人更改密码并监控个人信用记录（模拟trace-19）。若患者群体因此大量涌入医院与诊所咨询数据安全风险，将迫使医院与诊所",
+                  "reason": "清楚区分了已发生的公开呼吁（模拟trace-19）和未来的条件响应（若大量涌入，将迫使），没有把未来说成已发生。"
+                },
+                "observable": {
+                  "pass": true,
+                  "quote": "患者就个人数据安全问题的咨询量在D0+10天内相比事件前增加10倍。",
+                  "reason": "触发指明了D0+10天内可核对的具体指标（咨询量增加10倍）和比较基准，方便判断复核时间和地点。"
+                },
+                "falsifiable": {
+                  "pass": true,
+                  "quote": "患者行动没有引起可观测的批量性咨询。",
+                  "reason": "失效条件能推翻患者驱动医疗机构主动防护的核心传导，而非只重复触发未出现。"
+                },
+                "grounded": {
+                  "pass": true,
+                  "quote": "患者已公开呼吁他人更改密码并监控个人信用记录（模拟trace-19）",
+                  "reason": "关键机制引用模拟trace-19中的行动，符合患者角色约束，未捏造已知资源或数值。"
+                },
+                "multi_actor": {
+                  "pass": true,
+                  "quote": "患者群体因此大量涌入医院与诊所咨询数据安全风险，将迫使医院与诊所不能仅维持‘支持透明调查’的声明",
+                  "reason": "显示患者行为如何改变医院与诊所的声明策略，存在两方之间的明确响应关系。"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "v8": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "数据泄露确认触发集体索赔",
+          "summary": "若F4中患者数据外泄被确认，患者群体将施压要求赔偿，运营方需同时应对法律诉讼和监管调查。",
+          "actor_ids": [
+            "actor_patients",
+            "actor_operator"
+          ],
+          "trigger_conditions": [
+            "运营方或第三方取证机构发布声明，确认至少一种患者数据（如姓名与诊断组合）已从系统外泄"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_patients",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_patients-r3"
+            },
+            {
+              "actor_id": "actor_operator",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_operator-r3"
+            }
+          ],
+          "consequences": [
+            "患者数据泄露赔偿和法律费用可能高达数亿美元，拖累运营方财务状况",
+            "监管机构可能施加创纪录的罚款或强制整改协议"
+          ],
+          "invalidation_conditions": [
+            "调查显示攻击者仅中断服务但未实际提取或外泄任何患者数据"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_patients-r3",
+            "decision-actor_operator-r3"
+          ],
+          "novelty_claim": "多数分析聚焦于服务中断，但数据外泄确认将激活患者集体行动与监管执法双线压力，远超仅运营中断的影响",
+          "confidence": 0.6,
+          "confidence_semantics": "branch_coherence_not_forecast_probability",
+          "starting_decisions": [
+            {
+              "actor_id": "actor_patients",
+              "action_type": "COMMUNICATE",
+              "decision_status": "intended",
+              "rationale": "作为患者与参保人代表，当前信息极度不完整（F4关键事项未确定），但交易中断已直接影响药房和医疗机构的正常服务（F2），患者核心利益受到实质性威胁。我选择在公共渠道发声，联合其他患者群体向运营方和监管机构施压，要求尽快明确数据泄露范围、提供流动性援助安排，并建立受害者赔偿机制。公开表达可以形成社会关注压力，推动信息透明化，同时不涉及任何金融资产操作，符合制度约束和经济激励。",
+              "decision_ref": "decision-actor_patients-r3"
+            },
+            {
+              "actor_id": "actor_operator",
+              "action_type": "WAIT",
+              "decision_status": "conditional",
+              "rationale": "截至当前时点，D0信息仍不完整：患者数据是否外泄（F4）、监管调查范围和流动性援助需求均未确定。母公司已公告调查和恢复正在进行，但无法给出完整影响范围与恢复日期（F3）。作为运营方，已切断受影响的系统控制风险（F2），但公开承诺披露范围和监管配合的前提是调查取得明确结论。当前优先任务是完成内部取证和影响评估，过早公开不完整信息可能引发更大混乱或法律责任。因此选择等待调查得出阶段性结论后再决定下一步沟通与操作动作。",
+              "decision_ref": "decision-actor_operator-r3"
+            }
+          ],
+          "conditional_responses": [
+            {
+              "actor_id": "actor_patients",
+              "condition": "若运营方或第三方调查确认患者数据（如医疗记录、社保号）已外泄，且外泄规模涉及百万级个人或敏感临床数据。",
+              "response": "我方将联合其他受影响患者发起集体诉讼，要求赔偿身份盗窃防护费用和未来医疗欺诈损失，同时在公共媒体和监管听证会上持续施压，要求运营方提供免费信用监控和医疗身份保险。"
+            },
+            {
+              "actor_id": "actor_operator",
+              "condition": "若患者数据外泄被证实，且法律索赔启动，同时监管机构开始正式调查（如FTC或HHS）。",
+              "response": "我方将立即设立专项资金用于处理数据泄露赔偿和法律费用，并可能寻求母公司紧急信贷支持，同时调整公开披露策略，优先安抚受影响客户并配合监管，以避免声誉进一步受损。"
+            }
+          ],
+          "response_semantics": "conditional_hypothesis_not_observed_action",
+          "observations": [
+            {
+              "kind": "trigger",
+              "signal": "运营方或第三方取证机构发布声明，确认至少一种患者数据（如姓名与诊断组合）已从系统外泄",
+              "source": "运营方官网新闻稿或安全公告",
+              "window": "未来 60 个自然日",
+              "evidence_refs": [
+                "F4"
+              ]
+            },
+            {
+              "kind": "invalidation",
+              "signal": "调查显示攻击者仅中断服务但未实际提取或外泄任何患者数据",
+              "source": "运营方官方技术报告或政府调查结论",
+              "window": "未来 60 个自然日",
+              "evidence_refs": [
+                "F1",
+                "F4"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "系统恢复缓慢促使监管提前介入",
+          "summary": "若运营方在D0+60天内未能提供可信恢复计划，监管机构可能提前启动正式调查并采取临时措施。",
+          "actor_ids": [
+            "actor_providers",
+            "actor_health_regulator"
+          ],
+          "trigger_conditions": [
+            "医院协会或药房联盟发布公开声明，指控运营方恢复进度不足并威胁更换服务商"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_providers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_providers-r3"
+            },
+            {
+              "actor_id": "actor_health_regulator",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_health_regulator-r3"
+            }
+          ],
+          "consequences": [
+            "监管机构提前干预可能导致运营方被迫接受更严格的数据安全整改条款",
+            "医疗机构集体施压可能加速运营方客户外流，冲击其市场份额"
+          ],
+          "invalidation_conditions": [
+            "运营方在D0+30天内宣布关键交易系统已完全恢复，并通过独立安全审计"
+          ],
+          "evidence_refs": [
+            "F2",
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_providers-r3",
+            "decision-actor_health_regulator-r3"
+          ],
+          "novelty_claim": "多数推演假设监管仅在数据泄露后行动，但服务中断持续本身可触发医疗机构联合行动，倒逼监管提前入场",
+          "confidence": 0.5,
+          "confidence_semantics": "branch_coherence_not_forecast_probability",
+          "starting_decisions": [
+            {
+              "actor_id": "actor_providers",
+              "action_type": "WAIT",
+              "decision_status": "conditional",
+              "rationale": "截至当前时点（D0-date），F1至F4均显示D0信息不完整：运营方已切断系统（F2），但影响范围与恢复日期不明（F3），数据是否泄露及监管调查范围均未确定（F4）。作为医院与诊所，我已在公开声明中表达支持透明调查并主动联系患者提供指导，但尚未掌握足够证据判断是否需启动正式谈判或调整金融仓位。贸然行动可能暴露自身运营脆弱性或引发不当市场信号，而母公司已承诺调查（F3），监管机构保留30天调查权。因此，选择WAIT，等待运营方进一步调查结果（如60天数据泄露报告）或监管措施明朗化后再决定后续行动。核心不确定性在于数据泄露范围和交易中断持续时间对现金流的实际冲击程度。",
+              "decision_ref": "decision-actor_providers-r3"
+            },
+            {
+              "actor_id": "actor_health_regulator",
+              "action_type": "WAIT",
+              "decision_status": "conditional",
+              "rationale": "当前信息高度不完整：虽然已知攻击者疑似国家关联并已切断部分系统，但患者数据是否外泄、监管调查范围和流动性援助需求均未确定。作为监管机构，在D0信息不完整且其他参与方可能采取策略性行动的条件下，提前启动正式监管行动可能引发不必要的信息不对称风险。最佳选择是等待运营方在60天内提交正式数据泄露报告，并收集更多证据后再决定是否需要启动合规调查或对匿名医疗集团采取监管措施。公众情绪虽有压力，但制度框架要求证据充分后再行动。",
+              "decision_ref": "decision-actor_health_regulator-r3"
+            }
+          ],
+          "conditional_responses": [
+            {
+              "actor_id": "actor_providers",
+              "condition": "若在D0+30天内，药房和医疗机构交易中断仍未恢复，且运营方更新公告中没有具体恢复日期或替代方案。",
+              "response": "我方将联合其他医疗机构正式向监管机构提请合规审查，要求强制运营方提供临时手工结算通道和每日恢复进度报告，并考虑转向备用理赔网络以维持基本运营。"
+            },
+            {
+              "actor_id": "actor_health_regulator",
+              "condition": "若医院和诊所联合递交正式投诉，且运营方恢复计划未达行业最低标准（例如未在60天内恢复核心交易功能）。",
+              "response": "我方将启动正式调查程序，要求运营方每周提交系统恢复证明和患者数据安全评估，并可能发布临时命令限制运营方处理某些敏感交易，直至系统安全得到验证。"
+            }
+          ],
+          "response_semantics": "conditional_hypothesis_not_observed_action",
+          "observations": [
+            {
+              "kind": "trigger",
+              "signal": "医院协会或药房联盟发布公开声明，指控运营方恢复进度不足并威胁更换服务商",
+              "source": "行业协会网站或公开新闻稿",
+              "window": "未来 60 个自然日",
+              "evidence_refs": [
+                "F2",
+                "F3"
+              ]
+            },
+            {
+              "kind": "invalidation",
+              "signal": "运营方在D0+30天内宣布关键交易系统已完全恢复，并通过独立安全审计",
+              "source": "运营方官方公告或第三方审计报告",
+              "window": "未来 60 个自然日",
+              "evidence_refs": [
+                "F2"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "保险方要求运营方承担中断损失",
+          "summary": "若药房交易中断导致保险理赔延迟或错误，保险支付方可能向运营方索赔并重新谈判合同。",
+          "actor_ids": [
+            "actor_insurers",
+            "actor_pharmacies"
+          ],
+          "trigger_conditions": [
+            "保险支付方发布内部通知，因理赔处理系统未及时更新而拒绝多起药房索赔请求"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_insurers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_insurers-r3"
+            },
+            {
+              "actor_id": "actor_pharmacies",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_pharmacies-r3"
+            }
+          ],
+          "consequences": [
+            "运营方可能面临来自保险方的合同罚款或义务扩大",
+            "药房可能被迫增加对替代理赔网络的依赖，改变行业结算格局"
+          ],
+          "invalidation_conditions": [
+            "保险方与运营方达成临时协议，同意豁免中断期间的理赔错误并延期付款"
+          ],
+          "evidence_refs": [
+            "F2"
+          ],
+          "simulation_refs": [
+            "decision-actor_insurers-r3",
+            "decision-actor_pharmacies-r3"
+          ],
+          "novelty_claim": "患者视角占据媒体，但保险方与药房间的财务传导可能更直接地改变运营方的长期合约条款",
+          "confidence": 0.5,
+          "confidence_semantics": "branch_coherence_not_forecast_probability",
+          "starting_decisions": [
+            {
+              "actor_id": "actor_insurers",
+              "action_type": "WAIT",
+              "decision_status": "conditional",
+              "rationale": "当前D0信息高度不完整：F4明确指出患者数据是否外泄、监管调查范围和流动性援助需求均未确定，F3确认母公司无法给出完整影响范围与恢复日期。作为保险支付方，在信息不足以评估对理赔支付流程、数据暴露风险敞口及流动性需求的真实影响前，采取观望策略最符合制度约束与经济激励。盲目公开表态可能被其他参与方策略性利用，因此首选内部风险评估，等待运营方60天报告或监管进一步行动后再调整公开动作。",
+              "decision_ref": "decision-actor_insurers-r3"
+            },
+            {
+              "actor_id": "actor_pharmacies",
+              "action_type": "WAIT",
+              "decision_status": "conditional",
+              "rationale": "作为药房与药品渠道的核心利益维护者，在D0信息不完整且事实显示影响范围、患者数据泄露、监管调查和流动性援助均未确定的情况下，最理性的公共金融动作是等待母公司调查和系统恢复结果，避免过早表态或调整仓位引发额外市场压力或监管风险。我将持续观察事态发展，待关键不确定性（如数据泄露确认、恢复日期）明确后再采取行动。",
+              "decision_ref": "decision-actor_pharmacies-r3"
+            }
+          ],
+          "conditional_responses": [
+            {
+              "actor_id": "actor_insurers",
+              "condition": "若药房系统中断被证明是运营方安全措施不当所致，且已导致保险索赔处理延迟超过3天，或出现错误拒赔个案。",
+              "response": "我方将依据合同中的服务级别协议，向运营方发送正式违约通知，要求赔偿因索赔延迟产生的额外行政管理费用，并考虑在续约中增加更严格的安全条款或设置罚金上限。"
+            },
+            {
+              "actor_id": "actor_pharmacies",
+              "condition": "若保险方要求运营方赔偿中断损失，且运营方拒绝或拖延支付，导致药房现金流紧张。",
+              "response": "我方将联合其他药房向运营方和保险方呼吁建立临时资金垫付机制，同时考虑与替代理赔网络合作，以减轻对单一支付网络的依赖风险。"
+            }
+          ],
+          "response_semantics": "conditional_hypothesis_not_observed_action",
+          "observations": [
+            {
+              "kind": "trigger",
+              "signal": "保险支付方发布内部通知，因理赔处理系统未及时更新而拒绝多起药房索赔请求",
+              "source": "药房内部记录或媒体报道中引用的理赔代码",
+              "window": "未来 60 个自然日",
+              "evidence_refs": [
+                "F2"
+              ]
+            },
+            {
+              "kind": "invalidation",
+              "signal": "保险方与运营方达成临时协议，同意豁免中断期间的理赔错误并延期付款",
+              "source": "双方联合声明或行业通讯",
+              "window": "未来 60 个自然日",
+              "evidence_refs": [
+                "F2"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "患者施压引发政治关注与资助",
+          "summary": "若患者群体持续抗议且服务恢复缓慢，可能吸引立法者介入提供应急资金或施加独立审查。",
+          "actor_ids": [
+            "actor_patients",
+            "actor_providers"
+          ],
+          "trigger_conditions": [
+            "至少一名国会议员或州长公开发表声明，要求运营方提供患者补偿方案或呼吁动用应急医疗基金"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_patients",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_patients-r3"
+            },
+            {
+              "actor_id": "actor_providers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_providers-r3"
+            }
+          ],
+          "consequences": [
+            "患者抗议可能加速运营方获得财政援助，但附带政治条件如收费上限或强制性安全升级",
+            "医疗媒体大量报道可能推动网络保险定价改革"
+          ],
+          "invalidation_conditions": [
+            "运营方在D0+45天内完全恢复系统，并达成与患者团体的和解协议，无需外部资金干预"
+          ],
+          "evidence_refs": [
+            "F2",
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_patients-r3",
+            "decision-actor_providers-r3"
+          ],
+          "novelty_claim": "患者行动通常被视为情绪反应，但结合立法者介入可能改变资源分配，超出常规网络安全事件影响范围",
+          "confidence": 0.4,
+          "confidence_semantics": "branch_coherence_not_forecast_probability",
+          "starting_decisions": [
+            {
+              "actor_id": "actor_patients",
+              "action_type": "COMMUNICATE",
+              "decision_status": "intended",
+              "rationale": "作为患者与参保人代表，当前信息极度不完整（F4关键事项未确定），但交易中断已直接影响药房和医疗机构的正常服务（F2），患者核心利益受到实质性威胁。我选择在公共渠道发声，联合其他患者群体向运营方和监管机构施压，要求尽快明确数据泄露范围、提供流动性援助安排，并建立受害者赔偿机制。公开表达可以形成社会关注压力，推动信息透明化，同时不涉及任何金融资产操作，符合制度约束和经济激励。",
+              "decision_ref": "decision-actor_patients-r3"
+            },
+            {
+              "actor_id": "actor_providers",
+              "action_type": "WAIT",
+              "decision_status": "conditional",
+              "rationale": "截至当前时点（D0-date），F1至F4均显示D0信息不完整：运营方已切断系统（F2），但影响范围与恢复日期不明（F3），数据是否泄露及监管调查范围均未确定（F4）。作为医院与诊所，我已在公开声明中表达支持透明调查并主动联系患者提供指导，但尚未掌握足够证据判断是否需启动正式谈判或调整金融仓位。贸然行动可能暴露自身运营脆弱性或引发不当市场信号，而母公司已承诺调查（F3），监管机构保留30天调查权。因此，选择WAIT，等待运营方进一步调查结果（如60天数据泄露报告）或监管措施明朗化后再决定后续行动。核心不确定性在于数据泄露范围和交易中断持续时间对现金流的实际冲击程度。",
+              "decision_ref": "decision-actor_providers-r3"
+            }
+          ],
+          "conditional_responses": [
+            {
+              "actor_id": "actor_patients",
+              "condition": "若在D0+45天内，药房和诊疗交易中断仍未完全恢复，且运营方公告未提供具体救济方案。",
+              "response": "我方将组织大规模公众请愿和线下示威，要求国会或州政府调查此次事件，并推动立法要求医疗支付网络就网络攻击损失向患者提供直接补偿。"
+            },
+            {
+              "actor_id": "actor_providers",
+              "condition": "若患者示威活动扩大，且有立法者公开呼吁提供联邦流动性援助。",
+              "response": "我方将提供受影响患者数量的详细估计和诊疗延迟案例，支持患者方提出的援助要求，以确保医疗系统不因患者信任流失而出现更大的中断风险。"
+            }
+          ],
+          "response_semantics": "conditional_hypothesis_not_observed_action",
+          "observations": [
+            {
+              "kind": "trigger",
+              "signal": "至少一名国会议员或州长公开发表声明，要求运营方提供患者补偿方案或呼吁动用应急医疗基金",
+              "source": "政府官网新闻稿或国会听证会记录",
+              "window": "未来 60 个自然日",
+              "evidence_refs": [
+                "F2",
+                "F3"
+              ]
+            },
+            {
+              "kind": "invalidation",
+              "signal": "运营方在D0+45天内完全恢复系统，并达成与患者团体的和解协议，无需外部资金干预",
+              "source": "运营方新闻稿和患者团体联合声明",
+              "window": "未来 60 个自然日",
+              "evidence_refs": [
+                "F3"
+              ]
+            }
+          ]
+        }
+      ],
+      "generation": {
+        "semantic_retries": 0,
+        "elapsed_seconds": 107.6986318330164
+      },
+      "judgments": [
+        {
+          "branches": [
+            {
+              "index": 1,
+              "criteria": {
+                "action_time_clear": {
+                  "pass": true,
+                  "quote": "若运营方或第三方调查确认患者数据（如医疗记录、社保号）已外泄",
+                  "reason": "明确区分了D0的等待状态和未来条件触发后的响应，未将假设行动写成已发生。"
+                },
+                "observable": {
+                  "pass": true,
+                  "quote": "运营方或第三方取证机构发布声明，确认至少一种患者数据（如姓名与诊断组合）已从系统外泄",
+                  "reason": "指明了可核对的具体事件、来源（运营方官网新闻稿）和时间窗口。"
+                },
+                "falsifiable": {
+                  "pass": true,
+                  "quote": "调查显示攻击者仅中断服务但未实际提取或外泄任何患者数据",
+                  "reason": "提供了与核心传导“数据泄露”相反的具体事实，可推翻整个分支。"
+                },
+                "grounded": {
+                  "pass": true,
+                  "quote": "运营方或第三方调查确认患者数据（如医疗记录、社保号）已外泄",
+                  "reason": "关于数据外泄的假设基于F4的未确定状态，未捏造已知数值或期限。"
+                },
+                "multi_actor": {
+                  "pass": true,
+                  "quote": "我方将联合其他受影响患者发起集体诉讼，要求赔偿身份盗窃防护费用和未来医疗欺诈损失",
+                  "reason": "患者群体的行动（诉讼）会直接触发运营方设立专项资金并寻求信贷支持。"
+                }
+              },
+              "label": "数据泄露确认触发集体索赔"
+            },
+            {
+              "index": 2,
+              "criteria": {
+                "action_time_clear": {
+                  "pass": true,
+                  "quote": "若医院和诊所联合递交正式投诉，且运营方恢复计划未达行业最低标准",
+                  "reason": "监管机构的前提条件是未来事件，未将启动调查写成已发生。"
+                },
+                "observable": {
+                  "pass": true,
+                  "quote": "医院协会或药房联盟发布公开声明，指控运营方恢复进度不足并威胁更换服务商",
+                  "reason": "指定了可观察的事件、来源和窗口，并非模糊的“市场反应”。"
+                },
+                "falsifiable": {
+                  "pass": true,
+                  "quote": "运营方在D0+30天内宣布关键交易系统已完全恢复，并通过独立安全审计",
+                  "reason": "该条件与“恢复缓慢”的核心直接对立，可推翻监管被迫提前介入的路径。"
+                },
+                "grounded": {
+                  "pass": true,
+                  "quote": "运营方在D0+30天内宣布关键交易系统已完全恢复，并通过独立安全审计",
+                  "reason": "恢复计划的时间假设未违反F3中“无法给出恢复日期”的约束，且未捏造资源。"
+                },
+                "multi_actor": {
+                  "pass": true,
+                  "quote": "我方将联合其他医疗机构正式向监管机构提请合规审查",
+                  "reason": "医院和诊所的行动（申请审查）改变了监管机构的响应（启动调查）。"
+                }
+              },
+              "label": "系统恢复缓慢促使监管提前介入"
+            },
+            {
+              "index": 3,
+              "criteria": {
+                "action_time_clear": {
+                  "pass": true,
+                  "quote": "若药房系统中断被证明是运营方安全措施不当所致，且已导致保险索赔处理延迟超过3天",
+                  "reason": "保险方的响应是未来条件满足后的行动，未与当前状态混淆。"
+                },
+                "observable": {
+                  "pass": true,
+                  "quote": "保险支付方发布内部通知，因理赔处理系统未及时更新而拒绝多起药房索赔请求",
+                  "reason": "具体事件、来源和触发信号明确，可进行核实。"
+                },
+                "falsifiable": {
+                  "pass": true,
+                  "quote": "保险方与运营方达成临时协议，同意豁免中断期间的理赔错误并延期付款",
+                  "reason": "若此情况发生，则保险方索赔的主线被直接否定，不依赖预期强度。"
+                },
+                "grounded": {
+                  "pass": true,
+                  "quote": "药房系统中断被证明是运营方安全措施不当所致",
+                  "reason": "该假设源于F2中系统因运营方动作而中断的事实，未捏造新的已知信息。"
+                },
+                "multi_actor": {
+                  "pass": true,
+                  "quote": "我方将依据合同中的服务级别协议，向运营方发送正式违约通知",
+                  "reason": "保险方的索赔行动直接导致运营方回应；药房在此基础上的行动也改变了结算格局。"
+                }
+              },
+              "label": "保险方要求运营方承担中断损失"
+            },
+            {
+              "index": 4,
+              "criteria": {
+                "action_time_clear": {
+                  "pass": true,
+                  "quote": "若在D0+45天内，药房和诊疗交易中断仍未完全恢复，且运营方公告未提供具体救济方案",
+                  "reason": "患者群体的示威是未来条件触发后的行动，未写成已发生事实。"
+                },
+                "observable": {
+                  "pass": true,
+                  "quote": "至少一名国会议员或州长公开发表声明，要求运营方提供患者补偿方案或呼吁动用应急医疗基金",
+                  "reason": "指明了可核对的声明、声明者身份和来源。"
+                },
+                "falsifiable": {
+                  "pass": true,
+                  "quote": "运营方在D0+45天内完全恢复系统，并达成与患者团体的和解协议，无需外部资金干预",
+                  "reason": "该条件直接推翻“恢复缓慢”及“政治介入”的核心传导。"
+                },
+                "grounded": {
+                  "pass": true,
+                  "quote": "运营方在D0+45天内完全恢复系统",
+                  "reason": "恢复的时间假设基于F3，未违反“无法给出恢复日期”的约束，未捏造结果。"
+                },
+                "multi_actor": {
+                  "pass": true,
+                  "quote": "我方将提供受影响患者数量的详细估计和诊疗延迟案例，支持患者方提出的援助要求",
+                  "reason": "医院主动支持患者诉求，改变了患者仅靠自身施压的单一局面，形成协调行动。"
+                }
+              },
+              "label": "患者施压引发政治关注与资助"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,502 @@
+[
+  {
+    "request_id": "99204cc21dcd434aa157948e6c415ec0",
+    "case_id": "byd-h1-2025",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 2.7462037910008803,
+    "usage": {
+      "prompt_tokens": 3178,
+      "total_tokens": 3325,
+      "completion_tokens": 147,
+      "estimated_cost": 0.00031248,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00350406,
+    "charged_budget_usd": 0.00046872000000000005
+  },
+  {
+    "request_id": "692343ba2ace4010804e8f4f745a5539",
+    "case_id": "byd-h1-2025",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 2.9239820420043543,
+    "usage": {
+      "prompt_tokens": 3186,
+      "total_tokens": 3405,
+      "completion_tokens": 219,
+      "estimated_cost": 0.00032616,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0035051400000000003,
+    "charged_budget_usd": 0.00048924
+  },
+  {
+    "request_id": "c85544241f4f4960aab98592bb7dd16f",
+    "case_id": "byd-h1-2025",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 4.312540999962948,
+    "usage": {
+      "prompt_tokens": 3172,
+      "total_tokens": 3460,
+      "completion_tokens": 288,
+      "estimated_cost": 0.00022672800000000004,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.003499875,
+    "charged_budget_usd": 0.0005059800000000001
+  },
+  {
+    "request_id": "dc1a129ea37a435480b86c0077c8dcd6",
+    "case_id": "byd-h1-2025",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 4.5474620829336345,
+    "usage": {
+      "prompt_tokens": 3178,
+      "total_tokens": 3458,
+      "completion_tokens": 280,
+      "estimated_cost": 0.00033642000000000003,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00349947,
+    "charged_budget_usd": 0.00050463
+  },
+  {
+    "request_id": "47e81ae8705049018c551dfead8890fe",
+    "case_id": "byd-h1-2025",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 5.151769167045131,
+    "usage": {
+      "prompt_tokens": 3182,
+      "total_tokens": 3315,
+      "completion_tokens": 133,
+      "estimated_cost": 0.00031032,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00350379,
+    "charged_budget_usd": 0.00046548000000000005
+  },
+  {
+    "request_id": "b9c1281140e84e30b49ebfec3f56159b",
+    "case_id": "byd-h1-2025",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 5.880192750017159,
+    "usage": {
+      "prompt_tokens": 3187,
+      "total_tokens": 3638,
+      "completion_tokens": 451,
+      "estimated_cost": 0.00025741800000000003,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0035062200000000004,
+    "charged_budget_usd": 0.000552015
+  },
+  {
+    "request_id": "381448c9bf164a91a8d5683fda9ffe4d",
+    "case_id": "byd-h1-2025",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 7.05787770904135,
+    "usage": {
+      "prompt_tokens": 3180,
+      "total_tokens": 3417,
+      "completion_tokens": 237,
+      "estimated_cost": 0.00032886,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.003500955,
+    "charged_budget_usd": 0.0004932900000000001
+  },
+  {
+    "request_id": "a994761bc56048fa8cb33bfa5e257802",
+    "case_id": "byd-h1-2025",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 7.448886499973014,
+    "usage": {
+      "prompt_tokens": 3186,
+      "total_tokens": 3390,
+      "completion_tokens": 204,
+      "estimated_cost": 0.000212868,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00350352,
+    "charged_budget_usd": 0.00048519
+  },
+  {
+    "request_id": "41338d6d7e5e46a78a75a12f98c6841d",
+    "case_id": "byd-h1-2025",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 2.981474000029266,
+    "usage": {
+      "prompt_tokens": 7142,
+      "total_tokens": 7283,
+      "completion_tokens": 141,
+      "estimated_cost": 0.000446976,
+      "prompt_tokens_details": {
+        "cached_tokens": 3072,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.005037120000000001,
+    "charged_budget_usd": 0.0010022400000000002
+  },
+  {
+    "request_id": "a5be8bbdefd44ae595c90d66f36d87f1",
+    "case_id": "byd-h1-2025",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 5.585500625078566,
+    "usage": {
+      "prompt_tokens": 6690,
+      "total_tokens": 6929,
+      "completion_tokens": 239,
+      "estimated_cost": 0.00042393600000000003,
+      "prompt_tokens_details": {
+        "cached_tokens": 3072,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004794255,
+    "charged_budget_usd": 0.0009676800000000001
+  },
+  {
+    "request_id": "4cb8a11a0e2b4f1d9f07c8726ca6882e",
+    "case_id": "byd-h1-2025",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 6.199963834020309,
+    "usage": {
+      "prompt_tokens": 6964,
+      "total_tokens": 7239,
+      "completion_tokens": 275,
+      "estimated_cost": 0.0004550760000000001,
+      "prompt_tokens_details": {
+        "cached_tokens": 3072,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00495936,
+    "charged_budget_usd": 0.00101439
+  },
+  {
+    "request_id": "d532a6a85e97400696ddb28b01410b55",
+    "case_id": "byd-h1-2025",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 7.131736791925505,
+    "usage": {
+      "prompt_tokens": 6909,
+      "total_tokens": 7257,
+      "completion_tokens": 348,
+      "estimated_cost": 0.00046326600000000005,
+      "prompt_tokens_details": {
+        "cached_tokens": 3072,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00491238,
+    "charged_budget_usd": 0.001026675
+  },
+  {
+    "request_id": "866ca6456efd42189465b23a10ad7b2a",
+    "case_id": "byd-h1-2025",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 7.9403094169683754,
+    "usage": {
+      "prompt_tokens": 6750,
+      "total_tokens": 6965,
+      "completion_tokens": 215,
+      "estimated_cost": 0.000535608,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00480708,
+    "charged_budget_usd": 0.0009693000000000001
+  },
+  {
+    "request_id": "0928b5fe51174c3595863c10beac07da",
+    "case_id": "byd-h1-2025",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 8.592207084060647,
+    "usage": {
+      "prompt_tokens": 6921,
+      "total_tokens": 7184,
+      "completion_tokens": 263,
+      "estimated_cost": 0.00044904600000000004,
+      "prompt_tokens_details": {
+        "cached_tokens": 3072,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00492642,
+    "charged_budget_usd": 0.001005345
+  },
+  {
+    "request_id": "52cf5dc060ac43b7819ae420330471cd",
+    "case_id": "byd-h1-2025",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 9.375585208996199,
+    "usage": {
+      "prompt_tokens": 6995,
+      "total_tokens": 7307,
+      "completion_tokens": 312,
+      "estimated_cost": 0.00046452600000000004,
+      "prompt_tokens_details": {
+        "cached_tokens": 3072,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004926285,
+    "charged_budget_usd": 0.001028565
+  },
+  {
+    "request_id": "3edc60a6d9014670a8a3658f5973751b",
+    "case_id": "byd-h1-2025",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 9.987689125002362,
+    "usage": {
+      "prompt_tokens": 6818,
+      "total_tokens": 7154,
+      "completion_tokens": 336,
+      "estimated_cost": 0.00045291600000000004,
+      "prompt_tokens_details": {
+        "cached_tokens": 3072,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00484299,
+    "charged_budget_usd": 0.0010111500000000002
+  },
+  {
+    "request_id": "04c85f6b5dcd463fbc04a52515d7e544",
+    "case_id": "byd-h1-2025",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 3.7754082910250872,
+    "usage": {
+      "prompt_tokens": 6732,
+      "total_tokens": 7000,
+      "completion_tokens": 268,
+      "estimated_cost": 0.00065412,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0048544650000000005,
+    "charged_budget_usd": 0.0009811800000000001
+  },
+  {
+    "request_id": "ad6171839b0e4811a09ee576534d6f6f",
+    "case_id": "byd-h1-2025",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 3.9215631670085713,
+    "usage": {
+      "prompt_tokens": 6393,
+      "total_tokens": 6662,
+      "completion_tokens": 269,
+      "estimated_cost": 0.00062379,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004693005,
+    "charged_budget_usd": 0.000935685
+  },
+  {
+    "request_id": "187d3ae86c714729b0fa26e1bf37ee9d",
+    "case_id": "byd-h1-2025",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 4.478863166994415,
+    "usage": {
+      "prompt_tokens": 6695,
+      "total_tokens": 6979,
+      "completion_tokens": 284,
+      "estimated_cost": 0.0006536700000000001,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004864725,
+    "charged_budget_usd": 0.000980505
+  },
+  {
+    "request_id": "f800262950bf4807aa6aa06886a66497",
+    "case_id": "byd-h1-2025",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 4.607950999983586,
+    "usage": {
+      "prompt_tokens": 6488,
+      "total_tokens": 6716,
+      "completion_tokens": 228,
+      "estimated_cost": 0.0006249599999999999,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004698540000000001,
+    "charged_budget_usd": 0.0009374400000000001
+  },
+  {
+    "request_id": "fe0b5528789a4427b4d00b798d3a196c",
+    "case_id": "byd-h1-2025",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 4.928443291923031,
+    "usage": {
+      "prompt_tokens": 6806,
+      "total_tokens": 7059,
+      "completion_tokens": 253,
+      "estimated_cost": 0.00065808,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0048951,
+    "charged_budget_usd": 0.0009871200000000002
+  },
+  {
+    "request_id": "97404665632445afbb575858cf81d416",
+    "case_id": "byd-h1-2025",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 6.117599291028455,
+    "usage": {
+      "prompt_tokens": 6650,
+      "total_tokens": 6948,
+      "completion_tokens": 298,
+      "estimated_cost": 0.00065214,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004796415000000001,
+    "charged_budget_usd": 0.0009782100000000002
+  },
+  {
+    "request_id": "dd5a6cfc09734d8f9d0fc6f7b94e06b0",
+    "case_id": "byd-h1-2025",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 6.248999040923081,
+    "usage": {
+      "prompt_tokens": 6778,
+      "total_tokens": 7076,
+      "completion_tokens": 298,
+      "estimated_cost": 0.0006636599999999999,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004857435,
+    "charged_budget_usd": 0.0009954900000000001
+  },
+  {
+    "request_id": "fd936840c5ec43b2b66167a3f976e79c",
+    "case_id": "byd-h1-2025",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 7.32829837501049,
+    "usage": {
+      "prompt_tokens": 6648,
+      "total_tokens": 6986,
+      "completion_tokens": 338,
+      "estimated_cost": 0.00065916,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0048062700000000005,
+    "charged_budget_usd": 0.00098874
+  },
+  {
+    "request_id": "a11a76e64b064259bd44733f19b493ba",
+    "case_id": "byd-h1-2025",
+    "run_label": "baseline",
+    "http_status": 200,
+    "elapsed_seconds": 18.113594708032906,
+    "usage": {
+      "prompt_tokens": 5812,
+      "total_tokens": 7020,
+      "completion_tokens": 1208,
+      "estimated_cost": 0.00074052,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00517158,
+    "charged_budget_usd": 0.00111078
+  }
+]

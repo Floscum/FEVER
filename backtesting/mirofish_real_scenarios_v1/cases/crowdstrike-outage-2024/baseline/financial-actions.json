@@ -1,0 +1,129 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "real-crowdstrike-outage-2024",
+  "spec_sha256": "d089cb2af57574a13c909789e2c5f13527145bc9e38db4bda014d191face7c89",
+  "simulation_id": "sim_direct_27a28a540533",
+  "generated_at": "2026-09-12T04:32:21.490004+00:00",
+  "status": "completed",
+  "decisions": [
+    {
+      "id": "decision-actor_issuer-r2",
+      "round": 2,
+      "actor_id": "actor_issuer",
+      "action_type": "COMMUNICATE",
+      "decision_status": "intended",
+      "direction": "not_applicable",
+      "intensity": 0.7,
+      "instrument_refs": [
+        "CRWD"
+      ],
+      "rationale": "截至截止时点，事件根源已明确（F1），问题已于05:27 UTC修正（F2），且确认非网络攻击。客户和公众对事件问责和后续预防措施存在高关注度。竞争对手和替代方案讨论已出现，客户合同续签风险和监管对话正在形成。基于已披露承诺及有限现金与执行资源约束，需在下一个周期内主动发布正式的事故后分析报告、实施客户沟通计划并启动更新流程改进，以控制客户流失与融资能力下降风险。主要不确定性在于客户续约决策的实际反应速度和可能的集体诉讼时间表。",
+      "constraint_refs": [
+        "actor_issuer:constraint:0",
+        "actor_issuer:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:0",
+      "visibility": "public",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_customers-r2",
+      "round": 2,
+      "actor_id": "actor_customers",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "maintain",
+      "intensity": 0.6,
+      "instrument_refs": [],
+      "rationale": "截至7月20日，CrowdStrike已修复配置更新（F2），Microsoft与CrowdStrike及AWS、Google Cloud正在协助恢复（F5）。但850万台设备受影响的规模（F4）使我对CrowdStrike的更新发布流程和测试机制产生严重质疑。作为客户，我有现有合同约束和转换成本，不能立即切换供应商。我计划在本轮等待对方的根因分析报告和补偿承诺，在此之前维持现有合同但启动对替代方案的内部评估。如果CrowdStrike在下一决策周期内未提供令人满意的RCA和SLA改进方案，则进入谈判阶段。",
+      "constraint_refs": [
+        "actor_customers:constraint:0",
+        "actor_customers:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:1",
+      "visibility": "private",
+      "confidence": 0.8,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_regulator-r2",
+      "round": 2,
+      "actor_id": "actor_regulator",
+      "action_type": "COMMUNICATE",
+      "decision_status": "intended",
+      "direction": "conditional",
+      "intensity": 0.6,
+      "instrument_refs": [
+        "CRWD"
+      ],
+      "rationale": "截至时段末，事件已发生约48小时，核心事实已基本明朗：CrowdStrike承认配置错误（F1）、已修正（F2）、明确非网络攻击（F2），Microsoft确认约850万台设备受影响（F4）并已部署工程师协助恢复（F5）。CrowdStrike的公开道歉表明其正在配合。作为监管机构，此时应当启动正式沟通程序：向CrowdStrike和主要利益相关方发出问询函，要求提供完整的事后分析报告、配置更新流程的审计结果以及改进措施时间表；同时与Microsoft确认关键服务企业恢复进展。主要不确定性在于：CrowdStrike内部审核的深度、受影响关键服务企业的具体数据是否充分披露、以及是否存在未报告的系统性漏洞。选择COMMUNICATE而非直接REGULATE，是因为在事实完全核实前直接采取监管措施为时过早；也非WAIT，因为已掌握足够信息支撑启动正式程序。",
+      "constraint_refs": [
+        "actor_regulator:constraint:0",
+        "actor_regulator:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:2",
+      "visibility": "public",
+      "confidence": 0.8,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_institutions-r2",
+      "round": 2,
+      "actor_id": "actor_institutions",
+      "action_type": "COMMUNICATE",
+      "decision_status": "intended",
+      "direction": "not_applicable",
+      "intensity": 0.5,
+      "instrument_refs": [
+        "CRWD"
+      ],
+      "rationale": "截至7月20日23:59 UTC，事件已定性为非网络攻击（F2），修复窗口仅78分钟（F1->F2），微软确认影响不足全球Windows设备1%（F4），且已协调多家云服务商部署恢复资源（F5）。短期情绪冲击大于实质性财务影响，但需要向交易对手和风控委员会说明评估逻辑，明确目前维持现有敞口不调整，同时要求投后团队收集受影响企业客户的公开声明，以判断SLA违约风险和未来续约率。公开沟通有助于管理市场信息差，避免因社交媒体噪音触发非理性交易。主要不确定性在于客户赔偿和监管审查的规模尚未明确。",
+      "constraint_refs": [
+        "actor_institutions:constraint:0",
+        "actor_institutions:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:3",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    }
+  ],
+  "failures": [],
+  "warnings": [
+    "Decision confidence expresses action clarity, not forecast probability.",
+    "Interview decisions are simulated statements, not observed evidence."
+  ]
+}

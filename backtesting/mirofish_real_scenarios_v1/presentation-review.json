@@ -1,0 +1,220 @@
+[
+  {
+    "case_id": "byd-h1-2025",
+    "run_label": "baseline",
+    "branch_id": "branch-1",
+    "original_notices": [],
+    "current_notices": [
+      "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：2篇。"
+    ],
+    "model_rerun": false
+  },
+  {
+    "case_id": "byd-h1-2025",
+    "run_label": "baseline",
+    "branch_id": "branch-2",
+    "original_notices": [],
+    "current_notices": [],
+    "model_rerun": false
+  },
+  {
+    "case_id": "byd-h1-2025",
+    "run_label": "baseline",
+    "branch_id": "branch-3",
+    "original_notices": [
+      "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：3个交易日。"
+    ],
+    "current_notices": [
+      "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：3个交易日。"
+    ],
+    "model_rerun": false
+  },
+  {
+    "case_id": "byd-h1-2025",
+    "run_label": "baseline",
+    "branch_id": "branch-4",
+    "original_notices": [],
+    "current_notices": [],
+    "model_rerun": false
+  },
+  {
+    "case_id": "byd-h1-2025",
+    "run_label": "role-fix",
+    "branch_id": "branch-1",
+    "original_notices": [
+      "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：3个交易日。"
+    ],
+    "current_notices": [
+      "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：3个交易日。"
+    ],
+    "model_rerun": false
+  },
+  {
+    "case_id": "byd-h1-2025",
+    "run_label": "role-fix",
+    "branch_id": "branch-2",
+    "original_notices": [
+      "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：48小时。"
+    ],
+    "current_notices": [
+      "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：48小时。"
+    ],
+    "model_rerun": false
+  },
+  {
+    "case_id": "byd-h1-2025",
+    "run_label": "role-fix",
+    "branch_id": "branch-3",
+    "original_notices": [],
+    "current_notices": [],
+    "model_rerun": false
+  },
+  {
+    "case_id": "byd-h1-2025",
+    "run_label": "role-fix",
+    "branch_id": "branch-4",
+    "original_notices": [
+      "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：1个百分点、48小时、72小时。"
+    ],
+    "current_notices": [
+      "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：1个百分点、48小时、72小时。"
+    ],
+    "model_rerun": false
+  },
+  {
+    "case_id": "guotai-haitong-2024",
+    "run_label": "baseline",
+    "branch_id": "branch-1",
+    "original_notices": [
+      "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：10个交易日、5个工作日、20个交易日。"
+    ],
+    "current_notices": [
+      "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：10个交易日、5个工作日、20个交易日。"
+    ],
+    "model_rerun": false
+  },
+  {
+    "case_id": "guotai-haitong-2024",
+    "run_label": "baseline",
+    "branch_id": "branch-2",
+    "original_notices": [
+      "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：20个交易日、5个交易日。"
+    ],
+    "current_notices": [
+      "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：20个交易日、5个交易日。"
+    ],
+    "model_rerun": false
+  },
+  {
+    "case_id": "guotai-haitong-2024",
+    "run_label": "baseline",
+    "branch_id": "branch-3",
+    "original_notices": [
+      "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：15个交易日、20%。"
+    ],
+    "current_notices": [
+      "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：15个交易日、20%。"
+    ],
+    "model_rerun": false
+  },
+  {
+    "case_id": "guotai-haitong-2024",
+    "run_label": "baseline",
+    "branch_id": "branch-4",
+    "original_notices": [
+      "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：7个交易日、3个交易日、5交易日。"
+    ],
+    "current_notices": [
+      "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：7个交易日、3个交易日、5交易日。"
+    ],
+    "model_rerun": false
+  },
+  {
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "baseline",
+    "branch_id": "branch-1",
+    "original_notices": [
+      "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：27日、23日。"
+    ],
+    "current_notices": [
+      "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：23日。"
+    ],
+    "model_rerun": false
+  },
+  {
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "baseline",
+    "branch_id": "branch-2",
+    "original_notices": [
+      "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：27日、25日、3天。"
+    ],
+    "current_notices": [
+      "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：25日、3天。"
+    ],
+    "model_rerun": false
+  },
+  {
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "baseline",
+    "branch_id": "branch-3",
+    "original_notices": [
+      "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：27日。"
+    ],
+    "current_notices": [],
+    "model_rerun": false
+  },
+  {
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "baseline",
+    "branch_id": "branch-4",
+    "original_notices": [
+      "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：27日、24日。"
+    ],
+    "current_notices": [
+      "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：24日。"
+    ],
+    "model_rerun": false
+  },
+  {
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "role-fix",
+    "branch_id": "branch-1",
+    "original_notices": [
+      "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：21日。"
+    ],
+    "current_notices": [],
+    "model_rerun": false
+  },
+  {
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "role-fix",
+    "branch_id": "branch-2",
+    "original_notices": [
+      "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：21日。"
+    ],
+    "current_notices": [],
+    "model_rerun": false
+  },
+  {
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "role-fix",
+    "branch_id": "branch-3",
+    "original_notices": [
+      "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：21日、10亿美元、50%。"
+    ],
+    "current_notices": [
+      "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：10亿美元、50%。"
+    ],
+    "model_rerun": false
+  },
+  {
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "role-fix",
+    "branch_id": "branch-4",
+    "original_notices": [
+      "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：21日。"
+    ],
+    "current_notices": [],
+    "model_rerun": false
+  }
+]

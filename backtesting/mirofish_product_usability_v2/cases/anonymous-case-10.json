@@ -1,0 +1,618 @@
+{
+  "anonymous_case_id": "anonymous-case-10",
+  "configured_actor_count": 8,
+  "decision_actor_count": 8,
+  "fact_count": 4,
+  "fact_chars": 229,
+  "input": {
+    "case_id": "anonymous-case-10",
+    "as_of": "D0",
+    "question": "国家、政党、官员、年份与市场代码均已匿名化。只使用D0已公开的信息，推演立法者、行政部门、财政机关、金融机构和投资者如何应对主权融资授权即将耗尽。",
+    "horizon": {
+      "kind": "calendar_days",
+      "value": 35,
+      "end_at": "D0 + stated horizon"
+    },
+    "facts": [
+      {
+        "id": "F1",
+        "statement": "该国法定债务上限已经触及，财政机关开始使用暂停部分政府基金投资等非常规措施，以继续履行既有付款义务。"
+      },
+      {
+        "id": "F2",
+        "statement": "财政机关表示，如果立法机关不提高或暂停债务上限，最早可能在约十日后无法继续满足全部政府义务；具体耗尽日期仍具有现金流预测不确定性。"
+      },
+      {
+        "id": "F3",
+        "statement": "财政机关指出，临近预计耗尽窗口到期的短期国债融资成本已经明显上升，继续拖延可能损害信用评级、企业信心和市场秩序。"
+      },
+      {
+        "id": "F4",
+        "statement": "行政部门与控制立法机关一院的反对党仍在谈判支出条件；任何方案都需要在两院通过并由行政首脑签署，D0尚无已通过的法案。"
+      }
+    ],
+    "actors": [
+      {
+        "id": "actor_executive",
+        "label": "匿名行政部门",
+        "kind": "government",
+        "goals": [
+          "避免主权违约",
+          "保留核心财政政策",
+          "达成可签署方案"
+        ],
+        "constraints": [
+          "必须取得分裂立法机关的足够票数"
+        ]
+      },
+      {
+        "id": "actor_lower_chamber",
+        "label": "立法机关下院多数派",
+        "kind": "government",
+        "goals": [
+          "用融资授权换取支出约束",
+          "维持党团支持",
+          "避免承担违约责任"
+        ],
+        "constraints": [
+          "内部温和派与强硬派偏好不同"
+        ]
+      },
+      {
+        "id": "actor_upper_chamber",
+        "label": "立法机关上院关键议员",
+        "kind": "government",
+        "goals": [
+          "形成跨阵营通过票数",
+          "避免支付中断"
+        ],
+        "constraints": [
+          "程序和修正案会压缩截止日前时间"
+        ]
+      },
+      {
+        "id": "actor_fiscal_authority",
+        "label": "匿名财政机关",
+        "kind": "government",
+        "goals": [
+          "按时支付全部义务",
+          "维持国债市场秩序",
+          "准确沟通现金耗尽风险"
+        ],
+        "constraints": [
+          "不能在法定上限外正常净借款",
+          "现金流日期不确定"
+        ]
+      },
+      {
+        "id": "actor_dealers",
+        "label": "主权债券交易商与货币基金",
+        "kind": "institutional_investor",
+        "goals": [
+          "管理临近截止日证券的支付风险",
+          "维持流动性",
+          "控制赎回压力"
+        ],
+        "constraints": [
+          "短期限市场对新的谈判消息高度敏感"
+        ]
+      },
+      {
+        "id": "actor_rating",
+        "label": "主权信用评级与研究机构",
+        "kind": "analyst",
+        "goals": [
+          "评估支付能力与治理风险",
+          "及时更新风险意见"
+        ],
+        "constraints": [
+          "政治协议与实际付款时间均不确定"
+        ]
+      },
+      {
+        "id": "actor_investors",
+        "label": "全球机构投资者",
+        "kind": "foreign_investor",
+        "goals": [
+          "保护流动性与本金",
+          "判断谈判尾部风险",
+          "配置安全资产"
+        ],
+        "constraints": [
+          "缺乏对闭门谈判的直接信息"
+        ]
+      },
+      {
+        "id": "actor_media",
+        "label": "财经与政治媒体",
+        "kind": "media",
+        "goals": [
+          "跟踪谈判、票数和截止日",
+          "解释违约与政府停摆的差别"
+        ],
+        "constraints": [
+          "谈判表态可能是策略性信息"
+        ]
+      }
+    ],
+    "financial_decisions": [
+      {
+        "id": "decision-actor_executive-r3",
+        "round": 3,
+        "actor_id": "actor_executive",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "当前谈判仍在进行（F4），尽管债务上限已触及且非常规措施已启动（F1），财政部预计约十日后可能耗尽资金（F2），且短期融资成本已上升（F3）。但立即宣布强硬措施或改变政策可能破坏谈判进程，反而不利于取得分裂立法机关的足够票数以实现可签署方案。因此选择继续等待，在高层谈判中保持接触，同时密切关注现金流变化。主要不确定性在于反对党谈判立场是否能在短时间内松动，以及耗尽时点是否因现金流变化而推迟。",
+        "constraint_refs": [
+          "actor_executive:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_lower_chamber-r3",
+        "round": 3,
+        "actor_id": "actor_lower_chamber",
+        "action_type": "COMMUNICATE",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.7,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "在F2的十日窗口和F3的融资成本上升压力下，需要加快内部协调以统一温和派与强硬派立场。计划通过党团内部沟通明确核心诉求——以临时性提高债务上限换取可验证的支出约束框架，同时对外释放有谈判诚意的信号，避免市场因僵局预期而进一步抛售短期国债导致匿名标的1收益率失控。主要不确定性在于强硬派要求的前置削减规模可能超出反对党和行政部门的接受底线。",
+        "constraint_refs": [
+          "actor_lower_chamber:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_upper_chamber-r3",
+        "round": 3,
+        "actor_id": "actor_upper_chamber",
+        "action_type": "COMMUNICATE",
+        "decision_status": "intended",
+        "direction": "maintain",
+        "intensity": 0.7,
+        "instrument_refs": [],
+        "rationale": "作为上院关键议员，当前核心任务是推动跨阵营协调，在约十日的窗口期内达成可同时通过两院并获行政首脑签署的方案。F4显示行政与反对党仍在谈判支出条件，而上院需要在此框架下争取温和派与强硬派的折中立场。选择COMMUNICATE是基于：第一，D0尚无法案通过，程序压力巨大（约束0）；第二，内部温和派与强硬派存在公开分歧，需要通过跨阵营沟通形成初步共识文本；第三，F3关于融资成本上升的信号要求我在公开场合传递紧迫感，同时避免直接市场干预。我将与两院协调委员会及反对党中间派进行私下磋商，探讨将债务上限提高与适度支出约束挂钩的框架草案，为下周末前形成可表决文本铺路。",
+        "constraint_refs": [
+          "actor_upper_chamber:constraint:0"
+        ],
+        "evidence_refs": [
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_fiscal_authority-r3",
+        "round": 3,
+        "actor_id": "actor_fiscal_authority",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "法定债务上限已触及，非常规措施已启用，但立法谈判尚未达成法案。根据F2，最早可能在约十日后耗尽现金，但具体日期不确定。此时公开增加措辞可能加剧市场紧张，而无法通过借款缓解流动性。选择等待，既不改变当前融资操作节奏，也不额外施压市场，维持现有非常规措施运行，并密切观察立法进展和现金流数据。主要不确定性是谈判结果和实际现金流时点。",
+        "constraint_refs": [
+          "actor_fiscal_authority:constraint:0",
+          "actor_fiscal_authority:constraint:1"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_dealers-r3",
+        "round": 3,
+        "actor_id": "actor_dealers",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "在债务上限谈判未取得实质性进展、财政机关非常规措施仍在执行的背景下，短期限国债融资成本已上升，但具体耗尽日期仍具不确定性，且尚无法案通过。作为交易商和货币基金，当前最优策略是保持流动性、观望谈判走向，避免在市场高度敏感时期进行不必要的仓位调整。待有明确法案信号出现后再调整敞口，以控制赎回压力和支付风险。",
+        "constraint_refs": [
+          "actor_dealers:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_rating-r3",
+        "round": 3,
+        "actor_id": "actor_rating",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "conditional",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "截至F2/F3/F4，财政机关已发出明确警告（最早约十日后可能无法履约），短期融资成本上升，但政治谈判仍在进行且D0尚无已通过法案。作为主权信用评级机构，当前不宜立即调整公开评级意见或发布正式风险更新，因为政治协议与实际付款时间均不确定——在耗尽日期到来前，谈判仍有达成可能，过度反应可能扰乱市场。同时，在耗尽窗口临近且无法案通过的情况下，贸然沟通可能超出可见事实基础。因此选择继续观察谈判进展，待政治协议或实际违约事件触发后再更新风险意见。",
+        "constraint_refs": [
+          "actor_rating:constraint:0"
+        ],
+        "evidence_refs": [
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_investors-r3",
+        "round": 3,
+        "actor_id": "actor_investors",
+        "action_type": "ALLOCATE",
+        "decision_status": "conditional",
+        "direction": "decrease",
+        "intensity": 0.35,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "F2确认约十日为X-date窗口期，F3显示短期国债融资成本已明显上升，F4表明谈判尚无法案通过。作为全球机构投资者，首要目标是保护流动性与本金。因此选择将匿名标的1（一月期主权基准利率敞口）的配置小幅降低，转向更短久期的现金等价物。这是预览式调整而非大规模撤退——因为谈判结果仍有通过可能性，且缺乏闭门信息意味着不宜过度反应。强度设为0.35以体现谨慎防御而非恐慌离场。",
+        "constraint_refs": [
+          "actor_investors:constraint:0"
+        ],
+        "evidence_refs": [
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.7,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_media-r3",
+        "round": 3,
+        "actor_id": "actor_media",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": null,
+        "instrument_refs": [],
+        "rationale": "作为财经与政治媒体，当前核心任务是持续跟踪谈判进展和截止日，但截至D0尚无已通过的法案（F4），谈判仍处于策略性表态阶段（约束）。此时贸然发布结论性报道可能误判策略性信息。F1显示非常规措施已启动，F2给出约十日的耗尽窗口但存在不确定性，F3显示短期融资成本上升但尚未触发信用评级行动。三个信号均指向谈判进入关键期但结果未明。选择WAIT意味着在下一决策周期继续观察立法进程和回谈判进展，等待更明确的法案表决或投票信号后再决定是否发表深度分析或市场影响解读。不涉及金融工具操作，故instrument_refs为空，direction和intensity不适用。",
+        "constraint_refs": [
+          "actor_media:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "public",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      }
+    ],
+    "simulated_actions": [
+      {
+        "id": "trace-20",
+        "actor_id": "actor_investors",
+        "action_type": "COMMUNICATE",
+        "summary": "赞同。作为同行，我正在密切跟踪现金耗尽日期的不确定性。F2的时间窗口过窄，F3的短期融资成本信号不容忽视。正在将部分短期国债久期缩短、增加隔夜回购敞口作为流动性缓冲。"
+      },
+      {
+        "id": "trace-21",
+        "actor_id": "actor_media",
+        "action_type": "COMMUNICATE",
+        "summary": "📊 债务上限跟踪：财政机关警告最早约10日后可能无法履行全部政府义务，但需注意这并非\"政府停摆\"。政府停摆是拨款法案未通过导致非核心部门关门；而债务上限不提高意味着财政部无法全额偿付现有债务——即主权违约。后者对信用评级、企业信心和市场秩序的冲击远大于停摆。目前谈判焦点：下院多数派寻求以融资授权换取支出约束，内部温和派与强硬派分歧明显。D0尚无已通过法案。市场信号：短期国债收益率已上升，机构投资者已开始减少短期国债配置。继续关注谈判窗口期。#债务上限 #财政跟踪"
+      },
+      {
+        "id": "trace-28",
+        "actor_id": "actor_investors",
+        "action_type": "COMMUNICATE",
+        "summary": "高质量分析。补充一点：当前F3信号（短期融资成本明显上升）已经体现在T-bill收益率曲线上，4周和8周期国债利差正在扩大。主权违约风险vs停摆是市场上尚未充分定价的尾部风险——许多模型仍以历史停摆为基准进行概率校准。作为配置方，我已将X-date前后到期的T-bill替换为后置到期券种，同时在CDS市场增持保护，但不做单边方向押注。"
+      },
+      {
+        "id": "trace-32",
+        "actor_id": "actor_lower_chamber",
+        "action_type": "COMMUNICATE",
+        "summary": "支持这一谈判方向。作为下院多数派成员，我认为以融资授权换取支出约束是当前最务实的路径。内部需要尽快协调温和派与强硬派的分歧——我们在F2的十日窗口内必须达成一致，否则F3指出的融资成本上升和信用评级风险将变成现实。建议在谈判中明确设定支出削减的具体项目和时间表，以换取债务上限的临时性提高，这样既能安抚市场，也能兑现我们对选民的财政纪律承诺。"
+      },
+      {
+        "id": "trace-34",
+        "actor_id": "actor_investors",
+        "action_type": "COMMUNICATE",
+        "summary": "F2这个时间窗口是动态的——财政部实际耗尽现金的速度取决于每日税收流入和到期债务再融资规模。当前市场定价的违约概率约为历史停摆时期的1.5-2倍，但距离2011年债务上限危机的高峰仍有差距。关键变量是下议院温和派能否在X-date前促成折中方案，而非强硬派是否让步。"
+      },
+      {
+        "id": "trace-36",
+        "actor_id": "actor_upper_chamber",
+        "action_type": "COMMUNICATE",
+        "summary": "精准分析。补充立法机关视角：当前上院正在协调跨党派磋商框架，核心难点在于如何在提高融资权限的同时设计可被两院及行政首脑同时接受的支出约束机制。F2+F3信号叠加意味着我们需要在约十日内完成法案起草、委员会审议、两院表决及签署——程序压力极大。建议市场参与者关注两院协调委员会是否能在本周末前形成初步框架文本，这是判断违约风险的关键节点。"
+      }
+    ],
+    "branch_slots": [
+      {
+        "slot_id": "slot-1",
+        "actor_ids": [
+          "actor_lower_chamber",
+          "actor_upper_chamber"
+        ],
+        "relationship_kind": "transmits_authorizing_legislation_to",
+        "decision_refs": [
+          "decision-actor_lower_chamber-r3",
+          "decision-actor_upper_chamber-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-2",
+        "actor_ids": [
+          "actor_rating",
+          "actor_investors"
+        ],
+        "relationship_kind": "shapes_credit_risk_assessment_of",
+        "decision_refs": [
+          "decision-actor_rating-r3",
+          "decision-actor_investors-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-3",
+        "actor_ids": [
+          "actor_executive",
+          "actor_fiscal_authority"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_executive-r3",
+          "decision-actor_fiscal_authority-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-4",
+        "actor_ids": [
+          "actor_media",
+          "actor_dealers"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_media-r3",
+          "decision-actor_dealers-r3"
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "v7": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "跨院快速通道法案通过",
+          "summary": "下院多数派在强硬派压力下修正支出约束条款后提交至关键成员国上院，上院跨党派协调成功，在X-day前3-5天形成两院可投票文本，推动短期债务上限提高与支出削减框架获两院通过并由行政部门签署。",
+          "actor_ids": [
+            "actor_lower_chamber",
+            "actor_upper_chamber"
+          ],
+          "trigger_conditions": [
+            "下院多数派公布包含可验证支出削减项目的草案并获温和派+强硬派党内多数支持"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_lower_chamber",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_lower_chamber-r3"
+            },
+            {
+              "actor_id": "actor_upper_chamber",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_upper_chamber-r3"
+            }
+          ],
+          "consequences": [
+            "上院在跨党派磋商中以‘避免主权违约’为由压缩修正案审议时间，直接提交全院表决",
+            "财政机关在法案签署生效后重新开始净借款并逐步退出非常规措施"
+          ],
+          "invalidation_conditions": [
+            "下院多数派内部第三次投票前提出不可调和的分裂方案",
+            "上院任一党核心小组正式宣布反对现有框架"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_lower_chamber-r3",
+            "decision-actor_upper_chamber-r3"
+          ],
+          "novelty_claim": "本分支模拟了下院内部协调如何改变上院可操作的议案范围，以及两院从对峙到共推法案的传导路径。",
+          "confidence": 0.5,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-2",
+          "label": "评级拉响警告，机构加速防御",
+          "summary": "随着X-day进入倒数第7天，主权评级机构在缺少立法进展的情况下发布警告并调整展望为负面，全球机构投资者据此将短期国债敞口进一步缩减并增加CDS对冲，导致短端收益率快速上行。",
+          "actor_ids": [
+            "actor_rating",
+            "actor_investors"
+          ],
+          "trigger_conditions": [
+            "在X-day前倒计时第7天左右，两院未公布任何获得跨党派支持的框架草案"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_rating",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_rating-r3"
+            },
+            {
+              "actor_id": "actor_investors",
+              "action_type": "ALLOCATE",
+              "decision_ref": "decision-actor_investors-r3"
+            }
+          ],
+          "consequences": [
+            "评级机构将主权信用展望从稳定下调至负面并附加短期支付关注列表",
+            "机构投资者继续减少一月期国债配置，同时增加三周内到期的国债购买以承接更高票息"
+          ],
+          "invalidation_conditions": [
+            "评级机构在倒计时第7天前发布维持展望稳定的特别声明",
+            "机构投资者大规模公开宣布将维持甚至增加短期主权敞口"
+          ],
+          "evidence_refs": [
+            "F2",
+            "F3",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_rating-r3",
+            "decision-actor_investors-r3"
+          ],
+          "novelty_claim": "本分支模拟了评级机构在没有新立法进展时主动改变风险信号，进而传导至投资者调整久期和信用保护的机制。",
+          "confidence": 0.6,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-3",
+          "label": "行政部门干预迫使财政机关延迟支付警告",
+          "summary": "行政部门的协调人提议以临时行政命令推迟部分非必需付款以赢得额外数天谈判时间，财政机关则评估现金流后选择暂不更新X-day公告，等待行政方案落实。",
+          "actor_ids": [
+            "actor_executive",
+            "actor_fiscal_authority"
+          ],
+          "trigger_conditions": [
+            "行政部门公开建议或私下指示财政机关延迟支付某些非优先义务以保留现金"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_executive",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_executive-r3"
+            },
+            {
+              "actor_id": "actor_fiscal_authority",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_fiscal_authority-r3"
+            }
+          ],
+          "consequences": [
+            "财政机关推迟公开发布新的现金流耗尽日期，继续以‘不确定性’为由维持当前非常规措施",
+            "部分短期债券持有者因信息缺失而增加流动性储备并拉长回购期限"
+          ],
+          "invalidation_conditions": [
+            "行政部门公开否认任何非立法支付推迟安排",
+            "财政机关在提议后48小时内主动发布新的精确X-day预测"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_executive-r3",
+            "decision-actor_fiscal_authority-r3"
+          ],
+          "novelty_claim": "本分支模拟了行政部门干预财政机关的现金管理操作从而改变X-day窗口信息透明度的传导过程。",
+          "confidence": 0.4,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-4",
+          "label": "媒体聚焦市场信号倒逼交易商避险收缩",
+          "summary": "政经媒体在X-day前发布深度分析指出短端收益率利差已超历史基线，并将违约风险解释为不同于停摆，引发交易商群体加速缩减近月国债做市库存以避免被迫持有到期。",
+          "actor_ids": [
+            "actor_media",
+            "actor_dealers"
+          ],
+          "trigger_conditions": [
+            "主流财经媒体连续两天在封面/首页栏目标题中明确区分‘主权违约’与‘政府停摆’的后果",
+            "短端利差在连续两个交易日保持在历史基线上方1.2倍以上"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_media",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_media-r3"
+            },
+            {
+              "actor_id": "actor_dealers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_dealers-r3"
+            }
+          ],
+          "consequences": [
+            "交易商减少单个做市报价数量并拉宽买卖价差",
+            "货币基金降低在此类短期国债的参与规模，转向隔夜逆回购"
+          ],
+          "invalidation_conditions": [
+            "媒体未在24小时内引用评级机构或财政机关的正式违约风险判断",
+            "交易商公开展示其做市库存数据证明敞口未减"
+          ],
+          "evidence_refs": [
+            "F3",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_media-r3",
+            "decision-actor_dealers-r3"
+          ],
+          "novelty_claim": "本分支模拟了媒体的信息定性如何从外部触发交易商的风险管理行为，从而改变市场流动性和做市行为的传导链。",
+          "confidence": 0.4,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        }
+      ],
+      "generation": {
+        "semantic_retries": 0,
+        "elapsed_seconds": 58.92950958403526
+      },
+      "judgments": []
+    }
+  }
+}

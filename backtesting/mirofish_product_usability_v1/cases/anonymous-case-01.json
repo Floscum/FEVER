@@ -1,0 +1,935 @@
+{
+  "case_id": "anonymous-case-01",
+  "market": "CN",
+  "event_type": "公司指引上调/下调",
+  "actor_budget": 6,
+  "decision_actor_ids": [
+    "actor_analysts",
+    "actor_brokers",
+    "actor_competitors",
+    "actor_exchange",
+    "actor_institutions",
+    "actor_issuer"
+  ],
+  "facts": [
+    {
+      "id": "F1",
+      "observed_at": "D0",
+      "statement": "中国一季度业绩预告指引：年度目标 | 公告 预期:市场 前值:前年度",
+      "source_kind": "official",
+      "source_url": "anonymized-source",
+      "evidence_ref": "E1",
+      "confidence": 0.8
+    }
+  ],
+  "source_hashes": {
+    "spec_sha256": "29c6df6f95bd1070f0f882145a3a4b9aaa159c4f42b93a6b190e0f77b8bc935f",
+    "simulation_result_sha256": "b9aa98408c2ed1a3aa748c892770c8d6acfd9a0d24d2c60ad382e1754ba2f63f",
+    "financial_actions_sha256": "9c7c87d815e371118f8fee17c4da9f8ecf54fdf00a939c4ce1a96741688163b1"
+  },
+  "variants": {
+    "decisions_only": {
+      "generation": {
+        "status": "sealed",
+        "semantic_retries": 0,
+        "elapsed_seconds": 58.831482250010595,
+        "prompt_chars": 7073,
+        "visible_interactions": 0
+      },
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "交易所问询引发主体补充披露",
+          "summary": "若交易所（actor_exchange）按意图发出问询函或督导公告，主体（actor_issuer）将被迫或主动补充更详细的年度目标分解数据或风险提示，从而改变市场信息环境。",
+          "actor_ids": [
+            "actor_exchange",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_exchange",
+              "action_type": "REGULATE",
+              "decision_ref": "decision-actor_exchange-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "交易所公开披露针对该业绩预告指引的问询函或督导通知，且时间窗口在 D0+2 之内"
+          ],
+          "consequences": [
+            "主体有义务在收到问询后额外披露年度目标的达成路径、关键假设或已识别的风险因素",
+            "补充披露后将使市场参与者（含分析师、机构）获得比原预告更细化的信息，可能修正其预期判断"
+          ],
+          "invalidation_conditions": [
+            "若 D0+3 内交易所未发布任何与该指引相关的公开问询或督导动作，或交易所明确表示认可现有披露无需补充，则本分支失效"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "竞争者领先公布数据引导分析师修正",
+          "summary": "若竞争者（actor_competitors）在观望期内率先发布自身一季度业绩快报或前瞻，分析师（actor_analysts）将获得行业参照基准，从而提前启动对主体年度目标的评估与修正。",
+          "actor_ids": [
+            "actor_competitors",
+            "actor_analysts"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_competitors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_competitors-r2"
+            },
+            {
+              "actor_id": "actor_analysts",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_analysts-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "D0+3 内竞争者公开发布其一季度销售、订单或盈利的预披露数据"
+          ],
+          "consequences": [
+            "分析师将基于竞争者数据调整对主体所在行业的景气判断，部分分析师可能抢先发布对主体年度目标可行性的初评报告",
+            "主体（actor_issuer）可能被迫加快原计划的沟通节奏，以应对行业对标引起的市场定价偏差"
+          ],
+          "invalidation_conditions": [
+            "若 D0+3 内竞争者未发布任何可比信息，或分析师公开声明明确表示竞争者数据不具可比性、拒绝将其作为修正依据，则本分支失效"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "机构联动经纪商预判流动性变化",
+          "summary": "若机构投资者（actor_institutions）基于内部研究决定提前收集仓位数据，经纪商（actor_brokers）将接收到非公开的询价或流动性需求信号，从而触发双方对市场流动性的重新评估。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_brokers"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_brokers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_brokers-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "D0+3 内机构投资者向至少两家主要经纪商发出关于标的资产的大额询价、风险敞口查询或定制路演请求，且询价量超过该标的过去 5 日日均交易量的 20%"
+          ],
+          "consequences": [
+            "经纪商将上调该标的流动性溢价评估，并在内部客户周报中提高关注度",
+            "机构投资者可能因询价反馈的不利流动性条件而加强其等待决策，延长观望期"
+          ],
+          "invalidation_conditions": [
+            "若 D0+3 内机构未进行任何超常规的询价或交易前沟通，或经纪商在其公开发布的流动性报告中未提及该标的的异动，则本分支失效"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "竞争者针对主体预期差启动市场公关",
+          "summary": "若竞争者（actor_competitors）监测到主体披露年度目标与市场预期存在显著偏差（方向未定），可能启动市场公关活动（如投资者电话会、行业媒体报道等）以突出自身相对优势，迫使主体（actor_issuer）提正面回应。",
+          "actor_ids": [
+            "actor_competitors",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_competitors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_competitors-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "D0+3 内竞争者公开组织了以‘行业展望’或‘技术路线对比’为主题的投资者交流活动，且活动中直接或间接提及了主体公告中的年度目标关键假设"
+          ],
+          "consequences": [
+            "主体将面临额外的市场解释压力，其原计划的沟通动作被提前触发或内容被迫加码",
+            "原本观望的分析师可能因竞争者的主动行为而加快对主体目标可行性的质疑性研报发布"
+          ],
+          "invalidation_conditions": [
+            "若 D0+3 内竞争者仅发布常规经营数据而未提及主体或行业对标，或其公开活动未引起任何主流媒体跟报，则本分支失效"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        }
+      ],
+      "quality": [
+        {
+          "scores": {
+            "mechanism_coherence": 1,
+            "monitoring_actionability": 1,
+            "falsifiability": 1,
+            "evidence_discipline": 2,
+            "scenario_diversity": 2
+          },
+          "total_score": 7,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": false
+            }
+          ]
+        },
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 2,
+            "evidence_discipline": 2,
+            "scenario_diversity": 3
+          },
+          "total_score": 11,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            }
+          ]
+        }
+      ],
+      "judge_reasons": [
+        "No free-form reason supplied.",
+        "情景设计较好覆盖了不同参与者机制，但 branch-2 初始动作为 WAIT 与主动竞争者行为矛盾，branch-3 关注流动性而非业绩兑现，对决策相关性弱，整体机制连贯性和可监测性中等。"
+      ],
+      "prompt": {
+        "system": "你是金融事件分支编译器，不是价格预测器。只使用输入中 as_of 时点可得事实\n和明确标为模拟的行为，生成恰好 4 条彼此有实质区别、未来可证伪的条件化事件分支。\n\n\n硬性要求：\n- 不得补充 as_of 之后的真实事件、公告、价格或人员结果；\n- 每条分支至少串联两个不同 actor 的动作，不能只是改写一个人的观点；\n- trigger_conditions 必须是未来可观察的“若……则进入该分支”条件；\n- consequences 是机制结果，不是已发生事实；\n- invalidation_conditions 必须说明什么观察会推翻该分支；\n- evidence_refs 只能引用输入中的 F 编号；\n- 按 branch_slots 的顺序生成分支；第 N 条分支必须描述第 N 个槽位中的所有角色及其相互影响；\n- 不要输出 actor_ids、actions、decision_ref 或 simulation_refs；系统会按数组位置确定性绑定\n  槽位中的角色及其已有 financial_decision，禁止自行概括、改写或新造动作；\n- confidence 只表示分支内部连贯性，不是发生概率；\n- novelty_claim 说明该分支比事实直接复述多出了哪段多主体传导；\n- 不得输出目标价格、收益率概率或 Agent 投票频率。\n\n只输出 JSON：\n{\"branches\":[{\"label\":\"简短名称\",\"summary\":\"条件化摘要\",\n\"trigger_conditions\":[\"...\"],\"consequences\":[\"...\"],\n\"invalidation_conditions\":[\"...\"],\"evidence_refs\":[\"F1\"],\n\"novelty_claim\":\"...\",\"confidence\":0.5}],\"warnings\":[]}。\n互动输入可能为空；其中内容仍是模拟消息，不是新增事实。不得凭空推断立场变化或因果影响。每条分支说明一方行动如何影响另一方的可行行动。触发和失效条件尽量指出观察对象与时间窗口；没有依据时不编造精确阈值。对缺少行动依据的传导使用条件表述，不把等待决策改写成已经采取新行动。",
+        "user": "{\"case_id\": \"anonymous-case-01\", \"as_of\": \"D0\", \"question\": \"严格基于 D0 时点可得信息，推演未来三个交易日各参与方行动及条件化传导机制。\", \"horizon\": {\"kind\": \"calendar_days\", \"value\": 3, \"end_at\": \"2024-01-13T23:59:59+00:00\"}, \"facts\": [{\"id\": \"F1\", \"statement\": \"中国一季度业绩预告指引：年度目标 | 公告 预期:市场 前值:前年度\"}], \"actors\": [{\"id\": \"actor_issuer\", \"label\": \"事件主体\", \"kind\": \"issuer\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_institutions\", \"label\": \"机构投资者\", \"kind\": \"institutional_investor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_analysts\", \"label\": \"分析师\", \"kind\": \"analyst\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_brokers\", \"label\": \"券商与中介机构\", \"kind\": \"broker\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_exchange\", \"label\": \"交易所\", \"kind\": \"exchange\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_competitors\", \"label\": \"竞争者\", \"kind\": \"competitor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}], \"financial_decisions\": [{\"id\": \"decision-actor_issuer-r2\", \"round\": 2, \"actor_id\": \"actor_issuer\", \"action_type\": \"COMMUNICATE\", \"decision_status\": \"intended\", \"direction\": \"maintain\", \"intensity\": 0.6, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"一季度业绩预告指引已发布，但市场参与者分析师与交易所均已在公开讨论该指引与年度目标、市场预期的差异。作为事件主体，有义务在指引发布后的观察期内通过公开渠道回应市场关切，澄清年度目标的战略依据及与市场预期的合理偏差方向，以维护信息披露的透明度和自身制度公信力，减少信息不对称引发的过度解读。传导机制为：及早沟通→降低市场分歧→减少后期非理性调整。主要不确定性在于市场对偏差幅度的定价是否已超预期，需持续监测实际成交与后续修正公告的反应。\", \"constraint_refs\": [\"actor_issuer:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.8, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_institutions-r2\", \"round\": 2, \"actor_id\": \"actor_institutions\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"not_applicable\", \"intensity\": 0.3, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"中国一季度业绩预告指引已公告，但年度目标与市场预期及前年度的对比仍需等待更多实际披露数据才能验证偏差方向与幅度。作为机构投资者，当前不应急于调整仓位，应等待Q1实际报告数据（特别是可比公司季报及分行业数据）以确认景气度拐点，再决定对匿名标的1的配置调整。主要不确定性在于年度目标能否如期兑现以及市场预期修正路径。\", \"constraint_refs\": [\"actor_institutions:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_analysts-r2\", \"round\": 2, \"actor_id\": \"actor_analysts\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"not_applicable\", \"intensity\": 0.6, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"已观察到中国一季度业绩预告指引（年度目标 vs 市场预期 vs 前年度），但截至时点仅获得公告与市场预期对比的初步信号，尚未形成对具体标的的修正判断。需等待后续季度实际数据发布、可比公司表现及分析师一致预期调整，再评估对匿名标的1的估值模型参数是否需要修正。当前维持等待观察状态，避免基于单一预告指引做出过度反应。\", \"constraint_refs\": [\"actor_analysts:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.7, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_brokers-r2\", \"round\": 2, \"actor_id\": \"actor_brokers\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"一季度业绩预告指引已披露年度目标与市场预期、前年度的对比信息，但当前仅为预告阶段，后续实际财报数据尚未发布。作为中介机构，在缺乏更充分的实绩验证之前，不宜仓促调整配置或交易策略。我计划等待后续正式季报披露以及可比公司表现数据，再做出系统性判断。主要不确定性在于：年度目标能否实现、市场预期修正方向及幅度。\", \"constraint_refs\": [\"actor_brokers:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_exchange-r2\", \"round\": 2, \"actor_id\": \"actor_exchange\", \"action_type\": \"REGULATE\", \"decision_status\": \"conditional\", \"direction\": \"maintain\", \"intensity\": 0.6, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"基于中国一季度业绩预告指引（F1）已披露，年度目标与市场预期以及前年度存在可比信息。作为交易所，我的职责是确保信息披露质量与市场公平性。当前我已在平台上发布公告性评论并关注相关讨论，但信息披露的完整性和时效性需要进一步核实。鉴于一季度业绩预告尚处于指引阶段而非最终数据，我计划在下一个决策周期内向涉及该指引的相关上市公司发出问询函或加强信息披露督导，确保市场透明度和投资者知情权得到保障。该行动取决于后续是否有更多上市公司披露不一致的数据或出现异常交易行为。\", \"constraint_refs\": [\"actor_exchange:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.7, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_competitors-r2\", \"round\": 2, \"actor_id\": \"actor_competitors\", \"action_type\": \"WAIT\", \"decision_status\": \"intended\", \"direction\": \"not_applicable\", \"intensity\": null, \"instrument_refs\": [], \"rationale\": \"截至2024-01-10，仅有中国一季度业绩预告指引这一基础事实（年度目标vs市场预期vs前年度），信息尚不足以形成明确的多空判断或操作信号。作为竞争者，维护自身经济利益的最优策略是暂时观望，等待Q1正式数据披露及更多可比公司指引出来后再做调整。目前偏差方向与幅度均未确认，过早行动可能增加非必要风险。\", \"constraint_refs\": [\"actor_competitors:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}], \"simulated_actions\": [], \"branch_slots\": [{\"slot_id\": \"slot-1\", \"actor_ids\": [\"actor_exchange\", \"actor_issuer\"], \"relationship_kind\": \"constrains_or_influences\", \"decision_refs\": [\"decision-actor_exchange-r2\", \"decision-actor_issuer-r2\"]}, {\"slot_id\": \"slot-2\", \"actor_ids\": [\"actor_competitors\", \"actor_analysts\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_competitors-r2\", \"decision-actor_analysts-r2\"]}, {\"slot_id\": \"slot-3\", \"actor_ids\": [\"actor_institutions\", \"actor_brokers\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_brokers-r2\"]}, {\"slot_id\": \"slot-4\", \"actor_ids\": [\"actor_competitors\", \"actor_issuer\"], \"relationship_kind\": \"constrains_or_influences\", \"decision_refs\": [\"decision-actor_competitors-r2\", \"decision-actor_issuer-r2\"]}]}"
+      }
+    },
+    "filtered_interactions": {
+      "generation": {
+        "status": "sealed",
+        "semantic_retries": 0,
+        "elapsed_seconds": 80.71953870798461,
+        "prompt_chars": 8367,
+        "visible_interactions": 7
+      },
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "交易所问询触发主体澄清，市场情绪转向关注达成路径",
+          "summary": "若交易所因F1中年度目标与市场预期偏差而向事件主体发出信息披露问询函，则事件主体按原计划（decision-actor_issuer-r2）进行公开沟通，详细说明目标依据与预期形成逻辑。此沟通可能被市场解读为中性或偏强信号，促使分析师与券商在未来关注后续季度达成路径，而非短期偏离。",
+          "actor_ids": [
+            "actor_exchange",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_exchange",
+              "action_type": "REGULATE",
+              "decision_ref": "decision-actor_exchange-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "若交易所于D1至D2期间公开发布针对F1业绩指引的问询公告或督导函件"
+          ],
+          "consequences": [
+            "事件主体因应问询进行详细公开说明，将降低单一数字偏差引发的单向恐慌式解读",
+            "机构投资者与分析师从等待实际披露转向更细致跟踪季度环比数据及管理层执行细节"
+          ],
+          "invalidation_conditions": [
+            "如果D1至D3期间交易所仅维持原规则性提示，未发出针对该主体或该指引的专项问询"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "竞争者利用偏差制造相对优势叙事，分析师调整行业比较框架",
+          "summary": "若竞争者观察到F1中年度目标与市场预期偏差方向对其相对竞争地位有利（例如目标保守暗示自身市场份额弹性更大），竞争者将通过公开分析（trace-19、trace-33）渲染该差异，迫使分析师重新评估行业内各标的的相对估值基准，而非仅等待单一主体后续数据。",
+          "actor_ids": [
+            "actor_competitors",
+            "actor_analysts"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_competitors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_competitors-r2"
+            },
+            {
+              "actor_id": "actor_analysts",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_analysts-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "若竞争者或其关联分析师在D1至D2期间发布正式行业对比报告，专门引用F1作为同业相对优势论据"
+          ],
+          "consequences": [
+            "分析师因应行业比较框架调整，可能提前修改对事件主体与竞争者双方的估值模型相对权重",
+            "竞争者获得短期注意力转移优势，但该叙事有效性依赖后续季度实际数据验证"
+          ],
+          "invalidation_conditions": [
+            "若竞争者未公开化用该偏差进行直接比较，或若分析师维持单标的分开等待状态而不做横向对比"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "机构与券商在等待期间合力收集补丁数据，推动超额收益结构提前形成",
+          "summary": "若机构投资者（decision-actor_institutions-r2）的等待在D1至D2期间因可比公司预披露或分行业数据加速而缩短，券商（decision-actor_brokers-r2）将协同提供初步估算报告，推动提前形成对事件主体Q1季度的共识预期修正，而非等到官方发布。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_brokers"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_brokers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_brokers-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "若D1至D2期间可比同行业上市公司发布意外修整预告，使得一季度景气度可前推判断"
+          ],
+          "consequences": [
+            "券商对事件主体率先发布假设情景测算，为机构投资者提供初步配置调整参考",
+            "机构投资者基于外部数据与券商测算提前形成仓位意向，但因实际季度数据未出而仅限内部讨论"
+          ],
+          "invalidation_conditions": [
+            "若无其他公司提前披露相关景气信号，使机构和券商无法脱离F1单独推进假设测算"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "竞争者模仿主体策略但反向操作，主体被迫二次澄清加深分歧",
+          "summary": "若竞争者发现事件主体的年度目标与市场预期偏差较大，且自身Q1预期方向相反时，竞争者在D1至D2期间主动模仿主体发布类似目标声明但修正方向，迫使分析师与投资者在两家之间做二元选择，进而逼迫事件主体进行第二次更具体的澄清演练，而非一次沟通即解决问题。",
+          "actor_ids": [
+            "actor_competitors",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_competitors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_competitors-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "若竞争者在D1期间也发布自愿性业绩预告或前瞻目标声明，其方向与事件主体F1中的年度目标方向形成明显反差"
+          ],
+          "consequences": [
+            "事件主体因应竞争者声明，在D2至D3期间进行第二次针对性公开说明，可能附上更明细的历史可比数据",
+            "分析师构建的行业竞争预期从单点可比切换为两股力量竞合定价，预期波动率显著提升"
+          ],
+          "invalidation_conditions": [
+            "若竞争者未在相应窗口发布任何方向性业绩预告或前瞻声明"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        }
+      ],
+      "quality": [
+        {
+          "scores": {
+            "mechanism_coherence": 0,
+            "monitoring_actionability": 0,
+            "falsifiability": 0,
+            "evidence_discipline": 0,
+            "scenario_diversity": 0
+          },
+          "total_score": 0,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": false,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": false,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": false,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": false,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            }
+          ]
+        },
+        {
+          "scores": {
+            "mechanism_coherence": 3,
+            "monitoring_actionability": 3,
+            "falsifiability": 4,
+            "evidence_discipline": 3,
+            "scenario_diversity": 3
+          },
+          "total_score": 16,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            }
+          ]
+        }
+      ],
+      "judge_reasons": [
+        "No free-form reason supplied.",
+        "情景集以D0事实F1为锚，四个分支分别围绕交易所问询、竞争者叙事、机构补丁数据、竞争者反向策略四种不同机制展开，触发条件均为可观察公开事件，失效条件明确，且多参与方因果链完整，但部分分支对行动与后果的因果推导略显间接，且多样性能进一步拉开距离。"
+      ],
+      "prompt": {
+        "system": "你是金融事件分支编译器，不是价格预测器。只使用输入中 as_of 时点可得事实\n和明确标为模拟的行为，生成恰好 4 条彼此有实质区别、未来可证伪的条件化事件分支。\n\n\n硬性要求：\n- 不得补充 as_of 之后的真实事件、公告、价格或人员结果；\n- 每条分支至少串联两个不同 actor 的动作，不能只是改写一个人的观点；\n- trigger_conditions 必须是未来可观察的“若……则进入该分支”条件；\n- consequences 是机制结果，不是已发生事实；\n- invalidation_conditions 必须说明什么观察会推翻该分支；\n- evidence_refs 只能引用输入中的 F 编号；\n- 按 branch_slots 的顺序生成分支；第 N 条分支必须描述第 N 个槽位中的所有角色及其相互影响；\n- 不要输出 actor_ids、actions、decision_ref 或 simulation_refs；系统会按数组位置确定性绑定\n  槽位中的角色及其已有 financial_decision，禁止自行概括、改写或新造动作；\n- confidence 只表示分支内部连贯性，不是发生概率；\n- novelty_claim 说明该分支比事实直接复述多出了哪段多主体传导；\n- 不得输出目标价格、收益率概率或 Agent 投票频率。\n\n只输出 JSON：\n{\"branches\":[{\"label\":\"简短名称\",\"summary\":\"条件化摘要\",\n\"trigger_conditions\":[\"...\"],\"consequences\":[\"...\"],\n\"invalidation_conditions\":[\"...\"],\"evidence_refs\":[\"F1\"],\n\"novelty_claim\":\"...\",\"confidence\":0.5}],\"warnings\":[]}。\n互动输入可能为空；其中内容仍是模拟消息，不是新增事实。不得凭空推断立场变化或因果影响。每条分支说明一方行动如何影响另一方的可行行动。触发和失效条件尽量指出观察对象与时间窗口；没有依据时不编造精确阈值。对缺少行动依据的传导使用条件表述，不把等待决策改写成已经采取新行动。",
+        "user": "{\"case_id\": \"anonymous-case-01\", \"as_of\": \"D0\", \"question\": \"严格基于 D0 时点可得信息，推演未来三个交易日各参与方行动及条件化传导机制。\", \"horizon\": {\"kind\": \"calendar_days\", \"value\": 3, \"end_at\": \"2024-01-13T23:59:59+00:00\"}, \"facts\": [{\"id\": \"F1\", \"statement\": \"中国一季度业绩预告指引：年度目标 | 公告 预期:市场 前值:前年度\"}], \"actors\": [{\"id\": \"actor_issuer\", \"label\": \"事件主体\", \"kind\": \"issuer\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_institutions\", \"label\": \"机构投资者\", \"kind\": \"institutional_investor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_analysts\", \"label\": \"分析师\", \"kind\": \"analyst\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_brokers\", \"label\": \"券商与中介机构\", \"kind\": \"broker\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_exchange\", \"label\": \"交易所\", \"kind\": \"exchange\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_competitors\", \"label\": \"竞争者\", \"kind\": \"competitor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}], \"financial_decisions\": [{\"id\": \"decision-actor_issuer-r2\", \"round\": 2, \"actor_id\": \"actor_issuer\", \"action_type\": \"COMMUNICATE\", \"decision_status\": \"intended\", \"direction\": \"maintain\", \"intensity\": 0.6, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"一季度业绩预告指引已发布，但市场参与者分析师与交易所均已在公开讨论该指引与年度目标、市场预期的差异。作为事件主体，有义务在指引发布后的观察期内通过公开渠道回应市场关切，澄清年度目标的战略依据及与市场预期的合理偏差方向，以维护信息披露的透明度和自身制度公信力，减少信息不对称引发的过度解读。传导机制为：及早沟通→降低市场分歧→减少后期非理性调整。主要不确定性在于市场对偏差幅度的定价是否已超预期，需持续监测实际成交与后续修正公告的反应。\", \"constraint_refs\": [\"actor_issuer:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.8, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_institutions-r2\", \"round\": 2, \"actor_id\": \"actor_institutions\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"not_applicable\", \"intensity\": 0.3, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"中国一季度业绩预告指引已公告，但年度目标与市场预期及前年度的对比仍需等待更多实际披露数据才能验证偏差方向与幅度。作为机构投资者，当前不应急于调整仓位，应等待Q1实际报告数据（特别是可比公司季报及分行业数据）以确认景气度拐点，再决定对匿名标的1的配置调整。主要不确定性在于年度目标能否如期兑现以及市场预期修正路径。\", \"constraint_refs\": [\"actor_institutions:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_analysts-r2\", \"round\": 2, \"actor_id\": \"actor_analysts\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"not_applicable\", \"intensity\": 0.6, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"已观察到中国一季度业绩预告指引（年度目标 vs 市场预期 vs 前年度），但截至时点仅获得公告与市场预期对比的初步信号，尚未形成对具体标的的修正判断。需等待后续季度实际数据发布、可比公司表现及分析师一致预期调整，再评估对匿名标的1的估值模型参数是否需要修正。当前维持等待观察状态，避免基于单一预告指引做出过度反应。\", \"constraint_refs\": [\"actor_analysts:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.7, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_brokers-r2\", \"round\": 2, \"actor_id\": \"actor_brokers\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"一季度业绩预告指引已披露年度目标与市场预期、前年度的对比信息，但当前仅为预告阶段，后续实际财报数据尚未发布。作为中介机构，在缺乏更充分的实绩验证之前，不宜仓促调整配置或交易策略。我计划等待后续正式季报披露以及可比公司表现数据，再做出系统性判断。主要不确定性在于：年度目标能否实现、市场预期修正方向及幅度。\", \"constraint_refs\": [\"actor_brokers:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_exchange-r2\", \"round\": 2, \"actor_id\": \"actor_exchange\", \"action_type\": \"REGULATE\", \"decision_status\": \"conditional\", \"direction\": \"maintain\", \"intensity\": 0.6, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"基于中国一季度业绩预告指引（F1）已披露，年度目标与市场预期以及前年度存在可比信息。作为交易所，我的职责是确保信息披露质量与市场公平性。当前我已在平台上发布公告性评论并关注相关讨论，但信息披露的完整性和时效性需要进一步核实。鉴于一季度业绩预告尚处于指引阶段而非最终数据，我计划在下一个决策周期内向涉及该指引的相关上市公司发出问询函或加强信息披露督导，确保市场透明度和投资者知情权得到保障。该行动取决于后续是否有更多上市公司披露不一致的数据或出现异常交易行为。\", \"constraint_refs\": [\"actor_exchange:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.7, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_competitors-r2\", \"round\": 2, \"actor_id\": \"actor_competitors\", \"action_type\": \"WAIT\", \"decision_status\": \"intended\", \"direction\": \"not_applicable\", \"intensity\": null, \"instrument_refs\": [], \"rationale\": \"截至2024-01-10，仅有中国一季度业绩预告指引这一基础事实（年度目标vs市场预期vs前年度），信息尚不足以形成明确的多空判断或操作信号。作为竞争者，维护自身经济利益的最优策略是暂时观望，等待Q1正式数据披露及更多可比公司指引出来后再做调整。目前偏差方向与幅度均未确认，过早行动可能增加非必要风险。\", \"constraint_refs\": [\"actor_competitors:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}], \"simulated_actions\": [{\"id\": \"trace-19\", \"actor_id\": \"actor_competitors\", \"action_type\": \"COMMUNICATE\", \"summary\": \"分析：Q1业绩指引显示年度目标与市场预期存在差距，需密切关注后续实际数据与修正幅度。作为市场参与者，建议关注年报趋势与可比公司表现。\"}, {\"id\": \"trace-20\", \"actor_id\": \"actor_exchange\", \"action_type\": \"COMMUNICATE\", \"summary\": \"已关注一季度业绩预告指引。作为交易所，我们将持续监测信息披露质量，确保市场透明度与公平性。请各上市公司按时披露，保障投资者知情权。\"}, {\"id\": \"trace-21\", \"actor_id\": \"actor_analysts\", \"action_type\": \"COMMUNICATE\", \"summary\": \"关键数据点。建议关注年度目标与市场预期的偏差，以及与前年度的同比变化。这些指标将影响后续资产定价模型中的风险溢价调整。\"}, {\"id\": \"trace-32\", \"actor_id\": \"actor_brokers\", \"action_type\": \"COMMUNICATE\", \"summary\": \"作为中介机构，我们已注意到一季度业绩指引中年度目标与市场预期的差异。建议客户关注：（1）年度目标与前年度的同比变化幅度；（2）管理层对目标实现的置信度信号。我们将持续跟踪后续实际披露数据，为资产定价调整提供参考。需注意，社交媒体热度不直接等同于价格变动概率。\"}, {\"id\": \"trace-33\", \"actor_id\": \"actor_competitors\", \"action_type\": \"COMMUNICATE\", \"summary\": \"补充要点：需关注年度目标与市场预期之间的偏差方向——若目标偏保守可能蕴含超预期机会，若偏激进则需警惕修正风险。同时应结合行业周期位置与可比公司指引做交叉验证。\"}, {\"id\": \"trace-34\", \"actor_id\": \"actor_issuer\", \"action_type\": \"COMMUNICATE\", \"summary\": \"作为业绩指引发布方，我们确认该预告基于已审阅的初步财务数据。年度目标反映公司战略规划，市场预期与实际指引的差异将随季度数据披露逐步收敛。建议关注后续季度实际业绩与修正幅度，以准确评估全年达成率。\"}, {\"id\": \"trace-35\", \"actor_id\": \"actor_institutions\", \"action_type\": \"COMMUNICATE\", \"summary\": \"从机构投资者视角分析：一季度业绩预告指引中的年度目标与市场预期偏差值得深入追踪。重点关注：（1）与去年同期基数的可比性；（2）分行业景气度分化情况；（3）后续季度的修正幅度。这些数据将直接影响我方的资产配置调整方向，需持续跟踪实际披露数据与预期差的演进路径。\"}], \"branch_slots\": [{\"slot_id\": \"slot-1\", \"actor_ids\": [\"actor_exchange\", \"actor_issuer\"], \"relationship_kind\": \"constrains_or_influences\", \"decision_refs\": [\"decision-actor_exchange-r2\", \"decision-actor_issuer-r2\"]}, {\"slot_id\": \"slot-2\", \"actor_ids\": [\"actor_competitors\", \"actor_analysts\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_competitors-r2\", \"decision-actor_analysts-r2\"]}, {\"slot_id\": \"slot-3\", \"actor_ids\": [\"actor_institutions\", \"actor_brokers\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_brokers-r2\"]}, {\"slot_id\": \"slot-4\", \"actor_ids\": [\"actor_competitors\", \"actor_issuer\"], \"relationship_kind\": \"constrains_or_influences\", \"decision_refs\": [\"decision-actor_competitors-r2\", \"decision-actor_issuer-r2\"]}]}"
+      }
+    },
+    "raw_interactions": {
+      "generation": {
+        "status": "sealed",
+        "semantic_retries": 0,
+        "elapsed_seconds": 72.492601832957,
+        "prompt_chars": 9970,
+        "visible_interactions": 17
+      },
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "交易所问询触发主体澄清",
+          "summary": "若交易所在D1公开问询指引细节，事件主体将面临回应压力，可能发布补充说明以实现预期管理。交易所的行动直接为主体设定沟通议程，使其必须选择维护或微调此前表述。",
+          "actor_ids": [
+            "actor_exchange",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_exchange",
+              "action_type": "REGULATE",
+              "decision_ref": "decision-actor_exchange-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "D1收盘前交易所官方平台出现针对F1指引的问询公告或关注函"
+          ],
+          "consequences": [
+            "事件主体在D2发布包含更多量化假设的补充公告，收紧或放宽对年度目标实现的承诺强度",
+            "机构投资者与分析师将依据补充公告调整对其全年预测的置信度"
+          ],
+          "invalidation_conditions": [
+            "D2结束前交易所未发布任何针对此指引的公开问询",
+            "事件主体在D1提前主动发布澄清公告，削弱交易所问询的新增信息强度"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "竞争者点评偏离引致分析师重新评估",
+          "summary": "若竞争者在多轮分析中将年度目标与实际预期差定性为行业性风险信号，分析师可能从等待转向发布预警，修正估值参数。竞争者的叙述塑造了分析师对行业基准的参照系，从而触发分析框架调整。",
+          "actor_ids": [
+            "actor_competitors",
+            "actor_analysts"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_competitors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_competitors-r2"
+            },
+            {
+              "actor_id": "actor_analysts",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_analysts-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "竞争者在D1-D2内连续两篇公开分析中强调F1指引具有行业代表性，并下调可比标的预期",
+            "主要卖方分析师账号在D2收盘前开始批量转发或评论竞争者观点"
+          ],
+          "consequences": [
+            "分析师一致预期在D2-D3期间出现至少一次中等级别下修",
+            "部分机构投资者因预期调整暂缓原等待决策，转为减仓避险"
+          ],
+          "invalidation_conditions": [
+            "竞争者在D2内撤回或弱化其行业风险定性",
+            "分析师群体在D3收盘前并未发布任何基于F1的估值或评级调整"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "机构避险指令倒逼中介提前行动",
+          "summary": "若机构投资者在等待中通过追踪系统解析出更强的下行风险信号（如可比标的同时披露悲观预期），可能向券商发送非公开调整指令，促使中介提前从等待转为向客户发布策略预警，改变市场讨论方向。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_brokers"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_brokers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_brokers-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "D1-D2内至少有两家可比上市公司发布低于前年度的季度预告",
+            "机构投资者在模拟平台上通过搜索和点赞行为向中介发出显性的风险关注信号"
+          ],
+          "consequences": [
+            "券商在D2晚间或D3早间发布针对F1标的的战术性下调建议，打破此前的择时观望",
+            "部分机构仓位在D3开盘前已完成一次小规模结构调整，而非等待正式季报"
+          ],
+          "invalidation_conditions": [
+            "D3收盘前无任何可比标的发布弱于预期的预告",
+            "中介渠道的公开或定向通信记录显示其并未改变等待立场"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "主体主动铺垫引发竞争者防御性反评",
+          "summary": "若事件主体在D1主动补充表述中隐含对竞争格局的不利暗示（如市场份额目标），竞争者可能出于防御动机发布定性更负面的分析，从而将业绩指引事件升级为两方公开论战，吸引交易所二次关注。",
+          "actor_ids": [
+            "actor_competitors",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_competitors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_competitors-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "事件主体在D1发布的补充公告中包含市场份额、单位成本等涉及行业竞争态势的具体量化目标",
+            "竞争者在补充公告发布后4小时内发布带有负面基调的行业评论"
+          ],
+          "consequences": [
+            "交易所因双方公开对峙在D2启动针对该行业的信息披露专项检查",
+            "分析师与机构投资者将双方公报均视为高不确定性事件，延长避险等待周期"
+          ],
+          "invalidation_conditions": [
+            "D1内事件主体未发布任何包含行业竞争量化指标的补充内容",
+            "竞争者在D2内未发布与F1指引直接相关的任何新的公开分析"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        }
+      ],
+      "quality": [
+        {
+          "scores": {
+            "mechanism_coherence": 1,
+            "monitoring_actionability": 2,
+            "falsifiability": 2,
+            "evidence_discipline": 1,
+            "scenario_diversity": 2
+          },
+          "total_score": 8,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            }
+          ]
+        },
+        {
+          "scores": {
+            "mechanism_coherence": 3,
+            "monitoring_actionability": 3,
+            "falsifiability": 3,
+            "evidence_discipline": 3,
+            "scenario_diversity": 2
+          },
+          "total_score": 14,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            }
+          ]
+        }
+      ],
+      "judge_reasons": [
+        "各分支因果链存在跳跃或循环依赖，发出动作与系统绑定起始动作矛盾，场景多样性不足。",
+        "四分支均有清晰的多方因果链、可观察触发、具体失效条件和事实锚定，但机制集中在问询、同行点评和避险传导，缺乏宏观政策或流动性驱动的实质不同机制，故多样性略低。"
+      ],
+      "prompt": {
+        "system": "你是金融事件分支编译器，不是价格预测器。只使用输入中 as_of 时点可得事实\n和明确标为模拟的行为，生成恰好 4 条彼此有实质区别、未来可证伪的条件化事件分支。\n\n\n硬性要求：\n- 不得补充 as_of 之后的真实事件、公告、价格或人员结果；\n- 每条分支至少串联两个不同 actor 的动作，不能只是改写一个人的观点；\n- trigger_conditions 必须是未来可观察的“若……则进入该分支”条件；\n- consequences 是机制结果，不是已发生事实；\n- invalidation_conditions 必须说明什么观察会推翻该分支；\n- evidence_refs 只能引用输入中的 F 编号；\n- 按 branch_slots 的顺序生成分支；第 N 条分支必须描述第 N 个槽位中的所有角色及其相互影响；\n- 不要输出 actor_ids、actions、decision_ref 或 simulation_refs；系统会按数组位置确定性绑定\n  槽位中的角色及其已有 financial_decision，禁止自行概括、改写或新造动作；\n- confidence 只表示分支内部连贯性，不是发生概率；\n- novelty_claim 说明该分支比事实直接复述多出了哪段多主体传导；\n- 不得输出目标价格、收益率概率或 Agent 投票频率。\n\n只输出 JSON：\n{\"branches\":[{\"label\":\"简短名称\",\"summary\":\"条件化摘要\",\n\"trigger_conditions\":[\"...\"],\"consequences\":[\"...\"],\n\"invalidation_conditions\":[\"...\"],\"evidence_refs\":[\"F1\"],\n\"novelty_claim\":\"...\",\"confidence\":0.5}],\"warnings\":[]}。\n互动输入可能为空；其中内容仍是模拟消息，不是新增事实。不得凭空推断立场变化或因果影响。每条分支说明一方行动如何影响另一方的可行行动。触发和失效条件尽量指出观察对象与时间窗口；没有依据时不编造精确阈值。对缺少行动依据的传导使用条件表述，不把等待决策改写成已经采取新行动。",
+        "user": "{\"case_id\": \"anonymous-case-01\", \"as_of\": \"D0\", \"question\": \"严格基于 D0 时点可得信息，推演未来三个交易日各参与方行动及条件化传导机制。\", \"horizon\": {\"kind\": \"calendar_days\", \"value\": 3, \"end_at\": \"2024-01-13T23:59:59+00:00\"}, \"facts\": [{\"id\": \"F1\", \"statement\": \"中国一季度业绩预告指引：年度目标 | 公告 预期:市场 前值:前年度\"}], \"actors\": [{\"id\": \"actor_issuer\", \"label\": \"事件主体\", \"kind\": \"issuer\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_institutions\", \"label\": \"机构投资者\", \"kind\": \"institutional_investor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_analysts\", \"label\": \"分析师\", \"kind\": \"analyst\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_brokers\", \"label\": \"券商与中介机构\", \"kind\": \"broker\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_exchange\", \"label\": \"交易所\", \"kind\": \"exchange\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_competitors\", \"label\": \"竞争者\", \"kind\": \"competitor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}], \"financial_decisions\": [{\"id\": \"decision-actor_issuer-r2\", \"round\": 2, \"actor_id\": \"actor_issuer\", \"action_type\": \"COMMUNICATE\", \"decision_status\": \"intended\", \"direction\": \"maintain\", \"intensity\": 0.6, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"一季度业绩预告指引已发布，但市场参与者分析师与交易所均已在公开讨论该指引与年度目标、市场预期的差异。作为事件主体，有义务在指引发布后的观察期内通过公开渠道回应市场关切，澄清年度目标的战略依据及与市场预期的合理偏差方向，以维护信息披露的透明度和自身制度公信力，减少信息不对称引发的过度解读。传导机制为：及早沟通→降低市场分歧→减少后期非理性调整。主要不确定性在于市场对偏差幅度的定价是否已超预期，需持续监测实际成交与后续修正公告的反应。\", \"constraint_refs\": [\"actor_issuer:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.8, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_institutions-r2\", \"round\": 2, \"actor_id\": \"actor_institutions\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"not_applicable\", \"intensity\": 0.3, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"中国一季度业绩预告指引已公告，但年度目标与市场预期及前年度的对比仍需等待更多实际披露数据才能验证偏差方向与幅度。作为机构投资者，当前不应急于调整仓位，应等待Q1实际报告数据（特别是可比公司季报及分行业数据）以确认景气度拐点，再决定对匿名标的1的配置调整。主要不确定性在于年度目标能否如期兑现以及市场预期修正路径。\", \"constraint_refs\": [\"actor_institutions:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_analysts-r2\", \"round\": 2, \"actor_id\": \"actor_analysts\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"not_applicable\", \"intensity\": 0.6, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"已观察到中国一季度业绩预告指引（年度目标 vs 市场预期 vs 前年度），但截至时点仅获得公告与市场预期对比的初步信号，尚未形成对具体标的的修正判断。需等待后续季度实际数据发布、可比公司表现及分析师一致预期调整，再评估对匿名标的1的估值模型参数是否需要修正。当前维持等待观察状态，避免基于单一预告指引做出过度反应。\", \"constraint_refs\": [\"actor_analysts:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.7, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_brokers-r2\", \"round\": 2, \"actor_id\": \"actor_brokers\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"一季度业绩预告指引已披露年度目标与市场预期、前年度的对比信息，但当前仅为预告阶段，后续实际财报数据尚未发布。作为中介机构，在缺乏更充分的实绩验证之前，不宜仓促调整配置或交易策略。我计划等待后续正式季报披露以及可比公司表现数据，再做出系统性判断。主要不确定性在于：年度目标能否实现、市场预期修正方向及幅度。\", \"constraint_refs\": [\"actor_brokers:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_exchange-r2\", \"round\": 2, \"actor_id\": \"actor_exchange\", \"action_type\": \"REGULATE\", \"decision_status\": \"conditional\", \"direction\": \"maintain\", \"intensity\": 0.6, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"基于中国一季度业绩预告指引（F1）已披露，年度目标与市场预期以及前年度存在可比信息。作为交易所，我的职责是确保信息披露质量与市场公平性。当前我已在平台上发布公告性评论并关注相关讨论，但信息披露的完整性和时效性需要进一步核实。鉴于一季度业绩预告尚处于指引阶段而非最终数据，我计划在下一个决策周期内向涉及该指引的相关上市公司发出问询函或加强信息披露督导，确保市场透明度和投资者知情权得到保障。该行动取决于后续是否有更多上市公司披露不一致的数据或出现异常交易行为。\", \"constraint_refs\": [\"actor_exchange:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.7, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_competitors-r2\", \"round\": 2, \"actor_id\": \"actor_competitors\", \"action_type\": \"WAIT\", \"decision_status\": \"intended\", \"direction\": \"not_applicable\", \"intensity\": null, \"instrument_refs\": [], \"rationale\": \"截至2024-01-10，仅有中国一季度业绩预告指引这一基础事实（年度目标vs市场预期vs前年度），信息尚不足以形成明确的多空判断或操作信号。作为竞争者，维护自身经济利益的最优策略是暂时观望，等待Q1正式数据披露及更多可比公司指引出来后再做调整。目前偏差方向与幅度均未确认，过早行动可能增加非必要风险。\", \"constraint_refs\": [\"actor_competitors:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}], \"simulated_actions\": [{\"id\": \"trace-14\", \"kind\": \"simulated_action\", \"action_type\": \"SOCIAL_ENDORSEMENT\", \"summary\": \"点赞帖子 #1：中国一季度业绩预告指引：年度目标 | 公告 预期:市场 前值:前年度\", \"actor_id\": \"actor_brokers\"}, {\"id\": \"trace-15\", \"kind\": \"simulated_action\", \"action_type\": \"SEARCH_POSTS\", \"summary\": \"search_posts\", \"actor_id\": \"actor_institutions\"}, {\"id\": \"trace-17\", \"kind\": \"simulated_action\", \"action_type\": \"SEARCH_USER\", \"summary\": \"search_user\", \"actor_id\": \"actor_institutions\"}, {\"id\": \"trace-18\", \"kind\": \"simulated_action\", \"action_type\": \"SEARCH_POSTS\", \"summary\": \"search_posts\", \"actor_id\": \"actor_issuer\"}, {\"id\": \"trace-19\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"分析：Q1业绩指引显示年度目标与市场预期存在差距，需密切关注后续实际数据与修正幅度。作为市场参与者，建议关注年报趋势与可比公司表现。\", \"actor_id\": \"actor_competitors\"}, {\"id\": \"trace-20\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"已关注一季度业绩预告指引。作为交易所，我们将持续监测信息披露质量，确保市场透明度与公平性。请各上市公司按时披露，保障投资者知情权。\", \"actor_id\": \"actor_exchange\"}, {\"id\": \"trace-21\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"关键数据点。建议关注年度目标与市场预期的偏差，以及与前年度的同比变化。这些指标将影响后续资产定价模型中的风险溢价调整。\", \"actor_id\": \"actor_analysts\"}, {\"id\": \"trace-28\", \"kind\": \"simulated_action\", \"action_type\": \"LIKE_COMMENT\", \"summary\": \"like_comment\", \"actor_id\": \"actor_exchange\"}, {\"id\": \"trace-29\", \"kind\": \"simulated_action\", \"action_type\": \"LIKE_COMMENT\", \"summary\": \"like_comment\", \"actor_id\": \"actor_exchange\"}, {\"id\": \"trace-30\", \"kind\": \"simulated_action\", \"action_type\": \"LIKE_COMMENT\", \"summary\": \"like_comment\", \"actor_id\": \"actor_analysts\"}, {\"id\": \"trace-31\", \"kind\": \"simulated_action\", \"action_type\": \"LIKE_COMMENT\", \"summary\": \"like_comment\", \"actor_id\": \"actor_analysts\"}, {\"id\": \"trace-32\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"作为中介机构，我们已注意到一季度业绩指引中年度目标与市场预期的差异。建议客户关注：（1）年度目标与前年度的同比变化幅度；（2）管理层对目标实现的置信度信号。我们将持续跟踪后续实际披露数据，为资产定价调整提供参考。需注意，社交媒体热度不直接等同于价格变动概率。\", \"actor_id\": \"actor_brokers\"}, {\"id\": \"trace-33\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"补充要点：需关注年度目标与市场预期之间的偏差方向——若目标偏保守可能蕴含超预期机会，若偏激进则需警惕修正风险。同时应结合行业周期位置与可比公司指引做交叉验证。\", \"actor_id\": \"actor_competitors\"}, {\"id\": \"trace-34\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"作为业绩指引发布方，我们确认该预告基于已审阅的初步财务数据。年度目标反映公司战略规划，市场预期与实际指引的差异将随季度数据披露逐步收敛。建议关注后续季度实际业绩与修正幅度，以准确评估全年达成率。\", \"actor_id\": \"actor_issuer\"}, {\"id\": \"trace-35\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"从机构投资者视角分析：一季度业绩预告指引中的年度目标与市场预期偏差值得深入追踪。重点关注：（1）与去年同期基数的可比性；（2）分行业景气度分化情况；（3）后续季度的修正幅度。这些数据将直接影响我方的资产配置调整方向，需持续跟踪实际披露数据与预期差的演进路径。\", \"actor_id\": \"actor_institutions\"}, {\"id\": \"trace-36\", \"kind\": \"simulated_action\", \"action_type\": \"LIKE_COMMENT\", \"summary\": \"like_comment\", \"actor_id\": \"actor_institutions\"}, {\"id\": \"trace-37\", \"kind\": \"simulated_action\", \"action_type\": \"LIKE_COMMENT\", \"summary\": \"like_comment\", \"actor_id\": \"actor_institutions\"}], \"branch_slots\": [{\"slot_id\": \"slot-1\", \"actor_ids\": [\"actor_exchange\", \"actor_issuer\"], \"relationship_kind\": \"constrains_or_influences\", \"decision_refs\": [\"decision-actor_exchange-r2\", \"decision-actor_issuer-r2\"]}, {\"slot_id\": \"slot-2\", \"actor_ids\": [\"actor_competitors\", \"actor_analysts\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_competitors-r2\", \"decision-actor_analysts-r2\"]}, {\"slot_id\": \"slot-3\", \"actor_ids\": [\"actor_institutions\", \"actor_brokers\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_brokers-r2\"]}, {\"slot_id\": \"slot-4\", \"actor_ids\": [\"actor_competitors\", \"actor_issuer\"], \"relationship_kind\": \"constrains_or_influences\", \"decision_refs\": [\"decision-actor_competitors-r2\", \"decision-actor_issuer-r2\"]}]}"
+      }
+    }
+  },
+  "usage": [
+    {
+      "case_id": "anonymous-case-01",
+      "variant": "raw_interactions",
+      "phase": "generation",
+      "request_id": "072a6bdec9a04f7c8c9d32a79f384a58",
+      "request_sha256": "bbe516bed3f59a623e8b9a12cc73630252d5369360c38d1d1250d13e236ef44c",
+      "prompt_chars": 9970,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:03:44.265412+00:00",
+      "status": "completed",
+      "prompt_tokens": 3795,
+      "completion_tokens": 1053,
+      "total_tokens": 4848,
+      "estimated_cost": 0.00053109,
+      "finish_reason": "stop",
+      "elapsed_seconds": 72.48951087502064
+    },
+    {
+      "case_id": "anonymous-case-01",
+      "variant": "filtered_interactions",
+      "phase": "generation",
+      "request_id": "a9cc2d9e4c564ddeb5924f75e9af7d41",
+      "request_sha256": "750fe5f6689666723b940f00c27abf57e54744665cb0422bcff0e61fc5993ef2",
+      "prompt_chars": 8367,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:04:19.301333+00:00",
+      "status": "completed",
+      "prompt_tokens": 3282,
+      "completion_tokens": 1178,
+      "total_tokens": 4460,
+      "estimated_cost": 0.000341532,
+      "finish_reason": "stop",
+      "elapsed_seconds": 80.71580091601936
+    },
+    {
+      "case_id": "anonymous-case-01",
+      "variant": "decisions_only",
+      "phase": "generation",
+      "request_id": "717bef1e11d648168613aee10f07f7f1",
+      "request_sha256": "bf7003a7c7cc0174f334485b37d65916ae1cd54f20d08ef3b1ca5ffefef236c5",
+      "prompt_chars": 7073,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:05:40.046123+00:00",
+      "status": "completed",
+      "prompt_tokens": 2702,
+      "completion_tokens": 1114,
+      "total_tokens": 3816,
+      "estimated_cost": 0.000277812,
+      "finish_reason": "stop",
+      "elapsed_seconds": 58.827757958031725
+    },
+    {
+      "case_id": "anonymous-case-01",
+      "variant": "raw_interactions",
+      "phase": "quality",
+      "repeat": 1,
+      "request_id": "6ce66391b73843548ebc8740f3212d1e",
+      "request_sha256": "92affc051785520b2e67f097ddd65df1f4185f9c0599529844929bf3178d7404",
+      "prompt_chars": 5231,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:06:51.552383+00:00",
+      "status": "completed",
+      "prompt_tokens": 2138,
+      "completion_tokens": 285,
+      "total_tokens": 2423,
+      "estimated_cost": 0.00024372,
+      "finish_reason": "stop",
+      "elapsed_seconds": 8.352430792001542
+    },
+    {
+      "case_id": "anonymous-case-01",
+      "variant": "filtered_interactions",
+      "phase": "quality",
+      "repeat": 2,
+      "request_id": "0c2d590bbffa428fa2395607ef5d4793",
+      "request_sha256": "b549eef71d8e716e412d22356461f7217f881b2860ea5022afdb791c898fa26a",
+      "prompt_chars": 5376,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:06:59.929852+00:00",
+      "status": "completed",
+      "prompt_tokens": 2200,
+      "completion_tokens": 337,
+      "total_tokens": 2537,
+      "estimated_cost": 0.00018493199999999998,
+      "finish_reason": "stop",
+      "elapsed_seconds": 11.12481662502978
+    },
+    {
+      "case_id": "anonymous-case-01",
+      "variant": "raw_interactions",
+      "phase": "quality",
+      "repeat": 2,
+      "request_id": "b3e1f75ade864cc3ac1075b2b99274f8",
+      "request_sha256": "92affc051785520b2e67f097ddd65df1f4185f9c0599529844929bf3178d7404",
+      "prompt_chars": 5231,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:07:01.121558+00:00",
+      "status": "completed",
+      "prompt_tokens": 2138,
+      "completion_tokens": 309,
+      "total_tokens": 2447,
+      "estimated_cost": 0.000100584,
+      "finish_reason": "stop",
+      "elapsed_seconds": 10.139111208030954
+    },
+    {
+      "case_id": "anonymous-case-01",
+      "variant": "decisions_only",
+      "phase": "quality",
+      "repeat": 1,
+      "request_id": "fc0f99038e4c4c6fab5555e9c8fd2340",
+      "request_sha256": "040c60e9d4f14c785c33626c9ec1e1facaa3036f68883910e8e2f9d584cf0c22",
+      "prompt_chars": 5332,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:07:19.435310+00:00",
+      "status": "completed",
+      "prompt_tokens": 2181,
+      "completion_tokens": 303,
+      "total_tokens": 2484,
+      "estimated_cost": 0.000177102,
+      "finish_reason": "stop",
+      "elapsed_seconds": 8.00751141604269
+    },
+    {
+      "case_id": "anonymous-case-01",
+      "variant": "filtered_interactions",
+      "phase": "quality",
+      "repeat": 1,
+      "request_id": "e5fba8e5cb344cd2b99dbdcb0e3ff4de",
+      "request_sha256": "b549eef71d8e716e412d22356461f7217f881b2860ea5022afdb791c898fa26a",
+      "prompt_chars": 5376,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:07:37.193923+00:00",
+      "status": "completed",
+      "prompt_tokens": 2200,
+      "completion_tokens": 317,
+      "total_tokens": 2517,
+      "estimated_cost": 0.000236628,
+      "finish_reason": "stop",
+      "elapsed_seconds": 10.611999958986416
+    },
+    {
+      "case_id": "anonymous-case-01",
+      "variant": "decisions_only",
+      "phase": "quality",
+      "repeat": 2,
+      "request_id": "9a71df048931454dbc29d64a73b24dd7",
+      "request_sha256": "040c60e9d4f14c785c33626c9ec1e1facaa3036f68883910e8e2f9d584cf0c22",
+      "prompt_chars": 5332,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:07:47.830483+00:00",
+      "status": "completed",
+      "prompt_tokens": 2181,
+      "completion_tokens": 312,
+      "total_tokens": 2493,
+      "estimated_cost": 0.000104994,
+      "finish_reason": "stop",
+      "elapsed_seconds": 9.889581082970835
+    }
+  ]
+}

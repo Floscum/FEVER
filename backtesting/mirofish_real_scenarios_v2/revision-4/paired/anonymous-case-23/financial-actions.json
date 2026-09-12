@@ -1,0 +1,168 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_airline_merger_block_023",
+  "spec_sha256": "717d98404024e5ed817b64e7908f04c341b269141622c16eaa3702f6b98742bc",
+  "simulation_id": "sim_91957d016e3d",
+  "generated_at": "2026-08-05T03:39:23.807374+00:00",
+  "status": "completed",
+  "decisions": [
+    {
+      "id": "decision-actor_buyer-r3",
+      "round": 3,
+      "actor_id": "actor_buyer",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "法院禁令已生效但双方未终止协议，D0状态高度不确定，选择等待更清晰的法律或谈判信号，以控制融资成本和终止费风险，避免过早暴露立场。",
+      "constraint_refs": [
+        "actor_buyer:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:0",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_target-r3",
+      "round": 3,
+      "actor_id": "actor_target",
+      "action_type": "WAIT",
+      "decision_status": "intended",
+      "direction": "not_applicable",
+      "intensity": 0.6,
+      "instrument_refs": [],
+      "rationale": "作为被收购方，合并协议尚未终止，法院裁决虽不利但双方正在评估上诉选项。当前D0信息不完整，主动调整公开声明或启动运营变更可能削弱谈判地位或触发终止费条款。等待收购方明确下一步行动（上诉、重谈或终止）后再作出回应，更符合维护核心利益的目标。同时密切关注融资方的表态和外部截止期要求，以评估协议是否仍有维持价值。",
+      "constraint_refs": [
+        "actor_target:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:1",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_court_regulator-r3",
+      "round": 3,
+      "actor_id": "actor_court_regulator",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "联邦法院已作出永久禁止合并的裁定，但双方尚未正式放弃，仍在评估法律选项。由于D0信息不完整，且双方可能选择上诉、重谈或终止，竞争执法机构不需要在当前时点立即采取新的公开行动或调整已有立场。等待双方下一步具体动作（如正式上诉通知或协议终止公告）后将根据新增证据决定是否进一步表达立场或采取监管措施。",
+      "constraint_refs": [
+        "actor_court_regulator:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:2",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_customers-r3",
+      "round": 3,
+      "actor_id": "actor_customers",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": 0.3,
+      "instrument_refs": [],
+      "rationale": "联邦法院已裁定禁止合并，这一裁决直接保护了价格敏感型乘客的核心利益。然而双方正在评估法律选项，合并协议尚未立即终止，D0尚不确定双方会选择上诉、重谈还是终止。作为乘客，我当前没有实质性资产或金融工具可以调整，也不需要主动沟通或谈判——我的利益已通过法院裁决得到初步保护。但在最终结果落地前（如上诉结果、终止费触发等），仍需保持观望，以防合并通过其他路径复活导致票价上涨。等待下一轮事实进展是最符合制度约束和经济激励的行动。",
+      "constraint_refs": [
+        "actor_customers:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:3",
+      "visibility": "public",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_creditors-r3",
+      "round": 3,
+      "actor_id": "actor_creditors",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": 0.7,
+      "instrument_refs": [
+        "ASSET_023"
+      ],
+      "rationale": "D0信息不完整——法院禁令虽已下达，但双方明确表示不同意裁决、正在评估法律选项且合并协议尚未终止。作为融资方与债权人，在当前节点主动调整融资敞口或公开表态会增加提前暴露策略的风险，同时丧失等待双方正式公告（上诉/重谈/终止）所蕴含的信息优势。维持现有融资承诺状态是符合制度约束和经济激励的理性选择，但需保持高强度内部情景压力测试，以确保对外部截止期触发时能快速反应。主要不确定性在于：双方是否在上诉窗口期内提出上诉、上诉期间融资成本是否被重新定价、以及终止费的实际执行是否会触发信用事件。",
+      "constraint_refs": [
+        "actor_creditors:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:4",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_institutions-r3",
+      "round": 3,
+      "actor_id": "actor_institutions",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "maintain",
+      "intensity": 0.3,
+      "instrument_refs": [
+        "ASSET_023"
+      ],
+      "rationale": "截至当前时点，联邦法院已裁定永久禁止合并(F1)，但双方正在评估法律选项且协议尚未终止(F2)。交易层面存在外部截止期和终止费安排(F3)，而D0阶段无法确定双方会选择上诉、重谈还是终止(F4)。作为机构投资者，我需要等待更多关于上诉路径、融资方态度(D4)和重谈可能性的信号，再对ASSET_023头寸做出调整。当前保持现有仓位、维持中性观望，但保持较低强度的情景监控准备。主要不确定性在于双方上诉意愿和法院对上诉的受理结果，以及融资方是否会因该裁定调整融资条件。",
+      "constraint_refs": [
+        "actor_institutions:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:5",
+      "visibility": "private",
+      "confidence": 0.75,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    }
+  ],
+  "failures": [],
+  "warnings": [
+    "Decision confidence expresses action clarity, not forecast probability.",
+    "Interview decisions are simulated statements, not observed evidence."
+  ]
+}

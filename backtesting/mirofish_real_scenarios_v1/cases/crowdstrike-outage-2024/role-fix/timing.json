@@ -1,0 +1,6 @@
+{
+  "end_to_end_seconds": 124.29079624998849,
+  "job_dir": "/Users/floscum/Documents/FEVER-Mirofish/.data/real-scenarios-v1/workspaces/role-fix/.data/gateway/jobs/simjob_02f3e2c438614524",
+  "model": "deepseek-ai/DeepSeek-V4-Flash",
+  "actual_simulation_rerun": true
+}

@@ -1,0 +1,206 @@
+{
+  "case_id": "guotai-haitong-2024",
+  "variant": "v7",
+  "cohort": "public_pilot",
+  "artifact": {
+    "schema_version": "0.1.0",
+    "case_id": "real-guotai-haitong-2024",
+    "spec_sha256": "ee29c7f9c903c3415cbf8c84d894a6d147d5523bf666552815303b8cac0ec51c",
+    "simulation_id": "sim_direct_13823f2ff662",
+    "generated_at": "2026-09-12T06:09:33.191606+00:00",
+    "model_id": "deepseek-ai/DeepSeek-V4-Flash",
+    "prompt_version": "scenario-branch-compiler-v7",
+    "status": "completed",
+    "branches": [
+      {
+        "id": "branch-1",
+        "label": "监管问询触发方案调整",
+        "summary": "若监管机构在停牌期间主动发布问询函或关注函，要求补充换股定价依据或反垄断影响评估，则事件主体需调整信息披露节奏或修改交易文件条款，导致停牌时间延长。",
+        "actor_ids": [
+          "actor_regulator",
+          "actor_issuer"
+        ],
+        "trigger_conditions": [
+          "监管机构在2024年9月6日至10月6日期间，通过公开渠道（如官网或社交媒体）发布针对本次合并的正式问询函或关注函，要求补充特定信息"
+        ],
+        "actions": [
+          {
+            "actor_id": "actor_regulator",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_regulator-r2"
+          },
+          {
+            "actor_id": "actor_issuer",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_issuer-r2"
+          }
+        ],
+        "consequences": [
+          "事件主体需在收到问询后调整信息披露内容，可能推迟原定复牌时间或修改交易文件中的换股比例条款",
+          "监管机构的问询行为将向市场传递审批趋严的信号，影响机构投资者对交易确定性的评估"
+        ],
+        "invalidation_conditions": [
+          "监管机构在2024年10月6日前未发布任何针对本次合并的正式问询或关注函",
+          "事件主体在停牌期间按原计划披露进展，未因外部问询调整方案"
+        ],
+        "evidence_refs": [
+          "F2",
+          "F3",
+          "F4",
+          "F5"
+        ],
+        "simulation_refs": [
+          "decision-actor_regulator-r2",
+          "decision-actor_issuer-r2"
+        ],
+        "novelty_claim": "该分支将监管机构在停牌期间的主动问询行为与事件主体的方案调整联系起来，形成监管行动影响交易推进的传导链，而非仅复述双方等待的事实。",
+        "confidence": 0.6,
+        "confidence_semantics": "branch_coherence_not_forecast_probability"
+      },
+      {
+        "id": "branch-2",
+        "label": "竞争者公开评论引发分析师重新评估",
+        "summary": "若竞争者在停牌期间公开评论合并对行业格局的影响，分析师将据此调整对合并后主体市场份额和竞争压力的判断，并可能发布研报影响市场预期。",
+        "actor_ids": [
+          "actor_competitors",
+          "actor_analysts"
+        ],
+        "trigger_conditions": [
+          "竞争者在2024年9月6日至10月6日期间，通过公开渠道（如媒体采访或社交媒体）发表关于本次合并对行业竞争格局影响的明确评论"
+        ],
+        "actions": [
+          {
+            "actor_id": "actor_competitors",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_competitors-r2"
+          },
+          {
+            "actor_id": "actor_analysts",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_analysts-r2"
+          }
+        ],
+        "consequences": [
+          "分析师将基于竞争者评论调整对合并后主体市场份额和定价能力的评估，可能发布研报改变市场预期",
+          "竞争者的公开评论可能促使事件主体在后续信息披露中增加对竞争影响的说明，影响交易文件内容"
+        ],
+        "invalidation_conditions": [
+          "竞争者在2024年10月6日前未发表任何关于本次合并的公开评论",
+          "分析师在停牌期间未发布任何基于竞争者评论的研报或分析更新"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F3",
+          "F5"
+        ],
+        "simulation_refs": [
+          "decision-actor_competitors-r2",
+          "decision-actor_analysts-r2"
+        ],
+        "novelty_claim": "该分支将竞争者的公开评论与分析师的研判调整串联起来，形成外部竞争压力传导至市场预期的机制，而非仅描述双方各自等待。",
+        "confidence": 0.5,
+        "confidence_semantics": "branch_coherence_not_forecast_probability"
+      },
+      {
+        "id": "branch-3",
+        "label": "机构投资者流动性压力促使券商调整融资安排",
+        "summary": "若机构投资者因停牌导致被动调仓压力而公开表达流动性担忧，券商与中介机构将据此调整融资安排或提供流动性支持方案，影响交易推进节奏。",
+        "actor_ids": [
+          "actor_brokers",
+          "actor_institutions"
+        ],
+        "trigger_conditions": [
+          "机构投资者在2024年9月6日至10月6日期间，通过公开渠道（如社交媒体或媒体采访）明确表达因停牌导致的被动调仓压力或流动性担忧"
+        ],
+        "actions": [
+          {
+            "actor_id": "actor_brokers",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_brokers-r2"
+          },
+          {
+            "actor_id": "actor_institutions",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_institutions-r2"
+          }
+        ],
+        "consequences": [
+          "券商与中介机构将评估机构投资者的流动性需求，可能调整融资安排或提供临时流动性支持方案",
+          "机构投资者的公开担忧可能促使事件主体在信息披露中增加对流动性影响的说明，影响交易文件中的募集资金安排"
+        ],
+        "invalidation_conditions": [
+          "机构投资者在2024年10月6日前未公开表达任何因停牌导致的流动性担忧",
+          "券商与中介机构在停牌期间未调整任何融资安排或提供流动性支持"
+        ],
+        "evidence_refs": [
+          "F2",
+          "F5"
+        ],
+        "simulation_refs": [
+          "decision-actor_brokers-r2",
+          "decision-actor_institutions-r2"
+        ],
+        "novelty_claim": "该分支将机构投资者的流动性压力与券商的中介服务调整联系起来，形成市场参与者互动影响交易推进的传导链，而非仅复述双方等待的事实。",
+        "confidence": 0.5,
+        "confidence_semantics": "branch_coherence_not_forecast_probability"
+      },
+      {
+        "id": "branch-4",
+        "label": "媒体深度报道引发交易所关注信息披露合规",
+        "summary": "若财经媒体在停牌期间发布深度报道，质疑信息披露的充分性或时间窗口内的交易行为，交易所将据此启动合规审查，要求事件主体补充说明。",
+        "actor_ids": [
+          "actor_exchange",
+          "actor_media"
+        ],
+        "trigger_conditions": [
+          "财经媒体在2024年9月6日至10月6日期间，发布针对本次合并信息披露充分性或协议签署至停牌时间窗口内交易行为的深度报道或质疑性文章"
+        ],
+        "actions": [
+          {
+            "actor_id": "actor_exchange",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_exchange-r2"
+          },
+          {
+            "actor_id": "actor_media",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_media-r2"
+          }
+        ],
+        "consequences": [
+          "交易所将基于媒体报道启动信息披露合规审查，可能要求事件主体补充说明或发布澄清公告",
+          "交易所的审查行动将影响停牌期间的信息披露节奏，可能推迟复牌时间或增加额外披露要求"
+        ],
+        "invalidation_conditions": [
+          "财经媒体在2024年10月6日前未发布任何针对本次合并信息披露的深度报道或质疑性文章",
+          "交易所在停牌期间未启动任何针对本次合并的合规审查或要求补充说明"
+        ],
+        "evidence_refs": [
+          "F2",
+          "F3",
+          "F5"
+        ],
+        "simulation_refs": [
+          "decision-actor_exchange-r2",
+          "decision-actor_media-r2"
+        ],
+        "novelty_claim": "该分支将财经媒体的深度报道与交易所的合规审查联系起来，形成媒体监督影响信息披露秩序的传导链，而非仅描述双方各自等待。",
+        "confidence": 0.5,
+        "confidence_semantics": "branch_coherence_not_forecast_probability"
+      }
+    ],
+    "warnings": [
+      "branch-1: bound deterministic actor slot to unique financial decisions",
+      "branch-2: bound deterministic actor slot to unique financial decisions",
+      "branch-3: bound deterministic actor slot to unique financial decisions",
+      "branch-4: bound deterministic actor slot to unique financial decisions",
+      "Branches are simulated hypotheses, not observed evidence.",
+      "Branch confidence expresses coherence, not occurrence probability."
+    ]
+  },
+  "elapsed_seconds": 23.621226790943183,
+  "attempt_count": 1,
+  "request_ids": [
+    "dff2f81a5b0149c4bf3d282a97da9d96"
+  ]
+}

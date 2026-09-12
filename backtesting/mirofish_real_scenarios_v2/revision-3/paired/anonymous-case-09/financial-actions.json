@@ -1,0 +1,255 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_prime_broker_default_009",
+  "spec_sha256": "ddf328886769e3c9fc947368894443a35865af847c6dc0c0cb6ec56d47712735",
+  "simulation_id": "sim_0abf71d1c740",
+  "generated_at": "2026-07-29T09:07:09.121473+00:00",
+  "status": "completed",
+  "decisions": [
+    {
+      "id": "decision-actor_exposed_broker-r3",
+      "round": 3,
+      "actor_id": "actor_exposed_broker",
+      "action_type": "OPERATE",
+      "decision_status": "intended",
+      "direction": "decrease",
+      "intensity": 0.6,
+      "instrument_refs": [
+        "ASSET_I"
+      ],
+      "rationale": "F4明确观察到集中持仓的大额折价交易，约束指出集中仓位流动性在强制出售中会恶化，因此不能被动等待。F3显示多家银行已退出仓位，F1确认索赔规模为市值的低个位数百分比。当前核心目标是在价格进一步恶化前有序减少敞口。选择以中等强度执行操作，是因为F2显示资本缓冲充足，不必恐慌性抛售；但F4表明平仓速度差异会造成不同最终损失，过早或过慢都有成本。需要在市场深度可承受的范围内渐进减仓，同时配合公开沟通维持客户信任。",
+      "constraint_refs": [
+        "actor_exposed_broker:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:0",
+      "visibility": "private",
+      "confidence": 0.8,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_defaulting_client-r3",
+      "round": 3,
+      "actor_id": "actor_defaulting_client",
+      "action_type": "NEGOTIATE",
+      "decision_status": "intended",
+      "direction": "maintain",
+      "intensity": 0.7,
+      "instrument_refs": [
+        "ASSET_I"
+      ],
+      "rationale": "作为匿名高杠杆客户，当前面临多家经纪商的追加保证金要求和强制平仓风险。F1和F3已明确披露我未满足追加保证金要求，且多家银行正退出相关仓位。F4显示集中持仓已出现大额折价交易，平仓速度差异会导致不同损失结果。我的核心目标是争取额外时间或融资以避免强制平仓，但单纯WAIT无法改变现状——等待只会让折价交易进一步扩大损失。因此最可行的动作是与各主经纪商分别沟通（NEGOTIATE），利用F2中该券商集团核心一级资本比率显著高于监管最低要求的信息作为筹码，暗示其有能力承担部分展期风险；同时利用F4中不同经纪商平仓节奏差异，优先与平仓速度较慢的经纪商达成暂缓协议，为争取外部融资或有序减仓创造时间窗口。主要不确定性在于跨机构总敞口高于任何单一机构单独观察，导致各经纪商在信息不对称下可能同步加速平仓。",
+      "constraint_refs": [
+        "actor_defaulting_client:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:1",
+      "visibility": "private",
+      "confidence": 0.75,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_peer_brokers-r3",
+      "round": 3,
+      "actor_id": "actor_peer_brokers",
+      "action_type": "OPERATE",
+      "decision_status": "intended",
+      "direction": "decrease",
+      "intensity": 0.7,
+      "instrument_refs": [
+        "ASSET_I"
+      ],
+      "rationale": "作为其他主经纪商，观察到F3中多家银行已退出相关仓位，且F4显示集中持仓的大额折价交易，表明市场已在抛售。为抢先降低客户敞口并保护抵押品价值，我计划以略低于当前折价水平的市价主动减持对同一高杠杆客户的关联敞口，避免被后续同步抛售踩踏导致更大损失。同时保留部分仓位以防止完全清仓加剧价格冲击（约束）。不确定性在于F2中该券商集团仍声称稳健，但实际损失取决于平仓速度，我的减持节奏需平衡先发优势和冲击成本。",
+      "constraint_refs": [
+        "actor_peer_brokers:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:2",
+      "visibility": "private",
+      "confidence": 0.8,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_regulators-r3",
+      "round": 3,
+      "actor_id": "actor_regulators",
+      "action_type": "COMMUNICATE",
+      "decision_status": "intended",
+      "direction": "not_applicable",
+      "intensity": 0.7,
+      "instrument_refs": [
+        "ASSET_I"
+      ],
+      "rationale": "作为跨境监管机构，当前首要任务是确认资本与流动性充足并防止市场传染。虽然F2显示券商集团核心资本充足，但F3和F4表明多家银行面临同一高杠杆客户的风险，且平仓差异可能放大损失。由于信息分散（约束），需向相关司法辖区监管机构和该券商集团发出正式沟通，要求其在下一报告周期内提供更详细的集中敞口、抵押品状况和压力测试结果，以评估潜在传染风险，同时协调其他监管机构获取交叉信息。",
+      "constraint_refs": [
+        "actor_regulators:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:3",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_broker_clients-r3",
+      "round": 3,
+      "actor_id": "actor_broker_clients",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "maintain",
+      "intensity": 0.4,
+      "instrument_refs": [
+        "ASSET_I"
+      ],
+      "rationale": "作为其他机构客户，当前核心关切是资产安全与交易对手风险重评。F1显示索赔规模仅为市值的低个位数百分比，F2表明该集团核心一级资本比率显著高于最低监管要求且判断财务稳健性不受威胁，因此该集团本身的违约风险目前有限。但F3与F4表明同一高杠杆客户的敞口分散于多家银行，各主经纪商平仓速度与抵押品差异可能导致最终损失分布不对称，银行间损失传导路径尚不明朗。迁移主经纪关系存在操作成本与时间约束，不宜在信息不完全时匆忙动作。因此选择等待，在获得更透明的交叉敞口数据与各银行实际损失范围后再做交易对手风险调整决策。",
+      "constraint_refs": [
+        "actor_broker_clients:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:4",
+      "visibility": "private",
+      "confidence": 0.7,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_institutions-r3",
+      "round": 3,
+      "actor_id": "actor_institutions",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [
+        "ASSET_I"
+      ],
+      "rationale": "D0时点仅有初步索赔和资本口径数据，F1中初步索赔规模为集团市值的低个位数百分比，F2显示核心一级资本比率显著高于监管要求，但F3和F4表明：损失取决于仓位平仓速度、抵押品质量和市场波动，多家主经纪商的敞口差异将导致显著不同的最终损失，且F3明确损失规模仍无法量化。在仓位尚未完全平仓、实际损失无法从公开披露中推导前，提前调整配置缺乏可靠依据。目前的理性选择是等待各主经纪商完成平仓、披露实际损失后再进行资本影响估算和系统性缺陷判断。将不确定性反映为持有不动，而非现金化或追加头寸，维持当前配置待更多事实落地。",
+      "constraint_refs": [
+        "actor_institutions:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:5",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_retail-r3",
+      "round": 3,
+      "actor_id": "actor_retail",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "F1显示的初步索赔规模仅为集团市值的低个位数百分比，远未到资不抵债的程度。F2明确表示核心一级资本比率显著高于最低监管要求，运营和财务稳健性不会受威胁。但F3和F4显示损失规模仍无法准确量化，多家银行正退出仓位，折价交易正在进行中。作为容易将重大损失等同于资不抵债的个人投资者，我意识到这是风险认知偏差——当前已知事实并不支持券商破产的判断。核心不确定性在于F4所述各主经纪商平仓速度差异造成的最终损失分布。在D0收盘到D1开盘之间，最理性的动作是等待折价交易的结果和进一步公开信息披露，而非在信息不完整时做出交易决策。管理开盘跳空风险的最佳策略是持有现金观望，让市场在开盘后完成价格发现再行动。",
+      "constraint_refs": [
+        "actor_retail:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:6",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_analysts-r3",
+      "round": 3,
+      "actor_id": "actor_analysts",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": 0.3,
+      "instrument_refs": [
+        "ASSET_I"
+      ],
+      "rationale": "截至当前模拟轮次，公开信息仍不足以建立可靠的损失区间。F1提供初步索赔规模但附着于市值百分比且依赖平仓结果；F2表明发行人自身判断资本充足但该判断依赖自估情景；F3确认同一客户涉及多家机构但D0损失无法量化；F4揭示平仓速度差异将导致显著不同的最终损失。客户组合与衍生品净敞口不透明（constraint:0），且我尚未获得任何主经纪商的内部抵押品估值或合成敞口数据。因此决定等待下一轮平仓进展或更多机构披露，再启动压力情景分析。若下周内出现以下条件之一则转为COMMUNICATE：A）另一家主要经纪商披露具体损失数字；B）监管机构发布该客户总敞口的初步汇总估计。",
+      "constraint_refs": [
+        "actor_analysts:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:7",
+      "visibility": "private",
+      "confidence": 0.8,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_media-r3",
+      "round": 3,
+      "actor_id": "actor_media",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": null,
+      "instrument_refs": [
+        "ASSET_I"
+      ],
+      "rationale": "当前时点，匿名客户身份尚未明确，多家银行的披露口径不一致，且损失规模在D0无法准确量化。毛利率媒体无法获取额外独家信息；同时，主经纪商平仓速度和抵押品差异使最终损失高度不确定。此时发布公开评论可能引述不完整或矛盾口径，增加误导风险。因此选择等待更确定的信息（如客户身份确认、首家银行实际索赔行动或监管表态），再启动杠杆与主经纪机制的解释性报道，以保持财经媒体的可信度和信息准确性。",
+      "constraint_refs": [
+        "actor_media:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:8",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    }
+  ],
+  "failures": [],
+  "warnings": [
+    "Decision confidence expresses action clarity, not forecast probability.",
+    "Interview decisions are simulated statements, not observed evidence."
+  ]
+}

@@ -1,0 +1,561 @@
+{
+  "anonymous_case_id": "anonymous-case-23",
+  "configured_actor_count": 8,
+  "decision_actor_count": 6,
+  "fact_count": 4,
+  "fact_chars": 110,
+  "input": {
+    "case_id": "anonymous-case-23",
+    "as_of": "D0",
+    "question": "真实日期、名称、证券代码和司法辖区均已匿名化。只使用D0已经公开的信息，推演各参与方未来行动及市场反应。",
+    "horizon": {
+      "kind": "calendar_days",
+      "value": 120,
+      "end_at": "D0 + stated horizon"
+    },
+    "facts": [
+      {
+        "id": "F1",
+        "statement": "联邦法院裁定永久禁止两家航空公司的合并，认为交易会损害价格敏感型乘客。"
+      },
+      {
+        "id": "F2",
+        "statement": "双方表示不同意裁决，正在评估法律选项，合并协议尚未立即终止。"
+      },
+      {
+        "id": "F3",
+        "statement": "交易面临明确的外部截止期、融资成本和终止费安排。"
+      },
+      {
+        "id": "F4",
+        "statement": "D0尚不确定双方会选择上诉、重谈还是终止。"
+      }
+    ],
+    "actors": [
+      {
+        "id": "actor_buyer",
+        "label": "匿名收购方",
+        "kind": "issuer",
+        "goals": [
+          "维护匿名收购方的核心利益",
+          "根据新增证据调整公开行动"
+        ],
+        "constraints": [
+          "D0信息不完整，且其他参与方可能采取策略性行动"
+        ]
+      },
+      {
+        "id": "actor_target",
+        "label": "匿名目标航空公司",
+        "kind": "issuer",
+        "goals": [
+          "维护匿名目标航空公司的核心利益",
+          "根据新增证据调整公开行动"
+        ],
+        "constraints": [
+          "D0信息不完整，且其他参与方可能采取策略性行动"
+        ]
+      },
+      {
+        "id": "actor_court_regulator",
+        "label": "竞争执法机构",
+        "kind": "regulator",
+        "goals": [
+          "维护竞争执法机构的核心利益",
+          "根据新增证据调整公开行动"
+        ],
+        "constraints": [
+          "D0信息不完整，且其他参与方可能采取策略性行动"
+        ]
+      },
+      {
+        "id": "actor_customers",
+        "label": "价格敏感型乘客",
+        "kind": "customer",
+        "goals": [
+          "维护价格敏感型乘客的核心利益",
+          "根据新增证据调整公开行动"
+        ],
+        "constraints": [
+          "D0信息不完整，且其他参与方可能采取策略性行动"
+        ]
+      },
+      {
+        "id": "actor_creditors",
+        "label": "融资方与债权人",
+        "kind": "broker",
+        "goals": [
+          "维护融资方与债权人的核心利益",
+          "根据新增证据调整公开行动"
+        ],
+        "constraints": [
+          "D0信息不完整，且其他参与方可能采取策略性行动"
+        ]
+      },
+      {
+        "id": "actor_institutions",
+        "label": "机构投资者",
+        "kind": "institutional_investor",
+        "goals": [
+          "维护机构投资者的核心利益",
+          "根据新增证据调整公开行动"
+        ],
+        "constraints": [
+          "D0信息不完整，且其他参与方可能采取策略性行动"
+        ]
+      },
+      {
+        "id": "actor_competitors",
+        "label": "其他航空公司",
+        "kind": "competitor",
+        "goals": [
+          "维护其他航空公司的核心利益",
+          "根据新增证据调整公开行动"
+        ],
+        "constraints": [
+          "D0信息不完整，且其他参与方可能采取策略性行动"
+        ]
+      },
+      {
+        "id": "actor_media",
+        "label": "航空与财经媒体",
+        "kind": "media",
+        "goals": [
+          "维护航空与财经媒体的核心利益",
+          "根据新增证据调整公开行动"
+        ],
+        "constraints": [
+          "D0信息不完整，且其他参与方可能采取策略性行动"
+        ]
+      }
+    ],
+    "financial_decisions": [
+      {
+        "id": "decision-actor_buyer-r3",
+        "round": 3,
+        "actor_id": "actor_buyer",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "法院禁令已生效但双方未终止协议，D0状态高度不确定，选择等待更清晰的法律或谈判信号，以控制融资成本和终止费风险，避免过早暴露立场。",
+        "constraint_refs": [
+          "actor_buyer:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_target-r3",
+        "round": 3,
+        "actor_id": "actor_target",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": 0.6,
+        "instrument_refs": [],
+        "rationale": "作为被收购方，合并协议尚未终止，法院裁决虽不利但双方正在评估上诉选项。当前D0信息不完整，主动调整公开声明或启动运营变更可能削弱谈判地位或触发终止费条款。等待收购方明确下一步行动（上诉、重谈或终止）后再作出回应，更符合维护核心利益的目标。同时密切关注融资方的表态和外部截止期要求，以评估协议是否仍有维持价值。",
+        "constraint_refs": [
+          "actor_target:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_court_regulator-r3",
+        "round": 3,
+        "actor_id": "actor_court_regulator",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "联邦法院已作出永久禁止合并的裁定，但双方尚未正式放弃，仍在评估法律选项。由于D0信息不完整，且双方可能选择上诉、重谈或终止，竞争执法机构不需要在当前时点立即采取新的公开行动或调整已有立场。等待双方下一步具体动作（如正式上诉通知或协议终止公告）后将根据新增证据决定是否进一步表达立场或采取监管措施。",
+        "constraint_refs": [
+          "actor_court_regulator:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_customers-r3",
+        "round": 3,
+        "actor_id": "actor_customers",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.3,
+        "instrument_refs": [],
+        "rationale": "联邦法院已裁定禁止合并，这一裁决直接保护了价格敏感型乘客的核心利益。然而双方正在评估法律选项，合并协议尚未立即终止，D0尚不确定双方会选择上诉、重谈还是终止。作为乘客，我当前没有实质性资产或金融工具可以调整，也不需要主动沟通或谈判——我的利益已通过法院裁决得到初步保护。但在最终结果落地前（如上诉结果、终止费触发等），仍需保持观望，以防合并通过其他路径复活导致票价上涨。等待下一轮事实进展是最符合制度约束和经济激励的行动。",
+        "constraint_refs": [
+          "actor_customers:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "public",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_creditors-r3",
+        "round": 3,
+        "actor_id": "actor_creditors",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.7,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "D0信息不完整——法院禁令虽已下达，但双方明确表示不同意裁决、正在评估法律选项且合并协议尚未终止。作为融资方与债权人，在当前节点主动调整融资敞口或公开表态会增加提前暴露策略的风险，同时丧失等待双方正式公告（上诉/重谈/终止）所蕴含的信息优势。维持现有融资承诺状态是符合制度约束和经济激励的理性选择，但需保持高强度内部情景压力测试，以确保对外部截止期触发时能快速反应。主要不确定性在于：双方是否在上诉窗口期内提出上诉、上诉期间融资成本是否被重新定价、以及终止费的实际执行是否会触发信用事件。",
+        "constraint_refs": [
+          "actor_creditors:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_institutions-r3",
+        "round": 3,
+        "actor_id": "actor_institutions",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "maintain",
+        "intensity": 0.3,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "截至当前时点，联邦法院已裁定永久禁止合并(F1)，但双方正在评估法律选项且协议尚未终止(F2)。交易层面存在外部截止期和终止费安排(F3)，而D0阶段无法确定双方会选择上诉、重谈还是终止(F4)。作为机构投资者，我需要等待更多关于上诉路径、融资方态度(D4)和重谈可能性的信号，再对匿名标的1头寸做出调整。当前保持现有仓位、维持中性观望，但保持较低强度的情景监控准备。主要不确定性在于双方上诉意愿和法院对上诉的受理结果，以及融资方是否会因该裁定调整融资条件。",
+        "constraint_refs": [
+          "actor_institutions:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.75,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      }
+    ],
+    "simulated_actions": [
+      {
+        "id": "trace-14",
+        "actor_id": "actor_creditors",
+        "action_type": "COMMUNICATE",
+        "summary": "作为融资方，我们正在密切关注法院裁决对交易融资结构和终止费安排的实质性影响。目前的核心变量是：上诉可能性、重谈条款可行性，以及外部截止期是否触发融资承诺的重新定价。我们需要量化这些情景对债权回收率的影响。"
+      },
+      {
+        "id": "trace-24",
+        "actor_id": "actor_creditors",
+        "action_type": "COMMUNICATE",
+        "summary": "作为融资参与方，我们需要明确：外部截止期的具体日期和触发条件是什么？如果选择上诉，融资承诺函中的资金成本是否已锁定，还是有重新定价条款？这些直接影响债权人的风险评估和资本配置决策。"
+      },
+      {
+        "id": "trace-30",
+        "actor_id": "actor_customers",
+        "action_type": "COMMUNICATE",
+        "summary": "作为价格敏感型乘客，我非常支持法院的裁决。航空公司的合并只会减少竞争、推高票价，最终受苦的是我们这些普通乘客。希望这个裁决能够最终生效，保护我们的利益。"
+      },
+      {
+        "id": "trace-32",
+        "actor_id": "actor_creditors",
+        "action_type": "COMMUNICATE",
+        "summary": "从债权人角度分析：联邦法院的永久禁令意味着D0状态的重大转折。终止费条款的具体金额和触发条件现在是估值核心。如选择上诉，需评估上诉期是否超过外部截止期——若超期，即使最终胜诉，融资方也可能要求重新谈判资金条款。建议密切关注双方未来72小时的公开声明。"
+      },
+      {
+        "id": "trace-33",
+        "actor_id": "actor_target",
+        "action_type": "COMMUNICATE",
+        "summary": "作为被收购方，我们注意到合并协议中规定的外部截止日期和终止费安排仍在有效期内。我们正在与法律顾问评估所有可行选项，包括上诉和重新谈判条款的可能性。交易尚未终止，各方仍在履行协议义务。"
+      }
+    ],
+    "branch_slots": [
+      {
+        "slot_id": "slot-1",
+        "actor_ids": [
+          "actor_target",
+          "actor_creditors"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_target-r3",
+          "decision-actor_creditors-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-2",
+        "actor_ids": [
+          "actor_customers",
+          "actor_institutions"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_customers-r3",
+          "decision-actor_institutions-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-3",
+        "actor_ids": [
+          "actor_buyer",
+          "actor_court_regulator"
+        ],
+        "relationship_kind": "communicates_actions_to",
+        "decision_refs": [
+          "decision-actor_buyer-r3",
+          "decision-actor_court_regulator-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-4",
+        "actor_ids": [
+          "actor_target",
+          "actor_customers"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_target-r3",
+          "decision-actor_customers-r3"
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "v7": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "目标公司重谈触发债权人重新定价",
+          "summary": "如果目标公司主动选择重谈条款而不是上诉，融资方将评估融资承诺的重新定价，并可能调整风险敞口。",
+          "actor_ids": [
+            "actor_target",
+            "actor_creditors"
+          ],
+          "trigger_conditions": [
+            "在D0后30日内，目标公司公开声明或向媒体透露已正式启动与收购方的重谈，且未同时提交上诉通知。",
+            "融资方在重谈启动后15日内发布与合并融资相关的信贷观察或评级调整公告。"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_target",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_target-r3"
+            },
+            {
+              "actor_id": "actor_creditors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_creditors-r3"
+            }
+          ],
+          "consequences": [
+            "目标公司的行动增加了债务融资的不确定性，令债权人的风险评估从‘等待裁决上诉’转向‘重谈条款下的回收率下降’。",
+            "融资方的潜在重新定价会削弱目标公司在重谈中的谈判地位，因为后者可能面临更高的融资成本或更严格的条款。"
+          ],
+          "invalidation_conditions": [
+            "目标公司在D0后30日内既未启动重谈也未提出上诉，而是直接终止协议。",
+            "目标公司启动重谈后，融资方在30日内公开确认融资条款不变，且未采取任何风险管控措施。"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_target-r3",
+            "decision-actor_creditors-r3"
+          ],
+          "novelty_claim": "该分支从目标公司的‘重谈’选择出发，推断融资方会通过重新定价或调整敞口来回应，而非仅停留在双方的法律评估阶段。",
+          "confidence": 0.5,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-2",
+          "label": "乘客抗议与机构减持",
+          "summary": "如果价格敏感型乘客在分析期形成有组织的消费者维权，机构投资者可能因声誉或需求承诺压力而主动减持既存标的。",
+          "actor_ids": [
+            "actor_customers",
+            "actor_institutions"
+          ],
+          "trigger_conditions": [
+            "在D0后60日内，媒体报道出现至少两次由价格敏感型乘客发起的公开请愿、集体投诉或社交媒体运动，且提及匿名标的1。",
+            "在D0后90日内，机构投资者出现至少一笔公开可查的标的减持，且内部纪要提到‘乘客抵制风险’。"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_customers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_customers-r3"
+            },
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r3"
+            }
+          ],
+          "consequences": [
+            "乘客的行动削弱了标的在公众层面的形象，增加机构投资者面临的声誉和法律风险。",
+            "机构投资者的减持行动会直接压低标的的市场定价和交易流动性，进一步反馈巩固投资者的规避情绪。"
+          ],
+          "invalidation_conditions": [
+            "在D0后60日内，未有媒体报道相关的乘客组织行动或集体抗议。",
+            "在D0后90日内，机构投资者非但没有减持，反而增持了标的，且公开原因不与法院禁令相关。"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_customers-r3",
+            "decision-actor_institutions-r3"
+          ],
+          "novelty_claim": "该分支将乘客的消费者维权反馈与机构减持关联，构成一条从非市场参与者到专业投资者的传导链，而非简单的情绪分析。",
+          "confidence": 0.35,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-3",
+          "label": "收购方上诉而执法机构采取后续监管",
+          "summary": "如果收购方选择上诉，竞争执法机构可能发布进一步市场影响评估，以此限制收购方在迂回恢复交易方面的操作空间。",
+          "actor_ids": [
+            "actor_buyer",
+            "actor_court_regulator"
+          ],
+          "trigger_conditions": [
+            "在D0后45日内，收购方向联邦法院或上级法院提交正式上诉通知。",
+            "竞争执法机构在上诉受理后的30日内发布关于交易损害竞争的补充市场分析报告或立场声明。"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_buyer",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_buyer-r3"
+            },
+            {
+              "actor_id": "actor_court_regulator",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_court_regulator-r3"
+            }
+          ],
+          "consequences": [
+            "收购方的上诉打开了二次司法审查窗口，但执法机构的报告会约束上诉法院的自由裁量空间，并增加收购方的举证负担。",
+            "执法机构的声明还会影响其他航空公司和媒体对老街反竞争前景的判断，促使它们调整路线策略或公开评论。"
+          ],
+          "invalidation_conditions": [
+            "收购方在D0后45日内未上诉且未给出明确的上诉时间表。",
+            "竞争执法机构在上诉阶段保持沉默，未发布任何与反竞争影响相关的新报告或官方立场。"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_buyer-r3",
+            "decision-actor_court_regulator-r3"
+          ],
+          "novelty_claim": "该分支从收购方的法律行动推出执法机构的监管反制，中间经由其他市场参与者的调整反馈，从而超越了单纯的‘上诉决定’描述。",
+          "confidence": 0.5,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-4",
+          "label": "目标公司等待协议终止引发乘客信任坍塌",
+          "summary": "如果目标公司选择长期等待而不采取主动行动，乘客群体可能认为合并仍有复活可能，从而发起第三方抵制或转场行动。",
+          "actor_ids": [
+            "actor_target",
+            "actor_customers"
+          ],
+          "trigger_conditions": [
+            "在D0后75日内，目标公司未采取重谈、上诉或终止中任何一种公开行动，仅维持观望。",
+            "在此时间段内，价格上涨敏感型乘客的群体投诉举报数量明显超过前一个季度同等样本的平均值。"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_target",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_target-r3"
+            },
+            {
+              "actor_id": "actor_customers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_customers-r3"
+            }
+          ],
+          "consequences": [
+            "乘客的抵制行动会打击目标公司的品牌忠诚度和现金流，削弱其未来独立经营的可持续性。",
+            "目标公司的低活跃回应会令乘客进一步确信合并威胁依然存在，因此抵制活动维持甚至加强，形成负反馈循环。"
+          ],
+          "invalidation_conditions": [
+            "目标公司在D0后75日内公开宣布接受终止协议，从而完全消除合并可能性。",
+            "乘客群体未出现统计上显著的投诉或抵制行动，且消费者保护机构也无相关记录。"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F4",
+            "F2"
+          ],
+          "simulation_refs": [
+            "decision-actor_target-r3",
+            "decision-actor_customers-r3"
+          ],
+          "novelty_claim": "该分支将目标公司的被动等待反馈到乘客的实际消费行为，后者又反作用于目标公司的营收能力，形成‘不行动反而加剧风险’的逆循环。",
+          "confidence": 0.4,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        }
+      ],
+      "generation": {
+        "semantic_retries": 0,
+        "elapsed_seconds": 42.781643541005906
+      },
+      "judgments": []
+    }
+  }
+}

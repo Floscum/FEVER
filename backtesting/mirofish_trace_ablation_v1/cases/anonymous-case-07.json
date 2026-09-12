@@ -1,0 +1,888 @@
+{
+  "case_id": "anonymous-case-07",
+  "market": "US",
+  "event_type": "公司指引上调/下调",
+  "actor_budget": 6,
+  "source_hashes": {
+    "spec_sha256": "c12987cc7316b5f9b746d2dcca0f7e4d5de842283a153aea36b0dc3968dcfc2b",
+    "simulation_result_sha256": "39b9d295e8203ca041ac6dea60695b9fdcf158851c28b649848d6aae94f7c268",
+    "financial_actions_sha256": "aea45923236c2442aed2483e17531622588fc757b796feab8af4def146cfc432"
+  },
+  "shared_input": {
+    "case_id": "anonymous-case-07",
+    "as_of": "D0",
+    "question": "严格基于 D0 时点可得信息，推演未来三个交易日各参与方行动及条件化传导机制。",
+    "horizon": {
+      "kind": "calendar_days",
+      "value": 3,
+      "end_at": "2025-07-04T23:59:59+00:00"
+    },
+    "facts": [
+      {
+        "id": "F1",
+        "statement": "US Earnings Guidance Roundup D0-date：Market outlook | filings consensus: sell-side prev: prior"
+      }
+    ],
+    "actors": [
+      {
+        "id": "actor_issuer",
+        "label": "事件主体",
+        "kind": "issuer",
+        "goals": [
+          "维护自身制度或经济利益",
+          "根据新增信息调整行动"
+        ],
+        "constraints": [
+          "只能使用分析截止时间前可观察的信息"
+        ]
+      },
+      {
+        "id": "actor_institutions",
+        "label": "机构投资者",
+        "kind": "institutional_investor",
+        "goals": [
+          "维护自身制度或经济利益",
+          "根据新增信息调整行动"
+        ],
+        "constraints": [
+          "只能使用分析截止时间前可观察的信息"
+        ]
+      },
+      {
+        "id": "actor_analysts",
+        "label": "分析师",
+        "kind": "analyst",
+        "goals": [
+          "维护自身制度或经济利益",
+          "根据新增信息调整行动"
+        ],
+        "constraints": [
+          "只能使用分析截止时间前可观察的信息"
+        ]
+      },
+      {
+        "id": "actor_brokers",
+        "label": "券商与中介机构",
+        "kind": "broker",
+        "goals": [
+          "维护自身制度或经济利益",
+          "根据新增信息调整行动"
+        ],
+        "constraints": [
+          "只能使用分析截止时间前可观察的信息"
+        ]
+      },
+      {
+        "id": "actor_exchange",
+        "label": "交易所",
+        "kind": "exchange",
+        "goals": [
+          "维护自身制度或经济利益",
+          "根据新增信息调整行动"
+        ],
+        "constraints": [
+          "只能使用分析截止时间前可观察的信息"
+        ]
+      },
+      {
+        "id": "actor_competitors",
+        "label": "竞争者",
+        "kind": "competitor",
+        "goals": [
+          "维护自身制度或经济利益",
+          "根据新增信息调整行动"
+        ],
+        "constraints": [
+          "只能使用分析截止时间前可观察的信息"
+        ]
+      }
+    ],
+    "financial_decisions": [
+      {
+        "id": "decision-actor_issuer-r2",
+        "round": 2,
+        "actor_id": "actor_issuer",
+        "action_type": "COMMUNICATE",
+        "decision_status": "no_action",
+        "direction": "maintain",
+        "intensity": 0.3,
+        "instrument_refs": [],
+        "rationale": "作为事件主体，我已针对F1（US Earnings Guidance Roundup D0-date）在社交平台上发布了公开评论，强调区分实际filings consensus与sell-side preliminary estimates的重要性。这是维护自身制度权威和披露标准的行为。当前没有观察到需要改变策略或采取金融操作的新事实，也无足够依据调整对匿名标的1的头寸。因此选择通过公开沟通方式巩固市场对披露框架的理解，属制度维护型行动。",
+        "constraint_refs": [
+          "actor_issuer:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "public",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_institutions-r2",
+        "round": 2,
+        "actor_id": "actor_institutions",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "maintain",
+        "intensity": 0.3,
+        "instrument_refs": [
+          "ANON_ASSET"
+        ],
+        "rationale": "截止时点观察到F1披露的2025-07-01美国盈利指引汇总，包含市场展望、备案共识及卖方前期预估。作为机构投资者，当前一轮信息仅提供市场共识快照，缺乏足够新增信息支撑配置调整。我对匿名标的1的持仓维持现有规模，等待后续实际财报备案数据与卖方预估之间的差异信号出现后再做决策。主要不确定性在于实际备案数据是否偏离共识以及市场对指引的反应方向。",
+        "constraint_refs": [
+          "actor_institutions:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.75,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_analysts-r2",
+        "round": 2,
+        "actor_id": "actor_analysts",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "截至F1时点，仅有US Earnings Guidance Roundup这一份市场展望摘要，sell-side consensus反映的是prior预期，未出现与 filings consensus 的实质性偏离。作为分析师，在缺少足够新增信息区分实际数据与初步估计差异之前，采取观望策略最符合维护自身制度利益的目标。等待后续实际filings数据发布后再评估是否需要调整行动。",
+        "constraint_refs": [
+          "actor_analysts:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_brokers-r2",
+        "round": 2,
+        "actor_id": "actor_brokers",
+        "action_type": "COMMUNICATE",
+        "decision_status": "intended",
+        "direction": "maintain",
+        "intensity": 0.6,
+        "instrument_refs": [
+          "ANON_ASSET"
+        ],
+        "rationale": "截至2025-07-01，F1中的US Earnings Guidance Roundup显示filings consensus与sell-side prev之间存在初步差异。作为券商与中介机构，（1）需要向现有机构客户传达这一信息差可能带来的交易机会，（2）借此维护自身作为信息中介的制度价值与经济利益。传导机制：通过公开分析报告或内部客户简报，强调divergence而非价格方向，待更多数据确认后再调整操作策略。主要不确定性：目前只有表层指引数据，缺乏细分行业个股数据支撑具体AS或BS的调整方向。",
+        "constraint_refs": [
+          "actor_brokers:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "public",
+        "confidence": 0.7,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_exchange-r2",
+        "round": 2,
+        "actor_id": "actor_exchange",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": null,
+        "instrument_refs": [],
+        "rationale": "作为交易所，截至2025年7月1日，US Earnings Guidance Roundup 显示的是市场共识与卖方初步估计，属于常规信息公告范畴，并未包含足以触发制度调整、运营变更或公开声明的实质性数据。该轮次信息仅为前瞻性指引汇总，缺乏实际申报文件的确认，不足以改变现有操作或规则。保持观望是最符合交易所审慎、基于事实决策职责的行动。",
+        "constraint_refs": [
+          "actor_exchange:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.9,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_competitors-r2",
+        "round": 2,
+        "actor_id": "actor_competitors",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "maintain",
+        "intensity": 0.3,
+        "instrument_refs": [
+          "ANON_ASSET"
+        ],
+        "rationale": "截至2025-07-01收盘，US Earnings Guidance Roundup显示sell-side prev/prior数据表明卖方预期与先前估计基本一致，未出现显著上修或下修。作为市场竞争者，当前观察到的信息不足以触发立即的仓位调整或公开表态。需等待后续实际财报文件（filings consensus）落地，验证与卖方初步估计之间是否出现实质性差异。若实际数据与卖方预期出现显著偏离，将据此调整竞争策略与持仓方向。当前阶段以收集信息、维持现有立场为主要行动逻辑。",
+        "constraint_refs": [
+          "actor_competitors:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.75,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      }
+    ],
+    "simulated_actions": [
+      {
+        "id": "trace-15",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_POSTS",
+        "summary": "search_posts",
+        "actor_id": "actor_brokers"
+      },
+      {
+        "id": "trace-16",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user",
+        "actor_id": "actor_brokers"
+      },
+      {
+        "id": "trace-17",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "As an institutional investor, I find this earnings guidance roundup valuable for market assessment. The sell-side consensus data provides useful reference points for position calibration. I'll be cross-referencing this with our internal models to adjust our sector allocations accordingly.",
+        "actor_id": "actor_institutions"
+      },
+      {
+        "id": "trace-18",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_POSTS",
+        "summary": "search_posts",
+        "actor_id": "actor_competitors"
+      },
+      {
+        "id": "trace-20",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "Noting this earnings guidance roundup. The sell-side consensus appears to reflect prior expectations. Will monitor for any divergence between forward guidance and actual filings as more data becomes available.",
+        "actor_id": "actor_analysts"
+      },
+      {
+        "id": "trace-21",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "As an organization focused on earnings guidance disclosure, I'd note this roundup reflects the market consensus as of July 2025. Important to differentiate between actual filing consensus and sell-side preliminary estimates — these are not the same thing. Market participants should verify data sources before making any decisions.",
+        "actor_id": "actor_issuer"
+      },
+      {
+        "id": "trace-28",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #1：US Earnings Guidance Roundup D0-date：Market outlook | filings consensus: sell-side prev: prior",
+        "actor_id": "actor_institutions"
+      },
+      {
+        "id": "trace-29",
+        "kind": "simulated_action",
+        "action_type": "LIKE_COMMENT",
+        "summary": "like_comment",
+        "actor_id": "actor_institutions"
+      },
+      {
+        "id": "trace-30",
+        "kind": "simulated_action",
+        "action_type": "LIKE_COMMENT",
+        "summary": "like_comment",
+        "actor_id": "actor_issuer"
+      },
+      {
+        "id": "trace-31",
+        "kind": "simulated_action",
+        "action_type": "LIKE_COMMENT",
+        "summary": "like_comment",
+        "actor_id": "actor_issuer"
+      },
+      {
+        "id": "trace-32",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "As a market competitor monitoring earnings signals, this roundup is notable. The sell-side prev/prior data points suggest limited revision activity. I'll be tracking whether actual filings diverge from these preliminary estimates — divergence would signal repositioning opportunities. Cross-referencing with our internal competitive intelligence.",
+        "actor_id": "actor_competitors"
+      },
+      {
+        "id": "trace-33",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "As an exchange, we note this earnings guidance roundup from D0-date. Important distinction: sell-side consensus (preliminary estimates from analysts) differs from filings consensus (actual reported data). Our systems track both, but market participants should be aware that forward-looking guidance and historical filings represent different information sets with distinct reliability characteristics. We encourage cross-referencing with official SEC filings for material decision-making.",
+        "actor_id": "actor_exchange"
+      },
+      {
+        "id": "trace-34",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "As a broker, I'm tracking the divergence between actual filings consensus and sell-side preliminary estimates noted in this roundup. The gap between the two represents potential alpha opportunities for position adjustments. My institutional clients should note that we are cross-referencing these guidance figures with sector-specific indicators before adjusting our trading strategies. Due diligence on data provenance remains critical here.",
+        "actor_id": "actor_brokers"
+      },
+      {
+        "id": "trace-35",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #1：US Earnings Guidance Roundup D0-date：Market outlook | filings consensus: sell-side prev: prior",
+        "actor_id": "actor_analysts"
+      },
+      {
+        "id": "trace-36",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "Agreed with the original poster's clarification. Distinguishing between actual filing consensus and sell-side preliminary estimates is critical for accurate analysis. I'd add that forward-looking guidance should be weighted against historical accuracy of the issuing firms' prior projections.",
+        "actor_id": "actor_analysts"
+      }
+    ],
+    "branch_slots": [
+      {
+        "slot_id": "slot-1",
+        "actor_ids": [
+          "actor_brokers",
+          "actor_competitors"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_brokers-r2",
+          "decision-actor_competitors-r2"
+        ]
+      },
+      {
+        "slot_id": "slot-2",
+        "actor_ids": [
+          "actor_institutions",
+          "actor_analysts"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_institutions-r2",
+          "decision-actor_analysts-r2"
+        ]
+      },
+      {
+        "slot_id": "slot-3",
+        "actor_ids": [
+          "actor_exchange",
+          "actor_issuer"
+        ],
+        "relationship_kind": "constrains_or_influences",
+        "decision_refs": [
+          "decision-actor_exchange-r2",
+          "decision-actor_issuer-r2"
+        ]
+      },
+      {
+        "slot_id": "slot-4",
+        "actor_ids": [
+          "actor_brokers",
+          "actor_institutions"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_brokers-r2",
+          "decision-actor_institutions-r2"
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "with_traces": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "Alpha捕捉驱动调仓",
+          "summary": "若未来3个交易日内实际财报备案数据（filings consensus）与卖方初步估计（sell-side preliminary estimates）出现至少一个标准差以上的偏离，则券商将基于其已经识别的信息差异主动向机构客户提供alpha交易机会建议，推动机构投资者在次日开始调整对匿名标的1的头寸",
+          "actor_ids": [
+            "actor_brokers",
+            "actor_competitors"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_brokers",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_brokers-r2"
+            },
+            {
+              "actor_id": "actor_competitors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_competitors-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "实际财报备案数据与卖方初步估计偏离≥1个标准差",
+            "券商公开分析报告中明确建议利用该信息差调整仓位",
+            "机构投资者内部模型确认alpha机会可行"
+          ],
+          "consequences": [
+            "机构投资者根据券商建议调整对匿名标的1的持仓",
+            "市场交易量出现显著波动，异常偏离基准2个标准差以上",
+            "竞争者可能被动跟进调仓，但动作滞后于机构投资人"
+          ],
+          "invalidation_conditions": [
+            "券商未发布任何alpha捕捉策略报告",
+            "机构投资者内部模型显示偏离信号不足以支持仓位调整",
+            "实际filings consensus与sell-side prev无显著偏离"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "差异沉默引发协作观望",
+          "summary": "若未来3个交易日内实际filings consensus数据未出现重大偏离，或市场对这些数据的反应在正常统计范围内，则机构投资者和分析师共同维持观望立场，但通过社交平台互动确认双方对数据差异的理解一致，形成隐性共识",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_analysts"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_analysts",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_analysts-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "未来3个交易日内即未出现significant divergence",
+            "也未出现重大外部事件推动市场总统观点更改",
+            "机构与分析师的内部沟通中确认对filings consensus和sell-side prev差异的理解一致"
+          ],
+          "consequences": [
+            "机构投资者对匿名标的1的持仓保持不变",
+            "分析师维持现状不做评级调整",
+            "双方在公开和私下的沟通上巩固这一观望共识，带动其他中小投资者跟进观望"
+          ],
+          "invalidation_conditions": [
+            "出现及时且重大的外部冲击迫使双方打破观望",
+            "机构分析师作出主动下载评级调整",
+            "实际财报披露数据明显优于卖方预估"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "交易所警示触发沟通升级",
+          "summary": "若未来3个交易日内，detected、跨市场的异常交易量触发了交易所的波动性规则，使交易所首先发出正式风险警示公告，这将被事件主体借用并在公开层面强调区分filings与estimates的重要性，以强化对原有公开评论的权威性和准确性",
+          "actor_ids": [
+            "actor_exchange",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_exchange",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_exchange-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "交易所基于交易量异常发出正式风险警示公告",
+            "事件主体（issuer）在24小时内引用交易所公告、重申对flings consensus优先的立场",
+            "券商/机构层面并未对交易所公告作出直接反驳"
+          ],
+          "consequences": [
+            "交易量异常截止后，市场的短期波动可能略有回落",
+            "事件主体的公开沟通促使部分投资者延迟决策、静待后续处理",
+            "竞争者的仓位调整行为被迫推迟以消化新信息"
+          ],
+          "invalidation_conditions": [
+            "交易所未在运行的3个交易日以内发出任何风险警示",
+            "交易所公告被其它重大外部事件淹没、舆论关注点转移",
+            "事件主体未在24小时内引用或评论该公告"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "券商先行传导引发机构跟进套利",
+          "summary": "若未来3个交易日内，即使实际的filings consensus未出现显著偏离，券商仍基于自身模拟或历史交易模式，主动向机构客户推出精心构建的套利策略（如跨期或跨板块配对交易），机构客户在内部调研后认可该策略，从而选择启动部分仓位调整以尝试捕捉小规模alpha",
+          "actor_ids": [
+            "actor_brokers",
+            "actor_institutions"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_brokers",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_brokers-r2"
+            },
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "券商向核心机构客户发送含具体套利策略的内参",
+            "机构投资者的内部估值判定该策略在模拟回测中盈利概率大于60%",
+            "机构实际执行交易后24小时内出现正回报信号"
+          ],
+          "consequences": [
+            "机构投资者对匿名标的1的部分仓位进行调整",
+            "竞争者可能追踪到异常流动并开始被动模仿",
+            "市场上一到两天的交易模式出现短暂偏离传统规律"
+          ],
+          "invalidation_conditions": [
+            "券商未主动发出任何套利内参",
+            "机构投资者内部模型否决该策略的可行性",
+            "执行后的24小时内出现负收益超过止损线"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        }
+      ],
+      "quality": [
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 2,
+            "evidence_discipline": 2,
+            "scenario_diversity": 2
+          },
+          "total_score": 10,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": false,
+              "specific_invalidation": false,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            }
+          ]
+        },
+        {
+          "scores": {
+            "mechanism_coherence": 1,
+            "monitoring_actionability": 1,
+            "falsifiability": 2,
+            "evidence_discipline": 1,
+            "scenario_diversity": 1
+          },
+          "total_score": 6,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": false,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            }
+          ]
+        }
+      ]
+    },
+    "without_traces": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "券商传导与竞争者回应",
+          "summary": "券商基于F1中filings consensus与sell-side prev差异主动向客户传达信息差，竞争者观察到此行为后评估自身持仓并及时调整策略。",
+          "actor_ids": [
+            "actor_brokers",
+            "actor_competitors"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_brokers",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_brokers-r2"
+            },
+            {
+              "actor_id": "actor_competitors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_competitors-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "券商在D1发布公开分析报告明确指出filings consensus与sell-side prev存在实质性偏离",
+            "竞争者在D1收市前获取该报告且其匿名标的1持仓在当周前5日波动超过2%"
+          ],
+          "consequences": [
+            "竞争者将匿名标的1持仓下调并重新分配至其他标的，因其认为券商信号可能吸引过多机构涌入",
+            "券商在完成首轮通讯后评估客户反馈，决定在D3前暂不追加第二份描述具体估值差异的报告"
+          ],
+          "invalidation_conditions": [
+            "券商在D0后连续两个交易日未向任何外部发布含估值差异的通讯",
+            "竞争者在D1公开披露其未调整匿名标的1头寸"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "机构与分析师同步拖延",
+          "summary": "机构投资者因F1数据不充分维持等待，分析师确认无实质性偏离后也保持观望，两者共同延迟价格发现速度使市场进入低活跃区间。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_analysts"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_analysts",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_analysts-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "机构投资者在D1全天未向券商提交任何增量匿名标的1询价或委托",
+            "分析师在D1内部会议上认定实际备案数据与卖方预估偏差未超过阈值"
+          ],
+          "consequences": [
+            "匿名标的1的日内成交量在D2低于前30日均值的70%",
+            "机构投资者在D3主动联系分析师询问定制化差异报告，导致后者调整工作优先级"
+          ],
+          "invalidation_conditions": [
+            "机构投资者在D1收市前撤回了原有等待指令并下达了市价单",
+            "分析师在D2发布了匿名标的1评级调整公告"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "交易所制约事件主体沟通",
+          "summary": "交易所通过合规问询限制事件主体此前公开评论的进一步扩散，事件主体据此调整后续披露内容以维持制度一致性。",
+          "actor_ids": [
+            "actor_exchange",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_exchange",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_exchange-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "交易所合规部门在D1向事件主体发送正式问询函，要求澄清其D0公开评论中强调的区分标准",
+            "事件主体在D2收到问询后确认在D3前不会就该主题发布后续评论"
+          ],
+          "consequences": [
+            "事件主体将原定于D2发布的补充说明文档推迟，改为内部审核流程",
+            "交易所通过该问询间接向市场释放信号，引导其他市场参与者对F1数据差异的解读趋于谨慎"
+          ],
+          "invalidation_conditions": [
+            "交易所合规部门在D1没有执行任何接触事件主体的动作",
+            "事件主体在D3之后仍在公开渠道重复其D0沟通内容"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "券商推动机构提前行动",
+          "summary": "券商将F1差异以交易机会形式打包给机构投资者，后者在内部审议后决定提前小幅调整匿名标的1头寸，形成条件化建仓。",
+          "actor_ids": [
+            "actor_brokers",
+            "actor_institutions"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_brokers",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_brokers-r2"
+            },
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "券商在D1向机构投资者发送含具体仓位建议的定向简报",
+            "机构投资者投资委员会在D2召开临时会议并授权将匿名标的1头寸修改为超过当前规模10%"
+          ],
+          "consequences": [
+            "机构投资者在D2尾盘执行市价单，使匿名标的1当日成交量明显放大",
+            "券商基于该委托成功获得额外佣金收益，决定在D3将同一主题包装为普通客户可获取的浓缩版报告"
+          ],
+          "invalidation_conditions": [
+            "券商在D1并未向机构投资者发送任何含具体仓位建议的定向简报",
+            "机构投资者投资委员会在D2会议结束时维持原有头寸不变"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        }
+      ],
+      "quality": [
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 2,
+            "evidence_discipline": 2,
+            "scenario_diversity": 2
+          },
+          "total_score": 10,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            }
+          ]
+        },
+        {
+          "scores": {
+            "mechanism_coherence": 3,
+            "monitoring_actionability": 2,
+            "falsifiability": 2,
+            "evidence_discipline": 2,
+            "scenario_diversity": 4
+          },
+          "total_score": 13,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

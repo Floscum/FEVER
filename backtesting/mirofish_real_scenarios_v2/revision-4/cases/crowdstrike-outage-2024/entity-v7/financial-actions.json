@@ -1,0 +1,182 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "real-crowdstrike-outage-2024",
+  "spec_sha256": "07633d47b8bd5421c70944145425e1d3b886c194bd61c1f7e66883c58befe352",
+  "simulation_id": "sim_direct_ccbbbf7f3b1e",
+  "generated_at": "2026-09-12T06:19:41.446777+00:00",
+  "status": "completed",
+  "decisions": [
+    {
+      "id": "decision-actor_issuer-r2",
+      "round": 2,
+      "actor_id": "actor_issuer",
+      "action_type": "COMMUNICATE",
+      "decision_status": "intended",
+      "direction": "not_applicable",
+      "intensity": 0.7,
+      "instrument_refs": [
+        "CRWD"
+      ],
+      "rationale": "事件发生后仅约一天，受影响范围（约850万台设备、占Windows不足1%）已由Microsoft初步确认，且非网络攻击的性质已明确。当前首要任务是主动向客户、合作伙伴和公众沟通事件根因、修复进展及后续预防措施，以控制声誉风险并维持客户信任。同时需要回应市场关切，说明CrowdStrike正在全力配合Microsoft及云厂商恢复服务。沟通行动本身不构成任何交易承诺或资源支出承诺，属于我方可自主决定的公开行动。",
+      "constraint_refs": [
+        "actor_issuer:constraint:0",
+        "actor_issuer:constraint:2"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:0",
+      "visibility": "public",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_customers-r2",
+      "round": 2,
+      "actor_id": "actor_customers",
+      "action_type": "OPERATE",
+      "decision_status": "intended",
+      "direction": "not_applicable",
+      "intensity": 0.7,
+      "instrument_refs": [],
+      "rationale": "作为已部署CrowdStrike Falcon的客户，首要目标是保障产品或服务连续性。根据F4，约850万台Windows设备受影响且关键服务企业使用这些设备使经济社会影响扩大，我需要立即评估自身系统受影响范围，核实是否在04:09至05:27 UTC期间下载了该配置更新（F3），并按照Microsoft提供的恢复文档与脚本（F5）进行恢复操作。同时我需要评估CrowdStrike的补救响应速度和有效性，为后续是否继续使用该服务或考虑替代方案积累第一手信息。转换成本较高，不会立即切换，但必须降低当前运营中断风险。",
+      "constraint_refs": [
+        "actor_customers:constraint:0",
+        "actor_customers:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:1",
+      "visibility": "private",
+      "confidence": 0.8,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_suppliers-r2",
+      "round": 2,
+      "actor_id": "actor_suppliers",
+      "action_type": "WAIT",
+      "decision_status": "intended",
+      "direction": "conditional",
+      "intensity": 0.6,
+      "instrument_refs": [
+        "CRWD"
+      ],
+      "rationale": "作为供应商，需观察CrowdStrike事件对下游客户的系统恢复进度和订单连续性实际影响。已知故障窗口仅78分钟且已修复，Microsoft及CrowdStrike已协同实施恢复，受影响设备占比不足1%。但关键服务企业使用这些设备导致经济社会影响扩大，可能使部分客户短期付款能力或订单节奏产生波动。当前信息不足以判断具体客户受影响程度及传导到我方回款的时间线，需要等待下一轮客户运营恢复报告和付款状态确认后再调整信用评估或订单策略。主要不确定性在于受影响客户中哪些为我方直接或间接交易对手以及其IT恢复速度。",
+      "constraint_refs": [
+        "actor_suppliers:constraint:0",
+        "actor_suppliers:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:2",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_competitors-r2",
+      "round": 2,
+      "actor_id": "actor_competitors",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "CrowdStrike配置更新事故（F1-F5）暴露了其更新验证流程缺陷，可能引发企业客户对EDR可靠性重新评估。但截至7月20日，事故修复已公告（F2），Microsoft已介入协助恢复（F5），且受影响设备占Windows设备不足1%（F4），尚无法判断客户流失规模或速度。作为竞争者，受自身产能和成本限制（constraint:1），需要更多可观察信息（如客户咨询量变化、PoC请求趋势、竞争对手定价调整）才能判断是否调整产能准备或启动针对性市场沟通，不应仅依据社交热度或单次事件直接下注。当前决策周期内以观察为主，不做金融动作亦不抢跑营销。",
+      "constraint_refs": [
+        "actor_competitors:constraint:0",
+        "actor_competitors:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:3",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_institutions-r2",
+      "round": 2,
+      "actor_id": "actor_institutions",
+      "action_type": "WAIT",
+      "decision_status": "intended",
+      "direction": "maintain",
+      "intensity": 0.6,
+      "instrument_refs": [
+        "CRWD"
+      ],
+      "rationale": "截至7月20日，CrowdStrike配置更新事故已确认非网络攻击，更新已在约78分钟内修正。但微软估计约850万台设备受影响，关键服务企业受影响使经济社会影响扩大，可能引发客户索赔、监管审查及短期续约压力。虽仅不足1%的Windows设备受影响，但受波及的关键服务企业客户（航空、金融、医疗等）可能要求SLA赔偿或重新评估安全供应商，对CRWD短期收入与品牌声誉构成压力。同时微软派出数百名工程师协助恢复显示了行业协作，降低了系统性长期风险。需要更多信息评估：监管行动、客户流失率、潜在法律索赔规模及保险赔付情况。当前保持现有仓位，暂不增持也不减持，等待下一季度财报电话会披露的具体客户留存数据和事故相关成本。",
+      "constraint_refs": [
+        "actor_institutions:constraint:0",
+        "actor_institutions:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:4",
+      "visibility": "private",
+      "confidence": 0.75,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_media-r2",
+      "round": 2,
+      "actor_id": "actor_media",
+      "action_type": "WAIT",
+      "decision_status": "no_action",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "截至2024-07-20已获取事件核心事实（F1-F5），但CrowdStrike的配置更新漏洞与修复已完成，Microsoft与多方协作恢复正在进行。此时CRWD的二级市场反应与监管动态尚未显现完整信号，作为财经媒体应先核实事件后续影响（如客户索赔、监管问询、竞品反应），再调整信息传播方向，避免凭空推测股价走势或事件升级程度。当前最恰当行动是等待更多可观察信息，随后再提供基于事实的深入分析。",
+      "constraint_refs": [
+        "actor_media:constraint:0",
+        "actor_media:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4",
+        "F5"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:5",
+      "visibility": "public",
+      "confidence": 0.9,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    }
+  ],
+  "failures": [],
+  "warnings": [
+    "Decision confidence expresses action clarity, not forecast probability.",
+    "Interview decisions are simulated statements, not observed evidence."
+  ]
+}

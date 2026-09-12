@@ -1,0 +1,613 @@
+{
+  "anonymous_case_id": "anonymous-case-06",
+  "configured_actor_count": 9,
+  "decision_actor_count": 8,
+  "fact_count": 4,
+  "fact_chars": 202,
+  "input": {
+    "case_id": "anonymous-case-06",
+    "as_of": "D0",
+    "question": "日期、名称、代码和绝对价格均已匿名化。只使用D0已公开的信息，推演消费者、竞争者、渠道和投资者对电动车企业再次大幅降价的反应。",
+    "horizon": {
+      "kind": "calendar_days",
+      "value": 35,
+      "end_at": "D0 + stated horizon"
+    },
+    "facts": [
+      {
+        "id": "F1",
+        "statement": "一家领先电动车企业将其最大海外市场两款主力车型的全系售价下调约6%至13.5%，这是不到三个月内的第二次降价。"
+      },
+      {
+        "id": "F2",
+        "statement": "两次降价叠加近期购车激励后，部分车型价格较四个月前低约13%至24%，并更接近本地畅销竞争车型。"
+      },
+      {
+        "id": "F3",
+        "statement": "该企业最近一个月的本地零售销量明显回落；行业补贴到期、需求走弱和竞争加剧同时影响市场。"
+      },
+      {
+        "id": "F4",
+        "statement": "D0匿名标的收盘上涨约2.5%，但此前一年已出现大幅回撤；市场同时担忧需求和利润率，也可能把降价解释为扩大销量。"
+      }
+    ],
+    "actors": [
+      {
+        "id": "actor_automaker",
+        "label": "匿名领先电动车企业",
+        "kind": "issuer",
+        "goals": [
+          "扩大销量与产能利用率",
+          "维护市场份额",
+          "控制降价对利润率的影响"
+        ],
+        "constraints": [
+          "透明直销定价会立即影响新旧客户预期"
+        ]
+      },
+      {
+        "id": "actor_recent_buyers",
+        "label": "近期已提车客户",
+        "kind": "customer",
+        "goals": [
+          "争取价格补偿",
+          "维护车辆残值与公平感"
+        ],
+        "constraints": [
+          "既有购车合同未必承诺后续价格保护"
+        ]
+      },
+      {
+        "id": "actor_new_buyers",
+        "label": "潜在购车客户",
+        "kind": "customer",
+        "goals": [
+          "以更低总成本购车",
+          "判断价格是否继续下降"
+        ],
+        "constraints": [
+          "补贴、交付时间和替代车型同时影响决策"
+        ]
+      },
+      {
+        "id": "actor_ev_competitors",
+        "label": "本地电动车竞争者",
+        "kind": "competitor",
+        "goals": [
+          "维护订单和市场份额",
+          "避免利润率过度下降"
+        ],
+        "constraints": [
+          "成本结构和现金储备不同，跟随降价能力有限"
+        ]
+      },
+      {
+        "id": "actor_suppliers",
+        "label": "电池与零部件供应商",
+        "kind": "supplier",
+        "goals": [
+          "维持订单量",
+          "避免价格压力过度向上游传导"
+        ],
+        "constraints": [
+          "短期无法完全改变已签订产能与价格安排"
+        ]
+      },
+      {
+        "id": "actor_regulator",
+        "label": "市场与消费者监管机构",
+        "kind": "regulator",
+        "goals": [
+          "维护消费者权益与市场秩序",
+          "监督宣传和合同履行"
+        ],
+        "constraints": [
+          "正常市场化调价本身不必然违法"
+        ]
+      },
+      {
+        "id": "actor_institutions",
+        "label": "机构投资者",
+        "kind": "institutional_investor",
+        "goals": [
+          "权衡销量弹性与利润率",
+          "评估价格战的竞争优势"
+        ],
+        "constraints": [
+          "短期订单与利润贡献尚未公布"
+        ]
+      },
+      {
+        "id": "actor_retail",
+        "label": "个人投资者",
+        "kind": "retail_cohort",
+        "goals": [
+          "判断价格战对股价的影响",
+          "控制高波动风险"
+        ],
+        "constraints": [
+          "容易只关注销量或利润率的单一叙事"
+        ]
+      },
+      {
+        "id": "actor_media",
+        "label": "汽车与财经媒体",
+        "kind": "media",
+        "goals": [
+          "跟踪客户反应、交付等待时间和竞争者定价",
+          "解释价格战机制"
+        ],
+        "constraints": [
+          "早期订单传闻可能缺少可验证口径"
+        ]
+      }
+    ],
+    "financial_decisions": [
+      {
+        "id": "decision-actor_automaker-r3",
+        "round": 3,
+        "actor_id": "actor_automaker",
+        "action_type": "OPERATE",
+        "decision_status": "intended",
+        "direction": "conditional",
+        "intensity": 0.6,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "F3显示本地零售销量明显回落，且行业补贴到期、需求走弱与竞争加剧叠加，需要结构性应对而非仅靠降价。F1和F2已执行两轮降价，透明直销定价模式下继续直接降价将再次冲击已提车客户预期并加速观望（约束：actor_automaker:constraint:0）。F4市场对降价解读存在分歧，但标的反弹2.5%表明部分投资者接受'以价换量'逻辑。下一周期优先执行非价格措施——如增加置换补贴、赠送超充额度或金融贴息等非直接降价手段，以维持竞争力同时控制对利润率的直接冲击。若未来一个月订单数据未改善，再考虑启动第三轮小幅降价。",
+        "constraint_refs": [
+          "actor_automaker:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_recent_buyers-r3",
+        "round": 3,
+        "actor_id": "actor_recent_buyers",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": 0.6,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "作为近期提车客户，我已观察到两次降价导致车辆残值显著缩水，心中不满但合同未承诺价格保护，直接协商缺乏法律依据。当前本地销量回落、市场竞争加剧，企业后续可能出台补偿政策或进一步激励。此时公开抗议可能损害企业与自身关系，且个人力量有限，最理性选择是暂时等待、观望企业是否会主动提供补偿或权益方案，同时收集更多车主群体动态再决定下一步行动。",
+        "constraint_refs": [
+          "actor_recent_buyers:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.75,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_new_buyers-r3",
+        "round": 3,
+        "actor_id": "actor_new_buyers",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.7,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "作为潜在购车客户，我关注的是以更低总成本购车。F1显示该企业不到三个月内第二次降价，且幅度达6%-13.5%；F2显示两次降价叠加激励后部分车型价格已低13%-24%，更接近竞争车型。这让我看到价格下行趋势，但同时也担心买入后继续降价。F3显示该企业零售销量明显回落、行业补贴到期且竞争加剧——这些信号表明企业可能面临需求压力，不排除进一步降价可能。市场对此存在分歧（F4）。我的策略是先等待观察接下来一个月的订单数据是否反弹，同时对比竞争车型的定价和补贴政策再作决定，避免在可能的第三次降价前仓促入手。主要不确定性在于：竞争车型是否会跟进降价形成价格螺旋，以及该企业在销量压力下是否会在短期内推出更多购车激励。",
+        "constraint_refs": [
+          "actor_new_buyers:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_ev_competitors-r3",
+        "round": 3,
+        "actor_id": "actor_ev_competitors",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": null,
+        "instrument_refs": [],
+        "rationale": "观察到竞争对手再次大幅降价，但零售销量反而明显回落，说明价格战对需求的刺激效果边际递减。自身成本结构与现金储备不支持直接跟进同等幅度的降价，否则将过度挤压利润率。当前选择暂不采取价格调整，优先观察降价后对手订单转化与库存变化，再评估是否需要以配置升级或阶段性促销等成本可控的方式应对。需求走弱与补贴到期叠加，使激进降价的风险高于收益。",
+        "constraint_refs": [
+          "actor_ev_competitors:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_suppliers-r3",
+        "round": 3,
+        "actor_id": "actor_suppliers",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "作为电池与零部件供应商，当前已签订的产能与价格安排在短期内无法改变（约束[C0]）。F1-F3显示下游整车企业已实施第二次降价且销量回落，但降价对订单量的净影响尚不确定——销量增长可能部分抵消单车价格压力（假设）。目前缺少Q3订单数据和新的合约谈判窗口，主动调整价格或产能安排将暴露于过度传导风险。选择等待，观察7-8月实际订单量变化后再决定是否启动下一轮供应价格谈判。",
+        "constraint_refs": [
+          "actor_suppliers:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_regulator-r3",
+        "round": 3,
+        "actor_id": "actor_regulator",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "截至目前已有事实中，F1和F2显示该企业进行了两轮价格下调，幅度在6%-24%之间，但正常市场化调价本身不必然违法。F3显示零售销量回落，受行业补贴到期、需求走弱和竞争加剧影响，但降价与销量变化之间的因果链条尚不明确。F4显示市场对降价的解读存在分歧，无法据此判断存在不正当竞争或虚假宣传。消费者在社交媒体上的情绪表达不属于合同条款争议的直接证据。在没有接到正式投诉或发现明确违反《消费者权益保护法》《反不正当竞争法》的具体事实之前，监管部门应保持观察，收集更多市场反馈和合同履行情况，而非立即介入。主要不确定性在于：后续是否出现大量消费者关于价格保护承诺的投诉，以及该企业在宣传中是否存在误导性表述。当前决策周期选择等待，以积累更充分的事实基础。",
+        "constraint_refs": [
+          "actor_regulator:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_retail-r3",
+        "round": 3,
+        "actor_id": "actor_retail",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "decrease",
+        "intensity": 0.4,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "两次降价间隔不足三个月，范围达6%-13.5%，且叠加前期购车激励后部分车型降幅累计达13%-24%，但F4显示标的仅涨2.5%，市场并未给予正面解读。F3显示本地零售销量明显回落，行业补贴到期和需求走弱形成双重压力。当前信息尚不足以判断降价是主动清库存还是被迫应对竞争——如果是后者，利润率的侵蚀可能比销量弹性更快显现。我需要等到更多订单数据和下一份财报后再做资金分配决策，以控制高波动风险。",
+        "constraint_refs": [
+          "actor_retail:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_media-r3",
+        "round": 3,
+        "actor_id": "actor_media",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "作为汽车与财经媒体，当前需等待第一手可验证的客户反应数据和交付等待时间变化，而非立即发布分析。F3显示零售销量已明显回落但降价是否扭转趋势尚无数据；F4中市场对降价解读存在分歧（担忧需求vs扩大销量），需要等待后续订单数据确认销量弹性。早期订单传闻（约束0）缺少可验证口径，不宜作为报道依据。最佳策略是等待7-8月订单与交付数据出炉后再解释价格战机制和竞争者跟进情况。",
+        "constraint_refs": [
+          "actor_media:constraint:0"
+        ],
+        "evidence_refs": [
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      }
+    ],
+    "simulated_actions": [
+      {
+        "id": "trace-18",
+        "actor_id": "actor_retail",
+        "action_type": "COMMUNICATE",
+        "summary": "同意这个分析。作为个人投资者，我更关心短期订单数据和利润率的变化。两次降价间隔太短，单靠销量增长能否抵消单价下滑带来的利润压缩，需要看接下来的季度财报。另外，行业补贴到期对需求的冲击有多大，也是关键变量。"
+      },
+      {
+        "id": "trace-21",
+        "actor_id": "actor_institutions",
+        "action_type": "COMMUNICATE",
+        "summary": "从机构投资者角度，本轮降价需拆解两个维度：销量弹性是否足以覆盖ASP损失，以及竞争对手是否会跟进形成价格螺旋。目前零售销量回落是触发降价的原因而非结果——关键是看7-8月订单数据能否反弹。若销量弹性<1，则降价意味着利润恶化；若弹性>1.5且产能利用率提升，则可能是正确的市场防御。建议关注Q3财报中单车毛利变化。"
+      },
+      {
+        "id": "trace-26",
+        "actor_id": "actor_institutions",
+        "action_type": "COMMUNICATE",
+        "summary": "作为机构投资者，我认同你的关注方向。供应链角度看，OEM降价压力必然向上游传导。关键问题是：电池成本下降曲线能否同步对冲整车ASP下行？如果电池等核心零部件降价滞后于整车降价，短期内供应商利润率将承压。建议关注该企业是否有自研电池或垂直整合能力来缓冲这一压力。"
+      },
+      {
+        "id": "trace-29",
+        "actor_id": "actor_automaker",
+        "action_type": "COMMUNICATE",
+        "summary": "我们理解近期提车客户的关切。正如我们一直强调的，透明直销定价模式的优势在于所有客户享受同等价格待遇，不存在信息不对称。我们将持续通过OTA升级、超充网络扩展和服务体验提升来增加产品全生命周期价值。"
+      }
+    ],
+    "branch_slots": [
+      {
+        "slot_id": "slot-1",
+        "actor_ids": [
+          "actor_automaker",
+          "actor_recent_buyers"
+        ],
+        "relationship_kind": "sets_transaction_price_for",
+        "decision_refs": [
+          "decision-actor_automaker-r3",
+          "decision-actor_recent_buyers-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-2",
+        "actor_ids": [
+          "actor_new_buyers",
+          "actor_retail"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_new_buyers-r3",
+          "decision-actor_retail-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-3",
+        "actor_ids": [
+          "actor_ev_competitors",
+          "actor_media"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_ev_competitors-r3",
+          "decision-actor_media-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-4",
+        "actor_ids": [
+          "actor_regulator",
+          "actor_suppliers"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_regulator-r3",
+          "decision-actor_suppliers-r3"
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "v7": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "补偿引发成本转嫁",
+          "summary": "若降价冲击后，近期提车客户基于不满的集体行动激增（导致监管介入），车企被迫提供补偿包而非现金退差价，而这部分成本将通过推迟付款条件等方式转嫁给零部件供应商。",
+          "actor_ids": [
+            "actor_automaker",
+            "actor_recent_buyers"
+          ],
+          "trigger_conditions": [
+            "D0后15天内，关于‘降价未提前通知’的消费者集体投诉数超过过去六个月之和",
+            "至少一家头部汽车媒体发布‘车主维权事件追踪’报道"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_automaker",
+              "action_type": "OPERATE",
+              "decision_ref": "decision-actor_automaker-r3"
+            },
+            {
+              "actor_id": "actor_recent_buyers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_recent_buyers-r3"
+            }
+          ],
+          "consequences": [
+            "车企因补偿包增加短期费用支出，对新品研发的资本支出形成挤压",
+            "零部件供应商延迟收到正常账期款项，迫使其中资金紧张者缩减短期产能或寻求短期融资"
+          ],
+          "invalidation_conditions": [
+            "D0后30天内未出现任何有组织投诉或媒体大范围报道"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_automaker-r3",
+            "decision-actor_recent_buyers-r3"
+          ],
+          "novelty_claim": "本分支将客户不满（actor_recent_buyers）上升为集体行动（F1-F2）与监管关注（actor_regulator），并关联车企成本控制措施间接影响供应商（actor_suppliers）的现金流，形成了三条因果关系链。",
+          "confidence": 0.55,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-2",
+          "label": "观望传导股价偏好",
+          "summary": "若潜在购车客户因担心价格进一步下跌而继续等待订单数据，同时个人投资者因缺乏季报确认而维持减仓倾向，两者共同推迟了销量反弹与股市流动性好转的时间点。",
+          "actor_ids": [
+            "actor_new_buyers",
+            "actor_retail"
+          ],
+          "trigger_conditions": [
+            "D0后20天内该企业在当地市场的周度订单数持续低于降价前三周水平",
+            "D0后20天内匿名标的日换手率中位数低于降价前四周中位数"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_new_buyers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_new_buyers-r3"
+            },
+            {
+              "actor_id": "actor_retail",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_retail-r3"
+            }
+          ],
+          "consequences": [
+            "潜在客户作为整体继续采取‘不买则跌’的观望策略，企业成交量恢复缓慢",
+            "个人投资者对标的减持行为压制短期买盘，使标的即使出现交付数据也难以迅速反弹"
+          ],
+          "invalidation_conditions": [
+            "D0后15天内观察到连续两周订单数回升至降价前水平以上"
+          ],
+          "evidence_refs": [
+            "F3",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_new_buyers-r3",
+            "decision-actor_retail-r3"
+          ],
+          "novelty_claim": "本分支将潜在客户（actor_new_buyers）的购车决策与个人投资者（actor_retail）的资产配置决策直接联动——前者导致车市销售平淡，后者导致股市流动性不足，两者相互强化负面循环。",
+          "confidence": 0.6,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-3",
+          "label": "跟进报道触发对手回应",
+          "summary": "若媒体在等待一个月后报道的‘竞争对手跟进降价’传闻被证实，则本地电动车竞争者会在犹豫期结束后选择小范围促销而非全面跟降，重新吸引部分观望客户。",
+          "actor_ids": [
+            "actor_ev_competitors",
+            "actor_media"
+          ],
+          "trigger_conditions": [
+            "D0后30天内至少有两家汽车媒体分别报道‘某竞品正考虑增加购车赠品’",
+            "D0后30天内至少一家竞争者公布针对特定车型的置换补贴"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_ev_competitors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_ev_competitors-r3"
+            },
+            {
+              "actor_id": "actor_media",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_media-r3"
+            }
+          ],
+          "consequences": [
+            "竞争者的定向补贴虽未直接降价，但吸引了对降价敏感的潜在客户，使其订车决策从‘等降价’转向‘比权益’",
+            "媒体通过跟踪竞品策略转移报道焦点，降低对该企业价格战的单向关注度"
+          ],
+          "invalidation_conditions": [
+            "D0后35天内任何竞争者均未公布任何形式的促销或补贴措施"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_ev_competitors-r3",
+            "decision-actor_media-r3"
+          ],
+          "novelty_claim": "本分支在竞争者（actor_ev_competitors）延迟决策的路径上引入了媒体（actor_media）作为信息扩散枢纽——前期媒体报道积攒的预期促使竞争者采用成本可控的权益调整，进而改变了观望客户的偏好。",
+          "confidence": 0.65,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-4",
+          "label": "无投诉状态维持政策稳定",
+          "summary": "若未能触发第一条分支中的有组织投诉，且零部件供应商也未感受到降本压力，则监管与供应方都不会启动行动，价格战仍未导致显著的产业链调整。",
+          "actor_ids": [
+            "actor_regulator",
+            "actor_suppliers"
+          ],
+          "trigger_conditions": [
+            "D0后35天内未发生任何涉及该企业消费者的集体投诉或行政处罚立案",
+            "D0后35天内主要电池供应商未发布降价或减产公告"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_regulator",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_regulator-r3"
+            },
+            {
+              "actor_id": "actor_suppliers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_suppliers-r3"
+            }
+          ],
+          "consequences": [
+            "监管机构基于‘无事实纠纷’判断继续采取不介入姿态，市场秩序维持现状",
+            "供应商继续执行现有合约，车企的降价压力暂未传导至上游，行业垂直利润率结构未发生变化"
+          ],
+          "invalidation_conditions": [
+            "D0后35天内发生消费者集体投诉或供应商主动调价"
+          ],
+          "evidence_refs": [
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_regulator-r3",
+            "decision-actor_suppliers-r3"
+          ],
+          "novelty_claim": "本分支有别于前三条，是一段‘无事件’传导：将监管（actor_regulator）无行动与供应商（actor_suppliers）无行动合并输出为系统性稳定。",
+          "confidence": 0.7,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        }
+      ],
+      "generation": {
+        "semantic_retries": 0,
+        "elapsed_seconds": 43.69951345800655
+      },
+      "judgments": []
+    }
+  }
+}

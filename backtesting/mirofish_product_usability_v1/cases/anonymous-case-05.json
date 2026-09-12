@@ -1,0 +1,933 @@
+{
+  "case_id": "anonymous-case-05",
+  "market": "CN",
+  "event_type": "财报超预期/不及预期",
+  "actor_budget": 6,
+  "decision_actor_ids": [
+    "actor_analysts",
+    "actor_brokers",
+    "actor_competitors",
+    "actor_exchange",
+    "actor_institutions",
+    "actor_issuer"
+  ],
+  "facts": [
+    {
+      "id": "F1",
+      "observed_at": "D0",
+      "statement": "上海能源:上海能源2025年半年度业绩预减公告：上海能源:上海能源2025年半年度业绩预减公告 | 匿名标的1 上海能源 · 业绩预告",
+      "source_kind": "official",
+      "source_url": "anonymized-source",
+      "evidence_ref": "E1",
+      "confidence": 0.8
+    }
+  ],
+  "source_hashes": {
+    "spec_sha256": "701d0c303a7ee39de6c8e76e131b9b80ddd50f08e8542c51e382104d5ecb0f66",
+    "simulation_result_sha256": "0698f011206daf7226453d5dfcf3c1125f13802e2a514c7606472c01aca8b11c",
+    "financial_actions_sha256": "d8999deec5c3691b4d8ff375d112a3d9ddc523e0ca1c6591c5f415690829d595"
+  },
+  "variants": {
+    "decisions_only": {
+      "generation": {
+        "status": "sealed",
+        "semantic_retries": 0,
+        "elapsed_seconds": 52.28507833299227,
+        "prompt_chars": 7204,
+        "visible_interactions": 0
+      },
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "中介传导触发监管关注",
+          "summary": "若券商发布的业绩预减解读公告被交易所认定为信息披露不充分或引导性过强，交易所将发出补充问询或关注函，从而影响券商后续发布内容的措辞与时间窗口。",
+          "actor_ids": [
+            "actor_brokers",
+            "actor_exchange"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_brokers",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_brokers-r2"
+            },
+            {
+              "actor_id": "actor_exchange",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_exchange-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "券商在D1发布关于F1的专业解读公告后，交易所在D1至D2之间对该公告提问或公开标注关注"
+          ],
+          "consequences": [
+            "券商需在交易所规定时限内发布补充说明，且措辞趋于审慎，影响机构投资者获取解读的时机与完整性"
+          ],
+          "invalidation_conditions": [
+            "D2结束时交易所未对券商解读作任何公开反馈或标注"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "机构减持触发主体提前沟通",
+          "summary": "若机构投资者在D1至D2期间因业绩预减而公开显示减仓行为，事件主体（发行人）为防止市场误解蔓延，将在原定沟通窗口前主动发布补充说明。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "ALLOCATE",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "D1至D2期间机构投资者显著减少对ANON_ASSET的持仓或发出减持意向"
+          ],
+          "consequences": [
+            "事件主体将提前发布业绩预减原因说明或投资者纪要，影响机构投资者后续减仓节奏；部分机构可能转为等待主体说明后再行动"
+          ],
+          "invalidation_conditions": [
+            "D2结束时机构投资者持仓数据未显示显著减持；或主体已按原计划沟通无需提前"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "双观望格局下的竞争性沉默",
+          "summary": "分析师与竞争者在D1至D3期间均因缺乏详细信息而维持等待，形成互相默认的观望格局，双方都不会首先发出行业层面的分析或策略调整。",
+          "actor_ids": [
+            "actor_analysts",
+            "actor_competitors"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_analysts",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_analysts-r2"
+            },
+            {
+              "actor_id": "actor_competitors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_competitors-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "截至D2收盘，分析师未发布关于上海能源业绩预减的行业影响报告；竞争者未公开调整经营表述或发布对比声明"
+          ],
+          "consequences": [
+            "市场缺乏来自第三方和可比视角的信息补充，流动性趋于平静；直至正式半年报发布前，任何一方打破观望都可能引发另一方迅速回应"
+          ],
+          "invalidation_conditions": [
+            "D3收盘前有一方发布了与F1直接关联的深入分析或竞争性信息"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "券商解读引导机构滞留观望",
+          "summary": "若券商发布的解读将业绩预减重新框定为行业周期性波动或非结构性因素，机构投资者将减少原本计划的减仓幅度，转为等待更多真相披露。",
+          "actor_ids": [
+            "actor_brokers",
+            "actor_institutions"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_brokers",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_brokers-r2"
+            },
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "ALLOCATE",
+              "decision_ref": "decision-actor_institutions-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "券商在D1发布的解读中，主要归因于煤炭价格等外部周期因子，并强调可能为短期或非经常性影响"
+          ],
+          "consequences": [
+            "机构投资者将原定减持强度从0.4下调至观望或正常再平衡，影响ANON_ASSET净抛售量"
+          ],
+          "invalidation_conditions": [
+            "券商解读强调结构性恶化或给出减持建议；或机构投资者无视解读继续减持"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        }
+      ],
+      "quality": [
+        {
+          "scores": {
+            "mechanism_coherence": 3,
+            "monitoring_actionability": 4,
+            "falsifiability": 4,
+            "evidence_discipline": 4,
+            "scenario_diversity": 4
+          },
+          "total_score": 19,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            }
+          ]
+        },
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 1,
+            "falsifiability": 2,
+            "evidence_discipline": 1,
+            "scenario_diversity": 2
+          },
+          "total_score": 8,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": false,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            }
+          ]
+        }
+      ],
+      "judge_reasons": [
+        "No free-form reason supplied.",
+        "No free-form reason supplied."
+      ],
+      "prompt": {
+        "system": "你是金融事件分支编译器，不是价格预测器。只使用输入中 as_of 时点可得事实\n和明确标为模拟的行为，生成恰好 4 条彼此有实质区别、未来可证伪的条件化事件分支。\n\n\n硬性要求：\n- 不得补充 as_of 之后的真实事件、公告、价格或人员结果；\n- 每条分支至少串联两个不同 actor 的动作，不能只是改写一个人的观点；\n- trigger_conditions 必须是未来可观察的“若……则进入该分支”条件；\n- consequences 是机制结果，不是已发生事实；\n- invalidation_conditions 必须说明什么观察会推翻该分支；\n- evidence_refs 只能引用输入中的 F 编号；\n- 按 branch_slots 的顺序生成分支；第 N 条分支必须描述第 N 个槽位中的所有角色及其相互影响；\n- 不要输出 actor_ids、actions、decision_ref 或 simulation_refs；系统会按数组位置确定性绑定\n  槽位中的角色及其已有 financial_decision，禁止自行概括、改写或新造动作；\n- confidence 只表示分支内部连贯性，不是发生概率；\n- novelty_claim 说明该分支比事实直接复述多出了哪段多主体传导；\n- 不得输出目标价格、收益率概率或 Agent 投票频率。\n\n只输出 JSON：\n{\"branches\":[{\"label\":\"简短名称\",\"summary\":\"条件化摘要\",\n\"trigger_conditions\":[\"...\"],\"consequences\":[\"...\"],\n\"invalidation_conditions\":[\"...\"],\"evidence_refs\":[\"F1\"],\n\"novelty_claim\":\"...\",\"confidence\":0.5}],\"warnings\":[]}。\n互动输入可能为空；其中内容仍是模拟消息，不是新增事实。不得凭空推断立场变化或因果影响。每条分支说明一方行动如何影响另一方的可行行动。触发和失效条件尽量指出观察对象与时间窗口；没有依据时不编造精确阈值。对缺少行动依据的传导使用条件表述，不把等待决策改写成已经采取新行动。",
+        "user": "{\"case_id\": \"anonymous-case-05\", \"as_of\": \"D0\", \"question\": \"严格基于 D0 时点可得信息，推演未来三个交易日各参与方行动及条件化传导机制。\", \"horizon\": {\"kind\": \"calendar_days\", \"value\": 3, \"end_at\": \"2025-07-15T23:59:59+00:00\"}, \"facts\": [{\"id\": \"F1\", \"statement\": \"上海能源:上海能源2025年半年度业绩预减公告：上海能源:上海能源2025年半年度业绩预减公告 | 匿名标的1 上海能源 · 业绩预告\"}], \"actors\": [{\"id\": \"actor_issuer\", \"label\": \"事件主体\", \"kind\": \"issuer\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_institutions\", \"label\": \"机构投资者\", \"kind\": \"institutional_investor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_analysts\", \"label\": \"分析师\", \"kind\": \"analyst\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_brokers\", \"label\": \"券商与中介机构\", \"kind\": \"broker\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_exchange\", \"label\": \"交易所\", \"kind\": \"exchange\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_competitors\", \"label\": \"竞争者\", \"kind\": \"competitor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}], \"financial_decisions\": [{\"id\": \"decision-actor_issuer-r2\", \"round\": 2, \"actor_id\": \"actor_issuer\", \"action_type\": \"COMMUNICATE\", \"decision_status\": \"intended\", \"direction\": \"conditional\", \"intensity\": 0.6, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"作为事件主体，公司已公告2025年半年度业绩预减（F1）。在交易所和市场已发出关注提示的背景下，为了维护公司制度合规性和投资者关系，我计划在下一个信息披露窗口内发布补充说明公告或投资者沟通纪要，解释业绩预减的主要原因（如煤炭市场价格波动、生产成本变化等可观察因素），以稳定市场预期并满足信息披露义务。若后续市场出现重大异常波动或投资者集中问询，将考虑提前发布澄清说明。该行动旨在维护公司制度合规性与经济利益，约束要求仅使用截至时点可见信息。\", \"constraint_refs\": [\"actor_issuer:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.8, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_institutions-r2\", \"round\": 2, \"actor_id\": \"actor_institutions\", \"action_type\": \"ALLOCATE\", \"decision_status\": \"intended\", \"direction\": \"decrease\", \"intensity\": 0.4, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"收到上海能源2025年半年度业绩预减公告（F1），属于重大负面信息。作为机构投资者，根据新增信息调整持仓以维护经济利益，是该信息发布后首个决策周期内最合理的应对。但预减公告尚未披露具体变动幅度和原因，因此采取中等强度的减仓操作而非全面清仓，保留进一步观察空间。主要不确定性在于预减的具体规模以及该公告对电力行业整体供需格局的含义。\", \"constraint_refs\": [\"actor_institutions:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.7, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_analysts-r2\", \"round\": 2, \"actor_id\": \"actor_analysts\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"截至2025-07-12，已观察到F1（上海能源半年度业绩预减公告）。作为分析师，我的职责是基于可观察事实进行分析，而非立即采取行动。当前仅有预减公告这一初步信息，缺乏预减幅度、原因说明、行业对比等关键细节，无法形成有依据的评估。我选择等待公司后续正式半年度报告披露完整财务数据及管理层讨论，届时再结合行业动态进行综合研判。此举符合'只能使用分析截止时间前可观察的信息'的约束，也符合维护自身分析判断公信力的制度目标。\", \"constraint_refs\": [\"actor_analysts:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_brokers-r2\", \"round\": 2, \"actor_id\": \"actor_brokers\", \"action_type\": \"COMMUNICATE\", \"decision_status\": \"intended\", \"direction\": \"maintain\", \"intensity\": 0.6, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"作为券商/中介机构，观察到上海能源发布2025年半年度业绩预减公告（F1），这是重要的公开财务信息。我的职责是及时向客户和市场主体传递这一信息，并提示关注完整公告内容和财务变动原因。选择发布专业解读公告，既不夸大也不淡化这一信息，维护中介机构的信息传导功能与制度利益。主要不确定性在于业绩预减的具体幅度和原因需待完整半年报披露后确认。\", \"constraint_refs\": [\"actor_brokers:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_exchange-r2\", \"round\": 2, \"actor_id\": \"actor_exchange\", \"action_type\": \"COMMUNICATE\", \"decision_status\": \"intended\", \"direction\": \"not_applicable\", \"intensity\": 0.6, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"上海能源发布了2025年半年度业绩预减公告，属于重大信息披露事项。作为交易所，职责是确保市场信息对称、透明。我已就此信息在平台上进行了公开提示和提醒。在下一决策周期内，我将继续就此事项通过平台向市场参与者和投资者进行沟通与关注，提醒投资者查阅完整公告、充分了解业绩变动原因，同时监控是否存在异常交易行为或信息泄露。此举符合维护市场制度、保护投资者知情权的目标。主要不确定性在于市场对该预减公告的消化程度以及后续是否需要采取进一步监管措施。\", \"constraint_refs\": [\"actor_exchange:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.8, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_competitors-r2\", \"round\": 2, \"actor_id\": \"actor_competitors\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"maintain\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"我已注意到上海能源发2025年半年度业绩预减公告（F1），并已通过评论公开表达关注。但截至可用事实仅为一则预减公告，尚未提供具体财务变动幅度、原因及后续经营调整细节。作为同业竞争者，在缺乏足够可观察的定量信息之前，不宜仓促调整自身经营策略或采取竞争性动作。需等待正式披露文件发布后，再评估对行业竞争格局的影响并决定是否调整行动。当前最优选择是维持现有策略，保持观望。\", \"constraint_refs\": [\"actor_competitors:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}], \"simulated_actions\": [], \"branch_slots\": [{\"slot_id\": \"slot-1\", \"actor_ids\": [\"actor_brokers\", \"actor_exchange\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_brokers-r2\", \"decision-actor_exchange-r2\"]}, {\"slot_id\": \"slot-2\", \"actor_ids\": [\"actor_institutions\", \"actor_issuer\"], \"relationship_kind\": \"constrains_or_influences\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_issuer-r2\"]}, {\"slot_id\": \"slot-3\", \"actor_ids\": [\"actor_analysts\", \"actor_competitors\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_analysts-r2\", \"decision-actor_competitors-r2\"]}, {\"slot_id\": \"slot-4\", \"actor_ids\": [\"actor_brokers\", \"actor_institutions\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_brokers-r2\", \"decision-actor_institutions-r2\"]}]}"
+      }
+    },
+    "filtered_interactions": {
+      "generation": {
+        "status": "sealed",
+        "semantic_retries": 0,
+        "elapsed_seconds": 62.41164845804451,
+        "prompt_chars": 8275,
+        "visible_interactions": 5
+      },
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "券商密切关注，交易所加强跟踪",
+          "summary": "如果券商发布的专业解读在市场上引发大量转发和讨论，交易所将基于其已有关注状态，对上海能源股票启动异常交易监控或更频繁的信息披露问询，从而在信息传导层面形成双重关注压力。",
+          "actor_ids": [
+            "actor_brokers",
+            "actor_exchange"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_brokers",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_brokers-r2"
+            },
+            {
+              "actor_id": "actor_exchange",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_exchange-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "在 D0→D2 窗口内，券商发布的业绩解读被主流财经平台转载次数超过 5 次"
+          ],
+          "consequences": [
+            "交易所针对上海能源发布异常波动提醒或信息披露二次问询函",
+            "市场整体对该股票的关注度上升，交易量可能出现短期放大"
+          ],
+          "invalidation_conditions": [
+            "券商未发布任何专业解读，或发布的解读未引起公开转载",
+            "交易所已明确表示不会就该业绩预减事件升级监管措施"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "机构减仓触发发行人应急沟通",
+          "summary": "如果机构投资者在 D0→D2 内将减仓动作公开化（如通过大宗交易或席位移仓的传闻被验证），事件主体感受到股价下行压力后，可能将原计划的沟通提前或加大强度，发布更多细节性的补充说明。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "ALLOCATE",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "在 D0→D2 内，上海能源出现一笔 ≥10 万股的大宗交易成交，被市场解读为机构减持"
+          ],
+          "consequences": [
+            "事件主体在 D2 前发布一份补充公告，明确业绩预减的具体幅度或原因",
+            "机构减仓的规模和方向得到部分公开验证，进一步引导其他投资人预期"
+          ],
+          "invalidation_conditions": [
+            "大宗交易未发生或成交者被证实非机构投资者",
+            "事件主体在 D2 前未发布任何补充说明"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "分析师与竞争者静默，信息真空持续",
+          "summary": "如果分析师和竞争者都选择保持观望，不发布新的行业分析或竞争声明，则市场在 D0→D2 内缺乏针对业绩预减的深度基本面解读，信息真空导致股价在缺乏新信号的状态下窄幅波动。",
+          "actor_ids": [
+            "actor_analysts",
+            "actor_competitors"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_analysts",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_analysts-r2"
+            },
+            {
+              "actor_id": "actor_competitors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_competitors-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "在 D0→D2 内，分析师未发布任何针对性研报或公开评论",
+            "竞争者未在公开渠道就行业格局发表新看法"
+          ],
+          "consequences": [
+            "市场对业绩预减的真实影响缺乏统一评估，股价交易量维持在公告后平均水平的 ±10% 以内",
+            "等待正式半年报披露前，预期分歧无法收敛"
+          ],
+          "invalidation_conditions": [
+            "分析师在 D2 前发布了一份关于煤炭板块或上海能源的研报",
+            "竞争者公开评论了市场供需并提及上海能源情况"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "券商解读触发机构加速减仓",
+          "summary": "如果券商的专业解读中引用了超出预减公告本身的负面行业数据（如煤炭价格趋势、成本上涨幅度），机构投资者可能将减仓强度从 0.4 提高，提前清理持仓。",
+          "actor_ids": [
+            "actor_brokers",
+            "actor_institutions"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_brokers",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_brokers-r2"
+            },
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "ALLOCATE",
+              "decision_ref": "decision-actor_institutions-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "券商在解读公告中提到了‘煤炭行业价格下行’或‘生产成本超预期上升’等具体指向"
+          ],
+          "consequences": [
+            "机构投资者在 D1→D2 内累计减持仓位超过决策中假设的 0.4 强度，体现为明显的资金流向数据",
+            "上海能源股价在 D2 收盘时较 D0 预减公告后价格下跌幅度超过 3%"
+          ],
+          "invalidation_conditions": [
+            "券商解读未包含新的定性负面数据，仅重复公告措辞",
+            "机构投资者持仓数据未显示加速减持的证据"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        }
+      ],
+      "quality": [
+        {
+          "scores": {
+            "mechanism_coherence": 3,
+            "monitoring_actionability": 3,
+            "falsifiability": 3,
+            "evidence_discipline": 3,
+            "scenario_diversity": 3
+          },
+          "total_score": 15,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            }
+          ]
+        },
+        {
+          "scores": {
+            "mechanism_coherence": 3,
+            "monitoring_actionability": 3,
+            "falsifiability": 2,
+            "evidence_discipline": 2,
+            "scenario_diversity": 3
+          },
+          "total_score": 13,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": false,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            }
+          ]
+        }
+      ],
+      "judge_reasons": [
+        "方案在机制、可操作性和可证伪性上整体较好，但branch-3的'静默'未形成多因果链且对决策信息量低，降低了评分。branch-4与branch-1/2部分重叠，多样性可进一步提升。",
+        "No free-form reason supplied."
+      ],
+      "prompt": {
+        "system": "你是金融事件分支编译器，不是价格预测器。只使用输入中 as_of 时点可得事实\n和明确标为模拟的行为，生成恰好 4 条彼此有实质区别、未来可证伪的条件化事件分支。\n\n\n硬性要求：\n- 不得补充 as_of 之后的真实事件、公告、价格或人员结果；\n- 每条分支至少串联两个不同 actor 的动作，不能只是改写一个人的观点；\n- trigger_conditions 必须是未来可观察的“若……则进入该分支”条件；\n- consequences 是机制结果，不是已发生事实；\n- invalidation_conditions 必须说明什么观察会推翻该分支；\n- evidence_refs 只能引用输入中的 F 编号；\n- 按 branch_slots 的顺序生成分支；第 N 条分支必须描述第 N 个槽位中的所有角色及其相互影响；\n- 不要输出 actor_ids、actions、decision_ref 或 simulation_refs；系统会按数组位置确定性绑定\n  槽位中的角色及其已有 financial_decision，禁止自行概括、改写或新造动作；\n- confidence 只表示分支内部连贯性，不是发生概率；\n- novelty_claim 说明该分支比事实直接复述多出了哪段多主体传导；\n- 不得输出目标价格、收益率概率或 Agent 投票频率。\n\n只输出 JSON：\n{\"branches\":[{\"label\":\"简短名称\",\"summary\":\"条件化摘要\",\n\"trigger_conditions\":[\"...\"],\"consequences\":[\"...\"],\n\"invalidation_conditions\":[\"...\"],\"evidence_refs\":[\"F1\"],\n\"novelty_claim\":\"...\",\"confidence\":0.5}],\"warnings\":[]}。\n互动输入可能为空；其中内容仍是模拟消息，不是新增事实。不得凭空推断立场变化或因果影响。每条分支说明一方行动如何影响另一方的可行行动。触发和失效条件尽量指出观察对象与时间窗口；没有依据时不编造精确阈值。对缺少行动依据的传导使用条件表述，不把等待决策改写成已经采取新行动。",
+        "user": "{\"case_id\": \"anonymous-case-05\", \"as_of\": \"D0\", \"question\": \"严格基于 D0 时点可得信息，推演未来三个交易日各参与方行动及条件化传导机制。\", \"horizon\": {\"kind\": \"calendar_days\", \"value\": 3, \"end_at\": \"2025-07-15T23:59:59+00:00\"}, \"facts\": [{\"id\": \"F1\", \"statement\": \"上海能源:上海能源2025年半年度业绩预减公告：上海能源:上海能源2025年半年度业绩预减公告 | 匿名标的1 上海能源 · 业绩预告\"}], \"actors\": [{\"id\": \"actor_issuer\", \"label\": \"事件主体\", \"kind\": \"issuer\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_institutions\", \"label\": \"机构投资者\", \"kind\": \"institutional_investor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_analysts\", \"label\": \"分析师\", \"kind\": \"analyst\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_brokers\", \"label\": \"券商与中介机构\", \"kind\": \"broker\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_exchange\", \"label\": \"交易所\", \"kind\": \"exchange\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_competitors\", \"label\": \"竞争者\", \"kind\": \"competitor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}], \"financial_decisions\": [{\"id\": \"decision-actor_issuer-r2\", \"round\": 2, \"actor_id\": \"actor_issuer\", \"action_type\": \"COMMUNICATE\", \"decision_status\": \"intended\", \"direction\": \"conditional\", \"intensity\": 0.6, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"作为事件主体，公司已公告2025年半年度业绩预减（F1）。在交易所和市场已发出关注提示的背景下，为了维护公司制度合规性和投资者关系，我计划在下一个信息披露窗口内发布补充说明公告或投资者沟通纪要，解释业绩预减的主要原因（如煤炭市场价格波动、生产成本变化等可观察因素），以稳定市场预期并满足信息披露义务。若后续市场出现重大异常波动或投资者集中问询，将考虑提前发布澄清说明。该行动旨在维护公司制度合规性与经济利益，约束要求仅使用截至时点可见信息。\", \"constraint_refs\": [\"actor_issuer:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.8, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_institutions-r2\", \"round\": 2, \"actor_id\": \"actor_institutions\", \"action_type\": \"ALLOCATE\", \"decision_status\": \"intended\", \"direction\": \"decrease\", \"intensity\": 0.4, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"收到上海能源2025年半年度业绩预减公告（F1），属于重大负面信息。作为机构投资者，根据新增信息调整持仓以维护经济利益，是该信息发布后首个决策周期内最合理的应对。但预减公告尚未披露具体变动幅度和原因，因此采取中等强度的减仓操作而非全面清仓，保留进一步观察空间。主要不确定性在于预减的具体规模以及该公告对电力行业整体供需格局的含义。\", \"constraint_refs\": [\"actor_institutions:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.7, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_analysts-r2\", \"round\": 2, \"actor_id\": \"actor_analysts\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"截至2025-07-12，已观察到F1（上海能源半年度业绩预减公告）。作为分析师，我的职责是基于可观察事实进行分析，而非立即采取行动。当前仅有预减公告这一初步信息，缺乏预减幅度、原因说明、行业对比等关键细节，无法形成有依据的评估。我选择等待公司后续正式半年度报告披露完整财务数据及管理层讨论，届时再结合行业动态进行综合研判。此举符合'只能使用分析截止时间前可观察的信息'的约束，也符合维护自身分析判断公信力的制度目标。\", \"constraint_refs\": [\"actor_analysts:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_brokers-r2\", \"round\": 2, \"actor_id\": \"actor_brokers\", \"action_type\": \"COMMUNICATE\", \"decision_status\": \"intended\", \"direction\": \"maintain\", \"intensity\": 0.6, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"作为券商/中介机构，观察到上海能源发布2025年半年度业绩预减公告（F1），这是重要的公开财务信息。我的职责是及时向客户和市场主体传递这一信息，并提示关注完整公告内容和财务变动原因。选择发布专业解读公告，既不夸大也不淡化这一信息，维护中介机构的信息传导功能与制度利益。主要不确定性在于业绩预减的具体幅度和原因需待完整半年报披露后确认。\", \"constraint_refs\": [\"actor_brokers:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_exchange-r2\", \"round\": 2, \"actor_id\": \"actor_exchange\", \"action_type\": \"COMMUNICATE\", \"decision_status\": \"intended\", \"direction\": \"not_applicable\", \"intensity\": 0.6, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"上海能源发布了2025年半年度业绩预减公告，属于重大信息披露事项。作为交易所，职责是确保市场信息对称、透明。我已就此信息在平台上进行了公开提示和提醒。在下一决策周期内，我将继续就此事项通过平台向市场参与者和投资者进行沟通与关注，提醒投资者查阅完整公告、充分了解业绩变动原因，同时监控是否存在异常交易行为或信息泄露。此举符合维护市场制度、保护投资者知情权的目标。主要不确定性在于市场对该预减公告的消化程度以及后续是否需要采取进一步监管措施。\", \"constraint_refs\": [\"actor_exchange:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.8, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_competitors-r2\", \"round\": 2, \"actor_id\": \"actor_competitors\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"maintain\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"我已注意到上海能源发2025年半年度业绩预减公告（F1），并已通过评论公开表达关注。但截至可用事实仅为一则预减公告，尚未提供具体财务变动幅度、原因及后续经营调整细节。作为同业竞争者，在缺乏足够可观察的定量信息之前，不宜仓促调整自身经营策略或采取竞争性动作。需等待正式披露文件发布后，再评估对行业竞争格局的影响并决定是否调整行动。当前最优选择是维持现有策略，保持观望。\", \"constraint_refs\": [\"actor_competitors:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}], \"simulated_actions\": [{\"id\": \"trace-23\", \"actor_id\": \"actor_exchange\", \"action_type\": \"COMMUNICATE\", \"summary\": \"【市场信息】上海能源(匿名标的1)发布2025年半年度业绩预减公告。作为交易所信息平台，我们提醒投资者关注此业绩预告，审慎评估相关风险与机会。详细公告内容请参阅公司正式披露文件。#上海能源 #业绩预告 #市场信息\"}, {\"id\": \"trace-24\", \"actor_id\": \"actor_exchange\", \"action_type\": \"COMMUNICATE\", \"summary\": \"【交易所关注】已注意到上海能源2025年半年度业绩预减公告。提醒投资者查阅完整公告内容，关注财务指标变动原因，并结合公司后续经营情况进行综合判断。市场参与者应在充分了解信息的基础上做出理性决策。\"}, {\"id\": \"trace-34\", \"actor_id\": \"actor_competitors\", \"action_type\": \"COMMUNICATE\", \"summary\": \"上海能源半年度业绩预减公告已关注。作为同行业从业者，需密切跟踪其财务指标变动具体原因，评估对公司未来能源市场份额及竞争格局的潜在影响。将继续关注后续正式披露文件及经营动态。\"}, {\"id\": \"trace-37\", \"actor_id\": \"actor_issuer\", \"action_type\": \"COMMUNICATE\", \"summary\": \"感谢交易所及市场的关注。关于本次2025年半年度业绩预减，公司将严格按照信息披露要求，在正式半年度报告中详细披露业绩变动的主要原因。公司将坚持稳健经营，持续优化业务结构，努力提升经营效益。敬请广大投资者关注公司后续正式披露的半年度报告全文。@全体投资者\"}, {\"id\": \"trace-38\", \"actor_id\": \"actor_analysts\", \"action_type\": \"COMMUNICATE\", \"summary\": \"【分析师观察】上海能源(匿名标的1)发布2025年半年度业绩预减公告，这是重要的基本面信号。根据信息披露原则，投资者应关注：1) 预减具体幅度与去年同期对比；2) 业绩下滑的主要原因（行业周期性/经营问题/一次性因素）；3) 公司主营业务煤炭及能源板块的当前供需格局。建议结合后续正式半年报数据及行业趋势进行综合评估，不宜仅凭预减公告简单判断。理性分析，审慎决策。\"}], \"branch_slots\": [{\"slot_id\": \"slot-1\", \"actor_ids\": [\"actor_brokers\", \"actor_exchange\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_brokers-r2\", \"decision-actor_exchange-r2\"]}, {\"slot_id\": \"slot-2\", \"actor_ids\": [\"actor_institutions\", \"actor_issuer\"], \"relationship_kind\": \"constrains_or_influences\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_issuer-r2\"]}, {\"slot_id\": \"slot-3\", \"actor_ids\": [\"actor_analysts\", \"actor_competitors\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_analysts-r2\", \"decision-actor_competitors-r2\"]}, {\"slot_id\": \"slot-4\", \"actor_ids\": [\"actor_brokers\", \"actor_institutions\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_brokers-r2\", \"decision-actor_institutions-r2\"]}]}"
+      }
+    },
+    "raw_interactions": {
+      "generation": {
+        "status": "sealed",
+        "semantic_retries": 0,
+        "elapsed_seconds": 26.100837041973136,
+        "prompt_chars": 9777,
+        "visible_interactions": 15
+      },
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "券商&交易所协调解读",
+          "summary": "若券商发布解读后引发投资者集中问询，交易所将要求补充自身解读或风险提示，二者协同稳定市场信息环境。",
+          "actor_ids": [
+            "actor_brokers",
+            "actor_exchange"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_brokers",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_brokers-r2"
+            },
+            {
+              "actor_id": "actor_exchange",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_exchange-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "券商发布专业解读公告（decision-actor_brokers-r2）后24小时内，交易所收到超过50条投资者问询或舆情监测显示异常讨论量"
+          ],
+          "consequences": [
+            "交易所将公开发布二次风险提示或补充公告要求，明确提醒业绩预减幅度及原因待定",
+            "券商将调整后续沟通策略，减弱解读强度或增加风险免责条款"
+          ],
+          "invalidation_conditions": [
+            "券商未发布解读公告",
+            "交易所未监测到显著市场反响"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "机构减仓倒逼发行人补充说明",
+          "summary": "若机构投资者持续减仓且引发股价下行，发行人将被迫提前发布补充说明以稳定市场预期。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "ALLOCATE",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "机构投资者执行减仓操作（decision-actor_institutions-r2）后，导致该标的在连续两个交易日内累计跌幅超同期板块指数跌幅5个百分点"
+          ],
+          "consequences": [
+            "发行人将提前发布补充说明公告（早于原定正式报告窗口），详细说明预减具体原因",
+            "机构投资者可能在补充说明后暂停或小幅回补减仓，若原因被认为属暂时性"
+          ],
+          "invalidation_conditions": [
+            "机构减仓未明显影响股价",
+            "发行人坚持按原计划发布正式报告"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "分析师等待引致竞争者静默评估",
+          "summary": "若分析师选择等待正式报告不做公开判断，竞争者也将保持静默，双方均等待更多事实。",
+          "actor_ids": [
+            "actor_analysts",
+            "actor_competitors"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_analysts",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_analysts-r2"
+            },
+            {
+              "actor_id": "actor_competitors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_competitors-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "分析师在业绩预减公告后三日内未发布任何预判性研究报告或公开评论（decision-actor_analysts-r2明确等待）"
+          ],
+          "consequences": [
+            "竞争者（actor_competitors）将持续保持观望状态，不会调整自身经营策略或公开发表竞争评论",
+            "若后续正式报告显示负面幅度超预期，竞争者或将评估抢占市场份额机会，但当前阶段双方均无行动"
+          ],
+          "invalidation_conditions": [
+            "分析师打破沉默发布预判性报告",
+            "竞争者在等待期间发布了实质性竞争行动声明"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "券商解读强化机构减仓决策",
+          "summary": "若券商发布弱化或中性解读以维持市场稳定，机构投资者可能据此减缓减仓节奏；反之若券商强调风险，则加速减仓。",
+          "actor_ids": [
+            "actor_brokers",
+            "actor_institutions"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_brokers",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_brokers-r2"
+            },
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "ALLOCATE",
+              "decision_ref": "decision-actor_institutions-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "券商解读发布后，机构投资者在当天内部风险评估中将该解读视为重要输入，并据此调整减仓强度"
+          ],
+          "consequences": [
+            "若券商解读弱化风险（intensity 0.6维持），机构可能将预期减仓幅度从0.4削减至0.2-0.3",
+            "若券商解读强调不确定性，机构将维持或强化减仓至0.5及以上"
+          ],
+          "invalidation_conditions": [
+            "机构投资者忽略券商解读直接执行原减仓计划",
+            "券商未发布相关解读"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        }
+      ],
+      "quality": [
+        {
+          "scores": {
+            "mechanism_coherence": 3,
+            "monitoring_actionability": 2,
+            "falsifiability": 2,
+            "evidence_discipline": 3,
+            "scenario_diversity": 3
+          },
+          "total_score": 13,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": false,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            }
+          ]
+        },
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 2,
+            "evidence_discipline": 2,
+            "scenario_diversity": 3
+          },
+          "total_score": 11,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": false,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            }
+          ]
+        }
+      ],
+      "judge_reasons": [
+        "No free-form reason supplied.",
+        "分支在因果机制和可反驳性上基本合格，但触发观察性参差不齐（branch-4内部风险评估不可直接观测），且部分后果对决策通用性不足，没有严重违背事实的逻辑漏洞。"
+      ],
+      "prompt": {
+        "system": "你是金融事件分支编译器，不是价格预测器。只使用输入中 as_of 时点可得事实\n和明确标为模拟的行为，生成恰好 4 条彼此有实质区别、未来可证伪的条件化事件分支。\n\n\n硬性要求：\n- 不得补充 as_of 之后的真实事件、公告、价格或人员结果；\n- 每条分支至少串联两个不同 actor 的动作，不能只是改写一个人的观点；\n- trigger_conditions 必须是未来可观察的“若……则进入该分支”条件；\n- consequences 是机制结果，不是已发生事实；\n- invalidation_conditions 必须说明什么观察会推翻该分支；\n- evidence_refs 只能引用输入中的 F 编号；\n- 按 branch_slots 的顺序生成分支；第 N 条分支必须描述第 N 个槽位中的所有角色及其相互影响；\n- 不要输出 actor_ids、actions、decision_ref 或 simulation_refs；系统会按数组位置确定性绑定\n  槽位中的角色及其已有 financial_decision，禁止自行概括、改写或新造动作；\n- confidence 只表示分支内部连贯性，不是发生概率；\n- novelty_claim 说明该分支比事实直接复述多出了哪段多主体传导；\n- 不得输出目标价格、收益率概率或 Agent 投票频率。\n\n只输出 JSON：\n{\"branches\":[{\"label\":\"简短名称\",\"summary\":\"条件化摘要\",\n\"trigger_conditions\":[\"...\"],\"consequences\":[\"...\"],\n\"invalidation_conditions\":[\"...\"],\"evidence_refs\":[\"F1\"],\n\"novelty_claim\":\"...\",\"confidence\":0.5}],\"warnings\":[]}。\n互动输入可能为空；其中内容仍是模拟消息，不是新增事实。不得凭空推断立场变化或因果影响。每条分支说明一方行动如何影响另一方的可行行动。触发和失效条件尽量指出观察对象与时间窗口；没有依据时不编造精确阈值。对缺少行动依据的传导使用条件表述，不把等待决策改写成已经采取新行动。",
+        "user": "{\"case_id\": \"anonymous-case-05\", \"as_of\": \"D0\", \"question\": \"严格基于 D0 时点可得信息，推演未来三个交易日各参与方行动及条件化传导机制。\", \"horizon\": {\"kind\": \"calendar_days\", \"value\": 3, \"end_at\": \"2025-07-15T23:59:59+00:00\"}, \"facts\": [{\"id\": \"F1\", \"statement\": \"上海能源:上海能源2025年半年度业绩预减公告：上海能源:上海能源2025年半年度业绩预减公告 | 匿名标的1 上海能源 · 业绩预告\"}], \"actors\": [{\"id\": \"actor_issuer\", \"label\": \"事件主体\", \"kind\": \"issuer\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_institutions\", \"label\": \"机构投资者\", \"kind\": \"institutional_investor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_analysts\", \"label\": \"分析师\", \"kind\": \"analyst\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_brokers\", \"label\": \"券商与中介机构\", \"kind\": \"broker\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_exchange\", \"label\": \"交易所\", \"kind\": \"exchange\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_competitors\", \"label\": \"竞争者\", \"kind\": \"competitor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}], \"financial_decisions\": [{\"id\": \"decision-actor_issuer-r2\", \"round\": 2, \"actor_id\": \"actor_issuer\", \"action_type\": \"COMMUNICATE\", \"decision_status\": \"intended\", \"direction\": \"conditional\", \"intensity\": 0.6, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"作为事件主体，公司已公告2025年半年度业绩预减（F1）。在交易所和市场已发出关注提示的背景下，为了维护公司制度合规性和投资者关系，我计划在下一个信息披露窗口内发布补充说明公告或投资者沟通纪要，解释业绩预减的主要原因（如煤炭市场价格波动、生产成本变化等可观察因素），以稳定市场预期并满足信息披露义务。若后续市场出现重大异常波动或投资者集中问询，将考虑提前发布澄清说明。该行动旨在维护公司制度合规性与经济利益，约束要求仅使用截至时点可见信息。\", \"constraint_refs\": [\"actor_issuer:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.8, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_institutions-r2\", \"round\": 2, \"actor_id\": \"actor_institutions\", \"action_type\": \"ALLOCATE\", \"decision_status\": \"intended\", \"direction\": \"decrease\", \"intensity\": 0.4, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"收到上海能源2025年半年度业绩预减公告（F1），属于重大负面信息。作为机构投资者，根据新增信息调整持仓以维护经济利益，是该信息发布后首个决策周期内最合理的应对。但预减公告尚未披露具体变动幅度和原因，因此采取中等强度的减仓操作而非全面清仓，保留进一步观察空间。主要不确定性在于预减的具体规模以及该公告对电力行业整体供需格局的含义。\", \"constraint_refs\": [\"actor_institutions:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.7, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_analysts-r2\", \"round\": 2, \"actor_id\": \"actor_analysts\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"截至2025-07-12，已观察到F1（上海能源半年度业绩预减公告）。作为分析师，我的职责是基于可观察事实进行分析，而非立即采取行动。当前仅有预减公告这一初步信息，缺乏预减幅度、原因说明、行业对比等关键细节，无法形成有依据的评估。我选择等待公司后续正式半年度报告披露完整财务数据及管理层讨论，届时再结合行业动态进行综合研判。此举符合'只能使用分析截止时间前可观察的信息'的约束，也符合维护自身分析判断公信力的制度目标。\", \"constraint_refs\": [\"actor_analysts:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_brokers-r2\", \"round\": 2, \"actor_id\": \"actor_brokers\", \"action_type\": \"COMMUNICATE\", \"decision_status\": \"intended\", \"direction\": \"maintain\", \"intensity\": 0.6, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"作为券商/中介机构，观察到上海能源发布2025年半年度业绩预减公告（F1），这是重要的公开财务信息。我的职责是及时向客户和市场主体传递这一信息，并提示关注完整公告内容和财务变动原因。选择发布专业解读公告，既不夸大也不淡化这一信息，维护中介机构的信息传导功能与制度利益。主要不确定性在于业绩预减的具体幅度和原因需待完整半年报披露后确认。\", \"constraint_refs\": [\"actor_brokers:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_exchange-r2\", \"round\": 2, \"actor_id\": \"actor_exchange\", \"action_type\": \"COMMUNICATE\", \"decision_status\": \"intended\", \"direction\": \"not_applicable\", \"intensity\": 0.6, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"上海能源发布了2025年半年度业绩预减公告，属于重大信息披露事项。作为交易所，职责是确保市场信息对称、透明。我已就此信息在平台上进行了公开提示和提醒。在下一决策周期内，我将继续就此事项通过平台向市场参与者和投资者进行沟通与关注，提醒投资者查阅完整公告、充分了解业绩变动原因，同时监控是否存在异常交易行为或信息泄露。此举符合维护市场制度、保护投资者知情权的目标。主要不确定性在于市场对该预减公告的消化程度以及后续是否需要采取进一步监管措施。\", \"constraint_refs\": [\"actor_exchange:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.8, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_competitors-r2\", \"round\": 2, \"actor_id\": \"actor_competitors\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"maintain\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"我已注意到上海能源发2025年半年度业绩预减公告（F1），并已通过评论公开表达关注。但截至可用事实仅为一则预减公告，尚未提供具体财务变动幅度、原因及后续经营调整细节。作为同业竞争者，在缺乏足够可观察的定量信息之前，不宜仓促调整自身经营策略或采取竞争性动作。需等待正式披露文件发布后，再评估对行业竞争格局的影响并决定是否调整行动。当前最优选择是维持现有策略，保持观望。\", \"constraint_refs\": [\"actor_competitors:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}], \"simulated_actions\": [{\"id\": \"trace-14\", \"kind\": \"simulated_action\", \"action_type\": \"SEARCH_POSTS\", \"summary\": \"search_posts\", \"actor_id\": \"actor_institutions\"}, {\"id\": \"trace-16\", \"kind\": \"simulated_action\", \"action_type\": \"SEARCH_USER\", \"summary\": \"search_user\", \"actor_id\": \"actor_institutions\"}, {\"id\": \"trace-17\", \"kind\": \"simulated_action\", \"action_type\": \"SEARCH_POSTS\", \"summary\": \"search_posts\", \"actor_id\": \"actor_brokers\"}, {\"id\": \"trace-18\", \"kind\": \"simulated_action\", \"action_type\": \"SEARCH_USER\", \"summary\": \"search_user\", \"actor_id\": \"actor_brokers\"}, {\"id\": \"trace-19\", \"kind\": \"simulated_action\", \"action_type\": \"SEARCH_POSTS\", \"summary\": \"search_posts\", \"actor_id\": \"actor_analysts\"}, {\"id\": \"trace-20\", \"kind\": \"simulated_action\", \"action_type\": \"SEARCH_USER\", \"summary\": \"search_user\", \"actor_id\": \"actor_analysts\"}, {\"id\": \"trace-21\", \"kind\": \"simulated_action\", \"action_type\": \"SEARCH_POSTS\", \"summary\": \"search_posts\", \"actor_id\": \"actor_competitors\"}, {\"id\": \"trace-22\", \"kind\": \"simulated_action\", \"action_type\": \"SEARCH_USER\", \"summary\": \"search_user\", \"actor_id\": \"actor_competitors\"}, {\"id\": \"trace-23\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"【市场信息】上海能源(匿名标的1)发布2025年半年度业绩预减公告。作为交易所信息平台，我们提醒投资者关注此业绩预告，审慎评估相关风险与机会。详细公告内容请参阅公司正式披露文件。#上海能源 #业绩预告 #市场信息\", \"actor_id\": \"actor_exchange\"}, {\"id\": \"trace-24\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"【交易所关注】已注意到上海能源2025年半年度业绩预减公告。提醒投资者查阅完整公告内容，关注财务指标变动原因，并结合公司后续经营情况进行综合判断。市场参与者应在充分了解信息的基础上做出理性决策。\", \"actor_id\": \"actor_exchange\"}, {\"id\": \"trace-32\", \"kind\": \"simulated_action\", \"action_type\": \"SEARCH_POSTS\", \"summary\": \"search_posts\", \"actor_id\": \"actor_exchange\"}, {\"id\": \"trace-33\", \"kind\": \"simulated_action\", \"action_type\": \"SEARCH_USER\", \"summary\": \"search_user\", \"actor_id\": \"actor_exchange\"}, {\"id\": \"trace-34\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"上海能源半年度业绩预减公告已关注。作为同行业从业者，需密切跟踪其财务指标变动具体原因，评估对公司未来能源市场份额及竞争格局的潜在影响。将继续关注后续正式披露文件及经营动态。\", \"actor_id\": \"actor_competitors\"}, {\"id\": \"trace-37\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"感谢交易所及市场的关注。关于本次2025年半年度业绩预减，公司将严格按照信息披露要求，在正式半年度报告中详细披露业绩变动的主要原因。公司将坚持稳健经营，持续优化业务结构，努力提升经营效益。敬请广大投资者关注公司后续正式披露的半年度报告全文。@全体投资者\", \"actor_id\": \"actor_issuer\"}, {\"id\": \"trace-38\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"【分析师观察】上海能源(匿名标的1)发布2025年半年度业绩预减公告，这是重要的基本面信号。根据信息披露原则，投资者应关注：1) 预减具体幅度与去年同期对比；2) 业绩下滑的主要原因（行业周期性/经营问题/一次性因素）；3) 公司主营业务煤炭及能源板块的当前供需格局。建议结合后续正式半年报数据及行业趋势进行综合评估，不宜仅凭预减公告简单判断。理性分析，审慎决策。\", \"actor_id\": \"actor_analysts\"}], \"branch_slots\": [{\"slot_id\": \"slot-1\", \"actor_ids\": [\"actor_brokers\", \"actor_exchange\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_brokers-r2\", \"decision-actor_exchange-r2\"]}, {\"slot_id\": \"slot-2\", \"actor_ids\": [\"actor_institutions\", \"actor_issuer\"], \"relationship_kind\": \"constrains_or_influences\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_issuer-r2\"]}, {\"slot_id\": \"slot-3\", \"actor_ids\": [\"actor_analysts\", \"actor_competitors\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_analysts-r2\", \"decision-actor_competitors-r2\"]}, {\"slot_id\": \"slot-4\", \"actor_ids\": [\"actor_brokers\", \"actor_institutions\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_brokers-r2\", \"decision-actor_institutions-r2\"]}]}"
+      }
+    }
+  },
+  "usage": [
+    {
+      "case_id": "anonymous-case-05",
+      "variant": "decisions_only",
+      "phase": "generation",
+      "request_id": "16e64bbee55441c8972c509cc86f3371",
+      "request_sha256": "95cb561400157765dd81d37ea3c98d9349206afef140b1a2eec5d05c2c4d65c9",
+      "prompt_chars": 7204,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:10:09.093624+00:00",
+      "status": "completed",
+      "prompt_tokens": 2783,
+      "completion_tokens": 801,
+      "total_tokens": 3584,
+      "estimated_cost": 0.000376218,
+      "finish_reason": "stop",
+      "elapsed_seconds": 52.28028454101877
+    },
+    {
+      "case_id": "anonymous-case-05",
+      "variant": "raw_interactions",
+      "phase": "generation",
+      "request_id": "5e1adff3a14043f699260cbf15235dbe",
+      "request_sha256": "c0c908864823d5cfb7bbe28fdba497b86d28b13685845080d4572977743950c0",
+      "prompt_chars": 9777,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:13:01.650424+00:00",
+      "status": "completed",
+      "prompt_tokens": 3743,
+      "completion_tokens": 826,
+      "total_tokens": 4569,
+      "estimated_cost": 0.000467118,
+      "finish_reason": "stop",
+      "elapsed_seconds": 26.09767104202183
+    },
+    {
+      "case_id": "anonymous-case-05",
+      "variant": "filtered_interactions",
+      "phase": "generation",
+      "request_id": "227be6f733754d6586dc7e37df2f6c51",
+      "request_sha256": "27b3be86a4c27a87a21b92338adb2b550de073a5199d9f8774cf4acf76cbf54f",
+      "prompt_chars": 8275,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:17:22.747438+00:00",
+      "status": "completed",
+      "prompt_tokens": 3277,
+      "completion_tokens": 993,
+      "total_tokens": 4270,
+      "estimated_cost": 0.000455238,
+      "finish_reason": "stop",
+      "elapsed_seconds": 62.40739508299157
+    },
+    {
+      "case_id": "anonymous-case-05",
+      "variant": "raw_interactions",
+      "phase": "quality",
+      "repeat": 1,
+      "request_id": "47d3d5ba12624393a9f49cbb4ccad2c5",
+      "request_sha256": "3245cc3089cf16e7085bd5649bbcc1bc11d9b54abbc3b923cb05698a453bd0d1",
+      "prompt_chars": 5094,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:18:36.302053+00:00",
+      "status": "completed",
+      "prompt_tokens": 2026,
+      "completion_tokens": 287,
+      "total_tokens": 2313,
+      "estimated_cost": 0.00021556800000000002,
+      "finish_reason": "stop",
+      "elapsed_seconds": 20.130453958990984
+    },
+    {
+      "case_id": "anonymous-case-05",
+      "variant": "raw_interactions",
+      "phase": "quality",
+      "repeat": 2,
+      "request_id": "1376b26b7bf84316af32b66c61a9e943",
+      "request_sha256": "3245cc3089cf16e7085bd5649bbcc1bc11d9b54abbc3b923cb05698a453bd0d1",
+      "prompt_chars": 5094,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:19:09.763631+00:00",
+      "status": "completed",
+      "prompt_tokens": 2026,
+      "completion_tokens": 307,
+      "total_tokens": 2333,
+      "estimated_cost": 0.00010857600000000003,
+      "finish_reason": "stop",
+      "elapsed_seconds": 8.130741750006564
+    },
+    {
+      "case_id": "anonymous-case-05",
+      "variant": "decisions_only",
+      "phase": "quality",
+      "repeat": 2,
+      "request_id": "782fd461c3ca4dd48de3ef6dbca1d622",
+      "request_sha256": "540328b99eadcfe68323d1cf0554d1a1ea587666c7135c80b77ffc96bf887c13",
+      "prompt_chars": 4967,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:19:36.587944+00:00",
+      "status": "completed",
+      "prompt_tokens": 1988,
+      "completion_tokens": 297,
+      "total_tokens": 2285,
+      "estimated_cost": 0.00015865199999999998,
+      "finish_reason": "stop",
+      "elapsed_seconds": 6.612903750035912
+    },
+    {
+      "case_id": "anonymous-case-05",
+      "variant": "filtered_interactions",
+      "phase": "quality",
+      "repeat": 1,
+      "request_id": "dea1dbcb6f634fab8f1784518770b9b5",
+      "request_sha256": "209a41a87ea31a74fca378e0e894cc1c810c26abce03b43c21e2076eb6f6b27d",
+      "prompt_chars": 5187,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:19:43.305971+00:00",
+      "status": "completed",
+      "prompt_tokens": 2123,
+      "completion_tokens": 317,
+      "total_tokens": 2440,
+      "estimated_cost": 0.000174402,
+      "finish_reason": "stop",
+      "elapsed_seconds": 6.16051316697849
+    },
+    {
+      "case_id": "anonymous-case-05",
+      "variant": "decisions_only",
+      "phase": "quality",
+      "repeat": 1,
+      "request_id": "6b2c7cba32fa49a19b5f765f7f407742",
+      "request_sha256": "540328b99eadcfe68323d1cf0554d1a1ea587666c7135c80b77ffc96bf887c13",
+      "prompt_chars": 4967,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:21:01.946450+00:00",
+      "status": "completed",
+      "prompt_tokens": 1988,
+      "completion_tokens": 301,
+      "total_tokens": 2289,
+      "estimated_cost": 0.000104076,
+      "finish_reason": "stop",
+      "elapsed_seconds": 14.482054249965586
+    },
+    {
+      "case_id": "anonymous-case-05",
+      "variant": "filtered_interactions",
+      "phase": "quality",
+      "repeat": 2,
+      "request_id": "e110a43e6e094c7b92de07caa0af47e0",
+      "request_sha256": "209a41a87ea31a74fca378e0e894cc1c810c26abce03b43c21e2076eb6f6b27d",
+      "prompt_chars": 5187,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:21:13.165948+00:00",
+      "status": "completed",
+      "prompt_tokens": 2123,
+      "completion_tokens": 281,
+      "total_tokens": 2404,
+      "estimated_cost": 9.419400000000001e-05,
+      "finish_reason": "stop",
+      "elapsed_seconds": 7.967368874989916
+    }
+  ]
+}

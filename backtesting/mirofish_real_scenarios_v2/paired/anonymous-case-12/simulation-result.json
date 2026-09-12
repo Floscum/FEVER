@@ -1,0 +1,621 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_fx_intervention_012",
+  "spec_sha256": "274b5eb9c67efde45428d1a618a1cb69272ae2bcffc90e84500468cb3e089fad",
+  "generated_at": "2026-07-31T10:23:01.574606+00:00",
+  "status": "partial",
+  "runs": [
+    {
+      "run_id": "sim_e116f06f4739",
+      "seed": 1232588493,
+      "status": "completed",
+      "events": [
+        {
+          "round": 0,
+          "actor_id": "actor_macro_funds",
+          "action_type": "COMMUNICATE",
+          "summary": "Macro funds adding shorts aligns with observed fundamentals. Carry trade unwinding and import cost pass-through create additional downside pressure. The joint statement signals verbal intervention only — without concrete rate action or coordinated intervention, the trend remains intact. Monitoring for actual FX swaps or reserve deployment before adjusting exposure. Tail risk managed via options, not spot.",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_fx_dealers",
+          "action_type": "COMMUNICATE",
+          "summary": "监测到亚洲早盘流动性稀薄时段出现集中大额订单，跳价风险显著上升。正在评估央行联合干预对买卖价差的影响，建议同行控制头寸规模。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_exporters",
+          "action_type": "COMMUNICATE",
+          "summary": "财政负责人的表态值得重视。作为出口企业，我们理解汇率稳定的必要性，但更关注实际干预措施的时机与力度。请问是否有更具体的汇率目标区间或干预触发条件？这将直接影响我们的结汇策略。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_exporters",
+          "action_type": "COMMUNICATE",
+          "summary": "宏观基金加空头说明市场对干预持续性不信任。但官方已表态不会排除任何手段，我们出口企业需做两手准备：部分收入立即结汇锁定当前汇率，部分保留外汇敞口等待可能反弹。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_exporters",
+          "action_type": "COMMUNICATE",
+          "summary": "进口成本飙升已经传导至我们的原材料采购。外汇套保比例确实需要紧急上调，建议同行关注远期合约和期权组合的性价比，当前波动率下保护成本显著升高但不得不做。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_exporters",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #4：外汇交易商监测异常成交，准备应对官方买卖对跳价的影响。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_fx_dealers",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #4：外汇交易商监测异常成交，准备应对官方买卖对跳价的影响。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_fx_dealers",
+          "action_type": "COMMUNICATE",
+          "summary": "进口企业紧急增加外汇套保确实推高了流动性需求，作为交易商我这边看到远期曲线已显著陡化。建议关注NDF市场与在岸的价差，目前出现套利窗口但成交环境较脆弱，大单建议分批执行以降低对价格的影响。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_central_bank",
+          "action_type": "COMMUNICATE",
+          "summary": "作为中央银行，我们完全支持财政负责人的联合声明。例行会议决议维持政策利率0%至0.1%并继续购买政府债券及信用资产，是基于对通胀前景和实体经济状况的全面评估。汇率过度波动不符合基本面，我们正以高度紧迫感监测市场，并按财政机关指示准备执行必要干预操作。市场参与者应理性看待当前走势。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_media",
+          "action_type": "COMMUNICATE",
+          "summary": "【分析】这份联合声明属于口头干预（verbal intervention），尚未伴随实际利率调整或外汇储备动用。F1显示央行维持利率不变，F3/F4表明财政层面表态但无央行协同动作。市场需区分\"表达关切\"与\"实际入市\"——前者影响短期情绪，后者才改变供需。建议关注央行实际交易数据及隔夜利率走向。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_media",
+          "action_type": "COMMUNICATE",
+          "summary": "【解读】宏观基金加空头寸反映市场对干预可持续性的怀疑。基于F2（汇率达数十年低位）和利差驱动因素，空头逻辑合理。但需注意F4中\"不排除任何手段\"的措辞——当口头干预升级为实际卖出外汇储备或加息时，空头回补风险将急剧上升。建议关注央行资产负债表变动及隔夜拆借利率异常。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_media",
+          "action_type": "COMMUNICATE",
+          "summary": "【市场观察】进口企业紧急增加外汇保正确认了贬值预期的自我实现循环。当前波动率升高导致期权保护成本上升，但远期结汇仍具相对性价比。提醒：若官方实际干预导致汇率短期反弹，未做对冲的外币应付账款将面临汇兑损失。建议出口企业锁定部分收入，进口企业加速结汇节奏。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_media",
+          "action_type": "COMMUNICATE",
+          "summary": "【交易分析】亚洲早盘流动性稀薄时段出现集中大额订单，高度疑似测试性交易或官方干预前奏。F3中两国财政负责人确认密切磋商，不能排除联合干预的可能。需区分：单一央行测试性交易 vs 联合实际干预。建议交易员控制头寸规模，设置波动率触发止损。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_media",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #4：外汇交易商监测异常成交，准备应对官方买卖对跳价的影响。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_media",
+          "action_type": "COMMUNICATE",
+          "summary": "【跟进分析】注意到用户1（中央银行代表）的评论。需指出关键政策分工问题：F1明确指出央行维持0%-0.1%利率并继续购债，这与F4财政负责人\"不排除任何手段\"的表态存在政策分工差异。央行维持宽松同时宣称准备干预，操作存在内在张力——宽松推低汇率，干预意图推高汇率。市场应关注哪个信号更可信。建议继续跟踪央行资产负债表上的外汇储备变动数据。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_finance_ministry",
+          "action_type": "COMMUNICATE",
+          "summary": "联合声明清晰传达了官方对汇率过度波动的态度。市场参与者应注意到声明中\"不排除任何手段\"的表述具有实质政策依据。理性定价有利于市场稳定运行。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_finance_ministry",
+          "action_type": "WAIT",
+          "summary": "截至当前轮次，F3联合声明与F4口头表态已构成信号传递，市场仍在消化这些信息并形成新的价格均衡。F2显示本币已处于数十年低位，投机性空头头寸积累，此时直接动用外汇储备进行现汇干预容易被市场反向押注，消耗储备效率低且损害干预突袭性。中央银行F1维持利率不变，货币政策层面未提供协同空间。选择等待，一是让口头干预的威慑效力在市场上充分发酵，观察企业套保行为和宏观基金仓位是否出现自然调整；二是有利于保留干预突袭性，在更有利的流动性条件（如亚洲早盘流动性稀薄时点）或市场过度延伸时实施更有效的入场。主要不确定性在于：若贬值预期自我强化持续加速，可能被迫提前行动；以及国际汇率承诺（constraint:1）对单边干预的约束程度。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_central_bank",
+          "action_type": "WAIT",
+          "summary": "例行会议刚完成决议，货币政策维持不变的决定已经生效。当前汇率走弱的主要驱动被市场归因于利差、进口成本和投机头寸，而非货币政策立场本身。财政负责人已公开表达严重关切并承诺监测市场，央行将按财政机关指示承担干预执行操作，但在未收到财政机关明确干预指令前，不会单方面改变刚宣布的政策立场。货币政策目标不等于汇率目标，过度反应可能扰乱刚确定的政策传导路径。继续观察汇率后续走势及财政机关进一步指示。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_fx_dealers",
+          "action_type": "OPERATE",
+          "summary": "截至模拟第3轮结束，观察到以下事实：F1显示央行维持宽松政策不变，未收紧流动性支撑本币；F2确认本币已跌至数十年低位，利差和投机头寸为主要驱动；F3/F4为口头干预升级，但联合磋商尚未转化为实际入市动作。同时，模拟环境中出现集中大额订单的假说（流动性薄时段异常成交），且宏观基金加空头筹码。作为交易商，管理头寸和流动性、控制跳价风险是首要目标。鉴于全天候市场中干预时点不可预测（约束），但口头干预的升级与财政负责人的紧迫表态提高了实际干预的概率门槛，我选择适度降低对ASSET_L的直接风险敞口：在流动性尚可的时段分批减持部分空头头寸，以压缩跳价冲击下的潜在损失，同时保留一定底仓以维持双边报价能力。主要不确定性在于干预的实际时点和规模不可预测。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_macro_funds",
+          "action_type": "WAIT",
+          "summary": "当前空头头寸已反映利差驱动和贬值趋势（F2），但F3和F4提示官方干预可能性上升。维持现有仓位但不加码，等待实际干预措施（如外汇储备动用、利率调整）兑现后再评估。尾部损失约束要求防止拥挤头寸被官方买卖逆转（constraint:0），因此选择观望而非继续加仓。主要不确定性在于财政与央行协调力度：若仅为口头表态，趋势延续则可继续持有；若出现实际买卖干预，须快速减仓。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_importers",
+          "action_type": "NEGOTIATE",
+          "summary": "本币持续走弱至数十年低位，直接抬升进口账单。央行维持低利率未改变利差压力，财政表态仅口头干预。为锁定短期采购成本、稳定预算与售价，计划增加短期外汇套期保值的覆盖比例，与交易对手协商新一批对冲合约。主要不确定性在于汇率是否会触发财政实质性干预，以及套保成本是否因波动飙升而超出预算弹性。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_exporters",
+          "action_type": "WAIT",
+          "summary": "本币持续走弱至数十年低位，利好出口价格竞争力，但财政负责人明确表示汇率应稳定反映基本面且不排除任何应对手段，官方干预风险快速上升。当前最佳策略是维持现有外汇敞口不变，暂停新结汇操作，等待F4所述官方干预的具体落地信号或F3联合磋商的结果出现后再决策。既避免在干预前低价结汇损失，又保持足够流动性应对可能的汇率反弹。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_households",
+          "action_type": "WAIT",
+          "summary": "央行维持低利率，本币持续走弱至低位，但财政负责人表态将监测市场并可能应对过度波动。我对财政与央行政策分工理解有限，不确定财政表态是否能有效干预汇率，也不清楚进口通胀的实际传导速度。当前既没足够信息确认外币储蓄的时机，也无法判断是否应调整本币资产，因此选择观望，等待更明确信号或政策落地后再行动。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_media",
+          "action_type": "WAIT",
+          "summary": "截至当前时点，所有信号均为口头表态（F3联合声明、F4财政负责人措辞），无任何实际金融动作确认。F1显示央行维持宽松政策不变，与干预意图存在政策方向上的张力。口头干预已出现但未升级为实际外汇储备动用或利率调整，根据约束（官方可能延后确认实际交易），此时做出动作判断的风险收益比不佳。选择等待下一轮数据公布——重点关注央行资产负债表外汇储备变动、隔夜拆借利率异常及亚洲盘成交结构变化——以区分口头干预与真实入市。",
+          "visibility": "public",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        }
+      ],
+      "warnings": [
+        "The recorded seed controls Python agent scheduling only; provider-side LLM sampling remains unseeded."
+      ]
+    }
+  ],
+  "scenarios": [],
+  "forecast_target_results": [],
+  "simulation_graph": {
+    "nodes": [
+      {
+        "id": "actor_central_bank",
+        "kind": "actor",
+        "label": "匿名中央银行"
+      },
+      {
+        "id": "actor_exporters",
+        "kind": "actor",
+        "label": "大型出口企业"
+      },
+      {
+        "id": "actor_finance_ministry",
+        "kind": "actor",
+        "label": "匿名财政机关"
+      },
+      {
+        "id": "actor_fx_dealers",
+        "kind": "actor",
+        "label": "全球外汇交易商"
+      },
+      {
+        "id": "actor_macro_funds",
+        "kind": "actor",
+        "label": "宏观与套利基金"
+      },
+      {
+        "id": "actor_media",
+        "kind": "actor",
+        "label": "财经媒体与汇率分析师"
+      },
+      {
+        "id": "trace-17",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "Macro funds adding shorts aligns with observed fundamentals. Carry trade unwinding and import cost pass-through create additional downside pressure. The joint statement signals verbal intervention only — without concrete rate action or coordinated intervention, the trend remains intact. Monitoring for actual FX swaps or reserve deployment before adjusting exposure. Tail risk managed via options, not spot."
+      },
+      {
+        "id": "trace-18",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "监测到亚洲早盘流动性稀薄时段出现集中大额订单，跳价风险显著上升。正在评估央行联合干预对买卖价差的影响，建议同行控制头寸规模。"
+      },
+      {
+        "id": "trace-19",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "财政负责人的表态值得重视。作为出口企业，我们理解汇率稳定的必要性，但更关注实际干预措施的时机与力度。请问是否有更具体的汇率目标区间或干预触发条件？这将直接影响我们的结汇策略。"
+      },
+      {
+        "id": "trace-20",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "宏观基金加空头说明市场对干预持续性不信任。但官方已表态不会排除任何手段，我们出口企业需做两手准备：部分收入立即结汇锁定当前汇率，部分保留外汇敞口等待可能反弹。"
+      },
+      {
+        "id": "trace-21",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "进口成本飙升已经传导至我们的原材料采购。外汇套保比例确实需要紧急上调，建议同行关注远期合约和期权组合的性价比，当前波动率下保护成本显著升高但不得不做。"
+      },
+      {
+        "id": "trace-22",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #4：外汇交易商监测异常成交，准备应对官方买卖对跳价的影响。"
+      },
+      {
+        "id": "trace-26",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #4：外汇交易商监测异常成交，准备应对官方买卖对跳价的影响。"
+      },
+      {
+        "id": "trace-27",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "进口企业紧急增加外汇套保确实推高了流动性需求，作为交易商我这边看到远期曲线已显著陡化。建议关注NDF市场与在岸的价差，目前出现套利窗口但成交环境较脆弱，大单建议分批执行以降低对价格的影响。"
+      },
+      {
+        "id": "trace-28",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "作为中央银行，我们完全支持财政负责人的联合声明。例行会议决议维持政策利率0%至0.1%并继续购买政府债券及信用资产，是基于对通胀前景和实体经济状况的全面评估。汇率过度波动不符合基本面，我们正以高度紧迫感监测市场，并按财政机关指示准备执行必要干预操作。市场参与者应理性看待当前走势。"
+      },
+      {
+        "id": "trace-29",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "【分析】这份联合声明属于口头干预（verbal intervention），尚未伴随实际利率调整或外汇储备动用。F1显示央行维持利率不变，F3/F4表明财政层面表态但无央行协同动作。市场需区分\"表达关切\"与\"实际入市\"——前者影响短期情绪，后者才改变供需。建议关注央行实际交易数据及隔夜利率走向。"
+      },
+      {
+        "id": "trace-30",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "【解读】宏观基金加空头寸反映市场对干预可持续性的怀疑。基于F2（汇率达数十年低位）和利差驱动因素，空头逻辑合理。但需注意F4中\"不排除任何手段\"的措辞——当口头干预升级为实际卖出外汇储备或加息时，空头回补风险将急剧上升。建议关注央行资产负债表变动及隔夜拆借利率异常。"
+      },
+      {
+        "id": "trace-31",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "【市场观察】进口企业紧急增加外汇保正确认了贬值预期的自我实现循环。当前波动率升高导致期权保护成本上升，但远期结汇仍具相对性价比。提醒：若官方实际干预导致汇率短期反弹，未做对冲的外币应付账款将面临汇兑损失。建议出口企业锁定部分收入，进口企业加速结汇节奏。"
+      },
+      {
+        "id": "trace-32",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "【交易分析】亚洲早盘流动性稀薄时段出现集中大额订单，高度疑似测试性交易或官方干预前奏。F3中两国财政负责人确认密切磋商，不能排除联合干预的可能。需区分：单一央行测试性交易 vs 联合实际干预。建议交易员控制头寸规模，设置波动率触发止损。"
+      },
+      {
+        "id": "trace-33",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #4：外汇交易商监测异常成交，准备应对官方买卖对跳价的影响。"
+      },
+      {
+        "id": "trace-37",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "【跟进分析】注意到用户1（中央银行代表）的评论。需指出关键政策分工问题：F1明确指出央行维持0%-0.1%利率并继续购债，这与F4财政负责人\"不排除任何手段\"的表态存在政策分工差异。央行维持宽松同时宣称准备干预，操作存在内在张力——宽松推低汇率，干预意图推高汇率。市场应关注哪个信号更可信。建议继续跟踪央行资产负债表上的外汇储备变动数据。"
+      },
+      {
+        "id": "trace-38",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "联合声明清晰传达了官方对汇率过度波动的态度。市场参与者应注意到声明中\"不排除任何手段\"的表述具有实质政策依据。理性定价有利于市场稳定运行。"
+      },
+      {
+        "id": "decision-actor_finance_ministry-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "confidence": 0.75,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "截至当前轮次，F3联合声明与F4口头表态已构成信号传递，市场仍在消化这些信息并形成新的价格均衡。F2显示本币已处于数十年低位，投机性空头头寸积累，此时直接动用外汇储备进行现汇干预容易被市场反向押注，消耗储备效率低且损害干预突袭性。中央银行F1维持利率不变，货币政策层面未提供协同空间。选择等待，一是让口头干预的威慑效力在市场上充分发酵，观察企业套保行为和宏观基金仓位是否出现自然调整；二是有利于保留干预突袭性，在更有利的流动性条件（如亚洲早盘流动性稀薄时点）或市场过度延伸时实施更有效的入场。主要不确定性在于：若贬值预期自我强化持续加速，可能被迫提前行动；以及国际汇率承诺（constraint:1）对单边干预的约束程度。"
+      },
+      {
+        "id": "decision-actor_central_bank-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "maintain",
+        "intensity": 0.0,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "例行会议刚完成决议，货币政策维持不变的决定已经生效。当前汇率走弱的主要驱动被市场归因于利差、进口成本和投机头寸，而非货币政策立场本身。财政负责人已公开表达严重关切并承诺监测市场，央行将按财政机关指示承担干预执行操作，但在未收到财政机关明确干预指令前，不会单方面改变刚宣布的政策立场。货币政策目标不等于汇率目标，过度反应可能扰乱刚确定的政策传导路径。继续观察汇率后续走势及财政机关进一步指示。"
+      },
+      {
+        "id": "decision-actor_fx_dealers-r3",
+        "kind": "financial_decision",
+        "action_type": "OPERATE",
+        "decision_status": "intended",
+        "direction": "decrease",
+        "intensity": 0.6,
+        "confidence": 0.75,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "截至模拟第3轮结束，观察到以下事实：F1显示央行维持宽松政策不变，未收紧流动性支撑本币；F2确认本币已跌至数十年低位，利差和投机头寸为主要驱动；F3/F4为口头干预升级，但联合磋商尚未转化为实际入市动作。同时，模拟环境中出现集中大额订单的假说（流动性薄时段异常成交），且宏观基金加空头筹码。作为交易商，管理头寸和流动性、控制跳价风险是首要目标。鉴于全天候市场中干预时点不可预测（约束），但口头干预的升级与财政负责人的紧迫表态提高了实际干预的概率门槛，我选择适度降低对ASSET_L的直接风险敞口：在流动性尚可的时段分批减持部分空头头寸，以压缩跳价冲击下的潜在损失，同时保留一定底仓以维持双边报价能力。主要不确定性在于干预的实际时点和规模不可预测。"
+      },
+      {
+        "id": "decision-actor_macro_funds-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "maintain",
+        "intensity": 0.3,
+        "confidence": 0.75,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "当前空头头寸已反映利差驱动和贬值趋势（F2），但F3和F4提示官方干预可能性上升。维持现有仓位但不加码，等待实际干预措施（如外汇储备动用、利率调整）兑现后再评估。尾部损失约束要求防止拥挤头寸被官方买卖逆转（constraint:0），因此选择观望而非继续加仓。主要不确定性在于财政与央行协调力度：若仅为口头表态，趋势延续则可继续持有；若出现实际买卖干预，须快速减仓。"
+      },
+      {
+        "id": "actor_importers",
+        "kind": "actor",
+        "label": "能源与原材料进口企业"
+      },
+      {
+        "id": "decision-actor_importers-r3",
+        "kind": "financial_decision",
+        "action_type": "NEGOTIATE",
+        "decision_status": "intended",
+        "direction": "increase",
+        "intensity": 0.8,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "本币持续走弱至数十年低位，直接抬升进口账单。央行维持低利率未改变利差压力，财政表态仅口头干预。为锁定短期采购成本、稳定预算与售价，计划增加短期外汇套期保值的覆盖比例，与交易对手协商新一批对冲合约。主要不确定性在于汇率是否会触发财政实质性干预，以及套保成本是否因波动飙升而超出预算弹性。"
+      },
+      {
+        "id": "decision-actor_exporters-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "maintain",
+        "intensity": 0.3,
+        "confidence": 0.7,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "本币持续走弱至数十年低位，利好出口价格竞争力，但财政负责人明确表示汇率应稳定反映基本面且不排除任何应对手段，官方干预风险快速上升。当前最佳策略是维持现有外汇敞口不变，暂停新结汇操作，等待F4所述官方干预的具体落地信号或F3联合磋商的结果出现后再决策。既避免在干预前低价结汇损失，又保持足够流动性应对可能的汇率反弹。"
+      },
+      {
+        "id": "actor_households",
+        "kind": "actor",
+        "label": "家庭与个人投资者"
+      },
+      {
+        "id": "decision-actor_households-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "confidence": 0.7,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "央行维持低利率，本币持续走弱至低位，但财政负责人表态将监测市场并可能应对过度波动。我对财政与央行政策分工理解有限，不确定财政表态是否能有效干预汇率，也不清楚进口通胀的实际传导速度。当前既没足够信息确认外币储蓄的时机，也无法判断是否应调整本币资产，因此选择观望，等待更明确信号或政策落地后再行动。"
+      },
+      {
+        "id": "decision-actor_media-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": null,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "截至当前时点，所有信号均为口头表态（F3联合声明、F4财政负责人措辞），无任何实际金融动作确认。F1显示央行维持宽松政策不变，与干预意图存在政策方向上的张力。口头干预已出现但未升级为实际外汇储备动用或利率调整，根据约束（官方可能延后确认实际交易），此时做出动作判断的风险收益比不佳。选择等待下一轮数据公布——重点关注央行资产负债表外汇储备变动、隔夜拆借利率异常及亚洲盘成交结构变化——以区分口头干预与真实入市。"
+      }
+    ],
+    "edges": [
+      {
+        "source": "actor_macro_funds",
+        "target": "trace-17",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_fx_dealers",
+        "target": "trace-18",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_exporters",
+        "target": "trace-19",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_exporters",
+        "target": "trace-20",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_exporters",
+        "target": "trace-21",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_exporters",
+        "target": "trace-22",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_fx_dealers",
+        "target": "trace-26",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_fx_dealers",
+        "target": "trace-27",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_central_bank",
+        "target": "trace-28",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_media",
+        "target": "trace-29",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_media",
+        "target": "trace-30",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_media",
+        "target": "trace-31",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_media",
+        "target": "trace-32",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_media",
+        "target": "trace-33",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_media",
+        "target": "trace-37",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_finance_ministry",
+        "target": "trace-38",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_finance_ministry",
+        "target": "decision-actor_finance_ministry-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_central_bank",
+        "target": "decision-actor_central_bank-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_fx_dealers",
+        "target": "decision-actor_fx_dealers-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_macro_funds",
+        "target": "decision-actor_macro_funds-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_importers",
+        "target": "decision-actor_importers-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_exporters",
+        "target": "decision-actor_exporters-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_households",
+        "target": "decision-actor_households-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_media",
+        "target": "decision-actor_media-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      }
+    ]
+  },
+  "warnings": [
+    "Integration smoke result only; it is not a calibrated financial forecast.",
+    "The upstream run monitor reported zero actions; SQLite was used as the authoritative source.",
+    "OASIS did not persist per-action round numbers, so exported events use round 0.",
+    "Rule-generated institutional profiles contain consumer-social attributes and require a financial profile compiler.",
+    "No forecast target result or scenario frequency was produced from this single run.",
+    "Structured financial decisions were elicited post-simulation and remain simulated claims."
+  ],
+  "provenance": {
+    "engine": "MiroFish/OASIS",
+    "engine_version": "60757b3c825d577a1d7a86ab1ba6d5c21f51c261",
+    "model": "deepseek-ai/DeepSeek-V4-Flash",
+    "raw_run_artifacts": [
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/mirofish/simulations/sim_e116f06f4739/reddit_simulation.db",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/mirofish/simulations/sim_e116f06f4739/simulation_config.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_fx_intervention_012-b3/sqlite-actions.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_fx_intervention_012-b3/raw-actions.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_fx_intervention_012-b3/financial-interviews-raw.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_fx_intervention_012-b3/financial-actions.json"
+    ]
+  }
+}

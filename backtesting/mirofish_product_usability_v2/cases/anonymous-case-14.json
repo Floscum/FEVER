@@ -1,0 +1,1014 @@
+{
+  "anonymous_case_id": "anonymous-case-14",
+  "configured_actor_count": 8,
+  "decision_actor_count": 8,
+  "fact_count": 4,
+  "fact_chars": 221,
+  "input": {
+    "case_id": "anonymous-case-14",
+    "as_of": "D0",
+    "question": "公司、做空机构、年份、监管机关具体名称与市场代码均已匿名化。只使用D0已公开的信息，推演管理层、董事会、监管者、空头、股东和商业合作方如何应对一份指控公司披露与业务合规存在问题的做空报告。",
+    "horizon": {
+      "kind": "calendar_days",
+      "value": 35,
+      "end_at": "D0 + stated horizon"
+    },
+    "facts": [
+      {
+        "id": "F1",
+        "statement": "该医疗保险科技企业最近通过与特殊目的收购公司合并完成上市，原管理团队继续担任核心职务，并获得公开市场和私募投资者资金。"
+      },
+      {
+        "id": "F2",
+        "statement": "一家公开持有空头立场的研究机构发布报告，指控公司没有充分披露政府调查、销售安排、关联关系和技术平台局限。"
+      },
+      {
+        "id": "F3",
+        "statement": "公司的收入高度依赖受监管的公共医疗保险项目，政府部门既是规则制定者也是重要付款方，合规争议可能影响客户、合作医生和投资者。"
+      },
+      {
+        "id": "F4",
+        "statement": "报告发布后股票成交量急增并显著下跌；截至D0收盘，公司尚未提交完整逐项回应，也没有宣布管理层变动。"
+      }
+    ],
+    "actors": [
+      {
+        "id": "actor_issuer",
+        "label": "匿名医疗保险科技企业管理层",
+        "kind": "issuer",
+        "goals": [
+          "反驳不实指控",
+          "维持政府项目资格",
+          "稳定客户和资本市场信心"
+        ],
+        "constraints": [
+          "公开回应必须与既有申报一致",
+          "调查信息受到法律程序约束"
+        ]
+      },
+      {
+        "id": "actor_board",
+        "label": "匿名公司董事会",
+        "kind": "issuer",
+        "goals": [
+          "监督披露和合规",
+          "保护股东利益",
+          "评估管理层责任"
+        ],
+        "constraints": [
+          "必须基于可核实事实行动"
+        ]
+      },
+      {
+        "id": "actor_short",
+        "label": "做空研究机构",
+        "kind": "analyst",
+        "goals": [
+          "推动市场审视指控",
+          "维护报告可信度",
+          "从空头头寸获利"
+        ],
+        "constraints": [
+          "公开材料会受到公司和监管者核验"
+        ]
+      },
+      {
+        "id": "actor_securities_regulator",
+        "label": "证券监管机关",
+        "kind": "regulator",
+        "goals": [
+          "评估上市披露是否充分",
+          "维护市场完整性"
+        ],
+        "constraints": [
+          "是否调查以及调查范围通常不会立即公开"
+        ]
+      },
+      {
+        "id": "actor_health_authorities",
+        "label": "医疗项目监管与执法机关",
+        "kind": "government",
+        "goals": [
+          "维护公共医疗项目合规",
+          "调查潜在不当安排"
+        ],
+        "constraints": [
+          "不同机关权限和程序不同"
+        ]
+      },
+      {
+        "id": "actor_investors",
+        "label": "机构与零售股东",
+        "kind": "institutional_investor",
+        "goals": [
+          "判断指控真伪和潜在损失",
+          "管理流动性与治理风险"
+        ],
+        "constraints": [
+          "D0缺少完整公司回应和调查文件"
+        ]
+      },
+      {
+        "id": "actor_partners",
+        "label": "医生网络与商业合作方",
+        "kind": "supplier",
+        "goals": [
+          "维持合规业务关系",
+          "避免声誉和付款风险"
+        ],
+        "constraints": [
+          "依赖公司与政府项目的后续说明"
+        ]
+      },
+      {
+        "id": "actor_media",
+        "label": "财经与医疗行业媒体",
+        "kind": "media",
+        "goals": [
+          "核验指控和回应",
+          "跟踪调查与诉讼"
+        ],
+        "constraints": [
+          "匿名来源和调查保密限制核验"
+        ]
+      }
+    ],
+    "financial_decisions": [
+      {
+        "id": "decision-actor_issuer-r3",
+        "round": 3,
+        "actor_id": "actor_issuer",
+        "action_type": "COMMUNICATE",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": 0.7,
+        "instrument_refs": [],
+        "rationale": "在监管机构已公开表示正在评估调查必要性、做空报告引发股价大幅下跌、客户和投资者信心受冲击的背景下，最优先的动作是发布正式逐项回应。截至当前公司尚未提交完整回应，但此事已对政府医保合作关系和资本市场信任构成直接威胁。必须尽快以与既有申报一致的方式公开驳斥不实指控，稳定客户和投资者预期。主要不确定性在于法律程序约束下能否在短期内完成全部核查并在回应中提供足够的事实支撑。",
+        "constraint_refs": [
+          "actor_issuer:constraint:0",
+          "actor_issuer:constraint:1"
+        ],
+        "evidence_refs": [
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "public",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_board-r3",
+        "round": 3,
+        "actor_id": "actor_board",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "截至当前模拟轮次，公司尚未提交完整逐项回应（F4），监管机构正在进行初步审查且尚未启动正式调查。作为董事会，必须等管理层提交可核实的事实说明后，才能基于具体证据评估披露完整性和管理层责任。根据模拟记忆，我已公开表态要求管理层准备逐项回应并承诺配合监管。在收到管理层的正式书面回应之前，采取任何实质性行动（如更换管理层、宣布特别审计或对外发布补充披露）都缺乏可核实的事实基础。保护股东利益的最佳路径是先获取完整信息，再进行评估。主要不确定性在于：(1)管理层提交回应的速度和完整性；(2)监管初步审查的结论。",
+        "constraint_refs": [
+          "actor_board:constraint:0"
+        ],
+        "evidence_refs": [
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "public",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_short-r3",
+        "round": 3,
+        "actor_id": "actor_short",
+        "action_type": "COMMUNICATE",
+        "decision_status": "intended",
+        "direction": "maintain",
+        "intensity": 0.7,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "截至当前模拟时点，监管机构已表态正在评估公司披露完整性，董事会要求管理层准备逐项回应但尚未提交。股价下跌后市场仍处于信息消化阶段。作为做空研究机构，当前最有效的动作是主动发表公开声明，重申报告指控的可核实性，并呼吁监管深入调查。此举既能推动市场审视指控（目标1），也能在管理层尚未回应前维护报告可信度（目标2）。同时维持现有空头头寸观望，等待管理层正式回应带来的进一步价格发现机会，以实现从空头头寸获利（目标3）。主要不确定性来自公司的回应质量和监管调查的实质进度。",
+        "constraint_refs": [
+          "actor_short:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "public",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_securities_regulator-r3",
+        "round": 3,
+        "actor_id": "actor_securities_regulator",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.3,
+        "instrument_refs": [],
+        "rationale": "截至当前时点，公司尚未提交完整逐项回应，初步审查正在进行中。公开启动正式调查可能过早暴露监管立场，且公司董事会已表态将准备逐项回应。作为监管机关，约束要求调查范围和是否调查通常不立即公开。当前最优策略是等待公司提交正式回应后，再基于完整材料评估是否存在披露违规，而非在信息尚不完整时采取公开监管行动。成交量激增和股价下跌本身不足以构成启动正式调查的充分条件，需结合公司回应的内容质量判断。",
+        "constraint_refs": [
+          "actor_securities_regulator:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_health_authorities-r3",
+        "round": 3,
+        "actor_id": "actor_health_authorities",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "作为医疗项目监管与执法机关，当前已有空头研究机构报告指控公司存在披露和合规问题，且收入高度依赖公共医疗保险。但不同机关权限和程序不同，我所在机关需要在现有公开事实基础上进一步评估信息可靠性及管辖范围。目前公司尚未正式回应，也未公布调查结果，不宜立即升级为公开行动。选择等待公司提交完整说明或获得更确凿的证据后再决定是否启动正式调查或监管措施，以维护公共医疗项目的合规性。",
+        "constraint_refs": [
+          "actor_health_authorities:constraint:0"
+        ],
+        "evidence_refs": [
+          "F2",
+          "F3"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_investors-r3",
+        "round": 3,
+        "actor_id": "actor_investors",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "截至当前，公司尚未发布完整逐项回应，且调查文件缺失，无法准确判断指控真伪与潜在损失。同时成交量剧增和股价下跌反映市场恐慌，但缺乏公司官方声明前贸然行动可能加剧流动性或治理风险。作为机构与零售股东，优先等待公司正式回应后再评估仓位调整。",
+        "constraint_refs": [
+          "actor_investors:constraint:0"
+        ],
+        "evidence_refs": [
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_partners-r3",
+        "round": 3,
+        "actor_id": "actor_partners",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "maintain",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "作为医生网络与商业合作方，我们的核心目标是维持合规业务关系并避免声誉和付款风险。当前公司尚未提交对空头报告的完整逐项回应，监管机构仅处于初步评估阶段，我们缺乏足够信息评估合规争议的真实范围和影响。F3明确提示公司收入高度依赖公共医疗保险项目，政府部门既是规则制定者也是重要付款方，任何合规争议都可能传导至合作医生和客户。依据约束actor_partners:constraint:0，我们依赖公司与政府项目的后续说明来做出业务决策。因此，在当前不确定性最高的阶段，最理性的选择是不采取任何实质性业务调整，静待公司官方回应和监管机构正式结论，之后再评估是否调整合作关系或付款安排。",
+        "constraint_refs": [
+          "actor_partners:constraint:0"
+        ],
+        "evidence_refs": [
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.95,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_media-r3",
+        "round": 3,
+        "actor_id": "actor_media",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "作为财经与医疗行业媒体，我跟踪调查与诉讼、核验指控和回应。公司尚未提交完整逐项回应，监管机构正在初步评估是否启动正式调查。在缺乏公司官方完整回应和监管调查结论前，我的报道无法基于可核实的事实完成风险与指控的交叉验证。匿名来源和调查保密限制也约束了当前阶段的独立核验能力。因此最佳动作是等待公司发布完整回应、监管机构做出正式决定，届时再发布基于可核实事实的分析报道。",
+        "constraint_refs": [
+          "actor_media:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "public",
+        "confidence": 0.9,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      }
+    ],
+    "simulated_actions": [
+      {
+        "id": "trace-19",
+        "actor_id": "actor_board",
+        "action_type": "COMMUNICATE",
+        "summary": "作为董事会，我们欢迎监管机构进行尽职审查。公司致力于全面透明披露，并将积极配合任何正式调查。我们已要求管理团队准备逐项回应，确保所有信息准确完整。我们敦促各方基于事实而非未经证实的指控行动。"
+      },
+      {
+        "id": "trace-20",
+        "actor_id": "actor_board",
+        "action_type": "COMMUNICATE",
+        "summary": "市场反应反映了对不确定性定价。重要的是区分短期股价波动与公司基本面。董事会的职责是确保管理层对报告中提出的每个具体指控给出实质性、可核实的回应。我们将会根据可靠信息评估管理层责任，并适时披露进展。"
+      },
+      {
+        "id": "trace-27",
+        "actor_id": "actor_short",
+        "action_type": "COMMUNICATE",
+        "summary": "我们欢迎监管机构启动初步审查。做空报告中提出的每一项指控都基于公开可查的信息和缜密分析。政府调查未充分披露、销售安排合规性、关联关系以及技术平台局限性等问题，都是经过深入调研得出的结论。我们期待完整透明的调查过程，这将最终验证我们报告的真实性。"
+      },
+      {
+        "id": "trace-28",
+        "actor_id": "actor_short",
+        "action_type": "COMMUNICATE",
+        "summary": "股价下跌反映了市场正在吸收我们报告中的信息。值得注意的是，这家公司的收入高度依赖政府医保项目，合规性问题直接影响其商业模式可持续性。市场需要等待管理层对具体指控的逐项回应，而非笼统否认。我们在报告中提供了详实的证据链，欢迎各方核验。"
+      },
+      {
+        "id": "trace-29",
+        "actor_id": "actor_securities_regulator",
+        "action_type": "COMMUNICATE",
+        "summary": "我们确认正在对该公司的披露情况进行初步审查。目前阶段尚未启动正式调查，任何正式决定将基于完整的初步审查结果作出。我们注意到董事会已公开表态配合，这是积极信号。请市场各方以事实为依据，避免基于未经核实的信息作出判断。"
+      },
+      {
+        "id": "trace-30",
+        "actor_id": "actor_securities_regulator",
+        "action_type": "COMMUNICATE",
+        "summary": "股价波动本身并非监管介入的必要条件，但我们会关注是否存在信息披露违规导致投资者决策受影响的情形。建议投资者关注公司后续提交的正式回应，以及监管机构可能发布的进一步公告。"
+      },
+      {
+        "id": "trace-34",
+        "actor_id": "actor_board",
+        "action_type": "COMMUNICATE",
+        "summary": "感谢监管机构的初步审查。我们注意到空头报告方的回应。董事会将坚持以下原则：1）所有回应必须有具体证据支撑；2）管理团队需提交书面逐项说明，我们将在法律允许范围内进行独立核实；3）公司收入依赖政府医保项目（F3）是公开信息，我们已在招股文件中披露相关风险。任何超出已披露范围的指控，管理团队应提供详细解释。我们将持续监督此过程以保护股东利益。"
+      },
+      {
+        "id": "trace-35",
+        "actor_id": "actor_partners",
+        "action_type": "COMMUNICATE",
+        "summary": "作为业务合作方，我们正在密切关注事态发展。目前信息尚不完整，我们将等待公司管理层提交逐项正式回应以及监管机构的进一步说明后，再评估对业务合作的影响。在此之前，我们保持现有合作关系不变，但不会做出新的长期承诺。"
+      },
+      {
+        "id": "trace-36",
+        "actor_id": "actor_issuer",
+        "action_type": "COMMUNICATE",
+        "summary": "作为管理团队，我们关注到市场对近期做空报告的反馈。我们的正式逐项回应正在准备中，将基于事实和既有公开申报信息，对报告中的每一项具体指控给出可核实的说明。在此期间，公司运营正常，我们与政府医保项目的合作持续进行。请投资者以公司正式公告和监管文件为准。"
+      }
+    ],
+    "branch_slots": [
+      {
+        "slot_id": "slot-1",
+        "actor_ids": [
+          "actor_issuer",
+          "actor_short"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_issuer-r3",
+          "decision-actor_short-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-2",
+        "actor_ids": [
+          "actor_partners",
+          "actor_securities_regulator"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_partners-r3",
+          "decision-actor_securities_regulator-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-3",
+        "actor_ids": [
+          "actor_board",
+          "actor_media"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_board-r3",
+          "decision-actor_media-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-4",
+        "actor_ids": [
+          "actor_health_authorities",
+          "actor_investors"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_health_authorities-r3",
+          "decision-actor_investors-r3"
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "v7": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "管理层反驳削弱空头权威",
+          "summary": "如果管理层发布包含具体证据的逐项回应，且回应内容与既有公开申报一致，将直接挑战做空报告的可信度，迫使其做出后续回应以维护自身公信力。",
+          "actor_ids": [
+            "actor_issuer",
+            "actor_short"
+          ],
+          "trigger_conditions": [
+            "在D0之后14天内，管理层发布包含至少3项具体证据的正式逐项回应",
+            "回应明确指出做空报告中至少一项事实指控与公司公开申报内容不符"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_issuer-r3"
+            },
+            {
+              "actor_id": "actor_short",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_short-r3"
+            }
+          ],
+          "consequences": [
+            "做空机构将被迫发布补充声明，引用原始报告中的其他证据捍卫其分析",
+            "做空机构在后续声明中可能调整指控的焦点，从笼统的合规问题转向更具体的技术或关联关系细节",
+            "管理层后续的行动空间受限于已有正式回应的自我一致性要求"
+          ],
+          "invalidation_conditions": [
+            "管理层未在14天内发布正式逐项回应",
+            "管理层发布的是无具体证据的一般性否认",
+            "做空机构承认报告部分错误或撤回指控"
+          ],
+          "evidence_refs": [
+            "F2",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_issuer-r3",
+            "decision-actor_short-r3"
+          ],
+          "novelty_claim": "本分支描述了管理层通过发布具体证据回应如何限制做空机构下一步可选择的说辞范围，这超出了F2（报告指控）和F4（市场反应）中记载的静态事实，是多主体间行动与反行动的传导链。",
+          "confidence": 0.65,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-2",
+          "label": "合作方与监管者同步等待触发调查",
+          "summary": "商业合作方在缺乏官方回应的环境下选择维持现状但避免新承诺，同时证券监管机构同样等待公司回应才决定正式调查，两者的同步等待将合作方置于不利的被动地位。",
+          "actor_ids": [
+            "actor_partners",
+            "actor_securities_regulator"
+          ],
+          "trigger_conditions": [
+            "管理层在D0之后21天内仍未发布完整逐项回应",
+            "证券监管机构在D0之后公开声明仍在初步审查中，未启动正式调查"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_partners",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_partners-r3"
+            },
+            {
+              "actor_id": "actor_securities_regulator",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_securities_regulator-r3"
+            }
+          ],
+          "consequences": [
+            "合作方继续维持现有业务但不会签署新的长期合同，使公司面临新业务增长风险",
+            "证券监管机构正式调查的启动时点进一步推迟，依赖外部完整信息",
+            "若此状态持续超过21天，合作方可能开始接触其他替代保险网络以分散风险"
+          ],
+          "invalidation_conditions": [
+            "管理层在14天内发布完整逐项回应",
+            "证券监管机构在21天内宣布启动正式调查",
+            "合作方在21天内公开宣布重大业务调整或终止合作"
+          ],
+          "evidence_refs": [
+            "F3",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_partners-r3",
+            "decision-actor_securities_regulator-r3"
+          ],
+          "novelty_claim": "本分支展示了合作方与监管者各自基于相同信息缺口（公司未回应）所做出的独立等待动作，如何通过非协同行为共同延长市场不确定性，使得合作方在未来面临市场监管者决定之后才能行动的被动局面，这超越了F3中对收入依赖性的静态描述。",
+          "confidence": 0.7,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-3",
+          "label": "媒体依据董事会信号转向调查叙事",
+          "summary": "如果董事会公开承诺独立核实管理层回应，财经和医疗媒体将以此作为叙事锚点，使报道焦点从指控本身转向董事会与监管者的监督动态。",
+          "actor_ids": [
+            "actor_board",
+            "actor_media"
+          ],
+          "trigger_conditions": [
+            "董事会公开声明将独立核实管理层逐项回应",
+            "管理层在D0之后14天内发布完整逐项回应"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_board",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_board-r3"
+            },
+            {
+              "actor_id": "actor_media",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_media-r3"
+            }
+          ],
+          "consequences": [
+            "媒体报道主题从指控是否属实，转变为讨论董事会核实程序的可信度和监管机构后续行动的时机",
+            "媒体可能引述匿名人士披露董事会内部关于管理层过往披露准确性的分歧",
+            "董事会后续任何关于管理层责任的声明会进一步放大媒体报道的市场影响"
+          ],
+          "invalidation_conditions": [
+            "董事会未做出独立核实承诺",
+            "管理层未按时发布完整逐项回应",
+            "媒体主要报道基于做空机构发布的新材料而非董事会动态"
+          ],
+          "evidence_refs": [
+            "F2",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_board-r3",
+            "decision-actor_media-r3"
+          ],
+          "novelty_claim": "本分支揭示了董事会行动如何改变媒体的报道焦点和叙事框架，从而间接放大或削弱管理层回应的市场解读效果，这超出了F2和F4中分别记载的做空报告内容和股价下跌的孤立事实。",
+          "confidence": 0.6,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-4",
+          "label": "医疗监管不确定性放大股东决策分歧",
+          "summary": "医疗项目监管机关保持等待策略，而股东因缺乏官方立场陷入信息真空，导致机构投资者与零售股东对股价底部判断不一致，加剧交易分化。",
+          "actor_ids": [
+            "actor_health_authorities",
+            "actor_investors"
+          ],
+          "trigger_conditions": [
+            "D0之后21天内，医疗项目监管机关未发布任何公开声明或启动正式执法行动",
+            "公司股价在D0之后10天内多次产生超过5%的日内波动"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_health_authorities",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_health_authorities-r3"
+            },
+            {
+              "actor_id": "actor_investors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_investors-r3"
+            }
+          ],
+          "consequences": [
+            "机构投资者开始通过内部模型估算合规风险敞口并调整持仓，但无法统一定价",
+            "零售股东因缺乏监管回应而更易受社交媒体情绪影响，出货压力集中在低价区间",
+            "若公司在此期间发布任何模糊声明，可能被不同股东群体解读为利好或利空，加剧市场分裂"
+          ],
+          "invalidation_conditions": [
+            "医疗项目监管机关发布官方澄清表示已掌握充分信息且无需进一步调查",
+            "公司股价在15天内稳定运行并缩量",
+            "公司发布具体合规说明直接回应医疗监管相关指控"
+          ],
+          "evidence_refs": [
+            "F3",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_health_authorities-r3",
+            "decision-actor_investors-r3"
+          ],
+          "novelty_claim": "本分支描述了医疗监管机关的刻意沉默与股东之间的信息不对称如何共同导致机构与零售股东对未来股价走向产生截然不同的预判，进而造成交易行为的结构性分化而非一致性抛售，这超越了F3和F4中分别对监管依赖性和股价波动的静态描述。",
+          "confidence": 0.65,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        }
+      ],
+      "generation": {
+        "semantic_retries": 1,
+        "elapsed_seconds": 66.42043279198697
+      },
+      "judgments": []
+    },
+    "v8": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "管理层逐项回应强化了空头指控",
+          "summary": "若公司的正式逐项回应未能完全驳斥所有关键指控，反而在部分事实点上提供不一致或补充信息，做空机构将借机进一步扩散质疑。",
+          "actor_ids": [
+            "actor_issuer",
+            "actor_short"
+          ],
+          "trigger_conditions": [
+            "公司公告中承认了原先未在招股书中披露的部分政府问询。"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_issuer-r3"
+            },
+            {
+              "actor_id": "actor_short",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_short-r3"
+            }
+          ],
+          "consequences": [
+            "空头机构攻击更剧烈，股价可能二次下跌",
+            "监管机构可能将初步审查升级为正式调查"
+          ],
+          "invalidation_conditions": [
+            "公司逐项回应中提供了可核验的第三方文件（如监管回函），完全否认指控。"
+          ],
+          "evidence_refs": [
+            "F2",
+            "F3",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_issuer-r3",
+            "decision-actor_short-r3"
+          ],
+          "novelty_claim": "推演揭示管理层若在回应中不慎留下缺口，可能形成让空头占据主动的分水岭。",
+          "confidence": 0.6,
+          "confidence_semantics": "branch_coherence_not_forecast_probability",
+          "starting_decisions": [
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "COMMUNICATE",
+              "decision_status": "intended",
+              "rationale": "在监管机构已公开表示正在评估调查必要性、做空报告引发股价大幅下跌、客户和投资者信心受冲击的背景下，最优先的动作是发布正式逐项回应。截至当前公司尚未提交完整回应，但此事已对政府医保合作关系和资本市场信任构成直接威胁。必须尽快以与既有申报一致的方式公开驳斥不实指控，稳定客户和投资者预期。主要不确定性在于法律程序约束下能否在短期内完成全部核查并在回应中提供足够的事实支撑。",
+              "decision_ref": "decision-actor_issuer-r3"
+            },
+            {
+              "actor_id": "actor_short",
+              "action_type": "COMMUNICATE",
+              "decision_status": "intended",
+              "rationale": "截至当前模拟时点，监管机构已表态正在评估公司披露完整性，董事会要求管理层准备逐项回应但尚未提交。股价下跌后市场仍处于信息消化阶段。作为做空研究机构，当前最有效的动作是主动发表公开声明，重申报告指控的可核实性，并呼吁监管深入调查。此举既能推动市场审视指控（目标1），也能在管理层尚未回应前维护报告可信度（目标2）。同时维持现有空头头寸观望，等待管理层正式回应带来的进一步价格发现机会，以实现从空头头寸获利（目标3）。主要不确定性来自公司的回应质量和监管调查的实质进度。",
+              "decision_ref": "decision-actor_short-r3"
+            }
+          ],
+          "conditional_responses": [
+            {
+              "actor_id": "actor_issuer",
+              "condition": "若我方的正式逐项回应未能完全反驳指控，并在某些细节上证实了此前未公开的信息。",
+              "response": "我将面临市场信任危机，可能需通过更频繁的补充披露或与律师沟通来挽回局面，但暂时无法给出能令投资者确信的否定证据。"
+            },
+            {
+              "actor_id": "actor_short",
+              "condition": "若管理层逐项回应中存在事实矛盾或承认某些本应披露的细节。",
+              "response": "我会基于这些新不一致信息发布补充报告或采访，强调报告核心结论未被削弱，并要求监管深入调查。"
+            }
+          ],
+          "response_semantics": "conditional_hypothesis_not_observed_action",
+          "observations": [
+            {
+              "kind": "trigger",
+              "signal": "公司公告中承认了原先未在招股书中披露的部分政府问询。",
+              "source": "公司正式公告（8-K或新闻稿）",
+              "window": "未来 35 个自然日",
+              "evidence_refs": [
+                "F2",
+                "F3"
+              ]
+            },
+            {
+              "kind": "invalidation",
+              "signal": "公司逐项回应中提供了可核验的第三方文件（如监管回函），完全否认指控。",
+              "source": "公司公告及附件",
+              "window": "未来 35 个自然日",
+              "evidence_refs": [
+                "F2"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "合作方撤单触发监管干预",
+          "summary": "若医生网络或关键合作方基于合规风险暂停合作并公开表态，将直接促使证券与医疗监管机关分别采取实质调查行动。",
+          "actor_ids": [
+            "actor_partners",
+            "actor_securities_regulator"
+          ],
+          "trigger_conditions": [
+            "某大型医生网络发函宣布暂停参与公司医保项目推广活动，引用合规担忧。"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_partners",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_partners-r3"
+            },
+            {
+              "actor_id": "actor_securities_regulator",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_securities_regulator-r3"
+            }
+          ],
+          "consequences": [
+            "医疗监管部门启动合规检查，增加公司运营不确定性",
+            "投资者将合作方动向视为基本面恶化信号，加剧抛压"
+          ],
+          "invalidation_conditions": [
+            "所有前五大合作方均公开表示对现有合作合同满意，无任何暂停行动。"
+          ],
+          "evidence_refs": [
+            "F3",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_partners-r3",
+            "decision-actor_securities_regulator-r3"
+          ],
+          "novelty_claim": "本分支构建合作方行为与监管升级间的传导机制，这是其他分支未单独考虑的。",
+          "confidence": 0.55,
+          "confidence_semantics": "branch_coherence_not_forecast_probability",
+          "starting_decisions": [
+            {
+              "actor_id": "actor_partners",
+              "action_type": "WAIT",
+              "decision_status": "intended",
+              "rationale": "作为医生网络与商业合作方，我们的核心目标是维持合规业务关系并避免声誉和付款风险。当前公司尚未提交对空头报告的完整逐项回应，监管机构仅处于初步评估阶段，我们缺乏足够信息评估合规争议的真实范围和影响。F3明确提示公司收入高度依赖公共医疗保险项目，政府部门既是规则制定者也是重要付款方，任何合规争议都可能传导至合作医生和客户。依据约束actor_partners:constraint:0，我们依赖公司与政府项目的后续说明来做出业务决策。因此，在当前不确定性最高的阶段，最理性的选择是不采取任何实质性业务调整，静待公司官方回应和监管机构正式结论，之后再评估是否调整合作关系或付款安排。",
+              "decision_ref": "decision-actor_partners-r3"
+            },
+            {
+              "actor_id": "actor_securities_regulator",
+              "action_type": "WAIT",
+              "decision_status": "conditional",
+              "rationale": "截至当前时点，公司尚未提交完整逐项回应，初步审查正在进行中。公开启动正式调查可能过早暴露监管立场，且公司董事会已表态将准备逐项回应。作为监管机关，约束要求调查范围和是否调查通常不立即公开。当前最优策略是等待公司提交正式回应后，再基于完整材料评估是否存在披露违规，而非在信息尚不完整时采取公开监管行动。成交量激增和股价下跌本身不足以构成启动正式调查的充分条件，需结合公司回应的内容质量判断。",
+              "decision_ref": "decision-actor_securities_regulator-r3"
+            }
+          ],
+          "conditional_responses": [
+            {
+              "actor_id": "actor_partners",
+              "condition": "若我发现公司合作条款中存在做空报告指出的合规隐患，且公司回应未给出有效保障。",
+              "response": "我可能暂停部分业务合作并书面通知公司，同时向医疗监管部门咨询合规风险，以避免声誉和付款风险。"
+            },
+            {
+              "actor_id": "actor_securities_regulator",
+              "condition": "若有行业内有影响力的合作方公开指称合规隐患，或暂停合作造成重大营收预警。",
+              "response": "我会将合作方暂停行动视为信号，加速完成初步审查，并可能发布正式调查令以评估公司披露是否误导投资者。"
+            }
+          ],
+          "response_semantics": "conditional_hypothesis_not_observed_action",
+          "observations": [
+            {
+              "kind": "trigger",
+              "signal": "某大型医生网络发函宣布暂停参与公司医保项目推广活动，引用合规担忧。",
+              "source": "合作方公开声明或给公司的法律文件副本",
+              "window": "未来 35 个自然日",
+              "evidence_refs": [
+                "F3"
+              ]
+            },
+            {
+              "kind": "invalidation",
+              "signal": "所有前五大合作方均公开表示对现有合作合同满意，无任何暂停行动。",
+              "source": "各自官网、新闻媒体采访或EDGAR签约方披露",
+              "window": "未来 35 个自然日",
+              "evidence_refs": [
+                "F3"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "董事会内部分歧引发媒体调查报道",
+          "summary": "若有董事会成员通过匿名渠道向媒体表达对管理层回应的不满或担忧，媒体将深挖内部矛盾，改变舆论焦点。",
+          "actor_ids": [
+            "actor_board",
+            "actor_media"
+          ],
+          "trigger_conditions": [
+            "财经媒体报道'据接近董事会的人士透露，部分董事要求管理层对做空报告逐条提交外部律师复核意见'。"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_board",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_board-r3"
+            },
+            {
+              "actor_id": "actor_media",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_media-r3"
+            }
+          ],
+          "consequences": [
+            "媒体造势促使机构投资者更关注治理问题，可能要求公司更换董事会席位或审计委员会成员"
+          ],
+          "invalidation_conditions": [
+            "董事会在公开声明中一致支持管理层，无任何不和谐声音。"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_board-r3",
+            "decision-actor_media-r3"
+          ],
+          "novelty_claim": "本分支指出媒体与内部治理分歧的交叉检查，其他分支未深究这一传导。",
+          "confidence": 0.5,
+          "confidence_semantics": "branch_coherence_not_forecast_probability",
+          "starting_decisions": [
+            {
+              "actor_id": "actor_board",
+              "action_type": "WAIT",
+              "decision_status": "conditional",
+              "rationale": "截至当前模拟轮次，公司尚未提交完整逐项回应（F4），监管机构正在进行初步审查且尚未启动正式调查。作为董事会，必须等管理层提交可核实的事实说明后，才能基于具体证据评估披露完整性和管理层责任。根据模拟记忆，我已公开表态要求管理层准备逐项回应并承诺配合监管。在收到管理层的正式书面回应之前，采取任何实质性行动（如更换管理层、宣布特别审计或对外发布补充披露）都缺乏可核实的事实基础。保护股东利益的最佳路径是先获取完整信息，再进行评估。主要不确定性在于：(1)管理层提交回应的速度和完整性；(2)监管初步审查的结论。",
+              "decision_ref": "decision-actor_board-r3"
+            },
+            {
+              "actor_id": "actor_media",
+              "action_type": "WAIT",
+              "decision_status": "conditional",
+              "rationale": "作为财经与医疗行业媒体，我跟踪调查与诉讼、核验指控和回应。公司尚未提交完整逐项回应，监管机构正在初步评估是否启动正式调查。在缺乏公司官方完整回应和监管调查结论前，我的报道无法基于可核实的事实完成风险与指控的交叉验证。匿名来源和调查保密限制也约束了当前阶段的独立核验能力。因此最佳动作是等待公司发布完整回应、监管机构做出正式决定，届时再发布基于可核实事实的分析报道。",
+              "decision_ref": "decision-actor_media-r3"
+            }
+          ],
+          "conditional_responses": [
+            {
+              "actor_id": "actor_board",
+              "condition": "若我的逐项评估显示管理层回应不够充分，或存在遗漏问题。",
+              "response": "我可能通过匿名或公开方式施压管理层补充说明，甚至在极端情况下推动成立特别委员会，但不会立即罢免管理层。"
+            },
+            {
+              "actor_id": "actor_media",
+              "condition": "若有可靠信源透露部分董事对法定披露完整性深感担忧。",
+              "response": "我会撰写深度报道，探究管理团队与董事会在回应时间表与内容上的潜在分歧，并引用匿名董事对报告的质疑。"
+            }
+          ],
+          "response_semantics": "conditional_hypothesis_not_observed_action",
+          "observations": [
+            {
+              "kind": "trigger",
+              "signal": "财经媒体报道'据接近董事会的人士透露，部分董事要求管理层对做空报告逐条提交外部律师复核意见'。",
+              "source": "彭博、路透或华尔街日报",
+              "window": "未来 35 个自然日",
+              "evidence_refs": [
+                "F1",
+                "F4"
+              ]
+            },
+            {
+              "kind": "invalidation",
+              "signal": "董事会在公开声明中一致支持管理层，无任何不和谐声音。",
+              "source": "公司8-K或董事会集体声明",
+              "window": "未来 35 个自然日",
+              "evidence_refs": [
+                "F1"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "医疗机关独立调查引发投资者举牌压力",
+          "summary": "若医疗监管部门启动独立合规审查，投资者可能认为公司面临中止或追偿风险，从而集体行动要求对管理层问责。",
+          "actor_ids": [
+            "actor_health_authorities",
+            "actor_investors"
+          ],
+          "trigger_conditions": [
+            "医疗监管部门在其官网发布'已对公司涉及公共医保项目的部分支付请求展开审查'。"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_health_authorities",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_health_authorities-r3"
+            },
+            {
+              "actor_id": "actor_investors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_investors-r3"
+            }
+          ],
+          "consequences": [
+            "股价进一步下行，机构投资者联合向董事会施压",
+            "公司可能被迫披露更多细节以求恢复监管信任"
+          ],
+          "invalidation_conditions": [
+            "医疗监管公告澄清'未发现违规迹象，不会采取进一步行动'。"
+          ],
+          "evidence_refs": [
+            "F3",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_health_authorities-r3",
+            "decision-actor_investors-r3"
+          ],
+          "novelty_claim": "本分支将医疗监管行动与投资者集体行动的联动单独建模，是其他分支未覆盖的情景。",
+          "confidence": 0.6,
+          "confidence_semantics": "branch_coherence_not_forecast_probability",
+          "starting_decisions": [
+            {
+              "actor_id": "actor_health_authorities",
+              "action_type": "WAIT",
+              "decision_status": "conditional",
+              "rationale": "作为医疗项目监管与执法机关，当前已有空头研究机构报告指控公司存在披露和合规问题，且收入高度依赖公共医疗保险。但不同机关权限和程序不同，我所在机关需要在现有公开事实基础上进一步评估信息可靠性及管辖范围。目前公司尚未正式回应，也未公布调查结果，不宜立即升级为公开行动。选择等待公司提交完整说明或获得更确凿的证据后再决定是否启动正式调查或监管措施，以维护公共医疗项目的合规性。",
+              "decision_ref": "decision-actor_health_authorities-r3"
+            },
+            {
+              "actor_id": "actor_investors",
+              "action_type": "WAIT",
+              "decision_status": "no_action",
+              "rationale": "截至当前，公司尚未发布完整逐项回应，且调查文件缺失，无法准确判断指控真伪与潜在损失。同时成交量剧增和股价下跌反映市场恐慌，但缺乏公司官方声明前贸然行动可能加剧流动性或治理风险。作为机构与零售股东，优先等待公司正式回应后再评估仓位调整。",
+              "decision_ref": "decision-actor_investors-r3"
+            }
+          ],
+          "conditional_responses": [
+            {
+              "actor_id": "actor_health_authorities",
+              "condition": "若初步评估认定公司存在未充分披露的政府调查或销售安排不合规。",
+              "response": "我可能启动正式合规审查，要求公司提交相关合同和记录，并暂停部分项目付款直至审查完成。"
+            },
+            {
+              "actor_id": "actor_investors",
+              "condition": "若有医疗监管部门公告启动正式审查，并提及暂停付款。",
+              "response": "我会要求召开特别股东大会或与董事会直接对话，要求设立独立调查委员会并评估管理层替换必要性。"
+            }
+          ],
+          "response_semantics": "conditional_hypothesis_not_observed_action",
+          "observations": [
+            {
+              "kind": "trigger",
+              "signal": "医疗监管部门在其官网发布'已对公司涉及公共医保项目的部分支付请求展开审查'。",
+              "source": "联邦医保局或相关州医疗管理局官网公告",
+              "window": "未来 35 个自然日",
+              "evidence_refs": [
+                "F3"
+              ]
+            },
+            {
+              "kind": "invalidation",
+              "signal": "医疗监管公告澄清'未发现违规迹象，不会采取进一步行动'。",
+              "source": "官方新闻稿或联邦公报",
+              "window": "未来 35 个自然日",
+              "evidence_refs": [
+                "F3"
+              ]
+            }
+          ]
+        }
+      ],
+      "generation": {
+        "semantic_retries": 1,
+        "elapsed_seconds": 161.7923791250214
+      },
+      "judgments": []
+    }
+  }
+}

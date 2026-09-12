@@ -1,0 +1,354 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_proxy_contest_020",
+  "title": "匿名案例：上市公司董事会代理权争夺",
+  "as_of": "2019-03-25T16:00:00-04:00",
+  "question": "公司、年份、管理层、异议股东、顾问和市场代码均已匿名化。只使用D0已公开的信息，推演董事会、管理层、两组异议股东、机构股东、代理顾问和投资者在股东大会前如何争取投票。",
+  "horizon": {
+    "kind": "calendar_days",
+    "value": 28,
+    "end_at": "2019-04-22T16:00:00-04:00"
+  },
+  "market": {
+    "region": "BLIND_DEVELOPED_EQUITY_MARKET",
+    "venues": [
+      "BLIND_EQUITY_EXCHANGE"
+    ],
+    "instruments": [
+      {
+        "symbol": "ASSET_T",
+        "name": "匿名媒体与消费公司普通股",
+        "kind": "equity",
+        "currency": "USD"
+      }
+    ]
+  },
+  "facts": [
+    {
+      "id": "F1",
+      "observed_at": "2019-02-01T12:00:00-05:00",
+      "statement": "公司年度股东大会将选举十二名董事。现任董事会推荐完整公司名单，并主张管理层正在推进成本、流媒体、治理和继任改革。",
+      "source_kind": "filing",
+      "source_url": "https://benchmark.invalid/blind-proxy-contest-020/F1",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F2",
+      "observed_at": "2019-03-18T09:00:00-04:00",
+      "statement": "第一组异议股东提名两名候选人，批评长期表现、资本配置和董事会问责；第二组异议股东另提名三人，并同时批评公司与第一组活动人士。",
+      "source_kind": "filing",
+      "source_url": "https://benchmark.invalid/blind-proxy-contest-020/F2",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F3",
+      "observed_at": "2019-03-25T12:00:00-04:00",
+      "statement": "大型机构股东、代理投票顾问、创始家族成员和商业领袖公开表达不同支持意见；三套代理卡和通用代理规则使投票动员与最后时点决定尤为重要。",
+      "source_kind": "filing",
+      "source_url": "https://benchmark.invalid/blind-proxy-contest-020/F3",
+      "evidence_ref": null,
+      "confidence": 0.98
+    },
+    {
+      "id": "F4",
+      "observed_at": "2019-03-25T16:00:00-04:00",
+      "statement": "公司股票在D0正常收盘。市场同时评估治理变化、管理层战略执行、代理争夺成本和投票结果的不确定性。",
+      "source_kind": "market_data",
+      "source_url": "https://benchmark.invalid/blind-proxy-contest-020/F4",
+      "evidence_ref": null,
+      "confidence": 0.98
+    }
+  ],
+  "actors": [
+    {
+      "id": "actor_board",
+      "label": "匿名公司现任董事会",
+      "kind": "issuer",
+      "aggregation": "organization",
+      "goals": [
+        "使十二名推荐候选人全部当选",
+        "维护战略与治理连续性"
+      ],
+      "constraints": [
+        "必须回应长期表现和继任质疑"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_management",
+      "label": "匿名公司管理层",
+      "kind": "issuer",
+      "aggregation": "organization",
+      "goals": [
+        "证明经营改善和价值创造",
+        "维持执行权限"
+      ],
+      "constraints": [
+        "代理争夺分散管理注意力且成本高"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_activist_a",
+      "label": "匿名异议股东集团A",
+      "kind": "institutional_investor",
+      "aggregation": "organization",
+      "goals": [
+        "使两名候选人进入董事会",
+        "改变战略、资本配置和问责"
+      ],
+      "constraints": [
+        "需说服大型机构和零售股东"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_activist_b",
+      "label": "匿名异议股东集团B",
+      "kind": "institutional_investor",
+      "aggregation": "organization",
+      "goals": [
+        "使三名候选人进入董事会",
+        "推动不同于管理层和另一活动人士的改革"
+      ],
+      "constraints": [
+        "持股和公众关注低于主要争夺双方"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_index_funds",
+      "label": "大型指数与长期机构股东",
+      "kind": "institutional_investor",
+      "aggregation": "cohort",
+      "goals": [
+        "评估董事能力、战略和治理",
+        "履行受托投票责任"
+      ],
+      "constraints": [
+        "被多方密集游说且需在截止前表决"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_proxy_advisers",
+      "label": "代理投票顾问",
+      "kind": "analyst",
+      "aggregation": "cohort",
+      "goals": [
+        "向机构客户提供候选人和治理建议"
+      ],
+      "constraints": [
+        "不同顾问可能得出不同建议"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_retail",
+      "label": "零售与员工股东",
+      "kind": "retail_cohort",
+      "aggregation": "cohort",
+      "goals": [
+        "在品牌、战略和投资回报之间权衡"
+      ],
+      "constraints": [
+        "代理材料复杂且参与率可能较低"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_investors",
+      "label": "媒体与事件驱动投资者",
+      "kind": "institutional_investor",
+      "aggregation": "cohort",
+      "goals": [
+        "估计投票结果及战略影响",
+        "管理短期事件风险"
+      ],
+      "constraints": [
+        "公开背书不等于已提交或不可撤回的投票"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    }
+  ],
+  "relationships": [
+    {
+      "source_actor_id": "actor_board",
+      "target_actor_id": "actor_index_funds",
+      "kind": "solicits_votes_from",
+      "visibility": "private"
+    },
+    {
+      "source_actor_id": "actor_activist_a",
+      "target_actor_id": "actor_index_funds",
+      "kind": "solicits_votes_from",
+      "visibility": "private"
+    },
+    {
+      "source_actor_id": "actor_activist_b",
+      "target_actor_id": "actor_index_funds",
+      "kind": "solicits_votes_from",
+      "visibility": "private"
+    },
+    {
+      "source_actor_id": "actor_proxy_advisers",
+      "target_actor_id": "actor_index_funds",
+      "kind": "advises_vote_of",
+      "visibility": "private"
+    },
+    {
+      "source_actor_id": "actor_management",
+      "target_actor_id": "actor_retail",
+      "kind": "communicates_strategy_to",
+      "visibility": "public"
+    }
+  ],
+  "allowed_actions": [
+    {
+      "type": "COMMUNICATE",
+      "description": "发布代理材料、背书、批评、经营指标或投票建议。",
+      "visibility": "public"
+    },
+    {
+      "type": "NEGOTIATE",
+      "description": "与候选人、大股东和顾问讨论治理或和解。",
+      "visibility": "private"
+    },
+    {
+      "type": "ALLOCATE",
+      "description": "提交投票或调整公司股票敞口。",
+      "visibility": "private"
+    },
+    {
+      "type": "OPERATE",
+      "description": "组织代理征集、股东接触和大会准备。",
+      "visibility": "either"
+    },
+    {
+      "type": "REGULATE",
+      "description": "执行证券、代理投票和公司治理规则。",
+      "visibility": "public"
+    },
+    {
+      "type": "WAIT",
+      "description": "等待顾问建议、股东决定或最终计票。",
+      "visibility": "either"
+    }
+  ],
+  "interventions": [
+    {
+      "id": "I0_PROXY_ENDGAME",
+      "at_round": 0,
+      "fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "visibility": "public"
+    }
+  ],
+  "forecast_targets": [
+    {
+      "id": "T1",
+      "kind": "market",
+      "definition": "D1收盘价相对D0的匿名公司普通股方向。",
+      "horizon": "next_market_observation",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T2",
+      "kind": "market",
+      "definition": "第5个后续收盘价相对D0的匿名公司普通股方向。",
+      "horizon": "5_market_observations",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T3",
+      "kind": "market",
+      "definition": "第20个后续收盘价相对D0的匿名公司普通股方向。",
+      "horizon": "20_market_observations",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T4",
+      "kind": "event",
+      "definition": "公司推荐的十二名董事候选人是否在10个自然日内全部当选。",
+      "horizon": "10_calendar_days",
+      "scoring": "brier"
+    },
+    {
+      "id": "T5",
+      "kind": "event",
+      "definition": "任一异议股东集团提名的候选人是否在10个自然日内当选董事。",
+      "horizon": "10_calendar_days",
+      "scoring": "brier"
+    }
+  ],
+  "run_config": {
+    "rounds": 12,
+    "replications": 20,
+    "seed_strategy": "deterministic_sequence",
+    "layers": [
+      "information",
+      "behavior"
+    ]
+  },
+  "provenance": {
+    "created_by": "FEVER-MiroFish blind benchmark",
+    "source_graph_artifact_id": null,
+    "notes": [
+      "真实公司、年份、管理层、异议股东、顾问和代码均已匿名化。",
+      "真实结果只保存在独立outcome文件。"
+    ]
+  }
+}

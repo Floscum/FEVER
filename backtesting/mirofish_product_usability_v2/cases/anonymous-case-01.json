@@ -1,0 +1,945 @@
+{
+  "anonymous_case_id": "anonymous-case-01",
+  "configured_actor_count": 8,
+  "decision_actor_count": 7,
+  "fact_count": 4,
+  "fact_chars": 208,
+  "input": {
+    "case_id": "anonymous-case-01",
+    "as_of": "D0",
+    "question": "日期、名称、代码和绝对金额均已匿名化。只使用D0收盘前后已公开的信息，推演特别分红的治理落地、控股股东行为、投资者反应及匿名标的后续价格方向。",
+    "horizon": {
+      "kind": "calendar_days",
+      "value": 35,
+      "end_at": "D0 + stated horizon"
+    },
+    "facts": [
+      {
+        "id": "F1",
+        "statement": "发行人董事会提出一次特别现金分红方案，拟派发总额超过最近完整年度归母净利润的一半；该方案不会改变主营业务和股本数量。"
+      },
+      {
+        "id": "F2",
+        "statement": "控股股东及其关联方同时公布二级市场增持计划，计划使用部分现金红利，在特别分红实施后的六个月内按固定金额上下限增持，未设置固定买入价格。"
+      },
+      {
+        "id": "F3",
+        "statement": "特别分红仍需临时股东大会审议；董事会认为该安排兼顾持续经营、股东回报和长期稳定发展。"
+      },
+      {
+        "id": "F4",
+        "statement": "D0匿名标的收跌约0.8%，成交量约为前一交易日的2.6倍；公告在D0收盘后公开。"
+      }
+    ],
+    "actors": [
+      {
+        "id": "actor_issuer",
+        "label": "匿名成熟消费品发行人",
+        "kind": "issuer",
+        "goals": [
+          "提高长期股东回报",
+          "维护经营稳定",
+          "形成可信资本配置政策"
+        ],
+        "constraints": [
+          "特别分红须履行董事会、股东大会和信息披露程序"
+        ]
+      },
+      {
+        "id": "actor_controller",
+        "label": "控股股东及关联方",
+        "kind": "institutional_investor",
+        "goals": [
+          "维护控制权和长期价值",
+          "兑现增持承诺",
+          "稳定市场预期"
+        ],
+        "constraints": [
+          "增持须遵守披露、窗口期和金额上下限"
+        ]
+      },
+      {
+        "id": "actor_regulator",
+        "label": "证券监管机构",
+        "kind": "regulator",
+        "goals": [
+          "保证分红和增持披露合规",
+          "保护中小投资者"
+        ],
+        "constraints": [
+          "只能依法监管，不能替代股东表决"
+        ]
+      },
+      {
+        "id": "actor_exchange",
+        "label": "上市交易所",
+        "kind": "exchange",
+        "goals": [
+          "监督信息披露",
+          "维护交易秩序"
+        ],
+        "constraints": [
+          "依照现金分红、权益变动和交易规则执行"
+        ]
+      },
+      {
+        "id": "actor_institutions",
+        "label": "持有匿名标的的机构投资者",
+        "kind": "institutional_investor",
+        "goals": [
+          "评估分红可持续性",
+          "判断增持信号",
+          "控制估值与组合风险"
+        ],
+        "constraints": [
+          "必须区分一次性资本返还与经营增长"
+        ]
+      },
+      {
+        "id": "actor_retail",
+        "label": "个人投资者",
+        "kind": "retail_cohort",
+        "goals": [
+          "获取现金回报",
+          "判断短中期价格方向"
+        ],
+        "constraints": [
+          "信息和估值能力有限，容易受高分红叙事影响"
+        ]
+      },
+      {
+        "id": "actor_competitors",
+        "label": "同业成熟消费品公司",
+        "kind": "competitor",
+        "goals": [
+          "比较资本回报政策",
+          "维护投资者吸引力"
+        ],
+        "constraints": [
+          "现金流与股权结构并不相同"
+        ]
+      },
+      {
+        "id": "actor_media",
+        "label": "财经媒体与分析师",
+        "kind": "media",
+        "goals": [
+          "解释特别分红和增持的信号",
+          "跟踪股东大会和实施进度"
+        ],
+        "constraints": [
+          "必须区分已公告方案和已实施结果"
+        ]
+      }
+    ],
+    "financial_decisions": [
+      {
+        "id": "decision-actor_issuer-r3",
+        "round": 3,
+        "actor_id": "actor_issuer",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": null,
+        "instrument_refs": [],
+        "rationale": "特别分红方案已于收盘后公告（F4），但临时股东大会尚未召开，分红尚未生效（F3）。控股股东增持计划依赖分红实施后启动（F2），在股东大会审批前无法进入执行阶段。作为发行人，当前优先任务是确保信息披露充分并等待法定审议流程完成，而非提前采取额外公开动作。主要不确定性在于股东大会的审批结果，这决定后续分红派发和增持能否按计划推进。",
+        "constraint_refs": [
+          "actor_issuer:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_controller-r3",
+        "round": 3,
+        "actor_id": "actor_controller",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "特别分红方案尚需临时股东大会审议通过，尚未生效。增持计划明确以部分分红所得为资金来源，且须在特别分红实施后的六个月内按固定金额上下限执行。在股东大会审议结果公布前，不适宜提前进行任何实质增持操作。当前最佳策略是等待股东大会审批结果，再根据计划执行增持承诺。D0股价下跌与成交量放大已在公告后公开，市场正在消化信息，过早行动可能增加不必要的信息不对称风险。",
+        "constraint_refs": [
+          "actor_controller:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.9,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_regulator-r3",
+        "round": 3,
+        "actor_id": "actor_regulator",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "maintain",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "截至时点，发行人已公告特别分红方案（F1）和控股股东增持计划（F2），两者均需股东大会审议通过（F3）。当前无披露违规迹象，且股市价格波动（F4）属正常市场行为，不能作为监管干预的依据。依法只能等待股东大会结果，再视方案的最终执行情况判断是否需要对披露或资金来源进行合规审查。选择等待，不做动作。",
+        "constraint_refs": [
+          "actor_regulator:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 1.0,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_exchange-r3",
+        "round": 3,
+        "actor_id": "actor_exchange",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": null,
+        "instrument_refs": [],
+        "rationale": "截至当前时点，发行人已公告特别分红方案及控股股东增持计划，但特别分红仍须临时股东大会审议，尚未生效。D0标的收跌约0.8%且成交量放大，公告于收盘后公开，市场尚在消化信息。依据现金分红、权益变动和交易规则，在方案未获股东大会批准前，交易所不宜提前采取监管干预。最佳行动是等待临时股东大会审议结果及后续增持实施情况，观察是否存在信息披露违规或交易异常后再行判断。",
+        "constraint_refs": [
+          "actor_exchange:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_institutions-r3",
+        "round": 3,
+        "actor_id": "actor_institutions",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": null,
+        "instrument_refs": [],
+        "rationale": "特别分红方案与增持计划同时公布，但分红总额超过全年净利润一半，属一次性资本返还，非经营增长信号。增持计划使用红利且未设价格区间，执行弹性大，实际增持力度不确定。标的当日放量下跌，说明市场分歧显著，且方案尚需股东大会审议。当前最佳策略是等待股东大会结果及后续增持执行进展，再评估分红可持续性及增持可信度，避免在不确定性高时贸然调仓。",
+        "constraint_refs": [
+          "actor_institutions:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_competitors-r3",
+        "round": 3,
+        "actor_id": "actor_competitors",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "conditional",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "发行人已公告特别分红+增持组合方案，但方案尚需临时股东大会审议通过才能生效。作为同业竞争对手，我需要等待股东大会结果，确认该方案是否最终落地及具体执行情况，再评估其对自身资本回报政策的竞争压力。同时，我们自身的现金流与股权结构与发行人不同，不能简单模仿其方案，必须基于自身实际情况做差异化回应。D0交易量放大但股价下跌，市场反应尚不明确，需进一步观察。",
+        "constraint_refs": [
+          "actor_competitors:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_media-r3",
+        "round": 3,
+        "actor_id": "actor_media",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": null,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "截至2017-04-11，特别分红方案（F1）和增持计划（F2）均处于董事会公告阶段，仍需临时股东大会审议（F3）才能生效。D0市场反应（F4）仅反映收盘前信息，无法作为方案实施结果。作为财经媒体，当前最优行动是等待股东大会决议，以区分已公告方案与已实施结果，再发布解释性分析。",
+        "constraint_refs": [
+          "actor_media:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "public",
+        "confidence": 0.9,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      }
+    ],
+    "simulated_actions": [
+      {
+        "id": "trace-19",
+        "actor_id": "actor_controller",
+        "action_type": "COMMUNICATE",
+        "summary": "特别分红方案兼顾了公司持续经营需要与股东回报，临时股东大会审议通过后将按照既定计划推进。增持安排已在公告中明确，将依法依规执行，稳定市场预期。"
+      },
+      {
+        "id": "trace-26",
+        "actor_id": "actor_controller",
+        "action_type": "COMMUNICATE",
+        "summary": "增持计划已公告固定金额上下限并及时披露，并非短期提振。特别分红兼顾持续经营能力，方案经董事会审慎评估。长期价值取决于基本面，但分红与增持安排体现了对公司发展的信心。"
+      },
+      {
+        "id": "trace-30",
+        "actor_id": "actor_retail",
+        "action_type": "COMMUNICATE",
+        "summary": "特别分红加增持，这是实实在在的利好！分红金额超过全年净利润一半，大股东还要用分红资金增持，说明内部人自己都看好。短期反弹可期，我准备加仓。"
+      },
+      {
+        "id": "trace-34",
+        "actor_id": "actor_issuer",
+        "action_type": "COMMUNICATE",
+        "summary": "作为成熟消费品发行人，认同需评估分红可持续性。当前方案已公告固定金额区间并预留持续经营所需资金，临时股东大会审议将是关键节点。增持计划设定了明确的上下限金额，体现长期承诺而非短期操作。市场应关注公司基本面和现金流质量而非短期价格波动。"
+      }
+    ],
+    "branch_slots": [
+      {
+        "slot_id": "slot-1",
+        "actor_ids": [
+          "actor_controller",
+          "actor_institutions"
+        ],
+        "relationship_kind": "signals_long_term_commitment",
+        "decision_refs": [
+          "decision-actor_controller-r3",
+          "decision-actor_institutions-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-2",
+        "actor_ids": [
+          "actor_competitors",
+          "actor_issuer"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_competitors-r3",
+          "decision-actor_issuer-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-3",
+        "actor_ids": [
+          "actor_media",
+          "actor_exchange"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_media-r3",
+          "decision-actor_exchange-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-4",
+        "actor_ids": [
+          "actor_institutions",
+          "actor_regulator"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_institutions-r3",
+          "decision-actor_regulator-r3"
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "v7": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "控增信号可信，机加仓",
+          "summary": "如果控股股东在股东大会前通过非正式渠道重申增持承诺并承诺不会减持（trace-19, trace-26），机构投资者（actor_institutions）将视为长期承诺信号，从而在股东大会投票前主动加仓，推动价格上涨。",
+          "actor_ids": [
+            "actor_controller",
+            "actor_institutions"
+          ],
+          "trigger_conditions": [
+            "控股股东在股东大会召开前至少一周通过公开访谈或声明，明确表示增持计划不会因股价波动而调整（如重申固定金额上下限的承诺）"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_controller",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_controller-r3"
+            },
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r3"
+            }
+          ],
+          "consequences": [
+            "机构投资者基于对增持执行的信赖，增加对匿名标的的持仓比例；这可能推高股价，降低控股股东后续增持的性价比",
+            "交易所需监控是否存在内幕交易或信息披露违规，因股价上涨可能引发其他投资者跟进买入"
+          ],
+          "invalidation_conditions": [
+            "控股股东在股东大会前未发表任何巩固增持信心的额外声明；或机构投资者在D0+7天内整体净卖出该标的"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_controller-r3",
+            "decision-actor_institutions-r3"
+          ],
+          "novelty_claim": "本分支描述了控股股东通过非正式沟通（trace-19, trace-26）将公告中的增持计划转化为可信信号，从而改变机构投资者的买入决策；这是对公告文本仅传递信息、但不改变行为的简单叙述的扩展。",
+          "confidence": 0.6,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-2",
+          "label": "同业资本策压，发新方",
+          "summary": "如果同业竞争对手（actor_competitors）因担心分红吸引力下降而宣布更高的资本回报计划，发行人（actor_issuer）将面临跟进行动的压力，可能调整或补充特别分红方案，形成资本配置竞赛。",
+          "actor_ids": [
+            "actor_competitors",
+            "actor_issuer"
+          ],
+          "trigger_conditions": [
+            "在特别分红股东大会召开前，至少一家主要同业公司公告提高股息率或启动股票回购计划"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_competitors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_competitors-r3"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_issuer-r3"
+            }
+          ],
+          "consequences": [
+            "发行人为维持投资者吸引力，可能将特别分红作为长期政策而非一次性事件，从而承诺未来再分红或提高常规派息率",
+            "同业竞争者的行动可能扩大市场对该行业的资金流入，但也增加发行人的现金流压力"
+          ],
+          "invalidation_conditions": [
+            "在D0+30天内，无任何同业公司公告提高资本回报计划；或发行人与同业的债务评级被下调导致资本政策受限"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_competitors-r3",
+            "decision-actor_issuer-r3"
+          ],
+          "novelty_claim": "本分支引入了同业竞争者（actor_competitors）作为主动行动方，迫使发行人（actor_issuer）在资本政策上做出战略性回应；这超越了仅描述公告本身或市场反应的叙事。",
+          "confidence": 0.5,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-3",
+          "label": "媒解分，交所监",
+          "summary": "如果财经媒体与分析师（actor_media）在报道中强调特别分红的高比例和对经营现金流的潜在压力（而非仅描述公告内容），上市交易所（actor_exchange）可能会援引加强监管规则，要求发行人补充说明分红资金来源。",
+          "actor_ids": [
+            "actor_media",
+            "actor_exchange"
+          ],
+          "trigger_conditions": [
+            "在D0+7天内，有至少两篇媒体报道或分析师报告，明确质疑特别分红金额超过净利润一半的可持续性，并指出可能影响公司营运资金"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_media",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_media-r3"
+            },
+            {
+              "actor_id": "actor_exchange",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_exchange-r3"
+            }
+          ],
+          "consequences": [
+            "交易所依规则要求发行人补充披露分红资金来源及对流动资金的影响，导致分红实施方案延后",
+            "媒体解读引发更多投资者抛售，导致股价承压，削弱控股股东增持的时机灵活性"
+          ],
+          "invalidation_conditions": [
+            "在D0+7天内，所有媒体/分析师报道均正面解读分红方案，或监管机构明确表示无合规疑虑"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F3",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_media-r3",
+            "decision-actor_exchange-r3"
+          ],
+          "novelty_claim": "本分支链接了媒体角色（actor_media）通过解读影响交易所（actor_exchange）的监管行动，从而改变分红执行的节奏与市场情绪；这不仅是披露事件的时间线复述。",
+          "confidence": 0.4,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-4",
+          "label": "机疑求监管查，推延",
+          "summary": "如果机构投资者（actor_institutions）内部对增持资金来源的合规性产生严重疑虑（如认为分红后增持涉嫌市场操纵），并主动向监管机构（actor_regulator）提出咨询，监管机构启动非正式问询，导致增持计划暂时搁置。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_regulator"
+          ],
+          "trigger_conditions": [
+            "在股东大会召开前，至少两家持有超过1%流通股的机构投资者向监管部门或交易所提交书面询问，质疑控股股东使用分红资金增持是否存在规避要约收购或操纵市场之嫌"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r3"
+            },
+            {
+              "actor_id": "actor_regulator",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_regulator-r3"
+            }
+          ],
+          "consequences": [
+            "监管机构启动非正式核查程序，导致增持计划在股东大会后暂缓执行，直至合规性获得确认",
+            "机构投资者的质疑行为公开后，引发个人投资者（actor_retail）跟进抛售，股价承压，抑制分红实施"
+          ],
+          "invalidation_conditions": [
+            "在D0+7天内，无机构投资者向监管机关提交正式质疑；或监管部门公开声明增持计划无合规问题"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_institutions-r3",
+            "decision-actor_regulator-r3"
+          ],
+          "novelty_claim": "本分支描绘了机构投资者（actor_institutions）作为主动质疑方，引发监管角色（actor_regulator）介入，从而改变控股股东（actor_controller）的增持节奏和股价轨迹；这补充了机构仅“等待”决策之外的行动可能性。",
+          "confidence": 0.3,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        }
+      ],
+      "generation": {
+        "semantic_retries": 0,
+        "elapsed_seconds": 49.96639575000154
+      },
+      "judgments": []
+    },
+    "v8": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "股东否决与监管介入",
+          "summary": "若临时股东大会否决特别分红方案，控股股东增持失去资金来源，监管可能介入问询，机构投资者重估公司治理。",
+          "actor_ids": [
+            "actor_controller",
+            "actor_institutions"
+          ],
+          "trigger_conditions": [
+            "临时股东大会公告：特别分红方案被否决"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_controller",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_controller-r3"
+            },
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r3"
+            }
+          ],
+          "consequences": [
+            "增持计划或调整或中止，短期股价承压；机构投资者可能减仓；监管可能要求补充说明分红和增持的合理性；竞争对手可能观望但不急于跟进。"
+          ],
+          "invalidation_conditions": [
+            "方案以高票通过，且控股股东表决权未受质疑"
+          ],
+          "evidence_refs": [
+            "F2",
+            "F3",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_controller-r3",
+            "decision-actor_institutions-r3"
+          ],
+          "novelty_claim": "多数推演聚焦分红通过后的增持效果，本条揭示了否决场景下控股股东调整增持的动机与机构出逃的传导链条。",
+          "confidence": 0.4,
+          "confidence_semantics": "branch_coherence_not_forecast_probability",
+          "starting_decisions": [
+            {
+              "actor_id": "actor_controller",
+              "action_type": "WAIT",
+              "decision_status": "conditional",
+              "rationale": "特别分红方案尚需临时股东大会审议通过，尚未生效。增持计划明确以部分分红所得为资金来源，且须在特别分红实施后的六个月内按固定金额上下限执行。在股东大会审议结果公布前，不适宜提前进行任何实质增持操作。当前最佳策略是等待股东大会审批结果，再根据计划执行增持承诺。D0股价下跌与成交量放大已在公告后公开，市场正在消化信息，过早行动可能增加不必要的信息不对称风险。",
+              "decision_ref": "decision-actor_controller-r3"
+            },
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_status": "intended",
+              "rationale": "特别分红方案与增持计划同时公布，但分红总额超过全年净利润一半，属一次性资本返还，非经营增长信号。增持计划使用红利且未设价格区间，执行弹性大，实际增持力度不确定。标的当日放量下跌，说明市场分歧显著，且方案尚需股东大会审议。当前最佳策略是等待股东大会结果及后续增持执行进展，再评估分红可持续性及增持可信度，避免在不确定性高时贸然调仓。",
+              "decision_ref": "decision-actor_institutions-r3"
+            }
+          ],
+          "conditional_responses": [
+            {
+              "actor_id": "actor_controller",
+              "condition": "若临时股东大会否决特别分红方案",
+              "response": "我可能需要调整增持计划，因为方案所述的分红资金来源不复存在；我将与董事会沟通是否修改方案或直接以自有资金按原定金额增持，以维持市场信心。"
+            },
+            {
+              "actor_id": "actor_institutions",
+              "condition": "若临时股东大会否决特别分红方案",
+              "response": "我将把这次否决视为公司治理和资本政策不确定性的信号，重新评估控股股东承诺的可信度，并可能降低仓位以控制组合风险。"
+            }
+          ],
+          "response_semantics": "conditional_hypothesis_not_observed_action",
+          "observations": [
+            {
+              "kind": "trigger",
+              "signal": "临时股东大会公告：特别分红方案被否决",
+              "source": "上市公司公告，交易所披露",
+              "window": "未来 35 个自然日",
+              "evidence_refs": [
+                "F3"
+              ]
+            },
+            {
+              "kind": "invalidation",
+              "signal": "方案以高票通过，且控股股东表决权未受质疑",
+              "source": "股东大会决议公告",
+              "window": "未来 35 个自然日",
+              "evidence_refs": [
+                "F3"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "分红通过、增持不及预期",
+          "summary": "若方案虽获股东大会通过，但控股股东在限定金额区间内仅执行下限增持且缓慢进场，机构与个人投资者出现分歧。",
+          "actor_ids": [
+            "actor_competitors",
+            "actor_issuer"
+          ],
+          "trigger_conditions": [
+            "增持期间内，控股股东单月增持量处于计划下限且低于市场预期的一半"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_competitors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_competitors-r3"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_issuer-r3"
+            }
+          ],
+          "consequences": [
+            "市场对增持的信任度下降，股价可能从短期上涨回落；机构投资者可能逐步减仓；竞争对手可能视之为竞争压力减弱的信号；个人投资者可能因失望而卖出。"
+          ],
+          "invalidation_conditions": [
+            "控股股东在第一个月内增持量即达到计划上限或公告承诺加速执行"
+          ],
+          "evidence_refs": [
+            "F2",
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_competitors-r3",
+            "decision-actor_issuer-r3"
+          ],
+          "novelty_claim": "现有分析多假设增持会按计划执行，本条区分了执行节奏的差异及其对机构、竞争对手和发行人的异质性影响。",
+          "confidence": 0.5,
+          "confidence_semantics": "branch_coherence_not_forecast_probability",
+          "starting_decisions": [
+            {
+              "actor_id": "actor_competitors",
+              "action_type": "WAIT",
+              "decision_status": "conditional",
+              "rationale": "发行人已公告特别分红+增持组合方案，但方案尚需临时股东大会审议通过才能生效。作为同业竞争对手，我需要等待股东大会结果，确认该方案是否最终落地及具体执行情况，再评估其对自身资本回报政策的竞争压力。同时，我们自身的现金流与股权结构与发行人不同，不能简单模仿其方案，必须基于自身实际情况做差异化回应。D0交易量放大但股价下跌，市场反应尚不明确，需进一步观察。",
+              "decision_ref": "decision-actor_competitors-r3"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "WAIT",
+              "decision_status": "conditional",
+              "rationale": "特别分红方案已于收盘后公告（F4），但临时股东大会尚未召开，分红尚未生效（F3）。控股股东增持计划依赖分红实施后启动（F2），在股东大会审批前无法进入执行阶段。作为发行人，当前优先任务是确保信息披露充分并等待法定审议流程完成，而非提前采取额外公开动作。主要不确定性在于股东大会的审批结果，这决定后续分红派发和增持能否按计划推进。",
+              "decision_ref": "decision-actor_issuer-r3"
+            }
+          ],
+          "conditional_responses": [
+            {
+              "actor_id": "actor_competitors",
+              "condition": "若控股股东在分红实施后仅按增持计划下限金额缓慢增持且未给出合理解释",
+              "response": "我可能将发行人的资本回报行动视为短期价格管理而非长期承诺，延续自己的分红政策但不急于跟进，同时观察是否有机会吸引对分红持续性不满的投资者。"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "condition": "若控股股东在分红实施后仅缓慢执行下限增持",
+              "response": "我无法强制控股股东加速执行，但我会在合规前提下保持信息披露透明，并在投资者沟通中引导市场关注公司基本面质量，而非仅盯着增持节奏。"
+            }
+          ],
+          "response_semantics": "conditional_hypothesis_not_observed_action",
+          "observations": [
+            {
+              "kind": "trigger",
+              "signal": "增持期间内，控股股东单月增持量处于计划下限且低于市场预期的一半",
+              "source": "上市公司权益变动公告，交易所披露",
+              "window": "未来 35 个自然日",
+              "evidence_refs": [
+                "F2"
+              ]
+            },
+            {
+              "kind": "invalidation",
+              "signal": "控股股东在第一个月内增持量即达到计划上限或公告承诺加速执行",
+              "source": "权益变动公告，公司公告",
+              "window": "未来 35 个自然日",
+              "evidence_refs": [
+                "F2"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "分红通过、媒体过度渲染与交易所关注",
+          "summary": "若方案通过后媒体将分红与增持包装为重大利好，导致个人投资者跟风买入、波动率上升，交易所发函关注信息披露合规性。",
+          "actor_ids": [
+            "actor_media",
+            "actor_exchange"
+          ],
+          "trigger_conditions": [
+            "临时股东大会表决通过后5个交易日内，标的股价涨幅超15%且日均换手率较此前30日均值高2倍以上"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_media",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_media-r3"
+            },
+            {
+              "actor_id": "actor_exchange",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_exchange-r3"
+            }
+          ],
+          "consequences": [
+            "交易所发函可能导致短期停牌或股价回调；媒体开始区分分红性质，部分跟风资金退出；控股股东暂缓增持直至合规窗口确认；机构投资者将此视为噪声，利用回调加仓或保持观望。"
+          ],
+          "invalidation_conditions": [
+            "股价在方案通过后平稳波动，未触发临时停牌或异常波动提示"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_media-r3",
+            "decision-actor_exchange-r3"
+          ],
+          "novelty_claim": "大多数推演关注分红的经济效应，本条深究媒体渲染引发的监管反馈，指出交易所可能在无违规时提前干预以维护秩序。",
+          "confidence": 0.45,
+          "confidence_semantics": "branch_coherence_not_forecast_probability",
+          "starting_decisions": [
+            {
+              "actor_id": "actor_media",
+              "action_type": "WAIT",
+              "decision_status": "conditional",
+              "rationale": "截至2017-04-11，特别分红方案（F1）和增持计划（F2）均处于董事会公告阶段，仍需临时股东大会审议（F3）才能生效。D0市场反应（F4）仅反映收盘前信息，无法作为方案实施结果。作为财经媒体，当前最优行动是等待股东大会决议，以区分已公告方案与已实施结果，再发布解释性分析。",
+              "decision_ref": "decision-actor_media-r3"
+            },
+            {
+              "actor_id": "actor_exchange",
+              "action_type": "WAIT",
+              "decision_status": "no_action",
+              "rationale": "截至当前时点，发行人已公告特别分红方案及控股股东增持计划，但特别分红仍须临时股东大会审议，尚未生效。D0标的收跌约0.8%且成交量放大，公告于收盘后公开，市场尚在消化信息。依据现金分红、权益变动和交易规则，在方案未获股东大会批准前，交易所不宜提前采取监管干预。最佳行动是等待临时股东大会审议结果及后续增持实施情况，观察是否存在信息披露违规或交易异常后再行判断。",
+              "decision_ref": "decision-actor_exchange-r3"
+            }
+          ],
+          "conditional_responses": [
+            {
+              "actor_id": "actor_media",
+              "condition": "若部分媒体突出'高分红加增持'叙事，未区分一次性资本返还与经营增长",
+              "response": "我们将在后续报道中加入可持续性分析和现金流结构对比，明确此分红属一次性事件，避免误导读者；若同行渲染过度，我们可能发布澄清或对比同业案例。"
+            },
+            {
+              "actor_id": "actor_exchange",
+              "condition": "若媒体报道后标的股价连续大幅上涨且成交异常澎湃",
+              "response": "我可能对发行人发出问询函，要求说明是否知悉媒体消息来源、是否存在配合信息传播行为，并提醒控股股东注意窗口期增持限制；必要时暂停交易核查。"
+            }
+          ],
+          "response_semantics": "conditional_hypothesis_not_observed_action",
+          "observations": [
+            {
+              "kind": "trigger",
+              "signal": "临时股东大会表决通过后5个交易日内，标的股价涨幅超15%且日均换手率较此前30日均值高2倍以上",
+              "source": "交易所行情数据，成交回报系统",
+              "window": "未来 35 个自然日",
+              "evidence_refs": [
+                "F4"
+              ]
+            },
+            {
+              "kind": "invalidation",
+              "signal": "股价在方案通过后平稳波动，未触发临时停牌或异常波动提示",
+              "source": "交易所价量监控报告，临时停牌公告",
+              "window": "未来 35 个自然日",
+              "evidence_refs": [
+                "F4"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "监管质询资金来源与机构顺势做空",
+          "summary": "若分红实施后监管机构质疑分红资金来源于削减经营开支而非自由现金流，且机构投资者因估值过高联手做空。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_regulator"
+          ],
+          "trigger_conditions": [
+            "季报或公告披露分红资金来源中包含非经常性资产出售或运营成本大量削减"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r3"
+            },
+            {
+              "actor_id": "actor_regulator",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_regulator-r3"
+            }
+          ],
+          "consequences": [
+            "股价面临监管和机构双重压力，可能快速回调；控股股东增持资金同步被调查，暂停增持计划；发行人被迫补充资本计划；媒体转向负面报道；竞争对手引以为戒。"
+          ],
+          "invalidation_conditions": [
+            "年报审计意见无保留且自由现金流足以覆盖分红，未出现明显的运营削减或资产甩卖"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2"
+          ],
+          "simulation_refs": [
+            "decision-actor_institutions-r3",
+            "decision-actor_regulator-r3"
+          ],
+          "novelty_claim": "大多数推演假设分红来源于正常现金流，本条构建了监管与机构协同质疑的场景，揭示分红可能隐含的财务结构弱化信号。",
+          "confidence": 0.3,
+          "confidence_semantics": "branch_coherence_not_forecast_probability",
+          "starting_decisions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_status": "intended",
+              "rationale": "特别分红方案与增持计划同时公布，但分红总额超过全年净利润一半，属一次性资本返还，非经营增长信号。增持计划使用红利且未设价格区间，执行弹性大，实际增持力度不确定。标的当日放量下跌，说明市场分歧显著，且方案尚需股东大会审议。当前最佳策略是等待股东大会结果及后续增持执行进展，再评估分红可持续性及增持可信度，避免在不确定性高时贸然调仓。",
+              "decision_ref": "decision-actor_institutions-r3"
+            },
+            {
+              "actor_id": "actor_regulator",
+              "action_type": "WAIT",
+              "decision_status": "no_action",
+              "rationale": "截至时点，发行人已公告特别分红方案（F1）和控股股东增持计划（F2），两者均需股东大会审议通过（F3）。当前无披露违规迹象，且股市价格波动（F4）属正常市场行为，不能作为监管干预的依据。依法只能等待股东大会结果，再视方案的最终执行情况判断是否需要对披露或资金来源进行合规审查。选择等待，不做动作。",
+              "decision_ref": "decision-actor_regulator-r3"
+            }
+          ],
+          "conditional_responses": [
+            {
+              "actor_id": "actor_institutions",
+              "condition": "若监管问询指向分红资金来源于减少营销投入或研发，且控股股东增持后股价短期上涨但估值超过同业2倍以上",
+              "response": "我们可能认定当前股价已经过度反应，选择建立空头仓位或大幅减持，同时要求管理层提供详细的现金流来源表；若可能，我们会联合其他机构发起研究质疑。"
+            },
+            {
+              "actor_id": "actor_regulator",
+              "condition": "若发行人在分红实施后的季报中显示营运资本或投资支出显著低于历史水平",
+              "response": "我将启动专项核查，要求发行人及审计机构提供分红资金来源的详细说明，并评估是否违反持续经营假设；若发现不当动用募资或损害公司长期价值，将采取问询或出具警示函的措施。"
+            }
+          ],
+          "response_semantics": "conditional_hypothesis_not_observed_action",
+          "observations": [
+            {
+              "kind": "trigger",
+              "signal": "季报或公告披露分红资金来源中包含非经常性资产出售或运营成本大量削减",
+              "source": "上市公司季报、审计说明、监管问询函",
+              "window": "未来 35 个自然日",
+              "evidence_refs": [
+                "F1"
+              ]
+            },
+            {
+              "kind": "invalidation",
+              "signal": "年报审计意见无保留且自由现金流足以覆盖分红，未出现明显的运营削减或资产甩卖",
+              "source": "审计报告、现金流量表",
+              "window": "未来 35 个自然日",
+              "evidence_refs": [
+                "F1"
+              ]
+            }
+          ]
+        }
+      ],
+      "generation": {
+        "semantic_retries": 0,
+        "elapsed_seconds": 55.99646712496178
+      },
+      "judgments": []
+    }
+  }
+}

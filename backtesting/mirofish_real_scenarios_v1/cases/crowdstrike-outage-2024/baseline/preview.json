@@ -1,0 +1,61 @@
+{
+  "actor_selection": {
+    "mode": "auto",
+    "recommended_count": 4,
+    "applied_limit": 4,
+    "detected_stakeholder_type_count": 1,
+    "configured_count": 4,
+    "matched_event_profiles": [],
+    "selection_strategy": "literal_mentions_plus_event_structure_v2",
+    "rationale": "从证据与研究问题中识别出 1 类显式利益相关方，并命中 0 类事件结构，按 4/6/8/10 分档建议最多 4 个核心参与方"
+  },
+  "actors": [
+    {
+      "id": "actor_issuer",
+      "label": "事件主体",
+      "kind": "issuer",
+      "selection_reason": "事件研究主体：始终纳入推演",
+      "focus": "维持经营与融资能力，控制事件对客户和业务的影响",
+      "constraints": [
+        "只能使用分析截止时间前可观察的信息",
+        "行动受现金、执行能力和已披露承诺约束，不假定有无限资源"
+      ]
+    },
+    {
+      "id": "actor_customers",
+      "label": "客户",
+      "kind": "customer",
+      "selection_reason": "证据或研究问题命中：客户",
+      "focus": "保障产品或服务连续性，权衡成本和替代方案",
+      "constraints": [
+        "只能使用分析截止时间前可观察的信息",
+        "考虑合同、转换成本和替代供给，不假定需求可以即时转移"
+      ]
+    },
+    {
+      "id": "actor_regulator",
+      "label": "监管机构",
+      "kind": "regulator",
+      "selection_reason": "基础制衡角色：评估合规、审批与执法响应",
+      "focus": "核实风险并评估调查、审批或补救措施",
+      "constraints": [
+        "只能使用分析截止时间前可观察的信息",
+        "只能在自身权限和程序内行动，不预设审批结果或时间表"
+      ]
+    },
+    {
+      "id": "actor_institutions",
+      "label": "机构投资者",
+      "kind": "institutional_investor",
+      "selection_reason": "基础市场角色：评估资本配置与风险敞口",
+      "focus": "权衡风险敞口、流动性和资本配置",
+      "constraints": [
+        "只能使用分析截止时间前可观察的信息",
+        "受投资授权和流动性约束，不假定能够无限增持或立即退出"
+      ]
+    }
+  ],
+  "evidence_count": 5,
+  "notices": [],
+  "as_of": "2024-07-20T23:59:59+00:00"
+}

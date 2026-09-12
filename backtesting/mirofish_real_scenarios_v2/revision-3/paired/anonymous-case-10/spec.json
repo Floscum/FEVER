@@ -1,0 +1,364 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_sovereign_deadline_010",
+  "title": "匿名案例：主权融资授权临近耗尽",
+  "as_of": "2018-05-22T17:00:00-04:00",
+  "question": "国家、政党、官员、年份与市场代码均已匿名化。只使用D0已公开的信息，推演立法者、行政部门、财政机关、金融机构和投资者如何应对主权融资授权即将耗尽。",
+  "horizon": {
+    "kind": "calendar_days",
+    "value": 35,
+    "end_at": "2018-06-26T17:00:00-04:00"
+  },
+  "market": {
+    "region": "BLIND_DEVELOPED_MARKET",
+    "venues": [
+      "BLIND_SOVEREIGN_MONEY_MARKET"
+    ],
+    "instruments": [
+      {
+        "symbol": "ASSET_J",
+        "name": "匿名一月期主权基准利率",
+        "kind": "bond",
+        "currency": "USD"
+      }
+    ]
+  },
+  "facts": [
+    {
+      "id": "F1",
+      "observed_at": "2018-01-19T12:00:00-05:00",
+      "statement": "该国法定债务上限已经触及，财政机关开始使用暂停部分政府基金投资等非常规措施，以继续履行既有付款义务。",
+      "source_kind": "official",
+      "source_url": "https://benchmark.invalid/blind-sovereign-deadline-010/F1",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F2",
+      "observed_at": "2018-05-22T09:00:00-04:00",
+      "statement": "财政机关表示，如果立法机关不提高或暂停债务上限，最早可能在约十日后无法继续满足全部政府义务；具体耗尽日期仍具有现金流预测不确定性。",
+      "source_kind": "official",
+      "source_url": "https://benchmark.invalid/blind-sovereign-deadline-010/F2",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F3",
+      "observed_at": "2018-05-22T09:05:00-04:00",
+      "statement": "财政机关指出，临近预计耗尽窗口到期的短期国债融资成本已经明显上升，继续拖延可能损害信用评级、企业信心和市场秩序。",
+      "source_kind": "official",
+      "source_url": "https://benchmark.invalid/blind-sovereign-deadline-010/F3",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F4",
+      "observed_at": "2018-05-22T16:00:00-04:00",
+      "statement": "行政部门与控制立法机关一院的反对党仍在谈判支出条件；任何方案都需要在两院通过并由行政首脑签署，D0尚无已通过的法案。",
+      "source_kind": "news",
+      "source_url": "https://benchmark.invalid/blind-sovereign-deadline-010/F4",
+      "evidence_ref": null,
+      "confidence": 0.95
+    }
+  ],
+  "actors": [
+    {
+      "id": "actor_executive",
+      "label": "匿名行政部门",
+      "kind": "government",
+      "aggregation": "organization",
+      "goals": [
+        "避免主权违约",
+        "保留核心财政政策",
+        "达成可签署方案"
+      ],
+      "constraints": [
+        "必须取得分裂立法机关的足够票数"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "会持续进行高层谈判"
+      ]
+    },
+    {
+      "id": "actor_lower_chamber",
+      "label": "立法机关下院多数派",
+      "kind": "government",
+      "aggregation": "cohort",
+      "goals": [
+        "用融资授权换取支出约束",
+        "维持党团支持",
+        "避免承担违约责任"
+      ],
+      "constraints": [
+        "内部温和派与强硬派偏好不同"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_upper_chamber",
+      "label": "立法机关上院关键议员",
+      "kind": "government",
+      "aggregation": "cohort",
+      "goals": [
+        "形成跨阵营通过票数",
+        "避免支付中断"
+      ],
+      "constraints": [
+        "程序和修正案会压缩截止日前时间"
+      ],
+      "observable_fact_ids": [
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_fiscal_authority",
+      "label": "匿名财政机关",
+      "kind": "government",
+      "aggregation": "organization",
+      "goals": [
+        "按时支付全部义务",
+        "维持国债市场秩序",
+        "准确沟通现金耗尽风险"
+      ],
+      "constraints": [
+        "不能在法定上限外正常净借款",
+        "现金流日期不确定"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": [
+        "不会把债务优先级安排描述为无风险替代方案"
+      ]
+    },
+    {
+      "id": "actor_dealers",
+      "label": "主权债券交易商与货币基金",
+      "kind": "institutional_investor",
+      "aggregation": "cohort",
+      "goals": [
+        "管理临近截止日证券的支付风险",
+        "维持流动性",
+        "控制赎回压力"
+      ],
+      "constraints": [
+        "短期限市场对新的谈判消息高度敏感"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "会调整不同到期日的相对定价"
+      ]
+    },
+    {
+      "id": "actor_rating",
+      "label": "主权信用评级与研究机构",
+      "kind": "analyst",
+      "aggregation": "cohort",
+      "goals": [
+        "评估支付能力与治理风险",
+        "及时更新风险意见"
+      ],
+      "constraints": [
+        "政治协议与实际付款时间均不确定"
+      ],
+      "observable_fact_ids": [
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_investors",
+      "label": "全球机构投资者",
+      "kind": "foreign_investor",
+      "aggregation": "cohort",
+      "goals": [
+        "保护流动性与本金",
+        "判断谈判尾部风险",
+        "配置安全资产"
+      ],
+      "constraints": [
+        "缺乏对闭门谈判的直接信息"
+      ],
+      "observable_fact_ids": [
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_media",
+      "label": "财经与政治媒体",
+      "kind": "media",
+      "aggregation": "cohort",
+      "goals": [
+        "跟踪谈判、票数和截止日",
+        "解释违约与政府停摆的差别"
+      ],
+      "constraints": [
+        "谈判表态可能是策略性信息"
+      ],
+      "observable_fact_ids": [
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    }
+  ],
+  "relationships": [
+    {
+      "source_actor_id": "actor_executive",
+      "target_actor_id": "actor_lower_chamber",
+      "kind": "negotiates_fiscal_terms_with",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_lower_chamber",
+      "target_actor_id": "actor_upper_chamber",
+      "kind": "transmits_authorizing_legislation_to",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_fiscal_authority",
+      "target_actor_id": "actor_dealers",
+      "kind": "issues_and_services_securities_held_by",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_rating",
+      "target_actor_id": "actor_investors",
+      "kind": "shapes_credit_risk_assessment_of",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_media",
+      "target_actor_id": "actor_investors",
+      "kind": "transmits_negotiation_signals_to",
+      "visibility": "assumed"
+    }
+  ],
+  "allowed_actions": [
+    {
+      "type": "COMMUNICATE",
+      "description": "发布截止日、谈判、支付风险、评级或市场观点。",
+      "visibility": "public"
+    },
+    {
+      "type": "REGULATE",
+      "description": "通过、修改、否决或签署融资授权和相关财政条件。",
+      "visibility": "public"
+    },
+    {
+      "type": "OPERATE",
+      "description": "执行非常规现金管理、调整发行安排或准备付款应急方案。",
+      "visibility": "either"
+    },
+    {
+      "type": "ALLOCATE",
+      "description": "调整不同期限主权证券、现金和避险资产配置。",
+      "visibility": "private"
+    },
+    {
+      "type": "NEGOTIATE",
+      "description": "协商债务上限、期限、支出约束和投票安排。",
+      "visibility": "either"
+    },
+    {
+      "type": "WAIT",
+      "description": "等待谈判文本、票数确认或更新后的现金流估计。",
+      "visibility": "either"
+    }
+  ],
+  "interventions": [
+    {
+      "id": "I0_DEBT_DEADLINE",
+      "at_round": 0,
+      "fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "visibility": "public"
+    }
+  ],
+  "forecast_targets": [
+    {
+      "id": "T1",
+      "kind": "market",
+      "definition": "D1观测值相对D0的一月期主权基准利率方向。",
+      "horizon": "next_market_observation",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T2",
+      "kind": "market",
+      "definition": "第5个后续市场观测值相对D0的一月期主权基准利率方向。",
+      "horizon": "5_market_observations",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T3",
+      "kind": "market",
+      "definition": "第20个后续市场观测值相对D0的一月期主权基准利率方向。",
+      "horizon": "20_market_observations",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T4",
+      "kind": "event",
+      "definition": "立法机关是否在15个自然日内通过且行政首脑签署提高或暂停债务上限的法律。",
+      "horizon": "15_calendar_days",
+      "scoring": "brier"
+    },
+    {
+      "id": "T5",
+      "kind": "event",
+      "definition": "财政机关是否在15个自然日内未能按期支付任何市场化主权债券的本金或利息。",
+      "horizon": "15_calendar_days",
+      "scoring": "brier"
+    }
+  ],
+  "run_config": {
+    "rounds": 12,
+    "replications": 20,
+    "seed_strategy": "deterministic_sequence",
+    "layers": [
+      "information",
+      "behavior"
+    ]
+  },
+  "provenance": {
+    "created_by": "FEVER-MiroFish blind benchmark",
+    "source_graph_artifact_id": null,
+    "notes": [
+      "真实国家、官员、政党、年份、法案名称、利率代码和来源链接已从模型可见输入中移除。",
+      "真实映射和结果只保存在独立outcome文件，禁止进入任何预测、模拟或信号提示。"
+    ]
+  }
+}

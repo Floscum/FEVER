@@ -1,0 +1,1032 @@
+{
+  "anonymous_case_id": "anonymous-case-21",
+  "configured_actor_count": 8,
+  "decision_actor_count": 8,
+  "fact_count": 4,
+  "fact_chars": 263,
+  "input": {
+    "case_id": "anonymous-case-21",
+    "as_of": "D0",
+    "question": "司法辖区、年份、法规、企业、产品和市场代码均已匿名化。只使用D0已公开的信息，推演监管机构、移动生态平台、应用开发者、替代分发渠道、消费者、竞争者和投资者如何应对新的平台行为规则调查。",
+    "horizon": {
+      "kind": "calendar_days",
+      "value": 180,
+      "end_at": "D0 + stated horizon"
+    },
+    "facts": [
+      {
+        "id": "F1",
+        "statement": "一个跨国监管机构依据刚开始全面适用的平台行为法规，对数家被指定为关键入口的平台企业启动不合规程序。匿名企业涉及应用商店引导规则和浏览器选择设计。"
+      },
+      {
+        "id": "F2",
+        "statement": "法规要求关键平台允许应用开发者免费告知消费者平台外的替代优惠并引导其完成购买。监管者怀疑匿名企业现有措施没有带来有效合规。"
+      },
+      {
+        "id": "F3",
+        "statement": "监管者同时收集匿名企业对替代应用商店、网页分发、新费用结构和其他合同条款的资料，但这些额外步骤在D0尚不是最终违规认定。"
+      },
+      {
+        "id": "F4",
+        "statement": "监管者计划在十二个月内完成程序；若最终认定违规，最高罚款可与企业全球营业额挂钩。D0没有初步违规意见、最终决定或罚款。匿名企业股票正常收盘。"
+      }
+    ],
+    "actors": [
+      {
+        "id": "actor_regulator",
+        "label": "跨国数字市场监管机构",
+        "kind": "regulator",
+        "goals": [
+          "验证平台措施是否实现有效合规",
+          "提高数字市场可竞争性",
+          "形成可执行的补救要求"
+        ],
+        "constraints": [
+          "必须经过调查、初步意见和企业答辩程序"
+        ]
+      },
+      {
+        "id": "actor_platform",
+        "label": "匿名移动生态平台运营商",
+        "kind": "issuer",
+        "goals": [
+          "维持生态安全和商业模式",
+          "降低罚款与强制整改风险",
+          "保留对应用分发和支付的控制"
+        ],
+        "constraints": [
+          "必须在新法规下证明措施有效而不只是形式合规"
+        ]
+      },
+      {
+        "id": "actor_developers",
+        "label": "应用开发者与数字内容企业",
+        "kind": "supplier",
+        "goals": [
+          "自由告知用户更便宜的购买渠道",
+          "降低分发费用和合同不确定性",
+          "扩大直接客户关系"
+        ],
+        "constraints": [
+          "仍依赖平台触达大量移动用户"
+        ]
+      },
+      {
+        "id": "actor_alt_stores",
+        "label": "替代应用商店与网页分发服务",
+        "kind": "competitor",
+        "goals": [
+          "获得可持续的平台接入",
+          "吸引开发者和用户",
+          "建立可信安全与支付能力"
+        ],
+        "constraints": [
+          "新费用、资格和技术审核可能削弱商业可行性"
+        ]
+      },
+      {
+        "id": "actor_consumers",
+        "label": "移动设备消费者",
+        "kind": "customer",
+        "goals": [
+          "获得价格选择和安全便利",
+          "避免复杂安装与支付风险"
+        ],
+        "constraints": [
+          "难以评估替代渠道的安全和总成本"
+        ]
+      },
+      {
+        "id": "actor_rival_platforms",
+        "label": "其他关键数字平台",
+        "kind": "competitor",
+        "goals": [
+          "降低自身合规风险",
+          "比较不同整改路径的成本",
+          "争取开发者与监管信任"
+        ],
+        "constraints": [
+          "同期也可能处于监管程序中"
+        ]
+      },
+      {
+        "id": "actor_member_authorities",
+        "label": "成员经济体的市场与消费者机关",
+        "kind": "government",
+        "goals": [
+          "协调执行新的平台规则",
+          "保护本地企业与消费者",
+          "避免监管冲突"
+        ],
+        "constraints": [
+          "主要调查权集中于跨国监管机构"
+        ]
+      },
+      {
+        "id": "actor_investors",
+        "label": "大型科技与事件驱动投资者",
+        "kind": "institutional_investor",
+        "goals": [
+          "估计整改、罚款和利润率风险",
+          "区分短期标题冲击与长期商业模式变化"
+        ],
+        "constraints": [
+          "调查可能持续数月且补救范围不确定"
+        ]
+      }
+    ],
+    "financial_decisions": [
+      {
+        "id": "decision-actor_regulator-r3",
+        "round": 3,
+        "actor_id": "actor_regulator",
+        "action_type": "COMMUNICATE",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": 0.7,
+        "instrument_refs": [],
+        "rationale": "作为监管机构，在程序启动初期（D0后不久）且尚未形成初步意见的阶段，最优先的动作是向所有市场参与者（消费者、开发者、替代平台）传递一致的监管意涵，明确正在进行的调查范围、法规要求和程序时间表。这有助于稳定市场预期、收集合规证据，并为后续正式程序奠定基础。当前尚处于信息收集和初步评估阶段，距离初步意见和最终决定仍有十二个月窗口，不宜过早采取监管强制动作。F1明确已启动不合规程序，F2显示怀疑现有措施未有效合规，F3说明正在收集额外资料——这些事实支持对外沟通以推动信息回流的必要性，而非立即监管干预。",
+        "constraint_refs": [
+          "actor_regulator:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "public",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_platform-r3",
+        "round": 3,
+        "actor_id": "actor_platform",
+        "action_type": "OPERATE",
+        "decision_status": "intended",
+        "direction": "maintain",
+        "intensity": 0.7,
+        "instrument_refs": [],
+        "rationale": "监管程序刚启动，D0尚无初步违规意见。必须在十二个月内证明现有措施有效而非仅形式合规。立即启动内部合规措施升级：重新设计应用商店引导规则和浏览器选择界面，确保开发者能实质性地免费告知用户平台外替代优惠，同时保留对分发和支付的控制架构。主动与监管机构沟通合规进展，建立可验证的透明度机制。这是降低罚款与强制整改风险、同时维持商业模式的关键窗口期。",
+        "constraint_refs": [
+          "actor_platform:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_developers-r3",
+        "round": 3,
+        "actor_id": "actor_developers",
+        "action_type": "OPERATE",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.6,
+        "instrument_refs": [],
+        "rationale": "作为应用开发者与数字内容企业，监管启动不合规程序是关键机遇窗口。F2明确法规已赋予我们免费告知消费者替代优惠的权利，而监管怀疑匿名企业未有效合规。当前最佳行动是主动准备替代分发渠道的对接方案（如网页分发、替代应用商店），以便在合规路线明确后第一时间引导用户至更便宜渠道，降低分发费用并扩大直接客户关系。但F1表明程序刚启动且F3收集资料尚未形成最终认定，透明操作以避免与主平台直接对抗仍是审慎选择。",
+        "constraint_refs": [
+          "actor_developers:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "public",
+        "confidence": 0.75,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_alt_stores-r3",
+        "round": 3,
+        "actor_id": "actor_alt_stores",
+        "action_type": "OPERATE",
+        "decision_status": "conditional",
+        "direction": "increase",
+        "intensity": 0.7,
+        "instrument_refs": [],
+        "rationale": "监管机构已启动不合规程序（F1），要求关键平台允许开发者免费告知消费者替代优惠（F2），这为替代分发渠道创造了结构性机会。我将主动推进平台接入准备工作，吸引观望中的开发者和用户。具体动作包括：优化安全审核流程和支付系统以建立可信度，同时与开发者社区沟通费用透明度和技术接入方案，抓住监管窗口期扩大市场份额。但需密切监控匿名平台可能出台的新费用或资格门槛（约束），因此采取有条件的积极推进策略。",
+        "constraint_refs": [
+          "actor_alt_stores:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_consumers-r3",
+        "round": 3,
+        "actor_id": "actor_consumers",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "作为移动设备消费者，我既希望获得更多价格选择和便利，又担忧替代渠道的安全性和支付风险。当前监管程序刚刚启动（F1），合规结果和替代渠道的安全标准都尚未明确（F2、F3）。我难以评估替代渠道的安全和总成本（约束），因此最谨慎的做法是等待监管程序有进一步结果，看清哪些替代渠道真正安全可靠、能避免复杂安装和支付风险，再做出消费选择。",
+        "constraint_refs": [
+          "actor_consumers:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_rival_platforms-r3",
+        "round": 3,
+        "actor_id": "actor_rival_platforms",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.6,
+        "instrument_refs": [],
+        "rationale": "作为其他关键数字平台，我方同期也可能处于监管程序中。当前跨国监管机构已对匿名企业启动不合规程序，但D0阶段尚无初步违规意见或最终决定。我方需要密切观察程序进展，以评估不同整改路径的成本与效果：若匿名企业的现有措施被认定无效，监管者将明确合规边界，我方可直接参考；若其措施被局部认可，我方也能避免过早投入不确定的高成本整改。此外，等待期间我方可以合规审计取代公开调整，降低自身被监管盯上的概率，同时在开发者群体中通过已有沟通保持存在感，而不冒进做出可能引起监管注意的公开动作。主要不确定性在于十二个月内监管结论的时间表和具体合规标准。",
+        "constraint_refs": [
+          "actor_rival_platforms:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_member_authorities-r3",
+        "round": 3,
+        "actor_id": "actor_member_authorities",
+        "action_type": "COMMUNICATE",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": null,
+        "instrument_refs": [],
+        "rationale": "作为成员经济体的市场与消费者机关，我的核心任务是协调新平台规则的执行，同时保护本地企业与消费者。目前跨国监管机构已启动不合规程序（F1），但调查尚在早期——没有初步违规意见或最终决定（F4）。主要调查权集中在跨国机构，我直接采取监管行动可能越权且造成监管冲突。最合适的动作是进行公开沟通表态：一方面明确支持跨国监管推进合规，以保护本地开发者获取平等引导权（F2）；另一方面表达对消费者安全和替代渠道可靠性（F3）的关注，提醒各方平衡开放与保护。这种沟通既展示参与、服务于协调目标，又避免越权干预调查进程。",
+        "constraint_refs": [
+          "actor_member_authorities:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "public",
+        "confidence": 0.95,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_investors-r3",
+        "round": 3,
+        "actor_id": "actor_investors",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "maintain",
+        "intensity": 0.0,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "监管程序刚启动，D0无初步违规意见或罚款，股票正常收盘，尚无法区分短期标题冲击与长期商业模式变化。调查可能持续十二个月，补救范围不确定，需等待监管机构进一步证据收集和初步意见，以评估整改成本、罚款基数及对应用商店佣金模式的实质性影响。当前最合理动作为按兵不动，不调整仓位。",
+        "constraint_refs": [
+          "actor_investors:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      }
+    ],
+    "simulated_actions": [
+      {
+        "id": "trace-17",
+        "actor_id": "actor_member_authorities",
+        "action_type": "COMMUNICATE",
+        "summary": "作为本地市场监管与消费者保护机关，我们支持跨国监管机构依据新平台行为法规推进合规程序。我们关注的重点是：第一，确保本地开发者和中小企业的合法权益在平台开放过程中得到保障；第二，维护消费者在替代分发渠道中的知情权和选择安全。我们将在职权范围内提供本地市场数据支持调查，同时避免与跨国监管形成重叠冲突。期待最终合规方案能平衡竞争开放与消费者保护。"
+      },
+      {
+        "id": "trace-23",
+        "actor_id": "actor_regulator",
+        "action_type": "COMMUNICATE",
+        "summary": "作为监管机构，我们已收到开发者的关切。我们正在收集替代应用商店、网页分发和新费用结构的相关资料。请开发者继续提供实际合规障碍的证据，这有助于我们形成客观的初步意见。"
+      },
+      {
+        "id": "trace-24",
+        "actor_id": "actor_regulator",
+        "action_type": "COMMUNICATE",
+        "summary": "消费者权益是我们的核心考量。我们注意到您对替代分发渠道安全性和支付风险的担忧。法规目标正是在开放选择与保障安全之间取得平衡。调查结果将确保消费者获得清晰、可靠的交易信息。"
+      },
+      {
+        "id": "trace-25",
+        "actor_id": "actor_regulator",
+        "action_type": "COMMUNICATE",
+        "summary": "替代分发渠道的合规接入是我们审查的一部分。请在程序窗口内主动提交技术接入和支付安全标准的相关资料。我们的目标是提高数字市场可竞争性，同时维护全链条的安全标准。"
+      },
+      {
+        "id": "trace-29",
+        "actor_id": "actor_alt_stores",
+        "action_type": "COMMUNICATE",
+        "summary": "同感。我们作为替代分发渠道，确实看到监管带来的窗口期。关键在于我们要主动对接安全标准和支付合规，这样才能真正抓住机会，避免成为下一个监管目标。建议我们可以交流一下技术接入方案，共同建立可信标准。"
+      },
+      {
+        "id": "trace-30",
+        "actor_id": "actor_alt_stores",
+        "action_type": "COMMUNICATE",
+        "summary": "作为替代分发渠道的一员，我们非常欢迎开发者使用我们的平台。我们会提供透明的费用结构和安全的分发环境，确保你们能真正享受到监管带来的开放红利。有兴趣的开发者可以联系我们了解详情。"
+      },
+      {
+        "id": "trace-31",
+        "actor_id": "actor_alt_stores",
+        "action_type": "COMMUNICATE",
+        "summary": "关于安全性问题，我们非常理解您的担忧。作为替代应用商店，我们在安全审核和支付保护方面投入了大量资源，建立了严格的应用审核机制和用户保障体系。欢迎了解更多信息，我们将持续提升可信度。"
+      },
+      {
+        "id": "trace-39",
+        "actor_id": "actor_rival_platforms",
+        "action_type": "COMMUNICATE",
+        "summary": "作为数字平台的同行，我们认同开发者对公平竞争环境的期待。我们注意到监管程序正在推进中，关键是要确保实际整改措施能够真正降低开发者的分发成本，而不是仅仅停留在表面合规。我们已在内部评估自身平台的引导规则，确保符合新的法规精神。欢迎开发者与我们直接沟通合作可能性。"
+      },
+      {
+        "id": "trace-40",
+        "actor_id": "actor_rival_platforms",
+        "action_type": "COMMUNICATE",
+        "summary": "作为同类平台，我们也在密切关注监管走向。确实，窗口期已经打开，但关键在于我们能否共同建立行业认可的合规标准和安全准则。建议我们替代分发渠道可以探讨统一的技术接入规范，这样既能抓住机会，也能降低集体合规风险。有兴趣可以进一步交流。"
+      },
+      {
+        "id": "trace-47",
+        "actor_id": "actor_consumers",
+        "action_type": "COMMUNICATE",
+        "summary": "作为同样关注移动设备消费的用户，我非常赞同你的看法。我希望能有更多价格选择，但最担心的还是替代渠道的安全性和支付风险。尤其是安装过程如果太复杂，或者支付信息泄露，那就得不偿失了。希望监管推动开放的同时，也能建立清晰可靠的安全标准，让我们消费者真正放心选择。"
+      },
+      {
+        "id": "trace-50",
+        "actor_id": "actor_developers",
+        "action_type": "COMMUNICATE",
+        "summary": "作为应用开发者，我完全认同监管方向。长期以来我们被迫接受高额分发费用和不透明的合同条款，现在终于有机会直接告知用户更便宜的购买渠道。希望监管机构能真正打破平台的技术限制，让替代分发渠道成为可行选择。我会持续关注合规进展并提供一手的实际障碍证据。"
+      },
+      {
+        "id": "trace-51",
+        "actor_id": "actor_developers",
+        "action_type": "COMMUNICATE",
+        "summary": "作为开发者，我对替代分发渠道很感兴趣。降低分发费用是我们的核心诉求，如果您们能提供透明的费用结构和安全的分发环境，我愿意尝试接入。能否提供更多技术对接细节？"
+      }
+    ],
+    "branch_slots": [
+      {
+        "slot_id": "slot-1",
+        "actor_ids": [
+          "actor_regulator",
+          "actor_platform"
+        ],
+        "relationship_kind": "investigates_compliance_of",
+        "decision_refs": [
+          "decision-actor_regulator-r3",
+          "decision-actor_platform-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-2",
+        "actor_ids": [
+          "actor_member_authorities",
+          "actor_alt_stores"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_member_authorities-r3",
+          "decision-actor_alt_stores-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-3",
+        "actor_ids": [
+          "actor_developers",
+          "actor_rival_platforms"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_developers-r3",
+          "decision-actor_rival_platforms-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-4",
+        "actor_ids": [
+          "actor_consumers",
+          "actor_investors"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_consumers-r3",
+          "decision-actor_investors-r3"
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "v7": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "合规审计与透明度升级",
+          "summary": "如果监管机构在调查初期公布更详细的合规要求时间表，平台可能主动提前进行引导界面和浏览器选择设计的实质性修改，并在修改后邀请监管审计以降低罚款风险。这会影响应用开发者与合作者的准备节奏。",
+          "actor_ids": [
+            "actor_regulator",
+            "actor_platform"
+          ],
+          "trigger_conditions": [
+            "D0后30天内，监管机构正式公布不合规程序的时间节点和具体要求",
+            "平台在D0后60天内公布界面设计修改计划，并承诺开放第三方审计"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_regulator",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_regulator-r3"
+            },
+            {
+              "actor_id": "actor_platform",
+              "action_type": "OPERATE",
+              "decision_ref": "decision-actor_platform-r3"
+            }
+          ],
+          "consequences": [
+            "平台可能在90天内完成界面调整，并提交监管机构合规性验证，从而降低后续罚款概率",
+            "应用开发者和替代分发渠道将更快获得可行化的替代分发入口，但开发者的引导利用策略仍受限于平台的技术限制"
+          ],
+          "invalidation_conditions": [
+            "监管机构在第一轮沟通中不公布时间节点，仅以一般性声明推进",
+            "平台在D0后90天内未公布实质修改计划，或修改仅限于表面合规"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_regulator-r3",
+            "decision-actor_platform-r3"
+          ],
+          "novelty_claim": "该分支预测监管启动的初期程序透明度会触发平台的提前主动合规修改，这种修改会实质影响开发者和替代渠道的实际行动可行性，而不仅仅是事实复述监管启动程序。",
+          "confidence": 0.6,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-2",
+          "label": "地方当局协调与替代渠道对接",
+          "summary": "如果本地市场监管机关响应跨国机构的沟通，主动提供本地市场数据和合规建议，替代应用商店可能联合开发者制定行业安全标准并提交给监管机构，从而提前获得合规接入认可。",
+          "actor_ids": [
+            "actor_member_authorities",
+            "actor_alt_stores"
+          ],
+          "trigger_conditions": [
+            "D0后60天内，成员经济体的市场监管机关公开声明将向跨国监管提供本地市场合规数据",
+            "替代应用商店在D0后90天内联合发布一套安全与支付技术接入标准"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_member_authorities",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_member_authorities-r3"
+            },
+            {
+              "actor_id": "actor_alt_stores",
+              "action_type": "OPERATE",
+              "decision_ref": "decision-actor_alt_stores-r3"
+            }
+          ],
+          "consequences": [
+            "替代分发渠道可能被监管机构视为合规接入的优先候选者，加速其用户采纳",
+            "消费者将更快获得更具安全保证的替代分发选项，从而降低等待观望的被动性"
+          ],
+          "invalidation_conditions": [
+            "市场监管机关未在60天内做出明确配合声明，或仅以书面形式回应但没有实质支持",
+            "替代分发渠道未能在90天内达成联合标准，或者标准被主要开发者拒绝"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_member_authorities-r3",
+            "decision-actor_alt_stores-r3"
+          ],
+          "novelty_claim": "该分支追踪地方监管行动如何催化替代分发渠道的集体自组织，进而影响消费者可获得的选择，这是事实中未明确的多主体传导。",
+          "confidence": 0.5,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-3",
+          "label": "开发者集体谈判平台并行窗口",
+          "summary": "如果应用开发者公开向平台和监管机构提交合规障碍证据，同时向竞争对手平台表示愿意测试替代分发，竞争平台可能主动向开发者开放更低的费用和引导规则，以吸引关键开发者。",
+          "actor_ids": [
+            "actor_developers",
+            "actor_rival_platforms"
+          ],
+          "trigger_conditions": [
+            "D0后90天内，应用开发者联盟向监管机构提交正式证据列表，列举平台设计阻碍",
+            "同样时间内，有竞争对手平台公开宣布向开发者提供更低费率和更宽松的引导政策"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_developers",
+              "action_type": "OPERATE",
+              "decision_ref": "decision-actor_developers-r3"
+            },
+            {
+              "actor_id": "actor_rival_platforms",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_rival_platforms-r3"
+            }
+          ],
+          "consequences": [
+            "关键应用开发者将在不同平台间评估成本差异，并可能将分发重心转移至愿意提供更优条件的竞争平台",
+            "消费者将看到更多应用以更低价格出现在替代分发渠道中，但安全评估责任可能移交给消费者"
+          ],
+          "invalidation_conditions": [
+            "应用开发者尚未在90天内形成正式提交证据的行为，或证据被监管机构视为不充分",
+            "没有竞争平台在90天内调整政策和费用结构，或者调整被开发者视为象征性"
+          ],
+          "evidence_refs": [
+            "F2",
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_developers-r3",
+            "decision-actor_rival_platforms-r3"
+          ],
+          "novelty_claim": "该分支连接了开发者公开行动与竞争对手平台的策略调整，创造出双重影响传导，超出事实中单个角色按兵不动的状态。",
+          "confidence": 0.55,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-4",
+          "label": "消费者观望与投资者定价调整",
+          "summary": "如果调查进展中多次出现监管与平台立场冲突的公开报道，消费者可能延长观望期推迟替代渠道使用，同时投资者可能开始对平台估值进行负面调整。但若平台迅速与监管达成一致，消费者信心与投资者预期将逆转。",
+          "actor_ids": [
+            "actor_consumers",
+            "actor_investors"
+          ],
+          "trigger_conditions": [
+            "D0后120天内，至少出现两起监管机构公开批评平台合规措施不充分的事件",
+            "平台在D0后150天内仍未与监管达成临时合规共识"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_consumers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_consumers-r3"
+            },
+            {
+              "actor_id": "actor_investors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_investors-r3"
+            }
+          ],
+          "consequences": [
+            "消费者将在150天后仍主要留在主平台，对替代渠道使用率低于5%",
+            "投资者可能调降目标标的的估值区间，基于罚款风险和整改成本上升的预期",
+            "若平台在150天前达成临时共识，消费者采用替代渠道的意愿将显著回升，投资者预期可能恢复稳定"
+          ],
+          "invalidation_conditions": [
+            "监管机构与平台在90天内即达成明确合规路线图和整改承诺，没有任何公开冲突",
+            "消费者在市场调查中显示对替代渠道的高信任度，忽略监管冲突的媒体报道"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_consumers-r3",
+            "decision-actor_investors-r3"
+          ],
+          "novelty_claim": "该分支将消费者行为与投资者定价决策关联于同一冲突信号，描绘出监管冲突的频度如何共同塑造两类参与者的行动轨迹，超出了一般等待的静态描述。",
+          "confidence": 0.5,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        }
+      ],
+      "generation": {
+        "semantic_retries": 1,
+        "elapsed_seconds": 128.6249395830091
+      },
+      "judgments": []
+    },
+    "v8": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "监管机构发布初步意见与平台实质性整改",
+          "summary": "若监管机构在D0+60天内发布初步违规意见（SO），认定平台现有措施不符合法规有效合规要求，则平台可能放弃形式合规转向实质性整改。",
+          "actor_ids": [
+            "actor_regulator",
+            "actor_platform"
+          ],
+          "trigger_conditions": [
+            "监管机构发布关于平台合规措施的初步意见（SO），指出具体设计缺陷。"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_regulator",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_regulator-r3"
+            },
+            {
+              "actor_id": "actor_platform",
+              "action_type": "OPERATE",
+              "decision_ref": "decision-actor_platform-r3"
+            }
+          ],
+          "consequences": [
+            "开发者将开始测试新的用户引导流程，并评估实际告知效果",
+            "替代分发渠道可能看到即将到来的流量增长前景，提前进行技术适配",
+            "投资者将初步区分合规罚款风险与商业模式长期变动风险"
+          ],
+          "invalidation_conditions": [
+            "监管机构发布初步意见后，平台通过公开声明或技术白皮书展示其引导规则已通过独立合规审计，且审计机构认可其满足法规要求。"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_regulator-r3",
+            "decision-actor_platform-r3"
+          ],
+          "novelty_claim": "多数推演关注调查结果本身，而本分支揭示监管程序提速（提前发布初步意见）如何改变平台从形式合规转向实质性整改的时机与程度，从而影响其他参与者的预期和行动窗口。",
+          "confidence": 0.5,
+          "confidence_semantics": "branch_coherence_not_forecast_probability",
+          "starting_decisions": [
+            {
+              "actor_id": "actor_regulator",
+              "action_type": "COMMUNICATE",
+              "decision_status": "intended",
+              "rationale": "作为监管机构，在程序启动初期（D0后不久）且尚未形成初步意见的阶段，最优先的动作是向所有市场参与者（消费者、开发者、替代平台）传递一致的监管意涵，明确正在进行的调查范围、法规要求和程序时间表。这有助于稳定市场预期、收集合规证据，并为后续正式程序奠定基础。当前尚处于信息收集和初步评估阶段，距离初步意见和最终决定仍有十二个月窗口，不宜过早采取监管强制动作。F1明确已启动不合规程序，F2显示怀疑现有措施未有效合规，F3说明正在收集额外资料——这些事实支持对外沟通以推动信息回流的必要性，而非立即监管干预。",
+              "decision_ref": "decision-actor_regulator-r3"
+            },
+            {
+              "actor_id": "actor_platform",
+              "action_type": "OPERATE",
+              "decision_status": "intended",
+              "rationale": "监管程序刚启动，D0尚无初步违规意见。必须在十二个月内证明现有措施有效而非仅形式合规。立即启动内部合规措施升级：重新设计应用商店引导规则和浏览器选择界面，确保开发者能实质性地免费告知用户平台外替代优惠，同时保留对分发和支付的控制架构。主动与监管机构沟通合规进展，建立可验证的透明度机制。这是降低罚款与强制整改风险、同时维持商业模式的关键窗口期。",
+              "decision_ref": "decision-actor_platform-r3"
+            }
+          ],
+          "conditional_responses": [
+            {
+              "actor_id": "actor_regulator",
+              "condition": "若在调查过程中收集到开发者提供的有力证据，证明开发者受平台技术限制实际上无法有效告知消费者替代优惠。",
+              "response": "我方将在初步意见中明确指出现有措施未实现有效合规，要求平台在限定时间内提出包含实质性整改措施的计划，包括修改应用商店引导规则和浏览器选择界面架构。"
+            },
+            {
+              "actor_id": "actor_platform",
+              "condition": "若监管机构发布了初步违规意见，明确认定我方现有合规措施无效，且列明了具体要求。",
+              "response": "我方将根据初步意见启动实质性整改，重新设计用户引导流程和默认浏览器选择机制，确保开发者能够免费且不受技术阻碍地告知消费者替代优惠，同时与我方现有商业模式兼容。"
+            }
+          ],
+          "response_semantics": "conditional_hypothesis_not_observed_action",
+          "observations": [
+            {
+              "kind": "trigger",
+              "signal": "监管机构发布关于平台合规措施的初步意见（SO），指出具体设计缺陷。",
+              "source": "监管机构官方公告或备案登记",
+              "window": "未来 180 个自然日",
+              "evidence_refs": [
+                "F1"
+              ]
+            },
+            {
+              "kind": "invalidation",
+              "signal": "监管机构发布初步意见后，平台通过公开声明或技术白皮书展示其引导规则已通过独立合规审计，且审计机构认可其满足法规要求。",
+              "source": "平台官方公告、审计报告摘要、消费者组织测试报告",
+              "window": "未来 180 个自然日",
+              "evidence_refs": [
+                "F2"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "成员机关主动提供新发现带动监管范围扩大",
+          "summary": "若成员经济体市场机关在合规检查中发现平台在本地市场的额外限制行为（如对替代支付系统的合同排斥），并将证据正式提交跨国监管，则监管程序可能扩大至涵盖新限制行为。",
+          "actor_ids": [
+            "actor_member_authorities",
+            "actor_alt_stores"
+          ],
+          "trigger_conditions": [
+            "某成员经济体市场机关发布声明或调查报告，指出平台在本地市场对应用的支付系统选择施加了超出国家层面已知范围的合同限制。"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_member_authorities",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_member_authorities-r3"
+            },
+            {
+              "actor_id": "actor_alt_stores",
+              "action_type": "OPERATE",
+              "decision_ref": "decision-actor_alt_stores-r3"
+            }
+          ],
+          "consequences": [
+            "替代分发渠道因有望扩大市场而增加投资于安全和合规建设",
+            "开发者将获得使用替代支付系统的更大空间，准备绕过平台支付",
+            "投资者将重新评估平台因多重合规调查而面临的综合成本风险"
+          ],
+          "invalidation_conditions": [
+            "平台主动在本地市场解除该支付系统限制并发布开发者公告，导致成员机关缺少可提交证据；或者监管机构在收到证据后声明该限制不在现有法规管辖范围内。"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F3",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_member_authorities-r3",
+            "decision-actor_alt_stores-r3"
+          ],
+          "novelty_claim": "本分支揭示地方监管机关主动发现并提交新证据可能如何催化监管程序扩大范围，超越了仅由国家层面调查推动的常规路径，改变替代渠道和开发者的战略窗口。",
+          "confidence": 0.45,
+          "confidence_semantics": "branch_coherence_not_forecast_probability",
+          "starting_decisions": [
+            {
+              "actor_id": "actor_member_authorities",
+              "action_type": "COMMUNICATE",
+              "decision_status": "intended",
+              "rationale": "作为成员经济体的市场与消费者机关，我的核心任务是协调新平台规则的执行，同时保护本地企业与消费者。目前跨国监管机构已启动不合规程序（F1），但调查尚在早期——没有初步违规意见或最终决定（F4）。主要调查权集中在跨国机构，我直接采取监管行动可能越权且造成监管冲突。最合适的动作是进行公开沟通表态：一方面明确支持跨国监管推进合规，以保护本地开发者获取平等引导权（F2）；另一方面表达对消费者安全和替代渠道可靠性（F3）的关注，提醒各方平衡开放与保护。这种沟通既展示参与、服务于协调目标，又避免越权干预调查进程。",
+              "decision_ref": "decision-actor_member_authorities-r3"
+            },
+            {
+              "actor_id": "actor_alt_stores",
+              "action_type": "OPERATE",
+              "decision_status": "conditional",
+              "rationale": "监管机构已启动不合规程序（F1），要求关键平台允许开发者免费告知消费者替代优惠（F2），这为替代分发渠道创造了结构性机会。我将主动推进平台接入准备工作，吸引观望中的开发者和用户。具体动作包括：优化安全审核流程和支付系统以建立可信度，同时与开发者社区沟通费用透明度和技术接入方案，抓住监管窗口期扩大市场份额。但需密切监控匿名平台可能出台的新费用或资格门槛（约束），因此采取有条件的积极推进策略。",
+              "decision_ref": "decision-actor_alt_stores-r3"
+            }
+          ],
+          "conditional_responses": [
+            {
+              "actor_id": "actor_member_authorities",
+              "condition": "若在本地监督中发现平台运营商在本地市场实施超出国家层面审查范围的合同限制，例如要求所有应用内支付必须使用平台自己的支付系统，且开发者无法使用第三方支付。",
+              "response": "我方将收集该等合同条款与相关案例的详细证据，并通过正式跨境合作渠道提交至跨国监管机构，要求将该附加限制纳入现有调查，确保法规在本辖区得到充分执行。"
+            },
+            {
+              "actor_id": "actor_alt_stores",
+              "condition": "若成员机关正式向监管机构提交平台新增合同限制的证据，且监管机构明确将调查范围扩大到该限制行为。",
+              "response": "我方将立即评估该新增调查如何削弱平台对开发者的绑定能力，并加速推进自身技术接入方案和开发者激励计划，同时主动披露自身支付的合规设计以争取监管和用户信任。"
+            }
+          ],
+          "response_semantics": "conditional_hypothesis_not_observed_action",
+          "observations": [
+            {
+              "kind": "trigger",
+              "signal": "某成员经济体市场机关发布声明或调查报告，指出平台在本地市场对应用的支付系统选择施加了超出国家层面已知范围的合同限制。",
+              "source": "成员机关官网公告、监管机关年度报告或专门调查公告",
+              "window": "未来 180 个自然日",
+              "evidence_refs": [
+                "F1"
+              ]
+            },
+            {
+              "kind": "invalidation",
+              "signal": "平台主动在本地市场解除该支付系统限制并发布开发者公告，导致成员机关缺少可提交证据；或者监管机构在收到证据后声明该限制不在现有法规管辖范围内。",
+              "source": "平台开发者公告页面或监管机构对媒体采访的回应",
+              "window": "未来 180 个自然日",
+              "evidence_refs": [
+                "F3"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "开发者实质性转向替代渠道导致平台调整开发者合同",
+          "summary": "若主要应用开发者在D0+30天内公开宣布将大规模迁移用户至自有网页分发或替代应用商店，平台为维持分发量可能提前调整开发者合同条款（如降低佣金或减少引导限制）。",
+          "actor_ids": [
+            "actor_developers",
+            "actor_rival_platforms"
+          ],
+          "trigger_conditions": [
+            "前50大应用的开发者之一通过博客或开发者大会宣布，因合规发展，将在下一版本将网页分发作为主要替代购买渠道。"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_developers",
+              "action_type": "OPERATE",
+              "decision_ref": "decision-actor_developers-r3"
+            },
+            {
+              "actor_id": "actor_rival_platforms",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_rival_platforms-r3"
+            }
+          ],
+          "consequences": [
+            "替代分发渠道用户和交易量可能短期快速增长，但需面对安全故障风险",
+            "消费者将开始接触不同支付渠道并关注隐私与便捷的权衡",
+            "投资者将研究平台调整合同条款对长期利润率和投资者估值的结构性影响"
+          ],
+          "invalidation_conditions": [
+            "平台对开发者合同新增条款，将跨平台分发用户统归平台费用范围，或提供足够经济吸引使开发者放弃迁移。"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_developers-r3",
+            "decision-actor_rival_platforms-r3"
+          ],
+          "novelty_claim": "本分支展示开发者主动迁移决策如何先于监管正式结果改变平台行为，而非等待监管确定后再行动，从而触发平台以合同调整而非技术合规来应对，改变事态传导路径。",
+          "confidence": 0.5,
+          "confidence_semantics": "branch_coherence_not_forecast_probability",
+          "starting_decisions": [
+            {
+              "actor_id": "actor_developers",
+              "action_type": "OPERATE",
+              "decision_status": "conditional",
+              "rationale": "作为应用开发者与数字内容企业，监管启动不合规程序是关键机遇窗口。F2明确法规已赋予我们免费告知消费者替代优惠的权利，而监管怀疑匿名企业未有效合规。当前最佳行动是主动准备替代分发渠道的对接方案（如网页分发、替代应用商店），以便在合规路线明确后第一时间引导用户至更便宜渠道，降低分发费用并扩大直接客户关系。但F1表明程序刚启动且F3收集资料尚未形成最终认定，透明操作以避免与主平台直接对抗仍是审慎选择。",
+              "decision_ref": "decision-actor_developers-r3"
+            },
+            {
+              "actor_id": "actor_rival_platforms",
+              "action_type": "WAIT",
+              "decision_status": "conditional",
+              "rationale": "作为其他关键数字平台，我方同期也可能处于监管程序中。当前跨国监管机构已对匿名企业启动不合规程序，但D0阶段尚无初步违规意见或最终决定。我方需要密切观察程序进展，以评估不同整改路径的成本与效果：若匿名企业的现有措施被认定无效，监管者将明确合规边界，我方可直接参考；若其措施被局部认可，我方也能避免过早投入不确定的高成本整改。此外，等待期间我方可以合规审计取代公开调整，降低自身被监管盯上的概率，同时在开发者群体中通过已有沟通保持存在感，而不冒进做出可能引起监管注意的公开动作。主要不确定性在于十二个月内监管结论的时间表和具体合规标准。",
+              "decision_ref": "decision-actor_rival_platforms-r3"
+            }
+          ],
+          "conditional_responses": [
+            {
+              "actor_id": "actor_developers",
+              "condition": "若监管推进并明确可告知范围后，我方经过内部评估确认网页分发可覆盖60%以上用户，且替代应用商店已给出充分的安全和费用承诺。",
+              "response": "我方将公开宣布启动用户迁移计划，在新发行版本中引导用户通过网页直接购买，并同时对接两个替代应用商店为长期分发渠道，以此向平台施加实质性的分发量下降压力。"
+            },
+            {
+              "actor_id": "actor_rival_platforms",
+              "condition": "若主要开发者大规模宣布迁移计划，引发市场对平台分发渠道重要性的重新评估。",
+              "response": "我方将抓住时机主动与这些开发者接触，提供过渡时期更灵活的佣金安排和技术支持，吸引其将部分应用纳入我方平台，同时自身也将降低开发者分部费用以争夺市场份额。"
+            }
+          ],
+          "response_semantics": "conditional_hypothesis_not_observed_action",
+          "observations": [
+            {
+              "kind": "trigger",
+              "signal": "前50大应用的开发者之一通过博客或开发者大会宣布，因合规发展，将在下一版本将网页分发作为主要替代购买渠道。",
+              "source": "开发者官方技术博客、开发者大会主题演讲视频",
+              "window": "未来 180 个自然日",
+              "evidence_refs": [
+                "F2"
+              ]
+            },
+            {
+              "kind": "invalidation",
+              "signal": "平台对开发者合同新增条款，将跨平台分发用户统归平台费用范围，或提供足够经济吸引使开发者放弃迁移。",
+              "source": "平台开发者官网公告、开发者社区反馈汇总",
+              "window": "未来 180 个自然日",
+              "evidence_refs": [
+                "F2"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "消费者安全事件促使安全标准纳入监管",
+          "summary": "若某消费者因使用新替代渠道遭遇严重支付欺诈或数据泄露且被广泛报道，监管程序可能被消费者保护独立调查推动，连带挑战替代渠道安全认证与责任制度。",
+          "actor_ids": [
+            "actor_consumers",
+            "actor_investors"
+          ],
+          "trigger_conditions": [
+            "头部媒体或消费者组织发布调查报告，详细记录消费者在通过某新替代应用商店或网页购买数字商品后遭遇个人信息批量泄露或未授权支付。"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_consumers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_consumers-r3"
+            },
+            {
+              "actor_id": "actor_investors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_investors-r3"
+            }
+          ],
+          "consequences": [
+            "监管机构可能介入制定强制性替代渠道安全标准和认证要求",
+            "平台可能利用安全事件推动监管赋予其在替代渠道安全监督中的角色",
+            "消费者长期将更加注重选择标准和认证标识，减少和替代渠道参与方的信任关系"
+          ],
+          "invalidation_conditions": [
+            "替代渠道方主动发布分布式安全审计结果与数据保险机制，证明事件孤立（非系统性问题）且用户已获得全额赔偿，有效冷却公众关注。"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F3",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_consumers-r3",
+            "decision-actor_investors-r3"
+          ],
+          "novelty_claim": "本分支揭示消费者安全事件可能超越合规程序本身，独立触发对替代渠道安全标准的广泛监管介入，从而改变消费者选择方式与平台安全管控角色，这是一般只关注监管合规路径的推演中容易被忽略的传导机制。",
+          "confidence": 0.4,
+          "confidence_semantics": "branch_coherence_not_forecast_probability",
+          "starting_decisions": [
+            {
+              "actor_id": "actor_consumers",
+              "action_type": "WAIT",
+              "decision_status": "conditional",
+              "rationale": "作为移动设备消费者，我既希望获得更多价格选择和便利，又担忧替代渠道的安全性和支付风险。当前监管程序刚刚启动（F1），合规结果和替代渠道的安全标准都尚未明确（F2、F3）。我难以评估替代渠道的安全和总成本（约束），因此最谨慎的做法是等待监管程序有进一步结果，看清哪些替代渠道真正安全可靠、能避免复杂安装和支付风险，再做出消费选择。",
+              "decision_ref": "decision-actor_consumers-r3"
+            },
+            {
+              "actor_id": "actor_investors",
+              "action_type": "WAIT",
+              "decision_status": "no_action",
+              "rationale": "监管程序刚启动，D0无初步违规意见或罚款，股票正常收盘，尚无法区分短期标题冲击与长期商业模式变化。调查可能持续十二个月，补救范围不确定，需等待监管机构进一步证据收集和初步意见，以评估整改成本、罚款基数及对应用商店佣金模式的实质性影响。当前最合理动作为按兵不动，不调整仓位。",
+              "decision_ref": "decision-actor_investors-r3"
+            }
+          ],
+          "conditional_responses": [
+            {
+              "actor_id": "actor_consumers",
+              "condition": "若替代渠道或某个网页应用出现大规模支付欺诈或数据泄露事件，并被当地消费者组织或媒体报道。",
+              "response": "我方将立即向消费者组织和当地监管机关举报，要求全面调查该事件根源，并呼吁在开放选择的同时建立强制性安全认证标准。我方将转向仅使用通过认证的渠道，同时呼吁国家层面介入推动安全标准立法。"
+            },
+            {
+              "actor_id": "actor_investors",
+              "condition": "若一起与替代渠道安全相关的消费者事件被广泛报道，引发对替代分发生态安全性的质疑。",
+              "response": "我方将重新评估替代分发渠道作为一个投资板块的系统性风险，研究是否需下调该板块覆盖标的安全市盈率或注入风险溢价；同时监控事件是否促使监管赋予平台恢复部分安全管控职能，进而保护其商业模式。"
+            }
+          ],
+          "response_semantics": "conditional_hypothesis_not_observed_action",
+          "observations": [
+            {
+              "kind": "trigger",
+              "signal": "头部媒体或消费者组织发布调查报告，详细记录消费者在通过某新替代应用商店或网页购买数字商品后遭遇个人信息批量泄露或未授权支付。",
+              "source": "本地主流媒体调查报道、消费者保护机构事件警报",
+              "window": "未来 180 个自然日",
+              "evidence_refs": [
+                "F3"
+              ]
+            },
+            {
+              "kind": "invalidation",
+              "signal": "替代渠道方主动发布分布式安全审计结果与数据保险机制，证明事件孤立（非系统性问题）且用户已获得全额赔偿，有效冷却公众关注。",
+              "source": "替代渠道官网或独立认证机构（如ISO安全认证机构）发布的技术报告",
+              "window": "未来 180 个自然日",
+              "evidence_refs": [
+                "F3"
+              ]
+            }
+          ]
+        }
+      ],
+      "generation": {
+        "semantic_retries": 1,
+        "elapsed_seconds": 274.50190658395877
+      },
+      "judgments": []
+    }
+  }
+}

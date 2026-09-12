@@ -1,0 +1,193 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "real-crowdstrike-outage-2024",
+  "spec_sha256": "07633d47b8bd5421c70944145425e1d3b886c194bd61c1f7e66883c58befe352",
+  "simulation_id": "sim_direct_ccbbbf7f3b1e",
+  "generated_at": "2026-09-12T06:20:15.346011+00:00",
+  "model_id": "deepseek-ai/DeepSeek-V4-Flash",
+  "prompt_version": "scenario-branch-compiler-v7",
+  "status": "completed",
+  "branches": [
+    {
+      "id": "branch-1",
+      "label": "客户公开质疑与CrowdStrike增加承诺",
+      "summary": "若受影响客户在公开渠道对恢复进度或赔偿承诺表达不满，CrowdStrike可能需要从当前主动沟通转向更具体的承诺（如延长免费支持时间、加速补丁交付），从而改变客户原本主要关注内部恢复的决策路径。",
+      "actor_ids": [
+        "actor_customers",
+        "actor_issuer"
+      ],
+      "trigger_conditions": [
+        "在2024-07-20至2024-07-27期间，至少2家大型客户（如航空、金融或医疗行业）公开声明对CrowdStrike的恢复支持或SLA赔偿方案不满意。"
+      ],
+      "actions": [
+        {
+          "actor_id": "actor_customers",
+          "action_type": "OPERATE",
+          "decision_ref": "decision-actor_customers-r2"
+        },
+        {
+          "actor_id": "actor_issuer",
+          "action_type": "COMMUNICATE",
+          "decision_ref": "decision-actor_issuer-r2"
+        }
+      ],
+      "consequences": [
+        "CrowdStrike将不得不额外投入技术资源以加快客户系统恢复，并可能需要预留法律或财务准备金用于潜在客户索赔，从而影响其短期成本和营收预期。",
+        "客户在评估替代方案时可能获得更多议价权，但短期内仍受高转换成本限制，不会大规模迁移到竞争产品。"
+      ],
+      "invalidation_conditions": [
+        "若截至2024-07-27，未见任何主要客户在公开渠道表达对CrowdStrike服务不满或提出索赔要求。"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F4",
+        "F5"
+      ],
+      "simulation_refs": [
+        "decision-actor_customers-r2",
+        "decision-actor_issuer-r2"
+      ],
+      "novelty_claim": "该分支比事实复述多出了客户公开行动将如何约束CrowdStrike沟通方向并迫使其承担额外资源支出这一传导链条。",
+      "confidence": 0.6,
+      "confidence_semantics": "branch_coherence_not_forecast_probability"
+    },
+    {
+      "id": "branch-2",
+      "label": "机构减持促使供应商调整信用评估",
+      "summary": "若机构投资者因为事件导致的客户流失风险而主动减持CrowdStrike股票，这将成为供应商可观察的市场信号，促使供应商从当前等待状态转向提前调整对CrowdStrike或其受影响客户的信用条件或订单条款。",
+      "actor_ids": [
+        "actor_institutions",
+        "actor_suppliers"
+      ],
+      "trigger_conditions": [
+        "在2024-07-20至2024-07-27期间，披露的13F或机构交易记录显示至少两家大型机构投资者大幅减少CRWD敞口。"
+      ],
+      "actions": [
+        {
+          "actor_id": "actor_institutions",
+          "action_type": "WAIT",
+          "decision_ref": "decision-actor_institutions-r2"
+        },
+        {
+          "actor_id": "actor_suppliers",
+          "action_type": "WAIT",
+          "decision_ref": "decision-actor_suppliers-r2"
+        }
+      ],
+      "consequences": [
+        "供应商将提高对CrowdStrike收款账期的风险评估，并可能收紧对其客户的授信额度，从而形成从资本市场到实体供应链的信用收缩压力。",
+        "CrowdStrike的融资或运营灵活性降低，尤其是在与关键供应商谈判付款条件时处于不利地位。"
+      ],
+      "invalidation_conditions": [
+        "若截至2024-07-27，公开披露数据显示大型机构投资者对CRWD的头寸没有显著净减持；或供应商未提及市场信号在信用决策中的参考价值。"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F4"
+      ],
+      "simulation_refs": [
+        "decision-actor_institutions-r2",
+        "decision-actor_suppliers-r2"
+      ],
+      "novelty_claim": "该分支比事实复述多出了机构投资者的减持决策会如何传导为供应商信用决策调整，进而反作用于CrowdStrike运营条件这一跨角色传导。",
+      "confidence": 0.55,
+      "confidence_semantics": "branch_coherence_not_forecast_probability"
+    },
+    {
+      "id": "branch-3",
+      "label": "竞争者试探性营销与媒体放大分析",
+      "summary": "若竞争者从当前等待转向发出有限的营销试探（如发布事故对比分析白皮书、联系特定客户进行POC），财经媒体可能解读为行业格局变化的信号，从而改变媒体从单纯事实梳理转向深度竞争格局分析的报道重点。",
+      "actor_ids": [
+        "actor_competitors",
+        "actor_media"
+      ],
+      "trigger_conditions": [
+        "在2024-07-20至2024-07-27期间，至少一家EDR竞争者公开发布针对此事件的技术对比白皮书或行业分析报告。"
+      ],
+      "actions": [
+        {
+          "actor_id": "actor_competitors",
+          "action_type": "WAIT",
+          "decision_ref": "decision-actor_competitors-r2"
+        },
+        {
+          "actor_id": "actor_media",
+          "action_type": "WAIT",
+          "decision_ref": "decision-actor_media-r2"
+        }
+      ],
+      "consequences": [
+        "媒体会将该行为视为竞争者主动抢占客户心智，其报道将增加竞品在事件后获得的市场关注度，促使更多受影响客户内部启动评估流程。",
+        "竞争者可能获得更多POC邀请，但其产能和交付能力约束限制了短期内市场份额的巨大变化。"
+      ],
+      "invalidation_conditions": [
+        "若截至2024-07-27，未发现直接竞争者发布针对此事件的营销材料或技术对比分析；或媒体未将此类行为纳入报道重点。"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F4"
+      ],
+      "simulation_refs": [
+        "decision-actor_competitors-r2",
+        "decision-actor_media-r2"
+      ],
+      "novelty_claim": "该分支比事实复述多出了竞争者的试探性行动将如何改变媒体叙事焦点，进而影响客户采购决策信息环境这一传导路径。",
+      "confidence": 0.6,
+      "confidence_semantics": "branch_coherence_not_forecast_probability"
+    },
+    {
+      "id": "branch-4",
+      "label": "供应商结合客户反馈为CrowdStrike设置付款条件",
+      "summary": "若供应商收集到客户恢复进度缓慢的持续反馈，且预估CrowdStrike面临大量索赔，则供应商可能从等待转向主动为CrowdStrike设置更严格付款条件（如缩短账期、要求预付），这反过来限制CrowdStrike的现金流和激励其加速客户补偿方案。",
+      "actor_ids": [
+        "actor_suppliers",
+        "actor_issuer"
+      ],
+      "trigger_conditions": [
+        "在2024-07-20至2024-07-27期间，有可靠报道或客户声明称受影响客户平均恢复时间超过48小时；且CrowdStrike未公开承诺额外补偿。"
+      ],
+      "actions": [
+        {
+          "actor_id": "actor_suppliers",
+          "action_type": "WAIT",
+          "decision_ref": "decision-actor_suppliers-r2"
+        },
+        {
+          "actor_id": "actor_issuer",
+          "action_type": "COMMUNICATE",
+          "decision_ref": "decision-actor_issuer-r2"
+        }
+      ],
+      "consequences": [
+        "供应商收紧账期将直接减少CrowdStrike的自由现金流，迫使其推迟或缩减非核心IT支持或研发投入。",
+        "CrowdStrike为了维持供应链稳定，可能更主动地提出客户补偿方案，以降低监管和法律风险，从而维持供应商信心。"
+      ],
+      "invalidation_conditions": [
+        "若截至2024-07-27，未观察到供应商调整对CrowdStrike的付款条件，或恢复时间在承诺窗口内完成且无客户集体索赔报告。"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F4",
+        "F5"
+      ],
+      "simulation_refs": [
+        "decision-actor_suppliers-r2",
+        "decision-actor_issuer-r2"
+      ],
+      "novelty_claim": "该分支比事实复述多出了供应商如何根据客户恢复进程的间接信号主动调整对CrowdStrike的信贷条件，从而影响发行人运营资金这一闭环传导。",
+      "confidence": 0.55,
+      "confidence_semantics": "branch_coherence_not_forecast_probability"
+    }
+  ],
+  "warnings": [
+    "所有分支仅使用as_of时点可得事实和明确标为模拟的actions，未补充as_of后真实事件。",
+    "触发条件和失效条件均设定了可观察的时间窗口（2024-07-20至2024-07-27），但未使用精确阈值。",
+    "未输出目标价格、收益率概率或Agent投票频率。",
+    "branch-1: bound deterministic actor slot to unique financial decisions",
+    "branch-2: bound deterministic actor slot to unique financial decisions",
+    "branch-3: bound deterministic actor slot to unique financial decisions",
+    "branch-4: bound deterministic actor slot to unique financial decisions",
+    "Branches are simulated hypotheses, not observed evidence.",
+    "Branch confidence expresses coherence, not occurrence probability."
+  ]
+}

@@ -1,0 +1,224 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_fx_intervention_012",
+  "spec_sha256": "274b5eb9c67efde45428d1a618a1cb69272ae2bcffc90e84500468cb3e089fad",
+  "simulation_id": "sim_e116f06f4739",
+  "generated_at": "2026-07-31T10:22:58.050098+00:00",
+  "status": "completed",
+  "decisions": [
+    {
+      "id": "decision-actor_finance_ministry-r3",
+      "round": 3,
+      "actor_id": "actor_finance_ministry",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "截至当前轮次，F3联合声明与F4口头表态已构成信号传递，市场仍在消化这些信息并形成新的价格均衡。F2显示本币已处于数十年低位，投机性空头头寸积累，此时直接动用外汇储备进行现汇干预容易被市场反向押注，消耗储备效率低且损害干预突袭性。中央银行F1维持利率不变，货币政策层面未提供协同空间。选择等待，一是让口头干预的威慑效力在市场上充分发酵，观察企业套保行为和宏观基金仓位是否出现自然调整；二是有利于保留干预突袭性，在更有利的流动性条件（如亚洲早盘流动性稀薄时点）或市场过度延伸时实施更有效的入场。主要不确定性在于：若贬值预期自我强化持续加速，可能被迫提前行动；以及国际汇率承诺（constraint:1）对单边干预的约束程度。",
+      "constraint_refs": [
+        "actor_finance_ministry:constraint:0",
+        "actor_finance_ministry:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:0",
+      "visibility": "private",
+      "confidence": 0.75,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_central_bank-r3",
+      "round": 3,
+      "actor_id": "actor_central_bank",
+      "action_type": "WAIT",
+      "decision_status": "no_action",
+      "direction": "maintain",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "例行会议刚完成决议，货币政策维持不变的决定已经生效。当前汇率走弱的主要驱动被市场归因于利差、进口成本和投机头寸，而非货币政策立场本身。财政负责人已公开表达严重关切并承诺监测市场，央行将按财政机关指示承担干预执行操作，但在未收到财政机关明确干预指令前，不会单方面改变刚宣布的政策立场。货币政策目标不等于汇率目标，过度反应可能扰乱刚确定的政策传导路径。继续观察汇率后续走势及财政机关进一步指示。",
+      "constraint_refs": [
+        "actor_central_bank:constraint:0",
+        "actor_central_bank:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:1",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_fx_dealers-r3",
+      "round": 3,
+      "actor_id": "actor_fx_dealers",
+      "action_type": "OPERATE",
+      "decision_status": "intended",
+      "direction": "decrease",
+      "intensity": 0.6,
+      "instrument_refs": [
+        "ASSET_L"
+      ],
+      "rationale": "截至模拟第3轮结束，观察到以下事实：F1显示央行维持宽松政策不变，未收紧流动性支撑本币；F2确认本币已跌至数十年低位，利差和投机头寸为主要驱动；F3/F4为口头干预升级，但联合磋商尚未转化为实际入市动作。同时，模拟环境中出现集中大额订单的假说（流动性薄时段异常成交），且宏观基金加空头筹码。作为交易商，管理头寸和流动性、控制跳价风险是首要目标。鉴于全天候市场中干预时点不可预测（约束），但口头干预的升级与财政负责人的紧迫表态提高了实际干预的概率门槛，我选择适度降低对ASSET_L的直接风险敞口：在流动性尚可的时段分批减持部分空头头寸，以压缩跳价冲击下的潜在损失，同时保留一定底仓以维持双边报价能力。主要不确定性在于干预的实际时点和规模不可预测。",
+      "constraint_refs": [
+        "actor_fx_dealers:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:2",
+      "visibility": "private",
+      "confidence": 0.75,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_macro_funds-r3",
+      "round": 3,
+      "actor_id": "actor_macro_funds",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "maintain",
+      "intensity": 0.3,
+      "instrument_refs": [
+        "ASSET_L"
+      ],
+      "rationale": "当前空头头寸已反映利差驱动和贬值趋势（F2），但F3和F4提示官方干预可能性上升。维持现有仓位但不加码，等待实际干预措施（如外汇储备动用、利率调整）兑现后再评估。尾部损失约束要求防止拥挤头寸被官方买卖逆转（constraint:0），因此选择观望而非继续加仓。主要不确定性在于财政与央行协调力度：若仅为口头表态，趋势延续则可继续持有；若出现实际买卖干预，须快速减仓。",
+      "constraint_refs": [
+        "actor_macro_funds:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:3",
+      "visibility": "private",
+      "confidence": 0.75,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_importers-r3",
+      "round": 3,
+      "actor_id": "actor_importers",
+      "action_type": "NEGOTIATE",
+      "decision_status": "intended",
+      "direction": "increase",
+      "intensity": 0.8,
+      "instrument_refs": [
+        "ASSET_L"
+      ],
+      "rationale": "本币持续走弱至数十年低位，直接抬升进口账单。央行维持低利率未改变利差压力，财政表态仅口头干预。为锁定短期采购成本、稳定预算与售价，计划增加短期外汇套期保值的覆盖比例，与交易对手协商新一批对冲合约。主要不确定性在于汇率是否会触发财政实质性干预，以及套保成本是否因波动飙升而超出预算弹性。",
+      "constraint_refs": [
+        "actor_importers:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:4",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_exporters-r3",
+      "round": 3,
+      "actor_id": "actor_exporters",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "maintain",
+      "intensity": 0.3,
+      "instrument_refs": [
+        "ASSET_L"
+      ],
+      "rationale": "本币持续走弱至数十年低位，利好出口价格竞争力，但财政负责人明确表示汇率应稳定反映基本面且不排除任何应对手段，官方干预风险快速上升。当前最佳策略是维持现有外汇敞口不变，暂停新结汇操作，等待F4所述官方干预的具体落地信号或F3联合磋商的结果出现后再决策。既避免在干预前低价结汇损失，又保持足够流动性应对可能的汇率反弹。",
+      "constraint_refs": [
+        "actor_exporters:constraint:0"
+      ],
+      "evidence_refs": [
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:5",
+      "visibility": "private",
+      "confidence": 0.7,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_households-r3",
+      "round": 3,
+      "actor_id": "actor_households",
+      "action_type": "WAIT",
+      "decision_status": "no_action",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "央行维持低利率，本币持续走弱至低位，但财政负责人表态将监测市场并可能应对过度波动。我对财政与央行政策分工理解有限，不确定财政表态是否能有效干预汇率，也不清楚进口通胀的实际传导速度。当前既没足够信息确认外币储蓄的时机，也无法判断是否应调整本币资产，因此选择观望，等待更明确信号或政策落地后再行动。",
+      "constraint_refs": [
+        "actor_households:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:6",
+      "visibility": "private",
+      "confidence": 0.7,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_media-r3",
+      "round": 3,
+      "actor_id": "actor_media",
+      "action_type": "WAIT",
+      "decision_status": "no_action",
+      "direction": "not_applicable",
+      "intensity": null,
+      "instrument_refs": [
+        "ASSET_L"
+      ],
+      "rationale": "截至当前时点，所有信号均为口头表态（F3联合声明、F4财政负责人措辞），无任何实际金融动作确认。F1显示央行维持宽松政策不变，与干预意图存在政策方向上的张力。口头干预已出现但未升级为实际外汇储备动用或利率调整，根据约束（官方可能延后确认实际交易），此时做出动作判断的风险收益比不佳。选择等待下一轮数据公布——重点关注央行资产负债表外汇储备变动、隔夜拆借利率异常及亚洲盘成交结构变化——以区分口头干预与真实入市。",
+      "constraint_refs": [
+        "actor_media:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:7",
+      "visibility": "public",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    }
+  ],
+  "failures": [],
+  "warnings": [
+    "Decision confidence expresses action clarity, not forecast probability.",
+    "Interview decisions are simulated statements, not observed evidence."
+  ]
+}

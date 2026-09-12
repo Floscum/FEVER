@@ -1,0 +1,448 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_merger_remedy_018",
+  "spec_sha256": "1a9335a39a42aff658cc6d6a3bb99f50619b374439381ec11cd26ca31a2455fe",
+  "generated_at": "2026-07-31T16:41:39.224182+00:00",
+  "status": "partial",
+  "runs": [
+    {
+      "run_id": "sim_217a54e8fe3a",
+      "seed": 1816351833,
+      "status": "completed",
+      "events": [
+        {
+          "round": 0,
+          "actor_id": "actor_other_regulators",
+          "action_type": "COMMUNICATE",
+          "summary": "作为其他司法辖区的竞争执法机关，我们密切关注本案的补救结构。将目标公司在特定区域外15年云分发权转让给独立第三方是一个值得关注的救济方案。我们将评估该补救措施是否与我们的法律标准一致，并在必要时启动本辖区的独立审查程序。主审机关的57天第一阶段决定将为我们提供重要参考。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_regulator",
+          "action_type": "COMMUNICATE",
+          "summary": "监管机关注意到市场对第一阶段调查的各种解读。需要澄清：1）独立第三方买方的资质、激励和能力将是评估重点，确保其有动力和资源有效行使所获云分发权以促进竞争；2）57个自然日的法定期限不可延长，将按时作出决定；3）任何补救措施须具备可执行性，包括跨司法辖区的监督机制。请市场参与者以公开渠道提交相关证据。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_customers",
+          "action_type": "COMMUNICATE",
+          "summary": "作为消费者，我们确实需要更多平台选择和合理价格。如果云分发权过度集中，长期来看内容订阅成本可能上升，选择也会变少。希望监管能确保竞争环境健康，让用户受益而不是被锁定在单一生态中。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_acquirer",
+          "action_type": "COMMUNICATE",
+          "summary": "我们完全理解并尊重监管机关对独立第三方资质、激励和能力的关键关切。已确保受让方具备独立运营能力且与收购方无控制关系。我们承诺全力配合57天法定时限内的证据收集，并已建立跨司法辖区合规框架以确保补救措施可执行。期待监管机关的审查结论。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_other_regulators",
+          "action_type": "COMMUNICATE",
+          "summary": "赞同关于独立第三方资质审查的观点。从本辖区的法律标准出发，我们同样关注：1) 独立第三方的财务独立性和持续经营能力；2) 转让协议中的反竞争限制条款是否存在；3) 有效监督机制在跨境执行中的可行性。我们注意到补救结构涉及的地域划分可能与我们的市场界定存在差异，将独立评估是否需要在本辖区启动补充审查程序。建议各方在公开提交证据时同时提供跨境影响分析。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_target",
+          "action_type": "COMMUNICATE",
+          "summary": "作为目标公司，我们完全认同监管机关对独立第三方资质、激励和能力的评估重点。我们已积极配合交易双方完成云分发权转让方案的设计，确保受让方具备独立运营的财务实力和技术能力，且与收购方无任何控制关联。在此57天第一阶段调查期间，我们将全力配合证据征集，同时持续与员工、客户沟通，确保业务运营稳定。我们相信这一经过重新设计的交易结构能够有效解决竞争关切，维护新兴服务市场的健康发展。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_regulator",
+          "action_type": "COMMUNICATE",
+          "summary": "收悉各方反馈。针对独立第三方评估，监管机关将特别审查：1) 受让方与收购方之间是否存在任何形式的财务关联或利益输送安排；2) 转让协议中是否有任何限制受让方独立商业决策的条款；3) 受让方是否具备足够的技术能力和市场份额规划以有效行使云分发权。跨司法辖区协作是本案关键维度，我们注意到并欢迎其他竞争执法机构的关注，将适时启动信息交换程序。重申：任何补救措施若在可执行性上存在不确定因素，则不足以消除竞争关切。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_regulator",
+          "action_type": "WAIT",
+          "summary": "第一阶段调查已于F2/F3所述启动，法定57天期限仍在进行中，尚无足够证据作出放行、要求承诺或转入深入审查的决定。需要等待独立权利买方资质、激励与能力的完整评估结果，以及跨司法辖区其他竞争执法机关可能启动的程序信息。市场解读（如股价波动预期）不构成监管决策依据。当前最佳行动是保持法定调查程序正常运行，在期限内收集充分证据后作出正式决定。任何提前表态或干预都可能影响程序公正性。",
+          "visibility": "public",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_acquirer",
+          "action_type": "WAIT",
+          "summary": "在当前阶段，监管机关已启动第一阶段调查并明确法定决定期限为57天，最关键的动作是按监管程序推进而非主动施压。任何公开沟通或运营调整都可能被视为试图影响审查过程，反而不利于取得许可。应保持低调配合态度，等待监管机关的正式决定。主要不确定性在于：补救措施的可执行性评估、独立第三方资质审查结论，以及是否会被转入深入审查。同时其他司法辖区程序仍在进行，过早行动可能引发不必要的关注。等待是最符合当前阶段目标的策略。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_target",
+          "action_type": "COMMUNICATE",
+          "summary": "作为目标公司，在监管机关启动第一阶段调查的关键窗口期，最优先的动作是主动与员工、客户及市场沟通，稳定各方对交易进展和业务连续性的预期。新的重组方案（F2）已提交但尚未获监管放行（F3），市场存在不确定性（F4），客户和员工的疑虑可能影响产品路线和运营稳定。通过清晰的对外沟通，重申公司对补救结构的支持、强调独立第三方的资质安排，以及承诺在57天调查期内全力配合监管并维持正常业务运作，直接服务于'完成交易'和'维持员工、客户和产品路线稳定'两大目标。主要不确定性在于监管调查结果不可预测（F3），以及跨司法辖区程序可能带来额外要求。",
+          "visibility": "public",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_rights_buyer",
+          "action_type": "WAIT",
+          "summary": "重组交易（F2）已进入第一阶段调查（F3），法定决定期限未到，且调查结果不确定；我方作为独立买方需要等待监管明确资产剥离范围和条件后，才能基于批发定价能力（约束）设计商业化授权方案。当前等待可降低提前介入的法律与商业风险。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F2",
+            "F3"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_cloud_rivals",
+          "action_type": "WAIT",
+          "summary": "作为云服务竞争者，我需要保持获取热门内容的机会并争取公平授权条件。目前监管机关已启动新调查（F3），新交易将区域外内容分发权转让给独立第三方（F2），该第三方能否有效执行商业安排直接决定我的授权机会。在57天审查期内，任何主动沟通或运营调整都可能因调查结果未明而失效，且F1表明原始交易已被禁止，说明监管有利我立场。最佳策略是等待第一阶段调查结果，届时基于确定性采取行动。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_other_regulators",
+          "action_type": "WAIT",
+          "summary": "主审机关的第一阶段调查尚在进行中，法定57天决定期限未届满。作为其他司法辖区竞争执法机关，我需要等待主审机关的调查结果和最终决定，以获取更完整的关于补救结构实际执行方案的信息，再评估该补救结构是否符合本辖区的法律标准和程序要求。在本辖区启动独立审查或程序之前，有足够证据表明独立第三方资质、跨司法辖区监督机制等关键要素仍需主审机关先行明确。观望有助于节省公共资源，避免在主审机关结论出台前做出冲突性判断。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_customers",
+          "action_type": "WAIT",
+          "summary": "作为数字内容消费者与企业客户，我的目标是获得更多平台选择和合理价格，保持内容连续可用。目前最终授权条款尚未落地，F3显示监管机关为重组交易启动了第一阶段调查，法定决定期限为57个自然日，但不保证放行。在监管结果明确之前，任何单方面沟通或谈判都缺乏实质依据。补救措施能否有效维持竞争（如F2所述将特定区域外十五年云分发权转让给独立第三方）仍需观察评估。最理性的策略是等待第一阶段调查结果，届时根据监管决定再调整立场，以获得更有利的条款保障消费者权益。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_investors",
+          "action_type": "WAIT",
+          "summary": "当前处于监管第一阶段调查启动初期（法定57个自然日内），独立第三方买方资质、跨司法辖区程序协调及补救措施可执行性均未明朗。收购方股票维持正常收盘状态，市场尚未定价重组交易的新概率分布。在监管机关就独立第三方资质、转让协议反竞争限制及跨境执行机制给出明确指引前，任何方向的头寸调整均面临过高的信息不对称风险。等待第一阶段决定或转入深入审查的信号出现，再根据实际监管信号管理收购方和目标公司的风险敞口。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        }
+      ],
+      "warnings": [
+        "The recorded seed controls Python agent scheduling only; provider-side LLM sampling remains unseeded."
+      ]
+    }
+  ],
+  "scenarios": [],
+  "forecast_target_results": [],
+  "simulation_graph": {
+    "nodes": [
+      {
+        "id": "actor_acquirer",
+        "kind": "actor",
+        "label": "匿名大型科技收购方"
+      },
+      {
+        "id": "actor_customers",
+        "kind": "actor",
+        "label": "数字内容消费者与企业客户"
+      },
+      {
+        "id": "actor_other_regulators",
+        "kind": "actor",
+        "label": "其他司法辖区竞争执法机关"
+      },
+      {
+        "id": "actor_regulator",
+        "kind": "actor",
+        "label": "匿名竞争监管机关"
+      },
+      {
+        "id": "actor_target",
+        "kind": "actor",
+        "label": "匿名数字内容目标公司"
+      },
+      {
+        "id": "trace-16",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "作为其他司法辖区的竞争执法机关，我们密切关注本案的补救结构。将目标公司在特定区域外15年云分发权转让给独立第三方是一个值得关注的救济方案。我们将评估该补救措施是否与我们的法律标准一致，并在必要时启动本辖区的独立审查程序。主审机关的57天第一阶段决定将为我们提供重要参考。"
+      },
+      {
+        "id": "trace-17",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "监管机关注意到市场对第一阶段调查的各种解读。需要澄清：1）独立第三方买方的资质、激励和能力将是评估重点，确保其有动力和资源有效行使所获云分发权以促进竞争；2）57个自然日的法定期限不可延长，将按时作出决定；3）任何补救措施须具备可执行性，包括跨司法辖区的监督机制。请市场参与者以公开渠道提交相关证据。"
+      },
+      {
+        "id": "trace-18",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "作为消费者，我们确实需要更多平台选择和合理价格。如果云分发权过度集中，长期来看内容订阅成本可能上升，选择也会变少。希望监管能确保竞争环境健康，让用户受益而不是被锁定在单一生态中。"
+      },
+      {
+        "id": "trace-23",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "我们完全理解并尊重监管机关对独立第三方资质、激励和能力的关键关切。已确保受让方具备独立运营能力且与收购方无控制关系。我们承诺全力配合57天法定时限内的证据收集，并已建立跨司法辖区合规框架以确保补救措施可执行。期待监管机关的审查结论。"
+      },
+      {
+        "id": "trace-24",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "赞同关于独立第三方资质审查的观点。从本辖区的法律标准出发，我们同样关注：1) 独立第三方的财务独立性和持续经营能力；2) 转让协议中的反竞争限制条款是否存在；3) 有效监督机制在跨境执行中的可行性。我们注意到补救结构涉及的地域划分可能与我们的市场界定存在差异，将独立评估是否需要在本辖区启动补充审查程序。建议各方在公开提交证据时同时提供跨境影响分析。"
+      },
+      {
+        "id": "trace-29",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "作为目标公司，我们完全认同监管机关对独立第三方资质、激励和能力的评估重点。我们已积极配合交易双方完成云分发权转让方案的设计，确保受让方具备独立运营的财务实力和技术能力，且与收购方无任何控制关联。在此57天第一阶段调查期间，我们将全力配合证据征集，同时持续与员工、客户沟通，确保业务运营稳定。我们相信这一经过重新设计的交易结构能够有效解决竞争关切，维护新兴服务市场的健康发展。"
+      },
+      {
+        "id": "trace-30",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "收悉各方反馈。针对独立第三方评估，监管机关将特别审查：1) 受让方与收购方之间是否存在任何形式的财务关联或利益输送安排；2) 转让协议中是否有任何限制受让方独立商业决策的条款；3) 受让方是否具备足够的技术能力和市场份额规划以有效行使云分发权。跨司法辖区协作是本案关键维度，我们注意到并欢迎其他竞争执法机构的关注，将适时启动信息交换程序。重申：任何补救措施若在可执行性上存在不确定因素，则不足以消除竞争关切。"
+      },
+      {
+        "id": "decision-actor_regulator-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": null,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "第一阶段调查已于F2/F3所述启动，法定57天期限仍在进行中，尚无足够证据作出放行、要求承诺或转入深入审查的决定。需要等待独立权利买方资质、激励与能力的完整评估结果，以及跨司法辖区其他竞争执法机关可能启动的程序信息。市场解读（如股价波动预期）不构成监管决策依据。当前最佳行动是保持法定调查程序正常运行，在期限内收集充分证据后作出正式决定。任何提前表态或干预都可能影响程序公正性。"
+      },
+      {
+        "id": "decision-actor_acquirer-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "maintain",
+        "intensity": 0.8,
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "在当前阶段，监管机关已启动第一阶段调查并明确法定决定期限为57天，最关键的动作是按监管程序推进而非主动施压。任何公开沟通或运营调整都可能被视为试图影响审查过程，反而不利于取得许可。应保持低调配合态度，等待监管机关的正式决定。主要不确定性在于：补救措施的可执行性评估、独立第三方资质审查结论，以及是否会被转入深入审查。同时其他司法辖区程序仍在进行，过早行动可能引发不必要的关注。等待是最符合当前阶段目标的策略。"
+      },
+      {
+        "id": "decision-actor_target-r3",
+        "kind": "financial_decision",
+        "action_type": "COMMUNICATE",
+        "decision_status": "intended",
+        "direction": "maintain",
+        "intensity": 0.7,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "作为目标公司，在监管机关启动第一阶段调查的关键窗口期，最优先的动作是主动与员工、客户及市场沟通，稳定各方对交易进展和业务连续性的预期。新的重组方案（F2）已提交但尚未获监管放行（F3），市场存在不确定性（F4），客户和员工的疑虑可能影响产品路线和运营稳定。通过清晰的对外沟通，重申公司对补救结构的支持、强调独立第三方的资质安排，以及承诺在57天调查期内全力配合监管并维持正常业务运作，直接服务于'完成交易'和'维持员工、客户和产品路线稳定'两大目标。主要不确定性在于监管调查结果不可预测（F3），以及跨司法辖区程序可能带来额外要求。"
+      },
+      {
+        "id": "actor_rights_buyer",
+        "kind": "actor",
+        "label": "匿名独立云分发权买方"
+      },
+      {
+        "id": "decision-actor_rights_buyer-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "重组交易（F2）已进入第一阶段调查（F3），法定决定期限未到，且调查结果不确定；我方作为独立买方需要等待监管明确资产剥离范围和条件后，才能基于批发定价能力（约束）设计商业化授权方案。当前等待可降低提前介入的法律与商业风险。"
+      },
+      {
+        "id": "actor_cloud_rivals",
+        "kind": "actor",
+        "label": "云服务竞争者"
+      },
+      {
+        "id": "decision-actor_cloud_rivals-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": null,
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "作为云服务竞争者，我需要保持获取热门内容的机会并争取公平授权条件。目前监管机关已启动新调查（F3），新交易将区域外内容分发权转让给独立第三方（F2），该第三方能否有效执行商业安排直接决定我的授权机会。在57天审查期内，任何主动沟通或运营调整都可能因调查结果未明而失效，且F1表明原始交易已被禁止，说明监管有利我立场。最佳策略是等待第一阶段调查结果，届时基于确定性采取行动。"
+      },
+      {
+        "id": "decision-actor_other_regulators-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": null,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "主审机关的第一阶段调查尚在进行中，法定57天决定期限未届满。作为其他司法辖区竞争执法机关，我需要等待主审机关的调查结果和最终决定，以获取更完整的关于补救结构实际执行方案的信息，再评估该补救结构是否符合本辖区的法律标准和程序要求。在本辖区启动独立审查或程序之前，有足够证据表明独立第三方资质、跨司法辖区监督机制等关键要素仍需主审机关先行明确。观望有助于节省公共资源，避免在主审机关结论出台前做出冲突性判断。"
+      },
+      {
+        "id": "decision-actor_customers-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.7,
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "作为数字内容消费者与企业客户，我的目标是获得更多平台选择和合理价格，保持内容连续可用。目前最终授权条款尚未落地，F3显示监管机关为重组交易启动了第一阶段调查，法定决定期限为57个自然日，但不保证放行。在监管结果明确之前，任何单方面沟通或谈判都缺乏实质依据。补救措施能否有效维持竞争（如F2所述将特定区域外十五年云分发权转让给独立第三方）仍需观察评估。最理性的策略是等待第一阶段调查结果，届时根据监管决定再调整立场，以获得更有利的条款保障消费者权益。"
+      },
+      {
+        "id": "actor_investors",
+        "kind": "actor",
+        "label": "科技与并购套利投资者"
+      },
+      {
+        "id": "decision-actor_investors-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "maintain",
+        "intensity": 0.7,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "当前处于监管第一阶段调查启动初期（法定57个自然日内），独立第三方买方资质、跨司法辖区程序协调及补救措施可执行性均未明朗。收购方股票维持正常收盘状态，市场尚未定价重组交易的新概率分布。在监管机关就独立第三方资质、转让协议反竞争限制及跨境执行机制给出明确指引前，任何方向的头寸调整均面临过高的信息不对称风险。等待第一阶段决定或转入深入审查的信号出现，再根据实际监管信号管理收购方和目标公司的风险敞口。"
+      }
+    ],
+    "edges": [
+      {
+        "source": "actor_other_regulators",
+        "target": "trace-16",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_regulator",
+        "target": "trace-17",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_customers",
+        "target": "trace-18",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_acquirer",
+        "target": "trace-23",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_other_regulators",
+        "target": "trace-24",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_target",
+        "target": "trace-29",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_regulator",
+        "target": "trace-30",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_regulator",
+        "target": "decision-actor_regulator-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_acquirer",
+        "target": "decision-actor_acquirer-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_target",
+        "target": "decision-actor_target-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_rights_buyer",
+        "target": "decision-actor_rights_buyer-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_cloud_rivals",
+        "target": "decision-actor_cloud_rivals-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_other_regulators",
+        "target": "decision-actor_other_regulators-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_customers",
+        "target": "decision-actor_customers-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_investors",
+        "target": "decision-actor_investors-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      }
+    ]
+  },
+  "warnings": [
+    "Integration smoke result only; it is not a calibrated financial forecast.",
+    "The upstream run monitor reported zero actions; SQLite was used as the authoritative source.",
+    "OASIS did not persist per-action round numbers, so exported events use round 0.",
+    "Rule-generated institutional profiles contain consumer-social attributes and require a financial profile compiler.",
+    "No forecast target result or scenario frequency was produced from this single run.",
+    "Structured financial decisions were elicited post-simulation and remain simulated claims."
+  ],
+  "provenance": {
+    "engine": "MiroFish/OASIS",
+    "engine_version": "60757b3c825d577a1d7a86ab1ba6d5c21f51c261",
+    "model": "deepseek-ai/DeepSeek-V4-Flash",
+    "raw_run_artifacts": [
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/mirofish/simulations/sim_217a54e8fe3a/reddit_simulation.db",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/mirofish/simulations/sim_217a54e8fe3a/simulation_config.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_merger_remedy_018-b3/sqlite-actions.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_merger_remedy_018-b3/raw-actions.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_merger_remedy_018-b3/financial-interviews-raw.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_merger_remedy_018-b3/financial-actions.json"
+    ]
+  }
+}

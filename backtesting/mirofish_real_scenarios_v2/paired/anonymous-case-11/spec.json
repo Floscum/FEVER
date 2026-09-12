@@ -1,0 +1,366 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_digital_asset_listing_011",
+  "title": "匿名案例：现货数字资产交易产品待批",
+  "as_of": "2017-01-05T23:59:00+00:00",
+  "question": "资产、监管机构、申请人、交易所、年份和代码均已匿名化。只使用D0已公开的信息，推演法院裁决后多个现货数字资产交易产品申请的监管与市场路径。",
+  "horizon": {
+    "kind": "calendar_days",
+    "value": 35,
+    "end_at": "2017-02-09T23:59:00+00:00"
+  },
+  "market": {
+    "region": "BLIND_GLOBAL_DIGITAL_ASSET",
+    "venues": [
+      "BLIND_CONTINUOUS_MARKET"
+    ],
+    "instruments": [
+      {
+        "symbol": "ASSET_K",
+        "name": "匿名数字资产K兑美元",
+        "kind": "commodity",
+        "currency": "USD"
+      }
+    ]
+  },
+  "facts": [
+    {
+      "id": "F1",
+      "observed_at": "2016-08-29T16:00:00+00:00",
+      "statement": "上诉法院撤销监管机构此前对一只现货数字资产交易产品的否决，认为监管机构没有充分解释其对现货产品与同资产期货产品采取不同处理的理由。",
+      "source_kind": "official",
+      "source_url": "https://benchmark.invalid/blind-digital-asset-listing-011/F1",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F2",
+      "observed_at": "2017-01-03T18:00:00+00:00",
+      "statement": "在法院裁决前，监管机构多年来已经否决二十余份同类现货产品交易所规则申请，核心关切包括欺诈、操纵和市场监控。",
+      "source_kind": "official",
+      "source_url": "https://benchmark.invalid/blind-digital-asset-listing-011/F2",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F3",
+      "observed_at": "2017-01-05T20:00:00+00:00",
+      "statement": "多个全国性证券交易所和资产管理申请人已经提交修订文件，相关申请涉及同一种现货数字资产，并提出监控共享、托管和现金申赎安排。",
+      "source_kind": "filing",
+      "source_url": "https://benchmark.invalid/blind-digital-asset-listing-011/F3",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F4",
+      "observed_at": "2017-01-05T23:00:00+00:00",
+      "statement": "截至D0，监管机构尚未发布最终批准令；多家申请人的规则变更和注册文件处于并行审查状态，市场同时讨论统一审批与单一申请人先行两种路径。",
+      "source_kind": "research",
+      "source_url": "https://benchmark.invalid/blind-digital-asset-listing-011/F4",
+      "evidence_ref": null,
+      "confidence": 0.95
+    }
+  ],
+  "actors": [
+    {
+      "id": "actor_securities_regulator",
+      "label": "匿名证券监管机构",
+      "kind": "regulator",
+      "aggregation": "organization",
+      "goals": [
+        "依法回应法院裁决",
+        "防止欺诈和操纵",
+        "维持申请人之间的程序公平"
+      ],
+      "constraints": [
+        "必须解释决定与证券交易法律的一致性",
+        "委员内部可能存在分歧"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "可能协调多个相似申请的处理时间"
+      ]
+    },
+    {
+      "id": "actor_exchanges",
+      "label": "申请上市的证券交易所",
+      "kind": "exchange",
+      "aggregation": "cohort",
+      "goals": [
+        "取得规则变更批准",
+        "尽快上线产品",
+        "满足监控要求"
+      ],
+      "constraints": [
+        "上市依赖监管批准和有效注册文件"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_sponsors",
+      "label": "现货产品申请人",
+      "kind": "issuer",
+      "aggregation": "cohort",
+      "goals": [
+        "取得批准并吸引首批资产",
+        "降低费率与运营摩擦",
+        "避免竞争者独享先发优势"
+      ],
+      "constraints": [
+        "托管、授权参与人和申赎安排需在上线前就绪"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "会持续提交修订文件"
+      ]
+    },
+    {
+      "id": "actor_incumbent_trust",
+      "label": "拟转换的既有封闭式信托",
+      "kind": "issuer",
+      "aggregation": "organization",
+      "goals": [
+        "转换为可申赎产品",
+        "缩小净值折价",
+        "保留资产规模"
+      ],
+      "constraints": [
+        "转换路径仍依赖规则与注册文件生效"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_market_makers",
+      "label": "做市商与授权参与人",
+      "kind": "broker",
+      "aggregation": "cohort",
+      "goals": [
+        "准备流动性和套利机制",
+        "控制现货与份额价格偏离",
+        "管理运营风险"
+      ],
+      "constraints": [
+        "最终审批范围和上线日期尚未确定"
+      ],
+      "observable_fact_ids": [
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_institutions",
+      "label": "机构资产配置者",
+      "kind": "institutional_investor",
+      "aggregation": "cohort",
+      "goals": [
+        "评估受监管产品带来的新增需求",
+        "比较费用、流动性和托管风险"
+      ],
+      "constraints": [
+        "不能将产品批准等同于监管机构认可底层资产"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_retail",
+      "label": "数字资产个人投资者",
+      "kind": "retail_cohort",
+      "aggregation": "cohort",
+      "goals": [
+        "判断审批概率和资金流影响",
+        "交易短期消息波动"
+      ],
+      "constraints": [
+        "容易混淆规则批准、注册生效和产品实际交易"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_media",
+      "label": "金融与数字资产媒体",
+      "kind": "media",
+      "aggregation": "cohort",
+      "goals": [
+        "追踪申请修改和监管决定",
+        "比较申请人竞争位置"
+      ],
+      "constraints": [
+        "审批前传言频繁且可能互相矛盾"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    }
+  ],
+  "relationships": [
+    {
+      "source_actor_id": "actor_securities_regulator",
+      "target_actor_id": "actor_exchanges",
+      "kind": "reviews_listing_rule_changes_from",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_exchanges",
+      "target_actor_id": "actor_sponsors",
+      "kind": "seeks_to_list_products_of",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_market_makers",
+      "target_actor_id": "actor_sponsors",
+      "kind": "provides_creation_redemption_liquidity_for",
+      "visibility": "assumed"
+    },
+    {
+      "source_actor_id": "actor_institutions",
+      "target_actor_id": "actor_sponsors",
+      "kind": "allocates_competing_product_flows_to",
+      "visibility": "assumed"
+    },
+    {
+      "source_actor_id": "actor_media",
+      "target_actor_id": "actor_retail",
+      "kind": "shapes_approval_expectations_of",
+      "visibility": "assumed"
+    }
+  ],
+  "allowed_actions": [
+    {
+      "type": "COMMUNICATE",
+      "description": "发布监管意见、文件更新、产品安排或研究观点。",
+      "visibility": "public"
+    },
+    {
+      "type": "REGULATE",
+      "description": "批准、否决、延期或附条件处理交易所规则申请。",
+      "visibility": "public"
+    },
+    {
+      "type": "OPERATE",
+      "description": "准备托管、申赎、做市、上市和交易系统。",
+      "visibility": "either"
+    },
+    {
+      "type": "ALLOCATE",
+      "description": "调整匿名数字资产、相关产品或现金配置。",
+      "visibility": "private"
+    },
+    {
+      "type": "NEGOTIATE",
+      "description": "协商费用、做市、托管和授权参与安排。",
+      "visibility": "private"
+    },
+    {
+      "type": "WAIT",
+      "description": "等待最终命令、注册生效或竞争者更新。",
+      "visibility": "either"
+    }
+  ],
+  "interventions": [
+    {
+      "id": "I0_SPOT_PRODUCT_REVIEW",
+      "at_round": 0,
+      "fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "visibility": "public"
+    }
+  ],
+  "forecast_targets": [
+    {
+      "id": "T1",
+      "kind": "market",
+      "definition": "下一UTC日收盘价相对D0收盘价的方向。",
+      "horizon": "next_utc_daily_close",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T2",
+      "kind": "market",
+      "definition": "第5个后续UTC日收盘价相对D0收盘价的方向。",
+      "horizon": "5_utc_daily_closes",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T3",
+      "kind": "market",
+      "definition": "第20个后续UTC日收盘价相对D0收盘价的方向。",
+      "horizon": "20_utc_daily_closes",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T4",
+      "kind": "event",
+      "definition": "证券监管机构是否在7个自然日内批准至少一个持有该现货数字资产的交易产品上市规则。",
+      "horizon": "7_calendar_days",
+      "scoring": "brier"
+    },
+    {
+      "id": "T5",
+      "kind": "event",
+      "definition": "证券监管机构是否在7个自然日内只批准一个申请人的产品，同时让所有同资产竞争申请继续处于未批准状态。",
+      "horizon": "7_calendar_days",
+      "scoring": "brier"
+    }
+  ],
+  "run_config": {
+    "rounds": 12,
+    "replications": 20,
+    "seed_strategy": "deterministic_sequence",
+    "layers": [
+      "information",
+      "behavior"
+    ]
+  },
+  "provenance": {
+    "created_by": "FEVER-MiroFish blind benchmark",
+    "source_graph_artifact_id": null,
+    "notes": [
+      "真实资产、监管机构、法院、交易所、申请人、年份、代码和来源链接已从模型可见输入中移除。",
+      "连续市场目标按UTC日线定义，避免把全天候资产误写成交易日。",
+      "真实映射和结果只保存在独立outcome文件。"
+    ]
+  }
+}

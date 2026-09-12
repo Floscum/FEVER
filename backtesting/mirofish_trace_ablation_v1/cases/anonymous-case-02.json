@@ -1,0 +1,990 @@
+{
+  "case_id": "anonymous-case-02",
+  "market": "CN",
+  "event_type": "增长/就业数据意外",
+  "actor_budget": 8,
+  "source_hashes": {
+    "spec_sha256": "21db9c40b4b789fc229a8530e44a2b899175527625320aaf9664dff481bf0a20",
+    "simulation_result_sha256": "6d9472c0dc94f8f2aefedac2b08eba0f54838e2c268837c20191543c1519ffd0",
+    "financial_actions_sha256": "d0a7723d37b3197d342e4130aa15cca50903d388f2c1a69c179fc4cdfc6a0d4e"
+  },
+  "shared_input": {
+    "case_id": "anonymous-case-02",
+    "as_of": "D0",
+    "question": "严格基于 D0 时点可得信息，推演未来三个交易日各参与方行动及条件化传导机制。",
+    "horizon": {
+      "kind": "calendar_days",
+      "value": 3,
+      "end_at": "2024-12-18T23:59:59+00:00"
+    },
+    "facts": [
+      {
+        "id": "F1",
+        "statement": "中国城镇调查失业率月度公告：社零 | 统计局 预期:一致 前值:上月"
+      }
+    ],
+    "actors": [
+      {
+        "id": "actor_issuer",
+        "label": "事件主体",
+        "kind": "issuer",
+        "goals": [
+          "维护自身制度或经济利益",
+          "根据新增信息调整行动"
+        ],
+        "constraints": [
+          "只能使用分析截止时间前可观察的信息"
+        ]
+      },
+      {
+        "id": "actor_government",
+        "label": "政府与司法机构",
+        "kind": "government",
+        "goals": [
+          "维护自身制度或经济利益",
+          "根据新增信息调整行动"
+        ],
+        "constraints": [
+          "只能使用分析截止时间前可观察的信息"
+        ]
+      },
+      {
+        "id": "actor_institutions",
+        "label": "机构投资者",
+        "kind": "institutional_investor",
+        "goals": [
+          "维护自身制度或经济利益",
+          "根据新增信息调整行动"
+        ],
+        "constraints": [
+          "只能使用分析截止时间前可观察的信息"
+        ]
+      },
+      {
+        "id": "actor_brokers",
+        "label": "券商与中介机构",
+        "kind": "broker",
+        "goals": [
+          "维护自身制度或经济利益",
+          "根据新增信息调整行动"
+        ],
+        "constraints": [
+          "只能使用分析截止时间前可观察的信息"
+        ]
+      },
+      {
+        "id": "actor_regulator",
+        "label": "监管机构",
+        "kind": "regulator",
+        "goals": [
+          "维护自身制度或经济利益",
+          "根据新增信息调整行动"
+        ],
+        "constraints": [
+          "只能使用分析截止时间前可观察的信息"
+        ]
+      },
+      {
+        "id": "actor_media",
+        "label": "财经媒体",
+        "kind": "media",
+        "goals": [
+          "维护自身制度或经济利益",
+          "根据新增信息调整行动"
+        ],
+        "constraints": [
+          "只能使用分析截止时间前可观察的信息"
+        ]
+      },
+      {
+        "id": "actor_analysts",
+        "label": "分析师",
+        "kind": "analyst",
+        "goals": [
+          "维护自身制度或经济利益",
+          "根据新增信息调整行动"
+        ],
+        "constraints": [
+          "只能使用分析截止时间前可观察的信息"
+        ]
+      },
+      {
+        "id": "actor_exchange",
+        "label": "交易所",
+        "kind": "exchange",
+        "goals": [
+          "维护自身制度或经济利益",
+          "根据新增信息调整行动"
+        ],
+        "constraints": [
+          "只能使用分析截止时间前可观察的信息"
+        ]
+      }
+    ],
+    "financial_decisions": [
+      {
+        "id": "decision-actor_issuer-r2",
+        "round": 2,
+        "actor_id": "actor_issuer",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": null,
+        "instrument_refs": [],
+        "rationale": "作为国家统计局官方数据发布主体，本周期内城镇调查失业率月度公告已按制度规定完成发布。预期与上月前值一致，表明就业市场运行平稳，无需在现有发布周期内进行额外政策沟通或操作调整。下一轮数据采集和发布将按既定统计制度推进，当前阶段保持观察更符合维护数据公信力和制度稳定性的目标。",
+        "constraint_refs": [
+          "actor_issuer:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "public",
+        "confidence": 0.9,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_government-r2",
+        "round": 2,
+        "actor_id": "actor_government",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "截至2024年12月15日，仅有中国城镇调查失业率月度公告这一项可用事实（F1），且该公告显示市场预期与上月前值一致，表明统计数据无异常波动信号。作为政府统计机构，在当前数据未出现显著偏离预期的情况下，不需要采取监管干预或额外公开沟通动作。选择等待下一轮数据更新和更多信息输入，符合维护制度稳定性的职责要求。对匿名标的1（畜牧养殖ETF）无任何关联监管依据，故不做任何操作。",
+        "constraint_refs": [
+          "actor_government:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "public",
+        "confidence": 0.95,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_institutions-r2",
+        "round": 2,
+        "actor_id": "actor_institutions",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "maintain",
+        "intensity": 0.0,
+        "instrument_refs": [
+          "ANON_ASSET"
+        ],
+        "rationale": "当前仅观察到失业率与社零月度公告的发布时点，但具体数值尚未披露。作为机构投资者，需等待实际数据与预期的偏差情况后再做配置调整。若失业率环比改善且社零数据超预期，将考虑增配消费类资产如匿名标的1；若数据弱于预期则需观察政策应对。当前阶段保持现有仓位，不进行主动调整。",
+        "constraint_refs": [
+          "actor_institutions:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_brokers-r2",
+        "round": 2,
+        "actor_id": "actor_brokers",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": null,
+        "instrument_refs": [
+          "ANON_ASSET"
+        ],
+        "rationale": "作为券商与中介机构，目前处于城镇调查失业率及社零数据公告发布前的信息真空期。预期与前值一致表明市场未出现显著分化信号，当前不宜贸然调整头寸或发布方向性建议。持有匿名标的1观察数据实际发布后的市场反应及政策应对节奏，待可观察信息出现后再做定向动作。主要不确定性在于实际数据是否与预期一致以及后续货币或财政政策的响应力度。",
+        "constraint_refs": [
+          "actor_brokers:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.75,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_regulator-r2",
+        "round": 2,
+        "actor_id": "actor_regulator",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "maintain",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "当前F1显示中国城镇调查失业率月度公告预期与前值一致，表明市场对就业形势存在稳定预期。作为监管机构，在数据发布初期需要观察实际数据走势与预期的偏离程度，以及社零等关联指标的联动变化，而非立即采取调控行动。当前信息不足以支持启动新的监管措施或公开沟通，因此选择等待后续数据积累和政策研判窗口。",
+        "constraint_refs": [
+          "actor_regulator:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_media-r2",
+        "round": 2,
+        "actor_id": "actor_media",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "失业率预期一致、前值为上月数据，属于常规月度公告，当前缺乏实质性边际变化信号。作为财经媒体，在数据披露后首轮已通过社交媒体完成信息传播与分析解读（已发帖和评论）。下一决策周期内应等待更多微观数据或政策信号出现，以便形成有增量信息价值的深度内容，避免对同一条公告做重复性表态。匿名标的1与当前失业率公告暂无直接逻辑传导链条，无需进行操作。",
+        "constraint_refs": [
+          "actor_media:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_analysts-r2",
+        "round": 2,
+        "actor_id": "actor_analysts",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "截至2024-12-15，仅观察到中国城镇调查失业率月度公告发布的预告信息（预期一致、前值上月），尚未获取实际数据值。作为分析师，在缺少实际数据点的情况下无法做出有效分析和调整判断。当前最优策略是等待实际数据公布后，结合失业率与社零的联动关系进行结构分析，再决定是否需要调整对消费板块或就业相关标的的评估。主要不确定性在于实际数据是否偏离预期以及细分结构变化方向。",
+        "constraint_refs": [
+          "actor_analysts:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.95,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_exchange-r2",
+        "round": 2,
+        "actor_id": "actor_exchange",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "截至时点仅有失业率月度公告预期与前值一致，尚未有实际数据偏离预期的冲击性信息。作为交易所，在缺乏足够新增可观察事实支撑调整行动时，维持现有制度安排和市场运行节奏是最符合职责与约束的选择。社零数据与失业率的联动分析需等实际公告值确认后，方可评估对消费板块及相关衍生品的影响。",
+        "constraint_refs": [
+          "actor_exchange:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      }
+    ],
+    "simulated_actions": [
+      {
+        "id": "trace-19",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #1：中国城镇调查失业率月度公告：社零 | 统计局 预期:一致 前值:上月",
+        "actor_id": "actor_analysts"
+      },
+      {
+        "id": "trace-20",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user",
+        "actor_id": "actor_issuer"
+      },
+      {
+        "id": "trace-21",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "📊 【数据解读】中国城镇调查失业率月度公告发布。作为宏观经济关键指标，失业率数据反映劳动力市场健康状况。结合社零数据，我们将持续跟踪消费与就业的联动效应。建议投资者关注后续政策动向及经济复苏节奏。 #宏观经济 #失业率 #社零数据",
+        "actor_id": "actor_media"
+      },
+      {
+        "id": "trace-22",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "关键经济数据发布需持续跟踪。失业率与社零数据的联动对消费板块估值有重要参考意义，建议关注本月环比变化趋势。",
+        "actor_id": "actor_institutions"
+      },
+      {
+        "id": "trace-23",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "关注本次城镇调查失业率及社零数据。作为从业者，建议市场参与者关注数据与预期的一致性，同时结合前值变化判断就业与消费趋势走向。后续需观察政策应对节奏。",
+        "actor_id": "actor_brokers"
+      },
+      {
+        "id": "trace-24",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user",
+        "actor_id": "actor_exchange"
+      },
+      {
+        "id": "trace-25",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "【机构分析】中国城镇调查失业率月度数据是评估劳动力市场状况的关键指标。预期与前值一致表明市场对就业形势的稳定预期。我们将持续关注该数据对消费及宏观经济政策的潜在影响。",
+        "actor_id": "actor_exchange"
+      },
+      {
+        "id": "trace-26",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "【国家统计局公告】2026年9月城镇调查失业率数据已按制度规范发布。本数据由各级统计机构依《统计法》采集、审核并汇总，反映了当前我国就业市场的总体状况。后续将持续监测就业形势变化，为宏观决策提供科学依据。欢迎社会各界依法依规获取和使用统计数据。",
+        "actor_id": "actor_government"
+      },
+      {
+        "id": "trace-35",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #2：📊 【数据解读】中国城镇调查失业率月度公告发布。作为宏观经济关键指标，失业率数据反映劳动力市场健康状况。结合社零数据，我们将持续跟踪消费与就业的联动效应。建议投资者关注后续政策动向及经济复苏节奏。 #宏观经济 #失业率 #社零数据",
+        "actor_id": "actor_exchange"
+      },
+      {
+        "id": "trace-36",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "【机构观点】失业率与社零数据的联动效应是当前市场关注的核心。我们注意到数据发布后，债市收益率小幅下行，反映市场对经济弱修复的定价。后续需关注居民收入预期改善节奏对消费端的支撑力度。建议重点跟踪高频指标以验证趋势延续性。",
+        "actor_id": "actor_exchange"
+      },
+      {
+        "id": "trace-37",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #2：📊 【数据解读】中国城镇调查失业率月度公告发布。作为宏观经济关键指标，失业率数据反映劳动力市场健康状况。结合社零数据，我们将持续跟踪消费与就业的联动效应。建议投资者关注后续政策动向及经济复苏节奏。 #宏观经济 #失业率 #社零数据",
+        "actor_id": "actor_brokers"
+      },
+      {
+        "id": "trace-38",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "赞同对失业率与社零数据联动效应的分析。作为券商从业者，补充一点：当前市场定价已部分反映预期一致的情形，但若实际数据出现边际偏差，消费板块与周期板块的估值可能面临短期重估。建议关注数据发布后的市场即时反应，特别是北向资金流向变化。",
+        "actor_id": "actor_brokers"
+      },
+      {
+        "id": "trace-39",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #1：中国城镇调查失业率月度公告：社零 | 统计局 预期:一致 前值:上月",
+        "actor_id": "actor_regulator"
+      },
+      {
+        "id": "trace-40",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #1：中国城镇调查失业率月度公告：社零 | 统计局 预期:一致 前值:上月",
+        "actor_id": "actor_government"
+      },
+      {
+        "id": "trace-41",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "作为监管机构关注本次城镇调查失业率及社零数据发布。我们将持续监测就业市场与消费数据的联动变化，确保统计数据的规范发布与合理运用。建议市场参与者依法依规使用公开统计数据，避免对单一指标进行过度解读。后续将结合政策动向进行综合研判。",
+        "actor_id": "actor_regulator"
+      },
+      {
+        "id": "trace-42",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "感谢对统计数据的关注和解读。需要指出的是，城镇调查失业率作为月度发布的宏观经济指标，其统计口径、调查方法和技术规范均在《统计法》框架下统一执行。建议市场分析人员在解读数据时，充分考虑季节性因素和短期波动，避免过度外推。统计数据欢迎依法合规使用，但不应被过度交易化解读。",
+        "actor_id": "actor_government"
+      },
+      {
+        "id": "trace-43",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "【国家统计局提示】本数据为官方依法发布的城镇调查失业率月度统计结果，反映了特定调查时点的就业市场状况。建议各方在解读时关注官方公告的完整统计口径与调查方法说明，避免过度外推解读。后续数据请以国家统计局官方网站发布为准。",
+        "actor_id": "actor_issuer"
+      },
+      {
+        "id": "trace-44",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "同意分析框架。失业率与社零数据的联动是评估消费复苏动能的核心变量。从机构配置角度看，若失业率保持稳定且社零环比改善，消费板块的盈利预期将获得支撑。后续重点关注9月高频数据能否验证这一传导逻辑。",
+        "actor_id": "actor_institutions"
+      },
+      {
+        "id": "trace-45",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #2：📊 【数据解读】中国城镇调查失业率月度公告发布。作为宏观经济关键指标，失业率数据反映劳动力市场健康状况。结合社零数据，我们将持续跟踪消费与就业的联动效应。建议投资者关注后续政策动向及经济复苏节奏。 #宏观经济 #失业率 #社零数据",
+        "actor_id": "actor_analysts"
+      },
+      {
+        "id": "trace-46",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "【分析师视角】城镇调查失业率与社零数据联动分析至关重要。失业率稳定表明就业市场韧性，而社零数据将验证收入预期向消费传导的实际效果。建议重点关注：1)青年失业率细分结构变化；2)服务消费与商品消费的分化趋势；3)政策应对窗口期。数据一致预期下，更需关注环比边际变动信号。",
+        "actor_id": "actor_analysts"
+      },
+      {
+        "id": "trace-47",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "【财经媒体观察】失业率与社零数据的联动是判断经济内生动力的重要窗口。从已发布信息看，数据预期与前值一致，反映就业市场处于平稳运行区间。我们将持续追踪该数据对消费板块及货币政策节奏的传导效应，后续关注增量政策工具的空间与节奏。欢迎读者持续关注我们的深度分析报告。",
+        "actor_id": "actor_media"
+      }
+    ],
+    "branch_slots": [
+      {
+        "slot_id": "slot-1",
+        "actor_ids": [
+          "actor_institutions",
+          "actor_issuer"
+        ],
+        "relationship_kind": "constrains_or_influences",
+        "decision_refs": [
+          "decision-actor_institutions-r2",
+          "decision-actor_issuer-r2"
+        ]
+      },
+      {
+        "slot_id": "slot-2",
+        "actor_ids": [
+          "actor_brokers",
+          "actor_media"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_brokers-r2",
+          "decision-actor_media-r2"
+        ]
+      },
+      {
+        "slot_id": "slot-3",
+        "actor_ids": [
+          "actor_analysts",
+          "actor_exchange"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_analysts-r2",
+          "decision-actor_exchange-r2"
+        ]
+      },
+      {
+        "slot_id": "slot-4",
+        "actor_ids": [
+          "actor_government",
+          "actor_regulator"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_government-r2",
+          "decision-actor_regulator-r2"
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "with_traces": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "数据持平，机构与统计局默契静观",
+          "summary": "若实际失业率与社零数据与预期和前值保持一致，机构投资者维持等待决策（decision-actor_institutions-r2）而被统计局（decision-actor_issuer-r2）的稳定发布节奏所约束，不会进行调整或沟通。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "实际公布的城镇调查失业率与预期完全一致",
+            "实际社零数据与上月前值持平"
+          ],
+          "consequences": [
+            "机构投资者维持现有仓位，不对匿名标的1进行增配或减配",
+            "统计局按制度进入下一数据采集周期，不进行额外政策沟通"
+          ],
+          "invalidation_conditions": [
+            "失业率或社零数据出现超出预期的环比变动",
+            "机构投资者发布任何方向性的资产配置调整公告"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "数据改善，券商与媒体共振唱多消费",
+          "summary": "若失业率和社零数据双双环比改善，券商（decision-actor_brokers-r2）会在观察到数据后一改等待立场，积极与财经媒体（decision-actor_media-r2）互动，合力引导市场关注消费复苏主题。",
+          "actor_ids": [
+            "actor_brokers",
+            "actor_media"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_brokers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_brokers-r2"
+            },
+            {
+              "actor_id": "actor_media",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_media-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "城镇调查失业率持平或下降且社零环比增速高于预期"
+          ],
+          "consequences": [
+            "券商发布看好消费板块的补充分析报告，叠加北向资金流向分析",
+            "财经媒体围绕'数据支撑消费复苏'发布深度解读系列，引导舆论转向政策利好预期"
+          ],
+          "invalidation_conditions": [
+            "失业率上升或社零数据弱于前值",
+            "券商继续维持等待状态，不主动与媒体互动"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "数据超预期走弱，分析师与交易所预警风险",
+          "summary": "若数据明显弱于预期和前值，分析师（decision-actor_analysts-r2）由无行动转为预警模式，并引发交易所（decision-actor_exchange-r2）对市场波动率加剧的关注与公开表态。",
+          "actor_ids": [
+            "actor_analysts",
+            "actor_exchange"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_analysts",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_analysts-r2"
+            },
+            {
+              "actor_id": "actor_exchange",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_exchange-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "城镇调查失业率环比上升大于0.2个百分点",
+            "社零同环比增速均低于前值"
+          ],
+          "consequences": [
+            "分析师发布前瞻警告，指出消费板块盈利预期可能下调及政策应对窗口期提前",
+            "交易所发布市场监测公告，提示相关期货或ETF可能出现异常波动，并加强盘中风控措施"
+          ],
+          "invalidation_conditions": [
+            "失业率和社零数据均符合预期",
+            "分析师继续维持无行动状态，不发布任何前瞻分析"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "数据偏离预期，政府与监管协同引导预期",
+          "summary": "若数据显著指向经济下行风险，政府与司法机构（decision-actor_government-r2）会打破静默，与监管机构（decision-actor_regulator-r2）配合行动，协同引导市场预期而非放任市场自行消化。",
+          "actor_ids": [
+            "actor_government",
+            "actor_regulator"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_government",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_government-r2"
+            },
+            {
+              "actor_id": "actor_regulator",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_regulator-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "失业率数据大幅恶化（环比升0.3%以上）且社零数据连续两月负增长"
+          ],
+          "consequences": [
+            "政府发布统计数据官方解读，定性数据为“暂时性因素影响的短期波动”，稳定市场信心",
+            "监管机构发布指引，要求金融机构在消费类资产上审慎暴露，但避免直接限制交易"
+          ],
+          "invalidation_conditions": [
+            "数据符合预期，政府继续无行动",
+            "监管机构在数据不佳时保持沉默，不与政府同步发声"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        }
+      ],
+      "quality": [
+        {
+          "scores": {
+            "mechanism_coherence": 1,
+            "monitoring_actionability": 1,
+            "falsifiability": 1,
+            "evidence_discipline": 0,
+            "scenario_diversity": 2
+          },
+          "total_score": 5,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            }
+          ]
+        },
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 1,
+            "falsifiability": 1,
+            "evidence_discipline": 0,
+            "scenario_diversity": 1
+          },
+          "total_score": 5,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": false,
+              "specific_invalidation": false,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": false,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": false,
+              "specific_invalidation": false,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            }
+          ]
+        }
+      ]
+    },
+    "without_traces": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "数据超预期引机构增配与央行观望",
+          "summary": "如果实际失业率和社零数据双双强于预期，机构投资者将主动增配消费类资产，而事件主体（统计局）按制度发布数据后维持等待，两者的行动构成从数据发布到资产配置的传导。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "实际城镇调查失业率低于前值",
+            "实际社零同比增速高于市场一致预期"
+          ],
+          "consequences": [
+            "机构投资者将提高对消费类资产（如匿名标的1）的配置比例",
+            "事件主体保持数据发布的制度性节奏，不额外沟通",
+            "消费板块交易量上升但无监管干预信号"
+          ],
+          "invalidation_conditions": [
+            "实际失业率不低于前值",
+            "社零同比增速不高于一致预期",
+            "机构投资者在数据发布后未改变仓位"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "数据符合预期触发券商中性报告与媒体情绪引导",
+          "summary": "若失业率和社零数据与预期完全一致，券商将基于无边际变化发布中性策略报告，财经媒体则会通过解读‘就业平稳’引导市场情绪稳定，两者交互强化一致预期。",
+          "actor_ids": [
+            "actor_brokers",
+            "actor_media"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_brokers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_brokers-r2"
+            },
+            {
+              "actor_id": "actor_media",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_media-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "实际失业率与前值完全一致",
+            "实际社零同比增速等于市场一致预期"
+          ],
+          "consequences": [
+            "券商发布中性仓位建议，不建议对匿名标的1做多空调整",
+            "财经媒体发布‘就业数据平稳，消费动能延续’的叙述",
+            "市场波动率下降，投资者等待下一轮更多数据"
+          ],
+          "invalidation_conditions": [
+            "实际失业率与前值不同",
+            "社零数据不等于一致预期",
+            "券商或媒体在数据发布后发布偏多或偏空信号"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "数据不及预期触发分析师调降与交易所监测",
+          "summary": "如果失业率上升且社零数据弱于预期，分析师将下调消费板块盈利预期，交易所则可能因价格波动增加实施盘中临时停牌等监测措施。",
+          "actor_ids": [
+            "actor_analysts",
+            "actor_exchange"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_analysts",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_analysts-r2"
+            },
+            {
+              "actor_id": "actor_exchange",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_exchange-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "实际城镇调查失业率高于前值",
+            "实际社零同比增速低于市场一致预期"
+          ],
+          "consequences": [
+            "分析师下调对消费类资产（含匿名标的1）的盈利预测和评级",
+            "交易所提高对相关板块的波动率监测频率",
+            "消费板块面临短期抛压，但无政策干预信号"
+          ],
+          "invalidation_conditions": [
+            "失业率未高于前值",
+            "社零数据未低于一致预期",
+            "分析师或交易所未采取上述调整和监测动作"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "数据分化触发政府沟通与监管专项关注",
+          "summary": "若失业率优于预期但社零大幅低于预期（或反之），政府将通过新闻发布会解释数据矛盾，监管机构则启动对社零产业链的专项问询。",
+          "actor_ids": [
+            "actor_government",
+            "actor_regulator"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_government",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_government-r2"
+            },
+            {
+              "actor_id": "actor_regulator",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_regulator-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "城镇调查失业率与社零数据方向显著背离（一个超预期一个不及预期）",
+            "任一数据的偏移幅度超过0.5个标准差"
+          ],
+          "consequences": [
+            "政府进行公开表述，强调结构性因素并暗示后续政策空间",
+            "监管机构对消费品及养殖产业链上市公司发出关注函或调研安排",
+            "机构投资者延迟决策，等待政策信号明确"
+          ],
+          "invalidation_conditions": [
+            "失业率与社零数据方向一致",
+            "数据偏移幅度均在0.5个标准差以内",
+            "政府和监管机构未进行上述沟通或问询动作"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        }
+      ],
+      "quality": [
+        {
+          "scores": {
+            "mechanism_coherence": 3,
+            "monitoring_actionability": 3,
+            "falsifiability": 3,
+            "evidence_discipline": 2,
+            "scenario_diversity": 3
+          },
+          "total_score": 14,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            }
+          ]
+        },
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 3,
+            "falsifiability": 3,
+            "evidence_discipline": 2,
+            "scenario_diversity": 3
+          },
+          "total_score": 13,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": false,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

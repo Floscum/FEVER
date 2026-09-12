@@ -1,0 +1,147 @@
+{
+  "experiment_id": "decision-support-trace-ablation-v1",
+  "classification": "outcome_free_component_ablation",
+  "case_count": 12,
+  "variants": {
+    "with_traces": {
+      "mean_quality_score_out_of_20": 8.208333,
+      "strict_qualified_branch_rate": 0.16666667,
+      "decision_actor_coverage": 1.0,
+      "multi_actor_branch_rate": 1.0,
+      "trigger_present_rate": 1.0,
+      "invalidation_present_rate": 1.0,
+      "valid_evidence_ref_rate": 1.0,
+      "quality_repeat_reliability": {
+        "score_within_one_rate": 0.8,
+        "branch_flag_agreement_rate": 0.60833333
+      },
+      "generation_latency_seconds": {
+        "count": 12,
+        "median": 34.184275,
+        "p90_observed": 71.230123,
+        "maximum": 103.913859
+      }
+    },
+    "without_traces": {
+      "mean_quality_score_out_of_20": 10.041667,
+      "strict_qualified_branch_rate": 0.22916667,
+      "decision_actor_coverage": 1.0,
+      "multi_actor_branch_rate": 1.0,
+      "trigger_present_rate": 1.0,
+      "invalidation_present_rate": 1.0,
+      "valid_evidence_ref_rate": 1.0,
+      "quality_repeat_reliability": {
+        "score_within_one_rate": 0.88333333,
+        "branch_flag_agreement_rate": 0.6625
+      },
+      "generation_latency_seconds": {
+        "count": 12,
+        "median": 28.968136,
+        "p90_observed": 57.183028,
+        "maximum": 61.518371
+      }
+    }
+  },
+  "paired_quality": {
+    "with_traces_win_count": 3,
+    "without_traces_win_count": 7,
+    "tie_count": 2
+  },
+  "semantic_verdict": {
+    "verdict": "inconclusive_low_repeat_agreement",
+    "mean_quality_delta_with_minus_without": -1.833334,
+    "minimum_repeat_reliability": 0.60833333,
+    "decision_rule_was_preregistered": true
+  },
+  "post_hoc_trace_diagnostic": {
+    "post_hoc": true,
+    "trace_count": 190,
+    "mean_trace_count_per_case": 15.833333,
+    "action_type_counts": {
+      "COMMUNICATE": 78,
+      "DO_NOTHING": 1,
+      "FOLLOW": 2,
+      "LIKE_COMMENT": 23,
+      "SEARCH_POSTS": 29,
+      "SEARCH_USER": 25,
+      "SOCIAL_ENDORSEMENT": 32
+    },
+    "low_context_operational_trace_count": 80,
+    "low_context_operational_trace_rate": 0.42105263,
+    "social_endorsement_count": 32,
+    "social_endorsement_rate": 0.16842105,
+    "communication_count": 78,
+    "communication_rate": 0.41052632,
+    "within_case_exact_repeat_count": 67,
+    "within_case_exact_repeat_rate": 0.35263158,
+    "summary_character_count": 17025,
+    "mean_summary_characters_per_case": 1418.75,
+    "interpretation": "This composition check was added after the semantic result. It describes prompt volume and repetition; it does not prove that any action type is useless or caused the score difference."
+  },
+  "engineering_scale": {
+    "source_run_count": 32,
+    "all_completed": true,
+    "by_actor_budget": {
+      "4": {
+        "run_count": 12,
+        "completion_rate": 1.0,
+        "active_actor_rate": 1.0,
+        "valid_decision_rate": 0.9791666666666666,
+        "mean_autonomous_action_count": 10.416667,
+        "median_wall_seconds": 80.5,
+        "p90_wall_seconds": 101.0,
+        "mean_completed_calls": 13.0,
+        "mean_total_tokens": 37672.916666666664,
+        "mean_estimated_cost": 0.0026541959999999997
+      },
+      "6": {
+        "run_count": 12,
+        "completion_rate": 1.0,
+        "active_actor_rate": 1.0,
+        "valid_decision_rate": 0.9583333333333334,
+        "mean_autonomous_action_count": 16.666667,
+        "median_wall_seconds": 77.0,
+        "p90_wall_seconds": 123.0,
+        "mean_completed_calls": 19.0,
+        "mean_total_tokens": 59763.25,
+        "mean_estimated_cost": 0.0041274465000000005
+      },
+      "8": {
+        "run_count": 8,
+        "completion_rate": 1.0,
+        "active_actor_rate": 1.0,
+        "valid_decision_rate": 0.984375,
+        "mean_autonomous_action_count": 22.5,
+        "median_wall_seconds": 90.0,
+        "p90_wall_seconds": 128.0,
+        "mean_completed_calls": 25.0,
+        "mean_total_tokens": 87895.375,
+        "mean_estimated_cost": 0.00631470825
+      }
+    },
+    "four_to_eight": {
+      "action_multiplier": 2.16,
+      "cost_multiplier": 2.379142,
+      "median_latency_multiplier": 1.118012
+    }
+  },
+  "usage": {
+    "attempt_count": 78,
+    "completed_call_count": 78,
+    "failed_call_count": 0,
+    "total_tokens": 244719,
+    "estimated_cost": 0.02058998,
+    "stage_breakdown": {
+      "sealed_scenario_generation_calls": 28,
+      "absolute_quality_calls": 48,
+      "completed_calls_without_sealed_audit_record": 2
+    },
+    "clean_rerun_expected_call_count_without_semantic_retries": 72
+  },
+  "interpretation_limits": [
+    "This isolates trace visibility at compilation time, not the effect of simulation on the post-simulation decisions.",
+    "One scenario generation draw is used per variant and case.",
+    "The same economical model family generates and judges the scenarios.",
+    "No historical outcomes, price labels, forecast calibration, or trading returns are evaluated."
+  ]
+}

@@ -1,0 +1,222 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_digital_asset_listing_011",
+  "spec_sha256": "13dfcc649c74e61eb03624b94ef7150fc5746409e579c943106d3f591af076ea",
+  "simulation_id": "sim_ef7a0a69253e",
+  "generated_at": "2026-07-31T10:19:57.743831+00:00",
+  "status": "completed",
+  "decisions": [
+    {
+      "id": "decision-actor_securities_regulator-r3",
+      "round": 3,
+      "actor_id": "actor_securities_regulator",
+      "action_type": "WAIT",
+      "decision_status": "no_action",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "尽管法院裁决（F1）要求重新审视对现货产品与期货产品的差别处理理由，但截至当前时点，多个申请人提交的修订文件（F3）仍处于并行审查状态，尚未完成对监控共享、托管安排和现金申赎机制是否足以满足证券法关于防止欺诈和操纵（F2）要求的全面评估。在委员内部对统一审批与单一申请人先行路径仍存在分歧（约束1）的情况下，任何未经充分说明的批准或否决均可能再次引发法律挑战。因此，最审慎的选择是继续审查申请人补充材料，在形成与证券交易法律一致且足以回应法院质疑的完整记录之前暂不作出最终决定。",
+      "constraint_refs": [
+        "actor_securities_regulator:constraint:0",
+        "actor_securities_regulator:constraint:1"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:0",
+      "visibility": "public",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_exchanges-r3",
+      "round": 3,
+      "actor_id": "actor_exchanges",
+      "action_type": "COMMUNICATE",
+      "decision_status": "intended",
+      "direction": "conditional",
+      "intensity": 0.7,
+      "instrument_refs": [
+        "ASSET_K"
+      ],
+      "rationale": "作为申请上市的证券交易所，我们的首要目标是尽快取得规则变更批准并上线产品。F1裁决已为审批扫清法律障碍，F3表明我们已提交包含监控共享、托管和现金申赎安排的完备修订文件。鉴于F4显示监管尚未发布最终批准令且存在并行审查，下一决策周期我们将主动与监管机构进行沟通，强调我们的注册文件质量和完善的监控安排已满足F2中监管曾提出的核心关切，并援引F1裁决要求监管对现货与期货产品采取一致处理标准。同时向监管阐明多申请人并行获批的可行性，以降低单一先行路径对我方的不利竞争影响。",
+      "constraint_refs": [
+        "actor_exchanges:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:1",
+      "visibility": "private",
+      "confidence": 0.8,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_sponsors-r3",
+      "round": 3,
+      "actor_id": "actor_sponsors",
+      "action_type": "COMMUNICATE",
+      "decision_status": "conditional",
+      "direction": "increase",
+      "intensity": 0.7,
+      "instrument_refs": [
+        "ASSET_K"
+      ],
+      "rationale": "选择对外沟通而非等待，原因有：F3显示多个申请方已提交修订文件并提出监控共享安排，若此时被动等待单一申请人先行路径，将面临竞争者独享先发优势的风险。F1提供了有利法律基础，但F4显示监管尚未发布最终批准令。因此下一周期最可能动作是在社交媒体或行业渠道主动发声，强调我方的托管、申赎安排已就绪（约束），并利用F1强调区别对待现货与期货产品的不合理性，推动统一审批或争取成为首批获批者。此举服务于取得批准并吸引首批资产及避免竞争者独享先发优势两大目标。主要不确定性在于F4中监管仍可能选择单一申请人路径，从而导致我方的沟通效果有限。",
+      "constraint_refs": [
+        "actor_sponsors:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:2",
+      "visibility": "public",
+      "confidence": 0.8,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_incumbent_trust-r3",
+      "round": 3,
+      "actor_id": "actor_incumbent_trust",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "maintain",
+      "intensity": 0.0,
+      "instrument_refs": [
+        "ASSET_K"
+      ],
+      "rationale": "作为拟转换的既有封闭式信托，我的转换路径仍依赖规则与注册文件生效（约束）。截至D0，监管机构尚未发布最终批准令（F4），虽有上诉法院撤销此前否决（F1）及多家申请人提交修订文件并提出监控共享、托管和现金申赎安排（F3），但统一审批与单一申请人先行两种路径尚未明确（F4）。在监管信号明朗前提前发起公开沟通或操作动作，既无法改变审批节奏，也可能暴露自身谈判位置或引发不必要的市场预期变动。因此最优选择是维持现有资产规模和管理状态，继续观察并行审查进展，等待监管决策窗口开启后再根据路径选择采取对应行动。",
+      "constraint_refs": [
+        "actor_incumbent_trust:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:3",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_market_makers-r3",
+      "round": 3,
+      "actor_id": "actor_market_makers",
+      "action_type": "WAIT",
+      "decision_status": "conditional",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [
+        "ASSET_K"
+      ],
+      "rationale": "作为做市商与授权参与人，我的核心职责是准备流动性和套利机制，但当前最终审批范围和上线日期尚未确定，这是最关键的约束。F4明确指出监管机构尚未发布最终批准令，市场同时讨论统一审批与单一申请人先行两种路径，这两种路径对流动性深度、托管安排和套利机制的设计差异很大。F3显示监控共享和现金申赎安排已就绪，这是积极信号，但F2的历史否决记录提示监管仍可能以欺诈、操纵和市场监控为由继续延迟。F1的法律裁决虽增加了审批可能性，但不等于自动批准。在审批路径和产品结构明确之前，提前大规模配置流动性或部署套利机制会带来不必要的运营风险。因此选择等待，保持准备状态，直到至少一个申请人的规则变更获得最终批准或审批路径明确为止。",
+      "constraint_refs": [
+        "actor_market_makers:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:4",
+      "visibility": "private",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_institutions-r3",
+      "round": 3,
+      "actor_id": "actor_institutions",
+      "action_type": "WAIT",
+      "decision_status": "no_action",
+      "direction": "not_applicable",
+      "intensity": 0.0,
+      "instrument_refs": [],
+      "rationale": "监管机构尚未发布最终批准令（F4），市场处于并行审查状态，路径不确定（统一审批或单一先行）。产品获批不等于监管认可底层资产（约束），评估新增需求、费用、流动性和托管风险需要明确的获批规则和产品细节。当前等待是最审慎选择，不作任何配置动作或公开表达。",
+      "constraint_refs": [
+        "actor_institutions:constraint:0"
+      ],
+      "evidence_refs": [
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:5",
+      "visibility": "private",
+      "confidence": 0.9,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_retail-r3",
+      "round": 3,
+      "actor_id": "actor_retail",
+      "action_type": "WAIT",
+      "decision_status": "intended",
+      "direction": "not_applicable",
+      "intensity": 0.8,
+      "instrument_refs": [
+        "ASSET_K"
+      ],
+      "rationale": "截至模拟第3轮结束，我的社交互动记录和观察显示，虽然F1法院裁决增加了法律压力，但F4显示监管尚未发布最终批准令，且F2表明监管历史上以欺诈、操纵为由多次否决同类产品。F3中多个申请人已提交修订文件但均处于并行审查状态。社交媒体讨论中申请方和交易所都在强调自身优势，但缺乏明确的时间表信号。作为容易混淆'规则批准'与'产品实际交易'的零售投资者（constraint:0），我选择继续等待更明确的规则生效公告或首批批准信号，而非在当前不确定性下进行方向性配置。主要不确定性来自监管审批路径（统一审批vs单一先行）和时间节点。",
+      "constraint_refs": [
+        "actor_retail:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:6",
+      "visibility": "private",
+      "confidence": 0.75,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    },
+    {
+      "id": "decision-actor_media-r3",
+      "round": 3,
+      "actor_id": "actor_media",
+      "action_type": "COMMUNICATE",
+      "decision_status": "no_action",
+      "direction": "not_applicable",
+      "intensity": 0.6,
+      "instrument_refs": [
+        "ASSET_K"
+      ],
+      "rationale": "当前处于审批前传言密集阶段（F4），直接等待无法完成“追踪申请修改和监管决定”以及“比较申请人竞争位置”的目标。作为媒体，应当在不确定但信息充足时，通过发布基于已观察事实（F1、F3）的比较分析或进展综述，建立信息差异化。选择发布而非交易或押注，延续此前专注于事实梳理的媒体定位。主要不确定性在于监管机构最终审批顺序和时间；基于约束（传言频繁且可能互相矛盾），报道应注明“截至2017-01-05”并区分公告/传闻。",
+      "constraint_refs": [
+        "actor_media:constraint:0"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F3",
+        "F4"
+      ],
+      "source_kind": "post_simulation_interview",
+      "source_ref": "interview:agent:7",
+      "visibility": "public",
+      "confidence": 0.85,
+      "probability_semantics": "decision_clarity_not_forecast_probability"
+    }
+  ],
+  "failures": [],
+  "warnings": [
+    "Decision confidence expresses action clarity, not forecast probability.",
+    "Interview decisions are simulated statements, not observed evidence."
+  ]
+}

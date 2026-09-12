@@ -1,0 +1,945 @@
+{
+  "case_id": "anonymous-case-10",
+  "market": "US",
+  "event_type": "政策利率调整",
+  "actor_budget": 4,
+  "decision_actor_ids": [
+    "actor_government",
+    "actor_institutions",
+    "actor_issuer",
+    "actor_regulator"
+  ],
+  "facts": [
+    {
+      "id": "F1",
+      "observed_at": "D0",
+      "statement": "US Fed Funds Target Range Announcement：FOMC decision | consensus: Bloomberg prev: prior",
+      "source_kind": "official",
+      "source_url": "anonymized-source",
+      "evidence_ref": "E1",
+      "confidence": 0.8
+    }
+  ],
+  "source_hashes": {
+    "spec_sha256": "49e474ccd3f309e6c00d7d4abbe328f9f381fa7862d4503f63ef6c8135c8d970",
+    "simulation_result_sha256": "2160a97a80a224a1ecd51542c01da7e0ab0a6fb106301e9cd9f530f56a9cb6c5",
+    "financial_actions_sha256": "34d59e9440734088f331abbe35bf2f9810052a9662c14db130650aa497edb8b4"
+  },
+  "variants": {
+    "decisions_only": {
+      "generation": {
+        "status": "sealed",
+        "semantic_retries": 0,
+        "elapsed_seconds": 35.04663295799401,
+        "prompt_chars": 5705,
+        "visible_interactions": 0
+      },
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "机构率先调仓传导至央行观望松动",
+          "summary": "若FOMC决议发布后利率维持不变且点阵图偏鸽，机构投资者基于估值逻辑提前增持不动产板块ETF；该资金流向传导使事件主体（央行）在后续经济数据发布前评估市场流动性充裕、无需调整政策。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "FOMC在D0之后发布的结果显示利率维持不变且点阵图暗示年内降息空间",
+            "机构投资者在D1可见新增不动产ETF持仓数据且净买入规模超过阈值"
+          ],
+          "consequences": [
+            "机构配置ETF的行为放大不动产业资金流入，缓解事件主体对信贷条件收紧的担忧",
+            "事件主体在D3之前未发布任何新政策信号"
+          ],
+          "invalidation_conditions": [
+            "D1-D3期间机构账户无显著ETF净买入记录",
+            "FOMC点阵图显示年内加息或维持当前利率偏鹰"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "政府稳汇率触发监管限制资本流动",
+          "summary": "若FOMC决议偏鹰（加息或点阵图上移），政府为维护汇率稳定优先采取干预措施；监管机构随后跟进调整资本流动规则，限制境内资金对外国资产的超额配置。",
+          "actor_ids": [
+            "actor_government",
+            "actor_regulator"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_government",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_government-r2"
+            },
+            {
+              "actor_id": "actor_regulator",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_regulator-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "FOMC宣布加息25bp或点阵图显示利率路径高于prev",
+            "政府在D1发布汇率波动警告或公开声明准备干预"
+          ],
+          "consequences": [
+            "监管机构在D2-D3发布针对短期资本外流的临时管制措施",
+            "政府干预与监管措施叠加，利率敏感型资产价格短期承压"
+          ],
+          "invalidation_conditions": [
+            "FOMC决议维持利率不变且点阵图未显示更鹰派倾向",
+            "政府未就汇率问题作任何公开政策响应"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "机构赎回申请触发政府与监管协同调查",
+          "summary": "若机构投资者在FOMC决议后因利率路径不确定性集中赎回不动产ETF，导致大幅折价；政府接到市场投诉后要求监管机构核查是否存在内幕交易或市场操纵，形成联合调查。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_government"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_government",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_government-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "D1-D2期间房地产ETF连续两个交易日折价超过X%且机构净赎回额同比脉冲上升",
+            "市场参与者或媒体向政府反映异常交易行为"
+          ],
+          "consequences": [
+            "监管机构在D3前启动针对ETF募集与交易环节的专项检查",
+            "政府发布声明强调维护市场公平，并协调其他部委配合监管行动"
+          ],
+          "invalidation_conditions": [
+            "ETF折价未超过X%或赎回规模处于正常波动区间",
+            "政府未收到相关交易异常的外部反映或公开信号"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "机构要求政策透明化迫使监管释放前瞻指引",
+          "summary": "若机构投资者在FOMC决议发布后，因点阵图分歧度上升而下调不动产板块配置比重，并公开致信监管要求提供更清晰的宏观审慎政策路径；监管回应该类请求，主动发布银行间流动性指引或房地产敞口指导。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_regulator"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_regulator",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_regulator-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "FOMC点阵图显示决策者利率预测分歧较prev扩大",
+            "机构投资者在D1公开声明或通过行业协会要求监管明确行业政策边界"
+          ],
+          "consequences": [
+            "监管机构在D2-D3发布关于金融机构不动产风险敞口的指导文件或沟通纪要",
+            "政府评估该指引对资本流向的影响，重新考虑是否需调整财政刺激节奏"
+          ],
+          "invalidation_conditions": [
+            "FOMC点阵图分歧未扩大或机构未作公开政策诉求",
+            "监管机构未在D3前披露或沟通任何监管新动向"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        }
+      ],
+      "quality": [
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 2,
+            "evidence_discipline": 3,
+            "scenario_diversity": 3
+          },
+          "total_score": 12,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": false,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": false,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": false,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            }
+          ]
+        },
+        {
+          "scores": {
+            "mechanism_coherence": 1,
+            "monitoring_actionability": 1,
+            "falsifiability": 1,
+            "evidence_discipline": 1,
+            "scenario_diversity": 1
+          },
+          "total_score": 5,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            }
+          ]
+        }
+      ],
+      "judge_reasons": [
+        "机制上有简单的单方因果但缺乏多步互动；触发条件可观察；失效条件在分支1-3中与结果对称或为反义复述，分支4较好；事实锚定D0，但多数逻辑链较弱。分支覆盖四种宏观、机构、监管互动，实质不同。",
+        "分支机制逻辑较弱，四个分支动作均为‘WAIT’，缺少主动的多方互动因果链；布尔检查全部扣在 causal_chain 和 decision_relevant 上。"
+      ],
+      "prompt": {
+        "system": "你是金融事件分支编译器，不是价格预测器。只使用输入中 as_of 时点可得事实\n和明确标为模拟的行为，生成恰好 4 条彼此有实质区别、未来可证伪的条件化事件分支。\n\n\n硬性要求：\n- 不得补充 as_of 之后的真实事件、公告、价格或人员结果；\n- 每条分支至少串联两个不同 actor 的动作，不能只是改写一个人的观点；\n- trigger_conditions 必须是未来可观察的“若……则进入该分支”条件；\n- consequences 是机制结果，不是已发生事实；\n- invalidation_conditions 必须说明什么观察会推翻该分支；\n- evidence_refs 只能引用输入中的 F 编号；\n- 按 branch_slots 的顺序生成分支；第 N 条分支必须描述第 N 个槽位中的所有角色及其相互影响；\n- 不要输出 actor_ids、actions、decision_ref 或 simulation_refs；系统会按数组位置确定性绑定\n  槽位中的角色及其已有 financial_decision，禁止自行概括、改写或新造动作；\n- confidence 只表示分支内部连贯性，不是发生概率；\n- novelty_claim 说明该分支比事实直接复述多出了哪段多主体传导；\n- 不得输出目标价格、收益率概率或 Agent 投票频率。\n\n只输出 JSON：\n{\"branches\":[{\"label\":\"简短名称\",\"summary\":\"条件化摘要\",\n\"trigger_conditions\":[\"...\"],\"consequences\":[\"...\"],\n\"invalidation_conditions\":[\"...\"],\"evidence_refs\":[\"F1\"],\n\"novelty_claim\":\"...\",\"confidence\":0.5}],\"warnings\":[]}。\n互动输入可能为空；其中内容仍是模拟消息，不是新增事实。不得凭空推断立场变化或因果影响。每条分支说明一方行动如何影响另一方的可行行动。触发和失效条件尽量指出观察对象与时间窗口；没有依据时不编造精确阈值。对缺少行动依据的传导使用条件表述，不把等待决策改写成已经采取新行动。",
+        "user": "{\"case_id\": \"anonymous-case-10\", \"as_of\": \"D0\", \"question\": \"严格基于 D0 时点可得信息，推演未来三个交易日各参与方行动及条件化传导机制。\", \"horizon\": {\"kind\": \"calendar_days\", \"value\": 3, \"end_at\": \"2025-04-04T23:59:59+00:00\"}, \"facts\": [{\"id\": \"F1\", \"statement\": \"US Fed Funds Target Range Announcement：FOMC decision | consensus: Bloomberg prev: prior\"}], \"actors\": [{\"id\": \"actor_issuer\", \"label\": \"事件主体\", \"kind\": \"issuer\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_government\", \"label\": \"政府与司法机构\", \"kind\": \"government\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_regulator\", \"label\": \"监管机构\", \"kind\": \"regulator\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_institutions\", \"label\": \"机构投资者\", \"kind\": \"institutional_investor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}], \"financial_decisions\": [{\"id\": \"decision-actor_issuer-r2\", \"round\": 2, \"actor_id\": \"actor_issuer\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"not_applicable\", \"intensity\": null, \"instrument_refs\": [], \"rationale\": \"作为FOMC决策信息发布方，在利率决议公告后，当前决策周期内无需立即调整货币政策立场。已通过会议声明传达政策方向，需要等待更多经济数据（就业、通胀）积累以评估政策效果，并观察市场对决议的反应。匿名标的2为不动产板块ETF，不在本机构直接政策工具范围内。维持当前利率区间是最审慎的立场。主要不确定性在于后续通胀数据是否延续回落趋势、劳动力市场是否出现超预期变化。\", \"constraint_refs\": [\"actor_issuer:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.9, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_government-r2\", \"round\": 2, \"actor_id\": \"actor_government\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"FOMC利率决议（F1）已公布，但截至截止时点（D0-date）仅有consensus与prior的参照信息，尚未观察到具体的利率变动幅度、点阵图变化或鲍威尔发布会措辞等关键细节。作为政府与司法机构，在缺乏足够的可观察信息以评估美联储新政策对本国汇率稳定、资本流动和外部融资环境的实际冲击之前，采取观望态度是最审慎的选择。贸然调整国内政策或发出信号可能引入不必要的市场波动。待更多具体数据（如点阵图分布、季度经济预测摘要SEP）公布后再作决策。\", \"constraint_refs\": [\"actor_government:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_regulator-r2\", \"round\": 2, \"actor_id\": \"actor_regulator\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"截至2025-04-01，FOMC利率决议仅公布了会议结果（consensus: Bloomberg prev: prior），但缺乏具体的政策声明细节、点阵图变化和新闻发布会措辞。作为监管机构，在缺少关于利率路径方向、幅度及前瞻指引的具体信息前，贸然调整监管措施或进行公开沟通可能引发市场过度解读。当前最佳行动是等待获得更完整的政策分析报告和数据，评估美联储利率决议的实际影响后再决定是否需要调整宏观审慎政策或发布监管指引。匿名标的2（房地产板块ETF）与本机构监管职能无直接关联，暂不纳入考量。\", \"constraint_refs\": [\"actor_regulator:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_institutions-r2\", \"round\": 2, \"actor_id\": \"actor_institutions\", \"action_type\": \"WAIT\", \"decision_status\": \"intended\", \"direction\": \"not_applicable\", \"intensity\": null, \"instrument_refs\": [], \"rationale\": \"截至2025-04-01，FOMC利率决议公告尚未发布具体结果，仅知决策日、彭博共识及前值三项结构化信息。作为机构投资者，依据约束只能使用截至时点可观察的信息，目前缺乏实际的利率变动数值、点阵图更新或前瞻指引措辞等关键决策产出。在信息不完整的情况下，任何方向性的资产配置调整都构成无效推演。最优行动是等待FOMC公告正式发布，获取完整决策细节（利率变动幅度、经济预测摘要、点阵图分布）后再评估对折现率、房地产信托投资信托（匿名标的2）估值及行业资金流向的具体影响。故选择不执行COMMUNICATE（无新增可沟通的事实性结论）与ALLOCATE（缺乏必要的决策参数），采取WAIT姿态。\", \"constraint_refs\": [\"actor_institutions:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.95, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}], \"simulated_actions\": [], \"branch_slots\": [{\"slot_id\": \"slot-1\", \"actor_ids\": [\"actor_institutions\", \"actor_issuer\"], \"relationship_kind\": \"constrains_or_influences\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_issuer-r2\"]}, {\"slot_id\": \"slot-2\", \"actor_ids\": [\"actor_government\", \"actor_regulator\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_government-r2\", \"decision-actor_regulator-r2\"]}, {\"slot_id\": \"slot-3\", \"actor_ids\": [\"actor_institutions\", \"actor_government\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_government-r2\"]}, {\"slot_id\": \"slot-4\", \"actor_ids\": [\"actor_institutions\", \"actor_regulator\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_regulator-r2\"]}]}"
+      }
+    },
+    "filtered_interactions": {
+      "generation": {
+        "status": "sealed",
+        "semantic_retries": 0,
+        "elapsed_seconds": 32.65379066695459,
+        "prompt_chars": 7395,
+        "visible_interactions": 5
+      },
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "利率决议引机构调整久期，发行方发布澄清",
+          "summary": "若FOMC决议显示鹰派累积信号（点阵图隐含加息次数超 consensus 预期、SEP 通胀预测上修），机构投资者将基于利率路径修正折现率假设，缩短债券久期并减少 EM 资本流敞口；发行方随后发布声明澄清会议纪要中的前瞻指引细节，要求市场以官方文本为准，两者之间形成定价信号与政策释疑的传导。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "FOMC 点阵图中 2025 年底利率中位数高于 Bloomberg 共识 25bp 以上",
+            "SEP (Summary of Economic Projections) 中 PCE 通胀预测相比 prior 出现上修"
+          ],
+          "consequences": [
+            "机构投资者将缩短固定收益久期并降低对利率敏感型资产（如不动产板块ETF）的敞口",
+            "发行方通过官方沟通渠道对外发布声明，强调实际政策路径需参考会议文本，并提示市场避免非官方表述"
+          ],
+          "invalidation_conditions": [
+            "FOMC 点阵图中位数与共识差值低于 10bp",
+            "SEP 通胀预测相比 prior 持平或下修",
+            "机构投资者在决策记录中未出现久期调整动作"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "政府外汇压力迫使监管调整，发行方保持沉默",
+          "summary": "若FOMC利率决议引发新兴市场货币明显贬值（如美元指数快速上行），政府基于汇率稳定目标主动对外沟通风险预案；监管机构同步启动多情景压力测试并提示金融机构加强外汇风险敞口管理，但发行方不额外发出政策信号，三方形成政府主导行动、监管配合、发行方不介入的格局。",
+          "actor_ids": [
+            "actor_government",
+            "actor_regulator"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_government",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_government-r2"
+            },
+            {
+              "actor_id": "actor_regulator",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_regulator-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "FOMC 决策后 1 个交易日内新兴市场货币指数（如 JP Morgan EMCI）日跌幅超过 0.8%",
+            "该经济体央行汇市干预记录或官员公开提及汇率稳定关切"
+          ],
+          "consequences": [
+            "政府发布公开声明或通过协调渠道表达对汇率波动的关注，并启动资本流动监测机制",
+            "监管机构正式通知商业银行及外汇做市商完善压力测试并控制净外汇敞口上限",
+            "发行方在当日无额外政策沟通动作，维持沉默"
+          ],
+          "invalidation_conditions": [
+            "FOMC 决策后 1 个交易日内新兴市场货币指数日振幅小于 0.3%",
+            "该经济体央行未记录汇市干预操作或官员无公开汇率表态"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "机构先行调仓，政府跟随回应",
+          "summary": "若 FOMC 决议中性偏松（利率维持不变且点阵图无明显变化），但机构在量化模型驱动下提前将部分 EM 敞口转为发达市场久期；政府观察到资本外流压力后，公开承诺采取稳健的宏观政策以稳定预期，形成机构引发资本流动、政府被动表态的条件传导。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_government"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_government",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_government-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "FOMC 保持利率不变且点阵图中位数符合 consensus",
+            "机构投资者在决议公布后 24 小时内通过执行系统提交资产组合再平衡指令（涉及降低 EM 债券敞口）",
+            "政府汇市或债市出现单日资本净流出超过过去 30 日日均 1.5 倍"
+          ],
+          "consequences": [
+            "机构投资者在发达市场债券中配置增加，在 EM 资产中配置减少",
+            "政府公开发布声明或召开金融市场通气会，表示将维持宏观稳定并密切跟踪资金流向"
+          ],
+          "invalidation_conditions": [
+            "机构投资者组合再平衡动作未在 24 小时内被公开通报或交易数据可验证",
+            "政府未发布任何金融稳定声明或官员未就资金流出作出回应"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "监管预警在先，机构调整在后",
+          "summary": "若FOMC决议包含明确降息预期管理（例如贴现窗口利率调整或鲍威尔记者会释放宽松信号），监管机构率先发布金融条件放松可能带来的杠杆风险提示，并要求机构进行压力测试；机构随后将测试结果纳入模型，调整对利率敏感品的风险敞口，形成监管先行、机构回应的时序。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_regulator"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_regulator",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_regulator-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "FOMC 声明或新闻发布会中提及“实际利率已具备限制性”或“准备应对放缓风险”等鸽派措辞",
+            "监管机构在决议公布至下一个交易日收盘之间发布公开风险提示或监管函"
+          ],
+          "consequences": [
+            "监管机构公布金融系统杠杆与流动性脆弱性评估报告，提示参与银行控制扩表速度",
+            "机构根据监管提示将压力测试结果嵌入投资决策，降低高风险敞口（如高收益EM资产）并增加流动性储备"
+          ],
+          "invalidation_conditions": [
+            "FOMC 措辞未包含任何偏鸽信号（如重申继续加息的必要性）",
+            "监管机构未在指定时间窗口内发布任何风险提示或监管函"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        }
+      ],
+      "quality": [
+        {
+          "scores": {
+            "mechanism_coherence": 4,
+            "monitoring_actionability": 4,
+            "falsifiability": 4,
+            "evidence_discipline": 4,
+            "scenario_diversity": 4
+          },
+          "total_score": 20,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            }
+          ]
+        },
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 2,
+            "evidence_discipline": 2,
+            "scenario_diversity": 3
+          },
+          "total_score": 11,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            }
+          ]
+        }
+      ],
+      "judge_reasons": [
+        "四条分支均有清晰的因果链、可观察触发、具体失效条件与D0事实锚定，且覆盖鹰派/鸽派/中性/监管主导四种不同机制，多样性充分。",
+        "四个分支的因果链、触发条件、失效条件均具体且可验证，但 actions 全部为 WAIT 削弱了模拟起始动作的约束性，且分支1和3在机构调仓逻辑上存在间接重复，降低了机制多样性。"
+      ],
+      "prompt": {
+        "system": "你是金融事件分支编译器，不是价格预测器。只使用输入中 as_of 时点可得事实\n和明确标为模拟的行为，生成恰好 4 条彼此有实质区别、未来可证伪的条件化事件分支。\n\n\n硬性要求：\n- 不得补充 as_of 之后的真实事件、公告、价格或人员结果；\n- 每条分支至少串联两个不同 actor 的动作，不能只是改写一个人的观点；\n- trigger_conditions 必须是未来可观察的“若……则进入该分支”条件；\n- consequences 是机制结果，不是已发生事实；\n- invalidation_conditions 必须说明什么观察会推翻该分支；\n- evidence_refs 只能引用输入中的 F 编号；\n- 按 branch_slots 的顺序生成分支；第 N 条分支必须描述第 N 个槽位中的所有角色及其相互影响；\n- 不要输出 actor_ids、actions、decision_ref 或 simulation_refs；系统会按数组位置确定性绑定\n  槽位中的角色及其已有 financial_decision，禁止自行概括、改写或新造动作；\n- confidence 只表示分支内部连贯性，不是发生概率；\n- novelty_claim 说明该分支比事实直接复述多出了哪段多主体传导；\n- 不得输出目标价格、收益率概率或 Agent 投票频率。\n\n只输出 JSON：\n{\"branches\":[{\"label\":\"简短名称\",\"summary\":\"条件化摘要\",\n\"trigger_conditions\":[\"...\"],\"consequences\":[\"...\"],\n\"invalidation_conditions\":[\"...\"],\"evidence_refs\":[\"F1\"],\n\"novelty_claim\":\"...\",\"confidence\":0.5}],\"warnings\":[]}。\n互动输入可能为空；其中内容仍是模拟消息，不是新增事实。不得凭空推断立场变化或因果影响。每条分支说明一方行动如何影响另一方的可行行动。触发和失效条件尽量指出观察对象与时间窗口；没有依据时不编造精确阈值。对缺少行动依据的传导使用条件表述，不把等待决策改写成已经采取新行动。",
+        "user": "{\"case_id\": \"anonymous-case-10\", \"as_of\": \"D0\", \"question\": \"严格基于 D0 时点可得信息，推演未来三个交易日各参与方行动及条件化传导机制。\", \"horizon\": {\"kind\": \"calendar_days\", \"value\": 3, \"end_at\": \"2025-04-04T23:59:59+00:00\"}, \"facts\": [{\"id\": \"F1\", \"statement\": \"US Fed Funds Target Range Announcement：FOMC decision | consensus: Bloomberg prev: prior\"}], \"actors\": [{\"id\": \"actor_issuer\", \"label\": \"事件主体\", \"kind\": \"issuer\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_government\", \"label\": \"政府与司法机构\", \"kind\": \"government\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_regulator\", \"label\": \"监管机构\", \"kind\": \"regulator\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_institutions\", \"label\": \"机构投资者\", \"kind\": \"institutional_investor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}], \"financial_decisions\": [{\"id\": \"decision-actor_issuer-r2\", \"round\": 2, \"actor_id\": \"actor_issuer\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"not_applicable\", \"intensity\": null, \"instrument_refs\": [], \"rationale\": \"作为FOMC决策信息发布方，在利率决议公告后，当前决策周期内无需立即调整货币政策立场。已通过会议声明传达政策方向，需要等待更多经济数据（就业、通胀）积累以评估政策效果，并观察市场对决议的反应。匿名标的2为不动产板块ETF，不在本机构直接政策工具范围内。维持当前利率区间是最审慎的立场。主要不确定性在于后续通胀数据是否延续回落趋势、劳动力市场是否出现超预期变化。\", \"constraint_refs\": [\"actor_issuer:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.9, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_government-r2\", \"round\": 2, \"actor_id\": \"actor_government\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"FOMC利率决议（F1）已公布，但截至截止时点（D0-date）仅有consensus与prior的参照信息，尚未观察到具体的利率变动幅度、点阵图变化或鲍威尔发布会措辞等关键细节。作为政府与司法机构，在缺乏足够的可观察信息以评估美联储新政策对本国汇率稳定、资本流动和外部融资环境的实际冲击之前，采取观望态度是最审慎的选择。贸然调整国内政策或发出信号可能引入不必要的市场波动。待更多具体数据（如点阵图分布、季度经济预测摘要SEP）公布后再作决策。\", \"constraint_refs\": [\"actor_government:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_regulator-r2\", \"round\": 2, \"actor_id\": \"actor_regulator\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"截至2025-04-01，FOMC利率决议仅公布了会议结果（consensus: Bloomberg prev: prior），但缺乏具体的政策声明细节、点阵图变化和新闻发布会措辞。作为监管机构，在缺少关于利率路径方向、幅度及前瞻指引的具体信息前，贸然调整监管措施或进行公开沟通可能引发市场过度解读。当前最佳行动是等待获得更完整的政策分析报告和数据，评估美联储利率决议的实际影响后再决定是否需要调整宏观审慎政策或发布监管指引。匿名标的2（房地产板块ETF）与本机构监管职能无直接关联，暂不纳入考量。\", \"constraint_refs\": [\"actor_regulator:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_institutions-r2\", \"round\": 2, \"actor_id\": \"actor_institutions\", \"action_type\": \"WAIT\", \"decision_status\": \"intended\", \"direction\": \"not_applicable\", \"intensity\": null, \"instrument_refs\": [], \"rationale\": \"截至2025-04-01，FOMC利率决议公告尚未发布具体结果，仅知决策日、彭博共识及前值三项结构化信息。作为机构投资者，依据约束只能使用截至时点可观察的信息，目前缺乏实际的利率变动数值、点阵图更新或前瞻指引措辞等关键决策产出。在信息不完整的情况下，任何方向性的资产配置调整都构成无效推演。最优行动是等待FOMC公告正式发布，获取完整决策细节（利率变动幅度、经济预测摘要、点阵图分布）后再评估对折现率、房地产信托投资信托（匿名标的2）估值及行业资金流向的具体影响。故选择不执行COMMUNICATE（无新增可沟通的事实性结论）与ALLOCATE（缺乏必要的决策参数），采取WAIT姿态。\", \"constraint_refs\": [\"actor_institutions:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.95, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}], \"simulated_actions\": [{\"id\": \"trace-13\", \"actor_id\": \"actor_government\", \"action_type\": \"COMMUNICATE\", \"summary\": \"关注FOMC利率决议对全球资本流动的影响。作为经济体，我们需要密切关注美联储货币政策走向，评估其对汇率稳定和外部融资环境的潜在冲击。建议做好多情景预案。\"}, {\"id\": \"trace-14\", \"actor_id\": \"actor_institutions\", \"action_type\": \"COMMUNICATE\", \"summary\": \"As an institutional investor, monitoring the FOMC decision is critical for portfolio positioning. The Fed's rate path directly impacts discount rates, borrowing costs, and asset valuations across all markets. Looking at the consensus vs prior data points to assess any hawkish/dovish surprises. Will be adjusting allocations accordingly based on the specific language around forward guidance and dot plot shifts.\"}, {\"id\": \"trace-20\", \"actor_id\": \"actor_issuer\", \"action_type\": \"COMMUNICATE\", \"summary\": \"作为FOMC决策的信息发布方，我们重申本次利率决议是基于最新经济数据与通胀前景的综合评估。建议市场参与者以官方公布的会议声明和点阵图为准，避免过度解读未经确认的市场传闻。我们将持续监测经济指标，确保货币政策路径与双重使命目标保持一致。\"}, {\"id\": \"trace-21\", \"actor_id\": \"actor_regulator\", \"action_type\": \"COMMUNICATE\", \"summary\": \"作为监管机构，我们密切关注美联储利率决议对跨境资本流动、汇率稳定及国内金融市场的影响。FOMC的利率路径将影响全球融资环境和资本成本，我们已启动多情景压力测试，评估不同利率假设下对金融机构流动性和外汇风险敞口的潜在冲击。提示各机构审慎管理资产负债久期错配和外汇风险敞口。将持续跟踪后续政策信号与前瞻指引。\"}, {\"id\": \"trace-22\", \"actor_id\": \"actor_institutions\", \"action_type\": \"COMMUNICATE\", \"summary\": \"Agreed on the multi-scenario planning approach. From our institutional desk, the key variable beyond the rate decision itself is the dot plot trajectory and any shift in SEP (Summary of Economic Projections). A hawkish hold vs a dovish cut creates very different carry trade dynamics and EM capital flow implications. We're running scenarios on US Dollar liquidity conditions post-decision to adjust our duration and FX hedging strategies accordingly.\"}], \"branch_slots\": [{\"slot_id\": \"slot-1\", \"actor_ids\": [\"actor_institutions\", \"actor_issuer\"], \"relationship_kind\": \"constrains_or_influences\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_issuer-r2\"]}, {\"slot_id\": \"slot-2\", \"actor_ids\": [\"actor_government\", \"actor_regulator\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_government-r2\", \"decision-actor_regulator-r2\"]}, {\"slot_id\": \"slot-3\", \"actor_ids\": [\"actor_institutions\", \"actor_government\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_government-r2\"]}, {\"slot_id\": \"slot-4\", \"actor_ids\": [\"actor_institutions\", \"actor_regulator\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_regulator-r2\"]}]}"
+      }
+    },
+    "raw_interactions": {
+      "generation": {
+        "status": "sealed",
+        "semantic_retries": 0,
+        "elapsed_seconds": 30.342074874963146,
+        "prompt_chars": 8260,
+        "visible_interactions": 9
+      },
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "机构审慎调仓，央行静默确认",
+          "summary": "若FOMC决议偏鹰（利率维持或上调且点阵图显示年内降息次数减少），机构投资者将在D1-D3期间缩短久期并减少新兴市场敞口；央行审阅数据后未立即调整政策沟通措辞，仅重申依赖数据决策。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "D1之前（D0-date 00:00 UTC前）FOMC声明显示利率维持不变或上调，且点阵图对2025年降息次数的中位数预测低于或等于1次"
+          ],
+          "consequences": [
+            "机构投资者降低对利率敏感型资产（如房地产板块ETF）的配置权重，引致该板块在D2-D3承压",
+            "事件主体保持静默，市场将静默解读为对当前利率路径的默认，短期波动率下降"
+          ],
+          "invalidation_conditions": [
+            "若FOMC实际降息25bp或更多，或点阵图显示降息次数≥2次，则此分支失效"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "政府与监管协调应对资本外流",
+          "summary": "若FOMC决议意外偏鹰引发新兴市场货币贬值，政府和监管机构在 D1-D3 内联合发布声明或实施宏观审慎措施（如调整外汇准备金率），以缓解资本外流压力。",
+          "actor_ids": [
+            "actor_government",
+            "actor_regulator"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_government",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_government-r2"
+            },
+            {
+              "actor_id": "actor_regulator",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_regulator-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "D1-D2（2025-04-02至2025-04-03）新兴市场货币对美元汇率日均贬值幅度＞1.5%，且出现连续两日净资本流出数据"
+          ],
+          "consequences": [
+            "政府发出汇率稳定声明，支撑本币汇率预期",
+            "监管机构对银行外汇风险敞口提出临时性限制措施，减少套利交易规模"
+          ],
+          "invalidation_conditions": [
+            "若FOMC结果偏鸽（降息或明确释放宽松信号）或市场波动未达阈值，此分支失效"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "机构资本外逃，政府被动防御",
+          "summary": "若FOMC决议偏鹰且市场反应剧烈，机构投资者在 D1 内快速减持本地资产并换汇出境，政府面临外汇储备下降后在 D2-D3 实施资本管制或加息，但机构投资者已提前完成主要调仓，管制效果减弱。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_government"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_government",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_government-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "D1收盘前（D0-date 16:30 ET）机构投资者所管理的投资组合中新兴市场资产权重下降超过3个百分点，同时外汇市场出现单日≥2%的贬值压力"
+          ],
+          "consequences": [
+            "政府因外汇储备加速下降而在D2-D3宣布临时资本流动管理措施",
+            "机构投资者因主要仓位已调整，新管制措施仅影响剩余流动性，机构反向利用管制缺口套利"
+          ],
+          "invalidation_conditions": [
+            "若FOMC决议鸽派，或政府提前一天发布预沟通声明导致资本流动未发生，此分支失效"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "监管主动引导，机构按信号调仓",
+          "summary": "若FOMC决议偏鹰，监管机构在 D1 正式发布宏观审慎警告或要求银行增加流动性缓冲，机构投资者将此视为政策拐点信号，在 D2-D3 系统性地降低风险资产敞口并增持现金/短债。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_regulator"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_regulator",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_regulator-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "D1（D0-date）监管机构公开提及'密切关注外部传染风险'或'建议提高流动性覆盖率'等警示措辞"
+          ],
+          "consequences": [
+            "机构投资者集体避险，D2-D3 本地债券收益率曲线陡峭化（短端下降、长端上升）",
+            "监管机构因市场已自行调整，未进一步实施硬性约束，维持政策灵活性"
+          ],
+          "invalidation_conditions": [
+            "若监管机构在 D1 未发出任何公开信号，或FOMC决议偏鸽导致无需预警，此分支失效"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        }
+      ],
+      "quality": [
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 2,
+            "evidence_discipline": 1,
+            "scenario_diversity": 2
+          },
+          "total_score": 9,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": false,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": false
+            }
+          ]
+        },
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 3,
+            "evidence_discipline": 2,
+            "scenario_diversity": 2
+          },
+          "total_score": 11,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": false,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            }
+          ]
+        }
+      ],
+      "judge_reasons": [
+        "No free-form reason supplied.",
+        "No free-form reason supplied."
+      ],
+      "prompt": {
+        "system": "你是金融事件分支编译器，不是价格预测器。只使用输入中 as_of 时点可得事实\n和明确标为模拟的行为，生成恰好 4 条彼此有实质区别、未来可证伪的条件化事件分支。\n\n\n硬性要求：\n- 不得补充 as_of 之后的真实事件、公告、价格或人员结果；\n- 每条分支至少串联两个不同 actor 的动作，不能只是改写一个人的观点；\n- trigger_conditions 必须是未来可观察的“若……则进入该分支”条件；\n- consequences 是机制结果，不是已发生事实；\n- invalidation_conditions 必须说明什么观察会推翻该分支；\n- evidence_refs 只能引用输入中的 F 编号；\n- 按 branch_slots 的顺序生成分支；第 N 条分支必须描述第 N 个槽位中的所有角色及其相互影响；\n- 不要输出 actor_ids、actions、decision_ref 或 simulation_refs；系统会按数组位置确定性绑定\n  槽位中的角色及其已有 financial_decision，禁止自行概括、改写或新造动作；\n- confidence 只表示分支内部连贯性，不是发生概率；\n- novelty_claim 说明该分支比事实直接复述多出了哪段多主体传导；\n- 不得输出目标价格、收益率概率或 Agent 投票频率。\n\n只输出 JSON：\n{\"branches\":[{\"label\":\"简短名称\",\"summary\":\"条件化摘要\",\n\"trigger_conditions\":[\"...\"],\"consequences\":[\"...\"],\n\"invalidation_conditions\":[\"...\"],\"evidence_refs\":[\"F1\"],\n\"novelty_claim\":\"...\",\"confidence\":0.5}],\"warnings\":[]}。\n互动输入可能为空；其中内容仍是模拟消息，不是新增事实。不得凭空推断立场变化或因果影响。每条分支说明一方行动如何影响另一方的可行行动。触发和失效条件尽量指出观察对象与时间窗口；没有依据时不编造精确阈值。对缺少行动依据的传导使用条件表述，不把等待决策改写成已经采取新行动。",
+        "user": "{\"case_id\": \"anonymous-case-10\", \"as_of\": \"D0\", \"question\": \"严格基于 D0 时点可得信息，推演未来三个交易日各参与方行动及条件化传导机制。\", \"horizon\": {\"kind\": \"calendar_days\", \"value\": 3, \"end_at\": \"2025-04-04T23:59:59+00:00\"}, \"facts\": [{\"id\": \"F1\", \"statement\": \"US Fed Funds Target Range Announcement：FOMC decision | consensus: Bloomberg prev: prior\"}], \"actors\": [{\"id\": \"actor_issuer\", \"label\": \"事件主体\", \"kind\": \"issuer\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_government\", \"label\": \"政府与司法机构\", \"kind\": \"government\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_regulator\", \"label\": \"监管机构\", \"kind\": \"regulator\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_institutions\", \"label\": \"机构投资者\", \"kind\": \"institutional_investor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}], \"financial_decisions\": [{\"id\": \"decision-actor_issuer-r2\", \"round\": 2, \"actor_id\": \"actor_issuer\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"not_applicable\", \"intensity\": null, \"instrument_refs\": [], \"rationale\": \"作为FOMC决策信息发布方，在利率决议公告后，当前决策周期内无需立即调整货币政策立场。已通过会议声明传达政策方向，需要等待更多经济数据（就业、通胀）积累以评估政策效果，并观察市场对决议的反应。匿名标的2为不动产板块ETF，不在本机构直接政策工具范围内。维持当前利率区间是最审慎的立场。主要不确定性在于后续通胀数据是否延续回落趋势、劳动力市场是否出现超预期变化。\", \"constraint_refs\": [\"actor_issuer:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.9, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_government-r2\", \"round\": 2, \"actor_id\": \"actor_government\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"FOMC利率决议（F1）已公布，但截至截止时点（D0-date）仅有consensus与prior的参照信息，尚未观察到具体的利率变动幅度、点阵图变化或鲍威尔发布会措辞等关键细节。作为政府与司法机构，在缺乏足够的可观察信息以评估美联储新政策对本国汇率稳定、资本流动和外部融资环境的实际冲击之前，采取观望态度是最审慎的选择。贸然调整国内政策或发出信号可能引入不必要的市场波动。待更多具体数据（如点阵图分布、季度经济预测摘要SEP）公布后再作决策。\", \"constraint_refs\": [\"actor_government:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_regulator-r2\", \"round\": 2, \"actor_id\": \"actor_regulator\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"截至2025-04-01，FOMC利率决议仅公布了会议结果（consensus: Bloomberg prev: prior），但缺乏具体的政策声明细节、点阵图变化和新闻发布会措辞。作为监管机构，在缺少关于利率路径方向、幅度及前瞻指引的具体信息前，贸然调整监管措施或进行公开沟通可能引发市场过度解读。当前最佳行动是等待获得更完整的政策分析报告和数据，评估美联储利率决议的实际影响后再决定是否需要调整宏观审慎政策或发布监管指引。匿名标的2（房地产板块ETF）与本机构监管职能无直接关联，暂不纳入考量。\", \"constraint_refs\": [\"actor_regulator:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_institutions-r2\", \"round\": 2, \"actor_id\": \"actor_institutions\", \"action_type\": \"WAIT\", \"decision_status\": \"intended\", \"direction\": \"not_applicable\", \"intensity\": null, \"instrument_refs\": [], \"rationale\": \"截至2025-04-01，FOMC利率决议公告尚未发布具体结果，仅知决策日、彭博共识及前值三项结构化信息。作为机构投资者，依据约束只能使用截至时点可观察的信息，目前缺乏实际的利率变动数值、点阵图更新或前瞻指引措辞等关键决策产出。在信息不完整的情况下，任何方向性的资产配置调整都构成无效推演。最优行动是等待FOMC公告正式发布，获取完整决策细节（利率变动幅度、经济预测摘要、点阵图分布）后再评估对折现率、房地产信托投资信托（匿名标的2）估值及行业资金流向的具体影响。故选择不执行COMMUNICATE（无新增可沟通的事实性结论）与ALLOCATE（缺乏必要的决策参数），采取WAIT姿态。\", \"constraint_refs\": [\"actor_institutions:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.95, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}], \"simulated_actions\": [{\"id\": \"trace-10\", \"kind\": \"simulated_action\", \"action_type\": \"SOCIAL_ENDORSEMENT\", \"summary\": \"点赞帖子 #1：US Fed Funds Target Range Announcement：FOMC decision | consensus: Bloomberg prev: prior\", \"actor_id\": \"actor_regulator\"}, {\"id\": \"trace-11\", \"kind\": \"simulated_action\", \"action_type\": \"SEARCH_POSTS\", \"summary\": \"search_posts\", \"actor_id\": \"actor_issuer\"}, {\"id\": \"trace-12\", \"kind\": \"simulated_action\", \"action_type\": \"SOCIAL_ENDORSEMENT\", \"summary\": \"点赞帖子 #1：US Fed Funds Target Range Announcement：FOMC decision | consensus: Bloomberg prev: prior\", \"actor_id\": \"actor_government\"}, {\"id\": \"trace-13\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"关注FOMC利率决议对全球资本流动的影响。作为经济体，我们需要密切关注美联储货币政策走向，评估其对汇率稳定和外部融资环境的潜在冲击。建议做好多情景预案。\", \"actor_id\": \"actor_government\"}, {\"id\": \"trace-14\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"As an institutional investor, monitoring the FOMC decision is critical for portfolio positioning. The Fed's rate path directly impacts discount rates, borrowing costs, and asset valuations across all markets. Looking at the consensus vs prior data points to assess any hawkish/dovish surprises. Will be adjusting allocations accordingly based on the specific language around forward guidance and dot plot shifts.\", \"actor_id\": \"actor_institutions\"}, {\"id\": \"trace-19\", \"kind\": \"simulated_action\", \"action_type\": \"LIKE_COMMENT\", \"summary\": \"like_comment\", \"actor_id\": \"actor_government\"}, {\"id\": \"trace-20\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"作为FOMC决策的信息发布方，我们重申本次利率决议是基于最新经济数据与通胀前景的综合评估。建议市场参与者以官方公布的会议声明和点阵图为准，避免过度解读未经确认的市场传闻。我们将持续监测经济指标，确保货币政策路径与双重使命目标保持一致。\", \"actor_id\": \"actor_issuer\"}, {\"id\": \"trace-21\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"作为监管机构，我们密切关注美联储利率决议对跨境资本流动、汇率稳定及国内金融市场的影响。FOMC的利率路径将影响全球融资环境和资本成本，我们已启动多情景压力测试，评估不同利率假设下对金融机构流动性和外汇风险敞口的潜在冲击。提示各机构审慎管理资产负债久期错配和外汇风险敞口。将持续跟踪后续政策信号与前瞻指引。\", \"actor_id\": \"actor_regulator\"}, {\"id\": \"trace-22\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"Agreed on the multi-scenario planning approach. From our institutional desk, the key variable beyond the rate decision itself is the dot plot trajectory and any shift in SEP (Summary of Economic Projections). A hawkish hold vs a dovish cut creates very different carry trade dynamics and EM capital flow implications. We're running scenarios on US Dollar liquidity conditions post-decision to adjust our duration and FX hedging strategies accordingly.\", \"actor_id\": \"actor_institutions\"}], \"branch_slots\": [{\"slot_id\": \"slot-1\", \"actor_ids\": [\"actor_institutions\", \"actor_issuer\"], \"relationship_kind\": \"constrains_or_influences\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_issuer-r2\"]}, {\"slot_id\": \"slot-2\", \"actor_ids\": [\"actor_government\", \"actor_regulator\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_government-r2\", \"decision-actor_regulator-r2\"]}, {\"slot_id\": \"slot-3\", \"actor_ids\": [\"actor_institutions\", \"actor_government\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_government-r2\"]}, {\"slot_id\": \"slot-4\", \"actor_ids\": [\"actor_institutions\", \"actor_regulator\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_regulator-r2\"]}]}"
+      }
+    }
+  },
+  "usage": [
+    {
+      "case_id": "anonymous-case-10",
+      "variant": "decisions_only",
+      "phase": "generation",
+      "request_id": "4cb9874fa86a4b158cee7a1895c38ee5",
+      "request_sha256": "a50cb8e15b3d009bee755ac43473da4403996a2d90cee5de7552318253703c68",
+      "prompt_chars": 5705,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:03:44.230943+00:00",
+      "status": "completed",
+      "prompt_tokens": 2179,
+      "completion_tokens": 1003,
+      "total_tokens": 3182,
+      "estimated_cost": 0.00037665,
+      "finish_reason": "stop",
+      "elapsed_seconds": 35.02936408302048
+    },
+    {
+      "case_id": "anonymous-case-10",
+      "variant": "raw_interactions",
+      "phase": "generation",
+      "request_id": "144603ca12af446a8db8e67ecae28e53",
+      "request_sha256": "a76db87a3749db1ea91b38be5e0ae28975b07e8264d5dd4abb059f3dc78fc889",
+      "prompt_chars": 8260,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:04:56.782340+00:00",
+      "status": "completed",
+      "prompt_tokens": 2938,
+      "completion_tokens": 1093,
+      "total_tokens": 4031,
+      "estimated_cost": 0.000332136,
+      "finish_reason": "stop",
+      "elapsed_seconds": 30.338167959009297
+    },
+    {
+      "case_id": "anonymous-case-10",
+      "variant": "filtered_interactions",
+      "phase": "generation",
+      "request_id": "38fd0b21f589443f89ba7ac92c26ed30",
+      "request_sha256": "788c8424c427d9e9cc4965ee2f36d5349ca461c9bd2615f62de607cc8b9a2c6e",
+      "prompt_chars": 7395,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:05:27.143495+00:00",
+      "status": "completed",
+      "prompt_tokens": 2681,
+      "completion_tokens": 1339,
+      "total_tokens": 4020,
+      "estimated_cost": 0.000353286,
+      "finish_reason": "stop",
+      "elapsed_seconds": 32.650494166999124
+    },
+    {
+      "case_id": "anonymous-case-10",
+      "variant": "filtered_interactions",
+      "phase": "quality",
+      "repeat": 2,
+      "request_id": "7286d0a62595466bb89a434e6402abc8",
+      "request_sha256": "dec151c1bc64a599a8630349af73b63be04e593b8d7187e2913081a55feb68ae",
+      "prompt_chars": 5184,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:07:11.285993+00:00",
+      "status": "completed",
+      "prompt_tokens": 2202,
+      "completion_tokens": 315,
+      "total_tokens": 2517,
+      "estimated_cost": 0.00023644800000000005,
+      "finish_reason": "stop",
+      "elapsed_seconds": 8.12859091698192
+    },
+    {
+      "case_id": "anonymous-case-10",
+      "variant": "decisions_only",
+      "phase": "quality",
+      "repeat": 1,
+      "request_id": "681d6bffcc5e4a25a2d6494504b0ccbd",
+      "request_sha256": "17b148c92e969af4f3d8a43133750dfa7ac29026d0bc62d4d3da7aa823414202",
+      "prompt_chars": 4690,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:07:19.311769+00:00",
+      "status": "completed",
+      "prompt_tokens": 1923,
+      "completion_tokens": 326,
+      "total_tokens": 2249,
+      "estimated_cost": 0.000176454,
+      "finish_reason": "stop",
+      "elapsed_seconds": 11.48654054198414
+    },
+    {
+      "case_id": "anonymous-case-10",
+      "variant": "filtered_interactions",
+      "phase": "quality",
+      "repeat": 1,
+      "request_id": "41fc60119d5b4a2a8cda4ada1c75920b",
+      "request_sha256": "dec151c1bc64a599a8630349af73b63be04e593b8d7187e2913081a55feb68ae",
+      "prompt_chars": 5184,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:07:24.814464+00:00",
+      "status": "completed",
+      "prompt_tokens": 2202,
+      "completion_tokens": 302,
+      "total_tokens": 2504,
+      "estimated_cost": 0.00010508400000000001,
+      "finish_reason": "stop",
+      "elapsed_seconds": 12.353267542028334
+    },
+    {
+      "case_id": "anonymous-case-10",
+      "variant": "decisions_only",
+      "phase": "quality",
+      "repeat": 2,
+      "request_id": "f306087352c54502b032f1873101130d",
+      "request_sha256": "17b148c92e969af4f3d8a43133750dfa7ac29026d0bc62d4d3da7aa823414202",
+      "prompt_chars": 4690,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:07:30.819830+00:00",
+      "status": "completed",
+      "prompt_tokens": 1923,
+      "completion_tokens": 299,
+      "total_tokens": 2222,
+      "estimated_cost": 9.786600000000001e-05,
+      "finish_reason": "stop",
+      "elapsed_seconds": 11.373549874988385
+    },
+    {
+      "case_id": "anonymous-case-10",
+      "variant": "raw_interactions",
+      "phase": "quality",
+      "repeat": 1,
+      "request_id": "09602eb4c0984a06820cc42074f9dfc9",
+      "request_sha256": "fcc9dbd1f4c52cffce843a95a01acebaf40a3c9976d3e0eeeaa1ba1cfa3d9d4b",
+      "prompt_chars": 4705,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:07:41.689074+00:00",
+      "status": "completed",
+      "prompt_tokens": 1988,
+      "completion_tokens": 296,
+      "total_tokens": 2284,
+      "estimated_cost": 0.00017690399999999997,
+      "finish_reason": "stop",
+      "elapsed_seconds": 9.690502915997058
+    },
+    {
+      "case_id": "anonymous-case-10",
+      "variant": "raw_interactions",
+      "phase": "quality",
+      "repeat": 2,
+      "request_id": "66e9a233c2c94142a4ca1176a640affb",
+      "request_sha256": "fcc9dbd1f4c52cffce843a95a01acebaf40a3c9976d3e0eeeaa1ba1cfa3d9d4b",
+      "prompt_chars": 4705,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:07:42.214983+00:00",
+      "status": "completed",
+      "prompt_tokens": 1988,
+      "completion_tokens": 339,
+      "total_tokens": 2327,
+      "estimated_cost": 0.000110916,
+      "finish_reason": "stop",
+      "elapsed_seconds": 12.32108020799933
+    }
+  ]
+}

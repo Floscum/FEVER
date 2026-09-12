@@ -1,0 +1,210 @@
+{
+  "case_id": "crowdstrike-outage-2024",
+  "variant": "v7",
+  "cohort": "public_pilot",
+  "artifact": {
+    "schema_version": "0.1.0",
+    "case_id": "real-crowdstrike-outage-2024",
+    "spec_sha256": "544d941cebfe9dfb62720269355a38984b6867adebee8c162e760b9b3419760b",
+    "simulation_id": "sim_direct_f6ac8b09bbb6",
+    "generated_at": "2026-09-12T05:59:21.543357+00:00",
+    "model_id": "deepseek-ai/DeepSeek-V4-Flash",
+    "prompt_version": "scenario-branch-compiler-v7",
+    "status": "completed",
+    "branches": [
+      {
+        "id": "branch-1",
+        "label": "客户施压与CrowdStrike补偿",
+        "summary": "若客户在恢复后公开要求CrowdStrike提供SLA违约赔偿或详细改进路线图，CrowdStrike为维护客户关系可能被迫在7天内发布补偿方案或承诺具体流程改进，从而影响其短期财务支出和声誉修复节奏。",
+        "actor_ids": [
+          "actor_customers",
+          "actor_issuer"
+        ],
+        "trigger_conditions": [
+          "在2024-07-27前，至少一家大型客户（如航空、金融或医疗行业）公开声明要求CrowdStrike提供SLA赔偿或详细整改时间表。"
+        ],
+        "actions": [
+          {
+            "actor_id": "actor_customers",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_customers-r2"
+          },
+          {
+            "actor_id": "actor_issuer",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_issuer-r2"
+          }
+        ],
+        "consequences": [
+          "CrowdStrike为安抚客户，可能宣布一次性信用额度或服务折扣，导致其短期营收确认减少。",
+          "客户公开施压会促使其他客户效仿，增加CrowdStrike的客户留存成本，并可能加速部分客户的替代方案评估。"
+        ],
+        "invalidation_conditions": [
+          "截至2024-07-27，无任何客户公开提出赔偿或整改要求。",
+          "CrowdStrike主动发布补偿方案且客户普遍接受，未出现公开施压。"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F4",
+          "F5"
+        ],
+        "simulation_refs": [
+          "decision-actor_customers-r2",
+          "decision-actor_issuer-r2"
+        ],
+        "novelty_claim": "该分支将客户的等待决策转化为主动施压行动，并传导至CrowdStrike的财务与运营响应，超出事实中仅描述恢复协作的范畴。",
+        "confidence": 0.6,
+        "confidence_semantics": "branch_coherence_not_forecast_probability"
+      },
+      {
+        "id": "branch-2",
+        "label": "供应商评估与竞争者借机营销",
+        "summary": "若供应商（如云基础设施或IT服务商）因事件重新评估与CrowdStrike的合作风险，并公开强调自身变更管理优势，竞争者可能借机向客户推广替代方案，形成对CrowdStrike市场份额的潜在侵蚀。",
+        "actor_ids": [
+          "actor_suppliers",
+          "actor_competitors"
+        ],
+        "trigger_conditions": [
+          "在2024-07-27前，至少一家主要供应商（如AWS、Azure或大型IT分销商）发布声明，强调其自身更新流程的稳健性，或暗示客户考虑多元化安全供应商。"
+        ],
+        "actions": [
+          {
+            "actor_id": "actor_suppliers",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_suppliers-r2"
+          },
+          {
+            "actor_id": "actor_competitors",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_competitors-r2"
+          }
+        ],
+        "consequences": [
+          "竞争者（如SentinelOne、Palo Alto Networks）可能加大营销力度，针对CrowdStrike客户推出迁移优惠或免费试用，争夺市场份额。",
+          "供应商的公开表态会加剧客户对CrowdStrike的信任疑虑，延长其销售周期并增加获客成本。"
+        ],
+        "invalidation_conditions": [
+          "截至2024-07-27，无供应商公开评论事件或强调自身优势。",
+          "供应商反而公开支持CrowdStrike，如联合发布恢复进展声明。"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F4",
+          "F5"
+        ],
+        "simulation_refs": [
+          "decision-actor_suppliers-r2",
+          "decision-actor_competitors-r2"
+        ],
+        "novelty_claim": "该分支将供应商的内部风险评估转化为公开行动，并触发竞争者的市场策略调整，超出事实中仅描述恢复协作的范畴。",
+        "confidence": 0.5,
+        "confidence_semantics": "branch_coherence_not_forecast_probability"
+      },
+      {
+        "id": "branch-3",
+        "label": "机构投资者减持与媒体负面报道",
+        "summary": "若财经媒体在7天内发布深度报道，聚焦CrowdStrike更新流程的系统性缺陷及客户流失风险，机构投资者可能基于声誉风险加速减持CRWD仓位，导致股价承压并影响CrowdStrike的融资能力。",
+        "actor_ids": [
+          "actor_institutions",
+          "actor_media"
+        ],
+        "trigger_conditions": [
+          "在2024-07-27前，至少一家主流财经媒体（如华尔街日报、彭博）发表分析文章，指出CrowdStrike的变更管理存在根本性漏洞，并引用客户或前员工批评。"
+        ],
+        "actions": [
+          {
+            "actor_id": "actor_institutions",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_institutions-r2"
+          },
+          {
+            "actor_id": "actor_media",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_media-r2"
+          }
+        ],
+        "consequences": [
+          "机构投资者为规避短期波动，可能减持CRWD头寸，导致股价下跌并增加CrowdStrike的股权融资成本。",
+          "负面报道会放大客户和供应商的担忧，促使更多企业启动安全供应商评估，间接利好竞争者。"
+        ],
+        "invalidation_conditions": [
+          "截至2024-07-27，媒体仅报道恢复进展和CrowdStrike的道歉声明，未出现系统性批评。",
+          "机构投资者反而增持CRWD，认为事件影响可控且股价被低估。"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F4",
+          "F5"
+        ],
+        "simulation_refs": [
+          "decision-actor_institutions-r2",
+          "decision-actor_media-r2"
+        ],
+        "novelty_claim": "该分支将媒体的等待决策转化为主动深度调查，并传导至机构投资者的仓位调整，超出事实中仅描述恢复协作的范畴。",
+        "confidence": 0.5,
+        "confidence_semantics": "branch_coherence_not_forecast_probability"
+      },
+      {
+        "id": "branch-4",
+        "label": "供应商要求合同修改与CrowdStrike让步",
+        "summary": "若供应商因事件要求CrowdStrike在合同中增加变更管理审计条款或提高SLA赔偿标准，CrowdStrike为维持供应链稳定可能被迫接受，从而增加其合规成本和运营复杂性。",
+        "actor_ids": [
+          "actor_suppliers",
+          "actor_issuer"
+        ],
+        "trigger_conditions": [
+          "在2024-07-27前，至少一家关键供应商（如云服务商或软件分销商）正式要求CrowdStrike修改合同，增加对配置更新流程的独立审计权或提高SLA赔偿倍数。"
+        ],
+        "actions": [
+          {
+            "actor_id": "actor_suppliers",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_suppliers-r2"
+          },
+          {
+            "actor_id": "actor_issuer",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_issuer-r2"
+          }
+        ],
+        "consequences": [
+          "CrowdStrike若接受条款，将增加其内部审计和合规成本，并可能为其他供应商树立先例，导致长期运营费用上升。",
+          "若CrowdStrike拒绝，供应商可能减少合作或转向竞争者，影响其产品分发渠道和客户覆盖。"
+        ],
+        "invalidation_conditions": [
+          "截至2024-07-27，无供应商提出合同修改要求。",
+          "CrowdStrike主动提出改进措施且供应商接受，未触发正式合同谈判。"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F4",
+          "F5"
+        ],
+        "simulation_refs": [
+          "decision-actor_suppliers-r2",
+          "decision-actor_issuer-r2"
+        ],
+        "novelty_claim": "该分支将供应商的等待决策转化为主动合同谈判，并传导至CrowdStrike的合规与运营成本，超出事实中仅描述恢复协作的范畴。",
+        "confidence": 0.4,
+        "confidence_semantics": "branch_coherence_not_forecast_probability"
+      }
+    ],
+    "warnings": [
+      "branch-1: bound deterministic actor slot to unique financial decisions",
+      "branch-2: bound deterministic actor slot to unique financial decisions",
+      "branch-3: bound deterministic actor slot to unique financial decisions",
+      "branch-4: bound deterministic actor slot to unique financial decisions",
+      "Branches are simulated hypotheses, not observed evidence.",
+      "Branch confidence expresses coherence, not occurrence probability."
+    ]
+  },
+  "elapsed_seconds": 21.492336750030518,
+  "attempt_count": 1,
+  "request_ids": [
+    "18fc71c1a0d746b888b21a4020a23d86"
+  ]
+}

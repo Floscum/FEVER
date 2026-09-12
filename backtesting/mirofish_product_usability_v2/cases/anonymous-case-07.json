@@ -1,0 +1,626 @@
+{
+  "anonymous_case_id": "anonymous-case-07",
+  "configured_actor_count": 9,
+  "decision_actor_count": 9,
+  "fact_count": 4,
+  "fact_chars": 158,
+  "input": {
+    "case_id": "anonymous-case-07",
+    "as_of": "D0",
+    "question": "日期、名称、代码和机型均已匿名化。只使用D0已公开的信息，推演制造商、航空公司、监管机构、乘客与投资者对一次空中结构事件的反应。",
+    "horizon": {
+      "kind": "calendar_days",
+      "value": 35,
+      "end_at": "D0 + stated horizon"
+    },
+    "facts": [
+      {
+        "id": "F1",
+        "statement": "一家航空公司的窄体客机起飞后不久发生机身面板脱落和快速失压，并安全返回出发机场；机上人员仅报告轻伤。"
+      },
+      {
+        "id": "F2",
+        "statement": "涉事航空公司主动停飞其全部同一子型号机队，等待检查；该机队规模为数十架。"
+      },
+      {
+        "id": "F3",
+        "statement": "制造商表示已知悉事件，正在收集信息，并由技术团队支持调查。"
+      },
+      {
+        "id": "F4",
+        "statement": "涉事飞机属于较新的子型号；结构失效原因、是否涉及同构型机队以及检查范围在D0仍未确定。"
+      }
+    ],
+    "actors": [
+      {
+        "id": "actor_manufacturer",
+        "label": "匿名航空制造商",
+        "kind": "issuer",
+        "goals": [
+          "协助查明原因",
+          "恢复客户与监管信任",
+          "控制停飞和返工范围"
+        ],
+        "constraints": [
+          "D0缺少完整残骸检查与生产记录"
+        ]
+      },
+      {
+        "id": "actor_incident_airline",
+        "label": "涉事航空公司",
+        "kind": "customer",
+        "goals": [
+          "确保乘客安全",
+          "尽快完成检查",
+          "减少航班中断"
+        ],
+        "constraints": [
+          "同一子型号停飞会压缩可用运力"
+        ]
+      },
+      {
+        "id": "actor_peer_airlines",
+        "label": "运营同子型号的其他航空公司",
+        "kind": "customer",
+        "goals": [
+          "评估机队安全",
+          "避免非必要停飞",
+          "维护旅客信心"
+        ],
+        "constraints": [
+          "依赖制造商和监管机构给出检查口径"
+        ]
+      },
+      {
+        "id": "actor_aviation_regulator",
+        "label": "主要航空安全监管机构",
+        "kind": "regulator",
+        "goals": [
+          "防止同类事故",
+          "界定受影响构型",
+          "确保复飞前完成检查"
+        ],
+        "constraints": [
+          "必须根据早期证据确定命令范围"
+        ]
+      },
+      {
+        "id": "actor_investigators",
+        "label": "独立事故调查机构",
+        "kind": "government",
+        "goals": [
+          "保存证据",
+          "确定失效链条",
+          "提出安全建议"
+        ],
+        "constraints": [
+          "初期信息不完整且调查需要时间"
+        ]
+      },
+      {
+        "id": "actor_passengers",
+        "label": "航空旅客",
+        "kind": "customer",
+        "goals": [
+          "避免可疑机型风险",
+          "获得透明安全信息"
+        ],
+        "constraints": [
+          "难以判断子型号与构型差异"
+        ]
+      },
+      {
+        "id": "actor_institutions",
+        "label": "机构投资者",
+        "kind": "institutional_investor",
+        "goals": [
+          "评估停飞、检查和生产质量成本",
+          "区分局部缺陷与系统性问题"
+        ],
+        "constraints": [
+          "D0无法量化监管范围和最终成本"
+        ]
+      },
+      {
+        "id": "actor_retail",
+        "label": "个人投资者",
+        "kind": "retail_cohort",
+        "goals": [
+          "判断事件是否触发广泛停飞",
+          "控制周末消息后的跳空风险"
+        ],
+        "constraints": [
+          "容易混淆单一子型号与整个产品系列"
+        ]
+      },
+      {
+        "id": "actor_media",
+        "label": "航空与财经媒体",
+        "kind": "media",
+        "goals": [
+          "跟踪检查范围、监管命令和调查进展",
+          "解释构型差异"
+        ],
+        "constraints": [
+          "早期现场信息可能快速变化"
+        ]
+      }
+    ],
+    "financial_decisions": [
+      {
+        "id": "decision-actor_manufacturer-r3",
+        "round": 3,
+        "actor_id": "actor_manufacturer",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.6,
+        "instrument_refs": [],
+        "rationale": "D0缺少完整残骸检查与生产记录前，主动扩大操作可能引发过度停飞或猜测。当前通过F3已宣布支持调查，需等待客户检查结果和技术团队初步数据后再决定下一步沟通或操作方向。主要不确定性在于失效原因是否涉及全子型号、同构型机队范围，以及涉事航空公司检查结果。",
+        "constraint_refs": [
+          "actor_manufacturer:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_incident_airline-r3",
+        "round": 3,
+        "actor_id": "actor_incident_airline",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": null,
+        "instrument_refs": [],
+        "rationale": "已主动停飞全部同子型号机队（F2），安全优先于运力。当前结构失效原因和检查范围均未确定（F4），需等待制造商技术支持和调查进展（F3）再决定后续行动。立即操作可能基于不完整信息，故暂不采取公开沟通或谈判，作进一步观察。",
+        "constraint_refs": [
+          "actor_incident_airline:constraint:0"
+        ],
+        "evidence_refs": [
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_peer_airlines-r3",
+        "round": 3,
+        "actor_id": "actor_peer_airlines",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "事故涉及较新的子型号，但结构失效原因和同构型影响尚未确定。作为运营同子型号的同行，首要任务是等待制造商（F3）和监管机构（F7）的正式调查结论与检查口径，在此之前不宜自行停飞或公开表态，以免引发不必要的旅客恐慌或机队混乱。已内部准备预防性检查及替代运力方案，但执行取决于官方指引。",
+        "constraint_refs": [
+          "actor_peer_airlines:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_aviation_regulator-r3",
+        "round": 3,
+        "actor_id": "actor_aviation_regulator",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.5,
+        "instrument_refs": [],
+        "rationale": "截至当前时点，结构失效原因、是否涉及同构型机队以及检查范围均未确定。涉事航空公司已主动停飞同子型号机队，制造商已介入调查。作为监管机构，必须根据早期证据确定命令范围，在当前信息不充分的情况下贸然发布强制性检查命令可能造成不当影响。因此选择等待调查初步结论，同时密切监视事态发展，为后续精细化界定受影响构型和制定检查方案做准备。",
+        "constraint_refs": [
+          "actor_aviation_regulator:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "public",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_investigators-r3",
+        "round": 3,
+        "actor_id": "actor_investigators",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "在D0时点，F4明确指出结构失效原因、是否涉及同构型机队以及检查范围仍未确定。作为独立事故调查机构，不能过早下结论。当前首要任务是收集和保全物理证据、等待制造商技术团队初步分析报告以及监管机构早期评估结果（参考F3和post_id 7）。在证据链形成前，任何监管建议或公开沟通都可能基于不完整信息，违反约束0。因此选择等待，保持静默观察，待获得更多事实后再决定下一步行动。该行为不涉及任何金融工具交易。",
+        "constraint_refs": [
+          "actor_investigators:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.95,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_passengers-r3",
+        "round": 3,
+        "actor_id": "actor_passengers",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "maintain",
+        "intensity": 0.5,
+        "instrument_refs": [],
+        "rationale": "作为航空旅客，我无法判断子型号与构型差异，涉事飞机为较新子型号，但失效原因和检查范围尚未确定。当前事实显示涉事航空公司已主动停飞同子型号机队，但未明确是否涉及更广的同构型机队。我倾向于等待更多官方检查结果和安全公告，再决定是否调整未来航班预订，以避免可疑机型风险。目前不采取任何改变预订的公开动作，仅保持观察。",
+        "constraint_refs": [
+          "actor_passengers:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.7,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_institutions-r3",
+        "round": 3,
+        "actor_id": "actor_institutions",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "截至D0，事故原因未明，检查范围待定，无法区分是局部缺陷还是系统性问题。涉事航司主动停飞其全部同一子型号机队（数十架），但这是该航司的单方面行为，不代表监管命令或制造商召回。制造商仅表态正在收集信息并提供技术支持。D0时点无法量化监管干预的可能范围以及最终返工/赔偿责任成本。若过早调整仓位，可能因信息不足而误判风险性质（局部 vs 系统）。作为机构投资者，我的约束要求我只使用截至时点可见事实，因此我选择等待后续调查和监管公告，获取更多证据后再做配置决策。对ASSET_G不采取任何行动，保持当前敞口不变，观望下一轮信息更新。",
+        "constraint_refs": [
+          "actor_institutions:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_retail-r3",
+        "round": 3,
+        "actor_id": "actor_retail",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "当前事实仅显示涉事航司停飞同一子型号机队（数十架），制造商仍在收集信息，且结构失效原因和是否涉及同构型机队均未确定。我容易混淆子型号与整个产品系列，因此不能仅因单一型号事件就判定制造商会触发广泛停飞。周末消息后跳空风险存在，但信息不足无法判断方向，选择等待D1确认检查范围或制造商正式声明后再行动，避免盲目操作。",
+        "constraint_refs": [
+          "actor_retail:constraint:0"
+        ],
+        "evidence_refs": [
+          "F2",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_media-r3",
+        "round": 3,
+        "actor_id": "actor_media",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "当前事件仅过去数小时，F4明确结构失效原因、是否涉及同构型机队以及检查范围仍未确定。作为航空与财经媒体，过早发布分析可能导致基于不完整信息的误导性传播。早期现场信息可能快速变化（约束0），因此选择等待监管机构（F1中提及的监管方不活跃但F7已暗示将评估）和制造商（F3）发布更多技术细节，以及涉事航空公司检查结果（F2）。在检查范围和构型差异的官方信息明确前，任何关于ASSET_G的结论都缺乏证据基础，因此维持观望。",
+        "constraint_refs": [
+          "actor_media:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.9,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      }
+    ],
+    "simulated_actions": [],
+    "branch_slots": [
+      {
+        "slot_id": "slot-1",
+        "actor_ids": [
+          "actor_institutions",
+          "actor_passengers",
+          "actor_media"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_institutions-r3",
+          "decision-actor_passengers-r3",
+          "decision-actor_media-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-2",
+        "actor_ids": [
+          "actor_aviation_regulator",
+          "actor_manufacturer"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_aviation_regulator-r3",
+          "decision-actor_manufacturer-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-3",
+        "actor_ids": [
+          "actor_investigators",
+          "actor_incident_airline"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_investigators-r3",
+          "decision-actor_incident_airline-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-4",
+        "actor_ids": [
+          "actor_peer_airlines",
+          "actor_retail"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_peer_airlines-r3",
+          "decision-actor_retail-r3"
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "v7": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "延误扩散与资本观望",
+          "summary": "如果检查范围超出涉事航司机队，监管机构要求多个运营商停飞检查，机构投资者将面临更广运营中断和制造商赔偿责任，从而维持或加大观望姿态；乘客担心航班取消率上升，媒体加强报道，使乘客更多调整出行计划。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_passengers",
+            "actor_media"
+          ],
+          "trigger_conditions": [
+            "监管机构在D0+10天内发布指令，要求至少两家其他航空公司的同子型号机队停飞检查",
+            "涉事航空公司检查中发现超过三架飞机存在同类结构缺陷"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r3"
+            },
+            {
+              "actor_id": "actor_passengers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_passengers-r3"
+            },
+            {
+              "actor_id": "actor_media",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_media-r3"
+            }
+          ],
+          "consequences": [
+            "机构投资者因停飞范围扩大和赔偿责任不确定而继续规避该制造商股票",
+            "乘客因航班取消预期增加而减少涉及该子型号机型的预订",
+            "媒体持续报道检查进展和乘客改变行为，进一步抑制需求"
+          ],
+          "invalidation_conditions": [
+            "监管机构明确仅限定涉事航空公司的单一机队",
+            "制造商的初步技术报告在D0+10天内将失效归因于孤立制造误差"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_institutions-r3",
+            "decision-actor_passengers-r3",
+            "decision-actor_media-r3"
+          ],
+          "novelty_claim": "本分支超越事实复述，推断一旦监管行动扩大停飞范围，机构投资者的观望会与乘客的实际行为变化相互强化，形成一条从监管决定经媒体传导到乘客调整再到资本持续回避的连锁路径。",
+          "confidence": 0.4,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-2",
+          "label": "有限定向指令与厂商协作",
+          "summary": "如果监管机构仅针对涉事航空公司的机队发布检查指令，制造商则在提供技术支持后主动发布生产记录以验证问题范围，使监管与厂商在界定受影响构型上形成协作。",
+          "actor_ids": [
+            "actor_aviation_regulator",
+            "actor_manufacturer"
+          ],
+          "trigger_conditions": [
+            "监管机构在D0+10天内发布仅限涉事航空公司检查范围的适航指令",
+            "制造商在D0+14天内主动公布该子型号全部生产批次的制造记录"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_aviation_regulator",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_aviation_regulator-r3"
+            },
+            {
+              "actor_id": "actor_manufacturer",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_manufacturer-r3"
+            }
+          ],
+          "consequences": [
+            "监管机构依据厂商记录决定是否调整指令范围",
+            "制造商通过主动公开记录恢复部分客户信任，避免更多运营商自行停飞"
+          ],
+          "invalidation_conditions": [
+            "监管机构发布涵盖多家运营商的指令",
+            "制造商在D0+14天内未公布任何生产记录或仅提供有限信息"
+          ],
+          "evidence_refs": [
+            "F2",
+            "F3",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_aviation_regulator-r3",
+            "decision-actor_manufacturer-r3"
+          ],
+          "novelty_claim": "本分支构造了监管与制造商之间以信息公布为纽带的互动：厂商的生产记录决定了监管指令是否扩展或保留在原范围，而一家运营商停飞的约束使厂商有动机主动披露以控制事态升级。",
+          "confidence": 0.45,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-3",
+          "label": "主动调查引导航司调整",
+          "summary": "如果调查机构在获取飞行数据和面板残骸后，向涉事航空公司提出临时安全建议，涉事航空公司则在已有机队检查框架内增加附加检查项，扩大已停飞机队的检测深度。",
+          "actor_ids": [
+            "actor_investigators",
+            "actor_incident_airline"
+          ],
+          "trigger_conditions": [
+            "调查机构在D0+14天内发布基于飞行数据的初步调查声明，指出面板失效涉及特定批次",
+            "涉事航空公司在D0+21天内宣布对已停飞机队增加超声波检查"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_investigators",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_investigators-r3"
+            },
+            {
+              "actor_id": "actor_incident_airline",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_incident_airline-r3"
+            }
+          ],
+          "consequences": [
+            "调查机构依据更深检查结果细化失效链条分析",
+            "涉事航空公司因增加检查深度而延长机队恢复时间，运力紧张持续"
+          ],
+          "invalidation_conditions": [
+            "调查机构在D0+14天内未发布任何初步声明，也未指出特定批次",
+            "涉事航空公司在D0+21天内仅完成外观检查即恢复运营"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_investigators-r3",
+            "decision-actor_incident_airline-r3"
+          ],
+          "novelty_claim": "本分支通过调查机构临时安全建议与航司检查深度的时序因果，展示了单一运营商已有机队停飞条件下的行动调整：调查发现影响检查方案，而检查结果又反哺调查路径，构成循环传导。",
+          "confidence": 0.35,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-4",
+          "label": "同行预防行动触发零售恐慌",
+          "summary": "如果一家运营同子型号的航空公司（非涉事航司）在监管指令未下时主动宣布预防性检查，个人投资者将混淆子型号与产品系列，误判事件为广泛结构问题，从而大幅抛售制造商股票。",
+          "actor_ids": [
+            "actor_peer_airlines",
+            "actor_retail"
+          ],
+          "trigger_conditions": [
+            "任何运营同子型号的航空公司在D0+7天内宣布主动对机队进行预防性检查",
+            "个人投资者在相关社交媒体上出现大规模混淆式的风险叙事"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_peer_airlines",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_peer_airlines-r3"
+            },
+            {
+              "actor_id": "actor_retail",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_retail-r3"
+            }
+          ],
+          "consequences": [
+            "个人投资者因混淆而大幅抛售制造商股票，造成短暂价格跳空",
+            "运营同子型号的航空公司因主动检查而承受额外运营成本和舆论压力"
+          ],
+          "invalidation_conditions": [
+            "所有运营同子型号的航空公司均明确表示等待监管指令，不采取主动检查",
+            "制造商在D0+7天内发布公告澄清混淆，指出子型号与整个产品系列的区别"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_peer_airlines-r3",
+            "decision-actor_retail-r3"
+          ],
+          "novelty_claim": "本分支超越了事实复述，揭示了同行航空公司主动检查的行为如何被个人投资者通过对子型号与产品系列的认知混淆所放大，导致与监管和制造商意图相反的抛售路径。",
+          "confidence": 0.3,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        }
+      ],
+      "generation": {
+        "semantic_retries": 0,
+        "elapsed_seconds": 43.70065970800351
+      },
+      "judgments": []
+    }
+  }
+}

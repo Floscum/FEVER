@@ -1,0 +1,385 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_buyback_002",
+  "title": "匿名案例：大型成长公司股份回购计划",
+  "as_of": "2018-06-19T23:59:59+08:00",
+  "question": "日期、名称、代码和绝对金额均已匿名化。只使用D0已公开的信息，推演回购执行、员工激励预期、利益相关方反应及匿名标的后续价格方向。",
+  "horizon": {
+    "kind": "calendar_days",
+    "value": 35,
+    "end_at": "2018-07-24T23:59:59+08:00"
+  },
+  "market": {
+    "region": "BLIND_CN",
+    "venues": [
+      "BLIND_CN_EQUITY"
+    ],
+    "instruments": [
+      {
+        "symbol": "ASSET_B",
+        "name": "匿名大型成长公司B",
+        "kind": "equity",
+        "currency": "CNY"
+      }
+    ]
+  },
+  "facts": [
+    {
+      "id": "F1",
+      "observed_at": "2018-06-19T20:00:00+08:00",
+      "statement": "发行人董事会批准使用自有资金，通过集中竞价回购部分A股；资金设有明确上下限，实施期限为董事会批准后十二个月。",
+      "source_kind": "filing",
+      "source_url": "https://benchmark.invalid/blind-buyback-002/F1",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F2",
+      "observed_at": "2018-06-19T20:00:00+08:00",
+      "statement": "回购价格上限为董事会决议前30个交易日均价的150%，按资金和价格上限测算，预计回购约占总股本0.15%至0.23%。",
+      "source_kind": "filing",
+      "source_url": "https://benchmark.invalid/blind-buyback-002/F2",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F3",
+      "observed_at": "2018-06-19T20:00:00+08:00",
+      "statement": "回购股份计划用于后续股权激励或员工持股；截至公告日，公司未收到主要股东和管理层在回购期内减持的计划。",
+      "source_kind": "filing",
+      "source_url": "https://benchmark.invalid/blind-buyback-002/F3",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F4",
+      "observed_at": "2018-06-19T15:00:00+08:00",
+      "statement": "D0匿名标的收涨约1.8%，此前三个交易日累计上涨约4.5%；回购公告在D0收盘后公开。",
+      "source_kind": "market_data",
+      "source_url": "https://benchmark.invalid/blind-buyback-002/F4",
+      "evidence_ref": null,
+      "confidence": 1.0
+    }
+  ],
+  "actors": [
+    {
+      "id": "actor_issuer",
+      "label": "匿名大型成长公司",
+      "kind": "issuer",
+      "aggregation": "organization",
+      "goals": [
+        "稳定长期价值预期",
+        "为员工激励准备股份",
+        "控制回购成本"
+      ],
+      "constraints": [
+        "只能在合规窗口、价格上限和金额区间内实施回购"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "公司拥有执行回购所需自有资金"
+      ]
+    },
+    {
+      "id": "actor_management",
+      "label": "管理层与核心员工",
+      "kind": "institutional_investor",
+      "aggregation": "cohort",
+      "goals": [
+        "提高长期激励确定性",
+        "维持经营与人才稳定"
+      ],
+      "constraints": [
+        "尚未获得具体股权激励授予，不能把计划当作既得权益"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": [
+        "对回购后激励方案存在预期"
+      ]
+    },
+    {
+      "id": "actor_regulator",
+      "label": "证券监管机构",
+      "kind": "regulator",
+      "aggregation": "organization",
+      "goals": [
+        "监督回购合规",
+        "防止操纵和不公平交易"
+      ],
+      "constraints": [
+        "依据回购和信息披露规则行事"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_exchange",
+      "label": "上市交易所",
+      "kind": "exchange",
+      "aggregation": "organization",
+      "goals": [
+        "监督回购进展披露",
+        "维护集中竞价秩序"
+      ],
+      "constraints": [
+        "不得为发行人保证回购价格或实施规模"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_institutions",
+      "label": "机构投资者",
+      "kind": "institutional_investor",
+      "aggregation": "cohort",
+      "goals": [
+        "评估回购信号强度",
+        "区分估值支撑和实际买盘",
+        "管理成长股风险"
+      ],
+      "constraints": [
+        "回购规模占总股本比例有限且执行期较长"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "对行业景气和估值的判断存在分歧"
+      ]
+    },
+    {
+      "id": "actor_retail",
+      "label": "个人投资者",
+      "kind": "retail_cohort",
+      "aggregation": "cohort",
+      "goals": [
+        "判断回购公告后的价格方向",
+        "控制追高风险"
+      ],
+      "constraints": [
+        "容易把回购上限误解为立即买入承诺"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "近期上涨可能放大乐观情绪"
+      ]
+    },
+    {
+      "id": "actor_suppliers",
+      "label": "关键供应商",
+      "kind": "supplier",
+      "aggregation": "cohort",
+      "goals": [
+        "判断发行人资金和扩产能力",
+        "维护长期订单关系"
+      ],
+      "constraints": [
+        "不能直接观察回购执行订单"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F3"
+      ],
+      "assumptions": [
+        "担忧资本返还是否影响经营投入"
+      ]
+    },
+    {
+      "id": "actor_competitors",
+      "label": "行业竞争者",
+      "kind": "competitor",
+      "aggregation": "cohort",
+      "goals": [
+        "比较资本配置和人才激励能力",
+        "维护竞争地位"
+      ],
+      "constraints": [
+        "无法直接影响发行人的回购执行"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_media",
+      "label": "财经媒体与分析师",
+      "kind": "media",
+      "aggregation": "cohort",
+      "goals": [
+        "解释回购规模和用途",
+        "跟踪首次回购及月度进度"
+      ],
+      "constraints": [
+        "必须区分方案上限、实际成交和股权激励"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    }
+  ],
+  "relationships": [
+    {
+      "source_actor_id": "actor_issuer",
+      "target_actor_id": "actor_management",
+      "kind": "plans_equity_incentive_for",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_exchange",
+      "target_actor_id": "actor_issuer",
+      "kind": "supervises_buyback_disclosure",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_regulator",
+      "target_actor_id": "actor_issuer",
+      "kind": "regulates_buyback",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_issuer",
+      "target_actor_id": "actor_suppliers",
+      "kind": "signals_capital_capacity",
+      "visibility": "assumed"
+    },
+    {
+      "source_actor_id": "actor_media",
+      "target_actor_id": "actor_retail",
+      "kind": "influences_information_set",
+      "visibility": "assumed"
+    }
+  ],
+  "allowed_actions": [
+    {
+      "type": "COMMUNICATE",
+      "description": "披露回购、激励、风险或研究观点。",
+      "visibility": "public"
+    },
+    {
+      "type": "REGULATE",
+      "description": "监督回购窗口、成交和信息披露。",
+      "visibility": "public"
+    },
+    {
+      "type": "OPERATE",
+      "description": "准备或执行回购与后续员工激励。",
+      "visibility": "either"
+    },
+    {
+      "type": "ALLOCATE",
+      "description": "调整匿名标的或行业风险敞口。",
+      "visibility": "private"
+    },
+    {
+      "type": "NEGOTIATE",
+      "description": "协商供应、人才或业务安排。",
+      "visibility": "private"
+    },
+    {
+      "type": "WAIT",
+      "description": "等待首次回购、进度披露或市场确认。",
+      "visibility": "either"
+    }
+  ],
+  "interventions": [
+    {
+      "id": "I0_BUYBACK",
+      "at_round": 0,
+      "fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "visibility": "public"
+    }
+  ],
+  "forecast_targets": [
+    {
+      "id": "T1",
+      "kind": "market",
+      "definition": "D1收盘价相对D0收盘价的方向。",
+      "horizon": "next_trading_close",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T2",
+      "kind": "market",
+      "definition": "第5个交易日收盘价相对D0收盘价的方向。",
+      "horizon": "5_trading_days",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T3",
+      "kind": "market",
+      "definition": "第20个交易日收盘价相对D0收盘价的方向。",
+      "horizon": "20_trading_days",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T4",
+      "kind": "event",
+      "definition": "发行人是否在20个自然日内完成首次实际回购。",
+      "horizon": "20_calendar_days",
+      "scoring": "brier"
+    },
+    {
+      "id": "T5",
+      "kind": "event",
+      "definition": "35个自然日内累计实际回购金额是否达到公告最低资金规模的50%。",
+      "horizon": "35_calendar_days",
+      "scoring": "brier"
+    }
+  ],
+  "run_config": {
+    "rounds": 12,
+    "replications": 20,
+    "seed_strategy": "deterministic_sequence",
+    "layers": [
+      "information",
+      "behavior"
+    ]
+  },
+  "provenance": {
+    "created_by": "FEVER-MiroFish blind benchmark",
+    "source_graph_artifact_id": null,
+    "notes": [
+      "真实公司、证券代码、日期、绝对资金和价格已从模型可见输入中移除或区间化。",
+      "时间戳是保持相对间隔的实验标签，不代表真实宏观年份。",
+      "真实映射和结果只保存在独立outcome文件，禁止进入模型提示。"
+    ]
+  }
+}

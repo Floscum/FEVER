@@ -1,0 +1,392 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_bank_liquidity_005",
+  "title": "匿名案例：高未保险存款银行的资产出售与融资",
+  "as_of": "2018-09-12T23:59:59-04:00",
+  "question": "日期、名称、代码和绝对规模均已匿名化。只使用D0收盘后已公开的信息，推演存款人、融资方、监管者和同业机构如何响应银行的资产出售与资本补充。",
+  "horizon": {
+    "kind": "calendar_days",
+    "value": 35,
+    "end_at": "2018-10-17T23:59:59-04:00"
+  },
+  "market": {
+    "region": "BLIND_US",
+    "venues": [
+      "BLIND_US_EQUITY"
+    ],
+    "instruments": [
+      {
+        "symbol": "ASSET_E",
+        "name": "匿名区域银行指数基金E",
+        "kind": "fund",
+        "currency": "USD"
+      }
+    ]
+  },
+  "facts": [
+    {
+      "id": "F1",
+      "observed_at": "2018-09-12T16:30:00-04:00",
+      "statement": "一家服务创新企业和投资机构的区域银行在D0收盘后宣布，已出售几乎全部可供出售证券，并确认约相当于拟融资额80%的一次性税后损失。",
+      "source_kind": "filing",
+      "source_url": "https://benchmark.invalid/blind-bank-liquidity-005/F1",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F2",
+      "observed_at": "2018-09-12T16:30:00-04:00",
+      "statement": "银行同时启动普通股和强制可转换优先股发行，并获得一家长期客户型投资者的认购承诺；计划融资总额约为确认损失的125%。",
+      "source_kind": "filing",
+      "source_url": "https://benchmark.invalid/blind-bank-liquidity-005/F2",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F3",
+      "observed_at": "2018-09-12T16:30:00-04:00",
+      "statement": "银行称客户现金消耗高于预期、存款低于预测，并计划将定期借款规模提高一倍；客户高度集中在风险投资支持的科技和生命科学企业。",
+      "source_kind": "filing",
+      "source_url": "https://benchmark.invalid/blind-bank-liquidity-005/F3",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F4",
+      "observed_at": "2018-09-12T16:00:00-04:00",
+      "statement": "D0区域银行指数基金收盘波动有限；资产出售、损失和融资计划均在D0收盘后公布。",
+      "source_kind": "market_data",
+      "source_url": "https://benchmark.invalid/blind-bank-liquidity-005/F4",
+      "evidence_ref": null,
+      "confidence": 1.0
+    }
+  ],
+  "actors": [
+    {
+      "id": "actor_bank",
+      "label": "匿名区域银行",
+      "kind": "issuer",
+      "aggregation": "organization",
+      "goals": [
+        "补充资本与流动性",
+        "稳定存款人信心",
+        "维持核心客户服务"
+      ],
+      "constraints": [
+        "证券出售已确认重大损失",
+        "融资尚未完成"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "存款稳定性取决于少数高度互联客户群体"
+      ]
+    },
+    {
+      "id": "actor_depositors",
+      "label": "企业存款人",
+      "kind": "customer",
+      "aggregation": "cohort",
+      "goals": [
+        "确保工资与运营资金可用",
+        "降低未保险余额风险"
+      ],
+      "constraints": [
+        "转移大额企业存款需要快速协调"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": [
+        "存款人会相互交流银行风险"
+      ]
+    },
+    {
+      "id": "actor_vc",
+      "label": "风险投资与私募机构",
+      "kind": "institutional_investor",
+      "aggregation": "cohort",
+      "goals": [
+        "保护被投企业现金",
+        "避免组合公司运营中断"
+      ],
+      "constraints": [
+        "对银行资产质量和即时流动性信息有限"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": [
+        "可能集中建议被投企业调整存款"
+      ]
+    },
+    {
+      "id": "actor_equity_investors",
+      "label": "银行股权投资者",
+      "kind": "institutional_investor",
+      "aggregation": "cohort",
+      "goals": [
+        "评估融资稀释与存款流失",
+        "控制银行板块敞口"
+      ],
+      "constraints": [
+        "融资定价和认购完成情况尚不确定"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "会比较损失规模、资本缺口和传染风险"
+      ]
+    },
+    {
+      "id": "actor_regulators",
+      "label": "银行监管与存款保险机构",
+      "kind": "regulator",
+      "aggregation": "cohort",
+      "goals": [
+        "保护存款人",
+        "维持金融稳定",
+        "依法处置流动性失败机构"
+      ],
+      "constraints": [
+        "不能事前承诺超出法定范围的保护"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": [
+        "会监控存款流出和同业传染"
+      ]
+    },
+    {
+      "id": "actor_central_bank",
+      "label": "中央银行",
+      "kind": "government",
+      "aggregation": "organization",
+      "goals": [
+        "维持银行体系流动性",
+        "限制系统性传染"
+      ],
+      "constraints": [
+        "工具使用需满足法律与抵押品要求"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": [
+        "单一银行事件可能扩散至相似负债结构机构"
+      ]
+    },
+    {
+      "id": "actor_peer_banks",
+      "label": "大型银行与同业机构",
+      "kind": "competitor",
+      "aggregation": "cohort",
+      "goals": [
+        "管理交易对手风险",
+        "承接合格存款与客户",
+        "维护自身流动性"
+      ],
+      "constraints": [
+        "不能保证问题银行的融资或收购完成"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_retail",
+      "label": "个人投资者",
+      "kind": "retail_cohort",
+      "aggregation": "cohort",
+      "goals": [
+        "判断银行板块风险",
+        "控制恐慌交易损失"
+      ],
+      "constraints": [
+        "难以实时观察企业存款流"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "容易从单家银行外推至整个板块"
+      ]
+    },
+    {
+      "id": "actor_media",
+      "label": "金融媒体与分析师",
+      "kind": "media",
+      "aggregation": "cohort",
+      "goals": [
+        "解释资产负债表与流动性风险",
+        "跟踪融资和监管响应"
+      ],
+      "constraints": [
+        "必须区分资本损失、流动性缺口和信用损失"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    }
+  ],
+  "relationships": [
+    {
+      "source_actor_id": "actor_bank",
+      "target_actor_id": "actor_depositors",
+      "kind": "holds_operating_deposits_for",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_vc",
+      "target_actor_id": "actor_depositors",
+      "kind": "advises_portfolio_companies",
+      "visibility": "assumed"
+    },
+    {
+      "source_actor_id": "actor_regulators",
+      "target_actor_id": "actor_bank",
+      "kind": "supervises_and_resolves",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_central_bank",
+      "target_actor_id": "actor_peer_banks",
+      "kind": "provides_system_liquidity",
+      "visibility": "assumed"
+    },
+    {
+      "source_actor_id": "actor_media",
+      "target_actor_id": "actor_retail",
+      "kind": "influences_information_set",
+      "visibility": "assumed"
+    }
+  ],
+  "allowed_actions": [
+    {
+      "type": "COMMUNICATE",
+      "description": "发布融资、存款、监管处置或风险研究信息。",
+      "visibility": "public"
+    },
+    {
+      "type": "REGULATE",
+      "description": "监督、限制、接管或提供法定处置安排。",
+      "visibility": "public"
+    },
+    {
+      "type": "OPERATE",
+      "description": "出售资产、筹资、转移存款或维持支付。",
+      "visibility": "either"
+    },
+    {
+      "type": "ALLOCATE",
+      "description": "调整银行存款、股权或行业风险敞口。",
+      "visibility": "private"
+    },
+    {
+      "type": "NEGOTIATE",
+      "description": "协商融资、流动性支持、收购或处置。",
+      "visibility": "private"
+    },
+    {
+      "type": "WAIT",
+      "description": "等待融资完成、存款流数据或监管决定。",
+      "visibility": "either"
+    }
+  ],
+  "interventions": [
+    {
+      "id": "I0_BALANCE_SHEET_ACTION",
+      "at_round": 0,
+      "fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "visibility": "public"
+    }
+  ],
+  "forecast_targets": [
+    {
+      "id": "T1",
+      "kind": "market",
+      "definition": "匿名区域银行指数基金D1收盘相对D0收盘的方向。",
+      "horizon": "next_trading_close",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T2",
+      "kind": "market",
+      "definition": "匿名区域银行指数基金第5个交易日收盘相对D0收盘的方向。",
+      "horizon": "5_trading_days",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T3",
+      "kind": "market",
+      "definition": "匿名区域银行指数基金第20个交易日收盘相对D0收盘的方向。",
+      "horizon": "20_trading_days",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T4",
+      "kind": "event",
+      "definition": "问题银行是否在3个自然日内被关闭并进入法定接管。",
+      "horizon": "3_calendar_days",
+      "scoring": "brier"
+    },
+    {
+      "id": "T5",
+      "kind": "event",
+      "definition": "监管当局是否在5个自然日内宣布对该行全部存款人的超常保护或系统性流动性工具。",
+      "horizon": "5_calendar_days",
+      "scoring": "brier"
+    }
+  ],
+  "run_config": {
+    "rounds": 12,
+    "replications": 20,
+    "seed_strategy": "deterministic_sequence",
+    "layers": [
+      "information",
+      "behavior"
+    ]
+  },
+  "provenance": {
+    "created_by": "FEVER-MiroFish blind benchmark",
+    "source_graph_artifact_id": null,
+    "notes": [
+      "真实银行、基金、代码、日期、绝对金额和来源链接已从模型可见输入中移除。",
+      "金额只保留相对比例；时间戳是保持相对间隔的实验标签。",
+      "真实映射和结果只保存在独立outcome文件，禁止进入模型提示。"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "PROTOCOL.md": "d83465b3d0f4f99ea18cd2408d9fce659579894fd0cbbb8e7be100cf58a7033c",
+  "README.md": "64d8336c8bce0e43e104c77c709927fbfb2c9ee9e1661224e4d51a4093ec2157",
+  "cases/anonymous-case-01.json": "0f4a40e76a89b19df75c4c7912bd1a937aa4f4073063beb3d3483fccc4da66ef",
+  "cases/anonymous-case-02.json": "42daf73d20867314dd64ed248b3bc302cd650533241a506d4d0b81e859ae26dc",
+  "cases/anonymous-case-03.json": "dbf37081decc51b8cdbb0703466dc4b377fbec0eba9d100314b53049192f8a54",
+  "cases/anonymous-case-04.json": "dc2c6d89341d802e9be01a88d86f5ba7962aa02e59a7c572f1bc0f4ff6bb0e23",
+  "cases/anonymous-case-05.json": "01d19f129ac88fb09ad525d4b749d21884b5885948b1b54a4a74c7dd97118bfa",
+  "cases/anonymous-case-06.json": "dfa10bfc77ea9b4cd02efdf9bebea71274cb31d801dcf5eb1f43747a44b0026f",
+  "cases/anonymous-case-07.json": "d16d4182fb001545723a9a851256c9a659b5ce17bd44f509f1abdd01b2aa8161",
+  "cases/anonymous-case-08.json": "0d55e29ae57a6927e81b82ff319f8e3f2ea65c38f2066b33d32481254f88d5e2",
+  "cases/anonymous-case-09.json": "3e11b27e6b5139959fec29f8a63ceb101f3c83acc41f58ced2012d51d477b13d",
+  "cases/anonymous-case-10.json": "1124652038488d48a288542e85e89828f288cdf333b440269a3f0294022ab6b4",
+  "cases/anonymous-case-11.json": "262671afe60418c812a648be2818079e41454fd7766670e9dcd6aa7a4cabf904",
+  "cases/anonymous-case-12.json": "14001baedb4446f9b2fe497df9b44ff08b9f766148fe409fac54c8f21928c153",
+  "manifest.json": "c2288badd431f38862fa91722dc7e203346689346831a9ea83015e9a189138d5",
+  "report.json": "796d3365cba1c5223d79b06b5e09fc534128634707f88eddd47cd88c55d8421e",
+  "verify_results.py": "aad5b9e9034214ba7ab9d719284ec9f4d44c79c3e5f4d1045f9e4d70ddc86484"
+}

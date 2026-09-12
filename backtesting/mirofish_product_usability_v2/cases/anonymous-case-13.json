@@ -1,0 +1,990 @@
+{
+  "anonymous_case_id": "anonymous-case-13",
+  "configured_actor_count": 7,
+  "decision_actor_count": 7,
+  "fact_count": 4,
+  "fact_chars": 189,
+  "input": {
+    "case_id": "anonymous-case-13",
+    "as_of": "D0",
+    "question": "国家、官员、年份、机构名与市场代码均已匿名化。只使用D0已公开的信息，推演财政机关、中央银行、养老金、资产管理人、交易商和投资者如何应对长期主权债券的急剧重定价与抵押品压力。",
+    "horizon": {
+      "kind": "calendar_days",
+      "value": 35,
+      "end_at": "D0 + stated horizon"
+    },
+    "facts": [
+      {
+        "id": "F1",
+        "statement": "新政府公布大规模减税、能源支持与供给侧改革方案，并取消原定企业税率上调；方案公布时没有同时发布独立财政预测。"
+      },
+      {
+        "id": "F2",
+        "statement": "财政机关表示未来数周还会公布更多增长措施，中期财政计划和独立预测将在更晚日期发布。"
+      },
+      {
+        "id": "F3",
+        "statement": "长期主权债券收益率快速上升、本币明显走弱；使用负债驱动投资策略的养老金需要为衍生品头寸补充抵押品。"
+      },
+      {
+        "id": "F4",
+        "statement": "中央银行此前已宣布紧缩政策并计划出售主权债券，但同时负有维护金融稳定和核心市场运转的职责。"
+      }
+    ],
+    "actors": [
+      {
+        "id": "actor_fiscal",
+        "label": "匿名财政机关",
+        "kind": "government",
+        "goals": [
+          "推动增长方案",
+          "维持财政可信度",
+          "稳定融资条件"
+        ],
+        "constraints": [
+          "独立财政预测尚未发布",
+          "市场对无资金来源措施敏感"
+        ]
+      },
+      {
+        "id": "actor_central_bank",
+        "label": "匿名中央银行",
+        "kind": "regulator",
+        "goals": [
+          "维持物价稳定",
+          "恢复核心债券市场秩序",
+          "避免信用条件传染"
+        ],
+        "constraints": [
+          "稳定工具不能被市场误解为永久货币宽松"
+        ]
+      },
+      {
+        "id": "actor_pensions",
+        "label": "养老金与负债驱动投资基金",
+        "kind": "institutional_investor",
+        "goals": [
+          "满足抵押品追缴",
+          "控制杠杆",
+          "避免被迫抛售"
+        ],
+        "constraints": [
+          "长期债券价格下跌会放大流动性需求"
+        ]
+      },
+      {
+        "id": "actor_managers",
+        "label": "养老金资产管理人",
+        "kind": "institutional_investor",
+        "goals": [
+          "筹集现金",
+          "调整对冲和杠杆",
+          "保护客户偿付能力"
+        ],
+        "constraints": [
+          "短期可出售资产和交易对手额度有限"
+        ]
+      },
+      {
+        "id": "actor_dealers",
+        "label": "主权债券交易商与清算交易对手",
+        "kind": "broker",
+        "goals": [
+          "控制库存风险",
+          "收取足额保证金",
+          "维持做市"
+        ],
+        "constraints": [
+          "市场深度快速下降"
+        ]
+      },
+      {
+        "id": "actor_investors",
+        "label": "全球宏观与外汇投资者",
+        "kind": "foreign_investor",
+        "goals": [
+          "判断财政与货币政策一致性",
+          "管理汇率和利率风险"
+        ],
+        "constraints": [
+          "缺乏基金抵押品缺口的完整数据"
+        ]
+      },
+      {
+        "id": "actor_media",
+        "label": "财经媒体与分析机构",
+        "kind": "media",
+        "goals": [
+          "解释财政方案和市场压力",
+          "跟踪政策回应"
+        ],
+        "constraints": [
+          "基金层面信息披露滞后"
+        ]
+      }
+    ],
+    "financial_decisions": [
+      {
+        "id": "decision-actor_fiscal-r3",
+        "round": 3,
+        "actor_id": "actor_fiscal",
+        "action_type": "COMMUNICATE",
+        "decision_status": "intended",
+        "direction": "maintain",
+        "intensity": 0.6,
+        "instrument_refs": [],
+        "rationale": "当前市场对无资金来源措施高度敏感，长期债券收益率快速上升、本币走弱，融资条件恶化。独立财政预测尚未发布，无法进行有公信力的增信操作。需在未来数周公布更多增长措施前，通过公开沟通稳定市场预期：重申中期财政纪律、强调将配合中央银行维护金融稳定，并承诺独立预测发布后会确保财政路径可信。主要不确定性在于市场能否接受无细节承诺，以及养老金抵押品压力是否继续升级。",
+        "constraint_refs": [
+          "actor_fiscal:constraint:0",
+          "actor_fiscal:constraint:1"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "public",
+        "confidence": 0.7,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_central_bank-r3",
+        "round": 3,
+        "actor_id": "actor_central_bank",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "截至时点，长期主权债券收益率快速上升、本币走弱，养老金面临抵押品补充压力（F3），但财政机关已表示未来数周将公布更多增长措施及中期财政计划（F2），需观察财政信号是否缓解市场恐慌。央行此前已宣布紧缩并计划出售主权债券（F4），若此时立即干预，可能被市场解读为政策立场转向，与约束相悖。因此优先等待财政政策清晰化，并持续监测抵押品压力是否触发系统性风险。若流动性状况进一步恶化至威胁核心市场运转，将启动临时性、有期限的流动性支持工具，但须明确声明其临时性质以避免永久宽松预期。",
+        "constraint_refs": [
+          "actor_central_bank:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_pensions-r3",
+        "round": 3,
+        "actor_id": "actor_pensions",
+        "action_type": "ALLOCATE",
+        "decision_status": "conditional",
+        "direction": "decrease",
+        "intensity": 0.4,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "当前F3事实显示长期主权债券收益率快速上升且本币明显走弱，LDI策略养老金面临衍生品头寸抵押品补充压力，而F4表明央行虽已宣布紧缩但仍负有金融稳定职责。主要动因是筹集现金以满足即时抵押品追缴，避免因保证金不足触发强制平仓。传导机制是通过部分减持本币资产（本币走弱背景下减持部分敞口也可降低汇率风险），将所得转入高流动性质押品，但力度受到约束：F1财政扩张缺乏独立预测导致市场信心不足，债券价格进一步下跌会放大流动性需求（constraint:0），因此仅做适度减持。主要不确定性：1)财政中期框架公布前市场情绪可能继续恶化；2)若央行在金融稳定压力下调整QT节奏，本币与债券市场可能短期企稳；3)减持时机可能面临市场深度不足导致的价差损失。最终动作取决于具体抵押品调用金额的确认以及对手方是否接受替代质押品安排。",
+        "constraint_refs": [
+          "actor_pensions:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.65,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_managers-r3",
+        "round": 3,
+        "actor_id": "actor_managers",
+        "action_type": "ALLOCATE",
+        "decision_status": "intended",
+        "direction": "increase",
+        "intensity": 0.4,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "长期国债收益率快速上升、本币走弱导致负债驱动策略的养老金衍生品头寸面临追加抵押品压力，必须筹集现金。中央银行虽计划紧缩但承担金融稳定职责，可能干预市场。利用短期可出售资产中流动性较高的外汇储备部分，适当增加本币兑储备货币即期汇率敞口，在不耗尽交易对手额度的前提下换取现金以补充抵押品。主要不确定性在于央行是否实际干预以及减税方案对财政可持续性的影响。",
+        "constraint_refs": [
+          "actor_managers:constraint:0"
+        ],
+        "evidence_refs": [
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.7,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_dealers-r3",
+        "round": 3,
+        "actor_id": "actor_dealers",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "当前市场深度快速下降，长期收益率快速上升且本币明显走弱，养老金正面临衍生品抵押品补充压力。在此恐慌性抛售阶段主动操作将放大库存风险与交易对手信用风险。等待中央银行干预表态（F4显示其负有金融稳定职责）以及财政独立预测公布（F2），待流动性条件趋稳后再调整做市报价与敞口更为审慎。同时密切监控养老金抵押品清算进度和回购市场传导效应。",
+        "constraint_refs": [
+          "actor_dealers:constraint:0"
+        ],
+        "evidence_refs": [
+          "F3",
+          "F4",
+          "F2"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_investors-r3",
+        "round": 3,
+        "actor_id": "actor_investors",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "maintain",
+        "intensity": 0.5,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "当前财政扩张（减税+供给侧改革）与央行紧缩（计划出售主权债券）的立场冲突尚未在金融市场上形成确定性的政策组合结果。F3显示的收益率飙升和本币走弱已触发养老金抵押品压力，但F4中央行虽有金融稳定职责却未实际执行干预；且F2表明中期财政计划和独立预测尚未发布，这是判别政策一致性的关键信息缺失。作为外汇投资者，我缺乏F3相关基金抵押品缺口数据（约束constraint:0），无法定量评估流动性危机蔓延概率。因此最审慎的动作是维持现有外汇敞口，等待中期财政计划发布及央行对抵押品压力的实质回应，再做出方向性调仓。本币贬值风险通过现有对冲工具覆盖，不追加头寸也不减仓。",
+        "constraint_refs": [
+          "actor_investors:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_media-r3",
+        "round": 3,
+        "actor_id": "actor_media",
+        "action_type": "COMMUNICATE",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": null,
+        "instrument_refs": [],
+        "rationale": "作为财经媒体与分析机构，当前市场上养老金保证金追缴压力正在快速积聚，但基金层面信息披露滞后（约束），无法获得完整的抵押品缺口数据。同时，财政方案公布时缺乏独立预测（F1），增加市场对财政可持续性的疑虑。长期国债收益率飙升与本币走弱（F3）形成负反馈循环，而央行的双重目标（F4）使其政策路径存在不确定性。在此阶段，选择“沟通”而非“等待”，因为市场正处于关键信息真空期——中期财政计划和独立预测将更晚发布（F2）——此时最有效的行动是向市场传达冷静观察的分析框架，帮助参与者理解政策响应逻辑，而非被动等待。主要不确定性在于养老金实际履约能力与央行是否会启动临时性干预之间的相互作用。",
+        "constraint_refs": [
+          "actor_media:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "public",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      }
+    ],
+    "simulated_actions": [
+      {
+        "id": "trace-17",
+        "actor_id": "actor_dealers",
+        "action_type": "COMMUNICATE",
+        "summary": "作为交易清算对手方，我们已在关注养老金抵押品补充进度。保证金追缴压力正在快速传导至回购市场，建议尽快建立双边抵押品互换机制以缓解流动性断层。"
+      },
+      {
+        "id": "trace-18",
+        "actor_id": "actor_central_bank",
+        "action_type": "COMMUNICATE",
+        "summary": "我们正密切监测主权债券市场的流动性状况及抵押品压力动态。央行的核心职责包括维护金融稳定与核心市场运转。我们将根据既定规则使用政策工具应对市场无序波动，但需明确指出：任何临时性干预均不代表货币政策立场的永久转向。市场参与者应妥善管理自身流动性风险。"
+      },
+      {
+        "id": "trace-22",
+        "actor_id": "actor_media",
+        "action_type": "COMMUNICATE",
+        "summary": "【市场分析】国债收益率飙升+本币走弱正形成负面反馈循环：养老金LDI策略触发保证金追缴→被迫抛售资产→进一步压低债券价格。央行面临两难——既要紧缩抗通胀（已宣布出售主权债计划），又需履行金融稳定职责。市场正密切关注中期财政计划及独立预测的发布。投资者需做好流动性紧张持续的准备。"
+      },
+      {
+        "id": "trace-23",
+        "actor_id": "actor_pensions",
+        "action_type": "COMMUNICATE",
+        "summary": "我们同样面临补充抵押品的压力。长期债券收益率快速上升叠加本币走弱，导致衍生品头寸的保证金要求显著增加。短期可出售资产有限，正在评估降低杠杆和调整组合结构的所有选项。市场深度不足使抛售成本高昂。"
+      },
+      {
+        "id": "trace-24",
+        "actor_id": "actor_investors",
+        "action_type": "COMMUNICATE",
+        "summary": "感谢央行的明确表态。作为外汇与宏观投资者，我关注的重点是：在财政扩张（减税+供给侧改革）与央行紧缩（出售主权债券+维护金融稳定）之间，货币政策是否会出现事实上的妥协？若长期收益率继续上行导致养老金抵押品危机蔓延，央行是否会实质性调整QT节奏？这对汇率管理和利率风险定价至关重要。"
+      },
+      {
+        "id": "trace-31",
+        "actor_id": "actor_investors",
+        "action_type": "COMMUNICATE",
+        "summary": "高度认同这一分析。从外汇投资者的视角补充两点：第一，本币走弱本身会通过进口通胀渠道间接支撑长端收益率，形成自我强化的负反馈。第二，关键变量在于央行QT的实际执行节奏——若养老金抵押品压力触发系统性风险，央行可能以\"维护市场运转\"为名放缓出售，这在FOMC历史上已有先例（如2019年回购市场动荡）。中期财政计划的发布时间窗口将是市场情绪的重要转折点。"
+      },
+      {
+        "id": "trace-32",
+        "actor_id": "actor_pensions",
+        "action_type": "COMMUNICATE",
+        "summary": "确认这一情况。我们正在积极管理抵押品调用，但短期流动性工具选择有限。长期债券收益率上升已显著压缩了可用抵押品池的价值。正在与清算对手方协商抵押品转换安排，并评估部分利率互换头寸的降杠杆方案。关键变量在于财政端能否提供清晰可信的中期框架以稳定市场预期。"
+      },
+      {
+        "id": "trace-37",
+        "actor_id": "actor_media",
+        "action_type": "COMMUNICATE",
+        "summary": "【机构分析】养老金部门确认正在评估降杠杆和调仓选项，这印证了我们此前的判断：LDI策略的保证金追缴压力已从流动性危机向偿付能力风险传导。关键观察变量：①央行是否会启动临时性购债以维持核心市场运转（注意其已强调临时干预≠政策转向）；②中期财政计划能否在主权债收益率飙升前公布以恢复市场信心。建议关注养老金集体抛售可能引发的\"下跌螺旋\"风险。"
+      },
+      {
+        "id": "trace-38",
+        "actor_id": "actor_media",
+        "action_type": "COMMUNICATE",
+        "summary": "【数据缺口提示】全球宏观投资者关注的财政-货币政策一致性问题正是当前市场核心矛盾。政府大规模减税方案缺乏独立财政预测与资金源头披露，而央行同时面临紧缩抗通胀+维护金融稳定的双重目标。目前保证金追缴规模尚无完整数据，建议关注下周可能发布的财政中期计划是否包含独立的负债可持续性评估。"
+      }
+    ],
+    "branch_slots": [
+      {
+        "slot_id": "slot-1",
+        "actor_ids": [
+          "actor_fiscal",
+          "actor_managers"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_fiscal-r3",
+          "decision-actor_managers-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-2",
+        "actor_ids": [
+          "actor_pensions",
+          "actor_media"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_pensions-r3",
+          "decision-actor_media-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-3",
+        "actor_ids": [
+          "actor_investors",
+          "actor_central_bank"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_investors-r3",
+          "decision-actor_central_bank-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-4",
+        "actor_ids": [
+          "actor_fiscal",
+          "actor_dealers"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_fiscal-r3",
+          "decision-actor_dealers-r3"
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "v7": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "财政口头稳定触发养老金卖汇自救，央行观望",
+          "summary": "财政机关公开重申中期纪律（decision-actor_fiscal-r3），但缺乏独立预测细节，市场并未恢复信心。养老金资产管理人（decision-actor_managers-r3）在等待央行信号期间，自行增加本币兑储备货币即期敞口以筹集现金，此举导致本币进一步走弱。财政机关的口头稳定未能阻断抵押品压力，反而因本币弱势加大了养老金的外汇对冲成本。",
+          "actor_ids": [
+            "actor_fiscal",
+            "actor_managers"
+          ],
+          "trigger_conditions": [
+            "财政机关在D0+3日之前公开重申中期财政纪律和央行合作立场",
+            "D0+5日前养老金资产管理人的减持本币资产操作规模进入交易商观察窗"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_fiscal",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_fiscal-r3"
+            },
+            {
+              "actor_id": "actor_managers",
+              "action_type": "ALLOCATE",
+              "decision_ref": "decision-actor_managers-r3"
+            }
+          ],
+          "consequences": [
+            "若财政表态后长期国债收益率仍在D0+7日内上涨超过F3公布时水平的10%，则触发养老金更大规模减持本币资产",
+            "本币走弱使得养老金衍生品头寸的外汇部分抵押品要求上升，与筹集现金目标自相矛盾"
+          ],
+          "invalidation_conditions": [
+            "财政机关在D0+3日内发布有细节的中期财政计划或独立预测",
+            "中央银行在D0+5日内启动临时性流动性支持工具，导致本币企稳"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_fiscal-r3",
+            "decision-actor_managers-r3"
+          ],
+          "novelty_claim": "本分支超出事实直接复述之处在于：财政机关的口头沟通无法抑制养老金抵押品压力，反而因与资产管理人自发增持外汇以筹集现金的行为叠加，加剧本币贬值与抵押品规模之间的负反馈循环。",
+          "confidence": 0.65,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-2",
+          "label": "养老金明确降杠杆后媒体放大下跌螺旋，无央行干预",
+          "summary": "养老金（decision-actor_pensions-r3）部分减持本币资产以满足保证金，而媒体（decision-actor_media-r3）发布分析将养老金降杠杆定性为偿付能力风险，市场将其解读为系统性风险信号。养老金因担忧媒体指引导致交易对手提前要求更高保证金，被迫加速减持议案，幅度超出原计划，形成下跌螺旋，但中央银行仍坚持不干预。",
+          "actor_ids": [
+            "actor_pensions",
+            "actor_media"
+          ],
+          "trigger_conditions": [
+            "媒体报道中明确出现“偿付能力风险”“下跌螺旋”等标签，并被主流财经机构转载",
+            "养老金在媒体报道后48小时内公告额外减持动作或追加的抵押品请求"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_pensions",
+              "action_type": "ALLOCATE",
+              "decision_ref": "decision-actor_pensions-r3"
+            },
+            {
+              "actor_id": "actor_media",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_media-r3"
+            }
+          ],
+          "consequences": [
+            "长期国债收益率在D0+10日内触及F3峰值水平的1.2倍",
+            "交易商（trace-17）建立的双边抵押品互换机制因信用担忧而注册缓慢，非清算衍生品头寸保证金大幅跳升"
+          ],
+          "invalidation_conditions": [
+            "同期中央银行宣布临时性、有期限的流动性支持工具",
+            "财政机关在D0+8日内发布附带债务可持续性评估的中期计划"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F3",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_pensions-r3",
+            "decision-actor_media-r3"
+          ],
+          "novelty_claim": "本分支超出事实的传导是：媒体的负面叙事（trace-22、trace-37）作为一种触发器，导致养老金降杠杆（decision-actor_pensions-r3）从计划内转为被迫加速，且交易商之间的双边互换机制（trace-17）因信用恐慌而未发挥作用，央行按兵不动（trace-18的定性承诺无实际行动）。",
+          "confidence": 0.7,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-3",
+          "label": "全球投资者因央行等待而加大做空，迫使央行紧急干预",
+          "summary": "全球投资者（decision-actor_investors-r3）维持现有外汇敞口并等待央行信号，但经过数日观察后发现中央银行（decision-actor_central_bank-r3）承诺将积极监测但不立即行动，于是将态度转为增加空头仓位。外汇抛售加速后，独立预测发布失败，央行被迫在D0+12日启动临时购买主权债券，暂时终结抵押品危机但损害了政策可信度。",
+          "actor_ids": [
+            "actor_investors",
+            "actor_central_bank"
+          ],
+          "trigger_conditions": [
+            "D0+8日内独立财政预测仍未发布",
+            "全球投资者在D0+6日后出现净卖出本币或增加本币空头仓位的可观察记录（如结算数据或政府披露）",
+            "中央银行在D0+12日前正式启动临时性主权债券购买操作，并明确声明临时而非永久"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_investors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_investors-r3"
+            },
+            {
+              "actor_id": "actor_central_bank",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_central_bank-r3"
+            }
+          ],
+          "consequences": [
+            "央行债券购买后长期国债收益率回落至F3水平以下10%，但央行政策转向后，财政机关必须增强独立预测发布篇幅",
+            "全球外汇投资者在空头平仓后获利离场，但资本管制或央行外汇干预阻碍后续进入"
+          ],
+          "invalidation_conditions": [
+            "D0+8日内财政机关发布伴随债务分析的中期计划，稳定市场信心，央行无需操作",
+            "全球投资者在执行决策（decision-actor_investors-r3）时维持等待状态超过D0+10日，无重大净卖出信号"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_investors-r3",
+            "decision-actor_central_bank-r3"
+          ],
+          "novelty_claim": "本分支中全球投资者的初始等待（trace-24、trace-31）在发现央行持续观望（trace-18）后转向做空，迫使央行违背本意启动临时购债（trace-18有承诺但无时间表），形成承诺失效与被迫稳定之间的冲突传导。",
+          "confidence": 0.7,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-4",
+          "label": "财政承诺依赖交易商库存，但交易商拒绝做市导致瘫痪",
+          "summary": "财政机关（decision-actor_fiscal-r3）公开沟通试图稳定市场，希望交易商能够配合做市、吸收部分国债抛压。但交易商（decision-actor_dealers-r3）选择等待央行明确表态，继续维持库存压降模式，拒绝在深度恶化环境下扩大做市。结果财政承诺因无流动性支撑而无效，国债市场进一步真空化。",
+          "actor_ids": [
+            "actor_fiscal",
+            "actor_dealers"
+          ],
+          "trigger_conditions": [
+            "财政机关公开表态后，主要交易商连续3个交易日净减少国债库存头寸",
+            "做市报价价差在D0+6日内大于F3之前水平的3倍"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_fiscal",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_fiscal-r3"
+            },
+            {
+              "actor_id": "actor_dealers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_dealers-r3"
+            }
+          ],
+          "consequences": [
+            "养老金直接向央行请求紧急质押融资，跳过交易商市场",
+            "财政机关的中期计划发布时间因此推迟至央行启动流动性操作之后"
+          ],
+          "invalidation_conditions": [
+            "中央银行在D0+5日内发布任何形式的流动性支持承诺，使交易商重新开始做市",
+            "一个或以上大型交易商主动增加库存并缩窄报价价差"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_fiscal-r3",
+            "decision-actor_dealers-r3"
+          ],
+          "novelty_claim": "本分支超出事实之处在于：财政机关的稳定表态（decision-actor_fiscal-r3）与交易商拒绝做市（decision-actor_dealers-r3）形成抵消，交易商等待央行（decision-actor_central_bank-r3的观望）使财政承诺完全丧失流动性载体，被迫转入央行质押通道。",
+          "confidence": 0.65,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        }
+      ],
+      "generation": {
+        "semantic_retries": 0,
+        "elapsed_seconds": 62.68162062502233
+      },
+      "judgments": []
+    },
+    "v8": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "财政信号清晰化与抵押品缓解",
+          "summary": "若财政机关在独立预测公布前提供可信的中期财政框架细节，缓解市场对无资金来源措施的担忧，则长期收益率企稳，养老金抵押品压力减轻，央行维持等待姿态。",
+          "actor_ids": [
+            "actor_fiscal",
+            "actor_managers"
+          ],
+          "trigger_conditions": [
+            "匿名财政机关发布独立财政预测，显示赤字占GDP比例较市场预期低至少0.5个百分点"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_fiscal",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_fiscal-r3"
+            },
+            {
+              "actor_id": "actor_managers",
+              "action_type": "ALLOCATE",
+              "decision_ref": "decision-actor_managers-r3"
+            }
+          ],
+          "consequences": [
+            "中期债券收益率可能下降20-40个基点",
+            "养老金抵押品追缴暂时缓和，但尚未解决结构性问题"
+          ],
+          "invalidation_conditions": [
+            "财政机关仅重申模糊承诺，未提供具体措施或数据，长期收益率继续上升超过50个基点"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_fiscal-r3",
+            "decision-actor_managers-r3"
+          ],
+          "novelty_claim": "财政可信度恢复是阻断负反馈的关键环节，独立预测的数字细节将直接影响养老金和资产管理人的抛售决策",
+          "confidence": 0.6,
+          "confidence_semantics": "branch_coherence_not_forecast_probability",
+          "starting_decisions": [
+            {
+              "actor_id": "actor_fiscal",
+              "action_type": "COMMUNICATE",
+              "decision_status": "intended",
+              "rationale": "当前市场对无资金来源措施高度敏感，长期债券收益率快速上升、本币走弱，融资条件恶化。独立财政预测尚未发布，无法进行有公信力的增信操作。需在未来数周公布更多增长措施前，通过公开沟通稳定市场预期：重申中期财政纪律、强调将配合中央银行维护金融稳定，并承诺独立预测发布后会确保财政路径可信。主要不确定性在于市场能否接受无细节承诺，以及养老金抵押品压力是否继续升级。",
+              "decision_ref": "decision-actor_fiscal-r3"
+            },
+            {
+              "actor_id": "actor_managers",
+              "action_type": "ALLOCATE",
+              "decision_status": "intended",
+              "rationale": "长期国债收益率快速上升、本币走弱导致负债驱动策略的养老金衍生品头寸面临追加抵押品压力，必须筹集现金。中央银行虽计划紧缩但承担金融稳定职责，可能干预市场。利用短期可出售资产中流动性较高的外汇储备部分，适当增加本币兑储备货币即期汇率敞口，在不耗尽交易对手额度的前提下换取现金以补充抵押品。主要不确定性在于央行是否实际干预以及减税方案对财政可持续性的影响。",
+              "decision_ref": "decision-actor_managers-r3"
+            }
+          ],
+          "conditional_responses": [
+            {
+              "actor_id": "actor_fiscal",
+              "condition": "若本机关的独立财政预测显示未来几年赤字可控，且中期财政计划包含明确的支出削减路线图，获得市场正面回应",
+              "response": "我将借助此预测发布详细的中期财政框架，明确债务可持续路径，以恢复市场对财政纪律的信心。"
+            },
+            {
+              "actor_id": "actor_managers",
+              "condition": "若财政机关发布可信的中期框架，长期债券收益率企稳甚至回落，本币贬值压力缓解",
+              "response": "我会暂停进一步减持本币资产，转而利用企稳的债券价格，以更高价格出售部分证券来补充抵押品，避免在底部抛售。"
+            }
+          ],
+          "response_semantics": "conditional_hypothesis_not_observed_action",
+          "observations": [
+            {
+              "kind": "trigger",
+              "signal": "匿名财政机关发布独立财政预测，显示赤字占GDP比例较市场预期低至少0.5个百分点",
+              "source": "匿名财政机关官网或新闻稿",
+              "window": "未来 35 个自然日",
+              "evidence_refs": [
+                "F1",
+                "F2"
+              ]
+            },
+            {
+              "kind": "invalidation",
+              "signal": "财政机关仅重申模糊承诺，未提供具体措施或数据，长期收益率继续上升超过50个基点",
+              "source": "匿名主权债券收益率行情数据",
+              "window": "未来 35 个自然日",
+              "evidence_refs": [
+                "F1",
+                "F3"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "养老金抵押品危机公开化与央行干预",
+          "summary": "若养老金被强制平仓且市场深度枯竭，央行启动临时性流动性支持，引发投资者对货币政策转向的猜测。",
+          "actor_ids": [
+            "actor_pensions",
+            "actor_media"
+          ],
+          "trigger_conditions": [
+            "一家大型养老金发布公告，称因抵押品追缴触发强制平仓，正在与央行和交易商协商流动性支持"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_pensions",
+              "action_type": "ALLOCATE",
+              "decision_ref": "decision-actor_pensions-r3"
+            },
+            {
+              "actor_id": "actor_media",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_media-r3"
+            }
+          ],
+          "consequences": [
+            "央行启动临时紧急贷款或购债以稳定市场，但本币可能进一步承压",
+            "财政方案可能因市场压力而被重新评估"
+          ],
+          "invalidation_conditions": [
+            "央行宣布临时性紧急购债计划，明确规模、期限和退出机制，但市场将其视为货币宽松信号并激烈波动"
+          ],
+          "evidence_refs": [
+            "F3",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_pensions-r3",
+            "decision-actor_media-r3"
+          ],
+          "novelty_claim": "强制平仓事件会从个体危机转化为系统性事件，迫使央行在紧缩通胀和稳定市场之间进行公开权衡",
+          "confidence": 0.65,
+          "confidence_semantics": "branch_coherence_not_forecast_probability",
+          "starting_decisions": [
+            {
+              "actor_id": "actor_pensions",
+              "action_type": "ALLOCATE",
+              "decision_status": "conditional",
+              "rationale": "当前F3事实显示长期主权债券收益率快速上升且本币明显走弱，LDI策略养老金面临衍生品头寸抵押品补充压力，而F4表明央行虽已宣布紧缩但仍负有金融稳定职责。主要动因是筹集现金以满足即时抵押品追缴，避免因保证金不足触发强制平仓。传导机制是通过部分减持本币资产（本币走弱背景下减持部分敞口也可降低汇率风险），将所得转入高流动性质押品，但力度受到约束：F1财政扩张缺乏独立预测导致市场信心不足，债券价格进一步下跌会放大流动性需求（constraint:0），因此仅做适度减持。主要不确定性：1)财政中期框架公布前市场情绪可能继续恶化；2)若央行在金融稳定压力下调整QT节奏，本币与债券市场可能短期企稳；3)减持时机可能面临市场深度不足导致的价差损失。最终动作取决于具体抵押品调用金额的确认以及对手方是否接受替代质押品安排。",
+              "decision_ref": "decision-actor_pensions-r3"
+            },
+            {
+              "actor_id": "actor_media",
+              "action_type": "COMMUNICATE",
+              "decision_status": "conditional",
+              "rationale": "作为财经媒体与分析机构，当前市场上养老金保证金追缴压力正在快速积聚，但基金层面信息披露滞后（约束），无法获得完整的抵押品缺口数据。同时，财政方案公布时缺乏独立预测（F1），增加市场对财政可持续性的疑虑。长期国债收益率飙升与本币走弱（F3）形成负反馈循环，而央行的双重目标（F4）使其政策路径存在不确定性。在此阶段，选择“沟通”而非“等待”，因为市场正处于关键信息真空期——中期财政计划和独立预测将更晚发布（F2）——此时最有效的行动是向市场传达冷静观察的分析框架，帮助参与者理解政策响应逻辑，而非被动等待。主要不确定性在于养老金实际履约能力与央行是否会启动临时性干预之间的相互作用。",
+              "decision_ref": "decision-actor_media-r3"
+            }
+          ],
+          "conditional_responses": [
+            {
+              "actor_id": "actor_pensions",
+              "condition": "若抵押品追缴金额超过我们短期可调动流动性的上限，且交易对手拒绝替代质押品安排",
+              "response": "我将被迫在公开市场抛售部分核心国债头寸以筹集现金，并申请央行的紧急流动性支持，同时降低衍生品杠杆以避免更大损失。"
+            },
+            {
+              "actor_id": "actor_media",
+              "condition": "若有大型养老金确认因抵押品不足而启动强制平仓程序，并引发连锁反应",
+              "response": "我将集中报道此事件，强调央行需像2019年回购市场动荡那样采取行动，并对比历史先例，批评财政方案缺乏规划如何加剧了危机。"
+            }
+          ],
+          "response_semantics": "conditional_hypothesis_not_observed_action",
+          "observations": [
+            {
+              "kind": "trigger",
+              "signal": "一家大型养老金发布公告，称因抵押品追缴触发强制平仓，正在与央行和交易商协商流动性支持",
+              "source": "养老金公司公告或财经媒体独家报道",
+              "window": "未来 35 个自然日",
+              "evidence_refs": [
+                "F3",
+                "F4"
+              ]
+            },
+            {
+              "kind": "invalidation",
+              "signal": "央行宣布临时性紧急购债计划，明确规模、期限和退出机制，但市场将其视为货币宽松信号并激烈波动",
+              "source": "央行声明或新闻稿",
+              "window": "未来 35 个自然日",
+              "evidence_refs": [
+                "F4"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "央行坚持紧缩与财政压力加剧",
+          "summary": "若央行继续按计划出售主权债券，且财政中期框架未能在收益率飙升前发布，导致融资条件急剧恶化，财政机关被迫调整方案。",
+          "actor_ids": [
+            "actor_investors",
+            "actor_central_bank"
+          ],
+          "trigger_conditions": [
+            "央行在例行利率决议中确认维持QT节奏不变，未提及市场波动对计划的影响"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_investors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_investors-r3"
+            },
+            {
+              "actor_id": "actor_central_bank",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_central_bank-r3"
+            }
+          ],
+          "consequences": [
+            "本币贬值加速，主权债券收益率继续上升",
+            "财政融资成本上升可能迫使部分措施延迟或调整"
+          ],
+          "invalidation_conditions": [
+            "财政机关提前公布中期财政计划并包含强有力的债务削减承诺，改变市场对央行的政策预期"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_investors-r3",
+            "decision-actor_central_bank-r3"
+          ],
+          "novelty_claim": "央行坚持紧缩会加剧本币和债券的负反馈，财政机关可能不得不在收益率可控前调整或缩减减税规模",
+          "confidence": 0.55,
+          "confidence_semantics": "branch_coherence_not_forecast_probability",
+          "starting_decisions": [
+            {
+              "actor_id": "actor_investors",
+              "action_type": "WAIT",
+              "decision_status": "conditional",
+              "rationale": "当前财政扩张（减税+供给侧改革）与央行紧缩（计划出售主权债券）的立场冲突尚未在金融市场上形成确定性的政策组合结果。F3显示的收益率飙升和本币走弱已触发养老金抵押品压力，但F4中央行虽有金融稳定职责却未实际执行干预；且F2表明中期财政计划和独立预测尚未发布，这是判别政策一致性的关键信息缺失。作为外汇投资者，我缺乏F3相关基金抵押品缺口数据（约束constraint:0），无法定量评估流动性危机蔓延概率。因此最审慎的动作是维持现有外汇敞口，等待中期财政计划发布及央行对抵押品压力的实质回应，再做出方向性调仓。本币贬值风险通过现有对冲工具覆盖，不追加头寸也不减仓。",
+              "decision_ref": "decision-actor_investors-r3"
+            },
+            {
+              "actor_id": "actor_central_bank",
+              "action_type": "WAIT",
+              "decision_status": "conditional",
+              "rationale": "截至时点，长期主权债券收益率快速上升、本币走弱，养老金面临抵押品补充压力（F3），但财政机关已表示未来数周将公布更多增长措施及中期财政计划（F2），需观察财政信号是否缓解市场恐慌。央行此前已宣布紧缩并计划出售主权债券（F4），若此时立即干预，可能被市场解读为政策立场转向，与约束相悖。因此优先等待财政政策清晰化，并持续监测抵押品压力是否触发系统性风险。若流动性状况进一步恶化至威胁核心市场运转，将启动临时性、有期限的流动性支持工具，但须明确声明其临时性质以避免永久宽松预期。",
+              "decision_ref": "decision-actor_central_bank-r3"
+            }
+          ],
+          "conditional_responses": [
+            {
+              "actor_id": "actor_investors",
+              "condition": "若央行公开声明将继续按计划出售主权债券，不因市场波动暂停，同时财政中期框架缺失",
+              "response": "我会减持本币资产以对冲政策不一致的风险，因为紧缩的货币和扩张的财政组合会持续削弱本币和债券价值。"
+            },
+            {
+              "actor_id": "actor_central_bank",
+              "condition": "若市场紧张加剧但尚未触发系统性危机，而财政机关仍未能提供可靠的中期计划",
+              "response": "我将重申维持现行紧缩路线，按计划出售主权债券，并强调金融稳定工具仅适用于极端的无序条件。"
+            }
+          ],
+          "response_semantics": "conditional_hypothesis_not_observed_action",
+          "observations": [
+            {
+              "kind": "trigger",
+              "signal": "央行在例行利率决议中确认维持QT节奏不变，未提及市场波动对计划的影响",
+              "source": "央行货币政策声明或会议纪要",
+              "window": "未来 35 个自然日",
+              "evidence_refs": [
+                "F4"
+              ]
+            },
+            {
+              "kind": "invalidation",
+              "signal": "财政机关提前公布中期财政计划并包含强有力的债务削减承诺，改变市场对央行的政策预期",
+              "source": "财政机关声明",
+              "window": "未来 35 个自然日",
+              "evidence_refs": [
+                "F1",
+                "F2"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "财政中期框架缺位与交易商风险管理升级",
+          "summary": "若财政机关未能及时公布可信的中期计划，交易商因市场深度恶化而扩大价差或拒绝报价，迫使资产管理人采取更激进措施。",
+          "actor_ids": [
+            "actor_fiscal",
+            "actor_dealers"
+          ],
+          "trigger_conditions": [
+            "一家主要交易商声称因市场深度不足而暂时停止对10年期主权债券提供双边报价"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_fiscal",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_fiscal-r3"
+            },
+            {
+              "actor_id": "actor_dealers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_dealers-r3"
+            }
+          ],
+          "consequences": [
+            "市场流动性进一步枯竭，养老金资产管理人可能被迫接受更低价格出售其他资产",
+            "交易商做市行为从根本上改变，需要更长时间恢复市场深度"
+          ],
+          "invalidation_conditions": [
+            "财政机关在原定时间窗口内公布中期财政计划，包含充足的支出削减承诺，债券市场迅速稳定"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_fiscal-r3",
+            "decision-actor_dealers-r3"
+          ],
+          "novelty_claim": "交易商停止做市会制造暂时交易停滞，迫使财政和央行在无框架的情况下匆忙行动，可能产生政策失误",
+          "confidence": 0.6,
+          "confidence_semantics": "branch_coherence_not_forecast_probability",
+          "starting_decisions": [
+            {
+              "actor_id": "actor_fiscal",
+              "action_type": "COMMUNICATE",
+              "decision_status": "intended",
+              "rationale": "当前市场对无资金来源措施高度敏感，长期债券收益率快速上升、本币走弱，融资条件恶化。独立财政预测尚未发布，无法进行有公信力的增信操作。需在未来数周公布更多增长措施前，通过公开沟通稳定市场预期：重申中期财政纪律、强调将配合中央银行维护金融稳定，并承诺独立预测发布后会确保财政路径可信。主要不确定性在于市场能否接受无细节承诺，以及养老金抵押品压力是否继续升级。",
+              "decision_ref": "decision-actor_fiscal-r3"
+            },
+            {
+              "actor_id": "actor_dealers",
+              "action_type": "WAIT",
+              "decision_status": "conditional",
+              "rationale": "当前市场深度快速下降，长期收益率快速上升且本币明显走弱，养老金正面临衍生品抵押品补充压力。在此恐慌性抛售阶段主动操作将放大库存风险与交易对手信用风险。等待中央银行干预表态（F4显示其负有金融稳定职责）以及财政独立预测公布（F2），待流动性条件趋稳后再调整做市报价与敞口更为审慎。同时密切监控养老金抵押品清算进度和回购市场传导效应。",
+              "decision_ref": "decision-actor_dealers-r3"
+            }
+          ],
+          "conditional_responses": [
+            {
+              "actor_id": "actor_fiscal",
+              "condition": "若独立预测因技术原因延迟发布，且多日等待后收益率持续上升无法控制",
+              "response": "我将发布一份临时财政声明，重申长期财政纪律并承诺预测一完成立即公开，同时与央行协调发布联合维稳声明。"
+            },
+            {
+              "actor_id": "actor_dealers",
+              "condition": "若财政中期框架仍然虚无，而养老金抵押品压力导致客户大规模卖单无法匹配",
+              "response": "我将显著扩大买卖价差以降低库存风险，并可能对特定期限的债券暂停报价，等待央行或财政明确信号后再恢复做市。"
+            }
+          ],
+          "response_semantics": "conditional_hypothesis_not_observed_action",
+          "observations": [
+            {
+              "kind": "trigger",
+              "signal": "一家主要交易商声称因市场深度不足而暂时停止对10年期主权债券提供双边报价",
+              "source": "交易商内部通知或金融媒体的消息来源",
+              "window": "未来 35 个自然日",
+              "evidence_refs": [
+                "F1",
+                "F2",
+                "F3"
+              ]
+            },
+            {
+              "kind": "invalidation",
+              "signal": "财政机关在原定时间窗口内公布中期财政计划，包含充足的支出削减承诺，债券市场迅速稳定",
+              "source": "财政机关官网",
+              "window": "未来 35 个自然日",
+              "evidence_refs": [
+                "F1",
+                "F2"
+              ]
+            }
+          ]
+        }
+      ],
+      "generation": {
+        "semantic_retries": 1,
+        "elapsed_seconds": 176.6934338750434
+      },
+      "judgments": []
+    }
+  }
+}

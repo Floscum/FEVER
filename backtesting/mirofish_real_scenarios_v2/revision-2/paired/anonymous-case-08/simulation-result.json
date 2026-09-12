@@ -1,0 +1,598 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_market_plumbing_008",
+  "spec_sha256": "dc767e945afcfb6a04d2fa6bdfafecc58b7416d12efa10821b52f5f087052191",
+  "generated_at": "2026-07-29T09:00:14.920216+00:00",
+  "status": "partial",
+  "runs": [
+    {
+      "run_id": "sim_789a5b845877",
+      "seed": 1423116454,
+      "status": "completed",
+      "events": [
+        {
+          "round": 0,
+          "actor_id": "actor_clearing",
+          "action_type": "SEARCH_POSTS",
+          "summary": "search_posts",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_clearing",
+          "action_type": "SEARCH_USER",
+          "summary": "search_user",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_long_institutions",
+          "action_type": "COMMUNICATE",
+          "summary": "同意。作为长期持有人，我们也在评估减持窗口。极端价格水平下逐批减持可降低对市场的冲击。关键在于找到流动性能承接的体量和时机。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_market_makers",
+          "action_type": "COMMUNICATE",
+          "summary": "确认做市端压力。极端波动下我们也在调整报价价差以覆盖Gamma对冲成本，跳跃风险导致库存管理窗口缩短。若零售订单继续单边涌入，价差将进一步扩大以保护双边报价连续性。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_long_institutions",
+          "action_type": "COMMUNICATE",
+          "summary": "确认做市端压力。极端波动下我们也在调整报价价差以覆盖Gamma对冲成本，跳跃风险导致库存管理窗口缩短。若零售订单继续单边涌入，价差将进一步扩大以保护双边报价连续性。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_media",
+          "action_type": "COMMUNICATE",
+          "summary": "需要谨慎。连续五天暴涨确实反映了空头挤压的动力学，但\"才刚刚开始\"的断言缺乏充分依据。经纪商已提高保证金要求，波动性会自我强化也可能自我平抑。关键在于区分价格行为背后的驱动力——基本面变化、流动性危机还是纯散户情绪。另外，卖空头寸数据存在报告延迟，目前可见的空头规模可能已部分被回补。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_media",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #3：做市商对冲成本因极端波动和期权活动激增而急剧上升，我们正在调整报价价差以管理风险。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_media",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #4：空头头寸面临巨大压力，但回补本身可能进一步推高价格，形成恶性循环。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_media",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #5：长期持有人正在考虑在极端价格水平下减持部分仓位以锁定收益，但需避免引发流动性冲击。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_bullish_retail",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #1：ASSET_H连续五天暴涨，空头头寸超过流通股，逼空行情才刚刚开始！",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_bullish_retail",
+          "action_type": "COMMUNICATE",
+          "summary": "连续五天暴涨不是偶然，空头头寸远超流通股意味着他们还没补完！保证金的提高恰恰证明经纪商也看到了空头回补的巨大压力。FOMO才刚开始，散户大军继续持有，让空头在更高的价格上回补！🚀",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_issuer",
+          "action_type": "COMMUNICATE",
+          "summary": "作为发行人，我们注意到市场近期的价格波动和交易量异常。我们持续关注公司基本面的长期价值，并提醒投资者注意极端波动带来的风险。短期价格变动远超基本面信息变化，请各位投资者基于自身风险承受能力做出独立判断。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_media",
+          "action_type": "COMMUNICATE",
+          "summary": "感谢做市商端提供的微观结构视角。这里值得补充的是：Gamma对冲的成本非线性特征意味着，随着标的资产价格继续上行，做市商需要买入更多标的来对冲delta敞口，这会形成正反馈循环。但必须指出两个边界条件：1）零售经纪商提高保证金会限制新增多头头寸的杠杆倍数，从而削弱零售订单的边际影响力；2）长期持有人的减持意愿（如post 5所示）可能形成价格天花板。这两个因素叠加做市商价差扩大，实际流动性的供需平衡正在微妙变化。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_issuer",
+          "action_type": "WAIT",
+          "summary": "当前价格波动极端且远超基本面信息变化，散户叙事与空头回补形成复杂叠加，任何公开沟通都可能被过度解读或引向错误方向。作为发行人，应优先观察下一个交易日的价格与成交量演化，尤其关注保证金链传导是否引发连锁反应，以及空头回补可能释放的轨迹。待极端波动消退、市场重新对齐基本面信号后，再以业务转型叙事引导关注，保留融资选择空间。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_bullish_retail",
+          "action_type": "COMMUNICATE",
+          "summary": "当前处于多空博弈的关键阶段，F1和F2显示空头回补压力仍在持续，F3表明散户协同叙事正在增强市场共识。经纪商提高保证金(F4)虽然是约束信号，但也间接验证了波动风险与空头挤压的严重程度。我的核心目标是维持上涨动量并迫使空头回补，因此需要继续向社区传播看多叙事，强化持有信心，并提醒参与者注意保证金变化带来的杠杆调整。主要不确定性在于其他长期持有者可能开始减仓(F5相关讨论)以及做市商价差扩大可能导致价格发现效率下降。",
+          "visibility": "public",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_short_funds",
+          "action_type": "WAIT",
+          "summary": "当前价格极端且流动性枯竭，任何公开回补都将被社交社区信号放大，推高价格并加剧挤仓损失。因此选择暂时按兵不动，等待盘面出现自然流动性拐点或保证金催缴触发大规模被动平仓，届时再伺机通过非公开大宗交易或场外协商方式减仓，以降低借券成本和保证金压力。主要不确定性在于价格是否继续单边上涨导致被动强平。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_retail_brokers",
+          "action_type": "OPERATE",
+          "summary": "鉴于F4提及至少一家零售经纪商已提高保证金，且F1显示极端波动与成交量，以及中央清算机构可能追加抵押品要求，我必须立即提高ASSET_H的初始和维持保证金比例，以降低客户杠杆、控制集中风险，并确保自身满足清算抵押品要求。此举虽可能引发客户不满，但在即时存款需求可能超过可调度流动性的约束下，是维持交易服务连续性的必要风控措施。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_clearing",
+          "action_type": "OPERATE",
+          "summary": "ASSET_H在连续四天内上涨超四倍且D0单日再翻倍，成交量与振幅均处于极端水平，同时公开卖空数据显示空头头寸超过可流通股数，迫使空头回补风险急剧上升。F4显示至少一家零售经纪商已提高保证金，而极端波动会提高中央清算机构对经纪商的抵押品要求。我的核心约束要求风险模型对极端波动和集中度快速响应。因此，作为中央清算机构，我将在下一个周期按规则提高针对ASSET_H的经纪商初始和维持保证金要求，并上调对相关经纪商的抵押品标准，以覆盖潜在的经纪商违约风险，确保交易结算顺利和市场连续性。这是预先设定的风险模型自动化触发，不涉及对市场方向的判断。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_market_makers",
+          "action_type": "OPERATE",
+          "summary": "基于截至时点四连阳加D0单日再翻倍、卖空头寸超可交易股数的极端状态，零售订单和期权活动激增，至少一家经纪商已提高保证金，中央清算抵押品要求上升。作为做市商，必须在下一决策周期内优先执行两项操作：第一，收窄在销库存敞口上限，降低新增Gamma风险承担；第二，将报价价差扩大至覆盖跳跃风险与隐含波动率急升后的对冲成本。这两项属于维持双边报价能力、控制跳跃风险的操作性动作，而非等待或资源分配决策。主要不确定性在于空头回补速度和价格是否能维持在足够让空方被迫以更高成本平仓的水平，若持续单边上涨则对冲展期成本将继续恶化。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_regulators",
+          "action_type": "COMMUNICATE",
+          "summary": "基于截至时点事实，价格极端上涨本身不构成违法（约束），但F1所示连续多日极端涨幅、天量成交与振幅，配合F3显示的散户协同叙事、F2的空头挤压条件以及F4中零售经纪商主动提高保证金要求，已形成高度异常的市场环境。当前最审慎的行动不是立即介入干预，而是主动与市场参与方（经纪商、清算机构）进行沟通，确认其资本充足性和风控措施是否足以应对后续可能的进一步波动。此举既不预设违法存在，也避免被动等待可能出现的结算或流动性事件。主要不确定性在于：①散户协同行为是否已构成市场操纵的法律定义；②如果强制平仓连锁发生，清算体系能否承受。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_long_institutions",
+          "action_type": "WAIT",
+          "summary": "截至时点，价格已在四个交易日内上涨超四倍且D0再翻倍，成交量与振幅均处于极端水平（F1）。卖空头寸超过可交易基准股数，理论上存在空头回补压力，但回补本身可能进一步推高价格形成正反馈（F2）。散户社交社区协同看多叙事与零售订单、期权活动同步激增（F3），叠加经纪商已提高保证金、中央清算机构抵押品要求上升（F4），流动性环境高度不确定。作为长期机构持有人，目标是在极端价格中管理退出并避免流动性冲击，而大额卖出可能加剧波动（约束）。当前做市商已确认价差扩大、库存窗口缩短（模拟记忆），因此立即部署减持将面临极差的执行质量和冲击成本。决策周期内选择等待，观察后续交易日是否出现波动率收敛或成交量结构变化——若出现连续缩量或做市商报价恢复的信号，再启动逐批减持计划。若价格继续以同等极端幅度向上运动，则考虑在单日振幅收窄的窗口内执行首笔小规模减持。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_media",
+          "action_type": "COMMUNICATE",
+          "summary": "截至当前模拟轮次，ASSET_H经历了极端的价格与成交量变化(F1)，卖空头寸超过可交易股数形成空头挤压技术基础(F2)，散户社交社区形成高度看多的协同叙事(F3)，同时至少一家零售经纪商已提高保证金要求(F4)。我的核心角色是解释机制和追踪情绪。目前散户群体中普遍存在'挤压才刚刚开始'的叙事，但缺乏对做市商对冲成本非线性增长、经纪商保证金收紧后零售杠杆边际递减以及长期持有人的减持意愿的全面认识。我需要发布一篇分析内容，系统梳理这轮挤仓的传导链条——从空头超配到保证金收紧的连锁反应，帮助区分公开表达的情绪与实际金融动作之间的差异，既解释多头驱动力也指出结构性约束。",
+          "visibility": "public",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        }
+      ],
+      "warnings": [
+        "The recorded seed controls Python agent scheduling only; provider-side LLM sampling remains unseeded."
+      ]
+    }
+  ],
+  "scenarios": [],
+  "forecast_target_results": [],
+  "simulation_graph": {
+    "nodes": [
+      {
+        "id": "actor_bullish_retail",
+        "kind": "actor",
+        "label": "集中看多的个人投资者"
+      },
+      {
+        "id": "actor_clearing",
+        "kind": "actor",
+        "label": "中央清算与交易基础设施"
+      },
+      {
+        "id": "actor_issuer",
+        "kind": "actor",
+        "label": "匿名消费零售企业"
+      },
+      {
+        "id": "actor_long_institutions",
+        "kind": "actor",
+        "label": "长期机构持有人"
+      },
+      {
+        "id": "actor_market_makers",
+        "kind": "actor",
+        "label": "做市商与订单执行商"
+      },
+      {
+        "id": "actor_media",
+        "kind": "actor",
+        "label": "财经与社交媒体"
+      },
+      {
+        "id": "trace-18",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_POSTS",
+        "summary": "search_posts"
+      },
+      {
+        "id": "trace-19",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user"
+      },
+      {
+        "id": "trace-20",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "同意。作为长期持有人，我们也在评估减持窗口。极端价格水平下逐批减持可降低对市场的冲击。关键在于找到流动性能承接的体量和时机。"
+      },
+      {
+        "id": "trace-21",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "确认做市端压力。极端波动下我们也在调整报价价差以覆盖Gamma对冲成本，跳跃风险导致库存管理窗口缩短。若零售订单继续单边涌入，价差将进一步扩大以保护双边报价连续性。"
+      },
+      {
+        "id": "trace-26",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "确认做市端压力。极端波动下我们也在调整报价价差以覆盖Gamma对冲成本，跳跃风险导致库存管理窗口缩短。若零售订单继续单边涌入，价差将进一步扩大以保护双边报价连续性。"
+      },
+      {
+        "id": "trace-27",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "需要谨慎。连续五天暴涨确实反映了空头挤压的动力学，但\"才刚刚开始\"的断言缺乏充分依据。经纪商已提高保证金要求，波动性会自我强化也可能自我平抑。关键在于区分价格行为背后的驱动力——基本面变化、流动性危机还是纯散户情绪。另外，卖空头寸数据存在报告延迟，目前可见的空头规模可能已部分被回补。"
+      },
+      {
+        "id": "trace-28",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #3：做市商对冲成本因极端波动和期权活动激增而急剧上升，我们正在调整报价价差以管理风险。"
+      },
+      {
+        "id": "trace-29",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #4：空头头寸面临巨大压力，但回补本身可能进一步推高价格，形成恶性循环。"
+      },
+      {
+        "id": "trace-30",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #5：长期持有人正在考虑在极端价格水平下减持部分仓位以锁定收益，但需避免引发流动性冲击。"
+      },
+      {
+        "id": "trace-34",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #1：ASSET_H连续五天暴涨，空头头寸超过流通股，逼空行情才刚刚开始！"
+      },
+      {
+        "id": "trace-35",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "连续五天暴涨不是偶然，空头头寸远超流通股意味着他们还没补完！保证金的提高恰恰证明经纪商也看到了空头回补的巨大压力。FOMO才刚开始，散户大军继续持有，让空头在更高的价格上回补！🚀"
+      },
+      {
+        "id": "trace-36",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "作为发行人，我们注意到市场近期的价格波动和交易量异常。我们持续关注公司基本面的长期价值，并提醒投资者注意极端波动带来的风险。短期价格变动远超基本面信息变化，请各位投资者基于自身风险承受能力做出独立判断。"
+      },
+      {
+        "id": "trace-37",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "感谢做市商端提供的微观结构视角。这里值得补充的是：Gamma对冲的成本非线性特征意味着，随着标的资产价格继续上行，做市商需要买入更多标的来对冲delta敞口，这会形成正反馈循环。但必须指出两个边界条件：1）零售经纪商提高保证金会限制新增多头头寸的杠杆倍数，从而削弱零售订单的边际影响力；2）长期持有人的减持意愿（如post 5所示）可能形成价格天花板。这两个因素叠加做市商价差扩大，实际流动性的供需平衡正在微妙变化。"
+      },
+      {
+        "id": "decision-actor_issuer-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "maintain",
+        "intensity": 0.6,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "当前价格波动极端且远超基本面信息变化，散户叙事与空头回补形成复杂叠加，任何公开沟通都可能被过度解读或引向错误方向。作为发行人，应优先观察下一个交易日的价格与成交量演化，尤其关注保证金链传导是否引发连锁反应，以及空头回补可能释放的轨迹。待极端波动消退、市场重新对齐基本面信号后，再以业务转型叙事引导关注，保留融资选择空间。"
+      },
+      {
+        "id": "decision-actor_bullish_retail-r3",
+        "kind": "financial_decision",
+        "action_type": "COMMUNICATE",
+        "decision_status": "intended",
+        "direction": "increase",
+        "intensity": 0.85,
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "当前处于多空博弈的关键阶段，F1和F2显示空头回补压力仍在持续，F3表明散户协同叙事正在增强市场共识。经纪商提高保证金(F4)虽然是约束信号，但也间接验证了波动风险与空头挤压的严重程度。我的核心目标是维持上涨动量并迫使空头回补，因此需要继续向社区传播看多叙事，强化持有信心，并提醒参与者注意保证金变化带来的杠杆调整。主要不确定性在于其他长期持有者可能开始减仓(F5相关讨论)以及做市商价差扩大可能导致价格发现效率下降。"
+      },
+      {
+        "id": "actor_short_funds",
+        "kind": "actor",
+        "label": "持有空头敞口的投资机构"
+      },
+      {
+        "id": "decision-actor_short_funds-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": null,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "当前价格极端且流动性枯竭，任何公开回补都将被社交社区信号放大，推高价格并加剧挤仓损失。因此选择暂时按兵不动，等待盘面出现自然流动性拐点或保证金催缴触发大规模被动平仓，届时再伺机通过非公开大宗交易或场外协商方式减仓，以降低借券成本和保证金压力。主要不确定性在于价格是否继续单边上涨导致被动强平。"
+      },
+      {
+        "id": "actor_retail_brokers",
+        "kind": "actor",
+        "label": "零售经纪商"
+      },
+      {
+        "id": "decision-actor_retail_brokers-r3",
+        "kind": "financial_decision",
+        "action_type": "OPERATE",
+        "decision_status": "intended",
+        "direction": "increase",
+        "intensity": 0.7,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "鉴于F4提及至少一家零售经纪商已提高保证金，且F1显示极端波动与成交量，以及中央清算机构可能追加抵押品要求，我必须立即提高ASSET_H的初始和维持保证金比例，以降低客户杠杆、控制集中风险，并确保自身满足清算抵押品要求。此举虽可能引发客户不满，但在即时存款需求可能超过可调度流动性的约束下，是维持交易服务连续性的必要风控措施。"
+      },
+      {
+        "id": "decision-actor_clearing-r3",
+        "kind": "financial_decision",
+        "action_type": "OPERATE",
+        "decision_status": "intended",
+        "direction": "increase",
+        "intensity": 0.85,
+        "confidence": 0.95,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "ASSET_H在连续四天内上涨超四倍且D0单日再翻倍，成交量与振幅均处于极端水平，同时公开卖空数据显示空头头寸超过可流通股数，迫使空头回补风险急剧上升。F4显示至少一家零售经纪商已提高保证金，而极端波动会提高中央清算机构对经纪商的抵押品要求。我的核心约束要求风险模型对极端波动和集中度快速响应。因此，作为中央清算机构，我将在下一个周期按规则提高针对ASSET_H的经纪商初始和维持保证金要求，并上调对相关经纪商的抵押品标准，以覆盖潜在的经纪商违约风险，确保交易结算顺利和市场连续性。这是预先设定的风险模型自动化触发，不涉及对市场方向的判断。"
+      },
+      {
+        "id": "decision-actor_market_makers-r3",
+        "kind": "financial_decision",
+        "action_type": "OPERATE",
+        "decision_status": "intended",
+        "direction": "increase",
+        "intensity": 0.7,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "基于截至时点四连阳加D0单日再翻倍、卖空头寸超可交易股数的极端状态，零售订单和期权活动激增，至少一家经纪商已提高保证金，中央清算抵押品要求上升。作为做市商，必须在下一决策周期内优先执行两项操作：第一，收窄在销库存敞口上限，降低新增Gamma风险承担；第二，将报价价差扩大至覆盖跳跃风险与隐含波动率急升后的对冲成本。这两项属于维持双边报价能力、控制跳跃风险的操作性动作，而非等待或资源分配决策。主要不确定性在于空头回补速度和价格是否能维持在足够让空方被迫以更高成本平仓的水平，若持续单边上涨则对冲展期成本将继续恶化。"
+      },
+      {
+        "id": "actor_regulators",
+        "kind": "actor",
+        "label": "证券监管与自律机构"
+      },
+      {
+        "id": "decision-actor_regulators-r3",
+        "kind": "financial_decision",
+        "action_type": "COMMUNICATE",
+        "decision_status": "conditional",
+        "direction": "maintain",
+        "intensity": 0.5,
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "基于截至时点事实，价格极端上涨本身不构成违法（约束），但F1所示连续多日极端涨幅、天量成交与振幅，配合F3显示的散户协同叙事、F2的空头挤压条件以及F4中零售经纪商主动提高保证金要求，已形成高度异常的市场环境。当前最审慎的行动不是立即介入干预，而是主动与市场参与方（经纪商、清算机构）进行沟通，确认其资本充足性和风控措施是否足以应对后续可能的进一步波动。此举既不预设违法存在，也避免被动等待可能出现的结算或流动性事件。主要不确定性在于：①散户协同行为是否已构成市场操纵的法律定义；②如果强制平仓连锁发生，清算体系能否承受。"
+      },
+      {
+        "id": "decision-actor_long_institutions-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "截至时点，价格已在四个交易日内上涨超四倍且D0再翻倍，成交量与振幅均处于极端水平（F1）。卖空头寸超过可交易基准股数，理论上存在空头回补压力，但回补本身可能进一步推高价格形成正反馈（F2）。散户社交社区协同看多叙事与零售订单、期权活动同步激增（F3），叠加经纪商已提高保证金、中央清算机构抵押品要求上升（F4），流动性环境高度不确定。作为长期机构持有人，目标是在极端价格中管理退出并避免流动性冲击，而大额卖出可能加剧波动（约束）。当前做市商已确认价差扩大、库存窗口缩短（模拟记忆），因此立即部署减持将面临极差的执行质量和冲击成本。决策周期内选择等待，观察后续交易日是否出现波动率收敛或成交量结构变化——若出现连续缩量或做市商报价恢复的信号，再启动逐批减持计划。若价格继续以同等极端幅度向上运动，则考虑在单日振幅收窄的窗口内执行首笔小规模减持。"
+      },
+      {
+        "id": "decision-actor_media-r3",
+        "kind": "financial_decision",
+        "action_type": "COMMUNICATE",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": 0.7,
+        "confidence": 0.9,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "截至当前模拟轮次，ASSET_H经历了极端的价格与成交量变化(F1)，卖空头寸超过可交易股数形成空头挤压技术基础(F2)，散户社交社区形成高度看多的协同叙事(F3)，同时至少一家零售经纪商已提高保证金要求(F4)。我的核心角色是解释机制和追踪情绪。目前散户群体中普遍存在'挤压才刚刚开始'的叙事，但缺乏对做市商对冲成本非线性增长、经纪商保证金收紧后零售杠杆边际递减以及长期持有人的减持意愿的全面认识。我需要发布一篇分析内容，系统梳理这轮挤仓的传导链条——从空头超配到保证金收紧的连锁反应，帮助区分公开表达的情绪与实际金融动作之间的差异，既解释多头驱动力也指出结构性约束。"
+      }
+    ],
+    "edges": [
+      {
+        "source": "actor_clearing",
+        "target": "trace-18",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_clearing",
+        "target": "trace-19",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_long_institutions",
+        "target": "trace-20",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_market_makers",
+        "target": "trace-21",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_long_institutions",
+        "target": "trace-26",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_media",
+        "target": "trace-27",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_media",
+        "target": "trace-28",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_media",
+        "target": "trace-29",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_media",
+        "target": "trace-30",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_bullish_retail",
+        "target": "trace-34",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_bullish_retail",
+        "target": "trace-35",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_issuer",
+        "target": "trace-36",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_media",
+        "target": "trace-37",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_issuer",
+        "target": "decision-actor_issuer-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_bullish_retail",
+        "target": "decision-actor_bullish_retail-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_short_funds",
+        "target": "decision-actor_short_funds-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_retail_brokers",
+        "target": "decision-actor_retail_brokers-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_clearing",
+        "target": "decision-actor_clearing-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_market_makers",
+        "target": "decision-actor_market_makers-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_regulators",
+        "target": "decision-actor_regulators-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_long_institutions",
+        "target": "decision-actor_long_institutions-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_media",
+        "target": "decision-actor_media-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      }
+    ]
+  },
+  "warnings": [
+    "Integration smoke result only; it is not a calibrated financial forecast.",
+    "The upstream run monitor reported zero actions; SQLite was used as the authoritative source.",
+    "OASIS did not persist per-action round numbers, so exported events use round 0.",
+    "Rule-generated institutional profiles contain consumer-social attributes and require a financial profile compiler.",
+    "No forecast target result or scenario frequency was produced from this single run.",
+    "Structured financial decisions were elicited post-simulation and remain simulated claims."
+  ],
+  "provenance": {
+    "engine": "MiroFish/OASIS",
+    "engine_version": "60757b3c825d577a1d7a86ab1ba6d5c21f51c261",
+    "model": "deepseek-ai/DeepSeek-V4-Flash",
+    "raw_run_artifacts": [
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/mirofish/simulations/sim_789a5b845877/reddit_simulation.db",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/mirofish/simulations/sim_789a5b845877/simulation_config.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_market_plumbing_008-b3/sqlite-actions.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_market_plumbing_008-b3/raw-actions.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_market_plumbing_008-b3/financial-interviews-raw.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_market_plumbing_008-b3/financial-actions.json"
+    ]
+  }
+}

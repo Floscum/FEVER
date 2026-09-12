@@ -1,0 +1,353 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_merger_remedy_018",
+  "title": "匿名案例：剥离权利后的大型并购重新审查",
+  "as_of": "2018-08-22T16:00:00-04:00",
+  "question": "司法辖区、年份、企业、产品、权利买方和市场代码均已匿名化。只使用D0已公开的信息，推演监管者、收购方、目标公司、补救资产买方、竞争者和投资者如何应对一项被禁止后重新设计的大型数字内容并购。",
+  "horizon": {
+    "kind": "calendar_days",
+    "value": 57,
+    "end_at": "2018-10-18T16:00:00-04:00"
+  },
+  "market": {
+    "region": "BLIND_DEVELOPED_EQUITY_MARKET",
+    "venues": [
+      "BLIND_EQUITY_EXCHANGE"
+    ],
+    "instruments": [
+      {
+        "symbol": "ASSET_R",
+        "name": "匿名大型科技收购方普通股",
+        "kind": "equity",
+        "currency": "USD"
+      }
+    ]
+  },
+  "facts": [
+    {
+      "id": "F1",
+      "observed_at": "2018-08-22T09:00:00-04:00",
+      "statement": "竞争监管机关此前禁止原始全球交易，认定收购方取得目标公司全部数字内容云分发权会削弱新兴服务市场竞争，并以最终命令落实原决定。",
+      "source_kind": "official",
+      "source_url": "https://benchmark.invalid/blind-merger-remedy-018/F1",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F2",
+      "observed_at": "2018-08-22T10:00:00-04:00",
+      "statement": "交易双方提交新交易：目标公司在特定区域外的现有与未来十五年数字内容云分发权将在交割前转让给独立第三方；收购方只能按有限安排取得许可。",
+      "source_kind": "official",
+      "source_url": "https://benchmark.invalid/blind-merger-remedy-018/F2",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F3",
+      "observed_at": "2018-08-22T12:00:00-04:00",
+      "statement": "监管机关为重组交易启动新的第一阶段调查，法定决定期限为57个自然日；重新调查不保证放行，也可能要求承诺或转入深入审查。",
+      "source_kind": "official",
+      "source_url": "https://benchmark.invalid/blind-merger-remedy-018/F3",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F4",
+      "observed_at": "2018-08-22T16:00:00-04:00",
+      "statement": "收购方股票在D0正常收盘。市场需要评估补救措施可执行性、跨司法辖区诉讼、交易截止日期和云服务竞争影响。",
+      "source_kind": "market_data",
+      "source_url": "https://benchmark.invalid/blind-merger-remedy-018/F4",
+      "evidence_ref": null,
+      "confidence": 0.98
+    }
+  ],
+  "actors": [
+    {
+      "id": "actor_regulator",
+      "label": "匿名竞争监管机关",
+      "kind": "regulator",
+      "aggregation": "organization",
+      "goals": [
+        "保护新兴数字分发市场竞争",
+        "评估补救措施是否可执行"
+      ],
+      "constraints": [
+        "新交易适用法定第一阶段期限",
+        "必须评估独立权利买方的激励和能力"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_acquirer",
+      "label": "匿名大型科技收购方",
+      "kind": "issuer",
+      "aggregation": "organization",
+      "goals": [
+        "在交易期限前取得监管许可",
+        "保留目标内容的战略价值"
+      ],
+      "constraints": [
+        "不能取得特定区域外云分发权",
+        "仍面临其他司法辖区程序"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_target",
+      "label": "匿名数字内容目标公司",
+      "kind": "issuer",
+      "aggregation": "organization",
+      "goals": [
+        "完成交易",
+        "维持员工、客户和产品路线稳定"
+      ],
+      "constraints": [
+        "交易时间延长且权利结构改变"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_rights_buyer",
+      "label": "匿名独立云分发权买方",
+      "kind": "competitor",
+      "aggregation": "organization",
+      "goals": [
+        "商业化获得的长期权利",
+        "向多种云服务提供许可"
+      ],
+      "constraints": [
+        "需要建立批发定价和授权能力"
+      ],
+      "observable_fact_ids": [
+        "F2",
+        "F3"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_cloud_rivals",
+      "label": "云服务竞争者",
+      "kind": "competitor",
+      "aggregation": "cohort",
+      "goals": [
+        "保持获取热门内容的机会",
+        "争取公平授权条件"
+      ],
+      "constraints": [
+        "依赖补救资产买方的商业执行"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_other_regulators",
+      "label": "其他司法辖区竞争执法机关",
+      "kind": "regulator",
+      "aggregation": "cohort",
+      "goals": [
+        "执行本辖区竞争法和法院程序"
+      ],
+      "constraints": [
+        "补救结构和法律标准与主审机关不同"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_customers",
+      "label": "数字内容消费者与企业客户",
+      "kind": "customer",
+      "aggregation": "cohort",
+      "goals": [
+        "获得更多平台选择和合理价格",
+        "保持内容连续可用"
+      ],
+      "constraints": [
+        "最终授权条款尚未落地"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_investors",
+      "label": "科技与并购套利投资者",
+      "kind": "institutional_investor",
+      "aggregation": "cohort",
+      "goals": [
+        "估计放行、延期与失败概率",
+        "管理收购方和目标公司风险"
+      ],
+      "constraints": [
+        "多司法辖区程序和交易截止时间并存"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    }
+  ],
+  "relationships": [
+    {
+      "source_actor_id": "actor_acquirer",
+      "target_actor_id": "actor_regulator",
+      "kind": "submits_restructured_transaction_to",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_acquirer",
+      "target_actor_id": "actor_rights_buyer",
+      "kind": "divests_cloud_rights_to",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_regulator",
+      "target_actor_id": "actor_cloud_rivals",
+      "kind": "solicits_market_evidence_from",
+      "visibility": "private"
+    },
+    {
+      "source_actor_id": "actor_rights_buyer",
+      "target_actor_id": "actor_cloud_rivals",
+      "kind": "may_license_content_to",
+      "visibility": "private"
+    },
+    {
+      "source_actor_id": "actor_other_regulators",
+      "target_actor_id": "actor_acquirer",
+      "kind": "conducts_parallel_proceedings_about",
+      "visibility": "public"
+    }
+  ],
+  "allowed_actions": [
+    {
+      "type": "COMMUNICATE",
+      "description": "发布交易、补救、竞争或客户影响观点。",
+      "visibility": "public"
+    },
+    {
+      "type": "REGULATE",
+      "description": "放行、要求承诺、转入深入审查或维持禁令。",
+      "visibility": "public"
+    },
+    {
+      "type": "NEGOTIATE",
+      "description": "协商剥离、许可、承诺和交割条件。",
+      "visibility": "private"
+    },
+    {
+      "type": "OPERATE",
+      "description": "准备权利转移、产品和客户连续运营。",
+      "visibility": "either"
+    },
+    {
+      "type": "ALLOCATE",
+      "description": "调整并购套利与科技股票敞口。",
+      "visibility": "private"
+    },
+    {
+      "type": "WAIT",
+      "description": "等待调查里程碑、法院或承诺结果。",
+      "visibility": "either"
+    }
+  ],
+  "interventions": [
+    {
+      "id": "I0_RESTRUCTURED_DEAL",
+      "at_round": 0,
+      "fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "visibility": "public"
+    }
+  ],
+  "forecast_targets": [
+    {
+      "id": "T1",
+      "kind": "market",
+      "definition": "D1收盘价相对D0的匿名收购方普通股方向。",
+      "horizon": "next_market_observation",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T2",
+      "kind": "market",
+      "definition": "第5个后续收盘价相对D0的匿名收购方普通股方向。",
+      "horizon": "5_market_observations",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T3",
+      "kind": "market",
+      "definition": "第20个后续收盘价相对D0的匿名收购方普通股方向。",
+      "horizon": "20_market_observations",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T4",
+      "kind": "event",
+      "definition": "竞争监管机关是否在57个自然日内以第一阶段决定放行重组交易并接受避免深入审查的承诺。",
+      "horizon": "57_calendar_days",
+      "scoring": "brier"
+    },
+    {
+      "id": "T5",
+      "kind": "event",
+      "definition": "竞争监管机关是否在57个自然日内把重组交易转入第二阶段深入审查。",
+      "horizon": "57_calendar_days",
+      "scoring": "brier"
+    }
+  ],
+  "run_config": {
+    "rounds": 12,
+    "replications": 20,
+    "seed_strategy": "deterministic_sequence",
+    "layers": [
+      "information",
+      "behavior"
+    ]
+  },
+  "provenance": {
+    "created_by": "FEVER-MiroFish blind benchmark",
+    "source_graph_artifact_id": null,
+    "notes": [
+      "真实司法辖区、企业、产品、年份、权利买方和代码均已匿名化。",
+      "真实结果只保存在独立outcome文件。"
+    ]
+  }
+}

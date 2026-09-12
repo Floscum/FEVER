@@ -1,0 +1,790 @@
+{
+  "case_id": "anonymous-case-04",
+  "market": "CN",
+  "event_type": "政策利率调整",
+  "actor_budget": 4,
+  "source_hashes": {
+    "spec_sha256": "1225d3ca8489f3c6d5a2a9d3ef1771be5598d21c373ecc4556d18f5f29a63bd1",
+    "simulation_result_sha256": "1110112892707a4e7dfc4ab8b0b65967aff5b3f752c965629161844ada1ec827",
+    "financial_actions_sha256": "3f6adb78c39b85d19ce724c0947c19caaf585bbb1363586478bca64926f096f8"
+  },
+  "shared_input": {
+    "case_id": "anonymous-case-04",
+    "as_of": "D0",
+    "question": "严格基于 D0 时点可得信息，推演未来三个交易日各参与方行动及条件化传导机制。",
+    "horizon": {
+      "kind": "calendar_days",
+      "value": 3,
+      "end_at": "2026-04-04T23:59:59+00:00"
+    },
+    "facts": [
+      {
+        "id": "F1",
+        "statement": "中国LPR贷款市场报价利率公布公告：例会 | 央行决议 预期:市场 前值:上次"
+      }
+    ],
+    "actors": [
+      {
+        "id": "actor_issuer",
+        "label": "事件主体",
+        "kind": "issuer",
+        "goals": [
+          "维护自身制度或经济利益",
+          "根据新增信息调整行动"
+        ],
+        "constraints": [
+          "只能使用分析截止时间前可观察的信息"
+        ]
+      },
+      {
+        "id": "actor_government",
+        "label": "政府与司法机构",
+        "kind": "government",
+        "goals": [
+          "维护自身制度或经济利益",
+          "根据新增信息调整行动"
+        ],
+        "constraints": [
+          "只能使用分析截止时间前可观察的信息"
+        ]
+      },
+      {
+        "id": "actor_regulator",
+        "label": "监管机构",
+        "kind": "regulator",
+        "goals": [
+          "维护自身制度或经济利益",
+          "根据新增信息调整行动"
+        ],
+        "constraints": [
+          "只能使用分析截止时间前可观察的信息"
+        ]
+      },
+      {
+        "id": "actor_institutions",
+        "label": "机构投资者",
+        "kind": "institutional_investor",
+        "goals": [
+          "维护自身制度或经济利益",
+          "根据新增信息调整行动"
+        ],
+        "constraints": [
+          "只能使用分析截止时间前可观察的信息"
+        ]
+      }
+    ],
+    "financial_decisions": [
+      {
+        "id": "decision-actor_issuer-r2",
+        "round": 2,
+        "actor_id": "actor_issuer",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "maintain",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "当前LPR报价维持前期水平，市场预期与实际情况一致，未出现需要紧急调整的制度性或经济性触发信号。央行例会决议落地后，需观察政策传导效果与市场利率走向，等待更多经济数据与信用条件变化后再决定是否需要调整利率报价机制。当前最优策略是按兵不动、保持政策连续性。",
+        "constraint_refs": [
+          "actor_issuer:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "public",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_government-r2",
+        "round": 2,
+        "actor_id": "actor_government",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": null,
+        "instrument_refs": [],
+        "rationale": "截至2026-04-01，已发布LPR报价公告属常规例会安排，尚未出现新的宏观经济数据或市场异常波动信号。央行在例会前通常会维持现有政策利率走廊，避免提前释放政策转向信号。本月LPR报价已公布，下一次调整窗口尚未到来，因此本决策周期内最可能采取的主要动作为继续观察，等待后续经济数据与金融条件变化再作反应。",
+        "constraint_refs": [
+          "actor_government:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_regulator-r2",
+        "round": 2,
+        "actor_id": "actor_regulator",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "maintain",
+        "intensity": 0.3,
+        "instrument_refs": [
+          "ANON_ASSET"
+        ],
+        "rationale": "截至2026-04-01，LPR例会公告已发布，但央行决议具体内容及调整方向尚未明确。作为监管机构，需等待央行正式会议声明及具体利率报价落地，评估对中小企业融资成本及资本市场传导效应后再决定是否采取窗口指导或政策配合措施。当前市场处于预期消化阶段，提前介入可能引发过度解读，选择观测性等待最为审慎。主要不确定性在于5年期以上LPR是否调整及其对匿名标的1成分企业的影响。",
+        "constraint_refs": [
+          "actor_regulator:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_institutions-r2",
+        "round": 2,
+        "actor_id": "actor_institutions",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "截至2026-04-01，已观察到LPR公布公告（F1），但该公告仅为例行会议通知，尚未发布实际利率调整结果。作为机构投资者，在政策实际落地前不应过度解读或提前建仓。当前最优策略是等待央行例会结束后实际LPR报价公布，再根据利率变动方向及幅度，对应调整债券、地产及银行板块的配置。主要不确定性在于本次LPR是否调降、调降幅度以及5年期以上品种是否单独调整。",
+        "constraint_refs": [
+          "actor_institutions:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      }
+    ],
+    "simulated_actions": [
+      {
+        "id": "trace-10",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_POSTS",
+        "summary": "search_posts",
+        "actor_id": "actor_government"
+      },
+      {
+        "id": "trace-11",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user",
+        "actor_id": "actor_government"
+      },
+      {
+        "id": "trace-12",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #1：中国LPR贷款市场报价利率公布公告：例会 | 央行决议 预期:市场 前值:上次",
+        "actor_id": "actor_institutions"
+      },
+      {
+        "id": "trace-13",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "关注LPR报价变动。若1年期/5年期以上LPR出现调整，将影响企业融资成本与房贷利率，进而传导至债市与地产板块。密切关注央行例会后的政策信号。",
+        "actor_id": "actor_institutions"
+      },
+      {
+        "id": "trace-14",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_POSTS",
+        "summary": "search_posts",
+        "actor_id": "actor_issuer"
+      },
+      {
+        "id": "trace-15",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user",
+        "actor_id": "actor_issuer"
+      },
+      {
+        "id": "trace-16",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user",
+        "actor_id": "actor_regulator"
+      },
+      {
+        "id": "trace-17",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_POSTS",
+        "summary": "search_posts",
+        "actor_id": "actor_regulator"
+      },
+      {
+        "id": "trace-22",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "关注本次LPR报价例会。作为监管部门，我们持续监测贷款市场利率传导机制，评估对实体经济融资成本的影响。提醒市场参与者保持理性预期，具体政策信号以央行官方公告为准。",
+        "actor_id": "actor_regulator"
+      },
+      {
+        "id": "trace-23",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #1：中国LPR贷款市场报价利率公布公告：例会 | 央行决议 预期:市场 前值:上次",
+        "actor_id": "actor_issuer"
+      },
+      {
+        "id": "trace-24",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "本次LPR报价维持前期水平不变，符合市场预期。央行将继续实施稳健的货币政策，引导实体经济融资成本稳中有降。感谢市场关注，后续请以官方公告为准。",
+        "actor_id": "actor_issuer"
+      },
+      {
+        "id": "trace-25",
+        "kind": "simulated_action",
+        "action_type": "DO_NOTHING",
+        "summary": "do_nothing",
+        "actor_id": "actor_institutions"
+      },
+      {
+        "id": "trace-26",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "【官方关注】LPR贷款市场报价利率是货币政策传导的重要中介变量。央行例会将综合考量宏观经济运行、物价走势及金融市场表现等因素，在保持流动性合理充裕的同时，推动实体经济融资成本稳中有降。建议市场参与者理性解读政策信号，避免过度解读单次报价波动。",
+        "actor_id": "actor_government"
+      }
+    ],
+    "branch_slots": [
+      {
+        "slot_id": "slot-1",
+        "actor_ids": [
+          "actor_regulator",
+          "actor_issuer"
+        ],
+        "relationship_kind": "constrains_or_influences",
+        "decision_refs": [
+          "decision-actor_regulator-r2",
+          "decision-actor_issuer-r2"
+        ]
+      },
+      {
+        "slot_id": "slot-2",
+        "actor_ids": [
+          "actor_government",
+          "actor_institutions"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_government-r2",
+          "decision-actor_institutions-r2"
+        ]
+      },
+      {
+        "slot_id": "slot-3",
+        "actor_ids": [
+          "actor_regulator",
+          "actor_government"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_regulator-r2",
+          "decision-actor_government-r2"
+        ]
+      },
+      {
+        "slot_id": "slot-4",
+        "actor_ids": [
+          "actor_regulator",
+          "actor_institutions"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_regulator-r2",
+          "decision-actor_institutions-r2"
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "with_traces": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "监管因观望先行沟通，发行方维持静默",
+          "summary": "监管方在等待央行正式决议过程中，主动向市场发出沟通信号，提示避免过度解读，而发行方继续按兵不动，维持已有LPR报价不变。",
+          "actor_ids": [
+            "actor_regulator",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_regulator",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_regulator-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "央行在例会后的正式声明公布前，市场上出现针对LPR可能调整的过度解读信息流",
+            "监管机构监测到社交媒体对LPR变动方向的非官方猜测增多"
+          ],
+          "consequences": [
+            "监管方提前引导预期，压缩了市场对LPR可能调整的投机空间",
+            "发行方因未获得明确的央行行动信号而继续维持利率稳定，市场流动性维持现状"
+          ],
+          "invalidation_conditions": [
+            "央行在未发出任何正式沟通的情况下直接公布LPR调整结果",
+            "监管机构在例会前即发布了明确的政策指导或窗口指导"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "政府信息搜寻激发机构重新配置",
+          "summary": "政府通过搜索和识别经济学人观点来获取外部经济评估信息，机构投资者在关注LPR调整可能性后，基于对政策信号的新认知调整债券与地产板块的配置预期。",
+          "actor_ids": [
+            "actor_government",
+            "actor_institutions"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_government",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_government-r2"
+            },
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "政府搜索获得的外部观点明确指出当前经济条件支持LPR下调",
+            "机构投资者在社交媒体点赞LPR相关帖子后，开始评估不同降息场景对组合的影响"
+          ],
+          "consequences": [
+            "政府对LPR下降的外部论点给予部分认可，增强市场对政策宽松的预期",
+            "机构投资者开始从‘等待’状态转向低配银行、超配债券的战术性调整模拟"
+          ],
+          "invalidation_conditions": [
+            "搜索结果显示多数外部观点认为当前LPR调整条件不成熟",
+            "机构投资者在评估后认定未来政策方向高度不确定，维持完全现金仓位"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "监管及时发布指引，政府放弃即时回应",
+          "summary": "监管机构在央行决议发布前主动发布了市场沟通，提示理性预期，政府则因已通过监管渠道获得充分信息而取消了原定的公开表态计划。",
+          "actor_ids": [
+            "actor_regulator",
+            "actor_government"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_regulator",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_regulator-r2"
+            },
+            {
+              "actor_id": "actor_government",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_government-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "央行例会结束后但正式LPR报价公布前，监管机构发布了澄清公告",
+            "政府决策者认为监管的公告已充分传达政策方向，无需重复表态"
+          ],
+          "consequences": [
+            "市场形成统一的政策解读，短期内对LPR调整方向的多空分歧下降",
+            "政府节省了公共沟通资源，并避免了与监管口径不一致的风险"
+          ],
+          "invalidation_conditions": [
+            "监管机构未能抢在央行正式报价公布前完成沟通发布",
+            "政府在监管发布后仍选择举行新闻发布会或发表不同立场的讲话"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "监管维持现状引发机构观望，政策传导延迟",
+          "summary": "监管机构未在LPR公布前采取额外行动，机构投资者维持完全等待状态，导致市场对LPR调整的定价效率下降，政策信号向实体经济传导出现短期延迟。",
+          "actor_ids": [
+            "actor_regulator",
+            "actor_institutions"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_regulator",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_regulator-r2"
+            },
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "央行例会结束后3日内，监管机构无任何新增公开沟通",
+            "机构投资者观察到监管沉默后，将LPR调整场景分析时间延长至下一交易日"
+          ],
+          "consequences": [
+            "银行间市场对LPR报价的反应收敛，基准互换利率波动率下降",
+            "实体经济融资者因缺乏明确信号而推迟贷款申请，实质融资需求被短期压制"
+          ],
+          "invalidation_conditions": [
+            "监管机构虽未公开沟通，但通过定向窗口指导影响了大行报价行为",
+            "机构投资者虽未主动交易，但通过场外衍生品增加了对利率变动的风险暴露"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        }
+      ],
+      "quality": [
+        {
+          "scores": {
+            "mechanism_coherence": 1,
+            "monitoring_actionability": 0,
+            "falsifiability": 0,
+            "evidence_discipline": 1,
+            "scenario_diversity": 1
+          },
+          "total_score": 3,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": false,
+              "specific_invalidation": false,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": false,
+              "specific_invalidation": false,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": false,
+              "specific_invalidation": false,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": false,
+              "specific_invalidation": false,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            }
+          ]
+        },
+        {
+          "scores": {
+            "mechanism_coherence": 1,
+            "monitoring_actionability": 1,
+            "falsifiability": 1,
+            "evidence_discipline": 1,
+            "scenario_diversity": 2
+          },
+          "total_score": 6,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": false,
+              "specific_invalidation": false,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": false,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": false,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            }
+          ]
+        }
+      ]
+    },
+    "without_traces": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "监管窗口指导与发行方被动应对",
+          "summary": "若LPR实际报价低于市场隐含预期，监管机构从观察性等待转为主动窗口指导，要求发行方配合政策压低融资成本；发行方在政策指引下调整内部定价策略。",
+          "actor_ids": [
+            "actor_regulator",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_regulator",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_regulator-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "新实际LPR报价（1年期或5年期）较前值下调幅度超过5bp",
+            "央行例会声明明确提及‘引导实体融资成本稳中有降’政策取向"
+          ],
+          "consequences": [
+            "发行方被要求内部测算并上报再融资方案中利率下调的可行空间",
+            "机构投资者提前定价信用利差收窄，带动匿名标的债券收益率走低"
+          ],
+          "invalidation_conditions": [
+            "实际LPR报维持不变或上调",
+            "央行声明仅表述‘继续保持流动性合理充裕’而无直接降息指引"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "政府适时发言安抚与机构静默观望",
+          "summary": "若LPR按兵不动但股市或地产板块出现异动，政府通过非正式渠道（如官媒评论）释放稳定预期信号；机构投资者虽维持等待但倾向于后续增加防御性资产权重，形成‘口稳手调’的隐性再平衡。",
+          "actor_ids": [
+            "actor_government",
+            "actor_institutions"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_government",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_government-r2"
+            },
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "LPR公布后第一个交易日前收盘，房地产或银行板块指数日内波动超过2%",
+            "官方媒体或国务院新闻办当日发布关于‘利率政策将长期保持稳健’的评论"
+          ],
+          "consequences": [
+            "机构内部调降对地产类匿名标的的每日风险敞口，同时提高对国有银行发行的债务工具配置比例",
+            "政府虽未动用实质性政策工具，但通过预期管理成功压低债市收益率3-5bp"
+          ],
+          "invalidation_conditions": [
+            "LPR公布后宏观数据（如PMI、通胀）先于板块波动出炉并明显转好",
+            "政府未发布任何与利率或市场无关的言论，且无官媒评论覆盖"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "两部门联合发声强化预期，市场解读为政策接力",
+          "summary": "若LPR意外维持不变但经济增速放缓担忧上升，监管与政府罕见协同发布简评或联合工作会议纪要，暗示后续有储备工具；市场将其解读为政策接力而非按兵不动。",
+          "actor_ids": [
+            "actor_regulator",
+            "actor_government"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_regulator",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_regulator-r2"
+            },
+            {
+              "actor_id": "actor_government",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_government-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "LPR公布后48小时内，央行与银保监会、财政部共同发布一场视频工作会议新闻通稿",
+            "新闻稿中出现‘跨周期调节’、‘储备政策工具’或类似措辞"
+          ],
+          "consequences": [
+            "机构将原定的等待自动切换为提前布局降息敏感板块（如大金融、城投债），导致相关资产两天内跑赢基准指数",
+            "发行方在外围预期下主动与承销商沟通加速债务融资注册，以免错过低利率窗口"
+          ],
+          "invalidation_conditions": [
+            "央行与财政部未在同一时段内就经济展望发表任何公开评论",
+            "部际会议纪要只字未提政策储备或未来调整可能"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "按兵不动反馈循环——监管观望且机构逆向挤压",
+          "summary": "若LPR结果完全符合一致预期且无任何额外补充信号，监管因缺乏理由坚持等待，发行方按兵不动；机构在静默期结束后集体小幅调降利率债久期，给发行方造成被动的融资成本上升压力。",
+          "actor_ids": [
+            "actor_regulator",
+            "actor_institutions"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_regulator",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_regulator-r2"
+            },
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "LPR报价及央行例会声明均于D0日内按时公布且无修改、无附加说明",
+            "D0收盘后，全部四位金融决策者的最新公开或非公开陈述均维持WAIT状态"
+          ],
+          "consequences": [
+            "机构在D1—D2期间连续小幅净卖出10年期国债期货（匿名标的），压低久期",
+            "发行方因观察到二级市场长端利率微升，被迫在下次融资时点（D3）接受高0.5—1bp的发行利率"
+          ],
+          "invalidation_conditions": [
+            "D0至D2间出现任何突发宏观数据或地缘政治事件改变风险偏好",
+            "机构在D0之后的内部会议纪要显示其仍维持原久期配置不变"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        }
+      ],
+      "quality": [
+        {
+          "scores": {
+            "mechanism_coherence": 3,
+            "monitoring_actionability": 3,
+            "falsifiability": 2,
+            "evidence_discipline": 3,
+            "scenario_diversity": 3
+          },
+          "total_score": 14,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": false,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": false,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            }
+          ]
+        },
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 2,
+            "evidence_discipline": 1,
+            "scenario_diversity": 1
+          },
+          "total_score": 8,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

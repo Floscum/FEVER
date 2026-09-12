@@ -1,0 +1,1029 @@
+{
+  "schema_version": "0.1.0",
+  "job_id": "simjob_38e59ac3ed214d2c",
+  "case_id": "real-crowdstrike-outage-2024",
+  "source_graph_artifact_id": "real-public-crowdstrike-outage-2024",
+  "spec_sha256": "07633d47b8bd5421c70944145425e1d3b886c194bd61c1f7e66883c58befe352",
+  "reuse_key": "07633d47b8bd5421c70944145425e1d3b886c194bd61c1f7e66883c58befe352:quick:live:product-v7:presentation-v3:trace-v2",
+  "mode": "quick",
+  "gateway_mode": "live",
+  "status": "completed",
+  "stage": "completed",
+  "progress": 1.0,
+  "created_at": "2026-09-12T14:19:03+08:00",
+  "updated_at": "2026-09-12T14:20:15+08:00",
+  "started_at": "2026-09-12T14:19:03+08:00",
+  "finished_at": "2026-09-12T14:20:15+08:00",
+  "error": null,
+  "result": {
+    "schema_version": "0.1.0",
+    "job": {
+      "id": "simjob_38e59ac3ed214d2c",
+      "status": "completed",
+      "mode": "quick"
+    },
+    "source": {
+      "case_id": "real-crowdstrike-outage-2024",
+      "evidence_graph_artifact_id": "real-public-crowdstrike-outage-2024",
+      "simulation_spec_sha256": "07633d47b8bd5421c70944145425e1d3b886c194bd61c1f7e66883c58befe352",
+      "as_of": "2024-07-20T23:59:59+00:00",
+      "question": "CrowdStrike（CRWD）更新导致Windows客户系统中断后，未来7天各参与方可能如何响应？哪些二阶影响和恢复信号值得跟进？",
+      "horizon_days": 7
+    },
+    "execution": {
+      "configured_actor_count": 6,
+      "actor_selection": {
+        "mode": "auto",
+        "recommended_count": 6,
+        "applied_limit": 6,
+        "detected_stakeholder_type_count": 1,
+        "configured_count": 6,
+        "matched_event_profiles": [
+          {
+            "id": "operational_disruption",
+            "matched_patterns": [
+              "系统中断",
+              "系统崩溃"
+            ],
+            "recommended_count": 6
+          }
+        ],
+        "selection_strategy": "literal_mentions_plus_event_structure_v4_entities",
+        "rationale": "从证据与研究问题中识别出 1 类显式利益相关方，并命中 1 类事件结构，按 4/6/8/10 分档建议最多 6 个核心参与方",
+        "identified_entity_count": 1,
+        "configured_entity_count": 1,
+        "unconfigured_entity_names": []
+      },
+      "configured_actors": [
+        {
+          "id": "actor_issuer",
+          "label": "CrowdStrike（CRWD）",
+          "kind": "issuer",
+          "selection_reason": "问题或市场信息提供名称与代码；主体名称在 F1、F2、F5 中可核对。身份匹配不代表已验证证券代码或交易权限",
+          "focus": "代表CrowdStrike独立评估经营与交易条件，维护自身利益"
+        },
+        {
+          "id": "actor_customers",
+          "label": "客户",
+          "kind": "customer",
+          "selection_reason": "证据或研究问题命中：客户",
+          "focus": "保障产品或服务连续性，权衡成本和替代方案"
+        },
+        {
+          "id": "actor_suppliers",
+          "label": "供应商",
+          "kind": "supplier",
+          "selection_reason": "事件结构 operational_disruption 命中：系统中断、系统崩溃",
+          "focus": "保障回款与订单稳定，评估交付和信用风险"
+        },
+        {
+          "id": "actor_competitors",
+          "label": "竞争者",
+          "kind": "competitor",
+          "selection_reason": "事件结构 operational_disruption 命中：系统中断、系统崩溃",
+          "focus": "评估竞争格局变化并调整业务响应"
+        },
+        {
+          "id": "actor_institutions",
+          "label": "机构投资者",
+          "kind": "institutional_investor",
+          "selection_reason": "事件结构 operational_disruption 命中：系统中断、系统崩溃",
+          "focus": "权衡风险敞口、流动性和资本配置"
+        },
+        {
+          "id": "actor_media",
+          "label": "财经媒体",
+          "kind": "media",
+          "selection_reason": "事件结构 operational_disruption 命中：系统中断、系统崩溃",
+          "focus": "核实和传播对事件判断有用的新信息"
+        }
+      ],
+      "active_actor_counts": [
+        6
+      ],
+      "prepared_entity_counts": [
+        6
+      ],
+      "replication_count": 1,
+      "valid_decision_count": 6,
+      "decision_failure_count": 0,
+      "autonomous_action_count": 22,
+      "scenario_actor_count": 6,
+      "interaction_input": {
+        "version": "extractive-interactions-v2",
+        "input_count": 22,
+        "retained_count": 3,
+        "operational_count": 19,
+        "duplicate_count": 0,
+        "empty_count": 0,
+        "budget_dropped_count": 0,
+        "retained_summary_chars": 713,
+        "retained_input_chars": 1008,
+        "semantics": "selected_simulated_messages_not_observed_facts_or_inferred_influence"
+      },
+      "scenario_compilation": {
+        "status": "completed",
+        "compiler_version": "v7"
+      },
+      "graph_backend": "direct",
+      "zep_bypassed": true
+    },
+    "scenarios": [
+      {
+        "id": "branch-1",
+        "label": "客户公开质疑与CrowdStrike增加承诺",
+        "summary": "若受影响客户在公开渠道对恢复进度或赔偿承诺表达不满，CrowdStrike可能需要从当前主动沟通转向更具体的承诺（如延长免费支持时间、加速补丁交付），从而改变客户原本主要关注内部恢复的决策路径。",
+        "run_count": 1,
+        "frequency": 1.0,
+        "probability_semantics": "uncalibrated_simulation_frequency",
+        "triggers": [
+          "在2024-07-20至2024-07-27期间，至少2家大型客户（如航空、金融或医疗行业）公开声明对CrowdStrike的恢复支持或SLA赔偿方案不满意。"
+        ],
+        "consequences": [
+          "CrowdStrike将不得不额外投入技术资源以加快客户系统恢复，并可能需要预留法律或财务准备金用于潜在客户索赔，从而影响其短期成本和营收预期。",
+          "客户在评估替代方案时可能获得更多议价权，但短期内仍受高转换成本限制，不会大规模迁移到竞争产品。"
+        ],
+        "invalidation_conditions": [
+          "若截至2024-07-27，未见任何主要客户在公开渠道表达对CrowdStrike服务不满或提出索赔要求。"
+        ],
+        "actor_ids": [
+          "actor_customers",
+          "actor_issuer"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F4",
+          "F5"
+        ],
+        "simulation_refs": [
+          "decision-actor_customers-r2",
+          "decision-actor_issuer-r2"
+        ],
+        "novelty_claim": "该分支比事实复述多出了客户公开行动将如何约束CrowdStrike沟通方向并迫使其承担额外资源支出这一传导链条。",
+        "confidence": 0.6,
+        "confidence_semantics": "branch_coherence_not_forecast_probability",
+        "starting_decisions": [
+          {
+            "actor_id": "actor_customers",
+            "action_type": "OPERATE",
+            "decision_status": "intended",
+            "rationale": "作为已部署CrowdStrike Falcon的客户，首要目标是保障产品或服务连续性。根据F4，约850万台Windows设备受影响且关键服务企业使用这些设备使经济社会影响扩大，我需要立即评估自身系统受影响范围，核实是否在04:09至05:27 UTC期间下载了该配置更新（F3），并按照Microsoft提供的恢复文档与脚本（F5）进行恢复操作。同时我需要评估CrowdStrike的补救响应速度和有效性，为后续是否继续使用该服务或考虑替代方案积累第一手信息。转换成本较高，不会立即切换，但必须降低当前运营中断风险。",
+            "decision_ref": "decision-actor_customers-r2"
+          },
+          {
+            "actor_id": "actor_issuer",
+            "action_type": "COMMUNICATE",
+            "decision_status": "intended",
+            "rationale": "事件发生后仅约一天，受影响范围（约850万台设备、占Windows不足1%）已由Microsoft初步确认，且非网络攻击的性质已明确。当前首要任务是主动向客户、合作伙伴和公众沟通事件根因、修复进展及后续预防措施，以控制声誉风险并维持客户信任。同时需要回应市场关切，说明CrowdStrike正在全力配合Microsoft及云厂商恢复服务。沟通行动本身不构成任何交易承诺或资源支出承诺，属于我方可自主决定的公开行动。",
+            "decision_ref": "decision-actor_issuer-r2"
+          }
+        ],
+        "observations": [
+          {
+            "kind": "trigger",
+            "signal": "在2024-07-20至2024-07-27期间，至少2家大型客户（如航空、金融或医疗行业）公开声明对CrowdStrike的恢复支持或SLA赔偿方案不满意。",
+            "source": "依据资料 F1、F4、F5 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4",
+              "F5"
+            ],
+            "review_status": "needs_review",
+            "review_findings": [
+              {
+                "code": "unsupported_quantity",
+                "message": "引用资料及观察窗口未提供这些数值：2家；先核对数值含义及来源"
+              }
+            ]
+          },
+          {
+            "kind": "invalidation",
+            "signal": "若截至2024-07-27，未见任何主要客户在公开渠道表达对CrowdStrike服务不满或提出索赔要求。",
+            "source": "依据资料 F1、F4、F5 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4",
+              "F5"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          }
+        ],
+        "review_notices": [
+          "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：2家。"
+        ]
+      },
+      {
+        "id": "branch-2",
+        "label": "机构减持促使供应商调整信用评估",
+        "summary": "若机构投资者因为事件导致的客户流失风险而主动减持CrowdStrike股票，这将成为供应商可观察的市场信号，促使供应商从当前等待状态转向提前调整对CrowdStrike或其受影响客户的信用条件或订单条款。",
+        "run_count": 1,
+        "frequency": 1.0,
+        "probability_semantics": "uncalibrated_simulation_frequency",
+        "triggers": [
+          "在2024-07-20至2024-07-27期间，披露的13F或机构交易记录显示至少两家大型机构投资者大幅减少CRWD敞口。"
+        ],
+        "consequences": [
+          "供应商将提高对CrowdStrike收款账期的风险评估，并可能收紧对其客户的授信额度，从而形成从资本市场到实体供应链的信用收缩压力。",
+          "CrowdStrike的融资或运营灵活性降低，尤其是在与关键供应商谈判付款条件时处于不利地位。"
+        ],
+        "invalidation_conditions": [
+          "若截至2024-07-27，公开披露数据显示大型机构投资者对CRWD的头寸没有显著净减持；或供应商未提及市场信号在信用决策中的参考价值。"
+        ],
+        "actor_ids": [
+          "actor_institutions",
+          "actor_suppliers"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F4"
+        ],
+        "simulation_refs": [
+          "decision-actor_institutions-r2",
+          "decision-actor_suppliers-r2"
+        ],
+        "novelty_claim": "该分支比事实复述多出了机构投资者的减持决策会如何传导为供应商信用决策调整，进而反作用于CrowdStrike运营条件这一跨角色传导。",
+        "confidence": 0.55,
+        "confidence_semantics": "branch_coherence_not_forecast_probability",
+        "starting_decisions": [
+          {
+            "actor_id": "actor_institutions",
+            "action_type": "WAIT",
+            "decision_status": "intended",
+            "rationale": "截至7月20日，CrowdStrike配置更新事故已确认非网络攻击，更新已在约78分钟内修正。但微软估计约850万台设备受影响，关键服务企业受影响使经济社会影响扩大，可能引发客户索赔、监管审查及短期续约压力。虽仅不足1%的Windows设备受影响，但受波及的关键服务企业客户（航空、金融、医疗等）可能要求SLA赔偿或重新评估安全供应商，对CRWD短期收入与品牌声誉构成压力。同时微软派出数百名工程师协助恢复显示了行业协作，降低了系统性长期风险。需要更多信息评估：监管行动、客户流失率、潜在法律索赔规模及保险赔付情况。当前保持现有仓位，暂不增持也不减持，等待下一季度财报电话会披露的具体客户留存数据和事故相关成本。",
+            "decision_ref": "decision-actor_institutions-r2"
+          },
+          {
+            "actor_id": "actor_suppliers",
+            "action_type": "WAIT",
+            "decision_status": "intended",
+            "rationale": "作为供应商，需观察CrowdStrike事件对下游客户的系统恢复进度和订单连续性实际影响。已知故障窗口仅78分钟且已修复，Microsoft及CrowdStrike已协同实施恢复，受影响设备占比不足1%。但关键服务企业使用这些设备导致经济社会影响扩大，可能使部分客户短期付款能力或订单节奏产生波动。当前信息不足以判断具体客户受影响程度及传导到我方回款的时间线，需要等待下一轮客户运营恢复报告和付款状态确认后再调整信用评估或订单策略。主要不确定性在于受影响客户中哪些为我方直接或间接交易对手以及其IT恢复速度。",
+            "decision_ref": "decision-actor_suppliers-r2"
+          }
+        ],
+        "observations": [
+          {
+            "kind": "trigger",
+            "signal": "在2024-07-20至2024-07-27期间，披露的13F或机构交易记录显示至少两家大型机构投资者大幅减少CRWD敞口。",
+            "source": "依据资料 F1、F4 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4"
+            ],
+            "review_status": "needs_review",
+            "review_findings": [
+              {
+                "code": "reporting_period_mismatch",
+                "message": "13F 反映季度末持仓，不能据此确认本次短期窗口内的交易；需核对报告时点"
+              }
+            ]
+          },
+          {
+            "kind": "invalidation",
+            "signal": "若截至2024-07-27，公开披露数据显示大型机构投资者对CRWD的头寸没有显著净减持；或供应商未提及市场信号在信用决策中的参考价值。",
+            "source": "依据资料 F1、F4 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          }
+        ],
+        "review_notices": []
+      },
+      {
+        "id": "branch-3",
+        "label": "竞争者试探性营销与媒体放大分析",
+        "summary": "若竞争者从当前等待转向发出有限的营销试探（如发布事故对比分析白皮书、联系特定客户进行POC），财经媒体可能解读为行业格局变化的信号，从而改变媒体从单纯事实梳理转向深度竞争格局分析的报道重点。",
+        "run_count": 1,
+        "frequency": 1.0,
+        "probability_semantics": "uncalibrated_simulation_frequency",
+        "triggers": [
+          "在2024-07-20至2024-07-27期间，至少一家EDR竞争者公开发布针对此事件的技术对比白皮书或行业分析报告。"
+        ],
+        "consequences": [
+          "媒体会将该行为视为竞争者主动抢占客户心智，其报道将增加竞品在事件后获得的市场关注度，促使更多受影响客户内部启动评估流程。",
+          "竞争者可能获得更多POC邀请，但其产能和交付能力约束限制了短期内市场份额的巨大变化。"
+        ],
+        "invalidation_conditions": [
+          "若截至2024-07-27，未发现直接竞争者发布针对此事件的营销材料或技术对比分析；或媒体未将此类行为纳入报道重点。"
+        ],
+        "actor_ids": [
+          "actor_competitors",
+          "actor_media"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F4"
+        ],
+        "simulation_refs": [
+          "decision-actor_competitors-r2",
+          "decision-actor_media-r2"
+        ],
+        "novelty_claim": "该分支比事实复述多出了竞争者的试探性行动将如何改变媒体叙事焦点，进而影响客户采购决策信息环境这一传导路径。",
+        "confidence": 0.6,
+        "confidence_semantics": "branch_coherence_not_forecast_probability",
+        "starting_decisions": [
+          {
+            "actor_id": "actor_competitors",
+            "action_type": "WAIT",
+            "decision_status": "conditional",
+            "rationale": "CrowdStrike配置更新事故（F1-F5）暴露了其更新验证流程缺陷，可能引发企业客户对EDR可靠性重新评估。但截至7月20日，事故修复已公告（F2），Microsoft已介入协助恢复（F5），且受影响设备占Windows设备不足1%（F4），尚无法判断客户流失规模或速度。作为竞争者，受自身产能和成本限制（constraint:1），需要更多可观察信息（如客户咨询量变化、PoC请求趋势、竞争对手定价调整）才能判断是否调整产能准备或启动针对性市场沟通，不应仅依据社交热度或单次事件直接下注。当前决策周期内以观察为主，不做金融动作亦不抢跑营销。",
+            "decision_ref": "decision-actor_competitors-r2"
+          },
+          {
+            "actor_id": "actor_media",
+            "action_type": "WAIT",
+            "decision_status": "no_action",
+            "rationale": "截至2024-07-20已获取事件核心事实（F1-F5），但CrowdStrike的配置更新漏洞与修复已完成，Microsoft与多方协作恢复正在进行。此时CRWD的二级市场反应与监管动态尚未显现完整信号，作为财经媒体应先核实事件后续影响（如客户索赔、监管问询、竞品反应），再调整信息传播方向，避免凭空推测股价走势或事件升级程度。当前最恰当行动是等待更多可观察信息，随后再提供基于事实的深入分析。",
+            "decision_ref": "decision-actor_media-r2"
+          }
+        ],
+        "observations": [
+          {
+            "kind": "trigger",
+            "signal": "在2024-07-20至2024-07-27期间，至少一家EDR竞争者公开发布针对此事件的技术对比白皮书或行业分析报告。",
+            "source": "依据资料 F1、F4 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          },
+          {
+            "kind": "invalidation",
+            "signal": "若截至2024-07-27，未发现直接竞争者发布针对此事件的营销材料或技术对比分析；或媒体未将此类行为纳入报道重点。",
+            "source": "依据资料 F1、F4 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          }
+        ],
+        "review_notices": []
+      },
+      {
+        "id": "branch-4",
+        "label": "供应商结合客户反馈为CrowdStrike设置付款条件",
+        "summary": "若供应商收集到客户恢复进度缓慢的持续反馈，且预估CrowdStrike面临大量索赔，则供应商可能从等待转向主动为CrowdStrike设置更严格付款条件（如缩短账期、要求预付），这反过来限制CrowdStrike的现金流和激励其加速客户补偿方案。",
+        "run_count": 1,
+        "frequency": 1.0,
+        "probability_semantics": "uncalibrated_simulation_frequency",
+        "triggers": [
+          "在2024-07-20至2024-07-27期间，有可靠报道或客户声明称受影响客户平均恢复时间超过48小时；且CrowdStrike未公开承诺额外补偿。"
+        ],
+        "consequences": [
+          "供应商收紧账期将直接减少CrowdStrike的自由现金流，迫使其推迟或缩减非核心IT支持或研发投入。",
+          "CrowdStrike为了维持供应链稳定，可能更主动地提出客户补偿方案，以降低监管和法律风险，从而维持供应商信心。"
+        ],
+        "invalidation_conditions": [
+          "若截至2024-07-27，未观察到供应商调整对CrowdStrike的付款条件，或恢复时间在承诺窗口内完成且无客户集体索赔报告。"
+        ],
+        "actor_ids": [
+          "actor_suppliers",
+          "actor_issuer"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F4",
+          "F5"
+        ],
+        "simulation_refs": [
+          "decision-actor_suppliers-r2",
+          "decision-actor_issuer-r2"
+        ],
+        "novelty_claim": "该分支比事实复述多出了供应商如何根据客户恢复进程的间接信号主动调整对CrowdStrike的信贷条件，从而影响发行人运营资金这一闭环传导。",
+        "confidence": 0.55,
+        "confidence_semantics": "branch_coherence_not_forecast_probability",
+        "starting_decisions": [
+          {
+            "actor_id": "actor_suppliers",
+            "action_type": "WAIT",
+            "decision_status": "intended",
+            "rationale": "作为供应商，需观察CrowdStrike事件对下游客户的系统恢复进度和订单连续性实际影响。已知故障窗口仅78分钟且已修复，Microsoft及CrowdStrike已协同实施恢复，受影响设备占比不足1%。但关键服务企业使用这些设备导致经济社会影响扩大，可能使部分客户短期付款能力或订单节奏产生波动。当前信息不足以判断具体客户受影响程度及传导到我方回款的时间线，需要等待下一轮客户运营恢复报告和付款状态确认后再调整信用评估或订单策略。主要不确定性在于受影响客户中哪些为我方直接或间接交易对手以及其IT恢复速度。",
+            "decision_ref": "decision-actor_suppliers-r2"
+          },
+          {
+            "actor_id": "actor_issuer",
+            "action_type": "COMMUNICATE",
+            "decision_status": "intended",
+            "rationale": "事件发生后仅约一天，受影响范围（约850万台设备、占Windows不足1%）已由Microsoft初步确认，且非网络攻击的性质已明确。当前首要任务是主动向客户、合作伙伴和公众沟通事件根因、修复进展及后续预防措施，以控制声誉风险并维持客户信任。同时需要回应市场关切，说明CrowdStrike正在全力配合Microsoft及云厂商恢复服务。沟通行动本身不构成任何交易承诺或资源支出承诺，属于我方可自主决定的公开行动。",
+            "decision_ref": "decision-actor_issuer-r2"
+          }
+        ],
+        "observations": [
+          {
+            "kind": "trigger",
+            "signal": "在2024-07-20至2024-07-27期间，有可靠报道或客户声明称受影响客户平均恢复时间超过48小时；且CrowdStrike未公开承诺额外补偿。",
+            "source": "依据资料 F1、F4、F5 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4",
+              "F5"
+            ],
+            "review_status": "needs_review",
+            "review_findings": [
+              {
+                "code": "unsupported_quantity",
+                "message": "引用资料及观察窗口未提供这些数值：48小时；先核对数值含义及来源"
+              }
+            ]
+          },
+          {
+            "kind": "invalidation",
+            "signal": "若截至2024-07-27，未观察到供应商调整对CrowdStrike的付款条件，或恢复时间在承诺窗口内完成且无客户集体索赔报告。",
+            "source": "依据资料 F1、F4、F5 的原始来源及后续更新",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4",
+              "F5"
+            ],
+            "review_status": "no_rule_findings",
+            "review_findings": []
+          }
+        ],
+        "review_notices": [
+          "这些数值未在输入事实或观察窗口中找到相同依据，使用前请核对：48小时。"
+        ]
+      }
+    ],
+    "scenario_review": {},
+    "evidence": [
+      {
+        "id": "F1",
+        "observed_at": "2024-07-20T00:00:00+00:00",
+        "time_basis": "source_published_at",
+        "statement": "CrowdStrike说明：2024年7月19日04:09 UTC发布Windows传感器配置更新，引发逻辑错误，导致部分系统崩溃和蓝屏。",
+        "source_kind": "official",
+        "source_url": "https://www.crowdstrike.com/en-us/blog/falcon-update-for-windows-hosts-technical-details/",
+        "evidence_ref": "E1",
+        "confidence": 0.5
+      },
+      {
+        "id": "F2",
+        "observed_at": "2024-07-20T00:00:00+00:00",
+        "time_basis": "source_published_at",
+        "statement": "CrowdStrike称导致问题的配置更新已于7月19日05:27 UTC修正，并明确该事件不是网络攻击。",
+        "source_kind": "official",
+        "source_url": "https://www.crowdstrike.com/en-us/blog/falcon-update-for-windows-hosts-technical-details/",
+        "evidence_ref": "E2",
+        "confidence": 0.5
+      },
+      {
+        "id": "F3",
+        "observed_at": "2024-07-20T00:00:00+00:00",
+        "time_basis": "source_published_at",
+        "statement": "运行Windows Falcon 7.11及以上版本、并在04:09至05:27 UTC期间下载该配置的系统可能受影响。",
+        "source_kind": "official",
+        "source_url": "https://www.crowdstrike.com/en-us/blog/falcon-update-for-windows-hosts-technical-details/",
+        "evidence_ref": "E3",
+        "confidence": 0.5
+      },
+      {
+        "id": "F4",
+        "observed_at": "2024-07-20T00:00:00+00:00",
+        "time_basis": "source_published_at",
+        "statement": "Microsoft在7月20日估计约850万台Windows设备受影响，占所有Windows设备不足1%；关键服务企业使用这些设备使经济社会影响扩大。",
+        "source_kind": "official",
+        "source_url": "https://blogs.microsoft.com/blog/2024/07/20/helping-our-customers-through-the-crowdstrike-outage/",
+        "evidence_ref": "E4",
+        "confidence": 0.5
+      },
+      {
+        "id": "F5",
+        "observed_at": "2024-07-20T00:00:00+00:00",
+        "time_basis": "source_published_at",
+        "statement": "Microsoft已派出数百名工程师协助客户恢复，与CrowdStrike以及AWS、Google Cloud协作，并提供手工恢复文档与脚本。",
+        "source_kind": "official",
+        "source_url": "https://blogs.microsoft.com/blog/2024/07/20/helping-our-customers-through-the-crowdstrike-outage/",
+        "evidence_ref": "E5",
+        "confidence": 0.5
+      }
+    ],
+    "notices": [],
+    "probability_calibration": {
+      "available": false,
+      "reason": "quick mode is scenario-only; B3 requires three replications and structured B1"
+    },
+    "simulation_graph": {
+      "nodes": [
+        {
+          "id": "actor_competitors",
+          "kind": "actor",
+          "label": "竞争者"
+        },
+        {
+          "id": "actor_customers",
+          "kind": "actor",
+          "label": "客户"
+        },
+        {
+          "id": "actor_institutions",
+          "kind": "actor",
+          "label": "机构投资者"
+        },
+        {
+          "id": "actor_issuer",
+          "kind": "actor",
+          "label": "CrowdStrike（CRWD）"
+        },
+        {
+          "id": "actor_media",
+          "kind": "actor",
+          "label": "财经媒体"
+        },
+        {
+          "id": "actor_suppliers",
+          "kind": "actor",
+          "label": "供应商"
+        },
+        {
+          "id": "trace-19",
+          "kind": "simulated_action",
+          "action_type": "SEARCH_POSTS",
+          "summary": "search_posts"
+        },
+        {
+          "id": "trace-22",
+          "kind": "simulated_action",
+          "action_type": "SEARCH_POSTS",
+          "summary": "search_posts"
+        },
+        {
+          "id": "trace-23",
+          "kind": "simulated_action",
+          "action_type": "SEARCH_POSTS",
+          "summary": "search_posts"
+        },
+        {
+          "id": "trace-24",
+          "kind": "simulated_action",
+          "action_type": "SEARCH_USER",
+          "summary": "search_user"
+        },
+        {
+          "id": "trace-25",
+          "kind": "simulated_action",
+          "action_type": "SEARCH_USER",
+          "summary": "search_user"
+        },
+        {
+          "id": "trace-26",
+          "kind": "simulated_action",
+          "action_type": "SEARCH_POSTS",
+          "summary": "search_posts"
+        },
+        {
+          "id": "trace-27",
+          "kind": "simulated_action",
+          "action_type": "SEARCH_USER",
+          "summary": "search_user"
+        },
+        {
+          "id": "trace-28",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #1：CrowdStrike说明：2024年7月19日04:09 UTC发布Windows传感器配置更新，引发逻辑错误，导致部分系统崩溃和蓝屏。"
+        },
+        {
+          "id": "trace-29",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #2：CrowdStrike称导致问题的配置更新已于7月19日05:27 UTC修正，并明确该事件不是网络攻击。"
+        },
+        {
+          "id": "trace-30",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #3：运行Windows Falcon 7.11及以上版本、并在04:09至05:27 UTC期间下载该配置的系统可能受影响。"
+        },
+        {
+          "id": "trace-31",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #4：Microsoft在7月20日估计约850万台Windows设备受影响，占所有Windows设备不足1%；关键服务企业使用这些设备使经济社会影响扩大。"
+        },
+        {
+          "id": "trace-32",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #5：Microsoft已派出数百名工程师协助客户恢复，与CrowdStrike以及AWS、Google Cloud协作，并提供手工恢复文档与脚本。"
+        },
+        {
+          "id": "trace-40",
+          "kind": "simulated_action",
+          "action_type": "SEARCH_USER",
+          "summary": "search_user"
+        },
+        {
+          "id": "trace-41",
+          "kind": "simulated_action",
+          "action_type": "SEARCH_POSTS",
+          "summary": "search_posts"
+        },
+        {
+          "id": "trace-42",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #1：CrowdStrike说明：2024年7月19日04:09 UTC发布Windows传感器配置更新，引发逻辑错误，导致部分系统崩溃和蓝屏。"
+        },
+        {
+          "id": "trace-43",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #2：CrowdStrike称导致问题的配置更新已于7月19日05:27 UTC修正，并明确该事件不是网络攻击。"
+        },
+        {
+          "id": "trace-44",
+          "kind": "simulated_action",
+          "action_type": "COMMUNICATE",
+          "summary": "作为供应商密切关注此事件。故障发生时间04:09 UTC到修复05:27 UTC，影响窗口约78分钟。需要评估上游企业使用CrowdStrike的情况，尤其是7.11及以上版本Falcon用户。请持续更新受影响企业清单，以便我们进行信用风险评估和订单保障规划。"
+        },
+        {
+          "id": "trace-45",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #3：运行Windows Falcon 7.11及以上版本、并在04:09至05:27 UTC期间下载该配置的系统可能受影响。"
+        },
+        {
+          "id": "trace-46",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #4：Microsoft在7月20日估计约850万台Windows设备受影响，占所有Windows设备不足1%；关键服务企业使用这些设备使经济社会影响扩大。"
+        },
+        {
+          "id": "trace-47",
+          "kind": "simulated_action",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #5：Microsoft已派出数百名工程师协助客户恢复，与CrowdStrike以及AWS、Google Cloud协作，并提供手工恢复文档与脚本。"
+        },
+        {
+          "id": "trace-48",
+          "kind": "simulated_action",
+          "action_type": "COMMUNICATE",
+          "summary": "【CrowdStrike全球蓝屏事件·事实梳理与媒体分析】\n\n截至7月20日已确认事实：\n1️⃣ 根源：CrowdStrike于7月19日04:09 UTC发布的Windows传感器配置更新存在逻辑错误，非网络攻击；\n2️⃣ 修复：问题配置已于05:27 UTC修正，窗口期约78分钟；\n3️⃣ 影响范围：运行Falcon 7.11+且在窗口期内下载配置的系统；\n4️⃣ 规模：Microsoft估计约850万台Windows设备受影响，占比不足1%；\n5️⃣ 应对：Microsoft派出数百名工程师，与CrowdStrike、AWS、Google Cloud协同恢复。\n\n分析：事件虽非网络攻击，但单一安全厂商的配置更新就能导致全球关键服务业（航空、金融、医疗等）大规模中断，暴露了数字基础设施的集中化风险。后续须关注CrowdStrike的应急响应质量及监管动向。我们将持续跟踪。"
+        },
+        {
+          "id": "trace-49",
+          "kind": "simulated_action",
+          "action_type": "COMMUNICATE",
+          "summary": "作为网络安全行业竞争者，正在密切分析此次CrowdStrike配置更新事故。从技术角度看，传感器配置更新触发内核级逻辑错误导致BSOD，暴露出其更新验证流程的深层缺陷。这将影响企业客户对其EDR解决方案可靠性的信任。我们正在评估自身产品的发布流程和测试覆盖，确保类似供应链级别的配置错误不会发生。同时关注受影响客户的需求转移机会——尤其那些运行Falcon 7.11+版本的企业。"
+        },
+        {
+          "id": "decision-actor_issuer-r2",
+          "kind": "financial_decision",
+          "action_type": "COMMUNICATE",
+          "decision_status": "intended",
+          "direction": "not_applicable",
+          "intensity": 0.7,
+          "confidence": 0.85,
+          "probability_semantics": "decision_clarity_not_forecast_probability",
+          "summary": "事件发生后仅约一天，受影响范围（约850万台设备、占Windows不足1%）已由Microsoft初步确认，且非网络攻击的性质已明确。当前首要任务是主动向客户、合作伙伴和公众沟通事件根因、修复进展及后续预防措施，以控制声誉风险并维持客户信任。同时需要回应市场关切，说明CrowdStrike正在全力配合Microsoft及云厂商恢复服务。沟通行动本身不构成任何交易承诺或资源支出承诺，属于我方可自主决定的公开行动。"
+        },
+        {
+          "id": "decision-actor_customers-r2",
+          "kind": "financial_decision",
+          "action_type": "OPERATE",
+          "decision_status": "intended",
+          "direction": "not_applicable",
+          "intensity": 0.7,
+          "confidence": 0.8,
+          "probability_semantics": "decision_clarity_not_forecast_probability",
+          "summary": "作为已部署CrowdStrike Falcon的客户，首要目标是保障产品或服务连续性。根据F4，约850万台Windows设备受影响且关键服务企业使用这些设备使经济社会影响扩大，我需要立即评估自身系统受影响范围，核实是否在04:09至05:27 UTC期间下载了该配置更新（F3），并按照Microsoft提供的恢复文档与脚本（F5）进行恢复操作。同时我需要评估CrowdStrike的补救响应速度和有效性，为后续是否继续使用该服务或考虑替代方案积累第一手信息。转换成本较高，不会立即切换，但必须降低当前运营中断风险。"
+        },
+        {
+          "id": "decision-actor_suppliers-r2",
+          "kind": "financial_decision",
+          "action_type": "WAIT",
+          "decision_status": "intended",
+          "direction": "conditional",
+          "intensity": 0.6,
+          "confidence": 0.85,
+          "probability_semantics": "decision_clarity_not_forecast_probability",
+          "summary": "作为供应商，需观察CrowdStrike事件对下游客户的系统恢复进度和订单连续性实际影响。已知故障窗口仅78分钟且已修复，Microsoft及CrowdStrike已协同实施恢复，受影响设备占比不足1%。但关键服务企业使用这些设备导致经济社会影响扩大，可能使部分客户短期付款能力或订单节奏产生波动。当前信息不足以判断具体客户受影响程度及传导到我方回款的时间线，需要等待下一轮客户运营恢复报告和付款状态确认后再调整信用评估或订单策略。主要不确定性在于受影响客户中哪些为我方直接或间接交易对手以及其IT恢复速度。"
+        },
+        {
+          "id": "decision-actor_competitors-r2",
+          "kind": "financial_decision",
+          "action_type": "WAIT",
+          "decision_status": "conditional",
+          "direction": "not_applicable",
+          "intensity": 0.0,
+          "confidence": 0.85,
+          "probability_semantics": "decision_clarity_not_forecast_probability",
+          "summary": "CrowdStrike配置更新事故（F1-F5）暴露了其更新验证流程缺陷，可能引发企业客户对EDR可靠性重新评估。但截至7月20日，事故修复已公告（F2），Microsoft已介入协助恢复（F5），且受影响设备占Windows设备不足1%（F4），尚无法判断客户流失规模或速度。作为竞争者，受自身产能和成本限制（constraint:1），需要更多可观察信息（如客户咨询量变化、PoC请求趋势、竞争对手定价调整）才能判断是否调整产能准备或启动针对性市场沟通，不应仅依据社交热度或单次事件直接下注。当前决策周期内以观察为主，不做金融动作亦不抢跑营销。"
+        },
+        {
+          "id": "decision-actor_institutions-r2",
+          "kind": "financial_decision",
+          "action_type": "WAIT",
+          "decision_status": "intended",
+          "direction": "maintain",
+          "intensity": 0.6,
+          "confidence": 0.75,
+          "probability_semantics": "decision_clarity_not_forecast_probability",
+          "summary": "截至7月20日，CrowdStrike配置更新事故已确认非网络攻击，更新已在约78分钟内修正。但微软估计约850万台设备受影响，关键服务企业受影响使经济社会影响扩大，可能引发客户索赔、监管审查及短期续约压力。虽仅不足1%的Windows设备受影响，但受波及的关键服务企业客户（航空、金融、医疗等）可能要求SLA赔偿或重新评估安全供应商，对CRWD短期收入与品牌声誉构成压力。同时微软派出数百名工程师协助恢复显示了行业协作，降低了系统性长期风险。需要更多信息评估：监管行动、客户流失率、潜在法律索赔规模及保险赔付情况。当前保持现有仓位，暂不增持也不减持，等待下一季度财报电话会披露的具体客户留存数据和事故相关成本。"
+        },
+        {
+          "id": "decision-actor_media-r2",
+          "kind": "financial_decision",
+          "action_type": "WAIT",
+          "decision_status": "no_action",
+          "direction": "not_applicable",
+          "intensity": 0.0,
+          "confidence": 0.9,
+          "probability_semantics": "decision_clarity_not_forecast_probability",
+          "summary": "截至2024-07-20已获取事件核心事实（F1-F5），但CrowdStrike的配置更新漏洞与修复已完成，Microsoft与多方协作恢复正在进行。此时CRWD的二级市场反应与监管动态尚未显现完整信号，作为财经媒体应先核实事件后续影响（如客户索赔、监管问询、竞品反应），再调整信息传播方向，避免凭空推测股价走势或事件升级程度。当前最恰当行动是等待更多可观察信息，随后再提供基于事实的深入分析。"
+        },
+        {
+          "id": "branch-1",
+          "kind": "scenario",
+          "summary": "若受影响客户在公开渠道对恢复进度或赔偿承诺表达不满，CrowdStrike可能需要从当前主动沟通转向更具体的承诺（如延长免费支持时间、加速补丁交付），从而改变客户原本主要关注内部恢复的决策路径。",
+          "triggers": [
+            "在2024-07-20至2024-07-27期间，至少2家大型客户（如航空、金融或医疗行业）公开声明对CrowdStrike的恢复支持或SLA赔偿方案不满意。"
+          ],
+          "consequences": [
+            "CrowdStrike将不得不额外投入技术资源以加快客户系统恢复，并可能需要预留法律或财务准备金用于潜在客户索赔，从而影响其短期成本和营收预期。",
+            "客户在评估替代方案时可能获得更多议价权，但短期内仍受高转换成本限制，不会大规模迁移到竞争产品。"
+          ],
+          "invalidation_conditions": [
+            "若截至2024-07-27，未见任何主要客户在公开渠道表达对CrowdStrike服务不满或提出索赔要求。"
+          ],
+          "novelty_claim": "该分支比事实复述多出了客户公开行动将如何约束CrowdStrike沟通方向并迫使其承担额外资源支出这一传导链条。",
+          "confidence": 0.6,
+          "probability_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-2",
+          "kind": "scenario",
+          "summary": "若机构投资者因为事件导致的客户流失风险而主动减持CrowdStrike股票，这将成为供应商可观察的市场信号，促使供应商从当前等待状态转向提前调整对CrowdStrike或其受影响客户的信用条件或订单条款。",
+          "triggers": [
+            "在2024-07-20至2024-07-27期间，披露的13F或机构交易记录显示至少两家大型机构投资者大幅减少CRWD敞口。"
+          ],
+          "consequences": [
+            "供应商将提高对CrowdStrike收款账期的风险评估，并可能收紧对其客户的授信额度，从而形成从资本市场到实体供应链的信用收缩压力。",
+            "CrowdStrike的融资或运营灵活性降低，尤其是在与关键供应商谈判付款条件时处于不利地位。"
+          ],
+          "invalidation_conditions": [
+            "若截至2024-07-27，公开披露数据显示大型机构投资者对CRWD的头寸没有显著净减持；或供应商未提及市场信号在信用决策中的参考价值。"
+          ],
+          "novelty_claim": "该分支比事实复述多出了机构投资者的减持决策会如何传导为供应商信用决策调整，进而反作用于CrowdStrike运营条件这一跨角色传导。",
+          "confidence": 0.55,
+          "probability_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-3",
+          "kind": "scenario",
+          "summary": "若竞争者从当前等待转向发出有限的营销试探（如发布事故对比分析白皮书、联系特定客户进行POC），财经媒体可能解读为行业格局变化的信号，从而改变媒体从单纯事实梳理转向深度竞争格局分析的报道重点。",
+          "triggers": [
+            "在2024-07-20至2024-07-27期间，至少一家EDR竞争者公开发布针对此事件的技术对比白皮书或行业分析报告。"
+          ],
+          "consequences": [
+            "媒体会将该行为视为竞争者主动抢占客户心智，其报道将增加竞品在事件后获得的市场关注度，促使更多受影响客户内部启动评估流程。",
+            "竞争者可能获得更多POC邀请，但其产能和交付能力约束限制了短期内市场份额的巨大变化。"
+          ],
+          "invalidation_conditions": [
+            "若截至2024-07-27，未发现直接竞争者发布针对此事件的营销材料或技术对比分析；或媒体未将此类行为纳入报道重点。"
+          ],
+          "novelty_claim": "该分支比事实复述多出了竞争者的试探性行动将如何改变媒体叙事焦点，进而影响客户采购决策信息环境这一传导路径。",
+          "confidence": 0.6,
+          "probability_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-4",
+          "kind": "scenario",
+          "summary": "若供应商收集到客户恢复进度缓慢的持续反馈，且预估CrowdStrike面临大量索赔，则供应商可能从等待转向主动为CrowdStrike设置更严格付款条件（如缩短账期、要求预付），这反过来限制CrowdStrike的现金流和激励其加速客户补偿方案。",
+          "triggers": [
+            "在2024-07-20至2024-07-27期间，有可靠报道或客户声明称受影响客户平均恢复时间超过48小时；且CrowdStrike未公开承诺额外补偿。"
+          ],
+          "consequences": [
+            "供应商收紧账期将直接减少CrowdStrike的自由现金流，迫使其推迟或缩减非核心IT支持或研发投入。",
+            "CrowdStrike为了维持供应链稳定，可能更主动地提出客户补偿方案，以降低监管和法律风险，从而维持供应商信心。"
+          ],
+          "invalidation_conditions": [
+            "若截至2024-07-27，未观察到供应商调整对CrowdStrike的付款条件，或恢复时间在承诺窗口内完成且无客户集体索赔报告。"
+          ],
+          "novelty_claim": "该分支比事实复述多出了供应商如何根据客户恢复进程的间接信号主动调整对CrowdStrike的信贷条件，从而影响发行人运营资金这一闭环传导。",
+          "confidence": 0.55,
+          "probability_semantics": "branch_coherence_not_forecast_probability"
+        }
+      ],
+      "edges": [
+        {
+          "source": "actor_issuer",
+          "target": "trace-19",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_institutions",
+          "target": "trace-22",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_suppliers",
+          "target": "trace-23",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_institutions",
+          "target": "trace-24",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_suppliers",
+          "target": "trace-25",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_competitors",
+          "target": "trace-26",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_competitors",
+          "target": "trace-27",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_media",
+          "target": "trace-28",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_media",
+          "target": "trace-29",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_media",
+          "target": "trace-30",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_media",
+          "target": "trace-31",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_media",
+          "target": "trace-32",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_customers",
+          "target": "trace-40",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_customers",
+          "target": "trace-41",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_issuer",
+          "target": "trace-42",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_issuer",
+          "target": "trace-43",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_suppliers",
+          "target": "trace-44",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_issuer",
+          "target": "trace-45",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_issuer",
+          "target": "trace-46",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_issuer",
+          "target": "trace-47",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_media",
+          "target": "trace-48",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_competitors",
+          "target": "trace-49",
+          "relation": "SIMULATED_ACTION"
+        },
+        {
+          "source": "actor_issuer",
+          "target": "decision-actor_issuer-r2",
+          "relation": "SIMULATED_FINANCIAL_DECISION"
+        },
+        {
+          "source": "actor_customers",
+          "target": "decision-actor_customers-r2",
+          "relation": "SIMULATED_FINANCIAL_DECISION"
+        },
+        {
+          "source": "actor_suppliers",
+          "target": "decision-actor_suppliers-r2",
+          "relation": "SIMULATED_FINANCIAL_DECISION"
+        },
+        {
+          "source": "actor_competitors",
+          "target": "decision-actor_competitors-r2",
+          "relation": "SIMULATED_FINANCIAL_DECISION"
+        },
+        {
+          "source": "actor_institutions",
+          "target": "decision-actor_institutions-r2",
+          "relation": "SIMULATED_FINANCIAL_DECISION"
+        },
+        {
+          "source": "actor_media",
+          "target": "decision-actor_media-r2",
+          "relation": "SIMULATED_FINANCIAL_DECISION"
+        },
+        {
+          "source": "decision-actor_customers-r2",
+          "target": "branch-1",
+          "relation": "CONTRIBUTES_TO_SCENARIO"
+        },
+        {
+          "source": "decision-actor_issuer-r2",
+          "target": "branch-1",
+          "relation": "CONTRIBUTES_TO_SCENARIO"
+        },
+        {
+          "source": "decision-actor_institutions-r2",
+          "target": "branch-2",
+          "relation": "CONTRIBUTES_TO_SCENARIO"
+        },
+        {
+          "source": "decision-actor_suppliers-r2",
+          "target": "branch-2",
+          "relation": "CONTRIBUTES_TO_SCENARIO"
+        },
+        {
+          "source": "decision-actor_competitors-r2",
+          "target": "branch-3",
+          "relation": "CONTRIBUTES_TO_SCENARIO"
+        },
+        {
+          "source": "decision-actor_media-r2",
+          "target": "branch-3",
+          "relation": "CONTRIBUTES_TO_SCENARIO"
+        },
+        {
+          "source": "decision-actor_suppliers-r2",
+          "target": "branch-4",
+          "relation": "CONTRIBUTES_TO_SCENARIO"
+        },
+        {
+          "source": "decision-actor_issuer-r2",
+          "target": "branch-4",
+          "relation": "CONTRIBUTES_TO_SCENARIO"
+        }
+      ]
+    },
+    "warnings": [
+      "Integration smoke result only; it is not a calibrated financial forecast.",
+      "The upstream run monitor reported zero actions; SQLite was used as the authoritative source.",
+      "OASIS did not persist per-action round numbers, so exported events use round 0.",
+      "Rule-generated institutional profiles contain consumer-social attributes and require a financial profile compiler.",
+      "Structured financial decisions were elicited post-simulation and remain simulated claims.",
+      "Single-run scenario frequency is uncalibrated and must not be read as probability.",
+      "所有分支仅使用as_of时点可得事实和明确标为模拟的actions，未补充as_of后真实事件。",
+      "触发条件和失效条件均设定了可观察的时间窗口（2024-07-20至2024-07-27），但未使用精确阈值。",
+      "未输出目标价格、收益率概率或Agent投票频率。",
+      "branch-1: bound deterministic actor slot to unique financial decisions",
+      "branch-2: bound deterministic actor slot to unique financial decisions",
+      "branch-3: bound deterministic actor slot to unique financial decisions",
+      "branch-4: bound deterministic actor slot to unique financial decisions",
+      "Branches are simulated hypotheses, not observed evidence.",
+      "Branch confidence expresses coherence, not occurrence probability."
+    ],
+    "audit": {
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "gateway_mode": "live"
+    }
+  },
+  "reused": false
+}

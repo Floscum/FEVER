@@ -1,0 +1,204 @@
+{
+  "case_id": "byd-h1-2025",
+  "variant": "v7",
+  "cohort": "public_pilot",
+  "artifact": {
+    "schema_version": "0.1.0",
+    "case_id": "real-byd-h1-2025",
+    "spec_sha256": "113b2d9c974e69d3b475b66eef726a8dfb8c2f9d3f094931e5422a7344a0318b",
+    "simulation_id": "sim_direct_c5d0a549768d",
+    "generated_at": "2026-09-12T06:08:35.542320+00:00",
+    "model_id": "deepseek-ai/DeepSeek-V4-Flash",
+    "prompt_version": "scenario-branch-compiler-v7",
+    "status": "completed",
+    "branches": [
+      {
+        "id": "branch-1",
+        "label": "交易所问询引发补充披露",
+        "summary": "若交易所向比亚迪发出问询函，要求就境外业务地缘政治风险、汇率风险管理及毛利率变动进行补充说明，比亚迪将需要组织回应，该回应可能包含此前未详细披露的境外业务风险敞口或毛利率口径调整的量化细节，从而影响分析师和机构投资者对境外业务可持续性的评估。",
+        "actor_ids": [
+          "actor_exchange",
+          "actor_issuer"
+        ],
+        "trigger_conditions": [
+          "在2025-09-06前，深交所发布针对比亚迪2025年半年报的正式问询函，要求就境外收入占比显著提升、毛利率下降及研发投入高增长等事项进行补充说明。"
+        ],
+        "actions": [
+          {
+            "actor_id": "actor_exchange",
+            "action_type": "COMMUNICATE",
+            "decision_ref": "decision-actor_exchange-r2"
+          },
+          {
+            "actor_id": "actor_issuer",
+            "action_type": "COMMUNICATE",
+            "decision_ref": "decision-actor_issuer-r2"
+          }
+        ],
+        "consequences": [
+          "比亚迪需在问询函规定时间内（通常为5-10个交易日）组织回复，回复内容可能包含境外业务分地区收入、毛利率及地缘政治风险敞口的量化数据，或毛利率口径调整的详细测算。",
+          "若回复中披露境外业务面临的具体关税或政策风险，机构投资者可能据此重新评估海外扩张的利润转化效率，从而调整持仓决策。"
+        ],
+        "invalidation_conditions": [
+          "深交所在2025-09-06前未发布针对比亚迪半年报的正式问询函。",
+          "比亚迪主动发布超出常规披露范围的境外业务风险补充公告，而非应问询要求回复。"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F4",
+          "F5"
+        ],
+        "simulation_refs": [
+          "decision-actor_exchange-r2",
+          "decision-actor_issuer-r2"
+        ],
+        "novelty_claim": "该分支将交易所的常规问询动作与比亚迪的回应行为串联，并进一步传导至机构投资者的评估调整，而非仅复述交易所已发布的提示性评论。",
+        "confidence": 0.7,
+        "confidence_semantics": "branch_coherence_not_forecast_probability"
+      },
+      {
+        "id": "branch-2",
+        "label": "分析师下调预期引发券商跟进",
+        "summary": "若分析师在消化半年报后，因毛利率下降幅度超预期而下调比亚迪2025年全年盈利预测，券商可能随之调整其研究报告中的目标价或评级，从而影响市场情绪和机构投资者的交易决策。",
+        "actor_ids": [
+          "actor_analysts",
+          "actor_brokers"
+        ],
+        "trigger_conditions": [
+          "在2025-09-06前，至少一家主要券商（如中信证券、华泰证券等）发布研究报告，将比亚迪2025年全年归母净利润预测下调超过5%。",
+          "该下调理由明确提及汽车业务毛利率下降1.99个百分点且剔除口径调整后降幅仍超预期。"
+        ],
+        "actions": [
+          {
+            "actor_id": "actor_analysts",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_analysts-r2"
+          },
+          {
+            "actor_id": "actor_brokers",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_brokers-r2"
+          }
+        ],
+        "consequences": [
+          "其他券商可能跟进调整盈利预测或目标价，形成一致预期下修，导致比亚迪股价在短期内承压。",
+          "机构投资者在等待期间可能从维持敞口转为小幅减仓，以规避盈利预期下修带来的估值压力。"
+        ],
+        "invalidation_conditions": [
+          "所有券商在2025-09-06前均维持或上调比亚迪2025年盈利预测。",
+          "券商下调预测但理由未涉及毛利率或利润率，而是基于其他非核心因素。"
+        ],
+        "evidence_refs": [
+          "F2",
+          "F4"
+        ],
+        "simulation_refs": [
+          "decision-actor_analysts-r2",
+          "decision-actor_brokers-r2"
+        ],
+        "novelty_claim": "该分支构建了从分析师研判变化到券商研报调整，再到机构投资者仓位变动的多主体传导链，而非仅描述分析师或券商的独立行为。",
+        "confidence": 0.6,
+        "confidence_semantics": "branch_coherence_not_forecast_probability"
+      },
+      {
+        "id": "branch-3",
+        "label": "机构投资者减仓引发竞争者观望",
+        "summary": "若机构投资者因毛利率压力而开始小幅减持比亚迪，该信号可能被竞争者解读为市场对比亚迪盈利前景的担忧，从而强化竞争者维持当前定价策略、不急于调整海外产能布局的观望立场。",
+        "actor_ids": [
+          "actor_institutions",
+          "actor_competitors"
+        ],
+        "trigger_conditions": [
+          "在2025-09-06前，通过大宗交易或公开持仓数据观察到至少两家机构投资者减持比亚迪股份，单次减持规模超过其持仓的5%。",
+          "减持公告或市场传闻将原因指向毛利率下降和利润增速低于营收增速。"
+        ],
+        "actions": [
+          {
+            "actor_id": "actor_institutions",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_institutions-r2"
+          },
+          {
+            "actor_id": "actor_competitors",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_competitors-r2"
+          }
+        ],
+        "consequences": [
+          "竞争者可能将机构减持视为市场对比亚迪价格战承受力的负面信号，从而推迟自身海外产能扩张计划，优先在国内市场维持价格竞争。",
+          "比亚迪可能因机构减持而面临短期股价下行压力，进而影响其通过股权融资支持研发投入的能力。"
+        ],
+        "invalidation_conditions": [
+          "机构投资者在2025-09-06前未出现可观察的减持行为。",
+          "机构减持原因与毛利率或利润增速无关，而是基于其他行业或宏观因素。"
+        ],
+        "evidence_refs": [
+          "F2",
+          "F4"
+        ],
+        "simulation_refs": [
+          "decision-actor_institutions-r2",
+          "decision-actor_competitors-r2"
+        ],
+        "novelty_claim": "该分支将机构投资者的仓位调整行为与竞争者的战略决策联系起来，形成市场信号向产业行为的传导，而非仅描述机构或竞争者的独立行动。",
+        "confidence": 0.5,
+        "confidence_semantics": "branch_coherence_not_forecast_probability"
+      },
+      {
+        "id": "branch-4",
+        "label": "分析师质疑研发转化效率引发公司沟通",
+        "summary": "若分析师在研报或公开评论中质疑研发投入53%增长向产品竞争力的转化效率，比亚迪可能主动召开投资者沟通会或发布技术进展公告，以回应市场关切并稳定投资者预期。",
+        "actor_ids": [
+          "actor_analysts",
+          "actor_issuer"
+        ],
+        "trigger_conditions": [
+          "在2025-09-06前，至少两位知名分析师（如来自中金公司、国泰君安等）在公开报告中提出，比亚迪研发投入占营收8.3%但尚未看到明确的智能化或固态电池商业化时间表，质疑转化效率。"
+        ],
+        "actions": [
+          {
+            "actor_id": "actor_analysts",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_analysts-r2"
+          },
+          {
+            "actor_id": "actor_issuer",
+            "action_type": "COMMUNICATE",
+            "decision_ref": "decision-actor_issuer-r2"
+          }
+        ],
+        "consequences": [
+          "比亚迪可能通过电话会议或公告形式，披露智能驾驶、固态电池等关键研发项目的进展节点或商业化预期，以回应质疑。",
+          "若公司披露的进展不及市场预期，可能加剧分析师对短期利润受压的担忧，导致盈利预测进一步下调。"
+        ],
+        "invalidation_conditions": [
+          "分析师在2025-09-06前未对研发转化效率提出公开质疑。",
+          "比亚迪主动发布研发进展公告并非因分析师质疑，而是按计划进行常规披露。"
+        ],
+        "evidence_refs": [
+          "F3"
+        ],
+        "simulation_refs": [
+          "decision-actor_analysts-r2",
+          "decision-actor_issuer-r2"
+        ],
+        "novelty_claim": "该分支将分析师的公开质疑与比亚迪的主动沟通行为串联，并进一步传导至分析师预期的调整，形成双向互动而非单向披露。",
+        "confidence": 0.6,
+        "confidence_semantics": "branch_coherence_not_forecast_probability"
+      }
+    ],
+    "warnings": [
+      "branch-1: bound deterministic actor slot to unique financial decisions",
+      "branch-2: bound deterministic actor slot to unique financial decisions",
+      "branch-3: bound deterministic actor slot to unique financial decisions",
+      "branch-4: bound deterministic actor slot to unique financial decisions",
+      "Branches are simulated hypotheses, not observed evidence.",
+      "Branch confidence expresses coherence, not occurrence probability."
+    ]
+  },
+  "elapsed_seconds": 24.39073983405251,
+  "attempt_count": 1,
+  "request_ids": [
+    "740166d312ff46ffbace27a4f6756274"
+  ]
+}

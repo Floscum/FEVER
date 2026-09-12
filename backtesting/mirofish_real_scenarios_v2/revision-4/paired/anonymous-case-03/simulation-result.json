@@ -1,0 +1,483 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_supply_disruption_003",
+  "spec_sha256": "a263d9045a55e54893be23b4981ee00f29a90f8aa4c1f5c31c29a2a0100bceb8",
+  "generated_at": "2026-07-29T06:11:39.494408+00:00",
+  "status": "partial",
+  "runs": [
+    {
+      "run_id": "sim_fd6070ee385b",
+      "seed": -1,
+      "status": "completed",
+      "events": [
+        {
+          "round": 0,
+          "actor_id": "actor_canal_authority",
+          "action_type": "SEARCH_POSTS",
+          "summary": "search_posts",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_institutions",
+          "action_type": "SEARCH_POSTS",
+          "summary": "search_posts",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_institutions",
+          "action_type": "SEARCH_USER",
+          "summary": "search_user",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_salvage",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #7：救援工作受船体、风浪和疏浚条件限制，我们正增加设备并调整方案以安全解除搁浅。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_salvage",
+          "action_type": "COMMUNICATE",
+          "summary": "确认收到。当前船体姿态和潮汐窗口数据如何？我们这边可以调集更多大马力拖轮和抓斗式挖泥船支援，如有需要请通报主管机构协调部署。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_media",
+          "action_type": "SEARCH_POSTS",
+          "summary": "search_posts",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_media",
+          "action_type": "SEARCH_USER",
+          "summary": "search_user",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_canal_authority",
+          "action_type": "COMMUNICATE",
+          "summary": "【航道主管机构通报】截至当前，救援力量（拖轮、疏浚船）已在现场持续作业。搁浅船体稳定，正在评估潮汐窗口以制定脱浅方案。恢复通航时间尚未确定，取决于船体状态、风浪条件和疏浚进展。请各相关方以官方通报为准，勿信未经证实的市场传言。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_carrier",
+          "action_type": "COMMUNICATE",
+          "summary": "我们正在同步评估受影响船舶的ETA调整方案。建议双方保持运力调配信息互通，在航道恢复前优先保障核心航线的最低周班服务。关于改道船舶，能否共享贵司目前的备选航线及相关成本数据？这对我们统一客户预期很重要。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_carrier",
+          "action_type": "COMMUNICATE",
+          "summary": "救援进展存在不确定性，但客户已收到初步提示。当前阶段不能直接控制航道救援进度，需通过协调港口和客户来降低船期损失。计划向受影响客户和港口方发送更新通知，明确当前调配方案（等待或绕行选择），以稳定客户预期、控制声誉风险并为后续运力调整争取时间。救援尚未有明确时间表，金融市场波动(F4)不会影响运营决策。",
+          "visibility": "public",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_canal_authority",
+          "action_type": "WAIT",
+          "summary": "当前救援工作正在进行中，搁浅船体稳定，拖轮和疏浚力量已就位但需要等待下一个潮汐窗口才能评估脱浅方案。事故原因和恢复时间均未确定，主动调节或沟通可能传递错误信号。监管动作应在获得更明确的救援进展或船体状态评估后再执行，避免在信息不完整时干扰市场或救援节奏。核心约束是救援进度受船体、风浪、拖轮和疏浚条件限制，这些因素目前均不在直接可控范围内。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F3"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_salvage",
+          "action_type": "OPERATE",
+          "summary": "作为拖轮、疏浚与救援联合体，职责是安全解除搁浅。当前主管机构已协调拖轮和疏浚力量在现场救援，但受船体、风浪和疏浚条件限制。我已在模拟中通过社交媒体表达了增加设备和调整方案的意图。下一个决策周期内，最可能的主要动作是继续推进救援操作——调集更多大马力拖轮和抓斗式挖泥船到场，依据现场潮汐窗口和船体姿态变化实施新一轮脱浅作业。这是基于救援行动持续进行且可能需要增强设备这一假设，排除等待（事故持续造成航道关闭、供应链影响扩大）或仅沟通而不行动（救援职责要求实际作业推进）的选项。主要不确定性在于现场水文气象条件和船体结构响应是否允许安全作业。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F3"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_customers",
+          "action_type": "WAIT",
+          "summary": "当前事故原因和恢复时间均未确定，主管机构正在救援但尚无明确时间表。改道或空运成本高，不宜贸然切换。先等待更精确的恢复预估和承运方正式通知，再决定是否调整运输计划，以控制附加物流成本并减少停工风险。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_ports",
+          "action_type": "OPERATE",
+          "summary": "F1和F3表明航道受阻将持续一段时间，恢复通航后必然出现集中到港高峰。作为港口运营方，短期泊位、堆场和陆路疏运能力有限（约束），必须立即启动内部操作预案：提前调整泊位分配、优化堆场放箱节奏、协调铁路和集疏运公司增加临时运力，以降低未来拥堵峰值。该操作不涉及金融证券，仅针对港口运营活动。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F3"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_institutions",
+          "action_type": "WAIT",
+          "summary": "截至时点，救援正在进行但恢复时间未确定，运价传导路径不清晰。D-2和D-1的大跌与D0反弹反映市场情绪激烈但方向未定，成交活跃说明多空博弈激烈。作为机构投资者，我的目标是区分短期事件与行业趋势，但救援时点高度不确定，过早加仓或减仓都面临显著尾部风险。选择WAIT即维持现有仓位，在决策周期内不进行新的方向性配置，等待救援进展或运价信号更明确后再行动。主要不确定性在于：航道关闭持续时间未知；运价上涨能否覆盖运营延误损失；大盘情绪后续是否继续拖累航运板块。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_retail",
+          "action_type": "WAIT",
+          "summary": "根据约束，我容易把航道堵塞直接等同于运价和股价上涨，但目前仅事故未解决、救援进行中，恢复时间未定，D0反弹但前两日大跌，价格波动大，盲目追高风险高。我选择等待观察，等事故恢复或官方明确信息再行动，以避免追涨杀跌。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_media",
+          "action_type": "WAIT",
+          "summary": "作为国际航运与财经媒体，当前需优先跟踪救援进展与确认事实，而非急于发布传导分析。搁浅事故的恢复时间尚未确定，救援现场传闻多且更新快（约束002），此时贸然解释运价传导可能误导市场。应等待主管机构发布正式救援进展、船公司更新延误时长与改道计划，再结合F1（航道阻断）、F2（货主提示）、F3（救援力量部署）和F4（股价波动）展开专业分析。短期主要动作是继续监测、核实与整合多方信息源，确保后续报道准确可靠。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        }
+      ],
+      "warnings": [
+        "Random seed was not exposed by the upstream runner; -1 denotes unavailable."
+      ]
+    }
+  ],
+  "scenarios": [],
+  "forecast_target_results": [],
+  "simulation_graph": {
+    "nodes": [
+      {
+        "id": "actor_canal_authority",
+        "kind": "actor",
+        "label": "航道主管机构"
+      },
+      {
+        "id": "actor_carrier",
+        "kind": "actor",
+        "label": "匿名大型集装箱航运公司"
+      },
+      {
+        "id": "actor_institutions",
+        "kind": "actor",
+        "label": "航运板块机构投资者"
+      },
+      {
+        "id": "actor_media",
+        "kind": "actor",
+        "label": "国际航运与财经媒体"
+      },
+      {
+        "id": "actor_salvage",
+        "kind": "actor",
+        "label": "拖轮、疏浚与救援联合体"
+      },
+      {
+        "id": "trace-20",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_POSTS",
+        "summary": "search_posts"
+      },
+      {
+        "id": "trace-21",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_POSTS",
+        "summary": "search_posts"
+      },
+      {
+        "id": "trace-22",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user"
+      },
+      {
+        "id": "trace-23",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #7：救援工作受船体、风浪和疏浚条件限制，我们正增加设备并调整方案以安全解除搁浅。"
+      },
+      {
+        "id": "trace-24",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "确认收到。当前船体姿态和潮汐窗口数据如何？我们这边可以调集更多大马力拖轮和抓斗式挖泥船支援，如有需要请通报主管机构协调部署。"
+      },
+      {
+        "id": "trace-28",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_POSTS",
+        "summary": "search_posts"
+      },
+      {
+        "id": "trace-29",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user"
+      },
+      {
+        "id": "trace-30",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "【航道主管机构通报】截至当前，救援力量（拖轮、疏浚船）已在现场持续作业。搁浅船体稳定，正在评估潮汐窗口以制定脱浅方案。恢复通航时间尚未确定，取决于船体状态、风浪条件和疏浚进展。请各相关方以官方通报为准，勿信未经证实的市场传言。"
+      },
+      {
+        "id": "trace-31",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "我们正在同步评估受影响船舶的ETA调整方案。建议双方保持运力调配信息互通，在航道恢复前优先保障核心航线的最低周班服务。关于改道船舶，能否共享贵司目前的备选航线及相关成本数据？这对我们统一客户预期很重要。"
+      },
+      {
+        "id": "decision-actor_carrier-r3",
+        "kind": "financial_decision",
+        "action_type": "COMMUNICATE",
+        "decision_status": "intended",
+        "direction": "maintain",
+        "intensity": 0.6,
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "救援进展存在不确定性，但客户已收到初步提示。当前阶段不能直接控制航道救援进度，需通过协调港口和客户来降低船期损失。计划向受影响客户和港口方发送更新通知，明确当前调配方案（等待或绕行选择），以稳定客户预期、控制声誉风险并为后续运力调整争取时间。救援尚未有明确时间表，金融市场波动(F4)不会影响运营决策。"
+      },
+      {
+        "id": "decision-actor_canal_authority-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": null,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "当前救援工作正在进行中，搁浅船体稳定，拖轮和疏浚力量已就位但需要等待下一个潮汐窗口才能评估脱浅方案。事故原因和恢复时间均未确定，主动调节或沟通可能传递错误信号。监管动作应在获得更明确的救援进展或船体状态评估后再执行，避免在信息不完整时干扰市场或救援节奏。核心约束是救援进度受船体、风浪、拖轮和疏浚条件限制，这些因素目前均不在直接可控范围内。"
+      },
+      {
+        "id": "decision-actor_salvage-r3",
+        "kind": "financial_decision",
+        "action_type": "OPERATE",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": 0.7,
+        "confidence": 0.75,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "作为拖轮、疏浚与救援联合体，职责是安全解除搁浅。当前主管机构已协调拖轮和疏浚力量在现场救援，但受船体、风浪和疏浚条件限制。我已在模拟中通过社交媒体表达了增加设备和调整方案的意图。下一个决策周期内，最可能的主要动作是继续推进救援操作——调集更多大马力拖轮和抓斗式挖泥船到场，依据现场潮汐窗口和船体姿态变化实施新一轮脱浅作业。这是基于救援行动持续进行且可能需要增强设备这一假设，排除等待（事故持续造成航道关闭、供应链影响扩大）或仅沟通而不行动（救援职责要求实际作业推进）的选项。主要不确定性在于现场水文气象条件和船体结构响应是否允许安全作业。"
+      },
+      {
+        "id": "actor_customers",
+        "kind": "actor",
+        "label": "货主与供应链客户"
+      },
+      {
+        "id": "decision-actor_customers-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "confidence": 0.9,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "当前事故原因和恢复时间均未确定，主管机构正在救援但尚无明确时间表。改道或空运成本高，不宜贸然切换。先等待更精确的恢复预估和承运方正式通知，再决定是否调整运输计划，以控制附加物流成本并减少停工风险。"
+      },
+      {
+        "id": "actor_ports",
+        "kind": "actor",
+        "label": "相关港口和码头运营方"
+      },
+      {
+        "id": "decision-actor_ports-r3",
+        "kind": "financial_decision",
+        "action_type": "OPERATE",
+        "decision_status": "intended",
+        "direction": "increase",
+        "intensity": 0.7,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "F1和F3表明航道受阻将持续一段时间，恢复通航后必然出现集中到港高峰。作为港口运营方，短期泊位、堆场和陆路疏运能力有限（约束），必须立即启动内部操作预案：提前调整泊位分配、优化堆场放箱节奏、协调铁路和集疏运公司增加临时运力，以降低未来拥堵峰值。该操作不涉及金融证券，仅针对港口运营活动。"
+      },
+      {
+        "id": "decision-actor_institutions-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "maintain",
+        "intensity": 0.3,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "截至时点，救援正在进行但恢复时间未确定，运价传导路径不清晰。D-2和D-1的大跌与D0反弹反映市场情绪激烈但方向未定，成交活跃说明多空博弈激烈。作为机构投资者，我的目标是区分短期事件与行业趋势，但救援时点高度不确定，过早加仓或减仓都面临显著尾部风险。选择WAIT即维持现有仓位，在决策周期内不进行新的方向性配置，等待救援进展或运价信号更明确后再行动。主要不确定性在于：航道关闭持续时间未知；运价上涨能否覆盖运营延误损失；大盘情绪后续是否继续拖累航运板块。"
+      },
+      {
+        "id": "actor_retail",
+        "kind": "actor",
+        "label": "个人投资者"
+      },
+      {
+        "id": "decision-actor_retail-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": null,
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "根据约束，我容易把航道堵塞直接等同于运价和股价上涨，但目前仅事故未解决、救援进行中，恢复时间未定，D0反弹但前两日大跌，价格波动大，盲目追高风险高。我选择等待观察，等事故恢复或官方明确信息再行动，以避免追涨杀跌。"
+      },
+      {
+        "id": "decision-actor_media-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": 0.65,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "作为国际航运与财经媒体，当前需优先跟踪救援进展与确认事实，而非急于发布传导分析。搁浅事故的恢复时间尚未确定，救援现场传闻多且更新快（约束002），此时贸然解释运价传导可能误导市场。应等待主管机构发布正式救援进展、船公司更新延误时长与改道计划，再结合F1（航道阻断）、F2（货主提示）、F3（救援力量部署）和F4（股价波动）展开专业分析。短期主要动作是继续监测、核实与整合多方信息源，确保后续报道准确可靠。"
+      }
+    ],
+    "edges": [
+      {
+        "source": "actor_canal_authority",
+        "target": "trace-20",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_institutions",
+        "target": "trace-21",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_institutions",
+        "target": "trace-22",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_salvage",
+        "target": "trace-23",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_salvage",
+        "target": "trace-24",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_media",
+        "target": "trace-28",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_media",
+        "target": "trace-29",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_canal_authority",
+        "target": "trace-30",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_carrier",
+        "target": "trace-31",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_carrier",
+        "target": "decision-actor_carrier-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_canal_authority",
+        "target": "decision-actor_canal_authority-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_salvage",
+        "target": "decision-actor_salvage-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_customers",
+        "target": "decision-actor_customers-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_ports",
+        "target": "decision-actor_ports-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_institutions",
+        "target": "decision-actor_institutions-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_retail",
+        "target": "decision-actor_retail-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_media",
+        "target": "decision-actor_media-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      }
+    ]
+  },
+  "warnings": [
+    "Integration smoke result only; it is not a calibrated financial forecast.",
+    "The upstream run monitor reported zero actions; SQLite was used as the authoritative source.",
+    "OASIS did not persist per-action round numbers, so exported events use round 0.",
+    "Rule-generated institutional profiles contain consumer-social attributes and require a financial profile compiler.",
+    "No forecast target result or scenario frequency was produced from this single run.",
+    "Structured financial decisions were elicited post-simulation and remain simulated claims."
+  ],
+  "provenance": {
+    "engine": "MiroFish/OASIS",
+    "engine_version": "60757b3c825d577a1d7a86ab1ba6d5c21f51c261",
+    "model": "deepseek-ai/DeepSeek-V4-Flash",
+    "raw_run_artifacts": [
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/mirofish/simulations/sim_fd6070ee385b/reddit_simulation.db",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/mirofish/simulations/sim_fd6070ee385b/simulation_config.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_supply_disruption_003-b3/sqlite-actions.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_supply_disruption_003-b3/raw-actions.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_supply_disruption_003-b3/financial-interviews-raw.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_supply_disruption_003-b3/financial-actions.json"
+    ]
+  }
+}

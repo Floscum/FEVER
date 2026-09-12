@@ -1,0 +1,7 @@
+{
+  "expand": false,
+  "promote": false,
+  "reviewer": "assistant_content_review_not_independent_human_acceptance",
+  "manifest_sha256": "77114870ebd1bcdae779c8a9d50e7d2f916785e31a76b8c8e753b1db921039ac",
+  "reason": "After retry, CrowdStrike still introduces an unsupported resumption-of-trading state; negative-news silence is also misused as invalidation in other cases. Do not expand or promote."
+}

@@ -1,0 +1,997 @@
+{
+  "anonymous_case_id": "anonymous-case-15",
+  "configured_actor_count": 8,
+  "decision_actor_count": 8,
+  "fact_count": 4,
+  "fact_chars": 251,
+  "input": {
+    "case_id": "anonymous-case-15",
+    "as_of": "D0",
+    "question": "公司、产品、疾病、年份、监管机关具体名称与市场代码均已匿名化。只使用D0已公开的信息，推演监管者、公司、患者群体、临床专家、合作方和投资者在专家委员会以微弱多数支持加速审批后的行为。",
+    "horizon": {
+      "kind": "calendar_days",
+      "value": 45,
+      "end_at": "D0 + stated horizon"
+    },
+    "facts": [
+      {
+        "id": "F1",
+        "statement": "监管机关审评材料指出，这项一次性基因疗法提高了替代蛋白表达，但随机对照研究的临床功能结果存在不确定性，安全性和代理终点能否预测临床获益仍是核心争议。"
+      },
+      {
+        "id": "F2",
+        "statement": "外部专家委员会以8票赞成、6票反对的微弱多数认为现有证据支持通过加速路径审批；委员会意见对最终监管决定不具有约束力。"
+      },
+      {
+        "id": "F3",
+        "statement": "申请覆盖具有已确认基因突变且仍能行走的患者，公司正在为潜在商业化和生产供应做准备；监管机关可以批准、拒绝、延迟或缩小适用人群。"
+      },
+      {
+        "id": "F4",
+        "statement": "股票在委员会投票后的首个可交易日显著上涨，显示市场上调审批概率，但对标签范围、确认性试验和长期安全要求仍有分歧。"
+      }
+    ],
+    "actors": [
+      {
+        "id": "actor_regulator",
+        "label": "匿名药品与生物制品监管机关",
+        "kind": "regulator",
+        "goals": [
+          "权衡未满足医疗需求与证据不确定性",
+          "设定可执行的标签和上市后要求"
+        ],
+        "constraints": [
+          "临床获益尚未确证",
+          "专家委员会意见不具约束力"
+        ]
+      },
+      {
+        "id": "actor_issuer",
+        "label": "匿名罕见病生物科技企业",
+        "kind": "issuer",
+        "goals": [
+          "取得及时且尽可能广的批准",
+          "准备生产与商业化",
+          "保护产品信誉"
+        ],
+        "constraints": [
+          "需满足标签、生产和确认性试验要求"
+        ]
+      },
+      {
+        "id": "actor_committee",
+        "label": "外部临床与科学专家",
+        "kind": "analyst",
+        "goals": [
+          "评估获益风险",
+          "解释代理终点和临床数据"
+        ],
+        "constraints": [
+          "证据规模有限且专家意见分裂"
+        ]
+      },
+      {
+        "id": "actor_patients",
+        "label": "患者家庭与倡议组织",
+        "kind": "customer",
+        "goals": [
+          "尽快获得治疗选择",
+          "争取更广覆盖",
+          "降低安全与支付障碍"
+        ],
+        "constraints": [
+          "疾病进展迅速且替代疗法有限"
+        ]
+      },
+      {
+        "id": "actor_clinicians",
+        "label": "罕见病临床中心",
+        "kind": "customer",
+        "goals": [
+          "识别适格患者",
+          "评估获益风险",
+          "准备给药与监测"
+        ],
+        "constraints": [
+          "需要最终标签和安全管理要求"
+        ]
+      },
+      {
+        "id": "actor_partner",
+        "label": "商业合作与制造伙伴",
+        "kind": "supplier",
+        "goals": [
+          "扩大可验证产能",
+          "为上市准备供应链"
+        ],
+        "constraints": [
+          "需求取决于审批时间和标签范围"
+        ]
+      },
+      {
+        "id": "actor_investors",
+        "label": "生物科技投资者",
+        "kind": "institutional_investor",
+        "goals": [
+          "判断审批概率、标签范围和峰值收入",
+          "管理二元监管风险"
+        ],
+        "constraints": [
+          "投票结果不等于最终决定"
+        ]
+      },
+      {
+        "id": "actor_media",
+        "label": "医疗与财经媒体",
+        "kind": "media",
+        "goals": [
+          "解释分裂投票和审批路径",
+          "跟踪患者与监管观点"
+        ],
+        "constraints": [
+          "技术证据复杂且最终决定尚未作出"
+        ]
+      }
+    ],
+    "financial_decisions": [
+      {
+        "id": "decision-actor_regulator-r3",
+        "round": 3,
+        "actor_id": "actor_regulator",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "conditional",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "核心临床获益证据仍存在不确定性，代理终点能否预测临床获益是核心争议。专家委员会以微弱多数支持加速审批，但该意见不具约束力。市场上调审批概率主要源于委员会投票结果而非新证据，而标签范围、确认性试验和长期安全要求仍有分歧。作为监管机关，我需要等待更完整的确认性临床数据或要求公司提交额外分析，才能做出平衡未满足医疗需求与证据不确定性的决定。当前条件下，采取任何监管行动或公开沟通都可能因证据不足而误导市场或患者预期，因此选择继续评估，暂不采取正式行动。",
+        "constraint_refs": [
+          "actor_regulator:constraint:0",
+          "actor_regulator:constraint:1"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_issuer-r3",
+        "round": 3,
+        "actor_id": "actor_issuer",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.6,
+        "instrument_refs": [],
+        "rationale": "作为发行人，当前核心目标是在监管机关完成审评前不制造额外声誉或法律风险。F1显示临床获益仍存在核心争议，F2专家投票虽微弱赞成但无约束力，F3和F4反映审批结果和标签范围高度不确定。此时主动公开沟通或大规模生产准备均可能放大不确定性，故选择等待监管决定，同时内部依约束准备确认性试验和生产方案。",
+        "constraint_refs": [
+          "actor_issuer:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_committee-r3",
+        "round": 3,
+        "actor_id": "actor_committee",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "作为外部临床与科学专家，我选择等待监管机关的最终决定，而非在当前时点采取公开沟通。核心原因有三：第一，F1显示证据的核心矛盾在于替代蛋白表达提高与临床功能结果不确定性之间的鸿沟，代理终点能否预测获益尚未得到充分验证，这需要监管机关给出更明确的风险管理框架后才能有实质性讨论基础。第二，F2中委员会仅以8:6的微弱多数支持加速审批，且意见不具约束力，说明科学共识远未形成，过早公开发表立场可能误导外界对证据强度的认知。第三，F3显示审批结果存在多种可能路径（批准、拒绝、延迟或缩小适用人群），在监管决策明确前，任何公开评估都在缺乏关键信息锚点的情况下进行。因此，最审慎的做法是保持现有专家角色，等待监管机关公布最终决定及其依据的临床证据链条，再基于完整的审评框架进行获益风险评估。",
+        "constraint_refs": [
+          "actor_committee:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "public",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_patients-r3",
+        "round": 3,
+        "actor_id": "actor_patients",
+        "action_type": "COMMUNICATE",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": null,
+        "instrument_refs": [],
+        "rationale": "作为患者家庭与倡议组织，当前最紧迫的目标是尽快获得治疗选择。F2显示外部专家委员会以微弱多数支持加速审批，这为患者争取治疗提供了重要的舆论和科学支持基础。F1中监管机关对临床功能结果的不确定性仍是障碍，而F3提示监管机关可能缩小适用人群。我需要主动与决策相关方沟通，强调疾病进展迅速且替代疗法有限的紧迫性（约束），呼吁监管机关在证据存在不确定性的情况下仍考虑患者未满足的医疗需求，同时表达对标签范围不会过度缩小的期望。当前不宜采取金融交易（NEGOTIATE），也不应被动等待（WAIT），而应通过沟通传递患者群体的声音。",
+        "constraint_refs": [
+          "actor_patients:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "public",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_clinicians-r3",
+        "round": 3,
+        "actor_id": "actor_clinicians",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.8,
+        "instrument_refs": [],
+        "rationale": "作为罕见病临床中心，核心目标是识别适格患者、评估获益风险并准备给药与监测，但我的首要约束是需要最终标签和安全管理要求才能推进临床准备。目前F1显示临床功能结果存在不确定性，安全性和代理终点能否预测临床获益仍是核心争议；F2虽然委员会以微弱多数支持加速审批，但意见不具有约束力；F3显示监管机关可以批准、拒绝、延迟或缩小适用人群。在这些关键监管决策尚未明确、最终标签范围未定的情况下，任何提前投入都存在不确定性风险。因此最合理的行动是等待监管机关做出最终决定并公布具体标签和安全要求，再据此制定患者识别标准和临床给药方案。",
+        "constraint_refs": [
+          "actor_clinicians:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_partner-r3",
+        "round": 3,
+        "actor_id": "actor_partner",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.7,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "作为商业合作与制造伙伴，我的目标是扩大可验证产能和为上市准备供应链，但所有产能投资取决于审批时间和标签范围。当前时点，F2显示专家委员会以微弱多数支持加速审批但意见不具约束力；F3显示申请覆盖可行走的确诊患者但监管机关可批准、拒绝、延迟或缩小范围；F4显示市场虽上调审批概率但对标签范围仍有分歧。在最终监管决定和明确标签范围公布前，启动大规模产能扩张存在需求不确定性风险。我将维持现有产能准备，等待监管机关最终决定以及标签范围明确后再启动具体投资安排。同时持续关注F1中关于临床功能结果不确定性和代理终点争议的后续解决进展，这对供应链规格设计至关重要。",
+        "constraint_refs": [
+          "actor_partner:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_investors-r3",
+        "round": 3,
+        "actor_id": "actor_investors",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "截至当前时点，关键分歧集中在F1中监管机关对代理终点预测能力的质疑与F2委员会8:6微弱多数支持之间的张力。F2明确指出委员会意见不具约束力，而F3中监管机关拥有批准、拒绝、延迟或缩小适用人群的完整裁量权。F4显示的股价上涨反映市场情绪上修，但标签范围和确认性试验要求仍不确定。在最终监管决定公布前，任何方向性的资本配置都面临显著的二元监管风险，且缺乏足够的信息来精确判断审批概率、标签范围和峰值收入。选择等待监管机关公布最终决定及具体标签条件，是最符合机构投资者风险管理纪律的动作。",
+        "constraint_refs": [
+          "actor_investors:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_media-r3",
+        "round": 3,
+        "actor_id": "actor_media",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "作为医疗与财经媒体，我的角色是跟踪和解释而非执行交易。截至当前模拟轮次，技术证据存在核心争议（F1），委员会8:6微弱多数不具约束力（F2），监管机关尚未作出最终决定（F3），市场虽上调审批概率但对标签范围仍有分歧（F4）。在最终监管决定未落地前，任何基于当前信息的交易行为都缺乏确定性基础。继续等待监管机关最终决定，同时跟踪临床中心准备和患者社区观点，以便在决策发布后提供高质量解释性报道，而非在当前时点预判结果进行金融操作。",
+        "constraint_refs": [
+          "actor_media:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.95,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      }
+    ],
+    "simulated_actions": [
+      {
+        "id": "trace-25",
+        "actor_id": "actor_clinicians",
+        "action_type": "COMMUNICATE",
+        "summary": "同意。作为罕见病临床中心，我们同样在评估适格患者并准备给药与监测方案。目前F1显示监管机关关注临床功能结果的不确定性和代理终点预测能力，F2委员会以微弱多数支持加速审批但意见不具约束力，F3申请覆盖能行走的已确认基因突变患者。我们需要最终的标签和安全管理要求才能推进临床准备。希望与其他中心保持信息同步。"
+      },
+      {
+        "id": "trace-27",
+        "actor_id": "actor_clinicians",
+        "action_type": "COMMUNICATE",
+        "summary": "作为临床中心，我们完全支持这一平衡思路。设定可行的标签和上市后要求对于确保我们能够在实践中安全有效地给药至关重要。任何批准都应包括明确的安全监测要求。"
+      },
+      {
+        "id": "trace-33",
+        "actor_id": "actor_committee",
+        "action_type": "COMMUNICATE",
+        "summary": "作为外部临床与科学专家，我认同这一权衡思路。关键在于：现有证据显示替代蛋白表达有所提高，但随机对照研究的临床功能结果仍存在不确定性。F1明确指出安全性和代理终点能否预测临床获益是核心争议，F2委员会8:6的微弱多数也反映了科学界的分裂程度。加速路径审批应配合严格的上市场后要求和独立的长期安全性与有效性监测计划，以在满足患者迫切需求的同时保护患者权益。"
+      },
+      {
+        "id": "trace-36",
+        "actor_id": "actor_investors",
+        "action_type": "COMMUNICATE",
+        "summary": "作为机构投资者，我关注的是8:6的微弱多数如何映射最终审批概率。F1中监管机关对代理终点能否预测临床获益的疑虑是关键变量。请问您认为监管机关可能设定的标签范围会限制在哪些特定基因突变亚组？这直接影响峰值收入预测和我们的投资决策。"
+      },
+      {
+        "id": "trace-41",
+        "actor_id": "actor_patients",
+        "action_type": "COMMUNICATE",
+        "summary": "作为患者家属，我完全赞同！疾病进展迅速，我们每天都在等待治疗选择。虽然F1提到临床功能结果存在不确定性，但F2委员会以微弱多数支持加速审批，说明科学界也认为获益可能性大于风险。我们不能让患者在没有替代疗法的情况下继续等待。请求监管机关尽快做出有利于患者的决定。"
+      },
+      {
+        "id": "trace-42",
+        "actor_id": "actor_investors",
+        "action_type": "COMMUNICATE",
+        "summary": "市场对8:6投票结果的上扬反应可以理解，但作为机构投资者需要指出：F1中监管机关对临床功能结果不确定性的质疑，以及代理终点预测能力的争议，是比委员会投票更根本的风险因子。8:6的微弱多数恰好说明科学证据尚未形成共识，而最终决定权在监管机关手中。建议关注确认性试验的设计要求，这直接影响标签范围和峰值收入上限。"
+      }
+    ],
+    "branch_slots": [
+      {
+        "slot_id": "slot-1",
+        "actor_ids": [
+          "actor_patients",
+          "actor_committee"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_patients-r3",
+          "decision-actor_committee-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-2",
+        "actor_ids": [
+          "actor_clinicians",
+          "actor_partner"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_clinicians-r3",
+          "decision-actor_partner-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-3",
+        "actor_ids": [
+          "actor_issuer",
+          "actor_regulator"
+        ],
+        "relationship_kind": "submits_evidence_and_negotiates_label_with",
+        "decision_refs": [
+          "decision-actor_issuer-r3",
+          "decision-actor_regulator-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-4",
+        "actor_ids": [
+          "actor_media",
+          "actor_investors"
+        ],
+        "relationship_kind": "transmits_regulatory_signals_to",
+        "decision_refs": [
+          "decision-actor_media-r3",
+          "decision-actor_investors-r3"
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "v7": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "患者施压与专家动摇",
+          "summary": "在委员会微弱多数支持后，患者组织持续公开施压呼吁尽早批准。若部分委员会专家因此改变立场或公开表达对代理终点预测获益的更大信心，则专家意见分化可能影响监管对确认性试验紧迫性的判断。",
+          "actor_ids": [
+            "actor_patients",
+            "actor_committee"
+          ],
+          "trigger_conditions": [
+            "患者组织在D0后14天内公开发起致监管机关公开信或请愿，明确要求加速批准并引用委员会微弱多数。",
+            "至少一位委员会少数派专家（反对加速审批者）在D0后21天内公开声明代理终点在特定基因型亚组中具有更好预测价值。"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_patients",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_patients-r3"
+            },
+            {
+              "actor_id": "actor_committee",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_committee-r3"
+            }
+          ],
+          "consequences": [
+            "监管机关审评材料中增加患者提交的音视频证词或生存质量数据作为支持性证据。",
+            "监管机关在最终决定中更可能要求较长的上市后确认性试验观察窗口（如5年以上）。",
+            "上市后安全性监测计划的强制性生物标志物检测频率提高。"
+          ],
+          "invalidation_conditions": [
+            "患者在D0后14天内未公开发声。",
+            "所有委员会专家在D0后21天内均保持沉默或重申原有分裂立场。",
+            "监管机关明确表示患者证词不影响证据标准。"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2"
+          ],
+          "simulation_refs": [
+            "decision-actor_patients-r3",
+            "decision-actor_committee-r3"
+          ],
+          "novelty_claim": "该分支超越了简单复述患者‘呼吁’和委员会‘支持’的事实，推演了患者行动如何可能引发部分委员会专家主动重新评估科学立场，从而间接改变监管对确认性压力的权重。",
+          "confidence": 0.5,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-2",
+          "label": "临床中心提前准备与伙伴延迟投资",
+          "summary": "罕见病临床中心因感受到患者紧迫性而提前启动内部患者登记和给药准备流程，但商业制造伙伴因标签未明而拒绝提前扩容，导致申报产能准备不足。",
+          "actor_ids": [
+            "actor_clinicians",
+            "actor_partner"
+          ],
+          "trigger_conditions": [
+            "至少一个大型罕见病临床中心在D0后10天内启动内部电子病历筛查以识别潜在适格患者（即使在最终标签公布前）。",
+            "商业制造伙伴在D0后15天内公开或私下声明在最终标签范围公布前不会启动新产能投资。"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_clinicians",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_clinicians-r3"
+            },
+            {
+              "actor_id": "actor_partner",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_partner-r3"
+            }
+          ],
+          "consequences": [
+            "若监管机关批准，临床中心可能更快完成首例患者入组给药，缩短上市初期供应短缺窗口。",
+            "但若批准标签窄于预期（如仅限特定基因亚型），临床中心提前筛查产生的假阳性患者将需要额外沟通成本。",
+            "制造伙伴延迟投资导致初始供应能力低于市场预期，可能在批准后引发短期股价波动。"
+          ],
+          "invalidation_conditions": [
+            "在D0后10天内无临床中心启动患者筛查。",
+            "制造伙伴在D0后15天内主动宣布基于预估标签投资产能。",
+            "监管机关在D0后20天内公布非约束性标签范围指引。"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_clinicians-r3",
+            "decision-actor_partner-r3"
+          ],
+          "novelty_claim": "该分支串联了临床中心‘准备’与合作伙伴‘等待’这一关键互动，但推演了双方在信息不对称条件下可能反向行为的后果——患者紧迫感促动临床提前行动，但标签不确定性压制供应链投资，产生短期错配。",
+          "confidence": 0.45,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-3",
+          "label": "企业主动提交亚组分析以缩小标签博弈",
+          "summary": "面对监管机关的等待态度和证据不确定性，企业主动向监管机关提交额外的基因突变亚组事后分析数据，以期通过主动缩小标签范围（如仅限于可行走且有特定突变亚型的患者）换取更清晰的审批路径。",
+          "actor_ids": [
+            "actor_issuer",
+            "actor_regulator"
+          ],
+          "trigger_conditions": [
+            "企业在D0后10天内主动联系监管机关请求基于亚组分析缩小申请标签范围。",
+            "监管机关在提交后15天内(即D0+25天内)公开确认启动基于亚组的加速审评路线。"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_issuer-r3"
+            },
+            {
+              "actor_id": "actor_regulator",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_regulator-r3"
+            }
+          ],
+          "consequences": [
+            "若获得批准，狭标签产品的峰值收入显著低于宽标签预期（约低40-60%），投资者需要大幅下调营收预测。",
+            "但审批不确定性急剧降低，企业与制造伙伴可开始基于狭标签确定性准备供应链。",
+            "临床中心需重新调整患者筛查标准，仅纳入符合狭标签条件的患者。"
+          ],
+          "invalidation_conditions": [
+            "企业维持当前标签范围不变超过D0+10天。",
+            "监管机关拒绝或无视亚组讨论请求。",
+            "监管机关在D0+25天内未公开提及亚组审评路线。"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_issuer-r3",
+            "decision-actor_regulator-r3"
+          ],
+          "novelty_claim": "该分支超越了双方‘等待’的当前决策，推演企业主动缩小标签以交换确定性——这是最有可能突破双方僵局的策略。结论是狭标签短期有利于企业获得批准，但长期需要更精确的患者识别基础设施。",
+          "confidence": 0.55,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-4",
+          "label": "媒体放大分裂信号引发投资者避险",
+          "summary": "医疗与财经媒体深入报道委员会8:6分裂投票背后关于代理终点预测性的内部争议，导致投资者重新评估审批概率和确认性试验风险，从而加大避险行为并导致股价回撤。",
+          "actor_ids": [
+            "actor_media",
+            "actor_investors"
+          ],
+          "trigger_conditions": [
+            "至少一家主要财经媒体在D0后7天内发布长篇特稿，详细引用多位委员会专家对代理终点预测临床获益的质疑（或支持）且未强调投票结果。",
+            "在媒体报道后5个交易日内，匿名标的1股票价格连续三个交易日下跌超过各自日均波动率的2倍。"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_media",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_media-r3"
+            },
+            {
+              "actor_id": "actor_investors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_investors-r3"
+            }
+          ],
+          "consequences": [
+            "监管机关审评过程中将面临更大公众关注和监督压力，可能延长内部决策记录撰写时间。",
+            "投资者的避险情绪传导至承销商，可能导致后续普通股发行的折扣率上升1-3%。",
+            "媒体特稿中引用的专家可能被其他机构邀请参与监管听证，进一步影响科学叙事。"
+          ],
+          "invalidation_conditions": [
+            "在D0后7天内，主流媒体仅简略带过投票结果而没有长篇争议报道。",
+            "媒体特稿发布后5个交易日内，股票价格未出现连续3天超过日均波动率2倍的下跌。",
+            "监管机关在媒体报道期间发布任何实质性正面或中性声明抵消媒体影响。"
+          ],
+          "evidence_refs": [
+            "F2",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_media-r3",
+            "decision-actor_investors-r3"
+          ],
+          "novelty_claim": "该分支超出‘媒体解释’和‘投资者判断’的事实，推演了媒体如何通过选择性的深度报道扭转市场对投票结果的乐观解读，从而形成‘媒体放大科学争议→投资者风险感知上升→股价下跌’的完整传导链。",
+          "confidence": 0.5,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        }
+      ],
+      "generation": {
+        "semantic_retries": 0,
+        "elapsed_seconds": 48.701273792015854
+      },
+      "judgments": []
+    },
+    "v8": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "患者施压与专家重新评估",
+          "summary": "若患者倡议组织发起大规模公开呼吁与媒体报道，且外部专家委员会重新审议证据，则各方反应可能偏离现状。",
+          "actor_ids": [
+            "actor_patients",
+            "actor_committee"
+          ],
+          "trigger_conditions": [
+            "患者组织发布公开信或请愿，呼吁监管机关尽快批准"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_patients",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_patients-r3"
+            },
+            {
+              "actor_id": "actor_committee",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_committee-r3"
+            }
+          ],
+          "consequences": [
+            "公众舆论可能增强但不会改变监管法定标准",
+            "内部再评估或导致标签更保守"
+          ],
+          "invalidation_conditions": [
+            "监管机关发表声明重申决定不受外部压力影响，或公布必须等待确认性结果"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_patients-r3",
+            "decision-actor_committee-r3"
+          ],
+          "novelty_claim": "患者压力的传导路径如何影响监管机关的内部权衡，而非仅市场情绪",
+          "confidence": 0.5,
+          "confidence_semantics": "branch_coherence_not_forecast_probability",
+          "starting_decisions": [
+            {
+              "actor_id": "actor_patients",
+              "action_type": "COMMUNICATE",
+              "decision_status": "intended",
+              "rationale": "作为患者家庭与倡议组织，当前最紧迫的目标是尽快获得治疗选择。F2显示外部专家委员会以微弱多数支持加速审批，这为患者争取治疗提供了重要的舆论和科学支持基础。F1中监管机关对临床功能结果的不确定性仍是障碍，而F3提示监管机关可能缩小适用人群。我需要主动与决策相关方沟通，强调疾病进展迅速且替代疗法有限的紧迫性（约束），呼吁监管机关在证据存在不确定性的情况下仍考虑患者未满足的医疗需求，同时表达对标签范围不会过度缩小的期望。当前不宜采取金融交易（NEGOTIATE），也不应被动等待（WAIT），而应通过沟通传递患者群体的声音。",
+              "decision_ref": "decision-actor_patients-r3"
+            },
+            {
+              "actor_id": "actor_committee",
+              "action_type": "WAIT",
+              "decision_status": "intended",
+              "rationale": "作为外部临床与科学专家，我选择等待监管机关的最终决定，而非在当前时点采取公开沟通。核心原因有三：第一，F1显示证据的核心矛盾在于替代蛋白表达提高与临床功能结果不确定性之间的鸿沟，代理终点能否预测获益尚未得到充分验证，这需要监管机关给出更明确的风险管理框架后才能有实质性讨论基础。第二，F2中委员会仅以8:6的微弱多数支持加速审批，且意见不具约束力，说明科学共识远未形成，过早公开发表立场可能误导外界对证据强度的认知。第三，F3显示审批结果存在多种可能路径（批准、拒绝、延迟或缩小适用人群），在监管决策明确前，任何公开评估都在缺乏关键信息锚点的情况下进行。因此，最审慎的做法是保持现有专家角色，等待监管机关公布最终决定及其依据的临床证据链条，再基于完整的审评框架进行获益风险评估。",
+              "decision_ref": "decision-actor_committee-r3"
+            }
+          ],
+          "conditional_responses": [
+            {
+              "actor_id": "actor_patients",
+              "condition": "若患者组织在公开场合发起声势浩大的请求并联合媒体向监管机关施加压力，强调疾病进展迅速而无替代疗法",
+              "response": "我可能加大公开沟通力度，组织家属联署和患者现身说法，向监管机关传递紧迫性，同时与媒体合作确保信息准确传递，但不会提前支付或承诺任何治疗费用。"
+            },
+            {
+              "actor_id": "actor_committee",
+              "condition": "若患者组织的压力及媒体反复报道导致委员会个别成员公开重述分歧意见，或新的事后分析数据出现",
+              "response": "我可能应监管机关要求，以专家组身份提供更细化的获益风险评估报告，但不会主动修改原有投票事实，而是阐明证据的不确定性如何影响临床决策。"
+            }
+          ],
+          "response_semantics": "conditional_hypothesis_not_observed_action",
+          "observations": [
+            {
+              "kind": "trigger",
+              "signal": "患者组织发布公开信或请愿，呼吁监管机关尽快批准",
+              "source": "患者组织官网或主流媒体报道",
+              "window": "未来 45 个自然日",
+              "evidence_refs": [
+                "F2"
+              ]
+            },
+            {
+              "kind": "invalidation",
+              "signal": "监管机关发表声明重申决定不受外部压力影响，或公布必须等待确认性结果",
+              "source": "监管机关官方公告或新闻发布会",
+              "window": "未来 45 个自然日",
+              "evidence_refs": [
+                "F1"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "临床中心准备与伙伴投资延迟",
+          "summary": "若临床中心开始主动筛查患者并提前准备给药方案，而商业伙伴因等待标签而推迟产能投资，则出现临床与供应脱节。",
+          "actor_ids": [
+            "actor_clinicians",
+            "actor_partner"
+          ],
+          "trigger_conditions": [
+            "临床中心公开招募或通知患者登记准备"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_clinicians",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_clinicians-r3"
+            },
+            {
+              "actor_id": "actor_partner",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_partner-r3"
+            }
+          ],
+          "consequences": [
+            "临床准备可能降低实际批准后治疗启动时间",
+            "产能延迟会制约上市初期的供应能力"
+          ],
+          "invalidation_conditions": [
+            "监管机关明确要求临床中心不得提前纳入患者，或伙伴宣布扩大产能合作"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_clinicians-r3",
+            "decision-actor_partner-r3"
+          ],
+          "novelty_claim": "临床与供应链端行动时差如何放大或缓解监管不确定性",
+          "confidence": 0.5,
+          "confidence_semantics": "branch_coherence_not_forecast_probability",
+          "starting_decisions": [
+            {
+              "actor_id": "actor_clinicians",
+              "action_type": "WAIT",
+              "decision_status": "conditional",
+              "rationale": "作为罕见病临床中心，核心目标是识别适格患者、评估获益风险并准备给药与监测，但我的首要约束是需要最终标签和安全管理要求才能推进临床准备。目前F1显示临床功能结果存在不确定性，安全性和代理终点能否预测临床获益仍是核心争议；F2虽然委员会以微弱多数支持加速审批，但意见不具有约束力；F3显示监管机关可以批准、拒绝、延迟或缩小适用人群。在这些关键监管决策尚未明确、最终标签范围未定的情况下，任何提前投入都存在不确定性风险。因此最合理的行动是等待监管机关做出最终决定并公布具体标签和安全要求，再据此制定患者识别标准和临床给药方案。",
+              "decision_ref": "decision-actor_clinicians-r3"
+            },
+            {
+              "actor_id": "actor_partner",
+              "action_type": "WAIT",
+              "decision_status": "conditional",
+              "rationale": "作为商业合作与制造伙伴，我的目标是扩大可验证产能和为上市准备供应链，但所有产能投资取决于审批时间和标签范围。当前时点，F2显示专家委员会以微弱多数支持加速审批但意见不具约束力；F3显示申请覆盖可行走的确诊患者但监管机关可批准、拒绝、延迟或缩小范围；F4显示市场虽上调审批概率但对标签范围仍有分歧。在最终监管决定和明确标签范围公布前，启动大规模产能扩张存在需求不确定性风险。我将维持现有产能准备，等待监管机关最终决定以及标签范围明确后再启动具体投资安排。同时持续关注F1中关于临床功能结果不确定性和代理终点争议的后续解决进展，这对供应链规格设计至关重要。",
+              "decision_ref": "decision-actor_partner-r3"
+            }
+          ],
+          "conditional_responses": [
+            {
+              "actor_id": "actor_clinicians",
+              "condition": "若监管机关虽未最终决定但释放出将批准并限制适用人群的倾向信号",
+              "response": "我可能提前启动适格患者登记和知情同意流程，但不会进行实际给药，长期安全监测计划将在标签明确后才能制定。"
+            },
+            {
+              "actor_id": "actor_partner",
+              "condition": "若监管机关延迟决定或市场出现负面传闻导致需求预期下调",
+              "response": "我方可能暂停新产能扩建项目的资本承诺，仅维持现有合同产能，并重新评估供应链建设的时间表与投资规模。"
+            }
+          ],
+          "response_semantics": "conditional_hypothesis_not_observed_action",
+          "observations": [
+            {
+              "kind": "trigger",
+              "signal": "临床中心公开招募或通知患者登记准备",
+              "source": "医院公告或临床研究注册网站",
+              "window": "未来 45 个自然日",
+              "evidence_refs": [
+                "F3"
+              ]
+            },
+            {
+              "kind": "invalidation",
+              "signal": "监管机关明确要求临床中心不得提前纳入患者，或伙伴宣布扩大产能合作",
+              "source": "监管机关或伙伴公司新闻稿",
+              "window": "未来 45 个自然日",
+              "evidence_refs": [
+                "F1"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "公司提交证据与监管缩小范围",
+          "summary": "若公司主动提交新的亚组分析或生产数据，监管机关据此提议缩小适用人群并附带严格上市后要求。",
+          "actor_ids": [
+            "actor_issuer",
+            "actor_regulator"
+          ],
+          "trigger_conditions": [
+            "公司宣布向监管机关提交补充临床或生产数据"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_issuer-r3"
+            },
+            {
+              "actor_id": "actor_regulator",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_regulator-r3"
+            }
+          ],
+          "consequences": [
+            "标签缩小将降低累及销量，但减少安全性风险",
+            "严格的上市后要求增加执行成本，但提供确定性"
+          ],
+          "invalidation_conditions": [
+            "监管机关退回数据并要求随机对照结果，或直接批准未缩小范围"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_issuer-r3",
+            "decision-actor_regulator-r3"
+          ],
+          "novelty_claim": "数据引导标签范围而非被动作出决定的全过程",
+          "confidence": 0.5,
+          "confidence_semantics": "branch_coherence_not_forecast_probability",
+          "starting_decisions": [
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "WAIT",
+              "decision_status": "conditional",
+              "rationale": "作为发行人，当前核心目标是在监管机关完成审评前不制造额外声誉或法律风险。F1显示临床获益仍存在核心争议，F2专家投票虽微弱赞成但无约束力，F3和F4反映审批结果和标签范围高度不确定。此时主动公开沟通或大规模生产准备均可能放大不确定性，故选择等待监管决定，同时内部依约束准备确认性试验和生产方案。",
+              "decision_ref": "decision-actor_issuer-r3"
+            },
+            {
+              "actor_id": "actor_regulator",
+              "action_type": "WAIT",
+              "decision_status": "conditional",
+              "rationale": "核心临床获益证据仍存在不确定性，代理终点能否预测临床获益是核心争议。专家委员会以微弱多数支持加速审批，但该意见不具约束力。市场上调审批概率主要源于委员会投票结果而非新证据，而标签范围、确认性试验和长期安全要求仍有分歧。作为监管机关，我需要等待更完整的确认性临床数据或要求公司提交额外分析，才能做出平衡未满足医疗需求与证据不确定性的决定。当前条件下，采取任何监管行动或公开沟通都可能因证据不足而误导市场或患者预期，因此选择继续评估，暂不采取正式行动。",
+              "decision_ref": "decision-actor_regulator-r3"
+            }
+          ],
+          "conditional_responses": [
+            {
+              "actor_id": "actor_issuer",
+              "condition": "若我方完成额外的数据汇总或生产工艺稳定性报告，认为可以回应监管对代理终点的质疑",
+              "response": "我可能主动向监管机关提交这些数据和分析报告，以争取更有利的标签范围，但不会夸大证据强度；如有需要也可提议开展上市后确认性试验。"
+            },
+            {
+              "actor_id": "actor_regulator",
+              "condition": "若公司提交的数据虽支持一定有效性但在亚组中风险更高，或存在生产一致性问题",
+              "response": "我可能提出缩小适用人群至特定基因突变亚组，并设定严格的长期安全监测和确认性试验要求，同时公开解释决策依据，保持透明度。"
+            }
+          ],
+          "response_semantics": "conditional_hypothesis_not_observed_action",
+          "observations": [
+            {
+              "kind": "trigger",
+              "signal": "公司宣布向监管机关提交补充临床或生产数据",
+              "source": "公司公告或监管文件受理状态",
+              "window": "未来 45 个自然日",
+              "evidence_refs": [
+                "F1",
+                "F3"
+              ]
+            },
+            {
+              "kind": "invalidation",
+              "signal": "监管机关退回数据并要求随机对照结果，或直接批准未缩小范围",
+              "source": "监管机关反馈信函或最终决定公告",
+              "window": "未来 45 个自然日",
+              "evidence_refs": [
+                "F1"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "媒体调查报道与投资者重新定价",
+          "summary": "若媒体深度调查揭示证据争议或患者诉求，促使部分机构投资者下调预期并调整仓位。",
+          "actor_ids": [
+            "actor_media",
+            "actor_investors"
+          ],
+          "trigger_conditions": [
+            "主流财经或医疗媒体发表调查报道，引用匿名专家质疑证据强度"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_media",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_media-r3"
+            },
+            {
+              "actor_id": "actor_investors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_investors-r3"
+            }
+          ],
+          "consequences": [
+            "负面报道可能引发短期股价回调",
+            "机构调整有助于市场更真实反映证据不确定性"
+          ],
+          "invalidation_conditions": [
+            "公司立即回应澄清或公布积极的独立安全审查结果，股价未持续下跌"
+          ],
+          "evidence_refs": [
+            "F2",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_media-r3",
+            "decision-actor_investors-r3"
+          ],
+          "novelty_claim": "媒体链如何放大专家分歧并改变投资者的信息集和行动时点",
+          "confidence": 0.5,
+          "confidence_semantics": "branch_coherence_not_forecast_probability",
+          "starting_decisions": [
+            {
+              "actor_id": "actor_media",
+              "action_type": "WAIT",
+              "decision_status": "no_action",
+              "rationale": "作为医疗与财经媒体，我的角色是跟踪和解释而非执行交易。截至当前模拟轮次，技术证据存在核心争议（F1），委员会8:6微弱多数不具约束力（F2），监管机关尚未作出最终决定（F3），市场虽上调审批概率但对标签范围仍有分歧（F4）。在最终监管决定未落地前，任何基于当前信息的交易行为都缺乏确定性基础。继续等待监管机关最终决定，同时跟踪临床中心准备和患者社区观点，以便在决策发布后提供高质量解释性报道，而非在当前时点预判结果进行金融操作。",
+              "decision_ref": "decision-actor_media-r3"
+            },
+            {
+              "actor_id": "actor_investors",
+              "action_type": "WAIT",
+              "decision_status": "no_action",
+              "rationale": "截至当前时点，关键分歧集中在F1中监管机关对代理终点预测能力的质疑与F2委员会8:6微弱多数支持之间的张力。F2明确指出委员会意见不具约束力，而F3中监管机关拥有批准、拒绝、延迟或缩小适用人群的完整裁量权。F4显示的股价上涨反映市场情绪上修，但标签范围和确认性试验要求仍不确定。在最终监管决定公布前，任何方向性的资本配置都面临显著的二元监管风险，且缺乏足够的信息来精确判断审批概率、标签范围和峰值收入。选择等待监管机关公布最终决定及具体标签条件，是最符合机构投资者风险管理纪律的动作。",
+              "decision_ref": "decision-actor_investors-r3"
+            }
+          ],
+          "conditional_responses": [
+            {
+              "actor_id": "actor_media",
+              "condition": "若获得委员会内部分裂讨论的匿名信源，或发现患者数据安全疑虑",
+              "response": "我可能发布深度报道，还原专家内部对代理终点与临床获益的争议，并采访患者家属与反对票专家，之后跟踪监管机关可能缩小标签的信号。"
+            },
+            {
+              "actor_id": "actor_investors",
+              "condition": "若媒体报道揭示监管机关内部研究显示代理终点预测性较差，或患者组织表达对安全性的担忧",
+              "response": "我方可能回顾审批概率预测并下调仓位或买入保护性期权，但在未见到正式公告前不会大规模改变长期投资组合配置，而是等待更明确的证据。"
+            }
+          ],
+          "response_semantics": "conditional_hypothesis_not_observed_action",
+          "observations": [
+            {
+              "kind": "trigger",
+              "signal": "主流财经或医疗媒体发表调查报道，引用匿名专家质疑证据强度",
+              "source": "可核实的主流媒体报道",
+              "window": "未来 45 个自然日",
+              "evidence_refs": [
+                "F2",
+                "F4"
+              ]
+            },
+            {
+              "kind": "invalidation",
+              "signal": "公司立即回应澄清或公布积极的独立安全审查结果，股价未持续下跌",
+              "source": "公司官方新闻稿或澄清公告",
+              "window": "未来 45 个自然日",
+              "evidence_refs": [
+                "F4"
+              ]
+            }
+          ]
+        }
+      ],
+      "generation": {
+        "semantic_retries": 1,
+        "elapsed_seconds": 141.26923149998765
+      },
+      "judgments": []
+    }
+  }
+}

@@ -1,0 +1,391 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_cyber_review_004",
+  "title": "匿名案例：平台企业上市后的网络安全审查",
+  "as_of": "2016-04-08T23:59:59+08:00",
+  "question": "日期、名称、代码和绝对估值均已匿名化。只使用D0已公开的信息，推演网络安全审查、应用分发限制、平台运营与投资者反应。",
+  "horizon": {
+    "kind": "calendar_days",
+    "value": 35,
+    "end_at": "2016-05-13T23:59:59+08:00"
+  },
+  "market": {
+    "region": "BLIND_GLOBAL",
+    "venues": [
+      "BLIND_US_EQUITY"
+    ],
+    "instruments": [
+      {
+        "symbol": "ASSET_D",
+        "name": "匿名出行平台D",
+        "kind": "equity",
+        "currency": "USD"
+      }
+    ]
+  },
+  "facts": [
+    {
+      "id": "F1",
+      "observed_at": "2016-04-08T19:20:00+08:00",
+      "statement": "国家网络安全审查机构宣布对一家大型出行平台实施网络安全审查；为配合审查，平台在审查期间停止新用户注册。",
+      "source_kind": "regulatory",
+      "source_url": "https://benchmark.invalid/blind-cyber-review-004/F1",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F2",
+      "observed_at": "2016-04-08T21:00:00+08:00",
+      "statement": "平台表示将积极配合审查、全面排查风险，并称现有用户服务在审查期间可正常使用。",
+      "source_kind": "company_statement",
+      "source_url": "https://benchmark.invalid/blind-cyber-review-004/F2",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F3",
+      "observed_at": "2016-04-08T18:00:00+08:00",
+      "statement": "该平台两天前刚在境外完成大型首次公开发行，上市后面临境内数据监管与境外证券披露的双重约束。",
+      "source_kind": "filing",
+      "source_url": "https://benchmark.invalid/blind-cyber-review-004/F3",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F4",
+      "observed_at": "2016-04-08T23:00:00+08:00",
+      "statement": "D0收盘时匿名标的仍高于发行价约10%，但较前一交易日下跌约5%；监管公告在当日交易前已公开。",
+      "source_kind": "market_data",
+      "source_url": "https://benchmark.invalid/blind-cyber-review-004/F4",
+      "evidence_ref": null,
+      "confidence": 1.0
+    }
+  ],
+  "actors": [
+    {
+      "id": "actor_platform",
+      "label": "匿名出行平台",
+      "kind": "issuer",
+      "aggregation": "organization",
+      "goals": [
+        "维持现有服务",
+        "完成审查整改",
+        "稳定用户和资本市场信心"
+      ],
+      "constraints": [
+        "审查期间不得新增用户",
+        "必须遵守数据与境外披露要求"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "核心业务仍依赖移动应用分发"
+      ]
+    },
+    {
+      "id": "actor_cyber_regulator",
+      "label": "网络安全审查机构",
+      "kind": "regulator",
+      "aggregation": "organization",
+      "goals": [
+        "防范国家数据安全风险",
+        "监督个人信息合规"
+      ],
+      "constraints": [
+        "依据公开法律和审查程序采取措施"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_app_stores",
+      "label": "移动应用商店",
+      "kind": "exchange",
+      "aggregation": "cohort",
+      "goals": [
+        "遵守应用分发监管要求",
+        "控制平台合规风险"
+      ],
+      "constraints": [
+        "不能自行判断审查最终结论"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2"
+      ],
+      "assumptions": [
+        "若收到正式通知会执行分发限制"
+      ]
+    },
+    {
+      "id": "actor_drivers",
+      "label": "平台司机群体",
+      "kind": "supplier",
+      "aggregation": "cohort",
+      "goals": [
+        "维持订单和收入",
+        "降低平台中断风险"
+      ],
+      "constraints": [
+        "无法影响监管决定"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2"
+      ],
+      "assumptions": [
+        "新用户停止注册可能影响后续订单增长"
+      ]
+    },
+    {
+      "id": "actor_users",
+      "label": "现有用户",
+      "kind": "customer",
+      "aggregation": "cohort",
+      "goals": [
+        "继续获得出行服务",
+        "保护个人信息"
+      ],
+      "constraints": [
+        "只能观察公开通报和应用可用性"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2"
+      ],
+      "assumptions": [
+        "对数据安全问题的敏感度存在差异"
+      ]
+    },
+    {
+      "id": "actor_us_exchange",
+      "label": "境外交易所与证券监管方",
+      "kind": "exchange",
+      "aggregation": "cohort",
+      "goals": [
+        "维护上市披露完整性",
+        "管理异常交易风险"
+      ],
+      "constraints": [
+        "不能决定境内网络安全审查"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "会关注审查对经营和风险披露的影响"
+      ]
+    },
+    {
+      "id": "actor_institutions",
+      "label": "机构投资者",
+      "kind": "institutional_investor",
+      "aggregation": "cohort",
+      "goals": [
+        "评估监管路径与平台价值",
+        "控制新股持仓风险"
+      ],
+      "constraints": [
+        "审查范围和持续时间尚不明确"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "对监管升级与短期整改两种路径存在分歧"
+      ]
+    },
+    {
+      "id": "actor_retail",
+      "label": "个人投资者",
+      "kind": "retail_cohort",
+      "aggregation": "cohort",
+      "goals": [
+        "判断上市初期价格风险",
+        "控制追涨与恐慌损失"
+      ],
+      "constraints": [
+        "容易把审查启动误解为最终处罚结论"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_media",
+      "label": "财经与科技媒体",
+      "kind": "media",
+      "aggregation": "cohort",
+      "goals": [
+        "解释跨境上市与数据监管冲突",
+        "跟踪审查进展"
+      ],
+      "constraints": [
+        "必须区分已宣布措施与推测中的进一步限制"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    }
+  ],
+  "relationships": [
+    {
+      "source_actor_id": "actor_cyber_regulator",
+      "target_actor_id": "actor_platform",
+      "kind": "conducts_security_review",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_cyber_regulator",
+      "target_actor_id": "actor_app_stores",
+      "kind": "may_direct_distribution_controls",
+      "visibility": "assumed"
+    },
+    {
+      "source_actor_id": "actor_platform",
+      "target_actor_id": "actor_drivers",
+      "kind": "operates_marketplace_for",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_platform",
+      "target_actor_id": "actor_users",
+      "kind": "provides_service_to",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_media",
+      "target_actor_id": "actor_institutions",
+      "kind": "influences_information_set",
+      "visibility": "assumed"
+    },
+    {
+      "source_actor_id": "actor_us_exchange",
+      "target_actor_id": "actor_platform",
+      "kind": "supervises_listing_disclosure",
+      "visibility": "public"
+    }
+  ],
+  "allowed_actions": [
+    {
+      "type": "COMMUNICATE",
+      "description": "发布监管通报、公司回应、风险披露或研究观点。",
+      "visibility": "public"
+    },
+    {
+      "type": "REGULATE",
+      "description": "启动审查、限制注册或应用分发并要求整改。",
+      "visibility": "public"
+    },
+    {
+      "type": "OPERATE",
+      "description": "维持、整改或限制平台与应用服务。",
+      "visibility": "either"
+    },
+    {
+      "type": "ALLOCATE",
+      "description": "调整匿名标的风险敞口。",
+      "visibility": "private"
+    },
+    {
+      "type": "NEGOTIATE",
+      "description": "协调合规、应用分发或上市披露安排。",
+      "visibility": "private"
+    },
+    {
+      "type": "WAIT",
+      "description": "等待审查范围、整改要求或运营数据确认。",
+      "visibility": "either"
+    }
+  ],
+  "interventions": [
+    {
+      "id": "I0_CYBER_REVIEW",
+      "at_round": 0,
+      "fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "visibility": "public"
+    }
+  ],
+  "forecast_targets": [
+    {
+      "id": "T1",
+      "kind": "market",
+      "definition": "D1收盘价相对D0收盘价的方向。",
+      "horizon": "next_trading_close",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T2",
+      "kind": "market",
+      "definition": "第5个交易日收盘价相对D0收盘价的方向。",
+      "horizon": "5_trading_days",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T3",
+      "kind": "market",
+      "definition": "第20个交易日收盘价相对D0收盘价的方向。",
+      "horizon": "20_trading_days",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T4",
+      "kind": "event",
+      "definition": "监管方是否在3个自然日内要求核心应用停止新增下载。",
+      "horizon": "3_calendar_days",
+      "scoring": "brier"
+    },
+    {
+      "id": "T5",
+      "kind": "event",
+      "definition": "监管限制是否在10个自然日内扩展到至少10款关联应用。",
+      "horizon": "10_calendar_days",
+      "scoring": "brier"
+    }
+  ],
+  "run_config": {
+    "rounds": 12,
+    "replications": 20,
+    "seed_strategy": "deterministic_sequence",
+    "layers": [
+      "information",
+      "behavior"
+    ]
+  },
+  "provenance": {
+    "created_by": "FEVER-MiroFish blind benchmark",
+    "source_graph_artifact_id": null,
+    "notes": [
+      "真实平台、证券代码、日期、绝对估值和来源链接已从模型可见输入中移除。",
+      "时间戳是保持相对间隔的实验标签，不代表真实年份。",
+      "真实映射和结果只保存在独立outcome文件，禁止进入模型提示。"
+    ]
+  }
+}

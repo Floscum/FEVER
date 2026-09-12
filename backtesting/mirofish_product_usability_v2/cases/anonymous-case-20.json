@@ -1,0 +1,965 @@
+{
+  "anonymous_case_id": "anonymous-case-20",
+  "configured_actor_count": 8,
+  "decision_actor_count": 8,
+  "fact_count": 4,
+  "fact_chars": 231,
+  "input": {
+    "case_id": "anonymous-case-20",
+    "as_of": "D0",
+    "question": "公司、年份、管理层、异议股东、顾问和市场代码均已匿名化。只使用D0已公开的信息，推演董事会、管理层、两组异议股东、机构股东、代理顾问和投资者在股东大会前如何争取投票。",
+    "horizon": {
+      "kind": "calendar_days",
+      "value": 28,
+      "end_at": "D0 + stated horizon"
+    },
+    "facts": [
+      {
+        "id": "F1",
+        "statement": "公司年度股东大会将选举十二名董事。现任董事会推荐完整公司名单，并主张管理层正在推进成本、流媒体、治理和继任改革。"
+      },
+      {
+        "id": "F2",
+        "statement": "第一组异议股东提名两名候选人，批评长期表现、资本配置和董事会问责；第二组异议股东另提名三人，并同时批评公司与第一组活动人士。"
+      },
+      {
+        "id": "F3",
+        "statement": "大型机构股东、代理投票顾问、创始家族成员和商业领袖公开表达不同支持意见；三套代理卡和通用代理规则使投票动员与最后时点决定尤为重要。"
+      },
+      {
+        "id": "F4",
+        "statement": "公司股票在D0正常收盘。市场同时评估治理变化、管理层战略执行、代理争夺成本和投票结果的不确定性。"
+      }
+    ],
+    "actors": [
+      {
+        "id": "actor_board",
+        "label": "匿名公司现任董事会",
+        "kind": "issuer",
+        "goals": [
+          "使十二名推荐候选人全部当选",
+          "维护战略与治理连续性"
+        ],
+        "constraints": [
+          "必须回应长期表现和继任质疑"
+        ]
+      },
+      {
+        "id": "actor_management",
+        "label": "匿名公司管理层",
+        "kind": "issuer",
+        "goals": [
+          "证明经营改善和价值创造",
+          "维持执行权限"
+        ],
+        "constraints": [
+          "代理争夺分散管理注意力且成本高"
+        ]
+      },
+      {
+        "id": "actor_activist_a",
+        "label": "匿名异议股东集团A",
+        "kind": "institutional_investor",
+        "goals": [
+          "使两名候选人进入董事会",
+          "改变战略、资本配置和问责"
+        ],
+        "constraints": [
+          "需说服大型机构和零售股东"
+        ]
+      },
+      {
+        "id": "actor_activist_b",
+        "label": "匿名异议股东集团B",
+        "kind": "institutional_investor",
+        "goals": [
+          "使三名候选人进入董事会",
+          "推动不同于管理层和另一活动人士的改革"
+        ],
+        "constraints": [
+          "持股和公众关注低于主要争夺双方"
+        ]
+      },
+      {
+        "id": "actor_index_funds",
+        "label": "大型指数与长期机构股东",
+        "kind": "institutional_investor",
+        "goals": [
+          "评估董事能力、战略和治理",
+          "履行受托投票责任"
+        ],
+        "constraints": [
+          "被多方密集游说且需在截止前表决"
+        ]
+      },
+      {
+        "id": "actor_proxy_advisers",
+        "label": "代理投票顾问",
+        "kind": "analyst",
+        "goals": [
+          "向机构客户提供候选人和治理建议"
+        ],
+        "constraints": [
+          "不同顾问可能得出不同建议"
+        ]
+      },
+      {
+        "id": "actor_retail",
+        "label": "零售与员工股东",
+        "kind": "retail_cohort",
+        "goals": [
+          "在品牌、战略和投资回报之间权衡"
+        ],
+        "constraints": [
+          "代理材料复杂且参与率可能较低"
+        ]
+      },
+      {
+        "id": "actor_investors",
+        "label": "媒体与事件驱动投资者",
+        "kind": "institutional_investor",
+        "goals": [
+          "估计投票结果及战略影响",
+          "管理短期事件风险"
+        ],
+        "constraints": [
+          "公开背书不等于已提交或不可撤回的投票"
+        ]
+      }
+    ],
+    "financial_decisions": [
+      {
+        "id": "decision-actor_board-r3",
+        "round": 3,
+        "actor_id": "actor_board",
+        "action_type": "COMMUNICATE",
+        "decision_status": "conditional",
+        "direction": "maintain",
+        "intensity": 0.8,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "股东大会临近，三套代理卡和通用代理规则下投票动员尤为重要。我已对异议股东的批评进行了公开回应（评论Post 2），并向机构投资者（Post 3）发出了交流邀请。但作为发行人董事会，下一步需要主动与关键机构股东和代理投票顾问进行一对一沟通，递送治理改革进展的详细材料，回应长期表现和继任质疑。同时需协调管理层（Post 4的内容）共同向市场传达一致的改革叙事。当前异议股东已形成两个阵营（F2），大型机构态度仍在评估中（F3），因此必须加大沟通力度，争取最后时点的投票支持。",
+        "constraint_refs": [
+          "actor_board:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_management-r3",
+        "round": 3,
+        "actor_id": "actor_management",
+        "action_type": "COMMUNICATE",
+        "decision_status": "intended",
+        "direction": "maintain",
+        "intensity": 0.7,
+        "instrument_refs": [],
+        "rationale": "在代理争夺的关键期，作为管理层必须主动向股东传递经营改善和价值创造的证据，以争取支持并维持执行权限。当前已有改革措施（成本、流媒体、治理、继任），但异议股东同时发起挑战，需要通过进一步沟通巩固现有支持者、说服摇摆股东，从而降低代理争夺的分散注意力和成本风险。主要不确定性在于投票最终结果，但沟通能提高我方叙事的影响力。",
+        "constraint_refs": [
+          "actor_management:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "public",
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_activist_a-r3",
+        "round": 3,
+        "actor_id": "actor_activist_a",
+        "action_type": "COMMUNICATE",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": 0.8,
+        "instrument_refs": [],
+        "rationale": "股东大会投票在即，需说服大型机构和零售股东投票支持我方两名候选人。目前有三套代理卡和通用代理规则，最后时点动员尤为关键。第一组活动人士（我方）需要与第二组异议股东和现任董事会的主张形成差异化，争取摇摆股东的支持。选择COMMUNICATE而非WAIT，因为约束要求主动说服；不选择ALLOCATE是因为当前时点没有新的仓位调整信息，且市场已在评估不确定性。",
+        "constraint_refs": [
+          "actor_activist_a:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "public",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_activist_b-r3",
+        "round": 3,
+        "actor_id": "actor_activist_b",
+        "action_type": "COMMUNICATE",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": 0.6,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "作为持股和公众关注低于主要争夺双方的第三股力量，当前代理争夺进入关键阶段——三套代理卡并存、通用代理规则使最后时点投票动员尤为重要。我们既不能像管理层那样依赖在位优势，也不能像第一组或第二组活动人士那样已有明确提名阵容。此时必须通过定向沟通（私下面见大型机构股东和代理投票顾问），在F3所述的不同支持意见中争取中间摇摆票，同时清晰传递我们不同于管理层和另一活动人士的改革方案，才能为最终使三名候选人进入董事会创造条件。公开大规模动员成本过高且可能提前暴露实力，不宜此时进行。",
+        "constraint_refs": [
+          "actor_activist_b:constraint:0"
+        ],
+        "evidence_refs": [
+          "F2",
+          "F3"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.75,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_index_funds-r3",
+        "round": 3,
+        "actor_id": "actor_index_funds",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.8,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "作为受托机构投资者，我已完成初步审议但尚未最终表态。三套代理卡和通用代理规则使投票动员与最后时点决定尤为重要（F3）。我需要等待代理投票顾问（ISS/Glass Lewis）的最终建议、观察其他大型机构股东在最后阶段的实际投票趋势，并收集更多关于现任董事会改革执行效果的定量证据。现任董事会推荐完整公司名单并主张改革推进（F1），而两组异议股东从不同角度提出批评（F2），我必须区分公开表达与实际投票行为。市场正在评估治理变化和管理层战略执行的不确定性（F4），在截止前保持延迟判断并收集更多信息是最符合受托责任的审慎做法。",
+        "constraint_refs": [
+          "actor_index_funds:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_proxy_advisers-r3",
+        "round": 3,
+        "actor_id": "actor_proxy_advisers",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.7,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "当前正处于代理争夺的最终阶段，三套代理卡和通用代理规则使投票动员与最后时点决定尤为重要。我需要继续观察大型机构股东、代理投票顾问、创始家族成员和商业领袖的公开表态积累，以及公司管理层推进改革的实质性证据，再结合两组异议股东的具体提案内容，才能向机构客户形成有依据的投票建议。目前各方主张均基于公开声明，尚需更多投票意向信号和最终委托投票数据。",
+        "constraint_refs": [
+          "actor_proxy_advisers:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_retail-r3",
+        "round": 3,
+        "actor_id": "actor_retail",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "conditional",
+        "intensity": 0.6,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "作为零售/员工股东，代理材料信息量巨大且复杂（F1、F2三方竞争提名），各阵营的治理主张和战略路径存在根本差异（现任董事主张连续性改革vs异议股东批评长期表现和资本配置）。我对不同提名的实际商业影响和治理效果缺乏足够分析能力，无法在投票动员的关键时点做出明确决策。F3表明大型机构、顾问和创始家族支持意见分裂，更增加判断难度。F4显示股价正常收盘，市场仍在消化不确定性。因此我计划继续观察投票结果的初步信号以及各阵营更清晰的立场说明，避免在材料理解不充分的情况下冲动投票或调整持仓。未来将基于更明确的投票倾向和市场反馈再做决策。",
+        "constraint_refs": [
+          "actor_retail:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.75,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_investors-r3",
+        "round": 3,
+        "actor_id": "actor_investors",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "maintain",
+        "intensity": 0.0,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "当前投票结果高度不确定，三套代理卡及通用代理规则使最后时点动员极为关键。公开背书不等于已投票，机构持仓调整信号不清晰，且D0股票正常收盘无异常价格压力。以管理短期事件风险为目标，在无额外定价或仓位信息前，维持现有敞口，等待代理计票或更明确的市场信号再行动。",
+        "constraint_refs": [
+          "actor_investors:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      }
+    ],
+    "simulated_actions": [
+      {
+        "id": "trace-28",
+        "actor_id": "actor_board",
+        "action_type": "COMMUNICATE",
+        "summary": "我们尊重不同股东的意见，但必须指出：我们的十二名候选人具有丰富的行业经验和治理专长。现任董事会与管理层正在推进切实的成本削减、流媒体转型和治理改革，这些成果已有数据支撑。更换董事会多数成员将带来重大不确定性，破坏正在进行的战略执行。我们呼吁股东基于事实和长期价值做出判断。"
+      },
+      {
+        "id": "trace-38",
+        "actor_id": "actor_board",
+        "action_type": "COMMUNICATE",
+        "summary": "尊敬的机构投资者，感谢您对此次代理投票的审慎态度。我代表现任董事会，诚邀您查阅我们最新的治理改革进展报告和长期战略规划文件。我们的十二名候选人团队在过去一个周期内推动了成本结构优化和流媒体业务增长，同时在董事会独立性和继任规划方面取得了可验证的进展。我们相信，事实和数据将表明继续支持现任团队是符合股东长期最佳利益的选择。"
+      },
+      {
+        "id": "trace-39",
+        "actor_id": "actor_index_funds",
+        "action_type": "COMMUNICATE",
+        "summary": "作为受托机构投资者，我们正在全面评估此次代理投票。现有董事会提出的成本削减、流媒体转型和治理改革方向正确，且已有可追踪的执行数据。我们认同董事会的连续性价值，但异议股东对长期表现和资本配置的批评也值得重视。我们将在截止前基于治理质量、董事独立性和战略合理性做出最终投票决定。我们倾向于支持现任董事会整体名单，但会密切关注初步投票反馈，不排除在特定席位支持个别高质量异议候选人。代理顾问的最终意见也将纳入考量。"
+      }
+    ],
+    "branch_slots": [
+      {
+        "slot_id": "slot-1",
+        "actor_ids": [
+          "actor_activist_b",
+          "actor_activist_a"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_activist_b-r3",
+          "decision-actor_activist_a-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-2",
+        "actor_ids": [
+          "actor_management",
+          "actor_board"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_management-r3",
+          "decision-actor_board-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-3",
+        "actor_ids": [
+          "actor_retail",
+          "actor_index_funds"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_retail-r3",
+          "decision-actor_index_funds-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-4",
+        "actor_ids": [
+          "actor_proxy_advisers",
+          "actor_investors"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_proxy_advisers-r3",
+          "decision-actor_investors-r3"
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "v7": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "异议集团B的差异化策略迫使A调整立场",
+          "summary": "若集团B的定向沟通成功说服关键机构其改革路径有别于集团A，则集团A可能被迫加大公开动员力度或调整提名宣传重点以避免选票分裂。",
+          "actor_ids": [
+            "actor_activist_b",
+            "actor_activist_a"
+          ],
+          "trigger_conditions": [
+            "代理投票顾问发布研究报告指出集团B候选人具备独立改革价值",
+            "至少两家大型机构公开表示考虑在通用代理规则下支持B的部分候选人"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_activist_b",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_activist_b-r3"
+            },
+            {
+              "actor_id": "actor_activist_a",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_activist_a-r3"
+            }
+          ],
+          "consequences": [
+            "集团A将增加向指数基金和零售股东的直接联络频次",
+            "现任董事会可能利用A与B的立场分化强化其连续性叙事的合理性"
+          ],
+          "invalidation_conditions": [
+            "集团B未能在投票日14天前获得任何大型机构的明确支持信号",
+            "集团B的沟通仅限于私人渠道且未转化为可观察的机构立场变化"
+          ],
+          "evidence_refs": [
+            "F2"
+          ],
+          "simulation_refs": [
+            "decision-actor_activist_b-r3",
+            "decision-actor_activist_a-r3"
+          ],
+          "novelty_claim": "本分支将集团B的私人沟通意图与集团A可能的回应行为通过投票选票竞争机制串联，而非仅复述双方同时批评的事实。",
+          "confidence": 0.7,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-2",
+          "label": "管理层改革证据不足时董事会集中说服摇摆机构",
+          "summary": "若管理层无法在投票前提供可验证的经营改善定量数据，则董事会将集中资源与表态犹豫的指数基金一对一沟通，以阻止代理顾问转为支持异议方。",
+          "actor_ids": [
+            "actor_management",
+            "actor_board"
+          ],
+          "trigger_conditions": [
+            "董事会在一对一沟通中发现超过三家大型机构对改革进展的证据表示不满意",
+            "管理层在公开声明中未提供新的季度可比经营指标以支撑其主张"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_management",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_management-r3"
+            },
+            {
+              "actor_id": "actor_board",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_board-r3"
+            }
+          ],
+          "consequences": [
+            "董事会将把游说资源从通用公开信转向与摇摆机构的后台协商",
+            "代理投票顾问可能推迟正式建议发布，或在报告中同时列出两方优缺点"
+          ],
+          "invalidation_conditions": [
+            "管理层在投票日前发布经审计的改善数据并获得分析师正面解读",
+            "超过四家大型机构在沟通后仍明确认同董事会的连续性价值"
+          ],
+          "evidence_refs": [
+            "F1"
+          ],
+          "simulation_refs": [
+            "decision-actor_management-r3",
+            "decision-actor_board-r3"
+          ],
+          "novelty_claim": "本分支将董事会的沟通决策与管理层证据不足的约束条件联系起来，展示了一方行动如何限制另一方的可行选择。",
+          "confidence": 0.65,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-3",
+          "label": "零售股东受指数基金表态影响而提高投票参与率",
+          "summary": "若大型指数基金在投票截止前一周公开其最终投票倾向，则零售股东可能改变等待态度并群起投票，放大该倾向的选举效果。",
+          "actor_ids": [
+            "actor_retail",
+            "actor_index_funds"
+          ],
+          "trigger_conditions": [
+            "至少两家合计持股7%以上的指数基金联合宣布其投票倾向",
+            "公司公告或媒体报导显示散户投票率在截止前五日显著低于去年同期"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_retail",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_retail-r3"
+            },
+            {
+              "actor_id": "actor_index_funds",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_index_funds-r3"
+            }
+          ],
+          "consequences": [
+            "指数基金的方向性表态可能直接增加董事会或异议方名单的得票确定性",
+            "零售股东的网络讨论热度上升，但投票倾向可能高度极化"
+          ],
+          "invalidation_conditions": [
+            "指数基金内部坚持不在公开阶段透露投票意向",
+            "零售股东在投票材料复杂度面前继续选择不参与或不交叉验证"
+          ],
+          "evidence_refs": [
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_retail-r3",
+            "decision-actor_index_funds-r3"
+          ],
+          "novelty_claim": "本分支将指数基金的沟通不确定性（WAIT决策）与零售股东的依赖行为联系，传导了信息来源与选民行动的机制。",
+          "confidence": 0.6,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-4",
+          "label": "代理顾问推迟建议后事件驱动投资者在计票前调整持仓",
+          "summary": "若代理投票顾问至投票日倒计时10天仍未发布最终建议，则事件驱动投资者可能下调投票确定性估值并减持以规避计票后波动。",
+          "actor_ids": [
+            "actor_proxy_advisers",
+            "actor_investors"
+          ],
+          "trigger_conditions": [
+            "投票日起始日（D0+18）后代理顾问仍未发布最终建议",
+            "公司股价在后市交易中出现连续三个交易日高于历史平均换手率的异动"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_proxy_advisers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_proxy_advisers-r3"
+            },
+            {
+              "actor_id": "actor_investors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_investors-r3"
+            }
+          ],
+          "consequences": [
+            "投资者减持时可能压低股价，从而影响零售股东对现状的信心",
+            "董事会可能加速发布增量信息以安抚市场并鼓励投资者维持持仓"
+          ],
+          "invalidation_conditions": [
+            "代理顾问在投票日14天前发布明确支持董事会的建议,使不确定性迅速下降",
+            "投资者持仓数据显示从未有显著的计票前仓位调整"
+          ],
+          "evidence_refs": [
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_proxy_advisers-r3",
+            "decision-actor_investors-r3"
+          ],
+          "novelty_claim": "本分支将代理顾问的延迟决策通过市场不确定性传播给投资者交易行为，再通过股价间接影响零售股东心理，形成了三方传导。",
+          "confidence": 0.55,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        }
+      ],
+      "generation": {
+        "semantic_retries": 1,
+        "elapsed_seconds": 126.00770491705043
+      },
+      "judgments": []
+    },
+    "v8": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "异议股东集团B主动向集团A提议联合提名",
+          "summary": "若集团B私下向集团A提出联合提名与投票协议，则双方可能协调资源或公开分道扬镳，改变代理争夺格局。",
+          "actor_ids": [
+            "actor_activist_b",
+            "actor_activist_a"
+          ],
+          "trigger_conditions": [
+            "集团B公开或私下向集团A传递合作信号"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_activist_b",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_activist_b-r3"
+            },
+            {
+              "actor_id": "actor_activist_a",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_activist_a-r3"
+            }
+          ],
+          "consequences": [
+            "若联合失败，双方票源分裂可能使董事会推荐候选人渔利",
+            "若联合成功，一份统一异议名单将显著增加拿下额外席位的概率"
+          ],
+          "invalidation_conditions": [
+            "集团A公开发表声明拒绝任何联合提名或投票协调"
+          ],
+          "evidence_refs": [
+            "F2"
+          ],
+          "simulation_refs": [
+            "decision-actor_activist_b-r3",
+            "decision-actor_activist_a-r3"
+          ],
+          "novelty_claim": "双组异议股东间的谈判博弈常被简化为独立战，但私下协调可能重构代理卡上的竞争边界。",
+          "confidence": 0.6,
+          "confidence_semantics": "branch_coherence_not_forecast_probability",
+          "starting_decisions": [
+            {
+              "actor_id": "actor_activist_b",
+              "action_type": "COMMUNICATE",
+              "decision_status": "intended",
+              "rationale": "作为持股和公众关注低于主要争夺双方的第三股力量，当前代理争夺进入关键阶段——三套代理卡并存、通用代理规则使最后时点投票动员尤为重要。我们既不能像管理层那样依赖在位优势，也不能像第一组或第二组活动人士那样已有明确提名阵容。此时必须通过定向沟通（私下面见大型机构股东和代理投票顾问），在F3所述的不同支持意见中争取中间摇摆票，同时清晰传递我们不同于管理层和另一活动人士的改革方案，才能为最终使三名候选人进入董事会创造条件。公开大规模动员成本过高且可能提前暴露实力，不宜此时进行。",
+              "decision_ref": "decision-actor_activist_b-r3"
+            },
+            {
+              "actor_id": "actor_activist_a",
+              "action_type": "COMMUNICATE",
+              "decision_status": "intended",
+              "rationale": "股东大会投票在即，需说服大型机构和零售股东投票支持我方两名候选人。目前有三套代理卡和通用代理规则，最后时点动员尤为关键。第一组活动人士（我方）需要与第二组异议股东和现任董事会的主张形成差异化，争取摇摆股东的支持。选择COMMUNICATE而非WAIT，因为约束要求主动说服；不选择ALLOCATE是因为当前时点没有新的仓位调整信息，且市场已在评估不确定性。",
+              "decision_ref": "decision-actor_activist_a-r3"
+            }
+          ],
+          "conditional_responses": [
+            {
+              "actor_id": "actor_activist_b",
+              "condition": "若集团A拒绝联合，坚持独立提名两名候选人",
+              "response": "我方将转向强调与集团A的改革方案根本不同，争取摇摆票池中更支持我方具体提案的部分。我需要确认集团A在通用代理卡上是否会优先投票给我方候选人还是只投自己人。"
+            },
+            {
+              "actor_id": "actor_activist_a",
+              "condition": "若集团B向我方提议联合提名并协调投票指引",
+              "response": "我方可能拒绝联合，因为与集团B主张存在根本分歧；若接受则需协商席位分配。在无明确投票权聚合数据前，无法判断接受与否的成本收益。"
+            }
+          ],
+          "response_semantics": "conditional_hypothesis_not_observed_action",
+          "observations": [
+            {
+              "kind": "trigger",
+              "signal": "集团B公开或私下向集团A传递合作信号",
+              "source": "匿名股东会议纪要或媒体引述",
+              "window": "未来 28 个自然日",
+              "evidence_refs": [
+                "F2"
+              ]
+            },
+            {
+              "kind": "invalidation",
+              "signal": "集团A公开发表声明拒绝任何联合提名或投票协调",
+              "source": "集团A公开声明",
+              "window": "未来 28 个自然日",
+              "evidence_refs": [
+                "F2"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "管理层和董事会联合发布运营超预期数据",
+          "summary": "若管理层在股东大会前发布季度运营快报显示成本削减或流媒体用户超预期，则董事会可借势巩固投票支持，指数基金可能转向。",
+          "actor_ids": [
+            "actor_management",
+            "actor_board"
+          ],
+          "trigger_conditions": [
+            "管理层提前发布季度运营指标快报或盈利预喜"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_management",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_management-r3"
+            },
+            {
+              "actor_id": "actor_board",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_board-r3"
+            }
+          ],
+          "consequences": [
+            "超预期数据可能说服摇摆机构对董事会投赞成票",
+            "若数据被质疑选择性披露或不够透明，反而削弱董事会公信力"
+          ],
+          "invalidation_conditions": [
+            "提前发布被内部或外部合规否决，或实际数据弱于市场预期"
+          ],
+          "evidence_refs": [
+            "F1"
+          ],
+          "simulation_refs": [
+            "decision-actor_management-r3",
+            "decision-actor_board-r3"
+          ],
+          "novelty_claim": "管理层在代理争夺高压下提早发布业绩是高风险高回报策略，其叙事效力往往被低估。",
+          "confidence": 0.55,
+          "confidence_semantics": "branch_coherence_not_forecast_probability",
+          "starting_decisions": [
+            {
+              "actor_id": "actor_management",
+              "action_type": "COMMUNICATE",
+              "decision_status": "intended",
+              "rationale": "在代理争夺的关键期，作为管理层必须主动向股东传递经营改善和价值创造的证据，以争取支持并维持执行权限。当前已有改革措施（成本、流媒体、治理、继任），但异议股东同时发起挑战，需要通过进一步沟通巩固现有支持者、说服摇摆股东，从而降低代理争夺的分散注意力和成本风险。主要不确定性在于投票最终结果，但沟通能提高我方叙事的影响力。",
+              "decision_ref": "decision-actor_management-r3"
+            },
+            {
+              "actor_id": "actor_board",
+              "action_type": "COMMUNICATE",
+              "decision_status": "conditional",
+              "rationale": "股东大会临近，三套代理卡和通用代理规则下投票动员尤为重要。我已对异议股东的批评进行了公开回应（评论Post 2），并向机构投资者（Post 3）发出了交流邀请。但作为发行人董事会，下一步需要主动与关键机构股东和代理投票顾问进行一对一沟通，递送治理改革进展的详细材料，回应长期表现和继任质疑。同时需协调管理层（Post 4的内容）共同向市场传达一致的改革叙事。当前异议股东已形成两个阵营（F2），大型机构态度仍在评估中（F3），因此必须加大沟通力度，争取最后时点的投票支持。",
+              "decision_ref": "decision-actor_board-r3"
+            }
+          ],
+          "conditional_responses": [
+            {
+              "actor_id": "actor_management",
+              "condition": "若我方确认运营指标超预期且可提前发布",
+              "response": "我方将协调董事会安排发布会和机构路演，将正面数据作为改革执行证据。需与财务团队确认数据提前发布的合规路径是否允许。"
+            },
+            {
+              "actor_id": "actor_board",
+              "condition": "若管理层向我方提供超预期的详细运营快报",
+              "response": "我方将立即协调一对一或集体会议向关键机构股东和代理投票顾问递送这些数据，并重申继续支持完整名单的必要性。需要确认这些数据是否支持对F1中所述改革进展的具体量化。"
+            }
+          ],
+          "response_semantics": "conditional_hypothesis_not_observed_action",
+          "observations": [
+            {
+              "kind": "trigger",
+              "signal": "管理层提前发布季度运营指标快报或盈利预喜",
+              "source": "公司官方公告",
+              "window": "未来 28 个自然日",
+              "evidence_refs": [
+                "F1"
+              ]
+            },
+            {
+              "kind": "invalidation",
+              "signal": "提前发布被内部或外部合规否决，或实际数据弱于市场预期",
+              "source": "公司委员会或审计师评估",
+              "window": "未来 28 个自然日",
+              "evidence_refs": [
+                "F1"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "指数基金在截止前一日收到代理顾问最终建议",
+          "summary": "若代理顾问发布最终建议明确支持或反对某一方，则指数基金可能据此转变投票立场。",
+          "actor_ids": [
+            "actor_retail",
+            "actor_index_funds"
+          ],
+          "trigger_conditions": [
+            "ISS和/或Glass Lewis发布最终代理投票建议"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_retail",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_retail-r3"
+            },
+            {
+              "actor_id": "actor_index_funds",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_index_funds-r3"
+            }
+          ],
+          "consequences": [
+            "若顾问统一支持现任，指数基金几乎将全部投票给董事会",
+            "若顾问分裂或部分支持异议方，票流向更分散，结果更不确定"
+          ],
+          "invalidation_conditions": [
+            "两家顾问建议存在重大分歧，或指数基金独立研究推翻顾问建议"
+          ],
+          "evidence_refs": [
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_retail-r3",
+            "decision-actor_index_funds-r3"
+          ],
+          "novelty_claim": "代理顾问建议在大股东决策中的权重虽公开可查，但其对零售股东投票意愿的锚定效应常被忽略。",
+          "confidence": 0.65,
+          "confidence_semantics": "branch_coherence_not_forecast_probability",
+          "starting_decisions": [
+            {
+              "actor_id": "actor_retail",
+              "action_type": "WAIT",
+              "decision_status": "intended",
+              "rationale": "作为零售/员工股东，代理材料信息量巨大且复杂（F1、F2三方竞争提名），各阵营的治理主张和战略路径存在根本差异（现任董事主张连续性改革vs异议股东批评长期表现和资本配置）。我对不同提名的实际商业影响和治理效果缺乏足够分析能力，无法在投票动员的关键时点做出明确决策。F3表明大型机构、顾问和创始家族支持意见分裂，更增加判断难度。F4显示股价正常收盘，市场仍在消化不确定性。因此我计划继续观察投票结果的初步信号以及各阵营更清晰的立场说明，避免在材料理解不充分的情况下冲动投票或调整持仓。未来将基于更明确的投票倾向和市场反馈再做决策。",
+              "decision_ref": "decision-actor_retail-r3"
+            },
+            {
+              "actor_id": "actor_index_funds",
+              "action_type": "WAIT",
+              "decision_status": "conditional",
+              "rationale": "作为受托机构投资者，我已完成初步审议但尚未最终表态。三套代理卡和通用代理规则使投票动员与最后时点决定尤为重要（F3）。我需要等待代理投票顾问（ISS/Glass Lewis）的最终建议、观察其他大型机构股东在最后阶段的实际投票趋势，并收集更多关于现任董事会改革执行效果的定量证据。现任董事会推荐完整公司名单并主张改革推进（F1），而两组异议股东从不同角度提出批评（F2），我必须区分公开表达与实际投票行为。市场正在评估治理变化和管理层战略执行的不确定性（F4），在截止前保持延迟判断并收集更多信息是最符合受托责任的审慎做法。",
+              "decision_ref": "decision-actor_index_funds-r3"
+            }
+          ],
+          "conditional_responses": [
+            {
+              "actor_id": "actor_retail",
+              "condition": "若代理顾问建议分裂（部分席位支持现任，部分支持异议方）",
+              "response": "我方可能依据顾问建议简化判断，但仍可能不投票。我需要看到顾问报告中被引用的治理比较分析才能理解推荐理由。"
+            },
+            {
+              "actor_id": "actor_index_funds",
+              "condition": "若代理顾问明确支持现任董事会完整名单",
+              "response": "我方以受托义务评估后可能倾向接受顾问建议，但仍保留对个别席位支持异议方的空间，因为治理议题因候选人而异。我需要审阅顾问对异议方具体主张的驳斥力度。"
+            }
+          ],
+          "response_semantics": "conditional_hypothesis_not_observed_action",
+          "observations": [
+            {
+              "kind": "trigger",
+              "signal": "ISS和/或Glass Lewis发布最终代理投票建议",
+              "source": "代理顾问公开报告",
+              "window": "未来 28 个自然日",
+              "evidence_refs": [
+                "F3"
+              ]
+            },
+            {
+              "kind": "invalidation",
+              "signal": "两家顾问建议存在重大分歧，或指数基金独立研究推翻顾问建议",
+              "source": "指数基金内部会议纪要或公开说明",
+              "window": "未来 28 个自然日",
+              "evidence_refs": [
+                "F3"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "零售股东在最后72小时因社交媒体舆论海量投票",
+          "summary": "若社交媒体上关于代理争夺的叙事引爆散户关注并动员投票，则小额投票的集中可能意外翻转特定席位。",
+          "actor_ids": [
+            "actor_proxy_advisers",
+            "actor_investors"
+          ],
+          "trigger_conditions": [
+            "社交媒体平台话题量和互动率在36小时内大幅飙升并伴随散户投票动员链接"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_proxy_advisers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_proxy_advisers-r3"
+            },
+            {
+              "actor_id": "actor_investors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_investors-r3"
+            }
+          ],
+          "consequences": [
+            "若零售集中支持某一组异议候选人，可能以微弱优势赢得1-2个席位",
+            "反之若零售不活跃，投票格局基本由机构决定"
+          ],
+          "invalidation_conditions": [
+            "零售股东投票率历史数据持续低迷，无异常增长"
+          ],
+          "evidence_refs": [
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_proxy_advisers-r3",
+            "decision-actor_investors-r3"
+          ],
+          "novelty_claim": "散户在代理争夺中的最后时点性能动员被低估，尤其在通用代理制散户可跨卡投票。",
+          "confidence": 0.4,
+          "confidence_semantics": "branch_coherence_not_forecast_probability",
+          "starting_decisions": [
+            {
+              "actor_id": "actor_proxy_advisers",
+              "action_type": "WAIT",
+              "decision_status": "conditional",
+              "rationale": "当前正处于代理争夺的最终阶段，三套代理卡和通用代理规则使投票动员与最后时点决定尤为重要。我需要继续观察大型机构股东、代理投票顾问、创始家族成员和商业领袖的公开表态积累，以及公司管理层推进改革的实质性证据，再结合两组异议股东的具体提案内容，才能向机构客户形成有依据的投票建议。目前各方主张均基于公开声明，尚需更多投票意向信号和最终委托投票数据。",
+              "decision_ref": "decision-actor_proxy_advisers-r3"
+            },
+            {
+              "actor_id": "actor_investors",
+              "action_type": "WAIT",
+              "decision_status": "no_action",
+              "rationale": "当前投票结果高度不确定，三套代理卡及通用代理规则使最后时点动员极为关键。公开背书不等于已投票，机构持仓调整信号不清晰，且D0股票正常收盘无异常价格压力。以管理短期事件风险为目标，在无额外定价或仓位信息前，维持现有敞口，等待代理计票或更明确的市场信号再行动。",
+              "decision_ref": "decision-actor_investors-r3"
+            }
+          ],
+          "conditional_responses": [
+            {
+              "actor_id": "actor_proxy_advisers",
+              "condition": "若零售选票突然大幅增加且集中支持异议方某人",
+              "response": "我方需对客户快速更新此尾部风险，并可能调整建议以反映真实投票风向。但缺乏实时投票数据之前无法量化响应。"
+            },
+            {
+              "actor_id": "actor_investors",
+              "condition": "若观察到零售投票率异常高且社交媒体情绪偏向异议方",
+              "response": "我方可能增加仓位以对冲或利用短期波动，但前提是价量信号明确。需确认是否有成交量和隐含波动率变化支撑这一判断。"
+            }
+          ],
+          "response_semantics": "conditional_hypothesis_not_observed_action",
+          "observations": [
+            {
+              "kind": "trigger",
+              "signal": "社交媒体平台话题量和互动率在36小时内大幅飙升并伴随散户投票动员链接",
+              "source": "社交平台分析工具或第三方监测",
+              "window": "未来 28 个自然日",
+              "evidence_refs": [
+                "F3"
+              ]
+            },
+            {
+              "kind": "invalidation",
+              "signal": "零售股东投票率历史数据持续低迷，无异常增长",
+              "source": "投票服务提供商数据",
+              "window": "未来 28 个自然日",
+              "evidence_refs": [
+                "F3"
+              ]
+            }
+          ]
+        }
+      ],
+      "generation": {
+        "semantic_retries": 1,
+        "elapsed_seconds": 227.88947958301287
+      },
+      "judgments": []
+    }
+  }
+}

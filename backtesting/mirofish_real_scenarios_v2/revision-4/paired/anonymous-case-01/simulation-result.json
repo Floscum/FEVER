@@ -1,0 +1,538 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_capital_return_001",
+  "spec_sha256": "5fd3cba33034fb4779fe0f9d32cc6d28b08ca6125bc6f5bad95d95b8995fd689",
+  "generated_at": "2026-07-29T05:54:57.929479+00:00",
+  "status": "partial",
+  "runs": [
+    {
+      "run_id": "sim_df8b6dd34da6",
+      "seed": -1,
+      "status": "completed",
+      "events": [
+        {
+          "round": 0,
+          "actor_id": "actor_retail",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #1：特别分红需临时股东大会批准，董事会称兼顾持续经营与股东回报。市场关注审批结果。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_retail",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #2：分红和增持是强烈正面信号，短期股价有望反弹。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_issuer",
+          "action_type": "SEARCH_POSTS",
+          "summary": "search_posts",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_controller",
+          "action_type": "COMMUNICATE",
+          "summary": "特别分红方案兼顾了公司持续经营需要与股东回报，临时股东大会审议通过后将按照既定计划推进。增持安排已在公告中明确，将依法依规执行，稳定市场预期。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_retail",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #3：需评估分红可持续性，增持计划可能只是短期提振，长期依赖基本面。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_competitors",
+          "action_type": "SEARCH_POSTS",
+          "summary": "search_posts",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_competitors",
+          "action_type": "SEARCH_USER",
+          "summary": "search_user",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_controller",
+          "action_type": "COMMUNICATE",
+          "summary": "增持计划已公告固定金额上下限并及时披露，并非短期提振。特别分红兼顾持续经营能力，方案经董事会审慎评估。长期价值取决于基本面，但分红与增持安排体现了对公司发展的信心。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_retail",
+          "action_type": "COMMUNICATE",
+          "summary": "特别分红加增持，这是实实在在的利好！分红金额超过全年净利润一半，大股东还要用分红资金增持，说明内部人自己都看好。短期反弹可期，我准备加仓。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_exchange",
+          "action_type": "SEARCH_USER",
+          "summary": "search_user",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_exchange",
+          "action_type": "SEARCH_USER",
+          "summary": "search_user",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_exchange",
+          "action_type": "SEARCH_POSTS",
+          "summary": "search_posts",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_issuer",
+          "action_type": "COMMUNICATE",
+          "summary": "作为成熟消费品发行人，认同需评估分红可持续性。当前方案已公告固定金额区间并预留持续经营所需资金，临时股东大会审议将是关键节点。增持计划设定了明确的上下限金额，体现长期承诺而非短期操作。市场应关注公司基本面和现金流质量而非短期价格波动。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_issuer",
+          "action_type": "WAIT",
+          "summary": "特别分红方案已于收盘后公告（F4），但临时股东大会尚未召开，分红尚未生效（F3）。控股股东增持计划依赖分红实施后启动（F2），在股东大会审批前无法进入执行阶段。作为发行人，当前优先任务是确保信息披露充分并等待法定审议流程完成，而非提前采取额外公开动作。主要不确定性在于股东大会的审批结果，这决定后续分红派发和增持能否按计划推进。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_controller",
+          "action_type": "WAIT",
+          "summary": "特别分红方案尚需临时股东大会审议通过，尚未生效。增持计划明确以部分分红所得为资金来源，且须在特别分红实施后的六个月内按固定金额上下限执行。在股东大会审议结果公布前，不适宜提前进行任何实质增持操作。当前最佳策略是等待股东大会审批结果，再根据计划执行增持承诺。D0股价下跌与成交量放大已在公告后公开，市场正在消化信息，过早行动可能增加不必要的信息不对称风险。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_regulator",
+          "action_type": "WAIT",
+          "summary": "截至时点，发行人已公告特别分红方案（F1）和控股股东增持计划（F2），两者均需股东大会审议通过（F3）。当前无披露违规迹象，且股市价格波动（F4）属正常市场行为，不能作为监管干预的依据。依法只能等待股东大会结果，再视方案的最终执行情况判断是否需要对披露或资金来源进行合规审查。选择等待，不做动作。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_exchange",
+          "action_type": "WAIT",
+          "summary": "截至当前时点，发行人已公告特别分红方案及控股股东增持计划，但特别分红仍须临时股东大会审议，尚未生效。D0标的收跌约0.8%且成交量放大，公告于收盘后公开，市场尚在消化信息。依据现金分红、权益变动和交易规则，在方案未获股东大会批准前，交易所不宜提前采取监管干预。最佳行动是等待临时股东大会审议结果及后续增持实施情况，观察是否存在信息披露违规或交易异常后再行判断。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_institutions",
+          "action_type": "WAIT",
+          "summary": "特别分红方案与增持计划同时公布，但分红总额超过全年净利润一半，属一次性资本返还，非经营增长信号。增持计划使用红利且未设价格区间，执行弹性大，实际增持力度不确定。标的当日放量下跌，说明市场分歧显著，且方案尚需股东大会审议。当前最佳策略是等待股东大会结果及后续增持执行进展，再评估分红可持续性及增持可信度，避免在不确定性高时贸然调仓。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_competitors",
+          "action_type": "WAIT",
+          "summary": "发行人已公告特别分红+增持组合方案，但方案尚需临时股东大会审议通过才能生效。作为同业竞争对手，我需要等待股东大会结果，确认该方案是否最终落地及具体执行情况，再评估其对自身资本回报政策的竞争压力。同时，我们自身的现金流与股权结构与发行人不同，不能简单模仿其方案，必须基于自身实际情况做差异化回应。D0交易量放大但股价下跌，市场反应尚不明确，需进一步观察。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_media",
+          "action_type": "WAIT",
+          "summary": "截至2017-04-11，特别分红方案（F1）和增持计划（F2）均处于董事会公告阶段，仍需临时股东大会审议（F3）才能生效。D0市场反应（F4）仅反映收盘前信息，无法作为方案实施结果。作为财经媒体，当前最优行动是等待股东大会决议，以区分已公告方案与已实施结果，再发布解释性分析。",
+          "visibility": "public",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        }
+      ],
+      "warnings": [
+        "Random seed was not exposed by the upstream runner; -1 denotes unavailable."
+      ]
+    }
+  ],
+  "scenarios": [],
+  "forecast_target_results": [],
+  "simulation_graph": {
+    "nodes": [
+      {
+        "id": "actor_competitors",
+        "kind": "actor",
+        "label": "同业成熟消费品公司"
+      },
+      {
+        "id": "actor_controller",
+        "kind": "actor",
+        "label": "控股股东及关联方"
+      },
+      {
+        "id": "actor_exchange",
+        "kind": "actor",
+        "label": "上市交易所"
+      },
+      {
+        "id": "actor_issuer",
+        "kind": "actor",
+        "label": "匿名成熟消费品发行人"
+      },
+      {
+        "id": "actor_retail",
+        "kind": "actor",
+        "label": "个人投资者"
+      },
+      {
+        "id": "trace-15",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #1：特别分红需临时股东大会批准，董事会称兼顾持续经营与股东回报。市场关注审批结果。"
+      },
+      {
+        "id": "trace-16",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #2：分红和增持是强烈正面信号，短期股价有望反弹。"
+      },
+      {
+        "id": "trace-17",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_POSTS",
+        "summary": "search_posts"
+      },
+      {
+        "id": "trace-19",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "特别分红方案兼顾了公司持续经营需要与股东回报，临时股东大会审议通过后将按照既定计划推进。增持安排已在公告中明确，将依法依规执行，稳定市场预期。"
+      },
+      {
+        "id": "trace-23",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #3：需评估分红可持续性，增持计划可能只是短期提振，长期依赖基本面。"
+      },
+      {
+        "id": "trace-24",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_POSTS",
+        "summary": "search_posts"
+      },
+      {
+        "id": "trace-25",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user"
+      },
+      {
+        "id": "trace-26",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "增持计划已公告固定金额上下限并及时披露，并非短期提振。特别分红兼顾持续经营能力，方案经董事会审慎评估。长期价值取决于基本面，但分红与增持安排体现了对公司发展的信心。"
+      },
+      {
+        "id": "trace-30",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "特别分红加增持，这是实实在在的利好！分红金额超过全年净利润一半，大股东还要用分红资金增持，说明内部人自己都看好。短期反弹可期，我准备加仓。"
+      },
+      {
+        "id": "trace-31",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user"
+      },
+      {
+        "id": "trace-32",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user"
+      },
+      {
+        "id": "trace-33",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_POSTS",
+        "summary": "search_posts"
+      },
+      {
+        "id": "trace-34",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "作为成熟消费品发行人，认同需评估分红可持续性。当前方案已公告固定金额区间并预留持续经营所需资金，临时股东大会审议将是关键节点。增持计划设定了明确的上下限金额，体现长期承诺而非短期操作。市场应关注公司基本面和现金流质量而非短期价格波动。"
+      },
+      {
+        "id": "decision-actor_issuer-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": null,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "特别分红方案已于收盘后公告（F4），但临时股东大会尚未召开，分红尚未生效（F3）。控股股东增持计划依赖分红实施后启动（F2），在股东大会审批前无法进入执行阶段。作为发行人，当前优先任务是确保信息披露充分并等待法定审议流程完成，而非提前采取额外公开动作。主要不确定性在于股东大会的审批结果，这决定后续分红派发和增持能否按计划推进。"
+      },
+      {
+        "id": "decision-actor_controller-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "confidence": 0.9,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "特别分红方案尚需临时股东大会审议通过，尚未生效。增持计划明确以部分分红所得为资金来源，且须在特别分红实施后的六个月内按固定金额上下限执行。在股东大会审议结果公布前，不适宜提前进行任何实质增持操作。当前最佳策略是等待股东大会审批结果，再根据计划执行增持承诺。D0股价下跌与成交量放大已在公告后公开，市场正在消化信息，过早行动可能增加不必要的信息不对称风险。"
+      },
+      {
+        "id": "actor_regulator",
+        "kind": "actor",
+        "label": "证券监管机构"
+      },
+      {
+        "id": "decision-actor_regulator-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "maintain",
+        "intensity": 0.0,
+        "confidence": 1.0,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "截至时点，发行人已公告特别分红方案（F1）和控股股东增持计划（F2），两者均需股东大会审议通过（F3）。当前无披露违规迹象，且股市价格波动（F4）属正常市场行为，不能作为监管干预的依据。依法只能等待股东大会结果，再视方案的最终执行情况判断是否需要对披露或资金来源进行合规审查。选择等待，不做动作。"
+      },
+      {
+        "id": "decision-actor_exchange-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": null,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "截至当前时点，发行人已公告特别分红方案及控股股东增持计划，但特别分红仍须临时股东大会审议，尚未生效。D0标的收跌约0.8%且成交量放大，公告于收盘后公开，市场尚在消化信息。依据现金分红、权益变动和交易规则，在方案未获股东大会批准前，交易所不宜提前采取监管干预。最佳行动是等待临时股东大会审议结果及后续增持实施情况，观察是否存在信息披露违规或交易异常后再行判断。"
+      },
+      {
+        "id": "actor_institutions",
+        "kind": "actor",
+        "label": "持有匿名标的的机构投资者"
+      },
+      {
+        "id": "decision-actor_institutions-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": null,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "特别分红方案与增持计划同时公布，但分红总额超过全年净利润一半，属一次性资本返还，非经营增长信号。增持计划使用红利且未设价格区间，执行弹性大，实际增持力度不确定。标的当日放量下跌，说明市场分歧显著，且方案尚需股东大会审议。当前最佳策略是等待股东大会结果及后续增持执行进展，再评估分红可持续性及增持可信度，避免在不确定性高时贸然调仓。"
+      },
+      {
+        "id": "decision-actor_competitors-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "conditional",
+        "intensity": 0.0,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "发行人已公告特别分红+增持组合方案，但方案尚需临时股东大会审议通过才能生效。作为同业竞争对手，我需要等待股东大会结果，确认该方案是否最终落地及具体执行情况，再评估其对自身资本回报政策的竞争压力。同时，我们自身的现金流与股权结构与发行人不同，不能简单模仿其方案，必须基于自身实际情况做差异化回应。D0交易量放大但股价下跌，市场反应尚不明确，需进一步观察。"
+      },
+      {
+        "id": "actor_media",
+        "kind": "actor",
+        "label": "财经媒体与分析师"
+      },
+      {
+        "id": "decision-actor_media-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": null,
+        "confidence": 0.9,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "截至2017-04-11，特别分红方案（F1）和增持计划（F2）均处于董事会公告阶段，仍需临时股东大会审议（F3）才能生效。D0市场反应（F4）仅反映收盘前信息，无法作为方案实施结果。作为财经媒体，当前最优行动是等待股东大会决议，以区分已公告方案与已实施结果，再发布解释性分析。"
+      }
+    ],
+    "edges": [
+      {
+        "source": "actor_retail",
+        "target": "trace-15",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_retail",
+        "target": "trace-16",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_issuer",
+        "target": "trace-17",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_controller",
+        "target": "trace-19",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_retail",
+        "target": "trace-23",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_competitors",
+        "target": "trace-24",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_competitors",
+        "target": "trace-25",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_controller",
+        "target": "trace-26",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_retail",
+        "target": "trace-30",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_exchange",
+        "target": "trace-31",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_exchange",
+        "target": "trace-32",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_exchange",
+        "target": "trace-33",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_issuer",
+        "target": "trace-34",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_issuer",
+        "target": "decision-actor_issuer-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_controller",
+        "target": "decision-actor_controller-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_regulator",
+        "target": "decision-actor_regulator-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_exchange",
+        "target": "decision-actor_exchange-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_institutions",
+        "target": "decision-actor_institutions-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_competitors",
+        "target": "decision-actor_competitors-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_media",
+        "target": "decision-actor_media-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      }
+    ]
+  },
+  "warnings": [
+    "Integration smoke result only; it is not a calibrated financial forecast.",
+    "The upstream run monitor reported zero actions; SQLite was used as the authoritative source.",
+    "OASIS did not persist per-action round numbers, so exported events use round 0.",
+    "Rule-generated institutional profiles contain consumer-social attributes and require a financial profile compiler.",
+    "No forecast target result or scenario frequency was produced from this single run.",
+    "Structured financial decisions were elicited post-simulation and remain simulated claims."
+  ],
+  "provenance": {
+    "engine": "MiroFish/OASIS",
+    "engine_version": "60757b3c825d577a1d7a86ab1ba6d5c21f51c261",
+    "model": "deepseek-ai/DeepSeek-V4-Flash",
+    "raw_run_artifacts": [
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/mirofish/simulations/sim_df8b6dd34da6/reddit_simulation.db",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/mirofish/simulations/sim_df8b6dd34da6/simulation_config.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_capital_return_001-b3/sqlite-actions.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_capital_return_001-b3/raw-actions.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_capital_return_001-b3/financial-interviews-raw.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_capital_return_001-b3/financial-actions.json"
+    ]
+  }
+}

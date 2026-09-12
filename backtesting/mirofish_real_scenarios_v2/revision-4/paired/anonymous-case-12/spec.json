@@ -1,0 +1,370 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_fx_intervention_012",
+  "title": "匿名案例：货币急贬与干预警戒",
+  "as_of": "2016-04-26T17:00:00+09:00",
+  "question": "国家、货币、官员、年份和汇率水平均已匿名化。只使用D0已公开的信息，推演财政机关、中央银行、交易商、企业和投资者如何应对货币快速贬值。",
+  "horizon": {
+    "kind": "calendar_days",
+    "value": 35,
+    "end_at": "2016-05-31T17:00:00+09:00"
+  },
+  "market": {
+    "region": "BLIND_DEVELOPED_ASIA",
+    "venues": [
+      "BLIND_GLOBAL_FX"
+    ],
+    "instruments": [
+      {
+        "symbol": "ASSET_L",
+        "name": "匿名美元兑本币汇率",
+        "kind": "fx",
+        "currency": "LOCAL"
+      }
+    ]
+  },
+  "facts": [
+    {
+      "id": "F1",
+      "observed_at": "2016-04-26T12:22:00+09:00",
+      "statement": "中央银行在例行会议上一致决定维持隔夜政策利率约0%至0.1%，并按此前决定继续购买政府债券及部分信用资产。",
+      "source_kind": "official",
+      "source_url": "https://benchmark.invalid/blind-fx-intervention-012/F1",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F2",
+      "observed_at": "2016-04-26T16:00:00+09:00",
+      "statement": "政策决定后，本币兑美元继续走弱，达到数十年未见的低位；市场把利差、进口成本和投机头寸视为主要驱动。",
+      "source_kind": "market_data",
+      "source_url": "https://benchmark.invalid/blind-fx-intervention-012/F2",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F3",
+      "observed_at": "2016-04-17T18:00:00-04:00",
+      "statement": "该国与两个主要伙伴的财政负责人在联合声明中确认对本币及邻国货币近期急剧贬值存在严重关切，并同意继续密切磋商外汇市场发展。",
+      "source_kind": "official",
+      "source_url": "https://benchmark.invalid/blind-fx-intervention-012/F3",
+      "evidence_ref": null,
+      "confidence": 1.0
+    },
+    {
+      "id": "F4",
+      "observed_at": "2016-04-09T12:00:00+09:00",
+      "statement": "财政负责人表示汇率应稳定反映基本面，过度波动不可取；政府正以高度紧迫感监测市场，并不会排除应对过度走势的任何手段。",
+      "source_kind": "official",
+      "source_url": "https://benchmark.invalid/blind-fx-intervention-012/F4",
+      "evidence_ref": null,
+      "confidence": 1.0
+    }
+  ],
+  "actors": [
+    {
+      "id": "actor_finance_ministry",
+      "label": "匿名财政机关",
+      "kind": "government",
+      "aggregation": "organization",
+      "goals": [
+        "抑制无序和投机性汇率波动",
+        "降低进口成本冲击",
+        "保留干预突袭性"
+      ],
+      "constraints": [
+        "不能预告精确干预时点和价位",
+        "需考虑国际汇率承诺"
+      ],
+      "observable_fact_ids": [
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "可能通过代理机构执行现汇交易"
+      ]
+    },
+    {
+      "id": "actor_central_bank",
+      "label": "匿名中央银行",
+      "kind": "regulator",
+      "aggregation": "organization",
+      "goals": [
+        "实现价格稳定",
+        "平稳传导货币政策",
+        "避免汇率导致通胀失控"
+      ],
+      "constraints": [
+        "货币政策目标不等同于汇率目标",
+        "刚完成例行会议决定"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "会按财政机关指示承担干预执行操作"
+      ]
+    },
+    {
+      "id": "actor_fx_dealers",
+      "label": "全球外汇交易商",
+      "kind": "broker",
+      "aggregation": "cohort",
+      "goals": [
+        "管理头寸和流动性",
+        "识别官方交易",
+        "控制跳价风险"
+      ],
+      "constraints": [
+        "全天候市场中干预时点不可预测"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": [
+        "会监测流动性稀薄时段的异常成交"
+      ]
+    },
+    {
+      "id": "actor_macro_funds",
+      "label": "宏观与套利基金",
+      "kind": "foreign_investor",
+      "aggregation": "cohort",
+      "goals": [
+        "利用利差和趋势",
+        "评估干预可持续性",
+        "限制尾部损失"
+      ],
+      "constraints": [
+        "官方买卖可能迅速逆转拥挤头寸"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_importers",
+      "label": "能源与原材料进口企业",
+      "kind": "customer",
+      "aggregation": "cohort",
+      "goals": [
+        "控制本币采购成本",
+        "稳定预算和售价"
+      ],
+      "constraints": [
+        "本币贬值直接提高进口账单"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F4"
+      ],
+      "assumptions": [
+        "会增加短期外汇套期保值"
+      ]
+    },
+    {
+      "id": "actor_exporters",
+      "label": "大型出口企业",
+      "kind": "issuer",
+      "aggregation": "cohort",
+      "goals": [
+        "管理海外收入换汇",
+        "保持价格竞争力",
+        "避免汇率反转损失"
+      ],
+      "constraints": [
+        "官方干预可能快速改变折算收益"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_households",
+      "label": "家庭与个人投资者",
+      "kind": "retail_cohort",
+      "aggregation": "cohort",
+      "goals": [
+        "保护购买力",
+        "管理外币储蓄和投资",
+        "判断进口通胀"
+      ],
+      "constraints": [
+        "对财政干预和央行加息的政策分工理解有限"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F4"
+      ],
+      "assumptions": []
+    },
+    {
+      "id": "actor_media",
+      "label": "财经媒体与汇率分析师",
+      "kind": "media",
+      "aggregation": "cohort",
+      "goals": [
+        "识别口头与实际干预",
+        "解释政策分工和市场反应"
+      ],
+      "constraints": [
+        "官方可能延后确认实际交易"
+      ],
+      "observable_fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "assumptions": []
+    }
+  ],
+  "relationships": [
+    {
+      "source_actor_id": "actor_finance_ministry",
+      "target_actor_id": "actor_central_bank",
+      "kind": "directs_fx_intervention_execution_by",
+      "visibility": "public"
+    },
+    {
+      "source_actor_id": "actor_central_bank",
+      "target_actor_id": "actor_fx_dealers",
+      "kind": "transacts_in_fx_market_through",
+      "visibility": "assumed"
+    },
+    {
+      "source_actor_id": "actor_macro_funds",
+      "target_actor_id": "actor_fx_dealers",
+      "kind": "routes_leveraged_currency_orders_through",
+      "visibility": "private"
+    },
+    {
+      "source_actor_id": "actor_importers",
+      "target_actor_id": "actor_fx_dealers",
+      "kind": "hedges_foreign_currency_costs_through",
+      "visibility": "private"
+    },
+    {
+      "source_actor_id": "actor_media",
+      "target_actor_id": "actor_households",
+      "kind": "shapes_intervention_expectations_of",
+      "visibility": "assumed"
+    }
+  ],
+  "allowed_actions": [
+    {
+      "type": "COMMUNICATE",
+      "description": "发布政策决定、汇率警告、市场观察或企业套保计划。",
+      "visibility": "public"
+    },
+    {
+      "type": "REGULATE",
+      "description": "调整政策利率、资产购买方针或外汇干预授权。",
+      "visibility": "public"
+    },
+    {
+      "type": "OPERATE",
+      "description": "执行现汇干预、流动性操作或企业套期保值。",
+      "visibility": "either"
+    },
+    {
+      "type": "ALLOCATE",
+      "description": "调整本币、美元、债券和风险资产敞口。",
+      "visibility": "private"
+    },
+    {
+      "type": "NEGOTIATE",
+      "description": "与国际伙伴、交易对手或企业内部协商政策与风险额度。",
+      "visibility": "private"
+    },
+    {
+      "type": "WAIT",
+      "description": "等待汇率进一步变化、官方确认或下一次政策会议。",
+      "visibility": "either"
+    }
+  ],
+  "interventions": [
+    {
+      "id": "I0_FX_WARNING",
+      "at_round": 0,
+      "fact_ids": [
+        "F1",
+        "F2",
+        "F3",
+        "F4"
+      ],
+      "visibility": "public"
+    }
+  ],
+  "forecast_targets": [
+    {
+      "id": "T1",
+      "kind": "market",
+      "definition": "D1观测的美元兑本币汇率相对D0方向；上涨代表本币进一步贬值。",
+      "horizon": "next_market_observation",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T2",
+      "kind": "market",
+      "definition": "第5个后续观测的美元兑本币汇率相对D0方向。",
+      "horizon": "5_market_observations",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T3",
+      "kind": "market",
+      "definition": "第20个后续观测的美元兑本币汇率相对D0方向。",
+      "horizon": "20_market_observations",
+      "scoring": "direction_accuracy"
+    },
+    {
+      "id": "T4",
+      "kind": "event",
+      "definition": "财政机关是否在5个自然日内实施直接卖出美元、买入本币的外汇市场干预。",
+      "horizon": "5_calendar_days",
+      "scoring": "brier"
+    },
+    {
+      "id": "T5",
+      "kind": "event",
+      "definition": "中央银行是否在5个自然日内召开计划外政策会议并上调政策利率。",
+      "horizon": "5_calendar_days",
+      "scoring": "brier"
+    }
+  ],
+  "run_config": {
+    "rounds": 12,
+    "replications": 20,
+    "seed_strategy": "deterministic_sequence",
+    "layers": [
+      "information",
+      "behavior"
+    ]
+  },
+  "provenance": {
+    "created_by": "FEVER-MiroFish blind benchmark",
+    "source_graph_artifact_id": null,
+    "notes": [
+      "真实国家、货币、官员、年份、汇率水平、代码和来源链接已从模型可见输入中移除。",
+      "T4由财政机关决定并通过中央银行执行；T5是独立的货币政策目标，不能混同。",
+      "真实映射和结果只保存在独立outcome文件。"
+    ]
+  }
+}

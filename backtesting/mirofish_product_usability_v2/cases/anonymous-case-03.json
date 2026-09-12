@@ -1,0 +1,605 @@
+{
+  "anonymous_case_id": "anonymous-case-03",
+  "configured_actor_count": 9,
+  "decision_actor_count": 8,
+  "fact_count": 4,
+  "fact_chars": 210,
+  "input": {
+    "case_id": "anonymous-case-03",
+    "as_of": "D0",
+    "question": "日期、地点、船名、公司和证券代码均已匿名化。只使用D0前已公开的信息，推演航道恢复、承运人和客户应对、运价叙事及匿名航运标的价格方向。",
+    "horizon": {
+      "kind": "calendar_days",
+      "value": 30,
+      "end_at": "D0 + stated horizon"
+    },
+    "facts": [
+      {
+        "id": "F1",
+        "statement": "一艘超大型集装箱船在连接两大贸易区域的关键人工航道搁浅，横向阻断双向通行；事故原因和恢复时间尚未确定。"
+      },
+      {
+        "id": "F2",
+        "statement": "匿名航运公司发布客户提示，确认航道受阻可能造成货物延误，表示将持续监测并尽力降低对客户运输的影响。"
+      },
+      {
+        "id": "F3",
+        "statement": "主管机构、拖轮和疏浚力量正在开展救援；航道是全球重要贸易路线，持续关闭会影响船期、港口拥堵、集装箱调度和供应链交付。"
+      },
+      {
+        "id": "F4",
+        "statement": "匿名航运标的在D-2和D-1分别大跌约6%和10%，D0反弹约3.4%，连续三日成交活跃且价格波动很大。"
+      }
+    ],
+    "actors": [
+      {
+        "id": "actor_carrier",
+        "label": "匿名大型集装箱航运公司",
+        "kind": "issuer",
+        "goals": [
+          "降低船期和客户损失",
+          "维护运力与箱源",
+          "控制声誉和运营风险"
+        ],
+        "constraints": [
+          "不能直接控制航道救援进度，需协调港口和客户"
+        ]
+      },
+      {
+        "id": "actor_canal_authority",
+        "label": "航道主管机构",
+        "kind": "regulator",
+        "goals": [
+          "安全恢复通航",
+          "保护船员、货物和环境",
+          "控制积压"
+        ],
+        "constraints": [
+          "救援进度受船体、风浪、拖轮和疏浚条件限制"
+        ]
+      },
+      {
+        "id": "actor_salvage",
+        "label": "拖轮、疏浚与救援联合体",
+        "kind": "supplier",
+        "goals": [
+          "安全解除搁浅",
+          "避免船体和环境损害"
+        ],
+        "constraints": [
+          "必须服从主管机构协调并受现场条件限制"
+        ]
+      },
+      {
+        "id": "actor_customers",
+        "label": "货主与供应链客户",
+        "kind": "customer",
+        "goals": [
+          "获得可靠到货时间",
+          "减少停工和库存风险",
+          "控制附加物流成本"
+        ],
+        "constraints": [
+          "改道、空运或替代供应通常成本更高"
+        ]
+      },
+      {
+        "id": "actor_competitors",
+        "label": "其他国际航运公司",
+        "kind": "competitor",
+        "goals": [
+          "管理受阻船队",
+          "调整运力和报价",
+          "维护客户关系"
+        ],
+        "constraints": [
+          "同样受到航道和港口容量约束"
+        ]
+      },
+      {
+        "id": "actor_ports",
+        "label": "相关港口和码头运营方",
+        "kind": "supplier",
+        "goals": [
+          "管理恢复后的集中到港",
+          "降低堆场与泊位拥堵"
+        ],
+        "constraints": [
+          "短期泊位、堆场和陆路疏运能力有限"
+        ]
+      },
+      {
+        "id": "actor_institutions",
+        "label": "航运板块机构投资者",
+        "kind": "institutional_investor",
+        "goals": [
+          "判断运价与成本影响",
+          "管理高波动持仓",
+          "区分短期事件和行业趋势"
+        ],
+        "constraints": [
+          "救援时点与运价传导高度不确定"
+        ]
+      },
+      {
+        "id": "actor_retail",
+        "label": "个人投资者",
+        "kind": "retail_cohort",
+        "goals": [
+          "判断事件驱动行情",
+          "控制追涨杀跌风险"
+        ],
+        "constraints": [
+          "容易把航道堵塞直接等同于运价和股价上涨"
+        ]
+      },
+      {
+        "id": "actor_media",
+        "label": "国际航运与财经媒体",
+        "kind": "media",
+        "goals": [
+          "跟踪救援、积压和供应链影响",
+          "解释运价与上市公司传导"
+        ],
+        "constraints": [
+          "救援现场信息更新快且存在不确定传闻"
+        ]
+      }
+    ],
+    "financial_decisions": [
+      {
+        "id": "decision-actor_carrier-r3",
+        "round": 3,
+        "actor_id": "actor_carrier",
+        "action_type": "COMMUNICATE",
+        "decision_status": "intended",
+        "direction": "maintain",
+        "intensity": 0.6,
+        "instrument_refs": [],
+        "rationale": "救援进展存在不确定性，但客户已收到初步提示。当前阶段不能直接控制航道救援进度，需通过协调港口和客户来降低船期损失。计划向受影响客户和港口方发送更新通知，明确当前调配方案（等待或绕行选择），以稳定客户预期、控制声誉风险并为后续运力调整争取时间。救援尚未有明确时间表，金融市场波动(F4)不会影响运营决策。",
+        "constraint_refs": [
+          "actor_carrier:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "public",
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_canal_authority-r3",
+        "round": 3,
+        "actor_id": "actor_canal_authority",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": null,
+        "instrument_refs": [],
+        "rationale": "当前救援工作正在进行中，搁浅船体稳定，拖轮和疏浚力量已就位但需要等待下一个潮汐窗口才能评估脱浅方案。事故原因和恢复时间均未确定，主动调节或沟通可能传递错误信号。监管动作应在获得更明确的救援进展或船体状态评估后再执行，避免在信息不完整时干扰市场或救援节奏。核心约束是救援进度受船体、风浪、拖轮和疏浚条件限制，这些因素目前均不在直接可控范围内。",
+        "constraint_refs": [
+          "actor_canal_authority:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F3"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_salvage-r3",
+        "round": 3,
+        "actor_id": "actor_salvage",
+        "action_type": "OPERATE",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": 0.7,
+        "instrument_refs": [],
+        "rationale": "作为拖轮、疏浚与救援联合体，职责是安全解除搁浅。当前主管机构已协调拖轮和疏浚力量在现场救援，但受船体、风浪和疏浚条件限制。我已在模拟中通过社交媒体表达了增加设备和调整方案的意图。下一个决策周期内，最可能的主要动作是继续推进救援操作——调集更多大马力拖轮和抓斗式挖泥船到场，依据现场潮汐窗口和船体姿态变化实施新一轮脱浅作业。这是基于救援行动持续进行且可能需要增强设备这一假设，排除等待（事故持续造成航道关闭、供应链影响扩大）或仅沟通而不行动（救援职责要求实际作业推进）的选项。主要不确定性在于现场水文气象条件和船体结构响应是否允许安全作业。",
+        "constraint_refs": [
+          "actor_salvage:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F3"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.75,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_customers-r3",
+        "round": 3,
+        "actor_id": "actor_customers",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "当前事故原因和恢复时间均未确定，主管机构正在救援但尚无明确时间表。改道或空运成本高，不宜贸然切换。先等待更精确的恢复预估和承运方正式通知，再决定是否调整运输计划，以控制附加物流成本并减少停工风险。",
+        "constraint_refs": [
+          "actor_customers:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.9,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_ports-r3",
+        "round": 3,
+        "actor_id": "actor_ports",
+        "action_type": "OPERATE",
+        "decision_status": "intended",
+        "direction": "increase",
+        "intensity": 0.7,
+        "instrument_refs": [],
+        "rationale": "F1和F3表明航道受阻将持续一段时间，恢复通航后必然出现集中到港高峰。作为港口运营方，短期泊位、堆场和陆路疏运能力有限（约束），必须立即启动内部操作预案：提前调整泊位分配、优化堆场放箱节奏、协调铁路和集疏运公司增加临时运力，以降低未来拥堵峰值。该操作不涉及金融证券，仅针对港口运营活动。",
+        "constraint_refs": [
+          "actor_ports:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F3"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_institutions-r3",
+        "round": 3,
+        "actor_id": "actor_institutions",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "maintain",
+        "intensity": 0.3,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "截至时点，救援正在进行但恢复时间未确定，运价传导路径不清晰。D-2和D-1的大跌与D0反弹反映市场情绪激烈但方向未定，成交活跃说明多空博弈激烈。作为机构投资者，我的目标是区分短期事件与行业趋势，但救援时点高度不确定，过早加仓或减仓都面临显著尾部风险。选择WAIT即维持现有仓位，在决策周期内不进行新的方向性配置，等待救援进展或运价信号更明确后再行动。主要不确定性在于：航道关闭持续时间未知；运价上涨能否覆盖运营延误损失；大盘情绪后续是否继续拖累航运板块。",
+        "constraint_refs": [
+          "actor_institutions:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_retail-r3",
+        "round": 3,
+        "actor_id": "actor_retail",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": null,
+        "instrument_refs": [],
+        "rationale": "根据约束，我容易把航道堵塞直接等同于运价和股价上涨，但目前仅事故未解决、救援进行中，恢复时间未定，D0反弹但前两日大跌，价格波动大，盲目追高风险高。我选择等待观察，等事故恢复或官方明确信息再行动，以避免追涨杀跌。",
+        "constraint_refs": [
+          "actor_retail:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_media-r3",
+        "round": 3,
+        "actor_id": "actor_media",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": 0.65,
+        "instrument_refs": [],
+        "rationale": "作为国际航运与财经媒体，当前需优先跟踪救援进展与确认事实，而非急于发布传导分析。搁浅事故的恢复时间尚未确定，救援现场传闻多且更新快（约束002），此时贸然解释运价传导可能误导市场。应等待主管机构发布正式救援进展、船公司更新延误时长与改道计划，再结合F1（航道阻断）、F2（货主提示）、F3（救援力量部署）和F4（股价波动）展开专业分析。短期主要动作是继续监测、核实与整合多方信息源，确保后续报道准确可靠。",
+        "constraint_refs": [
+          "actor_media:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      }
+    ],
+    "simulated_actions": [
+      {
+        "id": "trace-24",
+        "actor_id": "actor_salvage",
+        "action_type": "COMMUNICATE",
+        "summary": "确认收到。当前船体姿态和潮汐窗口数据如何？我们这边可以调集更多大马力拖轮和抓斗式挖泥船支援，如有需要请通报主管机构协调部署。"
+      },
+      {
+        "id": "trace-30",
+        "actor_id": "actor_canal_authority",
+        "action_type": "COMMUNICATE",
+        "summary": "【航道主管机构通报】截至当前，救援力量（拖轮、疏浚船）已在现场持续作业。搁浅船体稳定，正在评估潮汐窗口以制定脱浅方案。恢复通航时间尚未确定，取决于船体状态、风浪条件和疏浚进展。请各相关方以官方通报为准，勿信未经证实的市场传言。"
+      },
+      {
+        "id": "trace-31",
+        "actor_id": "actor_carrier",
+        "action_type": "COMMUNICATE",
+        "summary": "我们正在同步评估受影响船舶的ETA调整方案。建议双方保持运力调配信息互通，在航道恢复前优先保障核心航线的最低周班服务。关于改道船舶，能否共享贵司目前的备选航线及相关成本数据？这对我们统一客户预期很重要。"
+      }
+    ],
+    "branch_slots": [
+      {
+        "slot_id": "slot-1",
+        "actor_ids": [
+          "actor_salvage",
+          "actor_carrier"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_salvage-r3",
+          "decision-actor_carrier-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-2",
+        "actor_ids": [
+          "actor_ports",
+          "actor_media"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_ports-r3",
+          "decision-actor_media-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-3",
+        "actor_ids": [
+          "actor_institutions",
+          "actor_canal_authority"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_institutions-r3",
+          "decision-actor_canal_authority-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-4",
+        "actor_ids": [
+          "actor_retail",
+          "actor_customers"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_retail-r3",
+          "decision-actor_customers-r3"
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "v7": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "快速脱浅与运力恢复",
+          "summary": "救援行动在潮汐窗口内取得突破，航道提前恢复通行；船公司据此调整船舶到港计划，与港口协调疏运节奏。",
+          "actor_ids": [
+            "actor_salvage",
+            "actor_carrier"
+          ],
+          "trigger_conditions": [
+            "在D0后首个潮汐窗口内，救援联合体成功将搁浅船体移出航道",
+            "航道主管机构在D0+5天内发布明确的恢复通航公告"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_salvage",
+              "action_type": "OPERATE",
+              "decision_ref": "decision-actor_salvage-r3"
+            },
+            {
+              "actor_id": "actor_carrier",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_carrier-r3"
+            }
+          ],
+          "consequences": [
+            "船公司基于可靠恢复时点，将等待船舶集中放行计划通知港口，港口面临集中到港压力但仍可控",
+            "港口因提前启动预案，堆场周转和陆路疏运基本能承接恢复后的首批集中到港，未出现严重拥堵"
+          ],
+          "invalidation_conditions": [
+            "D0后7天内航道仍未恢复双向通行",
+            "船体脱浅作业过程中出现二次搁浅或结构重大损伤"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_salvage-r3",
+            "decision-actor_carrier-r3"
+          ],
+          "novelty_claim": "相比仅报告救援进行中，该分支展示了救援成功结果如何传导至船公司运力调配与港口疏运衔接的协同机制。",
+          "confidence": 0.6,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-2",
+          "label": "港口拥堵警告与媒体放大",
+          "summary": "航道短期无法恢复，港口提前预案见效但货量集中叠加陆路瓶颈，媒体开始发布港口拥堵警告。",
+          "actor_ids": [
+            "actor_ports",
+            "actor_media"
+          ],
+          "trigger_conditions": [
+            "航道主管机构在D0+3天内公告恢复时间显著延长（超过10天）",
+            "船公司已向客户和港口发送多批次等待船舶的改道或推迟到港通知"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_ports",
+              "action_type": "OPERATE",
+              "decision_ref": "decision-actor_ports-r3"
+            },
+            {
+              "actor_id": "actor_media",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_media-r3"
+            }
+          ],
+          "consequences": [
+            "港口码头堆场利用率急剧上升，铁路和集疏运公司短时运力不足，拥堵开始向周边公路蔓延",
+            "财经媒体基于港口运营数据与船公司公告，发布聚焦供应链拥堵与延误成本的专题报道，引起更广泛市场关注"
+          ],
+          "invalidation_conditions": [
+            "航道在7天内提前恢复",
+            "港口内部操作预案完全吸收延迟货物转堆需求，未出现拥堵报道"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_ports-r3",
+            "decision-actor_media-r3"
+          ],
+          "novelty_claim": "该分支解释了港口运营预案与媒体叙事之间的交互：港口操作结果成为媒体素材，而媒体报道又可能放大港口压力感知。",
+          "confidence": 0.7,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-3",
+          "label": "机构观望与等待监管信号",
+          "summary": "机构投资者维持现有仓位，等待航道主管机构关于事故原因和后续安全管制措施的正式通报，再决策是否调整板块配置。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_canal_authority"
+          ],
+          "trigger_conditions": [
+            "救援期限超过D0+7天，但船体仍未能脱浅",
+            "航道主管机构发布正式通报，要求所有通过该航道的船舶接受安全审查"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r3"
+            },
+            {
+              "actor_id": "actor_canal_authority",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_canal_authority-r3"
+            }
+          ],
+          "consequences": [
+            "机构投资者依据航道长期受限的官方判断，评估运价支撑与成本上升的平衡，可能启动小比例减仓以控制尾部风险",
+            "航道主管机构因安全审查增加，实际通航效率短期下降，间接影响后续运价预期和船公司航线规划"
+          ],
+          "invalidation_conditions": [
+            "救援在D0+5天内快速结束，航道恢复常态",
+            "主管机构在无安全审查情况下直接恢复通行"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_institutions-r3",
+            "decision-actor_canal_authority-r3"
+          ],
+          "novelty_claim": "该分支明确了机构投资者的等待行为与监管当局后续举措之间的传导：监管安全审查增加通航不确定性，进而影响机构对运价可持续性的判断。",
+          "confidence": 0.5,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-4",
+          "label": "个人情绪与客户行动的背离",
+          "summary": "零售投资者受D0反弹鼓舞追涨，而货主客户因时间延迟开始向船公司提出货损索赔或改道询问，基本面与市场情绪脱节。",
+          "actor_ids": [
+            "actor_retail",
+            "actor_customers"
+          ],
+          "trigger_conditions": [
+            "D0后连续两个交易日航运标的温和上涨（累计幅度5%以上）",
+            "货主客户向船公司发送正式函件，要求明确延误损失补偿或提供替代运输方案"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_retail",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_retail-r3"
+            },
+            {
+              "actor_id": "actor_customers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_customers-r3"
+            }
+          ],
+          "consequences": [
+            "零售投资者可能将价格反弹视为事件驱动行情的验证，从而追高买入",
+            "船公司面临客户索赔增值成本，部分抵消了运价上涨的红利，实际净收入改善有限"
+          ],
+          "invalidation_conditions": [
+            "D0反弹后航运标的价格持续下跌，未出现连续上涨",
+            "客户在决策周期内保持等待状态，未向船公司提出赔偿或改道要求"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_retail-r3",
+            "decision-actor_customers-r3"
+          ],
+          "novelty_claim": "该分支展示了市场情绪驱动与真实运营成本之间的潜在背离：零售投资者的上涨解读与客户实际增加索赔成本的行为形成非对称关系。",
+          "confidence": 0.55,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        }
+      ],
+      "generation": {
+        "semantic_retries": 0,
+        "elapsed_seconds": 48.61541091703111
+      },
+      "judgments": []
+    }
+  }
+}

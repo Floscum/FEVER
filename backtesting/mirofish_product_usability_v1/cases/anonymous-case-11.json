@@ -1,0 +1,968 @@
+{
+  "case_id": "anonymous-case-11",
+  "market": "US",
+  "event_type": "财报超预期/不及预期",
+  "actor_budget": 6,
+  "decision_actor_ids": [
+    "actor_brokers",
+    "actor_competitors",
+    "actor_exchange",
+    "actor_institutions",
+    "actor_issuer"
+  ],
+  "facts": [
+    {
+      "id": "F1",
+      "observed_at": "D0",
+      "statement": "S&P 500 Financial Results Coverage D0-date：SP500 results | SEC filings consensus: sell-side prev: last Q",
+      "source_kind": "official",
+      "source_url": "anonymized-source",
+      "evidence_ref": "E1",
+      "confidence": 0.8
+    }
+  ],
+  "source_hashes": {
+    "spec_sha256": "0cf4814c0790a1768dae74fe95ad83b1622094e3e9331c6c547aec4c777232d7",
+    "simulation_result_sha256": "91007f4719b3bcd0e96cef39b592ede5ba20c991e6d5b85e2be6c5682cac4517",
+    "financial_actions_sha256": "89213a0e3e925340af83091020f01fc2b0d885d5d6cc1218750c874157ddc768"
+  },
+  "variants": {
+    "decisions_only": {
+      "generation": {
+        "status": "sealed",
+        "semantic_retries": 0,
+        "elapsed_seconds": 28.802068541001063,
+        "prompt_chars": 6647,
+        "visible_interactions": 0
+      },
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "机构加速调仓倒逼券商跟进",
+          "summary": "若机构投资者在等待期间发现行业细分数据与共识出现显著偏差，可能提前终止观望并调整资产配置，券商为维持客户关系将被迫提供相应研究支持和交易执行。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_brokers"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_brokers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_brokers-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "在D0+1内，某主要行业板块的Q1盈利数据与卖方共识中值偏离超过2个标准差",
+            "在D0+2内，至少三家大型机构投资者通过私下渠道向券商询问调仓方案"
+          ],
+          "consequences": [
+            "机构投资者将ANON_ASSET头寸从保持调整为净卖出或净买入",
+            "券商加速发布针对该行业的深度报告，并调整佣金结构与交易建议"
+          ],
+          "invalidation_conditions": [
+            "D0+1内行业数据偏差在1个标准差以内",
+            "D0+2内无机构向券商索取调仓方案记录"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "竞争者在等待中预判主体动向",
+          "summary": "若竞争者观察到事件主体迟迟未对新财报做出调整，可能推断其内部存在负面信息或战略保守，从而抢先占据新的市场份额或合作机会。",
+          "actor_ids": [
+            "actor_competitors",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_competitors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_competitors-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "在D0+2内，事件主体未发布任何Q1相关的业绩说明或指引更新",
+            "在D0+3内，竞争者的行业情报渠道显示事件主体内部出现战略分歧"
+          ],
+          "consequences": [
+            "竞争者开始接触事件主体的客户或分销商，提供替代方案",
+            "事件主体因被动局面被迫加速披露前瞻指引，但其可信度受质疑"
+          ],
+          "invalidation_conditions": [
+            "事件主体在D0+1内即发布业绩说明或指引更新",
+            "不存在事件主体内部战略分歧的公开或可验证情报"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "交易所介入以避免机构行为引发市场失序",
+          "summary": "若机构投资者在等待行业数据后集中调整仓位，交易所可能因监测到异常交易量或价格波动而主动干预，以维护市场运行秩序。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_exchange"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_exchange",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_exchange-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "在D0+2内，与ANON_ASSET相关的板块交易量较20日均值放大300%以上",
+            "在D0+3内，该板块买卖价差大幅扩大至正常水平的3倍"
+          ],
+          "consequences": [
+            "交易所发布警示或实施熔断机制，限制该板块交易",
+            "机构投资者的调仓行为被迫暂停或分散进行，减少对市场冲击"
+          ],
+          "invalidation_conditions": [
+            "D0+2内板块交易量放大不超过50%",
+            "D0+3内买卖价差保持在正常水平的1.5倍以内"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "机构用内部数据倒逼竞争者调整策略",
+          "summary": "如果机构投资者在等待行业数据时自建了高于卖方共识的预测模型，发现某竞争者将受益于行业趋势，可能提前布局并促使该竞争者改变战术或公开表态。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_competitors"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_competitors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_competitors-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "在D0+2内，至少两家大型机构投资组合中对某竞争者的暴露度从低配主动调整至基准或超配",
+            "在D0+3内，该竞争者收到机构投资者的私下问询并要求其提供战略更新"
+          ],
+          "consequences": [
+            "该竞争者加速发布新产品或合作消息以迎合机构预期",
+            "机构投资者通过集中买入推高竞争者股价，使得事件主体面临更大的竞争压力"
+          ],
+          "invalidation_conditions": [
+            "D0+2内无机构调整对该竞争者的仓位",
+            "D0+3内竞争者未收到任何来自机构投资者的战略问询"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        }
+      ],
+      "quality": [
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 1,
+            "evidence_discipline": 1,
+            "scenario_diversity": 2
+          },
+          "total_score": 8,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": false,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            }
+          ]
+        },
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 2,
+            "evidence_discipline": 1,
+            "scenario_diversity": 2
+          },
+          "total_score": 9,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            }
+          ]
+        }
+      ],
+      "judge_reasons": [
+        "No free-form reason supplied.",
+        "No free-form reason supplied."
+      ],
+      "prompt": {
+        "system": "你是金融事件分支编译器，不是价格预测器。只使用输入中 as_of 时点可得事实\n和明确标为模拟的行为，生成恰好 4 条彼此有实质区别、未来可证伪的条件化事件分支。\n\n\n硬性要求：\n- 不得补充 as_of 之后的真实事件、公告、价格或人员结果；\n- 每条分支至少串联两个不同 actor 的动作，不能只是改写一个人的观点；\n- trigger_conditions 必须是未来可观察的“若……则进入该分支”条件；\n- consequences 是机制结果，不是已发生事实；\n- invalidation_conditions 必须说明什么观察会推翻该分支；\n- evidence_refs 只能引用输入中的 F 编号；\n- 按 branch_slots 的顺序生成分支；第 N 条分支必须描述第 N 个槽位中的所有角色及其相互影响；\n- 不要输出 actor_ids、actions、decision_ref 或 simulation_refs；系统会按数组位置确定性绑定\n  槽位中的角色及其已有 financial_decision，禁止自行概括、改写或新造动作；\n- confidence 只表示分支内部连贯性，不是发生概率；\n- novelty_claim 说明该分支比事实直接复述多出了哪段多主体传导；\n- 不得输出目标价格、收益率概率或 Agent 投票频率。\n\n只输出 JSON：\n{\"branches\":[{\"label\":\"简短名称\",\"summary\":\"条件化摘要\",\n\"trigger_conditions\":[\"...\"],\"consequences\":[\"...\"],\n\"invalidation_conditions\":[\"...\"],\"evidence_refs\":[\"F1\"],\n\"novelty_claim\":\"...\",\"confidence\":0.5}],\"warnings\":[]}。\n互动输入可能为空；其中内容仍是模拟消息，不是新增事实。不得凭空推断立场变化或因果影响。每条分支说明一方行动如何影响另一方的可行行动。触发和失效条件尽量指出观察对象与时间窗口；没有依据时不编造精确阈值。对缺少行动依据的传导使用条件表述，不把等待决策改写成已经采取新行动。",
+        "user": "{\"case_id\": \"anonymous-case-11\", \"as_of\": \"D0\", \"question\": \"严格基于 D0 时点可得信息，推演未来三个交易日各参与方行动及条件化传导机制。\", \"horizon\": {\"kind\": \"calendar_days\", \"value\": 3, \"end_at\": \"2024-04-04T23:59:59+00:00\"}, \"facts\": [{\"id\": \"F1\", \"statement\": \"S&P 500 Financial Results Coverage D0-date：SP500 results | SEC filings consensus: sell-side prev: last Q\"}], \"actors\": [{\"id\": \"actor_issuer\", \"label\": \"事件主体\", \"kind\": \"issuer\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_institutions\", \"label\": \"机构投资者\", \"kind\": \"institutional_investor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_analysts\", \"label\": \"分析师\", \"kind\": \"analyst\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_brokers\", \"label\": \"券商与中介机构\", \"kind\": \"broker\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_exchange\", \"label\": \"交易所\", \"kind\": \"exchange\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_competitors\", \"label\": \"竞争者\", \"kind\": \"competitor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}], \"financial_decisions\": [{\"id\": \"decision-actor_issuer-r2\", \"round\": 2, \"actor_id\": \"actor_issuer\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"maintain\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"截至2024-04-01，S&P 500 Q1财务结果刚发布（F1），与SEC文件及卖方共识对比上季度。作为事件主体，需维护自身制度与经济利益，但当前仅有初步财务覆盖率数据，尚无充足新增信息需要立即调整行动。市场参与者（机构投资者、卖方分析师）正在消化数据并发表各自解读（模拟观察中），我应等待更多行业级细分数据、前瞻指引以及后续市场反应后再做调整，以避免基于单一时点数据做出仓促决策。主要不确定性在于（1）各行业盈利趋势是否与整体一致；（2）前瞻指引是否暗示宏观风险转向。\", \"constraint_refs\": [\"actor_issuer:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_institutions-r2\", \"round\": 2, \"actor_id\": \"actor_institutions\", \"action_type\": \"WAIT\", \"decision_status\": \"intended\", \"direction\": \"maintain\", \"intensity\": 0.4, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"Q1 2024 S&P 500 财务结果及 SEC 备案已发布，sell-side 共识与上一季度的对比数据可供分析。作为机构投资者，我需要在系统处理完这些备案数据后再做调整。目前信息仅覆盖整体 SP500 结果，缺乏 匿名标的1 的具体板块细节和前瞻指引。等待 sector-level 数据更新确认是否存在对共识的重大偏离，再决定是否调整 匿名标的1 仓位。当前维持观望，不急于行动。\", \"constraint_refs\": [\"actor_institutions:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.75, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_brokers-r2\", \"round\": 2, \"actor_id\": \"actor_brokers\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"maintain\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"截至2024-04-01，已观察到S&P 500 Q1财务结果、SEC备案及卖方共识与上季对比的基础数据。作为券商与中介机构，需要等待更多行业细分数据和前瞻指引披露，才足以做出实质性调整推荐或仓位动作。当前信息仅为财报初步覆盖，尚未出现显著偏离共识或触发调整阈值的信号，因此选择按兵不动、继续监测。主要不确定性来自后续行业细分数据及管理层前瞻指引是否与共识一致。\", \"constraint_refs\": [\"actor_brokers:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_exchange-r2\", \"round\": 2, \"actor_id\": \"actor_exchange\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"截至时点仅观察到S&P 500 2024年Q1财务结果（SEC文件及卖方共识对比上一季度）这一单一增量事实，而我作为交易所的首要职责是维护市场制度与运行秩序。单一季度的汇总数据尚不足以触发监管规则调整或运营参数变更；需要等待更多的行业细分数据、公司层面前瞻指引以及市场 participant 的反馈，才能评估是否存在需要交易所主动干预（如调整保证金、交易规则或信息披露要求）的情形。当前选择保持观察，符合约束要求——只使用截至时点可见事实，不将社交热度直接解释为价格或概率，也不做超出信息范围的动作。\", \"constraint_refs\": [\"actor_exchange:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_competitors-r2\", \"round\": 2, \"actor_id\": \"actor_competitors\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"截至2024-04-01，仅观察到S&P 500 Q1 2024财务结果覆盖信息，包含SEC filings consensus与sell-side prev对比上一季度的数据。当前信息量有限，仅为一期横截面数据，尚不足以形成有信心的制度维护或经济利益调整行动。需要等待更多行业细分数据、后续财报发布以及forward guidance的积累，才能识别出material divergence并进行针对性操作。竞争者应当优先观测而不是抢先行动，以避免基于不完整信息做出有损自身利益的调整。\", \"constraint_refs\": [\"actor_competitors:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}], \"simulated_actions\": [], \"branch_slots\": [{\"slot_id\": \"slot-1\", \"actor_ids\": [\"actor_institutions\", \"actor_brokers\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_brokers-r2\"]}, {\"slot_id\": \"slot-2\", \"actor_ids\": [\"actor_competitors\", \"actor_issuer\"], \"relationship_kind\": \"constrains_or_influences\", \"decision_refs\": [\"decision-actor_competitors-r2\", \"decision-actor_issuer-r2\"]}, {\"slot_id\": \"slot-3\", \"actor_ids\": [\"actor_institutions\", \"actor_exchange\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_exchange-r2\"]}, {\"slot_id\": \"slot-4\", \"actor_ids\": [\"actor_institutions\", \"actor_competitors\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_competitors-r2\"]}]}"
+      }
+    },
+    "filtered_interactions": {
+      "generation": {
+        "status": "sealed",
+        "semantic_retries": 1,
+        "elapsed_seconds": 215.7613437079708,
+        "prompt_chars": 8968,
+        "visible_interactions": 6
+      },
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "机构与券商协同调仓",
+          "summary": "若机构投资者在分析行业财报后，发现特定板块盈利显著偏离卖方共识，则可能调整持仓并寻求券商提供流动性或研究报告支持；券商若观察到机构需求变化，则可能调整个股评级或研究报告，从而形成双向互动。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_brokers"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_brokers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_brokers-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "机构投资者基于S&P 500 Q1细化数据确认某行业板块盈利或营收增长较上一季度偏离卖方共识超过预期阈值",
+            "券商在自身复核中识别出行业一致性变化并收到机构投资者针对该板块的询价或研究请求"
+          ],
+          "consequences": [
+            "机构投资者将调整对相关ETF或个股的仓位，向券商发出执行指令",
+            "券商在签发行业报告时着重分析该偏离板块，并可能对其中个股权重或评级进行微调"
+          ],
+          "invalidation_conditions": [
+            "机构投资者在D0至D+3期间未在公开渠道或模拟消息中出现任何调仓意向表述",
+            "券商未在D+1前发布任何行业细分分析或对比上季度的盈利趋势内容"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "竞争者扰动事件主体决策",
+          "summary": "若竞争者从Q1财报中识别出与其自身业务重叠领域的市场变化信号，其可能调整产能或定价策略，从而约束事件主体的后续市场操作空间，迫使事件主体在等待期间判定是否需调整自身经营或融资布局。",
+          "actor_ids": [
+            "actor_competitors",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_competitors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_competitors-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "竞争者在进一步分析中明确发现与自身业务交叉的板块需求或成本上升趋势",
+            "事件主体在市场消息或上下游反馈中捕捉到竞争者正在酝酿产能/开盘决策调整"
+          ],
+          "consequences": [
+            "竞争者可能主动上调或下调产品报价或投资计划，缩小事件主体的可选行动集",
+            "事件主体将被迫提前结束观望，在D+2至D+3期间调整自身信息披露节奏或向券商沟通最新想法"
+          ],
+          "invalidation_conditions": [
+            "竞争者始终未能识别出任何超越上一季度共识的差异化信号",
+            "事件主体在D+3内未对竞争者动向做出任何非公开或模拟中可观测的应对表述"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "交易所数据驱动政策响应",
+          "summary": "若机构投资者因财报分析结果对某类资产交易量或波动率构成实质影响，交易所可能在监测体系中捕获异常指标并调整市场规则，如临时信息披露要求或特别报价安排。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_exchange"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_exchange",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_exchange-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "机构投资者在D+1或D+2公开或模拟渠道中明确提出将增加某板块的交易频率或申报大额订单意向",
+            "交易所内部系统识别到该板块连续两个计算周期的成交量或价格波动率超过其制度基线"
+          ],
+          "consequences": [
+            "交易所可能向该板块部分发行人发出自愿性额外披露要求，以增强透明度",
+            "机构投资者收到交易所沟通后，可能选择暂缓部分订单或改变下单时点以评估新环境"
+          ],
+          "invalidation_conditions": [
+            "机构投资者在D+3前未执行或宣称任何实际调仓活动",
+            "交易所未在任何通信中提及监测到异常指标或发布制度调整通知"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "机构分析引发竞争者对称反应",
+          "summary": "若机构投资者在深度研究后公开或内部强调某些行业的龙头公司存在竞争优势变化，作为直接竞争者的对立方可能认为机构观点预示着资金流向变动，从而主动调整自身市场策略以抵消或利用该趋势。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_competitors"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_competitors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_competitors-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "机构投资者在模拟渠道或交流中发布了对某一特定行业的正面或负面定性分析",
+            "竞争者将该分析解读为机构投资者未来将重心偏离现状，可能威胁自身市场份额或融资成本"
+          ],
+          "consequences": [
+            "竞争者可能加速原定技术投资或下调产品定价，抢先锁定客户端协议",
+            "机构投资者看到竞争者动作后，可能重新评估自身持仓时点和行业集中度，减少对该竞争赛道的过度集中风险敞口"
+          ],
+          "invalidation_conditions": [
+            "机构投资者在D+3之前未发布任何逐行或定性行业观点",
+            "竞争者始终未表现出对机构投资者观点有任何察觉或反应，仍维持等待调仓状态"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        }
+      ],
+      "quality": [
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 2,
+            "evidence_discipline": 2,
+            "scenario_diversity": 2
+          },
+          "total_score": 10,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": false,
+              "specific_invalidation": false,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": false,
+              "specific_invalidation": false,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": false,
+              "specific_invalidation": false,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": false,
+              "specific_invalidation": false,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            }
+          ]
+        },
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 1,
+            "falsifiability": 1,
+            "evidence_discipline": 2,
+            "scenario_diversity": 3
+          },
+          "total_score": 9,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": false,
+              "specific_invalidation": false,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": false,
+              "specific_invalidation": false,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": false,
+              "specific_invalidation": false,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": false,
+              "specific_invalidation": false,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            }
+          ]
+        }
+      ],
+      "judge_reasons": [
+        "No free-form reason supplied.",
+        "各分支因果链均涉及多方，但触发条件依赖非公开或模拟渠道且未定义可观察阈值，失效条件多为反义复述或与行动直接矛盾，且后果对D0决策者缺乏可操作的回旋空间。"
+      ],
+      "prompt": {
+        "system": "你是金融事件分支编译器，不是价格预测器。只使用输入中 as_of 时点可得事实\n和明确标为模拟的行为，生成恰好 4 条彼此有实质区别、未来可证伪的条件化事件分支。\n\n\n硬性要求：\n- 不得补充 as_of 之后的真实事件、公告、价格或人员结果；\n- 每条分支至少串联两个不同 actor 的动作，不能只是改写一个人的观点；\n- trigger_conditions 必须是未来可观察的“若……则进入该分支”条件；\n- consequences 是机制结果，不是已发生事实；\n- invalidation_conditions 必须说明什么观察会推翻该分支；\n- evidence_refs 只能引用输入中的 F 编号；\n- 按 branch_slots 的顺序生成分支；第 N 条分支必须描述第 N 个槽位中的所有角色及其相互影响；\n- 不要输出 actor_ids、actions、decision_ref 或 simulation_refs；系统会按数组位置确定性绑定\n  槽位中的角色及其已有 financial_decision，禁止自行概括、改写或新造动作；\n- confidence 只表示分支内部连贯性，不是发生概率；\n- novelty_claim 说明该分支比事实直接复述多出了哪段多主体传导；\n- 不得输出目标价格、收益率概率或 Agent 投票频率。\n\n只输出 JSON：\n{\"branches\":[{\"label\":\"简短名称\",\"summary\":\"条件化摘要\",\n\"trigger_conditions\":[\"...\"],\"consequences\":[\"...\"],\n\"invalidation_conditions\":[\"...\"],\"evidence_refs\":[\"F1\"],\n\"novelty_claim\":\"...\",\"confidence\":0.5}],\"warnings\":[]}。\n互动输入可能为空；其中内容仍是模拟消息，不是新增事实。不得凭空推断立场变化或因果影响。每条分支说明一方行动如何影响另一方的可行行动。触发和失效条件尽量指出观察对象与时间窗口；没有依据时不编造精确阈值。对缺少行动依据的传导使用条件表述，不把等待决策改写成已经采取新行动。",
+        "user": "{\"case_id\": \"anonymous-case-11\", \"as_of\": \"D0\", \"question\": \"严格基于 D0 时点可得信息，推演未来三个交易日各参与方行动及条件化传导机制。\", \"horizon\": {\"kind\": \"calendar_days\", \"value\": 3, \"end_at\": \"2024-04-04T23:59:59+00:00\"}, \"facts\": [{\"id\": \"F1\", \"statement\": \"S&P 500 Financial Results Coverage D0-date：SP500 results | SEC filings consensus: sell-side prev: last Q\"}], \"actors\": [{\"id\": \"actor_issuer\", \"label\": \"事件主体\", \"kind\": \"issuer\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_institutions\", \"label\": \"机构投资者\", \"kind\": \"institutional_investor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_analysts\", \"label\": \"分析师\", \"kind\": \"analyst\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_brokers\", \"label\": \"券商与中介机构\", \"kind\": \"broker\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_exchange\", \"label\": \"交易所\", \"kind\": \"exchange\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_competitors\", \"label\": \"竞争者\", \"kind\": \"competitor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}], \"financial_decisions\": [{\"id\": \"decision-actor_issuer-r2\", \"round\": 2, \"actor_id\": \"actor_issuer\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"maintain\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"截至2024-04-01，S&P 500 Q1财务结果刚发布（F1），与SEC文件及卖方共识对比上季度。作为事件主体，需维护自身制度与经济利益，但当前仅有初步财务覆盖率数据，尚无充足新增信息需要立即调整行动。市场参与者（机构投资者、卖方分析师）正在消化数据并发表各自解读（模拟观察中），我应等待更多行业级细分数据、前瞻指引以及后续市场反应后再做调整，以避免基于单一时点数据做出仓促决策。主要不确定性在于（1）各行业盈利趋势是否与整体一致；（2）前瞻指引是否暗示宏观风险转向。\", \"constraint_refs\": [\"actor_issuer:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_institutions-r2\", \"round\": 2, \"actor_id\": \"actor_institutions\", \"action_type\": \"WAIT\", \"decision_status\": \"intended\", \"direction\": \"maintain\", \"intensity\": 0.4, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"Q1 2024 S&P 500 财务结果及 SEC 备案已发布，sell-side 共识与上一季度的对比数据可供分析。作为机构投资者，我需要在系统处理完这些备案数据后再做调整。目前信息仅覆盖整体 SP500 结果，缺乏 匿名标的1 的具体板块细节和前瞻指引。等待 sector-level 数据更新确认是否存在对共识的重大偏离，再决定是否调整 匿名标的1 仓位。当前维持观望，不急于行动。\", \"constraint_refs\": [\"actor_institutions:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.75, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_brokers-r2\", \"round\": 2, \"actor_id\": \"actor_brokers\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"maintain\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"截至2024-04-01，已观察到S&P 500 Q1财务结果、SEC备案及卖方共识与上季对比的基础数据。作为券商与中介机构，需要等待更多行业细分数据和前瞻指引披露，才足以做出实质性调整推荐或仓位动作。当前信息仅为财报初步覆盖，尚未出现显著偏离共识或触发调整阈值的信号，因此选择按兵不动、继续监测。主要不确定性来自后续行业细分数据及管理层前瞻指引是否与共识一致。\", \"constraint_refs\": [\"actor_brokers:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_exchange-r2\", \"round\": 2, \"actor_id\": \"actor_exchange\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"截至时点仅观察到S&P 500 2024年Q1财务结果（SEC文件及卖方共识对比上一季度）这一单一增量事实，而我作为交易所的首要职责是维护市场制度与运行秩序。单一季度的汇总数据尚不足以触发监管规则调整或运营参数变更；需要等待更多的行业细分数据、公司层面前瞻指引以及市场 participant 的反馈，才能评估是否存在需要交易所主动干预（如调整保证金、交易规则或信息披露要求）的情形。当前选择保持观察，符合约束要求——只使用截至时点可见事实，不将社交热度直接解释为价格或概率，也不做超出信息范围的动作。\", \"constraint_refs\": [\"actor_exchange:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_competitors-r2\", \"round\": 2, \"actor_id\": \"actor_competitors\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"截至2024-04-01，仅观察到S&P 500 Q1 2024财务结果覆盖信息，包含SEC filings consensus与sell-side prev对比上一季度的数据。当前信息量有限，仅为一期横截面数据，尚不足以形成有信心的制度维护或经济利益调整行动。需要等待更多行业细分数据、后续财报发布以及forward guidance的积累，才能识别出material divergence并进行针对性操作。竞争者应当优先观测而不是抢先行动，以避免基于不完整信息做出有损自身利益的调整。\", \"constraint_refs\": [\"actor_competitors:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}], \"simulated_actions\": [{\"id\": \"trace-21\", \"actor_id\": \"actor_exchange\", \"action_type\": \"COMMUNICATE\", \"summary\": \"Analysis received: S&P 500 Q1 2024 results & SEC filings under review. Our systems will process this data for market integrity monitoring. Thank you for the submission.\"}, {\"id\": \"trace-22\", \"actor_id\": \"actor_issuer\", \"action_type\": \"COMMUNICATE\", \"summary\": \"Noted. Q1 2024 S&P 500 results as per SEC filings and sell-side consensus vs prior quarter. This aligns with our ongoing review of market fundamentals. Will monitor forward guidance and sector-level breakdowns for any material divergence from projections.\"}, {\"id\": \"trace-29\", \"actor_id\": \"actor_institutions\", \"action_type\": \"COMMUNICATE\", \"summary\": \"As an institutional investor, Q1 2024 S&P 500 results are crucial for our portfolio allocation decisions. The sell-side consensus vs prior quarter comparison will be key for rebalancing our equity exposure. I'll be analyzing sector-level earnings growth and margin trends in the filings to identify any divergence from the consensus estimates.\"}, {\"id\": \"trace-30\", \"actor_id\": \"actor_brokers\", \"action_type\": \"COMMUNICATE\", \"summary\": \"Acknowledged. As sell-side coverage, we note the Q1 2024 S&P 500 results are consistent with SEC filings. Our preliminary assessment shows earnings trends aligning with prior quarter consensus. We'll be tracking forward guidance and sector rotation for any shifts in our recommendations. Will publish sector-level breakdowns upon further review.\"}, {\"id\": \"trace-36\", \"actor_id\": \"actor_competitors\", \"action_type\": \"COMMUNICATE\", \"summary\": \"Reviewing these consensus figures against prior quarter. As a competitor tracking sector-level movements, I'm watching for any divergence between SEC filings data and the sell-side prev projections. Q1 fundamentals will inform positioning adjustments. Will share further analysis as more filings become visible.\"}, {\"id\": \"trace-37\", \"actor_id\": \"actor_analysts\", \"action_type\": \"COMMUNICATE\", \"summary\": \"Cross-referencing these Q1 2024 S&P 500 results with SEC filings and sell-side consensus. The data appears consistent with reported earnings season trends. Key metrics to watch: sector dispersion, forward guidance revisions, and margin sustainability. Will track any divergence from baseline projections as new filings come in.\"}], \"branch_slots\": [{\"slot_id\": \"slot-1\", \"actor_ids\": [\"actor_institutions\", \"actor_brokers\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_brokers-r2\"]}, {\"slot_id\": \"slot-2\", \"actor_ids\": [\"actor_competitors\", \"actor_issuer\"], \"relationship_kind\": \"constrains_or_influences\", \"decision_refs\": [\"decision-actor_competitors-r2\", \"decision-actor_issuer-r2\"]}, {\"slot_id\": \"slot-3\", \"actor_ids\": [\"actor_institutions\", \"actor_exchange\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_exchange-r2\"]}, {\"slot_id\": \"slot-4\", \"actor_ids\": [\"actor_institutions\", \"actor_competitors\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_competitors-r2\"]}]}"
+      }
+    },
+    "raw_interactions": {
+      "generation": {
+        "status": "sealed",
+        "semantic_retries": 0,
+        "elapsed_seconds": 50.26391745801084,
+        "prompt_chars": 10813,
+        "visible_interactions": 16
+      },
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "机构触发卖方更新",
+          "summary": "若机构在行业数据发布后发出调仓信号，卖方分析师将根据机构需求更新报告。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_brokers"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_brokers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_brokers-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "机构投资者在D1-D3期间发布针对特定行业盈利趋势偏离共识的分析公告",
+            "卖方券商在社交媒体或报告中明确提及“根据机构客户需求调整行业配置建议”"
+          ],
+          "consequences": [
+            "卖方将发布修订后的行业覆盖报告，调整评级或目标价",
+            "机构投资者根据卖方新报告调整ANON_ASSET仓位"
+          ],
+          "invalidation_conditions": [
+            "机构投资者未在D3前发布任何行业分析声明",
+            "卖方券商发布声明称现有报告维持不变"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "竞争者对发行人的压制",
+          "summary": "若竞争者发现发行人所在行业的盈利趋势劣于预期，将采取行动限制发行人的市场空间。",
+          "actor_ids": [
+            "actor_competitors",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_competitors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_competitors-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "竞争者发布分析称发行人所在行业毛利率或营收增速低于卖方共识",
+            "发行人在D1-D3期间未发布前瞻指引或盈利预警"
+          ],
+          "consequences": [
+            "竞争者将调整自身定价或市场份额策略，挤压发行人收入基础",
+            "发行人的观望决策面临更大外部压力，可能被迫在D3后提前披露指引"
+          ],
+          "invalidation_conditions": [
+            "竞争者发布声明称行业数据与预期一致",
+            "发行人在D3前主动发布了超越当前公告的前瞻指引"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "交易所对机构调仓的延迟响应",
+          "summary": "若机构大规模调仓被监控系统识别，交易所将启动规则审查但不会立即修改参数。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_exchange"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_exchange",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_exchange-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "机构投资者在D1-D3期间执行了超过自身过去一个季度日均交易量两倍的ANON_ASSET订单",
+            "交易所监控系统公开声明“观察到异常交易模式，正在评估市场完整性”"
+          ],
+          "consequences": [
+            "交易所将发布临时通知要求增加信息披露或提高保证金比例",
+            "机构投资者后续调仓需承担额外成本或延迟执行"
+          ],
+          "invalidation_conditions": [
+            "机构在D3前未执行任何ANON_ASSET交易",
+            "交易所表示无市场监控异常"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "机构与竞争者的反向信号博弈",
+          "summary": "若机构增持某板块而竞争者看空，双方行为将互相冲突并增加市场噪音。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_competitors"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_competitors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_competitors-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "机构投资者在D1-D3期间公开增持ANON_ASSET或相关板块",
+            "竞争者发布负面行业展望或减持声明"
+          ],
+          "consequences": [
+            "卖方和交易所将面临矛盾信号，延迟统一解读的形成",
+            "市场波动性增加，后续其他参与者等待更明确的趋势信号"
+          ],
+          "invalidation_conditions": [
+            "机构与竞争者在D3前发布方向一致的声明",
+            "任何一方在D3前撤回或修改了原有立场"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        }
+      ],
+      "quality": [
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 2,
+            "evidence_discipline": 1,
+            "scenario_diversity": 3
+          },
+          "total_score": 10,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            }
+          ]
+        },
+        {
+          "scores": {
+            "mechanism_coherence": 3,
+            "monitoring_actionability": 2,
+            "falsifiability": 3,
+            "evidence_discipline": 2,
+            "scenario_diversity": 3
+          },
+          "total_score": 13,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": false
+            }
+          ]
+        }
+      ],
+      "judge_reasons": [
+        "No free-form reason supplied.",
+        "No free-form reason supplied."
+      ],
+      "prompt": {
+        "system": "你是金融事件分支编译器，不是价格预测器。只使用输入中 as_of 时点可得事实\n和明确标为模拟的行为，生成恰好 4 条彼此有实质区别、未来可证伪的条件化事件分支。\n\n\n硬性要求：\n- 不得补充 as_of 之后的真实事件、公告、价格或人员结果；\n- 每条分支至少串联两个不同 actor 的动作，不能只是改写一个人的观点；\n- trigger_conditions 必须是未来可观察的“若……则进入该分支”条件；\n- consequences 是机制结果，不是已发生事实；\n- invalidation_conditions 必须说明什么观察会推翻该分支；\n- evidence_refs 只能引用输入中的 F 编号；\n- 按 branch_slots 的顺序生成分支；第 N 条分支必须描述第 N 个槽位中的所有角色及其相互影响；\n- 不要输出 actor_ids、actions、decision_ref 或 simulation_refs；系统会按数组位置确定性绑定\n  槽位中的角色及其已有 financial_decision，禁止自行概括、改写或新造动作；\n- confidence 只表示分支内部连贯性，不是发生概率；\n- novelty_claim 说明该分支比事实直接复述多出了哪段多主体传导；\n- 不得输出目标价格、收益率概率或 Agent 投票频率。\n\n只输出 JSON：\n{\"branches\":[{\"label\":\"简短名称\",\"summary\":\"条件化摘要\",\n\"trigger_conditions\":[\"...\"],\"consequences\":[\"...\"],\n\"invalidation_conditions\":[\"...\"],\"evidence_refs\":[\"F1\"],\n\"novelty_claim\":\"...\",\"confidence\":0.5}],\"warnings\":[]}。\n互动输入可能为空；其中内容仍是模拟消息，不是新增事实。不得凭空推断立场变化或因果影响。每条分支说明一方行动如何影响另一方的可行行动。触发和失效条件尽量指出观察对象与时间窗口；没有依据时不编造精确阈值。对缺少行动依据的传导使用条件表述，不把等待决策改写成已经采取新行动。",
+        "user": "{\"case_id\": \"anonymous-case-11\", \"as_of\": \"D0\", \"question\": \"严格基于 D0 时点可得信息，推演未来三个交易日各参与方行动及条件化传导机制。\", \"horizon\": {\"kind\": \"calendar_days\", \"value\": 3, \"end_at\": \"2024-04-04T23:59:59+00:00\"}, \"facts\": [{\"id\": \"F1\", \"statement\": \"S&P 500 Financial Results Coverage D0-date：SP500 results | SEC filings consensus: sell-side prev: last Q\"}], \"actors\": [{\"id\": \"actor_issuer\", \"label\": \"事件主体\", \"kind\": \"issuer\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_institutions\", \"label\": \"机构投资者\", \"kind\": \"institutional_investor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_analysts\", \"label\": \"分析师\", \"kind\": \"analyst\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_brokers\", \"label\": \"券商与中介机构\", \"kind\": \"broker\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_exchange\", \"label\": \"交易所\", \"kind\": \"exchange\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_competitors\", \"label\": \"竞争者\", \"kind\": \"competitor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}], \"financial_decisions\": [{\"id\": \"decision-actor_issuer-r2\", \"round\": 2, \"actor_id\": \"actor_issuer\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"maintain\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"截至2024-04-01，S&P 500 Q1财务结果刚发布（F1），与SEC文件及卖方共识对比上季度。作为事件主体，需维护自身制度与经济利益，但当前仅有初步财务覆盖率数据，尚无充足新增信息需要立即调整行动。市场参与者（机构投资者、卖方分析师）正在消化数据并发表各自解读（模拟观察中），我应等待更多行业级细分数据、前瞻指引以及后续市场反应后再做调整，以避免基于单一时点数据做出仓促决策。主要不确定性在于（1）各行业盈利趋势是否与整体一致；（2）前瞻指引是否暗示宏观风险转向。\", \"constraint_refs\": [\"actor_issuer:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_institutions-r2\", \"round\": 2, \"actor_id\": \"actor_institutions\", \"action_type\": \"WAIT\", \"decision_status\": \"intended\", \"direction\": \"maintain\", \"intensity\": 0.4, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"Q1 2024 S&P 500 财务结果及 SEC 备案已发布，sell-side 共识与上一季度的对比数据可供分析。作为机构投资者，我需要在系统处理完这些备案数据后再做调整。目前信息仅覆盖整体 SP500 结果，缺乏 匿名标的1 的具体板块细节和前瞻指引。等待 sector-level 数据更新确认是否存在对共识的重大偏离，再决定是否调整 匿名标的1 仓位。当前维持观望，不急于行动。\", \"constraint_refs\": [\"actor_institutions:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.75, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_brokers-r2\", \"round\": 2, \"actor_id\": \"actor_brokers\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"maintain\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"截至2024-04-01，已观察到S&P 500 Q1财务结果、SEC备案及卖方共识与上季对比的基础数据。作为券商与中介机构，需要等待更多行业细分数据和前瞻指引披露，才足以做出实质性调整推荐或仓位动作。当前信息仅为财报初步覆盖，尚未出现显著偏离共识或触发调整阈值的信号，因此选择按兵不动、继续监测。主要不确定性来自后续行业细分数据及管理层前瞻指引是否与共识一致。\", \"constraint_refs\": [\"actor_brokers:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_exchange-r2\", \"round\": 2, \"actor_id\": \"actor_exchange\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"截至时点仅观察到S&P 500 2024年Q1财务结果（SEC文件及卖方共识对比上一季度）这一单一增量事实，而我作为交易所的首要职责是维护市场制度与运行秩序。单一季度的汇总数据尚不足以触发监管规则调整或运营参数变更；需要等待更多的行业细分数据、公司层面前瞻指引以及市场 participant 的反馈，才能评估是否存在需要交易所主动干预（如调整保证金、交易规则或信息披露要求）的情形。当前选择保持观察，符合约束要求——只使用截至时点可见事实，不将社交热度直接解释为价格或概率，也不做超出信息范围的动作。\", \"constraint_refs\": [\"actor_exchange:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_competitors-r2\", \"round\": 2, \"actor_id\": \"actor_competitors\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"截至2024-04-01，仅观察到S&P 500 Q1 2024财务结果覆盖信息，包含SEC filings consensus与sell-side prev对比上一季度的数据。当前信息量有限，仅为一期横截面数据，尚不足以形成有信心的制度维护或经济利益调整行动。需要等待更多行业细分数据、后续财报发布以及forward guidance的积累，才能识别出material divergence并进行针对性操作。竞争者应当优先观测而不是抢先行动，以避免基于不完整信息做出有损自身利益的调整。\", \"constraint_refs\": [\"actor_competitors:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}], \"simulated_actions\": [{\"id\": \"trace-15\", \"kind\": \"simulated_action\", \"action_type\": \"SEARCH_POSTS\", \"summary\": \"search_posts\", \"actor_id\": \"actor_institutions\"}, {\"id\": \"trace-16\", \"kind\": \"simulated_action\", \"action_type\": \"SEARCH_POSTS\", \"summary\": \"search_posts\", \"actor_id\": \"actor_brokers\"}, {\"id\": \"trace-17\", \"kind\": \"simulated_action\", \"action_type\": \"SEARCH_USER\", \"summary\": \"search_user\", \"actor_id\": \"actor_brokers\"}, {\"id\": \"trace-18\", \"kind\": \"simulated_action\", \"action_type\": \"SOCIAL_ENDORSEMENT\", \"summary\": \"点赞帖子 #1：S&P 500 Financial Results Coverage D0-date：SP500 results | SEC filings consensus: sell-side prev: last Q\", \"actor_id\": \"actor_competitors\"}, {\"id\": \"trace-19\", \"kind\": \"simulated_action\", \"action_type\": \"SEARCH_USER\", \"summary\": \"search_user\", \"actor_id\": \"actor_analysts\"}, {\"id\": \"trace-20\", \"kind\": \"simulated_action\", \"action_type\": \"SEARCH_POSTS\", \"summary\": \"search_posts\", \"actor_id\": \"actor_analysts\"}, {\"id\": \"trace-21\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"Analysis received: S&P 500 Q1 2024 results & SEC filings under review. Our systems will process this data for market integrity monitoring. Thank you for the submission.\", \"actor_id\": \"actor_exchange\"}, {\"id\": \"trace-22\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"Noted. Q1 2024 S&P 500 results as per SEC filings and sell-side consensus vs prior quarter. This aligns with our ongoing review of market fundamentals. Will monitor forward guidance and sector-level breakdowns for any material divergence from projections.\", \"actor_id\": \"actor_issuer\"}, {\"id\": \"trace-29\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"As an institutional investor, Q1 2024 S&P 500 results are crucial for our portfolio allocation decisions. The sell-side consensus vs prior quarter comparison will be key for rebalancing our equity exposure. I'll be analyzing sector-level earnings growth and margin trends in the filings to identify any divergence from the consensus estimates.\", \"actor_id\": \"actor_institutions\"}, {\"id\": \"trace-30\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"Acknowledged. As sell-side coverage, we note the Q1 2024 S&P 500 results are consistent with SEC filings. Our preliminary assessment shows earnings trends aligning with prior quarter consensus. We'll be tracking forward guidance and sector rotation for any shifts in our recommendations. Will publish sector-level breakdowns upon further review.\", \"actor_id\": \"actor_brokers\"}, {\"id\": \"trace-31\", \"kind\": \"simulated_action\", \"action_type\": \"LIKE_COMMENT\", \"summary\": \"like_comment\", \"actor_id\": \"actor_exchange\"}, {\"id\": \"trace-32\", \"kind\": \"simulated_action\", \"action_type\": \"SOCIAL_ENDORSEMENT\", \"summary\": \"点赞帖子 #1：S&P 500 Financial Results Coverage D0-date：SP500 results | SEC filings consensus: sell-side prev: last Q\", \"actor_id\": \"actor_exchange\"}, {\"id\": \"trace-33\", \"kind\": \"simulated_action\", \"action_type\": \"SEARCH_POSTS\", \"summary\": \"search_posts\", \"actor_id\": \"actor_issuer\"}, {\"id\": \"trace-35\", \"kind\": \"simulated_action\", \"action_type\": \"SOCIAL_ENDORSEMENT\", \"summary\": \"点赞帖子 #1：S&P 500 Financial Results Coverage D0-date：SP500 results | SEC filings consensus: sell-side prev: last Q\", \"actor_id\": \"actor_analysts\"}, {\"id\": \"trace-36\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"Reviewing these consensus figures against prior quarter. As a competitor tracking sector-level movements, I'm watching for any divergence between SEC filings data and the sell-side prev projections. Q1 fundamentals will inform positioning adjustments. Will share further analysis as more filings become visible.\", \"actor_id\": \"actor_competitors\"}, {\"id\": \"trace-37\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"Cross-referencing these Q1 2024 S&P 500 results with SEC filings and sell-side consensus. The data appears consistent with reported earnings season trends. Key metrics to watch: sector dispersion, forward guidance revisions, and margin sustainability. Will track any divergence from baseline projections as new filings come in.\", \"actor_id\": \"actor_analysts\"}], \"branch_slots\": [{\"slot_id\": \"slot-1\", \"actor_ids\": [\"actor_institutions\", \"actor_brokers\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_brokers-r2\"]}, {\"slot_id\": \"slot-2\", \"actor_ids\": [\"actor_competitors\", \"actor_issuer\"], \"relationship_kind\": \"constrains_or_influences\", \"decision_refs\": [\"decision-actor_competitors-r2\", \"decision-actor_issuer-r2\"]}, {\"slot_id\": \"slot-3\", \"actor_ids\": [\"actor_institutions\", \"actor_exchange\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_exchange-r2\"]}, {\"slot_id\": \"slot-4\", \"actor_ids\": [\"actor_institutions\", \"actor_competitors\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_competitors-r2\"]}]}"
+      }
+    }
+  },
+  "usage": [
+    {
+      "case_id": "anonymous-case-11",
+      "variant": "raw_interactions",
+      "phase": "generation",
+      "request_id": "aa0bbea21c36406591e05a917f479250",
+      "request_sha256": "85117accc136d80e8c71a0236cf7ea65723ec630a80b20c3fbb5e9d2a8b60df5",
+      "prompt_chars": 10813,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:10:16.614630+00:00",
+      "status": "completed",
+      "prompt_tokens": 3605,
+      "completion_tokens": 827,
+      "total_tokens": 4432,
+      "estimated_cost": 0.0004548779999999999,
+      "finish_reason": "stop",
+      "elapsed_seconds": 50.25911791698309
+    },
+    {
+      "case_id": "anonymous-case-11",
+      "variant": "filtered_interactions",
+      "phase": "generation",
+      "request_id": "6cfffa55a1ae45a888c16691d3cc15e4",
+      "request_sha256": "32b26308194389762ed2d3aec1cb53e8aa3b40d540704f42ce1cd433b56c1970",
+      "prompt_chars": 8968,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:08:50.653829+00:00",
+      "status": "completed",
+      "prompt_tokens": 3043,
+      "completion_tokens": 2158,
+      "total_tokens": 5201,
+      "estimated_cost": 0.0006438780000000001,
+      "finish_reason": "stop",
+      "elapsed_seconds": 165.98456870898372
+    },
+    {
+      "case_id": "anonymous-case-11",
+      "variant": "filtered_interactions",
+      "phase": "generation",
+      "request_id": "a38bb5dcc2a34d3290d11001d957b245",
+      "request_sha256": "2acdba8865048c9b2f4285639cfb31c8b75d74b3ddb792addbd842b63cd67448",
+      "prompt_chars": 9103,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:11:36.642551+00:00",
+      "status": "completed",
+      "prompt_tokens": 3097,
+      "completion_tokens": 1081,
+      "total_tokens": 4178,
+      "estimated_cost": 0.00047331,
+      "finish_reason": "stop",
+      "elapsed_seconds": 49.768370916950516
+    },
+    {
+      "case_id": "anonymous-case-11",
+      "variant": "decisions_only",
+      "phase": "generation",
+      "request_id": "f6f01f89c616479999f107471c1ff3ad",
+      "request_sha256": "b38d933ba91a145e379fdb8ef4a68fc3e307bdd90bf0039371d8e0c147845072",
+      "prompt_chars": 6647,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:14:30.752633+00:00",
+      "status": "completed",
+      "prompt_tokens": 2514,
+      "completion_tokens": 957,
+      "total_tokens": 3471,
+      "estimated_cost": 0.000251064,
+      "finish_reason": "stop",
+      "elapsed_seconds": 28.79895004199352
+    },
+    {
+      "case_id": "anonymous-case-11",
+      "variant": "decisions_only",
+      "phase": "quality",
+      "repeat": 2,
+      "request_id": "a701c353c11d4340b51647cfff572a8d",
+      "request_sha256": "8153bad0f84dbe22d4baa9dd2fccaf2a8402b27f108f0383c09ce35ba64cc05d",
+      "prompt_chars": 5174,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:18:25.223080+00:00",
+      "status": "completed",
+      "prompt_tokens": 2092,
+      "completion_tokens": 309,
+      "total_tokens": 2401,
+      "estimated_cost": 0.00022546800000000002,
+      "finish_reason": "stop",
+      "elapsed_seconds": 12.867204292037059
+    },
+    {
+      "case_id": "anonymous-case-11",
+      "variant": "raw_interactions",
+      "phase": "quality",
+      "repeat": 2,
+      "request_id": "e65b9f7788414c5fa3bd7273d736742f",
+      "request_sha256": "5ab3fb52e6f7d5ccc80ba26c1d1950bfb936ed7a677568bbef53f17eeaf76048",
+      "prompt_chars": 4988,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:18:36.306890+00:00",
+      "status": "completed",
+      "prompt_tokens": 1939,
+      "completion_tokens": 302,
+      "total_tokens": 2241,
+      "estimated_cost": 0.000155142,
+      "finish_reason": "stop",
+      "elapsed_seconds": 21.665301666944288
+    },
+    {
+      "case_id": "anonymous-case-11",
+      "variant": "raw_interactions",
+      "phase": "quality",
+      "repeat": 1,
+      "request_id": "64de5371842c4be583e2ba0e7fc6fa0d",
+      "request_sha256": "5ab3fb52e6f7d5ccc80ba26c1d1950bfb936ed7a677568bbef53f17eeaf76048",
+      "prompt_chars": 4988,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:19:17.923397+00:00",
+      "status": "completed",
+      "prompt_tokens": 1939,
+      "completion_tokens": 329,
+      "total_tokens": 2268,
+      "estimated_cost": 0.000104706,
+      "finish_reason": "stop",
+      "elapsed_seconds": 10.215615332999732
+    },
+    {
+      "case_id": "anonymous-case-11",
+      "variant": "decisions_only",
+      "phase": "quality",
+      "repeat": 1,
+      "request_id": "7ba512beb2834f7aa5bb9dfbc7a513fc",
+      "request_sha256": "8153bad0f84dbe22d4baa9dd2fccaf2a8402b27f108f0383c09ce35ba64cc05d",
+      "prompt_chars": 5174,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:20:31.599066+00:00",
+      "status": "completed",
+      "prompt_tokens": 2092,
+      "completion_tokens": 321,
+      "total_tokens": 2413,
+      "estimated_cost": 0.000117036,
+      "finish_reason": "stop",
+      "elapsed_seconds": 12.644118583004456
+    },
+    {
+      "case_id": "anonymous-case-11",
+      "variant": "filtered_interactions",
+      "phase": "quality",
+      "repeat": 1,
+      "request_id": "6c6fc277312b42d78e7581d14612bd3c",
+      "request_sha256": "22de9af29295a98164ca1efa3da51d30cfe6015ee01ca1165e8247761a5d9892",
+      "prompt_chars": 5443,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:21:04.292586+00:00",
+      "status": "completed",
+      "prompt_tokens": 2209,
+      "completion_tokens": 299,
+      "total_tokens": 2508,
+      "estimated_cost": 0.00023419800000000002,
+      "finish_reason": "stop",
+      "elapsed_seconds": 8.845562624977902
+    },
+    {
+      "case_id": "anonymous-case-11",
+      "variant": "filtered_interactions",
+      "phase": "quality",
+      "repeat": 2,
+      "request_id": "3c9309bfaf9d4fa7b347ed31379287fe",
+      "request_sha256": "22de9af29295a98164ca1efa3da51d30cfe6015ee01ca1165e8247761a5d9892",
+      "prompt_chars": 5443,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:21:20.705356+00:00",
+      "status": "completed",
+      "prompt_tokens": 2209,
+      "completion_tokens": 313,
+      "total_tokens": 2522,
+      "estimated_cost": 0.000107694,
+      "finish_reason": "stop",
+      "elapsed_seconds": 10.125220332993194
+    }
+  ]
+}

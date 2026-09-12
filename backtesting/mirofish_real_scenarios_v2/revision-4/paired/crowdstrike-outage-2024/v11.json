@@ -1,0 +1,199 @@
+{
+  "case_id": "crowdstrike-outage-2024",
+  "variant": "v11",
+  "cohort": "public_pilot",
+  "artifact": {
+    "schema_version": "0.1.0",
+    "case_id": "real-crowdstrike-outage-2024",
+    "spec_sha256": "544d941cebfe9dfb62720269355a38984b6867adebee8c162e760b9b3419760b",
+    "simulation_id": "sim_direct_f6ac8b09bbb6",
+    "generated_at": "2026-09-12T06:13:03.825636+00:00",
+    "model_id": "deepseek-ai/DeepSeek-V4-Flash",
+    "prompt_version": "scenario-branch-compiler-v11",
+    "status": "completed",
+    "branches": [
+      {
+        "id": "branch-1",
+        "label": "客户要求赔偿或更换供应商",
+        "summary": "若客户在恢复后公开要求CrowdStrike赔偿损失或宣布评估替代方案，则CrowdStrike可能面临客户流失和收入压力，需加快补偿或技术改进。",
+        "actor_ids": [
+          "actor_customers",
+          "actor_issuer"
+        ],
+        "trigger_conditions": [
+          "若客户公开声明因本次中断遭受重大损失并要求CrowdStrike赔偿，或宣布启动安全供应商评估流程"
+        ],
+        "actions": [
+          {
+            "actor_id": "actor_customers",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_customers-r2"
+          },
+          {
+            "actor_id": "actor_issuer",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_issuer-r2"
+          }
+        ],
+        "consequences": [
+          "CrowdStrike可能被迫设立专项赔偿基金或提供额外服务折扣，客户流失风险上升，短期收入承压"
+        ],
+        "invalidation_conditions": [
+          "若客户公开表示对CrowdStrike的恢复措施满意，并确认继续使用现有合同"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F4"
+        ],
+        "simulation_refs": [
+          "decision-actor_customers-r2",
+          "decision-actor_issuer-r2"
+        ],
+        "novelty_claim": "客户公开索赔或评估替代方案将直接影响CrowdStrike的客户保留和收入预期",
+        "confidence": 0.5,
+        "confidence_semantics": "branch_coherence_not_forecast_probability",
+        "assumptions": [
+          "尚未披露客户具体损失金额或合同条款，本路径假设客户有公开索赔或评估的意愿"
+        ],
+        "observations": [
+          {
+            "kind": "trigger",
+            "signal": "若客户公开声明因本次中断遭受重大损失并要求CrowdStrike赔偿，或宣布启动安全供应商评估流程",
+            "source": "客户公司后续公告或新闻稿",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4"
+            ]
+          },
+          {
+            "kind": "invalidation",
+            "signal": "若客户公开表示对CrowdStrike的恢复措施满意，并确认继续使用现有合同",
+            "source": "客户公司后续公告或新闻稿",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F4"
+            ]
+          }
+        ],
+        "starting_decisions": [
+          {
+            "actor_id": "actor_customers",
+            "action_type": "WAIT",
+            "decision_status": "conditional",
+            "rationale": "截止时点事实显示，虽然CrowdStrike已快速修正配置错误(F2)且微软已投入大量资源协助恢复(F5)，但事件仅发生约1.5天，影响范围涉及850万台设备(F4)的关键服务企业。作为客户，我需要更多时间评估：(1)CrowdStrike未来将采取何种变更管理改进措施以防范类似逻辑错误；(2)现有合同条款下是否可获得补偿或服务级别协议(SLA)违约赔偿；(3)替代安全供应商的迁移成本与时间线。由于存在合同约束和转换成本(约束ref:1)，且当前信息不足以做出切换或重新谈判的明确决策，继续等待并收集更多信息是当前最合理的行动。将维持现有使用状态(不主动切换)，但保持对CrowdStrike后续公告和客户支持回应的高度关注。",
+            "decision_ref": "decision-actor_customers-r2"
+          },
+          {
+            "actor_id": "actor_issuer",
+            "action_type": "WAIT",
+            "decision_status": "intended",
+            "rationale": "截至2024年7月20日23:59:59，我们已在05:27 UTC完成配置修正，并已联合Microsoft、AWS和Google Cloud推进客户恢复工作。当前最优先事项是确保受影响客户恢复运营、评估事件财务与声誉影响，并内部启动流程改进审查。此时不宜进行额外沟通或运营动作打乱恢复节奏，观望客户反馈、监管动态和市场反应后再制定下一阶段行动计划更为审慎。主要不确定性：（1）850万台受影响设备中关键服务的恢复进度；（2）潜在客户流失与法律追责风险；（3）后续监管审查强度。约束：行动受有限现金、执行能力和已披露承诺约束，不能透支资源做无目标操作。",
+            "decision_ref": "decision-actor_issuer-r2"
+          }
+        ]
+      },
+      {
+        "id": "branch-2",
+        "label": "机构投资者减持或增持",
+        "summary": "若机构投资者在复牌后公开调整持仓，则CrowdStrike股价可能波动，影响融资能力和市场信心。",
+        "actor_ids": [
+          "actor_institutions",
+          "actor_issuer"
+        ],
+        "trigger_conditions": [
+          "若机构投资者公开披露减持CrowdStrike股份，或下调其目标价"
+        ],
+        "actions": [
+          {
+            "actor_id": "actor_institutions",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_institutions-r2"
+          },
+          {
+            "actor_id": "actor_issuer",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_issuer-r2"
+          }
+        ],
+        "consequences": [
+          "减持信号可能引发股价下跌，增加CrowdStrike融资成本；增持信号则可能稳定市场情绪"
+        ],
+        "invalidation_conditions": [
+          "若机构投资者公开披露增持CrowdStrike股份，或维持/上调其目标价"
+        ],
+        "evidence_refs": [
+          "F2",
+          "F4"
+        ],
+        "simulation_refs": [
+          "decision-actor_institutions-r2",
+          "decision-actor_issuer-r2"
+        ],
+        "novelty_claim": "机构投资者的公开持仓调整将直接反映市场对CrowdStrike事件后前景的判断",
+        "confidence": 0.5,
+        "confidence_semantics": "branch_coherence_not_forecast_probability",
+        "assumptions": [
+          "尚未披露机构投资者具体持仓变动或目标价调整，本路径假设有公开披露"
+        ],
+        "observations": [
+          {
+            "kind": "trigger",
+            "signal": "若机构投资者公开披露减持CrowdStrike股份，或下调其目标价",
+            "source": "机构投资者13F文件或研究报告",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F2",
+              "F4"
+            ]
+          },
+          {
+            "kind": "invalidation",
+            "signal": "若机构投资者公开披露增持CrowdStrike股份，或维持/上调其目标价",
+            "source": "机构投资者13F文件或研究报告",
+            "window": "未来 7 个自然日",
+            "evidence_refs": [
+              "F2",
+              "F4"
+            ]
+          }
+        ],
+        "starting_decisions": [
+          {
+            "actor_id": "actor_institutions",
+            "action_type": "WAIT",
+            "decision_status": "conditional",
+            "rationale": "截至7月20日，CrowdStrike已确认配置更新由逻辑错误引起且非网络攻击（F2），并于05:27 UTC完成修正（F2）。Microsoft估计受影响设备约850万台，占Windows设备不足1%（F4），但关键服务企业使用这些设备扩大了经济社会影响（F4）。Microsoft已派出数百名工程师协助恢复并与CrowdStrike协作（F5）。目前事件的性质、影响范围与修复进展已初步明确，但以下不确定性仍需观察：1) 监管审查与诉讼风险尚未明朗；2) 客户续约率及新签单在后续季度的实际反映无法从当前公开信息判断；3) 受影响关键服务企业的恢复成本及可能的索赔规模尚不可知。受投资授权和流动性约束，不假定能够立即大幅增减仓位，当前最审慎的做法是维持现有敞口、继续收集后续客户反应与行业竞争格局变化的证据，等待更明确的安全边际信号再决定下一步配置调整。",
+            "decision_ref": "decision-actor_institutions-r2"
+          },
+          {
+            "actor_id": "actor_issuer",
+            "action_type": "WAIT",
+            "decision_status": "intended",
+            "rationale": "截至2024年7月20日23:59:59，我们已在05:27 UTC完成配置修正，并已联合Microsoft、AWS和Google Cloud推进客户恢复工作。当前最优先事项是确保受影响客户恢复运营、评估事件财务与声誉影响，并内部启动流程改进审查。此时不宜进行额外沟通或运营动作打乱恢复节奏，观望客户反馈、监管动态和市场反应后再制定下一阶段行动计划更为审慎。主要不确定性：（1）850万台受影响设备中关键服务的恢复进度；（2）潜在客户流失与法律追责风险；（3）后续监管审查强度。约束：行动受有限现金、执行能力和已披露承诺约束，不能透支资源做无目标操作。",
+            "decision_ref": "decision-actor_issuer-r2"
+          }
+        ]
+      }
+    ],
+    "warnings": [
+      "branch-1: bound deterministic actor slot to unique financial decisions",
+      "branch-2: bound deterministic actor slot to unique financial decisions",
+      "Branches are simulated hypotheses, not observed evidence.",
+      "Branch confidence expresses coherence, not occurrence probability.",
+      "未强行纳入情景的参与方：供应商、竞争者、财经媒体。角色有决策不代表存在有用的传导路径。"
+    ],
+    "review": {
+      "proposed_branch_count": 2,
+      "published_branch_count": 2,
+      "withheld_branches": []
+    }
+  },
+  "elapsed_seconds": 26.91910729301162,
+  "attempt_count": 2,
+  "request_ids": [
+    "2e5605dec1cd46e8bbbfcd8c60ad4b01",
+    "4d7c38f6f485420db51c3aa6bb0f3d7a"
+  ]
+}

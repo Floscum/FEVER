@@ -48,6 +48,15 @@ class SimulationRoutesTests(unittest.TestCase):
             db._conn = None
         self.temporary.cleanup()
 
+    def test_rerun_and_observation_window_reach_gateway(self):
+        from app.routes.simulations import StartSimulationRequest, _build_gateway_payload
+        payload, _ = _build_gateway_payload(self.case["id"], StartSimulationRequest(
+            source_graph_artifact_id=self.graph["id"], horizon_days=7, max_actors=10, rerun=True,
+        ))
+        self.assertTrue(payload["rerun"])
+        self.assertEqual(payload["horizon_days"], 7)
+        self.assertEqual(payload["max_actors"], 10)
+
     @staticmethod
     def completed_gateway(method, path, **kwargs):
         if method == "POST":

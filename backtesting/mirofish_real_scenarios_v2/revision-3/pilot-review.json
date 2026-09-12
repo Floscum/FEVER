@@ -1,0 +1,7 @@
+{
+  "expand": false,
+  "promote": false,
+  "reviewer": "assistant_content_review_not_independent_human_acceptance",
+  "manifest_sha256": "5a5e7df878f6f0cb0058cc1a852989751a48e40e025fd33f3e3ae23ab27b9dba",
+  "reason": "v11 first attempt withheld every CrowdStrike branch."
+}

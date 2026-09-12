@@ -1,0 +1,698 @@
+{
+  "anonymous_case_id": "anonymous-case-02",
+  "configured_actor_count": 9,
+  "decision_actor_count": 9,
+  "fact_count": 4,
+  "fact_chars": 207,
+  "input": {
+    "case_id": "anonymous-case-02",
+    "as_of": "D0",
+    "question": "日期、名称、代码和绝对金额均已匿名化。只使用D0已公开的信息，推演回购执行、员工激励预期、利益相关方反应及匿名标的后续价格方向。",
+    "horizon": {
+      "kind": "calendar_days",
+      "value": 35,
+      "end_at": "D0 + stated horizon"
+    },
+    "facts": [
+      {
+        "id": "F1",
+        "statement": "发行人董事会批准使用自有资金，通过集中竞价回购部分A股；资金设有明确上下限，实施期限为董事会批准后十二个月。"
+      },
+      {
+        "id": "F2",
+        "statement": "回购价格上限为董事会决议前30个交易日均价的150%，按资金和价格上限测算，预计回购约占总股本0.15%至0.23%。"
+      },
+      {
+        "id": "F3",
+        "statement": "回购股份计划用于后续股权激励或员工持股；截至公告日，公司未收到主要股东和管理层在回购期内减持的计划。"
+      },
+      {
+        "id": "F4",
+        "statement": "D0匿名标的收涨约1.8%，此前三个交易日累计上涨约4.5%；回购公告在D0收盘后公开。"
+      }
+    ],
+    "actors": [
+      {
+        "id": "actor_issuer",
+        "label": "匿名大型成长公司",
+        "kind": "issuer",
+        "goals": [
+          "稳定长期价值预期",
+          "为员工激励准备股份",
+          "控制回购成本"
+        ],
+        "constraints": [
+          "只能在合规窗口、价格上限和金额区间内实施回购"
+        ]
+      },
+      {
+        "id": "actor_management",
+        "label": "管理层与核心员工",
+        "kind": "institutional_investor",
+        "goals": [
+          "提高长期激励确定性",
+          "维持经营与人才稳定"
+        ],
+        "constraints": [
+          "尚未获得具体股权激励授予，不能把计划当作既得权益"
+        ]
+      },
+      {
+        "id": "actor_regulator",
+        "label": "证券监管机构",
+        "kind": "regulator",
+        "goals": [
+          "监督回购合规",
+          "防止操纵和不公平交易"
+        ],
+        "constraints": [
+          "依据回购和信息披露规则行事"
+        ]
+      },
+      {
+        "id": "actor_exchange",
+        "label": "上市交易所",
+        "kind": "exchange",
+        "goals": [
+          "监督回购进展披露",
+          "维护集中竞价秩序"
+        ],
+        "constraints": [
+          "不得为发行人保证回购价格或实施规模"
+        ]
+      },
+      {
+        "id": "actor_institutions",
+        "label": "机构投资者",
+        "kind": "institutional_investor",
+        "goals": [
+          "评估回购信号强度",
+          "区分估值支撑和实际买盘",
+          "管理成长股风险"
+        ],
+        "constraints": [
+          "回购规模占总股本比例有限且执行期较长"
+        ]
+      },
+      {
+        "id": "actor_retail",
+        "label": "个人投资者",
+        "kind": "retail_cohort",
+        "goals": [
+          "判断回购公告后的价格方向",
+          "控制追高风险"
+        ],
+        "constraints": [
+          "容易把回购上限误解为立即买入承诺"
+        ]
+      },
+      {
+        "id": "actor_suppliers",
+        "label": "关键供应商",
+        "kind": "supplier",
+        "goals": [
+          "判断发行人资金和扩产能力",
+          "维护长期订单关系"
+        ],
+        "constraints": [
+          "不能直接观察回购执行订单"
+        ]
+      },
+      {
+        "id": "actor_competitors",
+        "label": "行业竞争者",
+        "kind": "competitor",
+        "goals": [
+          "比较资本配置和人才激励能力",
+          "维护竞争地位"
+        ],
+        "constraints": [
+          "无法直接影响发行人的回购执行"
+        ]
+      },
+      {
+        "id": "actor_media",
+        "label": "财经媒体与分析师",
+        "kind": "media",
+        "goals": [
+          "解释回购规模和用途",
+          "跟踪首次回购及月度进度"
+        ],
+        "constraints": [
+          "必须区分方案上限、实际成交和股权激励"
+        ]
+      }
+    ],
+    "financial_decisions": [
+      {
+        "id": "decision-actor_issuer-r3",
+        "round": 3,
+        "actor_id": "actor_issuer",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "maintain",
+        "intensity": 0.0,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "D0收盘后公告已发出，市场已收涨约1.8%且此前三日累计上涨约4.5%。当前阶段的核心任务是观察市场对回购公告的自然消化过程，避免在股价短期上涨后立即追高买入。实施期限长达十二个月，有充足时间窗口择机执行。根据F4，标的在公告前已连续上涨，若立即启动回购可能推高买入成本，与'控制回购成本'目标冲突。同时等待监管窗口确认和首次信息披露完成后再启动操作，符合合规要求。主要不确定性在于后续股价走势和市场流动性状况，若股价回落至合理区间则启动回购的性价比更高。",
+        "constraint_refs": [
+          "actor_issuer:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_management-r3",
+        "round": 3,
+        "actor_id": "actor_management",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "回购计划刚于昨日收盘后公告，董事会已批准但尚未实际执行。作为管理层与核心员工，首要目标是提高长期激励确定性，但约束明确要求不能将计划当作既得权益。此时公开表达或调整持仓都可能引发对回购动机的过度解读或合规风险。D0股价收涨约1.8%，此前三日累计上涨4.5%，短期价格波动不应影响决策。主要不确定性在于回购的具体节奏、价格区间内的实际成交情况以及后续激励方案的设计细节。因此，在当前轮次选择等待（WAIT），不进行公开沟通或资产配置调整，待回购执行后观察激励方案落地条件再行动。",
+        "constraint_refs": [
+          "actor_management:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_regulator-r3",
+        "round": 3,
+        "actor_id": "actor_regulator",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "回购公告于D0收盘后发布，首个交易日尚未开始，市场尚未对公告做出任何可观察的合规或交易行为。当前无实际回购执行动作或市场异常交易行为需要干预。根据信息披露规则，发行人尚未到达需定期披露回购进度的时点，因此本轮周期选择等待，观察集中竞价开始后是否存在价格操纵、内幕交易或信息披露违规行为，再决定是否启动监管程序。主要不确定性在于公告后首个交易日是否存在信息不对称下的异常交易。",
+        "constraint_refs": [
+          "actor_regulator:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.9,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_exchange-r3",
+        "round": 3,
+        "actor_id": "actor_exchange",
+        "action_type": "REGULATE",
+        "decision_status": "intended",
+        "direction": "maintain",
+        "intensity": 0.6,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "发行人已公告回购方案（F1、F2），且标的在公告前连续上涨（F4），可能存在信息不对称交易风险。作为交易所，下一周期的主要动作是督促发行人按计划及时披露回购进展，并监控集中竞价期间是否存在异常交易行为，以维护交易秩序。同时需注意不得为发行人保证回购价格或实施规模（约束ref:0）。当前阶段以合规监督为主，无需直接干预，但需建立监测节奏。",
+        "constraint_refs": [
+          "actor_exchange:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_institutions-r3",
+        "round": 3,
+        "actor_id": "actor_institutions",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "我已对回购信号完成初步评估并公开发表过分析：回购规模仅0.15%-0.23%，12个月执行期导致日均买入量极小，实际价格支撑有限。当前D0收盘后公告，股价已有累计4.5%的涨幅，市场可能已部分预期。存在两个关键不确定性需要等待观察：(1)首次回购实际执行时点和规模——F2的测算上限是条件上限而非承诺，F4显示公告前已有涨幅，若D1出现高开低走则信号进一步弱化；(2)行业景气度判断存在分歧，回购用于股权激励虽正面但人才绑定效果需等待激励方案细节。回购信号强度不足以支撑立即调整仓位，需要D1至D5的价格行为和成交量来验证该公告是否改变了边际买盘结构，因此选择等待。",
+        "constraint_refs": [
+          "actor_institutions:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_retail-r3",
+        "round": 3,
+        "actor_id": "actor_retail",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "maintain",
+        "intensity": 0.0,
+        "instrument_refs": [],
+        "rationale": "回购公告已出，资金上限和比例较小（0.15%-0.23%），近期股价已经上涨4.5%，我担心价格可能已提前反映利好。公告中回购是十二个月内实施，并非立即买入，容易误以为马上有大量买盘。我需要先观察后续是否有实际回购操作或价格回调，避免追高被套。",
+        "constraint_refs": [
+          "actor_retail:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_suppliers-r3",
+        "round": 3,
+        "actor_id": "actor_suppliers",
+        "action_type": "COMMUNICATE",
+        "decision_status": "intended",
+        "direction": "conditional",
+        "intensity": 0.3,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "作为关键供应商，需要维护长期订单关系。发行人回购规模极小（0.15%-0.23%），对经营性现金流影响有限，但自有资金的用途方向仍需确认。计划主动与发行人采购或财务部门沟通，了解其未来12个月的资本支出计划和应付账款安排，以确认回购计划不会影响供应链付款能力和扩产采购需求。沟通中不依赖社交媒体热度或价格波动，仅基于已披露事实(F1-F3)和业务往来中的商业判断。",
+        "constraint_refs": [
+          "actor_suppliers:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.75,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_competitors-r3",
+        "round": 3,
+        "actor_id": "actor_competitors",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "conditional",
+        "intensity": 0.3,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "作为行业竞争者，需比较资本配置和人才激励能力。发行人F1-F3显示其回购规模极小（仅占总股本0.15%-0.23%），且计划用于股权激励，信号意义大于实际支撑。当前资产B在公告前已累计上涨约4.5%，D0收盘后公告，短期价格已部分反映预期。由于无法直接影响发行人回购执行，且该回购计划实施期长达十二个月，实际买入节奏不确定，因此选择观望，等待首次实际回购量公告和具体激励方案披露后再评估对行业竞争格局的实质影响。主要不确定性：实际回购进度和激励条件是否优于行业惯例。",
+        "constraint_refs": [
+          "actor_competitors:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.7,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      },
+      {
+        "id": "decision-actor_media-r3",
+        "round": 3,
+        "actor_id": "actor_media",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": null,
+        "instrument_refs": [
+          "匿名标的1"
+        ],
+        "rationale": "当前处于回购方案刚公告后的等待期，实际首次回购尚未发生。作为财经媒体，我的目标是解释回购规模和用途、跟踪首次回购及月度进度，但事实仅显示方案上限（资金区间、价格上限、预计比例）和计划用途（股权激励/员工持股），无任何实际成交记录。根据约束，必须区分方案上限与实际成交，因此在首次回购落地前不宜发布具体分析。D0标的收涨但公告在盘后公开，短期价格波动不改变方案未执行的现状。选择WAIT以等待后续首次回购公告或月度进度数据，再基于事实进行解释和跟踪。",
+        "constraint_refs": [
+          "actor_media:constraint:0"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F2",
+          "F3",
+          "F4"
+        ],
+        "source_kind": "post_simulation_interview",
+        "source_ref": "anonymized-source",
+        "visibility": "private",
+        "confidence": 0.95,
+        "probability_semantics": "decision_clarity_not_forecast_probability"
+      }
+    ],
+    "simulated_actions": [
+      {
+        "id": "trace-21",
+        "actor_id": "actor_competitors",
+        "action_type": "COMMUNICATE",
+        "summary": "作为同行，这个回购规模（0.15%-0.23%）信号意义大于实际支撑。回购用于股权激励说明该公司在人才绑定方面有动作，值得关注其激励方案设计。但资金上限有限，对行业竞争格局的短期影响不大。"
+      },
+      {
+        "id": "trace-22",
+        "actor_id": "actor_competitors",
+        "action_type": "COMMUNICATE",
+        "summary": "分析：回购价格上限设为前30日均价150%说明公司对当前估值有一定信心，但实施期长达12个月意味着实际执行节奏灵活。更重要的是回购股份用于股权激励，这反映了公司在人才竞争上的策略。需持续跟踪其实际回购进度和激励方案细节。"
+      },
+      {
+        "id": "trace-24",
+        "actor_id": "actor_regulator",
+        "action_type": "COMMUNICATE",
+        "summary": "已确认收到披露信息，请发行人依法及时公告回购进展，确保回购执行符合董事会决议及信息披露规则。"
+      },
+      {
+        "id": "trace-25",
+        "actor_id": "actor_regulator",
+        "action_type": "COMMUNICATE",
+        "summary": "同意，监管关注的是合规执行和及时披露，而非实际成交价格。请各方不要对回购价格上限做预期性解读。"
+      },
+      {
+        "id": "trace-30",
+        "actor_id": "actor_regulator",
+        "action_type": "COMMUNICATE",
+        "summary": "提醒：请各方基于已披露事实讨论，避免将回购计划解读为市场信号或对股价走势进行预判。回购计划的具体执行应关注合规性与信息披露进度。"
+      },
+      {
+        "id": "trace-31",
+        "actor_id": "actor_institutions",
+        "action_type": "COMMUNICATE",
+        "summary": "作为机构投资者，评估此回购信号：①回购规模0.15%-0.23%占总股本比例极小，12个月执行期内日均买入量微不足道，实际价格支撑效果有限；②但回购用于股权激励+主要股东无减持计划，对公司治理信号偏正面；③D0前已累计上涨4.5%，公告后能否持续取决于基本面验证。操作上暂定为弱买入信号，优先级低于行业景气度判断。"
+      },
+      {
+        "id": "trace-37",
+        "actor_id": "actor_suppliers",
+        "action_type": "COMMUNICATE",
+        "summary": "同样作为供应商，我关注的是：回购总规模上限不高（仅0.15%-0.23%），理论上对经营性现金流影响有限。但自有资金的使用方向需要持续跟踪——如果后续公司继续加大回购或出现其他资本支出，需评估是否挤占应付账款周期。建议同行关注公司下一季度应付账款周转率变化。"
+      },
+      {
+        "id": "trace-38",
+        "actor_id": "actor_issuer",
+        "action_type": "COMMUNICATE",
+        "summary": "作为发行人，确认以上信息。公司已评估自有资金状况，具备执行本次回购计划的能力。回购将严格按董事会决议及合规要求实施，后续进展将依法及时披露。股份用于股权激励/员工持股，体现公司对长期人才建设的承诺。"
+      },
+      {
+        "id": "trace-39",
+        "actor_id": "actor_issuer",
+        "action_type": "COMMUNICATE",
+        "summary": "收到，发行人将严格配合监管要求，依法合规推进回购实施，及时做好信息披露工作。实际执行将根据市场情况和公司资金安排综合考量，不预设价格路径。"
+      }
+    ],
+    "branch_slots": [
+      {
+        "slot_id": "slot-1",
+        "actor_ids": [
+          "actor_exchange",
+          "actor_suppliers"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_exchange-r3",
+          "decision-actor_suppliers-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-2",
+        "actor_ids": [
+          "actor_retail",
+          "actor_competitors",
+          "actor_media"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_retail-r3",
+          "decision-actor_competitors-r3",
+          "decision-actor_media-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-3",
+        "actor_ids": [
+          "actor_regulator",
+          "actor_issuer"
+        ],
+        "relationship_kind": "regulates_buyback",
+        "decision_refs": [
+          "decision-actor_regulator-r3",
+          "decision-actor_issuer-r3"
+        ]
+      },
+      {
+        "slot_id": "slot-4",
+        "actor_ids": [
+          "actor_institutions",
+          "actor_management"
+        ],
+        "relationship_kind": "candidate_interaction",
+        "decision_refs": [
+          "decision-actor_institutions-r3",
+          "decision-actor_management-r3"
+        ]
+      }
+    ]
+  },
+  "variants": {
+    "v7": {
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "交易所督促与供应商策略调整",
+          "summary": "如果交易所因监督回购进展而要求发行人加快披露节奏，供应商可能据此调整商业信用策略。交易所的具体督促行为可被供应商解读为发行人资金流动性压力信号，从而影响其付款周期的判断。",
+          "actor_ids": [
+            "actor_exchange",
+            "actor_suppliers"
+          ],
+          "trigger_conditions": [
+            "证券交易所发布督促发行人披露首次回购时间表的公开问询或关注函",
+            "发行人因此提前公布首次回购日期与计划规模"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_exchange",
+              "action_type": "REGULATE",
+              "decision_ref": "decision-actor_exchange-r3"
+            },
+            {
+              "actor_id": "actor_suppliers",
+              "action_type": "COMMUNICATE",
+              "decision_ref": "decision-actor_suppliers-r3"
+            }
+          ],
+          "consequences": [
+            "关键供应商可能主动与发行人沟通，要求缩短应收账款的账期或提高预付款比例",
+            "发行人面临短期资金支出增加的压力，可能被迫调整回购节奏与规模"
+          ],
+          "invalidation_conditions": [
+            "发行人按时、自动披露首次回购进展，未收到交易所督促",
+            "供应商未改变其信用政策，仍维持原有付款条款"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3"
+          ],
+          "simulation_refs": [
+            "decision-actor_exchange-r3",
+            "decision-actor_suppliers-r3"
+          ],
+          "novelty_claim": "该分支将交易所的监督权力与供应商的商业信用决策串联起来，而非独立分析两者，揭示监管动作可能通过供应链渠道间接影响发行人现金流。",
+          "confidence": 0.6,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-2",
+          "label": "零售误解推动竞争者与媒体回应",
+          "summary": "若个人投资者因错误解读回购价格上限为买入承诺而大量追高，形成短期资金情绪，行业竞争者可能借机在人才市场上进行竞争性招聘，媒体则可能引导公众关注激励方案的细节。",
+          "actor_ids": [
+            "actor_retail",
+            "actor_competitors",
+            "actor_media"
+          ],
+          "trigger_conditions": [
+            "D1至D5交易日内，个人投资者净买入量显著高于前30日均值",
+            "匿名标的股价在D1至D5内累计上涨超过3%且交易量显著放大"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_retail",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_retail-r3"
+            },
+            {
+              "actor_id": "actor_competitors",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_competitors-r3"
+            },
+            {
+              "actor_id": "actor_media",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_media-r3"
+            }
+          ],
+          "consequences": [
+            "行业竞争者可能公开强调自身更优的股权激励方案或人才福利，以吸引发行人核心人才",
+            "财经媒体可能发表分析文章，强调回购比例极小与追高风险，并对比行业竞争者的人才绑定方案",
+            "发行人可能被迫提前公布激励方案初稿以稳定员工预期"
+          ],
+          "invalidation_conditions": [
+            "个人投资者在D1至D5交易日内未显著增加买入",
+            "股价在D1至D5内下跌或横盘整理，未出现追高行情",
+            "竞争者和媒体均未就人才激励话题有公开动作"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_retail-r3",
+            "decision-actor_competitors-r3",
+            "decision-actor_media-r3"
+          ],
+          "novelty_claim": "该分支将个人投资者的短期行为、竞争者的战略应对与媒体的舆论引导串联成一个因果链，而非分述各自反应。",
+          "confidence": 0.5,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-3",
+          "label": "监管合规压力迫使发行人加速执行",
+          "summary": "如果证券监管机构在公告后的初期检查中发现发行人信息披露有瑕疵或市场存在内幕交易嫌疑，发行人将不得不加速执行回购并增加披露频率以证明合规，从而改变其原本等待的被动策略。",
+          "actor_ids": [
+            "actor_regulator",
+            "actor_issuer"
+          ],
+          "trigger_conditions": [
+            "监管机构因收到匿名举报或系统异动报告，正式向发行人发出询问函，要求说明公告前股价上涨原因",
+            "发行人的法律顾问建议立即启动回购以降低内部员工提前获利的嫌疑"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_regulator",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_regulator-r3"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_issuer-r3"
+            }
+          ],
+          "consequences": [
+            "发行人可能在D3至D7天内首次实际回购，远超原计划可能的一个月以上的等待期",
+            "监管机构可能设定临时性更短的定期披露义务，要求每周而非每月公布回购进展",
+            "发行人因被迫追高回购而拉高平均成本，与控制回购成本目标冲突"
+          ],
+          "invalidation_conditions": [
+            "监管机构未在D0+7天内向发行人发出任何正式问询",
+            "发行人在D12之前未执行任何回购操作"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_regulator-r3",
+            "decision-actor_issuer-r3"
+          ],
+          "novelty_claim": "该分支将监管的合规审查压力与发行人的执行节奏直接挂钩，揭示外部监管压力如何改变内部资金运用决策，而非仅描述监管的监督角色。",
+          "confidence": 0.5,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        },
+        {
+          "id": "branch-4",
+          "label": "机构质疑与员工激励延迟",
+          "summary": "如果机构投资者因不满回购信号弱且公告前股价已上涨而连续发表质疑观点，管理层与核心员工可能因激励不确定性增强而推迟股权激励团队的组建计划，等待更清晰的信号。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_management"
+          ],
+          "trigger_conditions": [
+            "至少两家大型机构投资者在D1至D3的公开研究报告或采访中，明确指出“回购信号意义弱于行业景气度”",
+            "管理层与核心员工的非正式内部沟通中开始讨论激励方案的不确定性"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r3"
+            },
+            {
+              "actor_id": "actor_management",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_management-r3"
+            }
+          ],
+          "consequences": [
+            "管理层可能延迟向董事会提交股权激励方案的草案审议，推迟至首次回购完成后",
+            "机构投资者的边际卖出行为可能压低股价至回购价格下限附近，反而触发发行人更早启动回购以支撑价格",
+            "核心员工因等待时间拉长而降低对股权激励的预期，增加离职风险"
+          ],
+          "invalidation_conditions": [
+            "机构投资者的公开发言均为中性或正面，未形成系统性负面共识",
+            "管理层在D0+10天内公开表态激励方案进展顺利，未出现推迟迹象"
+          ],
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ],
+          "simulation_refs": [
+            "decision-actor_institutions-r3",
+            "decision-actor_management-r3"
+          ],
+          "novelty_claim": "该分支将机构投资者的公开立场与管理层的内部激励决策统筹推演，而非独立描述任何一方立场。",
+          "confidence": 0.5,
+          "confidence_semantics": "branch_coherence_not_forecast_probability"
+        }
+      ],
+      "generation": {
+        "semantic_retries": 1,
+        "elapsed_seconds": 79.79865324997809
+      },
+      "judgments": []
+    }
+  }
+}

@@ -1,0 +1,1702 @@
+[
+  {
+    "request_id": "6255b52979d64152aeaa566916faa239",
+    "case_id": "byd-h1-2025",
+    "run_label": "paired-v7",
+    "http_status": 200,
+    "elapsed_seconds": 14.04169862496201,
+    "usage": {
+      "prompt_tokens": 4912,
+      "total_tokens": 5988,
+      "completion_tokens": 1076,
+      "estimated_cost": 0.0006357600000000001,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004700565,
+    "charged_budget_usd": 0.0009536400000000001
+  },
+  {
+    "request_id": "e5aee2ef525348e29eaf0fd366e10650",
+    "case_id": "byd-h1-2025",
+    "run_label": "paired-v9",
+    "http_status": 200,
+    "elapsed_seconds": 20.298749167006463,
+    "usage": {
+      "prompt_tokens": 5172,
+      "total_tokens": 6480,
+      "completion_tokens": 1308,
+      "estimated_cost": 0.0007009200000000001,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0048631049999999995,
+    "charged_budget_usd": 0.0010513800000000002
+  },
+  {
+    "request_id": "d3408f7e6bfc40268bd1efed1e77b5e0",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "paired-v9",
+    "http_status": 200,
+    "elapsed_seconds": 25.659614708041772,
+    "usage": {
+      "prompt_tokens": 5864,
+      "total_tokens": 7294,
+      "completion_tokens": 1430,
+      "estimated_cost": 0.000748296,
+      "prompt_tokens_details": {
+        "cached_tokens": 512,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.005238540000000001,
+    "charged_budget_usd": 0.0011777400000000003
+  },
+  {
+    "request_id": "51fc3f6fed194c83935bb7db15d3e5b9",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "paired-v7",
+    "http_status": 200,
+    "elapsed_seconds": 17.61138600006234,
+    "usage": {
+      "prompt_tokens": 5460,
+      "total_tokens": 6659,
+      "completion_tokens": 1199,
+      "estimated_cost": 0.0006887880000000001,
+      "prompt_tokens_details": {
+        "cached_tokens": 256,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.005006205,
+    "charged_budget_usd": 0.00106083
+  },
+  {
+    "request_id": "18fc71c1a0d746b888b21a4020a23d86",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "paired-v7",
+    "http_status": 200,
+    "elapsed_seconds": 21.48636350000743,
+    "usage": {
+      "prompt_tokens": 5081,
+      "total_tokens": 6318,
+      "completion_tokens": 1237,
+      "estimated_cost": 0.0006615179999999999,
+      "prompt_tokens_details": {
+        "cached_tokens": 256,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004866479999999999,
+    "charged_budget_usd": 0.001019925
+  },
+  {
+    "request_id": "2190b1eea07c4b029907c4da53c67b87",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "paired-v9",
+    "http_status": 200,
+    "elapsed_seconds": 20.848443374969065,
+    "usage": {
+      "prompt_tokens": 5341,
+      "total_tokens": 6726,
+      "completion_tokens": 1385,
+      "estimated_cost": 0.0006931260000000001,
+      "prompt_tokens_details": {
+        "cached_tokens": 512,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00502875,
+    "charged_budget_usd": 0.0010949850000000001
+  },
+  {
+    "request_id": "a523c46919524e52a1d5e8babee47660",
+    "case_id": "byd-h1-2025",
+    "run_label": "paired-v7",
+    "http_status": 200,
+    "elapsed_seconds": 26.117762916954234,
+    "usage": {
+      "prompt_tokens": 4912,
+      "total_tokens": 6054,
+      "completion_tokens": 1142,
+      "estimated_cost": 0.000315864,
+      "prompt_tokens_details": {
+        "cached_tokens": 4608,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004700565,
+    "charged_budget_usd": 0.00097146
+  },
+  {
+    "request_id": "2bf4b9a7717344fa8134514926593807",
+    "case_id": "byd-h1-2025",
+    "run_label": "paired-v10",
+    "http_status": 200,
+    "elapsed_seconds": 20.333065167069435,
+    "usage": {
+      "prompt_tokens": 5424,
+      "total_tokens": 6271,
+      "completion_tokens": 847,
+      "estimated_cost": 0.0006037560000000001,
+      "prompt_tokens_details": {
+        "cached_tokens": 512,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.005022540000000001,
+    "charged_budget_usd": 0.00096093
+  },
+  {
+    "request_id": "02460c136c964573be7550161f78e027",
+    "case_id": "byd-h1-2025",
+    "run_label": "paired-v10",
+    "http_status": 200,
+    "elapsed_seconds": 15.524570666020736,
+    "usage": {
+      "prompt_tokens": 5493,
+      "total_tokens": 6288,
+      "completion_tokens": 795,
+      "estimated_cost": 0.000582174,
+      "prompt_tokens_details": {
+        "cached_tokens": 768,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00507276,
+    "charged_budget_usd": 0.000956205
+  },
+  {
+    "request_id": "9b9d663c6e8648f4b25b9d8565f2d144",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "paired-v10",
+    "http_status": 200,
+    "elapsed_seconds": 23.728206041036174,
+    "usage": {
+      "prompt_tokens": 6116,
+      "total_tokens": 6969,
+      "completion_tokens": 853,
+      "estimated_cost": 0.0006486840000000001,
+      "prompt_tokens_details": {
+        "cached_tokens": 768,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.005397975,
+    "charged_budget_usd": 0.00105597
+  },
+  {
+    "request_id": "8ecb5dba1d134cc3ade3e16daaf6717b",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "paired-v7",
+    "http_status": 200,
+    "elapsed_seconds": 25.884727834025398,
+    "usage": {
+      "prompt_tokens": 5460,
+      "total_tokens": 6657,
+      "completion_tokens": 1197,
+      "estimated_cost": 0.000319788,
+      "prompt_tokens_details": {
+        "cached_tokens": 5376,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.005006205,
+    "charged_budget_usd": 0.00106029
+  },
+  {
+    "request_id": "305f27d8572e4eba9990b5c2290b26ef",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "paired-v7",
+    "http_status": 200,
+    "elapsed_seconds": 21.31403720797971,
+    "usage": {
+      "prompt_tokens": 5081,
+      "total_tokens": 6254,
+      "completion_tokens": 1173,
+      "estimated_cost": 0.000318222,
+      "prompt_tokens_details": {
+        "cached_tokens": 4864,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004866479999999999,
+    "charged_budget_usd": 0.0010026450000000001
+  },
+  {
+    "request_id": "ff3aa0f839914f438e19d8214702c5cc",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "paired-v10",
+    "http_status": 200,
+    "elapsed_seconds": 20.177489499910735,
+    "usage": {
+      "prompt_tokens": 5593,
+      "total_tokens": 6439,
+      "completion_tokens": 846,
+      "estimated_cost": 0.000600354,
+      "prompt_tokens_details": {
+        "cached_tokens": 768,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0051881850000000005,
+    "charged_budget_usd": 0.0009834750000000001
+  },
+  {
+    "request_id": "740166d312ff46ffbace27a4f6756274",
+    "case_id": "byd-h1-2025",
+    "run_label": "paired-v7",
+    "http_status": 200,
+    "elapsed_seconds": 24.382430750061758,
+    "usage": {
+      "prompt_tokens": 4912,
+      "total_tokens": 6163,
+      "completion_tokens": 1251,
+      "estimated_cost": 0.000335484,
+      "prompt_tokens_details": {
+        "cached_tokens": 4608,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004700565,
+    "charged_budget_usd": 0.0010008900000000002
+  },
+  {
+    "request_id": "01ae64b8492f4f27ae544df5451ebf9e",
+    "case_id": "byd-h1-2025",
+    "run_label": "paired-v11",
+    "http_status": 200,
+    "elapsed_seconds": 14.871901958016679,
+    "usage": {
+      "prompt_tokens": 2713,
+      "total_tokens": 3439,
+      "completion_tokens": 726,
+      "estimated_cost": 0.000319554,
+      "prompt_tokens_details": {
+        "cached_tokens": 768,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0034241400000000004,
+    "charged_budget_usd": 0.0005622750000000001
+  },
+  {
+    "request_id": "4f78ccdbccbc46c4a0547adcf8092dfb",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "paired-v11",
+    "http_status": 200,
+    "elapsed_seconds": 19.13151920796372,
+    "usage": {
+      "prompt_tokens": 3266,
+      "total_tokens": 4001,
+      "completion_tokens": 735,
+      "estimated_cost": 0.00042624000000000004,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0037107450000000005,
+    "charged_budget_usd": 0.0006393600000000001
+  },
+  {
+    "request_id": "dff2f81a5b0149c4bf3d282a97da9d96",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "paired-v7",
+    "http_status": 200,
+    "elapsed_seconds": 23.61461737495847,
+    "usage": {
+      "prompt_tokens": 5460,
+      "total_tokens": 6562,
+      "completion_tokens": 1102,
+      "estimated_cost": 0.00030268799999999996,
+      "prompt_tokens_details": {
+        "cached_tokens": 5376,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.005006205,
+    "charged_budget_usd": 0.00103464
+  },
+  {
+    "request_id": "4ef984e590b749bfbc4158d68fe578f3",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "paired-v7",
+    "http_status": 200,
+    "elapsed_seconds": 17.39868033293169,
+    "usage": {
+      "prompt_tokens": 5081,
+      "total_tokens": 6167,
+      "completion_tokens": 1086,
+      "estimated_cost": 0.000302562,
+      "prompt_tokens_details": {
+        "cached_tokens": 4864,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004866479999999999,
+    "charged_budget_usd": 0.000979155
+  },
+  {
+    "request_id": "2e5605dec1cd46e8bbbfcd8c60ad4b01",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "paired-v11",
+    "http_status": 200,
+    "elapsed_seconds": 16.066997374990024,
+    "usage": {
+      "prompt_tokens": 2734,
+      "total_tokens": 3594,
+      "completion_tokens": 860,
+      "estimated_cost": 0.00034556400000000003,
+      "prompt_tokens_details": {
+        "cached_tokens": 768,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.003436695,
+    "charged_budget_usd": 0.0006012900000000001
+  },
+  {
+    "request_id": "a7c94bde68d5442ea2467e3e5f999981",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "paired-v11",
+    "http_status": 200,
+    "elapsed_seconds": 9.908867707941681,
+    "usage": {
+      "prompt_tokens": 3346,
+      "total_tokens": 4065,
+      "completion_tokens": 719,
+      "estimated_cost": 0.000375264,
+      "prompt_tokens_details": {
+        "cached_tokens": 768,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.003766095,
+    "charged_budget_usd": 0.0006458400000000001
+  },
+  {
+    "request_id": "4d7c38f6f485420db51c3aa6bb0f3d7a",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "paired-v11",
+    "http_status": 200,
+    "elapsed_seconds": 10.83635191700887,
+    "usage": {
+      "prompt_tokens": 2837,
+      "total_tokens": 3542,
+      "completion_tokens": 705,
+      "estimated_cost": 0.000326934,
+      "prompt_tokens_details": {
+        "cached_tokens": 768,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.003506085,
+    "charged_budget_usd": 0.0005733450000000001
+  },
+  {
+    "request_id": "c2cbefb434c549588b6f3b5ba4036a10",
+    "case_id": "byd-h1-2025",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 1.639235750073567,
+    "usage": {
+      "prompt_tokens": 3182,
+      "total_tokens": 3241,
+      "completion_tokens": 59,
+      "estimated_cost": 0.000297,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00350379,
+    "charged_budget_usd": 0.00044550000000000004
+  },
+  {
+    "request_id": "500eeb210c834c6c872f23a5613aa94b",
+    "case_id": "byd-h1-2025",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 3.8940960000036284,
+    "usage": {
+      "prompt_tokens": 3180,
+      "total_tokens": 3398,
+      "completion_tokens": 218,
+      "estimated_cost": 0.00032544000000000003,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.003500955,
+    "charged_budget_usd": 0.00048816
+  },
+  {
+    "request_id": "c6a23198e12242d690ac7d934a489566",
+    "case_id": "byd-h1-2025",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 5.008717958000489,
+    "usage": {
+      "prompt_tokens": 3186,
+      "total_tokens": 3401,
+      "completion_tokens": 215,
+      "estimated_cost": 0.00032544000000000003,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00350352,
+    "charged_budget_usd": 0.00048816
+  },
+  {
+    "request_id": "7d0d3ea0b2eb49d3a6ce78889530d718",
+    "case_id": "byd-h1-2025",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 6.046819792012684,
+    "usage": {
+      "prompt_tokens": 3172,
+      "total_tokens": 3433,
+      "completion_tokens": 261,
+      "estimated_cost": 0.00033245999999999997,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.003499875,
+    "charged_budget_usd": 0.0004986900000000001
+  },
+  {
+    "request_id": "012eb9dab79744358daeddf6884dd362",
+    "case_id": "byd-h1-2025",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 10.550781625090167,
+    "usage": {
+      "prompt_tokens": 3209,
+      "total_tokens": 3575,
+      "completion_tokens": 366,
+      "estimated_cost": 0.00035469,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0035228250000000003,
+    "charged_budget_usd": 0.000532035
+  },
+  {
+    "request_id": "be11ec55083749719dd3b2e123e1d2e5",
+    "case_id": "byd-h1-2025",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 13.315339874941856,
+    "usage": {
+      "prompt_tokens": 3186,
+      "total_tokens": 3687,
+      "completion_tokens": 501,
+      "estimated_cost": 0.00026632800000000003,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0035051400000000003,
+    "charged_budget_usd": 0.00056538
+  },
+  {
+    "request_id": "eef2777639314ccebe34719db636bd9a",
+    "case_id": "byd-h1-2025",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 6.192317417007871,
+    "usage": {
+      "prompt_tokens": 6577,
+      "total_tokens": 6782,
+      "completion_tokens": 205,
+      "estimated_cost": 0.00040764600000000006,
+      "prompt_tokens_details": {
+        "cached_tokens": 3072,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004798575000000001,
+    "charged_budget_usd": 0.0009432450000000001
+  },
+  {
+    "request_id": "8831f229d6dd4960ada21a0095260c0e",
+    "case_id": "byd-h1-2025",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 7.113970834063366,
+    "usage": {
+      "prompt_tokens": 6359,
+      "total_tokens": 6668,
+      "completion_tokens": 309,
+      "estimated_cost": 0.00040674600000000004,
+      "prompt_tokens_details": {
+        "cached_tokens": 3072,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004660200000000001,
+    "charged_budget_usd": 0.000941895
+  },
+  {
+    "request_id": "77160157fb8d409f9332953fb64e7b9f",
+    "case_id": "byd-h1-2025",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 7.523302625049837,
+    "usage": {
+      "prompt_tokens": 6580,
+      "total_tokens": 6763,
+      "completion_tokens": 183,
+      "estimated_cost": 0.000403956,
+      "prompt_tokens_details": {
+        "cached_tokens": 3072,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00480006,
+    "charged_budget_usd": 0.00093771
+  },
+  {
+    "request_id": "ca88879f72fc4e48a135a90199158367",
+    "case_id": "byd-h1-2025",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 7.806547999964096,
+    "usage": {
+      "prompt_tokens": 6612,
+      "total_tokens": 6803,
+      "completion_tokens": 191,
+      "estimated_cost": 0.000408276,
+      "prompt_tokens_details": {
+        "cached_tokens": 3072,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004837455,
+    "charged_budget_usd": 0.00094419
+  },
+  {
+    "request_id": "f1c388bfb954462e8c4a8148ed7fe972",
+    "case_id": "byd-h1-2025",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 8.049725292017683,
+    "usage": {
+      "prompt_tokens": 6754,
+      "total_tokens": 6957,
+      "completion_tokens": 203,
+      "estimated_cost": 0.000533808,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004922775,
+    "charged_budget_usd": 0.0009666000000000002
+  },
+  {
+    "request_id": "387b42d7266049c8a2a86710f21f220e",
+    "case_id": "byd-h1-2025",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 9.161852917051874,
+    "usage": {
+      "prompt_tokens": 6866,
+      "total_tokens": 7138,
+      "completion_tokens": 272,
+      "estimated_cost": 0.000445716,
+      "prompt_tokens_details": {
+        "cached_tokens": 3072,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0049488299999999995,
+    "charged_budget_usd": 0.0010003500000000001
+  },
+  {
+    "request_id": "f54354afbd6e4f2f94c698855cdebc57",
+    "case_id": "byd-h1-2025",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 5.6941255000419915,
+    "usage": {
+      "prompt_tokens": 6302,
+      "total_tokens": 6576,
+      "completion_tokens": 274,
+      "estimated_cost": 0.0006165000000000001,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004724325000000001,
+    "charged_budget_usd": 0.0009247500000000001
+  },
+  {
+    "request_id": "89abeafef5614ea9bf7b6fbbd5ec333e",
+    "case_id": "byd-h1-2025",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 6.307108125067316,
+    "usage": {
+      "prompt_tokens": 6764,
+      "total_tokens": 7077,
+      "completion_tokens": 313,
+      "estimated_cost": 0.0006651,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00496935,
+    "charged_budget_usd": 0.00099765
+  },
+  {
+    "request_id": "12e097883a88453c9929ddcd5260ffa6",
+    "case_id": "byd-h1-2025",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 8.359046792029403,
+    "usage": {
+      "prompt_tokens": 6552,
+      "total_tokens": 6833,
+      "completion_tokens": 281,
+      "estimated_cost": 0.00064026,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004873095,
+    "charged_budget_usd": 0.0009603900000000001
+  },
+  {
+    "request_id": "4af8d6638eba43f5b7f4828fce8839c9",
+    "case_id": "byd-h1-2025",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 10.139801917015575,
+    "usage": {
+      "prompt_tokens": 6183,
+      "total_tokens": 6497,
+      "completion_tokens": 314,
+      "estimated_cost": 0.00061299,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0046118700000000006,
+    "charged_budget_usd": 0.000919485
+  },
+  {
+    "request_id": "2d7899ac3092432fb2f09e5d740e5d85",
+    "case_id": "byd-h1-2025",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 10.339890790986829,
+    "usage": {
+      "prompt_tokens": 6291,
+      "total_tokens": 6594,
+      "completion_tokens": 303,
+      "estimated_cost": 0.00062073,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0046812600000000005,
+    "charged_budget_usd": 0.0009310950000000001
+  },
+  {
+    "request_id": "7f6b69d8da3c46f5941ac6019920904a",
+    "case_id": "byd-h1-2025",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 11.494400916039012,
+    "usage": {
+      "prompt_tokens": 6289,
+      "total_tokens": 6633,
+      "completion_tokens": 344,
+      "estimated_cost": 0.0006279300000000001,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004693274999999999,
+    "charged_budget_usd": 0.0009418950000000001
+  },
+  {
+    "request_id": "7c862fcac43340e6b91bd006b51c94d0",
+    "case_id": "byd-h1-2025",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 34.13363075000234,
+    "usage": {
+      "prompt_tokens": 4423,
+      "total_tokens": 5841,
+      "completion_tokens": 1418,
+      "estimated_cost": 0.00065331,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004416524999999999,
+    "charged_budget_usd": 0.000979965
+  },
+  {
+    "request_id": "345702788dad46949fad11917473087b",
+    "case_id": "byd-h1-2025",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 36.48455216700677,
+    "usage": {
+      "prompt_tokens": 4485,
+      "total_tokens": 5931,
+      "completion_tokens": 1446,
+      "estimated_cost": 0.0006454979999999999,
+      "prompt_tokens_details": {
+        "cached_tokens": 256,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0044601300000000005,
+    "charged_budget_usd": 0.000995895
+  },
+  {
+    "request_id": "a57be13d1ed54424b7bb3d2bb8fd0d56",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 2.961481959093362,
+    "usage": {
+      "prompt_tokens": 3495,
+      "total_tokens": 3563,
+      "completion_tokens": 68,
+      "estimated_cost": 0.0003267900000000001,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0035923500000000002,
+    "charged_budget_usd": 0.0004901850000000001
+  },
+  {
+    "request_id": "8f011dfe183c4c23b2270fb050549667",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 5.18591383297462,
+    "usage": {
+      "prompt_tokens": 3527,
+      "total_tokens": 3677,
+      "completion_tokens": 150,
+      "estimated_cost": 0.00034443,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0036138150000000003,
+    "charged_budget_usd": 0.0005166449999999999
+  },
+  {
+    "request_id": "261c68f9ec4e4b96815ca1aa4e11b68c",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 5.290292625082657,
+    "usage": {
+      "prompt_tokens": 3527,
+      "total_tokens": 3644,
+      "completion_tokens": 117,
+      "estimated_cost": 0.00022789800000000003,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0036128700000000002,
+    "charged_budget_usd": 0.000507735
+  },
+  {
+    "request_id": "4ee0665d2cf54d97929fdcf63b88d08e",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 5.483430125052109,
+    "usage": {
+      "prompt_tokens": 3491,
+      "total_tokens": 3732,
+      "completion_tokens": 241,
+      "estimated_cost": 0.000246978,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0035926200000000004,
+    "charged_budget_usd": 0.000536355
+  },
+  {
+    "request_id": "bf8bc310d53b455faa81c528329e3e84",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 6.311092417105101,
+    "usage": {
+      "prompt_tokens": 3481,
+      "total_tokens": 3735,
+      "completion_tokens": 254,
+      "estimated_cost": 0.00024841800000000003,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0035887049999999998,
+    "charged_budget_usd": 0.0005385150000000002
+  },
+  {
+    "request_id": "abdaaafe882e43b3801a2f16569a7410",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 7.942422708962113,
+    "usage": {
+      "prompt_tokens": 3495,
+      "total_tokens": 3771,
+      "completion_tokens": 276,
+      "estimated_cost": 0.00025363800000000004,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00359397,
+    "charged_budget_usd": 0.0005463450000000001
+  },
+  {
+    "request_id": "42d1c7930bf94526bd70e1af412eb462",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 8.651960041024722,
+    "usage": {
+      "prompt_tokens": 3489,
+      "total_tokens": 3770,
+      "completion_tokens": 281,
+      "estimated_cost": 0.000253998,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0035897850000000003,
+    "charged_budget_usd": 0.000546885
+  },
+  {
+    "request_id": "10b6a66294be452289e486ee8755edd4",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 9.402516333037056,
+    "usage": {
+      "prompt_tokens": 3491,
+      "total_tokens": 3760,
+      "completion_tokens": 269,
+      "estimated_cost": 0.00036261,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0035926200000000004,
+    "charged_budget_usd": 0.0005439150000000001
+  },
+  {
+    "request_id": "321226a1a43c43f48ee980a847606456",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 4.81533216603566,
+    "usage": {
+      "prompt_tokens": 6382,
+      "total_tokens": 6502,
+      "completion_tokens": 120,
+      "estimated_cost": 0.000485388,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00464535,
+    "charged_budget_usd": 0.00089397
+  },
+  {
+    "request_id": "56322c59c98c4994ba7f4ff182473f31",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 6.201362750027329,
+    "usage": {
+      "prompt_tokens": 6807,
+      "total_tokens": 6982,
+      "completion_tokens": 175,
+      "estimated_cost": 0.00040451399999999997,
+      "prompt_tokens_details": {
+        "cached_tokens": 3328,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00478791,
+    "charged_budget_usd": 0.0009661950000000001
+  },
+  {
+    "request_id": "89428d33eff141b8932e780afcd07837",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 7.786794500076212,
+    "usage": {
+      "prompt_tokens": 6793,
+      "total_tokens": 7042,
+      "completion_tokens": 249,
+      "estimated_cost": 0.000545598,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004771035,
+    "charged_budget_usd": 0.000984285
+  },
+  {
+    "request_id": "178e390d418d41a98691bd2ede2ec168",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 8.401288166991435,
+    "usage": {
+      "prompt_tokens": 6701,
+      "total_tokens": 6980,
+      "completion_tokens": 279,
+      "estimated_cost": 0.000413694,
+      "prompt_tokens_details": {
+        "cached_tokens": 3328,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004731615,
+    "charged_budget_usd": 0.0009799650000000002
+  },
+  {
+    "request_id": "55be1d44bafe48d78fabf0cc8782f6eb",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 9.312443875009194,
+    "usage": {
+      "prompt_tokens": 5395,
+      "total_tokens": 5668,
+      "completion_tokens": 273,
+      "estimated_cost": 0.000424098,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0042870600000000005,
+    "charged_budget_usd": 0.0008020350000000001
+  },
+  {
+    "request_id": "6910b49f7e8f493fa379a96ab36d31f5",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 9.357283291057684,
+    "usage": {
+      "prompt_tokens": 6660,
+      "total_tokens": 6986,
+      "completion_tokens": 326,
+      "estimated_cost": 0.0005474880000000001,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00468585,
+    "charged_budget_usd": 0.00098712
+  },
+  {
+    "request_id": "91569259afb8469aaa69484748daa5d0",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 10.551785917021334,
+    "usage": {
+      "prompt_tokens": 6803,
+      "total_tokens": 7055,
+      "completion_tokens": 252,
+      "estimated_cost": 0.000418014,
+      "prompt_tokens_details": {
+        "cached_tokens": 3328,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004796819999999999,
+    "charged_budget_usd": 0.000986445
+  },
+  {
+    "request_id": "a6ac99c64bc94a258f7dc17fbfc22783",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 11.369908875087276,
+    "usage": {
+      "prompt_tokens": 6695,
+      "total_tokens": 7004,
+      "completion_tokens": 309,
+      "estimated_cost": 0.000418554,
+      "prompt_tokens_details": {
+        "cached_tokens": 3328,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00473175,
+    "charged_budget_usd": 0.000987255
+  },
+  {
+    "request_id": "eaa5bd6cbf0d49ba8c38e555df0762ec",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 5.399913624976762,
+    "usage": {
+      "prompt_tokens": 6573,
+      "total_tokens": 6821,
+      "completion_tokens": 248,
+      "estimated_cost": 0.00063621,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004721895,
+    "charged_budget_usd": 0.0009543150000000001
+  },
+  {
+    "request_id": "bd9c73c177ef4ac19f97d586e1417d56",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 5.457352459081449,
+    "usage": {
+      "prompt_tokens": 6599,
+      "total_tokens": 6841,
+      "completion_tokens": 242,
+      "estimated_cost": 0.00063747,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004744979999999999,
+    "charged_budget_usd": 0.000956205
+  },
+  {
+    "request_id": "ce7452b6dc1348a2a16d540a2b6956ec",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 5.814227041089907,
+    "usage": {
+      "prompt_tokens": 6630,
+      "total_tokens": 6882,
+      "completion_tokens": 252,
+      "estimated_cost": 0.00064206,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004774275,
+    "charged_budget_usd": 0.00096309
+  },
+  {
+    "request_id": "2398e2482aa74762800d639108a6bf98",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 6.424966167076491,
+    "usage": {
+      "prompt_tokens": 6743,
+      "total_tokens": 7073,
+      "completion_tokens": 330,
+      "estimated_cost": 0.0006662700000000001,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00481059,
+    "charged_budget_usd": 0.000999405
+  },
+  {
+    "request_id": "02c93fa7e3df47dc8d0e58258feb7e4f",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 6.6153829579707235,
+    "usage": {
+      "prompt_tokens": 5272,
+      "total_tokens": 5539,
+      "completion_tokens": 267,
+      "estimated_cost": 0.00052254,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004275585,
+    "charged_budget_usd": 0.00078381
+  },
+  {
+    "request_id": "fa5d8b0490d642b88f50dffc17add0fb",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 6.8837907910346985,
+    "usage": {
+      "prompt_tokens": 6194,
+      "total_tokens": 6497,
+      "completion_tokens": 303,
+      "estimated_cost": 0.000612,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004588245000000001,
+    "charged_budget_usd": 0.000918
+  },
+  {
+    "request_id": "64cce70d5fbb4f4e96bdfd71dbfea27d",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 7.7255452499957755,
+    "usage": {
+      "prompt_tokens": 6598,
+      "total_tokens": 6910,
+      "completion_tokens": 312,
+      "estimated_cost": 0.00064998,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004747680000000001,
+    "charged_budget_usd": 0.00097497
+  },
+  {
+    "request_id": "ebb97ce1e7fe4c8aa9454db082ed3d8a",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 11.033764624968171,
+    "usage": {
+      "prompt_tokens": 6675,
+      "total_tokens": 6935,
+      "completion_tokens": 260,
+      "estimated_cost": 0.0006475500000000001,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004751595,
+    "charged_budget_usd": 0.0009713250000000002
+  },
+  {
+    "request_id": "374b6a4094d14c70a0053b1f69b37a39",
+    "case_id": "guotai-haitong-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 32.609747375012375,
+    "usage": {
+      "prompt_tokens": 5660,
+      "total_tokens": 6797,
+      "completion_tokens": 1137,
+      "estimated_cost": 0.0006956279999999999,
+      "prompt_tokens_details": {
+        "cached_tokens": 256,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.005147685000000001,
+    "charged_budget_usd": 0.0010710900000000002
+  },
+  {
+    "request_id": "ec2338cc790746d880c0773b88e7303e",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 2.168510333984159,
+    "usage": {
+      "prompt_tokens": 3265,
+      "total_tokens": 3344,
+      "completion_tokens": 79,
+      "estimated_cost": 0.00019747800000000004,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.003533895,
+    "charged_budget_usd": 0.00046210500000000004
+  },
+  {
+    "request_id": "25e170d6bb9842c1bf7e74c952bb4b0d",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 3.1541046670172364,
+    "usage": {
+      "prompt_tokens": 3306,
+      "total_tokens": 3443,
+      "completion_tokens": 137,
+      "estimated_cost": 0.000211608,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.003553605,
+    "charged_budget_usd": 0.00048330000000000004
+  },
+  {
+    "request_id": "00a9a56b71f843fb8dcebf469c903732",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 3.247825500089675,
+    "usage": {
+      "prompt_tokens": 3271,
+      "total_tokens": 3420,
+      "completion_tokens": 149,
+      "estimated_cost": 0.000210618,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0035353800000000003,
+    "charged_budget_usd": 0.0004818150000000001
+  },
+  {
+    "request_id": "685d16bd352f4f9389b15dd0841b097c",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 3.3729356250260025,
+    "usage": {
+      "prompt_tokens": 3271,
+      "total_tokens": 3425,
+      "completion_tokens": 154,
+      "estimated_cost": 0.00021151800000000003,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.003533895,
+    "charged_budget_usd": 0.000483165
+  },
+  {
+    "request_id": "ce262c41195644478df9dc11dc914a12",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 4.28082187497057,
+    "usage": {
+      "prompt_tokens": 3267,
+      "total_tokens": 3421,
+      "completion_tokens": 154,
+      "estimated_cost": 0.000211158,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00353403,
+    "charged_budget_usd": 0.000482625
+  },
+  {
+    "request_id": "e94dabd87ba5416ba16089d2e858a3e9",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 5.922500874963589,
+    "usage": {
+      "prompt_tokens": 3263,
+      "total_tokens": 3554,
+      "completion_tokens": 291,
+      "estimated_cost": 0.00023545800000000002,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00352971,
+    "charged_budget_usd": 0.000519075
+  },
+  {
+    "request_id": "0bb9d1e141014ff7bd16e0c10acab541",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 3.5438675839686766,
+    "usage": {
+      "prompt_tokens": 5656,
+      "total_tokens": 5734,
+      "completion_tokens": 78,
+      "estimated_cost": 0.00030189599999999996,
+      "prompt_tokens_details": {
+        "cached_tokens": 3072,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004539645,
+    "charged_budget_usd": 0.0007846200000000001
+  },
+  {
+    "request_id": "7e5d0c48e6fa4d4ca69ee1a15bd6d0a2",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 4.568523249938153,
+    "usage": {
+      "prompt_tokens": 5067,
+      "total_tokens": 5211,
+      "completion_tokens": 144,
+      "estimated_cost": 0.00037135799999999996,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0042674850000000005,
+    "charged_budget_usd": 0.000722925
+  },
+  {
+    "request_id": "b5f3e759c61d4389bd6cf131d9e98b2c",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 6.313197707990184,
+    "usage": {
+      "prompt_tokens": 5207,
+      "total_tokens": 5479,
+      "completion_tokens": 272,
+      "estimated_cost": 0.00040699799999999994,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004342950000000001,
+    "charged_budget_usd": 0.000776385
+  },
+  {
+    "request_id": "918d58b7635643f2ac90c20346b13249",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 6.516589374979958,
+    "usage": {
+      "prompt_tokens": 4849,
+      "total_tokens": 5054,
+      "completion_tokens": 205,
+      "estimated_cost": 0.00025212600000000003,
+      "prompt_tokens_details": {
+        "cached_tokens": 3072,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004210515000000001,
+    "charged_budget_usd": 0.000709965
+  },
+  {
+    "request_id": "5b1de0f20928444096f17abf93fd857e",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 7.642311125062406,
+    "usage": {
+      "prompt_tokens": 4934,
+      "total_tokens": 5221,
+      "completion_tokens": 287,
+      "estimated_cost": 0.00027453600000000003,
+      "prompt_tokens_details": {
+        "cached_tokens": 3072,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00428166,
+    "charged_budget_usd": 0.0007435800000000001
+  },
+  {
+    "request_id": "8c70c2288437438a84addf165cf83811",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 15.630401458009146,
+    "usage": {
+      "prompt_tokens": 4812,
+      "total_tokens": 5057,
+      "completion_tokens": 245,
+      "estimated_cost": 0.000366588,
+      "prompt_tokens_details": {
+        "cached_tokens": 1536,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00420444,
+    "charged_budget_usd": 0.00071577
+  },
+  {
+    "request_id": "96ed26d6c84d4164b23dbbf8fca4b67d",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 7.040007333038375,
+    "usage": {
+      "prompt_tokens": 5275,
+      "total_tokens": 5520,
+      "completion_tokens": 245,
+      "estimated_cost": 0.00051885,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0044421750000000005,
+    "charged_budget_usd": 0.0007782749999999999
+  },
+  {
+    "request_id": "3c1dd9bf801d46d0bb3c2407a2a5c950",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 8.270111041027121,
+    "usage": {
+      "prompt_tokens": 4757,
+      "total_tokens": 5002,
+      "completion_tokens": 245,
+      "estimated_cost": 0.00047223,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0042456149999999995,
+    "charged_budget_usd": 0.000708345
+  },
+  {
+    "request_id": "802883a56e2240319b85e66acef3512a",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 9.08858383295592,
+    "usage": {
+      "prompt_tokens": 4619,
+      "total_tokens": 4889,
+      "completion_tokens": 270,
+      "estimated_cost": 0.00046431,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00413964,
+    "charged_budget_usd": 0.0006964650000000001
+  },
+  {
+    "request_id": "1c60a9f0f22d4308ad6e0a30a0fe3466",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 9.08839158306364,
+    "usage": {
+      "prompt_tokens": 4607,
+      "total_tokens": 4899,
+      "completion_tokens": 292,
+      "estimated_cost": 0.00046719,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0041586750000000006,
+    "charged_budget_usd": 0.0007007850000000001
+  },
+  {
+    "request_id": "7eea1da5fd6b442c80d3c4a7bffd6585",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 9.089039749931544,
+    "usage": {
+      "prompt_tokens": 5388,
+      "total_tokens": 5693,
+      "completion_tokens": 305,
+      "estimated_cost": 0.00053982,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.0044386650000000005,
+    "charged_budget_usd": 0.00080973
+  },
+  {
+    "request_id": "a6fc609a5de34cf6994f270c0f78c08d",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 10.255721959052607,
+    "usage": {
+      "prompt_tokens": 4953,
+      "total_tokens": 5222,
+      "completion_tokens": 269,
+      "estimated_cost": 0.0004941899999999999,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.00425061,
+    "charged_budget_usd": 0.0007412850000000001
+  },
+  {
+    "request_id": "efb099b3417e4ad5af060a749bcbab1a",
+    "case_id": "crowdstrike-outage-2024",
+    "run_label": "entity-v7",
+    "http_status": 200,
+    "elapsed_seconds": 29.857538750045933,
+    "usage": {
+      "prompt_tokens": 3947,
+      "total_tokens": 5235,
+      "completion_tokens": 1288,
+      "estimated_cost": 0.0005686379999999999,
+      "prompt_tokens_details": {
+        "cached_tokens": 256,
+        "cache_write_tokens": null
+      }
+    },
+    "usage_known": true,
+    "reserved_usd": 0.004118715,
+    "charged_budget_usd": 0.000880605
+  }
+]

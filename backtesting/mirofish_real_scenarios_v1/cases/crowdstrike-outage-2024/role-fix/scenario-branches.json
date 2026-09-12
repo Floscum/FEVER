@@ -1,0 +1,196 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "real-crowdstrike-outage-2024",
+  "spec_sha256": "544d941cebfe9dfb62720269355a38984b6867adebee8c162e760b9b3419760b",
+  "simulation_id": "sim_direct_f6ac8b09bbb6",
+  "generated_at": "2026-09-12T04:41:11.748427+00:00",
+  "model_id": "deepseek-ai/DeepSeek-V4-Flash",
+  "prompt_version": "scenario-branch-compiler-v7",
+  "status": "completed",
+  "branches": [
+    {
+      "id": "branch-1",
+      "label": "客户索赔与CrowdStrike防御",
+      "summary": "如果部分大型客户在恢复后公开提出SLA违约索赔或要求补偿，CrowdStrike将被迫评估财务影响并调整其公开沟通策略以维护合作伙伴关系。",
+      "actor_ids": [
+        "actor_customers",
+        "actor_issuer"
+      ],
+      "trigger_conditions": [
+        "在2024年7月21日至7月27日期间，至少一家财富500强客户公开发布正式索赔公告或公开函件要求CrowdStrike补偿中断损失"
+      ],
+      "actions": [
+        {
+          "actor_id": "actor_customers",
+          "action_type": "WAIT",
+          "decision_ref": "decision-actor_customers-r2"
+        },
+        {
+          "actor_id": "actor_issuer",
+          "action_type": "WAIT",
+          "decision_ref": "decision-actor_issuer-r2"
+        }
+      ],
+      "consequences": [
+        "CrowdStrike的响应从观望转向主动：可能成立专门客户安抚团队，通过追加服务积分或折扣来协商和解，避免法律诉讼升级",
+        "其他观望中的客户会参考此先例来评估自身索赔的可行性以及CrowdStrike的配合意愿，影响后续续约决策"
+      ],
+      "invalidation_conditions": [
+        "在7月27日前没有任何客户提出正式公开索赔要求",
+        "CrowdStrike在沟通中明确表示不会提供任何形式的补偿或服务积分"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F4",
+        "F5"
+      ],
+      "simulation_refs": [
+        "decision-actor_customers-r2",
+        "decision-actor_issuer-r2"
+      ],
+      "novelty_claim": "该分支超越了客户观望和CrowdStrike等待的简单描述，推演了一个特定客户行动（公开索赔）如何迫使CrowdStrike从保守观望转为主动防御，从而改变两者之间的谈判态势。",
+      "confidence": 0.6,
+      "confidence_semantics": "branch_coherence_not_forecast_probability"
+    },
+    {
+      "id": "branch-2",
+      "label": "供应商公开质询与竞争者营销",
+      "summary": "如果关键供应商（如云服务提供商或分销商）公开讨论CrowdStrike事件作为供应链风险教学案例，竞争者会借此机会在公开渠道进行差异化宣传，影响供应商对现有合作风险评估。",
+      "actor_ids": [
+        "actor_suppliers",
+        "actor_competitors"
+      ],
+      "trigger_conditions": [
+        "在2024年7月21日至7月27日期间，相关供应商（如AWS、Azure合作渠道）发布关于单点故障风险的行业分析报告或公开声明，未明确支持CrowdStrike"
+      ],
+      "actions": [
+        {
+          "actor_id": "actor_suppliers",
+          "action_type": "WAIT",
+          "decision_ref": "decision-actor_suppliers-r2"
+        },
+        {
+          "actor_id": "actor_competitors",
+          "action_type": "WAIT",
+          "decision_ref": "decision-actor_competitors-r2"
+        }
+      ],
+      "consequences": [
+        "竞争者（如SentinelOne）会推出针对性的白皮书或营销活动，强调自身的灰度发布和自动化回滚能力，并提及零信任架构以减少对单一端点保护依赖",
+        "供应商在采购评估时面临更多竞争压力，其在内部讨论中会倾向于将替代方案纳入短期考察方案，同时向CrowdStrike施压要求更透明的变更流程"
+      ],
+      "invalidation_conditions": [
+        "供应商在公开场合明确表示对CrowdStrike的恢复行动表示满意，并重申现有合作无需审查",
+        "竞争者未在此期间发起任何新的市场宣传或客户接触活动"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F3",
+        "F4"
+      ],
+      "simulation_refs": [
+        "decision-actor_suppliers-r2",
+        "decision-actor_competitors-r2"
+      ],
+      "novelty_claim": "该分支构建了供应商公开言论如何被竞争者用作营销杠杆的传导弹链，突出竞争者如何通过将供应商的关切转化为销售线索来影响格局。",
+      "confidence": 0.5,
+      "confidence_semantics": "branch_coherence_not_forecast_probability"
+    },
+    {
+      "id": "branch-3",
+      "label": "机构投资者加仓信号被媒体放大",
+      "summary": "如果一家知名的机构投资者在7月21日至27日期间公开增持CrowdStrike股份（例如披露新增头寸或表态为长期持有），媒体可能将此解读为价值投资信号并吸引中小投资者关注。",
+      "actor_ids": [
+        "actor_institutions",
+        "actor_media"
+      ],
+      "trigger_conditions": [
+        "在2024年7月21日至7月27日期间，有规模大于10亿美元的机构投资者通过SEC表格13F或公开声明披露其大幅增持CRWD股份（持股比例增加超过50%）"
+      ],
+      "actions": [
+        {
+          "actor_id": "actor_institutions",
+          "action_type": "WAIT",
+          "decision_ref": "decision-actor_institutions-r2"
+        },
+        {
+          "actor_id": "actor_media",
+          "action_type": "WAIT",
+          "decision_ref": "decision-actor_media-r2"
+        }
+      ],
+      "consequences": [
+        "财经媒体（如Reuters、Bloomberg）会发布专题分析，对比CrowdStrike与竞争对手的长期前景，并引用机构观点淡化短期影响",
+        "其他机构投资者会受此信号影响，评估是否跟进建仓，导致CrowdStrike股价出现短期修复，改变其对外沟通时的负债压力"
+      ],
+      "invalidation_conditions": [
+        "机构投资者在此期间披露的CRWD持仓反而减少",
+        "媒体发布的信息主要聚焦于负面报道，并未对任何机构增持进行显著正面报道"
+      ],
+      "evidence_refs": [
+        "F2",
+        "F4"
+      ],
+      "simulation_refs": [
+        "decision-actor_institutions-r2",
+        "decision-actor_media-r2"
+      ],
+      "novelty_claim": "该分支推演了一个链式影响：单个机构投资者的公开行为如何被媒体放大并影响市场情绪，从而间接改变机构投资者之间的竞争心理和行动节奏。",
+      "confidence": 0.4,
+      "confidence_semantics": "branch_coherence_not_forecast_probability"
+    },
+    {
+      "id": "branch-4",
+      "label": "供应商要求CrowdStrike合同变更",
+      "summary": "如果供应商发现CrowdStrike在恢复过程中因人力调配而延迟了供应商自身的付款或项目计划，供应商可能向CrowdStrike发出合同变更要求，增加关于应急响应时间与赔偿的条款。",
+      "actor_ids": [
+        "actor_suppliers",
+        "actor_issuer"
+      ],
+      "trigger_conditions": [
+        "在2024年7月21日至7月27日期间，供应商向CrowdStrike发出正式函件要求修改现有合同条款，增加关于变更管理审计或应急响应SLA违约罚则的附件"
+      ],
+      "actions": [
+        {
+          "actor_id": "actor_suppliers",
+          "action_type": "WAIT",
+          "decision_ref": "decision-actor_suppliers-r2"
+        },
+        {
+          "actor_id": "actor_issuer",
+          "action_type": "WAIT",
+          "decision_ref": "decision-actor_issuer-r2"
+        }
+      ],
+      "consequences": [
+        "CrowdStrike的观望立场将被迫打破：它需要评估让步是否会成为其他供应商的先例，从而影响谈判地位和合同标准定价",
+        "供应商如获得条款改进，其信用风险评估底层假设会改善，使其愿意维持或扩大合作，但也可能更加依赖自身判断质量管控"
+      ],
+      "invalidation_conditions": [
+        "供应商在此期间与CrowdStrike签署新的长期合同，未提出任何条款修改",
+        "供应商公开发声表示对目前合作完全满意，无需调整合同"
+      ],
+      "evidence_refs": [
+        "F1",
+        "F2",
+        "F5"
+      ],
+      "simulation_refs": [
+        "decision-actor_suppliers-r2",
+        "decision-actor_issuer-r2"
+      ],
+      "novelty_claim": "该分支超越了对供应商等待观望的描述，构造了一个主动的合同传导链——供应商的不满如何渗透到合同层，进而迫使CrowdStrike事先未计划的防御性谈判。",
+      "confidence": 0.5,
+      "confidence_semantics": "branch_coherence_not_forecast_probability"
+    }
+  ],
+  "warnings": [
+    "branch-1: bound deterministic actor slot to unique financial decisions",
+    "branch-2: bound deterministic actor slot to unique financial decisions",
+    "branch-3: bound deterministic actor slot to unique financial decisions",
+    "branch-4: bound deterministic actor slot to unique financial decisions",
+    "Branches are simulated hypotheses, not observed evidence.",
+    "Branch confidence expresses coherence, not occurrence probability."
+  ]
+}

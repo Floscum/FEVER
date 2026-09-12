@@ -1,0 +1,956 @@
+{
+  "case_id": "anonymous-case-02",
+  "market": "CN",
+  "event_type": "增长/就业数据意外",
+  "actor_budget": 8,
+  "decision_actor_ids": [
+    "actor_analysts",
+    "actor_brokers",
+    "actor_exchange",
+    "actor_government",
+    "actor_institutions",
+    "actor_issuer",
+    "actor_media",
+    "actor_regulator"
+  ],
+  "facts": [
+    {
+      "id": "F1",
+      "observed_at": "D0",
+      "statement": "中国城镇调查失业率月度公告：社零 | 统计局 预期:一致 前值:上月",
+      "source_kind": "official",
+      "source_url": "anonymized-source",
+      "evidence_ref": "E1",
+      "confidence": 0.8
+    }
+  ],
+  "source_hashes": {
+    "spec_sha256": "21db9c40b4b789fc229a8530e44a2b899175527625320aaf9664dff481bf0a20",
+    "simulation_result_sha256": "6d9472c0dc94f8f2aefedac2b08eba0f54838e2c268837c20191543c1519ffd0",
+    "financial_actions_sha256": "d0a7723d37b3197d342e4130aa15cca50903d388f2c1a69c179fc4cdfc6a0d4e"
+  },
+  "variants": {
+    "decisions_only": {
+      "generation": {
+        "status": "sealed",
+        "semantic_retries": 0,
+        "elapsed_seconds": 31.959056416992098,
+        "prompt_chars": 8463,
+        "visible_interactions": 0
+      },
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "空窗观望传导链",
+          "summary": "机构投资者因等待实际数据而维持仓位，发行人按制度保持沉默；若数据弱于预期，机构减仓压力将间接约束发行人后续沟通时点的选择空间。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "2024-12-16至2024-12-18期间，中国城镇调查失业率月度实际值等于预期且与前值一致",
+            "机构投资者在数据发布后首日交易时段净仓位变动小于1%"
+          ],
+          "consequences": [
+            "机构投资者维持观望，其不行动限制了发行人通过临时统计数据问答会引导预期的紧迫性",
+            "发行人按既定节奏发布后续公告，不因缺乏市场按压而增加额外沟通频次"
+          ],
+          "invalidation_conditions": [
+            "2024-12-18前失业率数据意外偏离预期超过0.2个百分点",
+            "机构投资者在数据发布后次日突然增仓匿名标的1超过2%"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "媒体失联与券商避险",
+          "summary": "若社零数据弱于预期，财经媒体在数据发布后的48小时内无法形成差异化解读，券商会自行下调匿名标的1的短期评级并转为推荐防御仓位，从而减少对媒体内容的引用需求。",
+          "actor_ids": [
+            "actor_brokers",
+            "actor_media"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_brokers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_brokers-r2"
+            },
+            {
+              "actor_id": "actor_media",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_media-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "2024-12-16至2024-12-17之间，中国城镇调查失业率月度公告中的社零数据低于前值0.3个百分点以上",
+            "财经媒体在数据发布后48小时内没有刊发超过两篇的独立分析稿件"
+          ],
+          "consequences": [
+            "券商减少对外部媒体引用的同时启动内部研报向机构客户推送，媒体的议程设置能力在接下来两个交易日内下降",
+            "媒体若在第三天补发深度分析，其内容将被券商视为滞后信号而减少采纳率"
+          ],
+          "invalidation_conditions": [
+            "社零数据实际值高于或等于预期",
+            "媒体在数据发布后次日就发布三篇以上带独家数据的分析稿件"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "交易所机制触发与分析师追锚",
+          "summary": "若就业与社零数据出现方向性背离（失业率降但社零平），交易所可能调整相关ETF的日内熔断参数以降低波动，分析师则会固守失业率下降作为消费改善的锚定信号，与交易所的谨慎立场形成期限错配。",
+          "actor_ids": [
+            "actor_analysts",
+            "actor_exchange"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_analysts",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_analysts-r2"
+            },
+            {
+              "actor_id": "actor_exchange",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_exchange-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "2024-12-16至2024-12-18内，失业率数据较前值下降0.1个百分点，但社零数据持平前值无增长",
+            "匿名标的1连续两个交易日盘中振幅超过4%"
+          ],
+          "consequences": [
+            "交易所将匿名标的1的日内熔断阈值从10%收紧至8%，影响机构投资者的高频交易策略",
+            "分析师在社零数据发布后依旧维持增持消费策略，与交易所对标的波动控制的预期形成短期矛盾，导致研报与市场规则出现信息冲突"
+          ],
+          "invalidation_conditions": [
+            "失业率与社零数据同方向变动",
+            "匿名标的1的日内振幅从未超过3%"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "政府静默监管预警推迟",
+          "summary": "若数据平淡且机构减仓，政府不启动跨部门会议，但监管机构会依据机构减仓规模（1%-3%）启动非公开窗口引导；若机构行为超出3%，政府可能在第三个交易日主动释放稳定信号。",
+          "actor_ids": [
+            "actor_government",
+            "actor_regulator"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_government",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_government-r2"
+            },
+            {
+              "actor_id": "actor_regulator",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_regulator-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "2024-12-16至2024-12-17之间，匿名标的1净流出规模达到总份额的1%至3%",
+            "政府在该时段内无公开经济工作相关表态"
+          ],
+          "consequences": [
+            "监管机构通过窗口指导向券商施加向机构传递‘正常波动无需过度反应’的信号，间接影响券商的对外沟通措辞",
+            "如果净流出在第三个交易日突破3%，政府会提前公布一项政策沟通计划；监管机构在3%阈值内不会升级为公开行政措施"
+          ],
+          "invalidation_conditions": [
+            "匿名标的1净流出始终低于0.5%",
+            "政府或监管任何一方在第二个交易日前主动发表明确市场表态"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        }
+      ],
+      "quality": [
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 2,
+            "evidence_discipline": 1,
+            "scenario_diversity": 2
+          },
+          "total_score": 9,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": false,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": false
+            }
+          ]
+        },
+        {
+          "scores": {
+            "mechanism_coherence": 1,
+            "monitoring_actionability": 1,
+            "falsifiability": 1,
+            "evidence_discipline": 1,
+            "scenario_diversity": 2
+          },
+          "total_score": 6,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": false,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": false,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            }
+          ]
+        }
+      ],
+      "judge_reasons": [
+        "No free-form reason supplied.",
+        "No free-form reason supplied."
+      ],
+      "prompt": {
+        "system": "你是金融事件分支编译器，不是价格预测器。只使用输入中 as_of 时点可得事实\n和明确标为模拟的行为，生成恰好 4 条彼此有实质区别、未来可证伪的条件化事件分支。\n\n\n硬性要求：\n- 不得补充 as_of 之后的真实事件、公告、价格或人员结果；\n- 每条分支至少串联两个不同 actor 的动作，不能只是改写一个人的观点；\n- trigger_conditions 必须是未来可观察的“若……则进入该分支”条件；\n- consequences 是机制结果，不是已发生事实；\n- invalidation_conditions 必须说明什么观察会推翻该分支；\n- evidence_refs 只能引用输入中的 F 编号；\n- 按 branch_slots 的顺序生成分支；第 N 条分支必须描述第 N 个槽位中的所有角色及其相互影响；\n- 不要输出 actor_ids、actions、decision_ref 或 simulation_refs；系统会按数组位置确定性绑定\n  槽位中的角色及其已有 financial_decision，禁止自行概括、改写或新造动作；\n- confidence 只表示分支内部连贯性，不是发生概率；\n- novelty_claim 说明该分支比事实直接复述多出了哪段多主体传导；\n- 不得输出目标价格、收益率概率或 Agent 投票频率。\n\n只输出 JSON：\n{\"branches\":[{\"label\":\"简短名称\",\"summary\":\"条件化摘要\",\n\"trigger_conditions\":[\"...\"],\"consequences\":[\"...\"],\n\"invalidation_conditions\":[\"...\"],\"evidence_refs\":[\"F1\"],\n\"novelty_claim\":\"...\",\"confidence\":0.5}],\"warnings\":[]}。\n互动输入可能为空；其中内容仍是模拟消息，不是新增事实。不得凭空推断立场变化或因果影响。每条分支说明一方行动如何影响另一方的可行行动。触发和失效条件尽量指出观察对象与时间窗口；没有依据时不编造精确阈值。对缺少行动依据的传导使用条件表述，不把等待决策改写成已经采取新行动。",
+        "user": "{\"case_id\": \"anonymous-case-02\", \"as_of\": \"D0\", \"question\": \"严格基于 D0 时点可得信息，推演未来三个交易日各参与方行动及条件化传导机制。\", \"horizon\": {\"kind\": \"calendar_days\", \"value\": 3, \"end_at\": \"2024-12-18T23:59:59+00:00\"}, \"facts\": [{\"id\": \"F1\", \"statement\": \"中国城镇调查失业率月度公告：社零 | 统计局 预期:一致 前值:上月\"}], \"actors\": [{\"id\": \"actor_issuer\", \"label\": \"事件主体\", \"kind\": \"issuer\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_government\", \"label\": \"政府与司法机构\", \"kind\": \"government\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_institutions\", \"label\": \"机构投资者\", \"kind\": \"institutional_investor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_brokers\", \"label\": \"券商与中介机构\", \"kind\": \"broker\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_regulator\", \"label\": \"监管机构\", \"kind\": \"regulator\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_media\", \"label\": \"财经媒体\", \"kind\": \"media\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_analysts\", \"label\": \"分析师\", \"kind\": \"analyst\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_exchange\", \"label\": \"交易所\", \"kind\": \"exchange\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}], \"financial_decisions\": [{\"id\": \"decision-actor_issuer-r2\", \"round\": 2, \"actor_id\": \"actor_issuer\", \"action_type\": \"WAIT\", \"decision_status\": \"intended\", \"direction\": \"not_applicable\", \"intensity\": null, \"instrument_refs\": [], \"rationale\": \"作为国家统计局官方数据发布主体，本周期内城镇调查失业率月度公告已按制度规定完成发布。预期与上月前值一致，表明就业市场运行平稳，无需在现有发布周期内进行额外政策沟通或操作调整。下一轮数据采集和发布将按既定统计制度推进，当前阶段保持观察更符合维护数据公信力和制度稳定性的目标。\", \"constraint_refs\": [\"actor_issuer:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.9, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_government-r2\", \"round\": 2, \"actor_id\": \"actor_government\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"截至2024年12月15日，仅有中国城镇调查失业率月度公告这一项可用事实（F1），且该公告显示市场预期与上月前值一致，表明统计数据无异常波动信号。作为政府统计机构，在当前数据未出现显著偏离预期的情况下，不需要采取监管干预或额外公开沟通动作。选择等待下一轮数据更新和更多信息输入，符合维护制度稳定性的职责要求。对匿名标的1（畜牧养殖ETF）无任何关联监管依据，故不做任何操作。\", \"constraint_refs\": [\"actor_government:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.95, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_institutions-r2\", \"round\": 2, \"actor_id\": \"actor_institutions\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"maintain\", \"intensity\": 0.0, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"当前仅观察到失业率与社零月度公告的发布时点，但具体数值尚未披露。作为机构投资者，需等待实际数据与预期的偏差情况后再做配置调整。若失业率环比改善且社零数据超预期，将考虑增配消费类资产如匿名标的1；若数据弱于预期则需观察政策应对。当前阶段保持现有仓位，不进行主动调整。\", \"constraint_refs\": [\"actor_institutions:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_brokers-r2\", \"round\": 2, \"actor_id\": \"actor_brokers\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"not_applicable\", \"intensity\": null, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"作为券商与中介机构，目前处于城镇调查失业率及社零数据公告发布前的信息真空期。预期与前值一致表明市场未出现显著分化信号，当前不宜贸然调整头寸或发布方向性建议。持有匿名标的1观察数据实际发布后的市场反应及政策应对节奏，待可观察信息出现后再做定向动作。主要不确定性在于实际数据是否与预期一致以及后续货币或财政政策的响应力度。\", \"constraint_refs\": [\"actor_brokers:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.75, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_regulator-r2\", \"round\": 2, \"actor_id\": \"actor_regulator\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"maintain\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"当前F1显示中国城镇调查失业率月度公告预期与前值一致，表明市场对就业形势存在稳定预期。作为监管机构，在数据发布初期需要观察实际数据走势与预期的偏离程度，以及社零等关联指标的联动变化，而非立即采取调控行动。当前信息不足以支持启动新的监管措施或公开沟通，因此选择等待后续数据积累和政策研判窗口。\", \"constraint_refs\": [\"actor_regulator:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_media-r2\", \"round\": 2, \"actor_id\": \"actor_media\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"失业率预期一致、前值为上月数据，属于常规月度公告，当前缺乏实质性边际变化信号。作为财经媒体，在数据披露后首轮已通过社交媒体完成信息传播与分析解读（已发帖和评论）。下一决策周期内应等待更多微观数据或政策信号出现，以便形成有增量信息价值的深度内容，避免对同一条公告做重复性表态。匿名标的1与当前失业率公告暂无直接逻辑传导链条，无需进行操作。\", \"constraint_refs\": [\"actor_media:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_analysts-r2\", \"round\": 2, \"actor_id\": \"actor_analysts\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"截至2024-12-15，仅观察到中国城镇调查失业率月度公告发布的预告信息（预期一致、前值上月），尚未获取实际数据值。作为分析师，在缺少实际数据点的情况下无法做出有效分析和调整判断。当前最优策略是等待实际数据公布后，结合失业率与社零的联动关系进行结构分析，再决定是否需要调整对消费板块或就业相关标的的评估。主要不确定性在于实际数据是否偏离预期以及细分结构变化方向。\", \"constraint_refs\": [\"actor_analysts:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.95, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_exchange-r2\", \"round\": 2, \"actor_id\": \"actor_exchange\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"截至时点仅有失业率月度公告预期与前值一致，尚未有实际数据偏离预期的冲击性信息。作为交易所，在缺乏足够新增可观察事实支撑调整行动时，维持现有制度安排和市场运行节奏是最符合职责与约束的选择。社零数据与失业率的联动分析需等实际公告值确认后，方可评估对消费板块及相关衍生品的影响。\", \"constraint_refs\": [\"actor_exchange:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}], \"simulated_actions\": [], \"branch_slots\": [{\"slot_id\": \"slot-1\", \"actor_ids\": [\"actor_institutions\", \"actor_issuer\"], \"relationship_kind\": \"constrains_or_influences\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_issuer-r2\"]}, {\"slot_id\": \"slot-2\", \"actor_ids\": [\"actor_brokers\", \"actor_media\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_brokers-r2\", \"decision-actor_media-r2\"]}, {\"slot_id\": \"slot-3\", \"actor_ids\": [\"actor_analysts\", \"actor_exchange\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_analysts-r2\", \"decision-actor_exchange-r2\"]}, {\"slot_id\": \"slot-4\", \"actor_ids\": [\"actor_government\", \"actor_regulator\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_government-r2\", \"decision-actor_regulator-r2\"]}]}"
+      }
+    },
+    "filtered_interactions": {
+      "generation": {
+        "status": "sealed",
+        "semantic_retries": 0,
+        "elapsed_seconds": 18.99216650001472,
+        "prompt_chars": 11086,
+        "visible_interactions": 13
+      },
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "机构增筹触发期",
+          "summary": "若失业率实际值低于预期且社零超预期，机构投资者将增配消费类资产（如匿名标的1），这限缩了主管机构在短期内通过官方沟通来纠正过度乐观解读的空间",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "失业率环比下降幅度超过0.1个百分点",
+            "社零同比增速超出市场预期中值"
+          ],
+          "consequences": [
+            "机构投资者持仓上调，匿名标的1的成交量与价格波动扩大",
+            "发行主体在后续公告中需更明确提示数据季节性因素，以防止机构行为过度集中"
+          ],
+          "invalidation_conditions": [
+            "失业率与预期一致或弱于预期",
+            "社零数据未超出预期",
+            "机构投资者此时段内维持WAIT且未发现增持证据"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "券商媒介联动解读",
+          "summary": "若失业率与社零数据实际值弱于预期，券商将发布看空消费板块的评论，财经媒体进行专题报道，两者在负面叙事上相互加强",
+          "actor_ids": [
+            "actor_brokers",
+            "actor_media"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_brokers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_brokers-r2"
+            },
+            {
+              "actor_id": "actor_media",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_media-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "失业率环比持平或上升",
+            "社零同比增速低于市场预期"
+          ],
+          "consequences": [
+            "券商向客户提供方向上偏空的资产配置意见",
+            "媒体密集推出关于经济放缓与通缩风险的报道，进一步压低相关标的的市场情绪"
+          ],
+          "invalidation_conditions": [
+            "数据符合或好于预期",
+            "券商或媒体在数据发布后未做出方向性内容调整"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "分析师交易所规范互动",
+          "summary": "若数据完全符合预期，分析师发布侧重结构细分的深度报告，交易所据此在日终总结中强调不宜过度交易化解读，两者合力抑制市场过度反应",
+          "actor_ids": [
+            "actor_analysts",
+            "actor_exchange"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_analysts",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_analysts-r2"
+            },
+            {
+              "actor_id": "actor_exchange",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_exchange-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "失业率和社零实际值均落在市场预期区间内",
+            "分析师在数据发布次日发布带结构拆分的分析报告"
+          ],
+          "consequences": [
+            "交易所通过盘后通告提醒市场参与者注意统计数据的季节性因素",
+            "全市场对原始数字的直观反应被结构性分析稀释，标的波动率维持在低位"
+          ],
+          "invalidation_conditions": [
+            "数据明显偏离预期",
+            "分析师未在时间窗口内发布结构细分报告",
+            "交易所未发出类似提醒"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "政府监管政策观望走廊",
+          "summary": "若数据低于预期，政府先进行数据解读但暂不宣布新措施，监管机构则处于等待更多证据的被动观察状态，两方均为出面但压缩后续政策窗口",
+          "actor_ids": [
+            "actor_government",
+            "actor_regulator"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_government",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_government-r2"
+            },
+            {
+              "actor_id": "actor_regulator",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_regulator-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "失业率数据的实际值低于前值",
+            "社零数据弱于预期"
+          ],
+          "consequences": [
+            "政府统计层面对数据的定性是反映短期结构性波动",
+            "监管机构不启动额外沟通或监控，但内部研判周期缩短至7天内"
+          ],
+          "invalidation_conditions": [
+            "数据符合或好于预期",
+            "政府或监管机构在数据发布后立即出台公开措施"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        }
+      ],
+      "quality": [
+        {
+          "scores": {
+            "mechanism_coherence": 2,
+            "monitoring_actionability": 2,
+            "falsifiability": 2,
+            "evidence_discipline": 1,
+            "scenario_diversity": 2
+          },
+          "total_score": 9,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": false,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            }
+          ]
+        },
+        {
+          "scores": {
+            "mechanism_coherence": 1,
+            "monitoring_actionability": 1,
+            "falsifiability": 1,
+            "evidence_discipline": 1,
+            "scenario_diversity": 2
+          },
+          "total_score": 6,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": false,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            }
+          ]
+        }
+      ],
+      "judge_reasons": [
+        "No free-form reason supplied.",
+        "No free-form reason supplied."
+      ],
+      "prompt": {
+        "system": "你是金融事件分支编译器，不是价格预测器。只使用输入中 as_of 时点可得事实\n和明确标为模拟的行为，生成恰好 4 条彼此有实质区别、未来可证伪的条件化事件分支。\n\n\n硬性要求：\n- 不得补充 as_of 之后的真实事件、公告、价格或人员结果；\n- 每条分支至少串联两个不同 actor 的动作，不能只是改写一个人的观点；\n- trigger_conditions 必须是未来可观察的“若……则进入该分支”条件；\n- consequences 是机制结果，不是已发生事实；\n- invalidation_conditions 必须说明什么观察会推翻该分支；\n- evidence_refs 只能引用输入中的 F 编号；\n- 按 branch_slots 的顺序生成分支；第 N 条分支必须描述第 N 个槽位中的所有角色及其相互影响；\n- 不要输出 actor_ids、actions、decision_ref 或 simulation_refs；系统会按数组位置确定性绑定\n  槽位中的角色及其已有 financial_decision，禁止自行概括、改写或新造动作；\n- confidence 只表示分支内部连贯性，不是发生概率；\n- novelty_claim 说明该分支比事实直接复述多出了哪段多主体传导；\n- 不得输出目标价格、收益率概率或 Agent 投票频率。\n\n只输出 JSON：\n{\"branches\":[{\"label\":\"简短名称\",\"summary\":\"条件化摘要\",\n\"trigger_conditions\":[\"...\"],\"consequences\":[\"...\"],\n\"invalidation_conditions\":[\"...\"],\"evidence_refs\":[\"F1\"],\n\"novelty_claim\":\"...\",\"confidence\":0.5}],\"warnings\":[]}。\n互动输入可能为空；其中内容仍是模拟消息，不是新增事实。不得凭空推断立场变化或因果影响。每条分支说明一方行动如何影响另一方的可行行动。触发和失效条件尽量指出观察对象与时间窗口；没有依据时不编造精确阈值。对缺少行动依据的传导使用条件表述，不把等待决策改写成已经采取新行动。",
+        "user": "{\"case_id\": \"anonymous-case-02\", \"as_of\": \"D0\", \"question\": \"严格基于 D0 时点可得信息，推演未来三个交易日各参与方行动及条件化传导机制。\", \"horizon\": {\"kind\": \"calendar_days\", \"value\": 3, \"end_at\": \"2024-12-18T23:59:59+00:00\"}, \"facts\": [{\"id\": \"F1\", \"statement\": \"中国城镇调查失业率月度公告：社零 | 统计局 预期:一致 前值:上月\"}], \"actors\": [{\"id\": \"actor_issuer\", \"label\": \"事件主体\", \"kind\": \"issuer\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_government\", \"label\": \"政府与司法机构\", \"kind\": \"government\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_institutions\", \"label\": \"机构投资者\", \"kind\": \"institutional_investor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_brokers\", \"label\": \"券商与中介机构\", \"kind\": \"broker\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_regulator\", \"label\": \"监管机构\", \"kind\": \"regulator\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_media\", \"label\": \"财经媒体\", \"kind\": \"media\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_analysts\", \"label\": \"分析师\", \"kind\": \"analyst\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_exchange\", \"label\": \"交易所\", \"kind\": \"exchange\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}], \"financial_decisions\": [{\"id\": \"decision-actor_issuer-r2\", \"round\": 2, \"actor_id\": \"actor_issuer\", \"action_type\": \"WAIT\", \"decision_status\": \"intended\", \"direction\": \"not_applicable\", \"intensity\": null, \"instrument_refs\": [], \"rationale\": \"作为国家统计局官方数据发布主体，本周期内城镇调查失业率月度公告已按制度规定完成发布。预期与上月前值一致，表明就业市场运行平稳，无需在现有发布周期内进行额外政策沟通或操作调整。下一轮数据采集和发布将按既定统计制度推进，当前阶段保持观察更符合维护数据公信力和制度稳定性的目标。\", \"constraint_refs\": [\"actor_issuer:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.9, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_government-r2\", \"round\": 2, \"actor_id\": \"actor_government\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"截至2024年12月15日，仅有中国城镇调查失业率月度公告这一项可用事实（F1），且该公告显示市场预期与上月前值一致，表明统计数据无异常波动信号。作为政府统计机构，在当前数据未出现显著偏离预期的情况下，不需要采取监管干预或额外公开沟通动作。选择等待下一轮数据更新和更多信息输入，符合维护制度稳定性的职责要求。对匿名标的1（畜牧养殖ETF）无任何关联监管依据，故不做任何操作。\", \"constraint_refs\": [\"actor_government:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.95, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_institutions-r2\", \"round\": 2, \"actor_id\": \"actor_institutions\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"maintain\", \"intensity\": 0.0, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"当前仅观察到失业率与社零月度公告的发布时点，但具体数值尚未披露。作为机构投资者，需等待实际数据与预期的偏差情况后再做配置调整。若失业率环比改善且社零数据超预期，将考虑增配消费类资产如匿名标的1；若数据弱于预期则需观察政策应对。当前阶段保持现有仓位，不进行主动调整。\", \"constraint_refs\": [\"actor_institutions:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_brokers-r2\", \"round\": 2, \"actor_id\": \"actor_brokers\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"not_applicable\", \"intensity\": null, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"作为券商与中介机构，目前处于城镇调查失业率及社零数据公告发布前的信息真空期。预期与前值一致表明市场未出现显著分化信号，当前不宜贸然调整头寸或发布方向性建议。持有匿名标的1观察数据实际发布后的市场反应及政策应对节奏，待可观察信息出现后再做定向动作。主要不确定性在于实际数据是否与预期一致以及后续货币或财政政策的响应力度。\", \"constraint_refs\": [\"actor_brokers:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.75, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_regulator-r2\", \"round\": 2, \"actor_id\": \"actor_regulator\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"maintain\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"当前F1显示中国城镇调查失业率月度公告预期与前值一致，表明市场对就业形势存在稳定预期。作为监管机构，在数据发布初期需要观察实际数据走势与预期的偏离程度，以及社零等关联指标的联动变化，而非立即采取调控行动。当前信息不足以支持启动新的监管措施或公开沟通，因此选择等待后续数据积累和政策研判窗口。\", \"constraint_refs\": [\"actor_regulator:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_media-r2\", \"round\": 2, \"actor_id\": \"actor_media\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"失业率预期一致、前值为上月数据，属于常规月度公告，当前缺乏实质性边际变化信号。作为财经媒体，在数据披露后首轮已通过社交媒体完成信息传播与分析解读（已发帖和评论）。下一决策周期内应等待更多微观数据或政策信号出现，以便形成有增量信息价值的深度内容，避免对同一条公告做重复性表态。匿名标的1与当前失业率公告暂无直接逻辑传导链条，无需进行操作。\", \"constraint_refs\": [\"actor_media:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_analysts-r2\", \"round\": 2, \"actor_id\": \"actor_analysts\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"截至2024-12-15，仅观察到中国城镇调查失业率月度公告发布的预告信息（预期一致、前值上月），尚未获取实际数据值。作为分析师，在缺少实际数据点的情况下无法做出有效分析和调整判断。当前最优策略是等待实际数据公布后，结合失业率与社零的联动关系进行结构分析，再决定是否需要调整对消费板块或就业相关标的的评估。主要不确定性在于实际数据是否偏离预期以及细分结构变化方向。\", \"constraint_refs\": [\"actor_analysts:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.95, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_exchange-r2\", \"round\": 2, \"actor_id\": \"actor_exchange\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"截至时点仅有失业率月度公告预期与前值一致，尚未有实际数据偏离预期的冲击性信息。作为交易所，在缺乏足够新增可观察事实支撑调整行动时，维持现有制度安排和市场运行节奏是最符合职责与约束的选择。社零数据与失业率的联动分析需等实际公告值确认后，方可评估对消费板块及相关衍生品的影响。\", \"constraint_refs\": [\"actor_exchange:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}], \"simulated_actions\": [{\"id\": \"trace-21\", \"actor_id\": \"actor_media\", \"action_type\": \"COMMUNICATE\", \"summary\": \"📊 【数据解读】中国城镇调查失业率月度公告发布。作为宏观经济关键指标，失业率数据反映劳动力市场健康状况。结合社零数据，我们将持续跟踪消费与就业的联动效应。建议投资者关注后续政策动向及经济复苏节奏。 #宏观经济 #失业率 #社零数据\"}, {\"id\": \"trace-22\", \"actor_id\": \"actor_institutions\", \"action_type\": \"COMMUNICATE\", \"summary\": \"关键经济数据发布需持续跟踪。失业率与社零数据的联动对消费板块估值有重要参考意义，建议关注本月环比变化趋势。\"}, {\"id\": \"trace-23\", \"actor_id\": \"actor_brokers\", \"action_type\": \"COMMUNICATE\", \"summary\": \"关注本次城镇调查失业率及社零数据。作为从业者，建议市场参与者关注数据与预期的一致性，同时结合前值变化判断就业与消费趋势走向。后续需观察政策应对节奏。\"}, {\"id\": \"trace-25\", \"actor_id\": \"actor_exchange\", \"action_type\": \"COMMUNICATE\", \"summary\": \"【机构分析】中国城镇调查失业率月度数据是评估劳动力市场状况的关键指标。预期与前值一致表明市场对就业形势的稳定预期。我们将持续关注该数据对消费及宏观经济政策的潜在影响。\"}, {\"id\": \"trace-26\", \"actor_id\": \"actor_government\", \"action_type\": \"COMMUNICATE\", \"summary\": \"【国家统计局公告】2026年9月城镇调查失业率数据已按制度规范发布。本数据由各级统计机构依《统计法》采集、审核并汇总，反映了当前我国就业市场的总体状况。后续将持续监测就业形势变化，为宏观决策提供科学依据。欢迎社会各界依法依规获取和使用统计数据。\"}, {\"id\": \"trace-36\", \"actor_id\": \"actor_exchange\", \"action_type\": \"COMMUNICATE\", \"summary\": \"【机构观点】失业率与社零数据的联动效应是当前市场关注的核心。我们注意到数据发布后，债市收益率小幅下行，反映市场对经济弱修复的定价。后续需关注居民收入预期改善节奏对消费端的支撑力度。建议重点跟踪高频指标以验证趋势延续性。\"}, {\"id\": \"trace-38\", \"actor_id\": \"actor_brokers\", \"action_type\": \"COMMUNICATE\", \"summary\": \"赞同对失业率与社零数据联动效应的分析。作为券商从业者，补充一点：当前市场定价已部分反映预期一致的情形，但若实际数据出现边际偏差，消费板块与周期板块的估值可能面临短期重估。建议关注数据发布后的市场即时反应，特别是北向资金流向变化。\"}, {\"id\": \"trace-41\", \"actor_id\": \"actor_regulator\", \"action_type\": \"COMMUNICATE\", \"summary\": \"作为监管机构关注本次城镇调查失业率及社零数据发布。我们将持续监测就业市场与消费数据的联动变化，确保统计数据的规范发布与合理运用。建议市场参与者依法依规使用公开统计数据，避免对单一指标进行过度解读。后续将结合政策动向进行综合研判。\"}, {\"id\": \"trace-42\", \"actor_id\": \"actor_government\", \"action_type\": \"COMMUNICATE\", \"summary\": \"感谢对统计数据的关注和解读。需要指出的是，城镇调查失业率作为月度发布的宏观经济指标，其统计口径、调查方法和技术规范均在《统计法》框架下统一执行。建议市场分析人员在解读数据时，充分考虑季节性因素和短期波动，避免过度外推。统计数据欢迎依法合规使用，但不应被过度交易化解读。\"}, {\"id\": \"trace-43\", \"actor_id\": \"actor_issuer\", \"action_type\": \"COMMUNICATE\", \"summary\": \"【国家统计局提示】本数据为官方依法发布的城镇调查失业率月度统计结果，反映了特定调查时点的就业市场状况。建议各方在解读时关注官方公告的完整统计口径与调查方法说明，避免过度外推解读。后续数据请以国家统计局官方网站发布为准。\"}, {\"id\": \"trace-44\", \"actor_id\": \"actor_institutions\", \"action_type\": \"COMMUNICATE\", \"summary\": \"同意分析框架。失业率与社零数据的联动是评估消费复苏动能的核心变量。从机构配置角度看，若失业率保持稳定且社零环比改善，消费板块的盈利预期将获得支撑。后续重点关注9月高频数据能否验证这一传导逻辑。\"}, {\"id\": \"trace-46\", \"actor_id\": \"actor_analysts\", \"action_type\": \"COMMUNICATE\", \"summary\": \"【分析师视角】城镇调查失业率与社零数据联动分析至关重要。失业率稳定表明就业市场韧性，而社零数据将验证收入预期向消费传导的实际效果。建议重点关注：1)青年失业率细分结构变化；2)服务消费与商品消费的分化趋势；3)政策应对窗口期。数据一致预期下，更需关注环比边际变动信号。\"}, {\"id\": \"trace-47\", \"actor_id\": \"actor_media\", \"action_type\": \"COMMUNICATE\", \"summary\": \"【财经媒体观察】失业率与社零数据的联动是判断经济内生动力的重要窗口。从已发布信息看，数据预期与前值一致，反映就业市场处于平稳运行区间。我们将持续追踪该数据对消费板块及货币政策节奏的传导效应，后续关注增量政策工具的空间与节奏。欢迎读者持续关注我们的深度分析报告。\"}], \"branch_slots\": [{\"slot_id\": \"slot-1\", \"actor_ids\": [\"actor_institutions\", \"actor_issuer\"], \"relationship_kind\": \"constrains_or_influences\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_issuer-r2\"]}, {\"slot_id\": \"slot-2\", \"actor_ids\": [\"actor_brokers\", \"actor_media\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_brokers-r2\", \"decision-actor_media-r2\"]}, {\"slot_id\": \"slot-3\", \"actor_ids\": [\"actor_analysts\", \"actor_exchange\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_analysts-r2\", \"decision-actor_exchange-r2\"]}, {\"slot_id\": \"slot-4\", \"actor_ids\": [\"actor_government\", \"actor_regulator\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_government-r2\", \"decision-actor_regulator-r2\"]}]}"
+      }
+    },
+    "raw_interactions": {
+      "generation": {
+        "status": "sealed",
+        "semantic_retries": 0,
+        "elapsed_seconds": 26.074169958010316,
+        "prompt_chars": 12993,
+        "visible_interactions": 21
+      },
+      "branches": [
+        {
+          "id": "branch-1",
+          "label": "数据发布审慎与机构延迟配置",
+          "summary": "机构投资者依据失业率数据的发布态度与制度说明，延迟消费板块配置直到确认官方口径无偏差。",
+          "actor_ids": [
+            "actor_institutions",
+            "actor_issuer"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_institutions",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_institutions-r2"
+            },
+            {
+              "actor_id": "actor_issuer",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_issuer-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "事件主体在后续交易日持续发布补充官方说明强调统计口径与季节性因素",
+            "机构投资者在D2前未获取到环比改善的高频验证数据"
+          ],
+          "consequences": [
+            "事件主体的官方说明降低了机构投资者对消费板块的即时增配意愿",
+            "机构投资者将原定的配置决策推迟至下一轮数据更新周期"
+          ],
+          "invalidation_conditions": [
+            "事件主体未再发布任何补充说明",
+            "机构投资者在D2前主动增配消费类资产"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-2",
+          "label": "券商分析驱动媒体深度解读",
+          "summary": "券商补充的市场定价分析被媒体采纳，转化为针对消费板块与周期板块估值重估的深度报道。",
+          "actor_ids": [
+            "actor_brokers",
+            "actor_media"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_brokers",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_brokers-r2"
+            },
+            {
+              "actor_id": "actor_media",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_media-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "券商在D1内社交媒体补充分析提及北向资金流向变化",
+            "媒体在D2前发出针对消费板块估值重估的专栏文章"
+          ],
+          "consequences": [
+            "媒体的深度文章进一步放大券商分析的市场关注度",
+            "券商分析成为媒体内容的主要素材，强化两者的互动传播"
+          ],
+          "invalidation_conditions": [
+            "券商的分析帖未获得媒体任何形式的引用或转发",
+            "媒体在D1后未发布与消费板块估值相关的新内容"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-3",
+          "label": "分析师青年失业率提示促使交易所发布结构性观点",
+          "summary": "分析师对青年失业率细分结构的提示，促使交易所发布聚焦服务消费与商品消费分化的市场观点。",
+          "actor_ids": [
+            "actor_analysts",
+            "actor_exchange"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_analysts",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_analysts-r2"
+            },
+            {
+              "actor_id": "actor_exchange",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_exchange-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "分析师在D1内发布青年失业率与消费分化的分析",
+            "交易所分析师在D2交易时间内发布指向服务消费与商品消费分化的市场观点"
+          ],
+          "consequences": [
+            "交易所的观点为市场提供结构分化定价信号",
+            "分析师提示的方向被交易所正式观点印证，提升其后续分析的可信度"
+          ],
+          "invalidation_conditions": [
+            "分析师的分析中未提及青年失业率或消费分化",
+            "交易所后续交易日未发布任何关于消费结构性分化的观点"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        },
+        {
+          "id": "branch-4",
+          "label": "监管部门协同收紧解读口径",
+          "summary": "监管机构对过度解读的警告与政府统计制度提示形成协同，督促市场参与者回归谨慎分析。",
+          "actor_ids": [
+            "actor_government",
+            "actor_regulator"
+          ],
+          "actions": [
+            {
+              "actor_id": "actor_government",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_government-r2"
+            },
+            {
+              "actor_id": "actor_regulator",
+              "action_type": "WAIT",
+              "decision_ref": "decision-actor_regulator-r2"
+            }
+          ],
+          "trigger_conditions": [
+            "监管机构在D1后再次呼吁避免对单一指标过度解读",
+            "政府机构在D1后重申统计制度规范及数据合规使用"
+          ],
+          "consequences": [
+            "市场参与者（尤其是媒体与分析机构）下调数据相对预期的交易化解读权重",
+            "高涨的市场情绪开始消退，交易量暂时回落"
+          ],
+          "invalidation_conditions": [
+            "监管机构未再发布任何关于数据解读的警告",
+            "政府机构未再发布统计制度规范相关的提示"
+          ],
+          "evidence_refs": [
+            "F1"
+          ]
+        }
+      ],
+      "quality": [
+        {
+          "scores": {
+            "mechanism_coherence": 1,
+            "monitoring_actionability": 1,
+            "falsifiability": 1,
+            "evidence_discipline": 2,
+            "scenario_diversity": 1
+          },
+          "total_score": 6,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            }
+          ]
+        },
+        {
+          "scores": {
+            "mechanism_coherence": 1,
+            "monitoring_actionability": 1,
+            "falsifiability": 2,
+            "evidence_discipline": 1,
+            "scenario_diversity": 2
+          },
+          "total_score": 7,
+          "branches": [
+            {
+              "id": "branch-1",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": true,
+              "evidence_grounded": true
+            },
+            {
+              "id": "branch-2",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-3",
+              "multi_actor_causal_chain": false,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": false
+            },
+            {
+              "id": "branch-4",
+              "multi_actor_causal_chain": true,
+              "observable_trigger": true,
+              "specific_invalidation": true,
+              "decision_relevant": false,
+              "evidence_grounded": true
+            }
+          ]
+        }
+      ],
+      "judge_reasons": [
+        "所有分支均只有单向行动且缺乏多参与者因果互动，机制一致性低；内容大致不同但核心因果结构雷同，多样性不足。",
+        "情景B和C中行动均为WAIT，缺乏实质因果链且后果与决策无关；情景A和D机制较合理但整体多样性不足。"
+      ],
+      "prompt": {
+        "system": "你是金融事件分支编译器，不是价格预测器。只使用输入中 as_of 时点可得事实\n和明确标为模拟的行为，生成恰好 4 条彼此有实质区别、未来可证伪的条件化事件分支。\n\n\n硬性要求：\n- 不得补充 as_of 之后的真实事件、公告、价格或人员结果；\n- 每条分支至少串联两个不同 actor 的动作，不能只是改写一个人的观点；\n- trigger_conditions 必须是未来可观察的“若……则进入该分支”条件；\n- consequences 是机制结果，不是已发生事实；\n- invalidation_conditions 必须说明什么观察会推翻该分支；\n- evidence_refs 只能引用输入中的 F 编号；\n- 按 branch_slots 的顺序生成分支；第 N 条分支必须描述第 N 个槽位中的所有角色及其相互影响；\n- 不要输出 actor_ids、actions、decision_ref 或 simulation_refs；系统会按数组位置确定性绑定\n  槽位中的角色及其已有 financial_decision，禁止自行概括、改写或新造动作；\n- confidence 只表示分支内部连贯性，不是发生概率；\n- novelty_claim 说明该分支比事实直接复述多出了哪段多主体传导；\n- 不得输出目标价格、收益率概率或 Agent 投票频率。\n\n只输出 JSON：\n{\"branches\":[{\"label\":\"简短名称\",\"summary\":\"条件化摘要\",\n\"trigger_conditions\":[\"...\"],\"consequences\":[\"...\"],\n\"invalidation_conditions\":[\"...\"],\"evidence_refs\":[\"F1\"],\n\"novelty_claim\":\"...\",\"confidence\":0.5}],\"warnings\":[]}。\n互动输入可能为空；其中内容仍是模拟消息，不是新增事实。不得凭空推断立场变化或因果影响。每条分支说明一方行动如何影响另一方的可行行动。触发和失效条件尽量指出观察对象与时间窗口；没有依据时不编造精确阈值。对缺少行动依据的传导使用条件表述，不把等待决策改写成已经采取新行动。",
+        "user": "{\"case_id\": \"anonymous-case-02\", \"as_of\": \"D0\", \"question\": \"严格基于 D0 时点可得信息，推演未来三个交易日各参与方行动及条件化传导机制。\", \"horizon\": {\"kind\": \"calendar_days\", \"value\": 3, \"end_at\": \"2024-12-18T23:59:59+00:00\"}, \"facts\": [{\"id\": \"F1\", \"statement\": \"中国城镇调查失业率月度公告：社零 | 统计局 预期:一致 前值:上月\"}], \"actors\": [{\"id\": \"actor_issuer\", \"label\": \"事件主体\", \"kind\": \"issuer\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_government\", \"label\": \"政府与司法机构\", \"kind\": \"government\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_institutions\", \"label\": \"机构投资者\", \"kind\": \"institutional_investor\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_brokers\", \"label\": \"券商与中介机构\", \"kind\": \"broker\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_regulator\", \"label\": \"监管机构\", \"kind\": \"regulator\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_media\", \"label\": \"财经媒体\", \"kind\": \"media\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_analysts\", \"label\": \"分析师\", \"kind\": \"analyst\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}, {\"id\": \"actor_exchange\", \"label\": \"交易所\", \"kind\": \"exchange\", \"goals\": [\"维护自身制度或经济利益\", \"根据新增信息调整行动\"], \"constraints\": [\"只能使用分析截止时间前可观察的信息\"]}], \"financial_decisions\": [{\"id\": \"decision-actor_issuer-r2\", \"round\": 2, \"actor_id\": \"actor_issuer\", \"action_type\": \"WAIT\", \"decision_status\": \"intended\", \"direction\": \"not_applicable\", \"intensity\": null, \"instrument_refs\": [], \"rationale\": \"作为国家统计局官方数据发布主体，本周期内城镇调查失业率月度公告已按制度规定完成发布。预期与上月前值一致，表明就业市场运行平稳，无需在现有发布周期内进行额外政策沟通或操作调整。下一轮数据采集和发布将按既定统计制度推进，当前阶段保持观察更符合维护数据公信力和制度稳定性的目标。\", \"constraint_refs\": [\"actor_issuer:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.9, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_government-r2\", \"round\": 2, \"actor_id\": \"actor_government\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"截至2024年12月15日，仅有中国城镇调查失业率月度公告这一项可用事实（F1），且该公告显示市场预期与上月前值一致，表明统计数据无异常波动信号。作为政府统计机构，在当前数据未出现显著偏离预期的情况下，不需要采取监管干预或额外公开沟通动作。选择等待下一轮数据更新和更多信息输入，符合维护制度稳定性的职责要求。对匿名标的1（畜牧养殖ETF）无任何关联监管依据，故不做任何操作。\", \"constraint_refs\": [\"actor_government:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"public\", \"confidence\": 0.95, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_institutions-r2\", \"round\": 2, \"actor_id\": \"actor_institutions\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"maintain\", \"intensity\": 0.0, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"当前仅观察到失业率与社零月度公告的发布时点，但具体数值尚未披露。作为机构投资者，需等待实际数据与预期的偏差情况后再做配置调整。若失业率环比改善且社零数据超预期，将考虑增配消费类资产如匿名标的1；若数据弱于预期则需观察政策应对。当前阶段保持现有仓位，不进行主动调整。\", \"constraint_refs\": [\"actor_institutions:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_brokers-r2\", \"round\": 2, \"actor_id\": \"actor_brokers\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"not_applicable\", \"intensity\": null, \"instrument_refs\": [\"ANON_ASSET\"], \"rationale\": \"作为券商与中介机构，目前处于城镇调查失业率及社零数据公告发布前的信息真空期。预期与前值一致表明市场未出现显著分化信号，当前不宜贸然调整头寸或发布方向性建议。持有匿名标的1观察数据实际发布后的市场反应及政策应对节奏，待可观察信息出现后再做定向动作。主要不确定性在于实际数据是否与预期一致以及后续货币或财政政策的响应力度。\", \"constraint_refs\": [\"actor_brokers:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.75, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_regulator-r2\", \"round\": 2, \"actor_id\": \"actor_regulator\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"maintain\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"当前F1显示中国城镇调查失业率月度公告预期与前值一致，表明市场对就业形势存在稳定预期。作为监管机构，在数据发布初期需要观察实际数据走势与预期的偏离程度，以及社零等关联指标的联动变化，而非立即采取调控行动。当前信息不足以支持启动新的监管措施或公开沟通，因此选择等待后续数据积累和政策研判窗口。\", \"constraint_refs\": [\"actor_regulator:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_media-r2\", \"round\": 2, \"actor_id\": \"actor_media\", \"action_type\": \"WAIT\", \"decision_status\": \"conditional\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"失业率预期一致、前值为上月数据，属于常规月度公告，当前缺乏实质性边际变化信号。作为财经媒体，在数据披露后首轮已通过社交媒体完成信息传播与分析解读（已发帖和评论）。下一决策周期内应等待更多微观数据或政策信号出现，以便形成有增量信息价值的深度内容，避免对同一条公告做重复性表态。匿名标的1与当前失业率公告暂无直接逻辑传导链条，无需进行操作。\", \"constraint_refs\": [\"actor_media:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_analysts-r2\", \"round\": 2, \"actor_id\": \"actor_analysts\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"截至2024-12-15，仅观察到中国城镇调查失业率月度公告发布的预告信息（预期一致、前值上月），尚未获取实际数据值。作为分析师，在缺少实际数据点的情况下无法做出有效分析和调整判断。当前最优策略是等待实际数据公布后，结合失业率与社零的联动关系进行结构分析，再决定是否需要调整对消费板块或就业相关标的的评估。主要不确定性在于实际数据是否偏离预期以及细分结构变化方向。\", \"constraint_refs\": [\"actor_analysts:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.95, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}, {\"id\": \"decision-actor_exchange-r2\", \"round\": 2, \"actor_id\": \"actor_exchange\", \"action_type\": \"WAIT\", \"decision_status\": \"no_action\", \"direction\": \"not_applicable\", \"intensity\": 0.0, \"instrument_refs\": [], \"rationale\": \"截至时点仅有失业率月度公告预期与前值一致，尚未有实际数据偏离预期的冲击性信息。作为交易所，在缺乏足够新增可观察事实支撑调整行动时，维持现有制度安排和市场运行节奏是最符合职责与约束的选择。社零数据与失业率的联动分析需等实际公告值确认后，方可评估对消费板块及相关衍生品的影响。\", \"constraint_refs\": [\"actor_exchange:constraint:0\"], \"evidence_refs\": [\"F1\"], \"source_kind\": \"post_simulation_interview\", \"source_ref\": \"anonymized-source\", \"visibility\": \"private\", \"confidence\": 0.85, \"probability_semantics\": \"decision_clarity_not_forecast_probability\"}], \"simulated_actions\": [{\"id\": \"trace-19\", \"kind\": \"simulated_action\", \"action_type\": \"SOCIAL_ENDORSEMENT\", \"summary\": \"点赞帖子 #1：中国城镇调查失业率月度公告：社零 | 统计局 预期:一致 前值:上月\", \"actor_id\": \"actor_analysts\"}, {\"id\": \"trace-20\", \"kind\": \"simulated_action\", \"action_type\": \"SEARCH_USER\", \"summary\": \"search_user\", \"actor_id\": \"actor_issuer\"}, {\"id\": \"trace-21\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"📊 【数据解读】中国城镇调查失业率月度公告发布。作为宏观经济关键指标，失业率数据反映劳动力市场健康状况。结合社零数据，我们将持续跟踪消费与就业的联动效应。建议投资者关注后续政策动向及经济复苏节奏。 #宏观经济 #失业率 #社零数据\", \"actor_id\": \"actor_media\"}, {\"id\": \"trace-22\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"关键经济数据发布需持续跟踪。失业率与社零数据的联动对消费板块估值有重要参考意义，建议关注本月环比变化趋势。\", \"actor_id\": \"actor_institutions\"}, {\"id\": \"trace-23\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"关注本次城镇调查失业率及社零数据。作为从业者，建议市场参与者关注数据与预期的一致性，同时结合前值变化判断就业与消费趋势走向。后续需观察政策应对节奏。\", \"actor_id\": \"actor_brokers\"}, {\"id\": \"trace-24\", \"kind\": \"simulated_action\", \"action_type\": \"SEARCH_USER\", \"summary\": \"search_user\", \"actor_id\": \"actor_exchange\"}, {\"id\": \"trace-25\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"【机构分析】中国城镇调查失业率月度数据是评估劳动力市场状况的关键指标。预期与前值一致表明市场对就业形势的稳定预期。我们将持续关注该数据对消费及宏观经济政策的潜在影响。\", \"actor_id\": \"actor_exchange\"}, {\"id\": \"trace-26\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"【国家统计局公告】2026年9月城镇调查失业率数据已按制度规范发布。本数据由各级统计机构依《统计法》采集、审核并汇总，反映了当前我国就业市场的总体状况。后续将持续监测就业形势变化，为宏观决策提供科学依据。欢迎社会各界依法依规获取和使用统计数据。\", \"actor_id\": \"actor_government\"}, {\"id\": \"trace-35\", \"kind\": \"simulated_action\", \"action_type\": \"SOCIAL_ENDORSEMENT\", \"summary\": \"点赞帖子 #2：📊 【数据解读】中国城镇调查失业率月度公告发布。作为宏观经济关键指标，失业率数据反映劳动力市场健康状况。结合社零数据，我们将持续跟踪消费与就业的联动效应。建议投资者关注后续政策动向及经济复苏节奏。 #宏观经济 #失业率 #社零数据\", \"actor_id\": \"actor_exchange\"}, {\"id\": \"trace-36\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"【机构观点】失业率与社零数据的联动效应是当前市场关注的核心。我们注意到数据发布后，债市收益率小幅下行，反映市场对经济弱修复的定价。后续需关注居民收入预期改善节奏对消费端的支撑力度。建议重点跟踪高频指标以验证趋势延续性。\", \"actor_id\": \"actor_exchange\"}, {\"id\": \"trace-37\", \"kind\": \"simulated_action\", \"action_type\": \"SOCIAL_ENDORSEMENT\", \"summary\": \"点赞帖子 #2：📊 【数据解读】中国城镇调查失业率月度公告发布。作为宏观经济关键指标，失业率数据反映劳动力市场健康状况。结合社零数据，我们将持续跟踪消费与就业的联动效应。建议投资者关注后续政策动向及经济复苏节奏。 #宏观经济 #失业率 #社零数据\", \"actor_id\": \"actor_brokers\"}, {\"id\": \"trace-38\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"赞同对失业率与社零数据联动效应的分析。作为券商从业者，补充一点：当前市场定价已部分反映预期一致的情形，但若实际数据出现边际偏差，消费板块与周期板块的估值可能面临短期重估。建议关注数据发布后的市场即时反应，特别是北向资金流向变化。\", \"actor_id\": \"actor_brokers\"}, {\"id\": \"trace-39\", \"kind\": \"simulated_action\", \"action_type\": \"SOCIAL_ENDORSEMENT\", \"summary\": \"点赞帖子 #1：中国城镇调查失业率月度公告：社零 | 统计局 预期:一致 前值:上月\", \"actor_id\": \"actor_regulator\"}, {\"id\": \"trace-40\", \"kind\": \"simulated_action\", \"action_type\": \"SOCIAL_ENDORSEMENT\", \"summary\": \"点赞帖子 #1：中国城镇调查失业率月度公告：社零 | 统计局 预期:一致 前值:上月\", \"actor_id\": \"actor_government\"}, {\"id\": \"trace-41\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"作为监管机构关注本次城镇调查失业率及社零数据发布。我们将持续监测就业市场与消费数据的联动变化，确保统计数据的规范发布与合理运用。建议市场参与者依法依规使用公开统计数据，避免对单一指标进行过度解读。后续将结合政策动向进行综合研判。\", \"actor_id\": \"actor_regulator\"}, {\"id\": \"trace-42\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"感谢对统计数据的关注和解读。需要指出的是，城镇调查失业率作为月度发布的宏观经济指标，其统计口径、调查方法和技术规范均在《统计法》框架下统一执行。建议市场分析人员在解读数据时，充分考虑季节性因素和短期波动，避免过度外推。统计数据欢迎依法合规使用，但不应被过度交易化解读。\", \"actor_id\": \"actor_government\"}, {\"id\": \"trace-43\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"【国家统计局提示】本数据为官方依法发布的城镇调查失业率月度统计结果，反映了特定调查时点的就业市场状况。建议各方在解读时关注官方公告的完整统计口径与调查方法说明，避免过度外推解读。后续数据请以国家统计局官方网站发布为准。\", \"actor_id\": \"actor_issuer\"}, {\"id\": \"trace-44\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"同意分析框架。失业率与社零数据的联动是评估消费复苏动能的核心变量。从机构配置角度看，若失业率保持稳定且社零环比改善，消费板块的盈利预期将获得支撑。后续重点关注9月高频数据能否验证这一传导逻辑。\", \"actor_id\": \"actor_institutions\"}, {\"id\": \"trace-45\", \"kind\": \"simulated_action\", \"action_type\": \"SOCIAL_ENDORSEMENT\", \"summary\": \"点赞帖子 #2：📊 【数据解读】中国城镇调查失业率月度公告发布。作为宏观经济关键指标，失业率数据反映劳动力市场健康状况。结合社零数据，我们将持续跟踪消费与就业的联动效应。建议投资者关注后续政策动向及经济复苏节奏。 #宏观经济 #失业率 #社零数据\", \"actor_id\": \"actor_analysts\"}, {\"id\": \"trace-46\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"【分析师视角】城镇调查失业率与社零数据联动分析至关重要。失业率稳定表明就业市场韧性，而社零数据将验证收入预期向消费传导的实际效果。建议重点关注：1)青年失业率细分结构变化；2)服务消费与商品消费的分化趋势；3)政策应对窗口期。数据一致预期下，更需关注环比边际变动信号。\", \"actor_id\": \"actor_analysts\"}, {\"id\": \"trace-47\", \"kind\": \"simulated_action\", \"action_type\": \"COMMUNICATE\", \"summary\": \"【财经媒体观察】失业率与社零数据的联动是判断经济内生动力的重要窗口。从已发布信息看，数据预期与前值一致，反映就业市场处于平稳运行区间。我们将持续追踪该数据对消费板块及货币政策节奏的传导效应，后续关注增量政策工具的空间与节奏。欢迎读者持续关注我们的深度分析报告。\", \"actor_id\": \"actor_media\"}], \"branch_slots\": [{\"slot_id\": \"slot-1\", \"actor_ids\": [\"actor_institutions\", \"actor_issuer\"], \"relationship_kind\": \"constrains_or_influences\", \"decision_refs\": [\"decision-actor_institutions-r2\", \"decision-actor_issuer-r2\"]}, {\"slot_id\": \"slot-2\", \"actor_ids\": [\"actor_brokers\", \"actor_media\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_brokers-r2\", \"decision-actor_media-r2\"]}, {\"slot_id\": \"slot-3\", \"actor_ids\": [\"actor_analysts\", \"actor_exchange\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_analysts-r2\", \"decision-actor_exchange-r2\"]}, {\"slot_id\": \"slot-4\", \"actor_ids\": [\"actor_government\", \"actor_regulator\"], \"relationship_kind\": \"candidate_interaction\", \"decision_refs\": [\"decision-actor_government-r2\", \"decision-actor_regulator-r2\"]}]}"
+      }
+    }
+  },
+  "usage": [
+    {
+      "case_id": "anonymous-case-02",
+      "variant": "decisions_only",
+      "phase": "generation",
+      "request_id": "d9b9ce1571d94e61a76a280a42bec29f",
+      "request_sha256": "e129f313703ff0683b9ec358eee96b2789ac08ce7d7d06dbdd31d1b42019d367",
+      "prompt_chars": 8463,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:12:29.653684+00:00",
+      "status": "completed",
+      "prompt_tokens": 3210,
+      "completion_tokens": 1172,
+      "total_tokens": 4382,
+      "estimated_cost": 0.000481428,
+      "finish_reason": "stop",
+      "elapsed_seconds": 31.954609750013333
+    },
+    {
+      "case_id": "anonymous-case-02",
+      "variant": "raw_interactions",
+      "phase": "generation",
+      "request_id": "5f4e601bca1e4517b45eb640caa749eb",
+      "request_sha256": "ca3fe6d8bae5193898592cf0f3d7aec36bb615af9413d32a859dc92d863cd292",
+      "prompt_chars": 12993,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:15:47.101314+00:00",
+      "status": "completed",
+      "prompt_tokens": 5148,
+      "completion_tokens": 791,
+      "total_tokens": 5939,
+      "estimated_cost": 0.000402948,
+      "finish_reason": "stop",
+      "elapsed_seconds": 26.070057833974715
+    },
+    {
+      "case_id": "anonymous-case-02",
+      "variant": "filtered_interactions",
+      "phase": "generation",
+      "request_id": "e17ccf1442f845cf9356be1ae5ccaf4f",
+      "request_sha256": "1effc50df162ce2cf7718d6d29ee009d78e0de1916ad1f6bb34b1e366db49c44",
+      "prompt_chars": 11086,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:16:15.943860+00:00",
+      "status": "completed",
+      "prompt_tokens": 4421,
+      "completion_tokens": 850,
+      "total_tokens": 5271,
+      "estimated_cost": 0.000348138,
+      "finish_reason": "stop",
+      "elapsed_seconds": 18.987867667048704
+    },
+    {
+      "case_id": "anonymous-case-02",
+      "variant": "decisions_only",
+      "phase": "quality",
+      "repeat": 2,
+      "request_id": "a21e791ac32d4f489c28529cd576508f",
+      "request_sha256": "113fd7b580cc78e06f2c87d810551738930f1315dfd1df0165b325ec252ddcd8",
+      "prompt_chars": 5854,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:18:58.008695+00:00",
+      "status": "completed",
+      "prompt_tokens": 2404,
+      "completion_tokens": 318,
+      "total_tokens": 2722,
+      "estimated_cost": 0.000255168,
+      "finish_reason": "stop",
+      "elapsed_seconds": 11.72618950001197
+    },
+    {
+      "case_id": "anonymous-case-02",
+      "variant": "filtered_interactions",
+      "phase": "quality",
+      "repeat": 1,
+      "request_id": "ff17ee0c49e34e6d8cd6a6dde7523ed8",
+      "request_sha256": "0ed9c489e835a7ea2e591f503a05d9564dce7a34ac679855123e25d1190842fe",
+      "prompt_chars": 5454,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:19:28.408970+00:00",
+      "status": "completed",
+      "prompt_tokens": 2152,
+      "completion_tokens": 321,
+      "total_tokens": 2473,
+      "estimated_cost": 0.0001593,
+      "finish_reason": "stop",
+      "elapsed_seconds": 8.14480700000422
+    },
+    {
+      "case_id": "anonymous-case-02",
+      "variant": "decisions_only",
+      "phase": "quality",
+      "repeat": 1,
+      "request_id": "53a9a3017fa149d1a5529f932a0717e2",
+      "request_sha256": "113fd7b580cc78e06f2c87d810551738930f1315dfd1df0165b325ec252ddcd8",
+      "prompt_chars": 5854,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:19:29.335985+00:00",
+      "status": "completed",
+      "prompt_tokens": 2404,
+      "completion_tokens": 324,
+      "total_tokens": 2728,
+      "estimated_cost": 0.000108792,
+      "finish_reason": "stop",
+      "elapsed_seconds": 7.2355639999732375
+    },
+    {
+      "case_id": "anonymous-case-02",
+      "variant": "raw_interactions",
+      "phase": "quality",
+      "repeat": 1,
+      "request_id": "c648608cc9c84d06ae645486de351099",
+      "request_sha256": "e029f40e418bcf70698afea36e9cb68c06c86508d6cbc8fe0bf298cd04c36370",
+      "prompt_chars": 5471,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:19:36.482860+00:00",
+      "status": "completed",
+      "prompt_tokens": 2133,
+      "completion_tokens": 292,
+      "total_tokens": 2425,
+      "estimated_cost": 0.00015237,
+      "finish_reason": "stop",
+      "elapsed_seconds": 6.138489999982994
+    },
+    {
+      "case_id": "anonymous-case-02",
+      "variant": "filtered_interactions",
+      "phase": "quality",
+      "repeat": 2,
+      "request_id": "89f71ca426d04a42ab28621070d55f48",
+      "request_sha256": "0ed9c489e835a7ea2e591f503a05d9564dce7a34ac679855123e25d1190842fe",
+      "prompt_chars": 5454,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:19:42.653793+00:00",
+      "status": "completed",
+      "prompt_tokens": 2152,
+      "completion_tokens": 304,
+      "total_tokens": 2456,
+      "estimated_cost": 0.000100944,
+      "finish_reason": "stop",
+      "elapsed_seconds": 4.4872534580063075
+    },
+    {
+      "case_id": "anonymous-case-02",
+      "variant": "raw_interactions",
+      "phase": "quality",
+      "repeat": 2,
+      "request_id": "d560080e2c234b33b30ee1b5c937910e",
+      "request_sha256": "e029f40e418bcf70698afea36e9cb68c06c86508d6cbc8fe0bf298cd04c36370",
+      "prompt_chars": 5471,
+      "model": "deepseek-ai/DeepSeek-V4-Flash",
+      "started_at": "2026-09-06T15:20:28.809392+00:00",
+      "status": "completed",
+      "prompt_tokens": 2133,
+      "completion_tokens": 294,
+      "total_tokens": 2427,
+      "estimated_cost": 9.743399999999999e-05,
+      "finish_reason": "stop",
+      "elapsed_seconds": 10.621205916046165
+    }
+  ]
+}

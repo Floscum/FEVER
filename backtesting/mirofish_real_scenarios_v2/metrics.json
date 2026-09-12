@@ -1,0 +1,1230 @@
+{
+  "comparisons": {
+    "revision-1/public_pilot/v7": {
+      "registered_cases": 3,
+      "attempted_cases": 3,
+      "valid_cases": 3,
+      "nonempty_cases": 3,
+      "first_attempt_valid_cases": 3,
+      "failed_cases": [],
+      "branch_count": 12,
+      "first_response_branch_count": 12,
+      "withheld_branches": 0,
+      "partial_cases": 0,
+      "first_response_branches_with_unsupported_quantities": 2,
+      "branches_with_unsupported_quantities": 2,
+      "condition_count": 36,
+      "conditions_with_unsupported_quantities": 1,
+      "conditions_needing_review": 8,
+      "finding_codes": {
+        "silence_is_not_invalidation": 7,
+        "unsupported_quantity": 1
+      },
+      "covered_decision_actors": 20,
+      "available_decision_actors": 20,
+      "request_count": 3,
+      "known_usage_requests": 3,
+      "returned_cost_usd": 0.001986066,
+      "median_elapsed_seconds": 17.616473875008523
+    },
+    "revision-1/public_pilot/v9": {
+      "registered_cases": 3,
+      "attempted_cases": 3,
+      "valid_cases": 3,
+      "nonempty_cases": 3,
+      "first_attempt_valid_cases": 3,
+      "failed_cases": [],
+      "branch_count": 9,
+      "first_response_branch_count": 9,
+      "withheld_branches": 0,
+      "partial_cases": 0,
+      "first_response_branches_with_unsupported_quantities": 5,
+      "branches_with_unsupported_quantities": 5,
+      "condition_count": 18,
+      "conditions_with_unsupported_quantities": 8,
+      "conditions_needing_review": 11,
+      "finding_codes": {
+        "unsupported_quantity": 8,
+        "silence_is_not_invalidation": 6
+      },
+      "covered_decision_actors": 12,
+      "available_decision_actors": 20,
+      "request_count": 3,
+      "known_usage_requests": 3,
+      "returned_cost_usd": 0.002142342,
+      "median_elapsed_seconds": 20.853687542025
+    },
+    "revision-2/public_pilot/v7": {
+      "registered_cases": 3,
+      "attempted_cases": 3,
+      "valid_cases": 3,
+      "nonempty_cases": 3,
+      "first_attempt_valid_cases": 3,
+      "failed_cases": [],
+      "branch_count": 12,
+      "first_response_branch_count": 12,
+      "withheld_branches": 0,
+      "partial_cases": 0,
+      "first_response_branches_with_unsupported_quantities": 6,
+      "branches_with_unsupported_quantities": 6,
+      "condition_count": 32,
+      "conditions_with_unsupported_quantities": 5,
+      "conditions_needing_review": 12,
+      "finding_codes": {
+        "silence_is_not_invalidation": 7,
+        "unsupported_quantity": 5
+      },
+      "covered_decision_actors": 20,
+      "available_decision_actors": 20,
+      "request_count": 3,
+      "known_usage_requests": 3,
+      "returned_cost_usd": 0.000953874,
+      "median_elapsed_seconds": 25.889105083071627
+    },
+    "revision-2/public_pilot/v10": {
+      "registered_cases": 3,
+      "attempted_cases": 3,
+      "valid_cases": 2,
+      "nonempty_cases": 2,
+      "first_attempt_valid_cases": 2,
+      "failed_cases": [
+        "byd-h1-2025"
+      ],
+      "branch_count": 4,
+      "first_response_branch_count": 6,
+      "withheld_branches": 0,
+      "partial_cases": 0,
+      "first_response_branches_with_unsupported_quantities": 0,
+      "branches_with_unsupported_quantities": 0,
+      "condition_count": 8,
+      "conditions_with_unsupported_quantities": 0,
+      "conditions_needing_review": 1,
+      "finding_codes": {
+        "silence_is_not_invalidation": 1
+      },
+      "covered_decision_actors": 6,
+      "available_decision_actors": 14,
+      "request_count": 4,
+      "known_usage_requests": 4,
+      "returned_cost_usd": 0.002434968,
+      "median_elapsed_seconds": 23.732790583046153
+    },
+    "revision-3/public_pilot/v7": {
+      "registered_cases": 3,
+      "attempted_cases": 3,
+      "valid_cases": 3,
+      "nonempty_cases": 3,
+      "first_attempt_valid_cases": 3,
+      "failed_cases": [],
+      "branch_count": 12,
+      "first_response_branch_count": 12,
+      "withheld_branches": 0,
+      "partial_cases": 0,
+      "first_response_branches_with_unsupported_quantities": 6,
+      "branches_with_unsupported_quantities": 6,
+      "condition_count": 42,
+      "conditions_with_unsupported_quantities": 5,
+      "conditions_needing_review": 13,
+      "finding_codes": {
+        "silence_is_not_invalidation": 8,
+        "unsupported_quantity": 5
+      },
+      "covered_decision_actors": 20,
+      "available_decision_actors": 20,
+      "request_count": 3,
+      "known_usage_requests": 3,
+      "returned_cost_usd": 0.0009407339999999999,
+      "median_elapsed_seconds": 23.621226790943183
+    },
+    "revision-3/public_pilot/v11": {
+      "registered_cases": 3,
+      "attempted_cases": 3,
+      "valid_cases": 3,
+      "nonempty_cases": 2,
+      "first_attempt_valid_cases": 3,
+      "failed_cases": [],
+      "branch_count": 3,
+      "first_response_branch_count": 6,
+      "withheld_branches": 3,
+      "partial_cases": 2,
+      "first_response_branches_with_unsupported_quantities": 2,
+      "branches_with_unsupported_quantities": 0,
+      "condition_count": 6,
+      "conditions_with_unsupported_quantities": 0,
+      "conditions_needing_review": 2,
+      "finding_codes": {
+        "silence_is_not_invalidation": 2
+      },
+      "covered_decision_actors": 5,
+      "available_decision_actors": 20,
+      "request_count": 3,
+      "known_usage_requests": 3,
+      "returned_cost_usd": 0.0010913580000000002,
+      "median_elapsed_seconds": 16.075329208979383
+    },
+    "revision-4/public_pilot/v7": {
+      "registered_cases": 3,
+      "attempted_cases": 3,
+      "valid_cases": 3,
+      "nonempty_cases": 3,
+      "first_attempt_valid_cases": 3,
+      "failed_cases": [],
+      "branch_count": 12,
+      "first_response_branch_count": 12,
+      "withheld_branches": 0,
+      "partial_cases": 0,
+      "first_response_branches_with_unsupported_quantities": 6,
+      "branches_with_unsupported_quantities": 6,
+      "condition_count": 42,
+      "conditions_with_unsupported_quantities": 5,
+      "conditions_needing_review": 13,
+      "finding_codes": {
+        "silence_is_not_invalidation": 8,
+        "unsupported_quantity": 5
+      },
+      "covered_decision_actors": 20,
+      "available_decision_actors": 20,
+      "request_count": 3,
+      "known_usage_requests": 3,
+      "returned_cost_usd": 0.0009407339999999999,
+      "median_elapsed_seconds": 23.621226790943183
+    },
+    "revision-4/public_pilot/v11": {
+      "registered_cases": 3,
+      "attempted_cases": 3,
+      "valid_cases": 3,
+      "nonempty_cases": 3,
+      "first_attempt_valid_cases": 1,
+      "failed_cases": [],
+      "branch_count": 5,
+      "first_response_branch_count": 6,
+      "withheld_branches": 1,
+      "partial_cases": 1,
+      "first_response_branches_with_unsupported_quantities": 2,
+      "branches_with_unsupported_quantities": 0,
+      "condition_count": 10,
+      "conditions_with_unsupported_quantities": 0,
+      "conditions_needing_review": 4,
+      "finding_codes": {
+        "silence_is_not_invalidation": 2,
+        "reporting_period_mismatch": 2
+      },
+      "covered_decision_actors": 8,
+      "available_decision_actors": 20,
+      "request_count": 5,
+      "known_usage_requests": 5,
+      "returned_cost_usd": 0.0017935560000000002,
+      "median_elapsed_seconds": 26.91910729301162
+    }
+  },
+  "case_reviews": [
+    {
+      "revision": "revision-1",
+      "cohort": "public_pilot",
+      "case_id": "byd-h1-2025",
+      "variant": "v7",
+      "branch_metrics": [
+        {
+          "unsupported_quantities": [],
+          "condition_count": 3,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "silence_is_not_invalidation": 1
+          }
+        },
+        {
+          "unsupported_quantities": [
+            "5%"
+          ],
+          "condition_count": 3,
+          "conditions_with_unsupported_quantities": 1,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "unsupported_quantity": 1
+          }
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 3,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "silence_is_not_invalidation": 1
+          }
+        },
+        {
+          "unsupported_quantities": [
+            "53%"
+          ],
+          "condition_count": 3,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 0,
+          "finding_codes": {}
+        }
+      ]
+    },
+    {
+      "revision": "revision-1",
+      "cohort": "public_pilot",
+      "case_id": "guotai-haitong-2024",
+      "variant": "v7",
+      "branch_metrics": [
+        {
+          "unsupported_quantities": [],
+          "condition_count": 3,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "silence_is_not_invalidation": 1
+          }
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 3,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 2,
+          "finding_codes": {
+            "silence_is_not_invalidation": 2
+          }
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 3,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 0,
+          "finding_codes": {}
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 3,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 2,
+          "finding_codes": {
+            "silence_is_not_invalidation": 2
+          }
+        }
+      ]
+    },
+    {
+      "revision": "revision-1",
+      "cohort": "public_pilot",
+      "case_id": "crowdstrike-outage-2024",
+      "variant": "v7",
+      "branch_metrics": [
+        {
+          "unsupported_quantities": [],
+          "condition_count": 3,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 0,
+          "finding_codes": {}
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 3,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 0,
+          "finding_codes": {}
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 3,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 0,
+          "finding_codes": {}
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 3,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 0,
+          "finding_codes": {}
+        }
+      ]
+    },
+    {
+      "revision": "revision-1",
+      "cohort": "public_pilot",
+      "case_id": "byd-h1-2025",
+      "variant": "v9",
+      "branch_metrics": [
+        {
+          "unsupported_quantities": [
+            "1个百分点",
+            "1.5个百分点"
+          ],
+          "condition_count": 2,
+          "conditions_with_unsupported_quantities": 2,
+          "conditions_needing_review": 2,
+          "finding_codes": {
+            "unsupported_quantity": 2,
+            "silence_is_not_invalidation": 1
+          }
+        },
+        {
+          "unsupported_quantities": [
+            "19%",
+            "18%",
+            "5%",
+            "10%"
+          ],
+          "condition_count": 2,
+          "conditions_with_unsupported_quantities": 2,
+          "conditions_needing_review": 2,
+          "finding_codes": {
+            "unsupported_quantity": 2
+          }
+        },
+        {
+          "unsupported_quantities": [
+            "8.3%",
+            "8%"
+          ],
+          "condition_count": 2,
+          "conditions_with_unsupported_quantities": 1,
+          "conditions_needing_review": 2,
+          "finding_codes": {
+            "unsupported_quantity": 1,
+            "silence_is_not_invalidation": 1
+          }
+        }
+      ]
+    },
+    {
+      "revision": "revision-1",
+      "cohort": "public_pilot",
+      "case_id": "guotai-haitong-2024",
+      "variant": "v9",
+      "branch_metrics": [
+        {
+          "unsupported_quantities": [],
+          "condition_count": 2,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "silence_is_not_invalidation": 1
+          }
+        },
+        {
+          "unsupported_quantities": [
+            "5%"
+          ],
+          "condition_count": 2,
+          "conditions_with_unsupported_quantities": 1,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "unsupported_quantity": 1,
+            "silence_is_not_invalidation": 1
+          }
+        },
+        {
+          "unsupported_quantities": [
+            "10%",
+            "5%"
+          ],
+          "condition_count": 2,
+          "conditions_with_unsupported_quantities": 2,
+          "conditions_needing_review": 2,
+          "finding_codes": {
+            "unsupported_quantity": 2,
+            "silence_is_not_invalidation": 1
+          }
+        }
+      ]
+    },
+    {
+      "revision": "revision-1",
+      "cohort": "public_pilot",
+      "case_id": "crowdstrike-outage-2024",
+      "variant": "v9",
+      "branch_metrics": [
+        {
+          "unsupported_quantities": [],
+          "condition_count": 2,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 0,
+          "finding_codes": {}
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 2,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "silence_is_not_invalidation": 1
+          }
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 2,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 0,
+          "finding_codes": {}
+        }
+      ]
+    },
+    {
+      "revision": "revision-2",
+      "cohort": "public_pilot",
+      "case_id": "byd-h1-2025",
+      "variant": "v7",
+      "branch_metrics": [
+        {
+          "unsupported_quantities": [],
+          "condition_count": 2,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "silence_is_not_invalidation": 1
+          }
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 2,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 0,
+          "finding_codes": {}
+        },
+        {
+          "unsupported_quantities": [
+            "30个交易日",
+            "10%"
+          ],
+          "condition_count": 2,
+          "conditions_with_unsupported_quantities": 1,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "unsupported_quantity": 1
+          }
+        },
+        {
+          "unsupported_quantities": [
+            "53%"
+          ],
+          "condition_count": 2,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 0,
+          "finding_codes": {}
+        }
+      ]
+    },
+    {
+      "revision": "revision-2",
+      "cohort": "public_pilot",
+      "case_id": "guotai-haitong-2024",
+      "variant": "v7",
+      "branch_metrics": [
+        {
+          "unsupported_quantities": [
+            "5个交易日"
+          ],
+          "condition_count": 4,
+          "conditions_with_unsupported_quantities": 1,
+          "conditions_needing_review": 2,
+          "finding_codes": {
+            "unsupported_quantity": 1,
+            "silence_is_not_invalidation": 1
+          }
+        },
+        {
+          "unsupported_quantities": [
+            "7个交易日"
+          ],
+          "condition_count": 4,
+          "conditions_with_unsupported_quantities": 1,
+          "conditions_needing_review": 3,
+          "finding_codes": {
+            "unsupported_quantity": 1,
+            "silence_is_not_invalidation": 2
+          }
+        },
+        {
+          "unsupported_quantities": [
+            "10个交易日"
+          ],
+          "condition_count": 4,
+          "conditions_with_unsupported_quantities": 1,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "unsupported_quantity": 1
+          }
+        },
+        {
+          "unsupported_quantities": [
+            "3个交易日"
+          ],
+          "condition_count": 4,
+          "conditions_with_unsupported_quantities": 1,
+          "conditions_needing_review": 3,
+          "finding_codes": {
+            "unsupported_quantity": 1,
+            "silence_is_not_invalidation": 2
+          }
+        }
+      ]
+    },
+    {
+      "revision": "revision-2",
+      "cohort": "public_pilot",
+      "case_id": "crowdstrike-outage-2024",
+      "variant": "v7",
+      "branch_metrics": [
+        {
+          "unsupported_quantities": [],
+          "condition_count": 2,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 0,
+          "finding_codes": {}
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 2,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 0,
+          "finding_codes": {}
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 2,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "silence_is_not_invalidation": 1
+          }
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 2,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 0,
+          "finding_codes": {}
+        }
+      ]
+    },
+    {
+      "revision": "revision-2",
+      "cohort": "public_pilot",
+      "case_id": "guotai-haitong-2024",
+      "variant": "v10",
+      "branch_metrics": [
+        {
+          "unsupported_quantities": [],
+          "condition_count": 2,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 0,
+          "finding_codes": {}
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 2,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "silence_is_not_invalidation": 1
+          }
+        }
+      ]
+    },
+    {
+      "revision": "revision-2",
+      "cohort": "public_pilot",
+      "case_id": "crowdstrike-outage-2024",
+      "variant": "v10",
+      "branch_metrics": [
+        {
+          "unsupported_quantities": [],
+          "condition_count": 2,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 0,
+          "finding_codes": {}
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 2,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 0,
+          "finding_codes": {}
+        }
+      ]
+    },
+    {
+      "revision": "revision-3",
+      "cohort": "public_pilot",
+      "case_id": "byd-h1-2025",
+      "variant": "v7",
+      "branch_metrics": [
+        {
+          "unsupported_quantities": [
+            "10个交易日"
+          ],
+          "condition_count": 3,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "silence_is_not_invalidation": 1
+          }
+        },
+        {
+          "unsupported_quantities": [
+            "5%"
+          ],
+          "condition_count": 4,
+          "conditions_with_unsupported_quantities": 1,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "unsupported_quantity": 1
+          }
+        },
+        {
+          "unsupported_quantities": [
+            "5%"
+          ],
+          "condition_count": 4,
+          "conditions_with_unsupported_quantities": 1,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "unsupported_quantity": 1
+          }
+        },
+        {
+          "unsupported_quantities": [
+            "53%",
+            "8.3%"
+          ],
+          "condition_count": 3,
+          "conditions_with_unsupported_quantities": 1,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "unsupported_quantity": 1
+          }
+        }
+      ]
+    },
+    {
+      "revision": "revision-3",
+      "cohort": "public_pilot",
+      "case_id": "guotai-haitong-2024",
+      "variant": "v7",
+      "branch_metrics": [
+        {
+          "unsupported_quantities": [],
+          "condition_count": 3,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "silence_is_not_invalidation": 1
+          }
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 3,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 2,
+          "finding_codes": {
+            "silence_is_not_invalidation": 2
+          }
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 3,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 0,
+          "finding_codes": {}
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 3,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "silence_is_not_invalidation": 1
+          }
+        }
+      ]
+    },
+    {
+      "revision": "revision-3",
+      "cohort": "public_pilot",
+      "case_id": "crowdstrike-outage-2024",
+      "variant": "v7",
+      "branch_metrics": [
+        {
+          "unsupported_quantities": [
+            "3家",
+            "24小时"
+          ],
+          "condition_count": 4,
+          "conditions_with_unsupported_quantities": 1,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "unsupported_quantity": 1
+          }
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 4,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "silence_is_not_invalidation": 1
+          }
+        },
+        {
+          "unsupported_quantities": [
+            "48小时"
+          ],
+          "condition_count": 4,
+          "conditions_with_unsupported_quantities": 1,
+          "conditions_needing_review": 3,
+          "finding_codes": {
+            "unsupported_quantity": 1,
+            "silence_is_not_invalidation": 2
+          }
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 4,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 0,
+          "finding_codes": {}
+        }
+      ]
+    },
+    {
+      "revision": "revision-3",
+      "cohort": "public_pilot",
+      "case_id": "byd-h1-2025",
+      "variant": "v11",
+      "branch_metrics": [
+        {
+          "unsupported_quantities": [],
+          "condition_count": 2,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 0,
+          "finding_codes": {}
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 2,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "silence_is_not_invalidation": 1
+          }
+        }
+      ]
+    },
+    {
+      "revision": "revision-3",
+      "cohort": "public_pilot",
+      "case_id": "guotai-haitong-2024",
+      "variant": "v11",
+      "branch_metrics": [
+        {
+          "unsupported_quantities": [],
+          "condition_count": 2,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "silence_is_not_invalidation": 1
+          }
+        }
+      ]
+    },
+    {
+      "revision": "revision-3",
+      "cohort": "public_pilot",
+      "case_id": "crowdstrike-outage-2024",
+      "variant": "v11",
+      "branch_metrics": []
+    },
+    {
+      "revision": "revision-4",
+      "cohort": "public_pilot",
+      "case_id": "byd-h1-2025",
+      "variant": "v7",
+      "branch_metrics": [
+        {
+          "unsupported_quantities": [
+            "10个交易日"
+          ],
+          "condition_count": 3,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "silence_is_not_invalidation": 1
+          }
+        },
+        {
+          "unsupported_quantities": [
+            "5%"
+          ],
+          "condition_count": 4,
+          "conditions_with_unsupported_quantities": 1,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "unsupported_quantity": 1
+          }
+        },
+        {
+          "unsupported_quantities": [
+            "5%"
+          ],
+          "condition_count": 4,
+          "conditions_with_unsupported_quantities": 1,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "unsupported_quantity": 1
+          }
+        },
+        {
+          "unsupported_quantities": [
+            "53%",
+            "8.3%"
+          ],
+          "condition_count": 3,
+          "conditions_with_unsupported_quantities": 1,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "unsupported_quantity": 1
+          }
+        }
+      ]
+    },
+    {
+      "revision": "revision-4",
+      "cohort": "public_pilot",
+      "case_id": "guotai-haitong-2024",
+      "variant": "v7",
+      "branch_metrics": [
+        {
+          "unsupported_quantities": [],
+          "condition_count": 3,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "silence_is_not_invalidation": 1
+          }
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 3,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 2,
+          "finding_codes": {
+            "silence_is_not_invalidation": 2
+          }
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 3,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 0,
+          "finding_codes": {}
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 3,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "silence_is_not_invalidation": 1
+          }
+        }
+      ]
+    },
+    {
+      "revision": "revision-4",
+      "cohort": "public_pilot",
+      "case_id": "crowdstrike-outage-2024",
+      "variant": "v7",
+      "branch_metrics": [
+        {
+          "unsupported_quantities": [
+            "3家",
+            "24小时"
+          ],
+          "condition_count": 4,
+          "conditions_with_unsupported_quantities": 1,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "unsupported_quantity": 1
+          }
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 4,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "silence_is_not_invalidation": 1
+          }
+        },
+        {
+          "unsupported_quantities": [
+            "48小时"
+          ],
+          "condition_count": 4,
+          "conditions_with_unsupported_quantities": 1,
+          "conditions_needing_review": 3,
+          "finding_codes": {
+            "unsupported_quantity": 1,
+            "silence_is_not_invalidation": 2
+          }
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 4,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 0,
+          "finding_codes": {}
+        }
+      ]
+    },
+    {
+      "revision": "revision-4",
+      "cohort": "public_pilot",
+      "case_id": "byd-h1-2025",
+      "variant": "v11",
+      "branch_metrics": [
+        {
+          "unsupported_quantities": [],
+          "condition_count": 2,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 0,
+          "finding_codes": {}
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 2,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "silence_is_not_invalidation": 1
+          }
+        }
+      ]
+    },
+    {
+      "revision": "revision-4",
+      "cohort": "public_pilot",
+      "case_id": "guotai-haitong-2024",
+      "variant": "v11",
+      "branch_metrics": [
+        {
+          "unsupported_quantities": [],
+          "condition_count": 2,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "silence_is_not_invalidation": 1
+          }
+        }
+      ]
+    },
+    {
+      "revision": "revision-4",
+      "cohort": "public_pilot",
+      "case_id": "crowdstrike-outage-2024",
+      "variant": "v11",
+      "branch_metrics": [
+        {
+          "unsupported_quantities": [],
+          "condition_count": 2,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 0,
+          "finding_codes": {}
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 2,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 2,
+          "finding_codes": {
+            "reporting_period_mismatch": 2
+          }
+        }
+      ]
+    }
+  ],
+  "shared_budget": {
+    "attempts": 85,
+    "settled_usd": 0.06887619,
+    "pending": {}
+  },
+  "live_runs": [
+    {
+      "case_id": "byd-h1-2025",
+      "status": "completed",
+      "configured_actors": 6,
+      "named_entities": [
+        "比亚迪"
+      ],
+      "valid_decisions": 6,
+      "action_types": {
+        "WAIT": 6
+      },
+      "branches": 4,
+      "branch_metrics": [
+        {
+          "unsupported_quantities": [
+            "20%"
+          ],
+          "condition_count": 6,
+          "conditions_with_unsupported_quantities": 1,
+          "conditions_needing_review": 2,
+          "finding_codes": {
+            "unsupported_quantity": 1,
+            "silence_is_not_invalidation": 1
+          }
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 6,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "silence_is_not_invalidation": 1
+          }
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 6,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 0,
+          "finding_codes": {}
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 6,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 0,
+          "finding_codes": {}
+        }
+      ],
+      "end_to_end_seconds": 118.27027112501673,
+      "provider_calls": 20,
+      "returned_cost_usd": 0.009589824,
+      "unknown_usage_calls": 0
+    },
+    {
+      "case_id": "crowdstrike-outage-2024",
+      "status": "completed",
+      "configured_actors": 6,
+      "named_entities": [
+        "CrowdStrike"
+      ],
+      "valid_decisions": 6,
+      "action_types": {
+        "COMMUNICATE": 1,
+        "OPERATE": 1,
+        "WAIT": 4
+      },
+      "branches": 4,
+      "branch_metrics": [
+        {
+          "unsupported_quantities": [
+            "2家"
+          ],
+          "condition_count": 2,
+          "conditions_with_unsupported_quantities": 1,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "unsupported_quantity": 1
+          }
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 2,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "reporting_period_mismatch": 1
+          }
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 2,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 0,
+          "finding_codes": {}
+        },
+        {
+          "unsupported_quantities": [
+            "48小时"
+          ],
+          "condition_count": 2,
+          "conditions_with_unsupported_quantities": 1,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "unsupported_quantity": 1
+          }
+        }
+      ],
+      "end_to_end_seconds": 74.15412824996747,
+      "provider_calls": 19,
+      "returned_cost_usd": 0.006776568,
+      "unknown_usage_calls": 0
+    },
+    {
+      "case_id": "guotai-haitong-2024",
+      "status": "completed",
+      "configured_actors": 8,
+      "named_entities": [
+        "国泰君安",
+        "海通证券"
+      ],
+      "valid_decisions": 8,
+      "action_types": {
+        "WAIT": 8
+      },
+      "branches": 4,
+      "branch_metrics": [
+        {
+          "unsupported_quantities": [],
+          "condition_count": 3,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 0,
+          "finding_codes": {}
+        },
+        {
+          "unsupported_quantities": [
+            "3个交易日"
+          ],
+          "condition_count": 3,
+          "conditions_with_unsupported_quantities": 1,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "unsupported_quantity": 1
+          }
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 3,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 0,
+          "finding_codes": {}
+        },
+        {
+          "unsupported_quantities": [],
+          "condition_count": 3,
+          "conditions_with_unsupported_quantities": 0,
+          "conditions_needing_review": 1,
+          "finding_codes": {
+            "silence_is_not_invalidation": 1
+          }
+        }
+      ],
+      "end_to_end_seconds": 76.17687058297452,
+      "provider_calls": 25,
+      "returned_cost_usd": 0.011631816,
+      "unknown_usage_calls": 0
+    }
+  ],
+  "all_calls": 85,
+  "returned_cost_usd": 0.03824974800000002,
+  "unknown_usage_requests": 0,
+  "unknown_usage_reserved_usd": 0,
+  "semantic_quality_verified": false,
+  "metrics_note": "Presentation findings are recomputed offline with the bundled post-run helper. Unsupported-quantity checks are heuristic; v10/v11 acceptance enforces that rule, so zero findings is not independent evidence of semantic quality. Read first responses, failures, retained branches and case reviews together. No 24-case extension was executed."
+}

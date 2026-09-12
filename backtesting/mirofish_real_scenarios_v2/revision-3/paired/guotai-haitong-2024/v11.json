@@ -1,0 +1,201 @@
+{
+  "case_id": "guotai-haitong-2024",
+  "variant": "v11",
+  "cohort": "public_pilot",
+  "artifact": {
+    "schema_version": "0.1.0",
+    "case_id": "real-guotai-haitong-2024",
+    "spec_sha256": "ee29c7f9c903c3415cbf8c84d894a6d147d5523bf666552815303b8cac0ec51c",
+    "simulation_id": "sim_direct_13823f2ff662",
+    "generated_at": "2026-09-12T06:09:09.567920+00:00",
+    "model_id": "deepseek-ai/DeepSeek-V4-Flash",
+    "prompt_version": "scenario-branch-compiler-v11",
+    "status": "partial",
+    "branches": [
+      {
+        "id": "branch-2",
+        "label": "机构投资者公开表态",
+        "summary": "若持有海通证券或国泰君安股份的机构投资者在停牌期间公开表达对换股比例或合并后协同效应的质疑，可能影响股东大会投票结果，迫使国泰君安提高换股溢价或增加现金选择权。",
+        "actor_ids": [
+          "actor_institutions",
+          "actor_issuer"
+        ],
+        "trigger_conditions": [
+          "若机构投资者通过媒体或公开信方式表达对换股比例或合并后协同效应的质疑"
+        ],
+        "actions": [
+          {
+            "actor_id": "actor_institutions",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_institutions-r2"
+          },
+          {
+            "actor_id": "actor_issuer",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_issuer-r2"
+          }
+        ],
+        "consequences": [
+          "可能促使国泰君安在复牌前调整换股比例或增加现金选择权，以争取股东大会通过；否则可能导致方案被否决"
+        ],
+        "invalidation_conditions": [
+          "若机构投资者发布声明支持本次合并方案，或未在窗口期内发表任何公开意见"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F3"
+        ],
+        "simulation_refs": [
+          "decision-actor_institutions-r2",
+          "decision-actor_issuer-r2"
+        ],
+        "novelty_claim": "机构投资者的公开质疑将直接改变国泰君安对方案可行性的判断，迫使其在停牌期内主动调整交易条件",
+        "confidence": 0.4,
+        "confidence_semantics": "branch_coherence_not_forecast_probability",
+        "assumptions": [
+          "尚未披露机构投资者对换股比例的接受程度，本路径假设部分机构投资者认为换股比例不公允"
+        ],
+        "observations": [
+          {
+            "kind": "trigger",
+            "signal": "若机构投资者通过媒体或公开信方式表达对换股比例或合并后协同效应的质疑",
+            "source": "财经媒体报道或机构投资者公开声明",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F3"
+            ]
+          },
+          {
+            "kind": "invalidation",
+            "signal": "若机构投资者发布声明支持本次合并方案，或未在窗口期内发表任何公开意见",
+            "source": "财经媒体报道或机构投资者公开声明",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F3"
+            ]
+          }
+        ],
+        "starting_decisions": [
+          {
+            "actor_id": "actor_institutions",
+            "action_type": "WAIT",
+            "decision_status": "conditional",
+            "rationale": "截至截止时点，国泰君安已公告拟吸收合并海通证券，A股已于9月6日起停牌（F2），但本次公告未给出换股比例或募集金额（F5），且协议仅作原则性约定（F3），交易需经双方董事会、股东大会及监管机构批准，能否实施仍存在不确定性（F4）。作为机构投资者，受流动性约束（约束1），在缺乏换股对价、复合材料估值基准以及审批确定性之前，无法进行有效的风险收益评估和资本配置。因此最优先动作是等待停牌期间的信息披露（F5），待关键变量（换股比、募集规模、审批进展）披露后再行决策。同时关注模拟平台中分析师帖子反映的市场情绪与关注焦点作为新增信息，但目前不构成调整仓位的充分依据。",
+            "decision_ref": "decision-actor_institutions-r2"
+          },
+          {
+            "actor_id": "actor_issuer",
+            "action_type": "WAIT",
+            "decision_status": "intended",
+            "rationale": "截至2024年9月6日收盘，公司已发布停牌公告并签署合作协议。当前处于交易推进的初始阶段，核心变量（换股比例、募集金额）尚未确定，方案需经董事会、股东大会和监管机构审批，存在重大不确定性。作为事件主体，首要目标是维持经营与融资能力、控制事件对客户和业务的影响。在缺少进一步可观察信息的情况下，最审慎的主要动作是等待内部方案细化与中介机构尽调结果，同时按披露义务在停牌期间定期公告进展。过早进行高强度的外部沟通或操作可能引发市场误解或增大不确定性，与公司已披露的审慎立场和约束不符。",
+            "decision_ref": "decision-actor_issuer-r2"
+          }
+        ]
+      }
+    ],
+    "warnings": [
+      "branch-1: bound deterministic actor slot to unique financial decisions",
+      "branch-2: bound deterministic actor slot to unique financial decisions",
+      "Branches are simulated hypotheses, not observed evidence.",
+      "Branch confidence expresses coherence, not occurrence probability.",
+      "有 1 条候选情景未通过依据检查，已暂存供复核，未放入观察清单。",
+      "未强行纳入情景的参与方：监管机构、交易所、券商与中介机构、竞争者、分析师、财经媒体。角色有决策不代表存在有用的传导路径。"
+    ],
+    "review": {
+      "proposed_branch_count": 2,
+      "published_branch_count": 1,
+      "withheld_branches": [
+        {
+          "label": "监管问询与方案调整",
+          "reason": "请删除或改写本分支无引用依据的数值条件（标作假设也不能保留）：25个交易日",
+          "candidate": {
+            "id": "branch-1",
+            "label": "监管问询与方案调整",
+            "summary": "若监管机构在停牌期间就换股比例、募集配套资金用途等核心条款发出问询，国泰君安可能需补充材料或调整方案，导致复牌时间晚于预计的25个交易日。",
+            "actor_ids": [
+              "actor_regulator",
+              "actor_issuer"
+            ],
+            "trigger_conditions": [
+              "若监管机构公开披露已就本次吸收合并方案发出问询函或反馈意见"
+            ],
+            "actions": [
+              {
+                "actor_id": "actor_regulator",
+                "action_type": "WAIT",
+                "decision_ref": "decision-actor_regulator-r2"
+              },
+              {
+                "actor_id": "actor_issuer",
+                "action_type": "WAIT",
+                "decision_ref": "decision-actor_issuer-r2"
+              }
+            ],
+            "consequences": [
+              "可能延长停牌时间，增加机构投资者对流动性的担忧；券商与中介机构需重新评估交易文件与融资安排"
+            ],
+            "invalidation_conditions": [
+              "若国泰君安公告已收到监管机构无异议函或正式受理通知，且未要求调整方案"
+            ],
+            "evidence_refs": [
+              "F4"
+            ],
+            "simulation_refs": [
+              "decision-actor_regulator-r2",
+              "decision-actor_issuer-r2"
+            ],
+            "novelty_claim": "监管机构的问询将迫使国泰君安在停牌期内调整方案，改变其原定按原则性协议推进的节奏",
+            "confidence": 0.5,
+            "confidence_semantics": "branch_coherence_not_forecast_probability",
+            "assumptions": [
+              "尚未披露监管机构是否已启动正式审查，本路径假设监管机构在停牌期内发出问询"
+            ],
+            "observations": [
+              {
+                "kind": "trigger",
+                "signal": "若监管机构公开披露已就本次吸收合并方案发出问询函或反馈意见",
+                "source": "监管机构官网或公司公告",
+                "window": "未来 30 个自然日",
+                "evidence_refs": [
+                  "F4"
+                ]
+              },
+              {
+                "kind": "invalidation",
+                "signal": "若国泰君安公告已收到监管机构无异议函或正式受理通知，且未要求调整方案",
+                "source": "公司后续公告",
+                "window": "未来 30 个自然日",
+                "evidence_refs": [
+                  "F4"
+                ]
+              }
+            ],
+            "starting_decisions": [
+              {
+                "actor_id": "actor_regulator",
+                "action_type": "WAIT",
+                "decision_status": "conditional",
+                "rationale": "截至截止时点，交易仅处于原则性约定阶段（F3），尚未形成具体交易文件，公司尚未提交需审批的正式申报材料（F4）。作为监管机构，无法在无受理文件的情况下启动审查程序。停牌期间公司将按进展履行披露义务（F5），当前最佳行动是等待公司披露具体换股比例、募集金额等关键要素，并提交正式申报文件后方可启动审批程序。我机构已通过社交媒体表达了监管关注（模拟记忆第2轮中的评论），下一步需等待申报材料实际到达。",
+                "decision_ref": "decision-actor_regulator-r2"
+              },
+              {
+                "actor_id": "actor_issuer",
+                "action_type": "WAIT",
+                "decision_status": "intended",
+                "rationale": "截至2024年9月6日收盘，公司已发布停牌公告并签署合作协议。当前处于交易推进的初始阶段，核心变量（换股比例、募集金额）尚未确定，方案需经董事会、股东大会和监管机构审批，存在重大不确定性。作为事件主体，首要目标是维持经营与融资能力、控制事件对客户和业务的影响。在缺少进一步可观察信息的情况下，最审慎的主要动作是等待内部方案细化与中介机构尽调结果，同时按披露义务在停牌期间定期公告进展。过早进行高强度的外部沟通或操作可能引发市场误解或增大不确定性，与公司已披露的审慎立场和约束不符。",
+                "decision_ref": "decision-actor_issuer-r2"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "elapsed_seconds": 19.139446999994107,
+  "attempt_count": 1,
+  "request_ids": [
+    "4f78ccdbccbc46c4a0547adcf8092dfb"
+  ]
+}

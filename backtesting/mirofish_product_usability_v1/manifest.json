@@ -1,0 +1,98 @@
+{
+  "experiment_id": "product-usability-experiment-v1",
+  "registered_at": "2026-09-06T15:01:09.181267+00:00",
+  "registered_case_count": 12,
+  "cases": [
+    "cases/anonymous-case-01.json",
+    "cases/anonymous-case-02.json",
+    "cases/anonymous-case-03.json",
+    "cases/anonymous-case-04.json",
+    "cases/anonymous-case-05.json",
+    "cases/anonymous-case-06.json",
+    "cases/anonymous-case-07.json",
+    "cases/anonymous-case-08.json",
+    "cases/anonymous-case-09.json",
+    "cases/anonymous-case-10.json",
+    "cases/anonymous-case-11.json",
+    "cases/anonymous-case-12.json"
+  ],
+  "protocol": {
+    "variants": [
+      "decisions_only",
+      "filtered_interactions",
+      "raw_interactions"
+    ],
+    "compiler": "product v7; neutral trace-presence sentence shared across arms",
+    "cases": [
+      "anonymous-case-01",
+      "anonymous-case-02",
+      "anonymous-case-03",
+      "anonymous-case-04",
+      "anonymous-case-05",
+      "anonymous-case-06",
+      "anonymous-case-07",
+      "anonymous-case-08",
+      "anonymous-case-09",
+      "anonymous-case-10",
+      "anonymous-case-11",
+      "anonymous-case-12"
+    ],
+    "pilot": [
+      "anonymous-case-01",
+      "anonymous-case-03",
+      "anonymous-case-10"
+    ],
+    "selection": "same 12 development cases as prior trace ablation; no new holdout claim",
+    "controls": "identical frozen facts, actors, post-simulation decisions, model, branch slots and four-branch budget; only simulated_actions changes",
+    "simulation_rerun": false,
+    "outcomes_read": false,
+    "generation_draws_per_case_arm": 1,
+    "quality_repeats": 2,
+    "watchlist_rule": "observable_trigger AND specific_invalidation AND evidence_grounded, true in both judge passes",
+    "strict_rule": "all five existing qualification flags true in both passes",
+    "semantic_direction_guard": "all arms need at least 80% flag agreement and score-within-one agreement; otherwise semantic direction is inconclusive",
+    "pilot_expansion_gate": "all nine outputs and eighteen judgments must be valid; quality direction is not a selection criterion",
+    "calls_without_retries": 108,
+    "max_calls": 144,
+    "max_total_tokens": 600000,
+    "max_estimated_usd": 1.0,
+    "provider": "DeepInfra (api.deepinfra.com)",
+    "pricing_source": "https://deepinfra.com/deepseek-ai/DeepSeek-V4-Flash",
+    "pricing_checked_date": "2026-09-06",
+    "standard_usd_per_million": {
+      "input": 0.09,
+      "output": 0.18
+    },
+    "request_bounds": "30000 UTF-8 prompt bytes and 5000 output tokens; reserve conservative dollar cost before every request, including in-flight calls",
+    "budget_note": "token cap checked before dispatch; up to three in-flight requests can exceed the threshold",
+    "workers": 3,
+    "sdk_retries": 0,
+    "max_semantic_retries": 1,
+    "privacy": "reuse existing identifier/date/source anonymization for all outbound prompts",
+    "limitations": [
+      "same model generates and judges",
+      "model judging is not human adoption",
+      "reuses completed simulations; excludes their sunk cost",
+      "does not test removal of the interaction process",
+      "one generation draw; development cases; no accuracy or return evaluation"
+    ]
+  },
+  "protocol_sha256": "476db229e48875fda996b9101449ca775f7cd2be21c1d03cc374bf8733a8fad2",
+  "code_sha256": {
+    "scripts/run_product_usability_experiment.py": "85138c64d1148a0593beaaea39d1168843872d54bb5bbd4e9a66c2c26cc36abd",
+    "scripts/verify_product_experiment.py": "792dc788d1f37f04d21663af192554302479b4e6647591de4d2e1fbf7a8a25cf",
+    "scripts/product_experiment_budget.py": "d5bf5d5358826e8fa7fdbe89a055340ad66231bad965e3db866f84e3db6041a8",
+    "src/fever_mirofish/scenario_branches.py": "3fa0f832431461e3dcbc426ff29066199cee716cdbbc8eb0582f2430e3cbd443",
+    "src/fever_mirofish/trace_digest.py": "0913d14e323ec4bcb3cb69127d213809eead3fa0e9d49cc0a96ab40aad7513a7",
+    "src/fever_mirofish/decision_support_eval.py": "658f317e5fbd0442fbfd8c9366ccab6ab4a080f12522bbefb654c313efabd8ac",
+    "scripts/run_trace_ablation_experiment.py": "a5c18e1935f636bcfb1371240a3bb72176faf6c166e245c5c42ccd72eb8304eb",
+    "scripts/run_compiler_decision_support_diagnostic.py": "5819b0269c5d3b00b4c55c75c6021beb794dfa78c5c77f22aee0bfe5731c88f0"
+  },
+  "model": "deepseek-ai/DeepSeek-V4-Flash",
+  "offline_verification_amendment": {
+    "reason": "Python 3.9 and Python 3.12 floating sums differ at machine precision; comparison only now uses 1e-12 tolerance. Model outputs, judgments and report metrics are unchanged.",
+    "frozen_execution_verifier": "execution-verifier.py",
+    "frozen_execution_verifier_sha256": "792dc788d1f37f04d21663af192554302479b4e6647591de4d2e1fbf7a8a25cf",
+    "portable_verifier_sha256": "94388bd119345336d92417ad7c7c37b463a8a309ec4064b6ca55cfa757d9e8a2"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "id": "guotai-haitong-2024",
+  "title": "国泰君安吸收合并海通证券：停牌与审批不确定性",
+  "as_of": "2024-09-06T23:59:59+08:00",
+  "horizon_days": 30,
+  "question": "国泰君安（601211）与海通证券（600837）筹划重组并停牌后，未来30天各参与方可能如何响应？请找出影响交易推进的分歧和需要跟进的公开信号。",
+  "facts": [
+    [
+      "国泰君安拟以向海通证券A股、H股换股股东分别发行对应股份的方式吸收合并海通证券，并发行A股募集配套资金。",
+      "https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=10470824&stockid=",
+      "filing",
+      "2024-09-06",
+      "2024-055号公告：停牌事由与交易方式"
+    ],
+    [
+      "国泰君安A股从2024年9月6日开市起停牌，公告预计停牌不超过25个交易日；该期限为预计，未披露确定复牌日。",
+      "https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=10470824&stockid=",
+      "filing",
+      "2024-09-06",
+      "停牌事由与工作安排"
+    ],
+    [
+      "双方于2024年9月5日签署合作协议，目前仅就重组作出原则性约定，具体方案以进一步签署的交易文件为准。",
+      "https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=10470824&stockid=",
+      "filing",
+      "2024-09-06",
+      "合作协议与风险提示"
+    ],
+    [
+      "交易及正式文件需双方各自董事会、股东大会审议，并获得有权监管机构批准后才能实施，能否实施仍存在不确定性。",
+      "https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=10470824&stockid=",
+      "filing",
+      "2024-09-06",
+      "合作协议与风险提示"
+    ],
+    [
+      "停牌期间公司将按进展履行披露义务，相关事项确定后及时公告并申请复牌。本次公告没有给出换股比例或募集金额。",
+      "https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=10470824&stockid=",
+      "filing",
+      "2024-09-06",
+      "公告范围说明；未引入后续预案"
+    ]
+  ],
+  "review_targets": [
+    "能否区分吸并方与被吸并方",
+    "不能把停牌期间买卖当成已执行成交",
+    "不得编造换股比例、审批时间或保证交割",
+    "分清双方内部决策与监管批准"
+  ],
+  "source_note": "公司2024-055号公告的新浪转录页；上交所原件地址已定位但本轮抓取不可用：https://static.sse.com.cn/disclosure/listedinfo/announcement/c/new/2024-09-06/601211_20240906_IIVP.pdf。未发送后续重组预案或最终结果。"
+}

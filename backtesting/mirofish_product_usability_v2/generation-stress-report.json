@@ -1,0 +1,961 @@
+{
+  "case_count": 24,
+  "registered_case_count": 24,
+  "variants": {
+    "v7": {
+      "generated_cases": 24,
+      "judged_cases": 1,
+      "branch_count": 96,
+      "judged_branches": 4,
+      "decision_actor_coverage": 1.0,
+      "configured_actor_coverage": 0.9447236180904522,
+      "observation_card_branches": 0,
+      "usable_watchlist_rate": 1.0,
+      "all_criteria_rate": 1.0,
+      "criterion_rates": {
+        "action_time_clear": 1.0,
+        "observable": 1.0,
+        "falsifiable": 1.0,
+        "grounded": 1.0,
+        "multi_actor": 1.0
+      },
+      "repeat_agreement": 1.0,
+      "median_generation_seconds": 60.294234313012566,
+      "generation_retries": 6,
+      "generation_calls": 31,
+      "generation_cost_usd": 0.017547066,
+      "cost_recorded_calls": 30,
+      "quantity_review_branches": 86,
+      "quantity_review_rate": 0.8958333333333334,
+      "quantity_review_findings": [
+        {
+          "case_id": "anonymous-case-01",
+          "branch_id": "branch-1",
+          "quantities": [
+            "7天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-01",
+          "branch_id": "branch-2",
+          "quantities": [
+            "30天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-01",
+          "branch_id": "branch-3",
+          "quantities": [
+            "7天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-01",
+          "branch_id": "branch-4",
+          "quantities": [
+            "1%",
+            "7天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-02",
+          "branch_id": "branch-2",
+          "quantities": [
+            "30日",
+            "3%"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-02",
+          "branch_id": "branch-3",
+          "quantities": [
+            "7天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-02",
+          "branch_id": "branch-4",
+          "quantities": [
+            "10天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-03",
+          "branch_id": "branch-1",
+          "quantities": [
+            "5天",
+            "7天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-03",
+          "branch_id": "branch-2",
+          "quantities": [
+            "3天",
+            "10天",
+            "7天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-03",
+          "branch_id": "branch-3",
+          "quantities": [
+            "7天",
+            "5天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-03",
+          "branch_id": "branch-4",
+          "quantities": [
+            "5%"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-04",
+          "branch_id": "branch-1",
+          "quantities": [
+            "3日",
+            "5日",
+            "10日",
+            "30日"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-04",
+          "branch_id": "branch-2",
+          "quantities": [
+            "30%",
+            "3%"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-04",
+          "branch_id": "branch-3",
+          "quantities": [
+            "10日",
+            "3家",
+            "15日",
+            "3个交易日",
+            "1%",
+            "5日",
+            "15%",
+            "30日",
+            "8%",
+            "20%"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-04",
+          "branch_id": "branch-4",
+          "quantities": [
+            "7日",
+            "2家",
+            "10日",
+            "20%",
+            "12%",
+            "8%",
+            "2%"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-05",
+          "branch_id": "branch-1",
+          "quantities": [
+            "1%",
+            "5%"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-05",
+          "branch_id": "branch-2",
+          "quantities": [
+            "2小时",
+            "150%",
+            "3%",
+            "1%",
+            "5%"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-05",
+          "branch_id": "branch-3",
+          "quantities": [
+            "10%"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-05",
+          "branch_id": "branch-4",
+          "quantities": [
+            "50%"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-06",
+          "branch_id": "branch-1",
+          "quantities": [
+            "15天",
+            "30天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-06",
+          "branch_id": "branch-2",
+          "quantities": [
+            "20天",
+            "15天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-06",
+          "branch_id": "branch-3",
+          "quantities": [
+            "30天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-07",
+          "branch_id": "branch-1",
+          "quantities": [
+            "10天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-07",
+          "branch_id": "branch-2",
+          "quantities": [
+            "10天",
+            "14天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-07",
+          "branch_id": "branch-3",
+          "quantities": [
+            "14天",
+            "21天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-07",
+          "branch_id": "branch-4",
+          "quantities": [
+            "7天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-08",
+          "branch_id": "branch-1",
+          "quantities": [
+            "3交易日",
+            "30%",
+            "50%",
+            "20%",
+            "5交易日",
+            "80%",
+            "120%"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-08",
+          "branch_id": "branch-2",
+          "quantities": [
+            "5交易日",
+            "20个交易日",
+            "20%"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-08",
+          "branch_id": "branch-3",
+          "quantities": [
+            "20%",
+            "10交易日",
+            "15%",
+            "25%",
+            "3%",
+            "7交易日",
+            "30天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-08",
+          "branch_id": "branch-4",
+          "quantities": [
+            "7交易日",
+            "20个交易日",
+            "10个交易日",
+            "5%",
+            "15%",
+            "30%",
+            "15交易日",
+            "20日"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-09",
+          "branch_id": "branch-2",
+          "quantities": [
+            "5%"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-09",
+          "branch_id": "branch-3",
+          "quantities": [
+            "0.5%",
+            "1.5%"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-09",
+          "branch_id": "branch-4",
+          "quantities": [
+            "3%"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-10",
+          "branch_id": "branch-1",
+          "quantities": [
+            "5天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-10",
+          "branch_id": "branch-2",
+          "quantities": [
+            "7天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-10",
+          "branch_id": "branch-3",
+          "quantities": [
+            "48小时"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-10",
+          "branch_id": "branch-4",
+          "quantities": [
+            "24小时"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-11",
+          "branch_id": "branch-1",
+          "quantities": [
+            "5个交易日",
+            "30%"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-11",
+          "branch_id": "branch-2",
+          "quantities": [
+            "10个交易日"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-11",
+          "branch_id": "branch-3",
+          "quantities": [
+            "7个交易日"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-11",
+          "branch_id": "branch-4",
+          "quantities": [
+            "30天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-12",
+          "branch_id": "branch-1",
+          "quantities": [
+            "7天",
+            "30天",
+            "14天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-12",
+          "branch_id": "branch-2",
+          "quantities": [
+            "10天",
+            "80%"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-12",
+          "branch_id": "branch-3",
+          "quantities": [
+            "7天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-12",
+          "branch_id": "branch-4",
+          "quantities": [
+            "21天",
+            "5%",
+            "10%"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-13",
+          "branch_id": "branch-1",
+          "quantities": [
+            "3日",
+            "5日",
+            "7日",
+            "10%"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-13",
+          "branch_id": "branch-2",
+          "quantities": [
+            "48小时",
+            "8日",
+            "10日"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-13",
+          "branch_id": "branch-3",
+          "quantities": [
+            "12日",
+            "8日",
+            "6日",
+            "10日",
+            "10%"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-13",
+          "branch_id": "branch-4",
+          "quantities": [
+            "3个交易日",
+            "6日",
+            "5日"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-14",
+          "branch_id": "branch-1",
+          "quantities": [
+            "14天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-14",
+          "branch_id": "branch-2",
+          "quantities": [
+            "21天",
+            "14天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-14",
+          "branch_id": "branch-3",
+          "quantities": [
+            "14天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-14",
+          "branch_id": "branch-4",
+          "quantities": [
+            "21天",
+            "10天",
+            "5%",
+            "15天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-15",
+          "branch_id": "branch-1",
+          "quantities": [
+            "14天",
+            "21天",
+            "5年"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-15",
+          "branch_id": "branch-2",
+          "quantities": [
+            "10天",
+            "15天",
+            "20天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-15",
+          "branch_id": "branch-3",
+          "quantities": [
+            "10天",
+            "15天",
+            "25天",
+            "60%"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-15",
+          "branch_id": "branch-4",
+          "quantities": [
+            "7天",
+            "5个交易日",
+            "3天",
+            "3%"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-17",
+          "branch_id": "branch-3",
+          "quantities": [
+            "48小时"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-17",
+          "branch_id": "branch-4",
+          "quantities": [
+            "3小时"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-18",
+          "branch_id": "branch-1",
+          "quantities": [
+            "7天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-18",
+          "branch_id": "branch-2",
+          "quantities": [
+            "14天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-18",
+          "branch_id": "branch-3",
+          "quantities": [
+            "30天",
+            "5%"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-18",
+          "branch_id": "branch-4",
+          "quantities": [
+            "30天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-20",
+          "branch_id": "branch-1",
+          "quantities": [
+            "14天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-20",
+          "branch_id": "branch-3",
+          "quantities": [
+            "7%"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-20",
+          "branch_id": "branch-4",
+          "quantities": [
+            "10天",
+            "14天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-21",
+          "branch_id": "branch-1",
+          "quantities": [
+            "30天",
+            "60天",
+            "90天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-21",
+          "branch_id": "branch-2",
+          "quantities": [
+            "60天",
+            "90天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-21",
+          "branch_id": "branch-3",
+          "quantities": [
+            "90天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-21",
+          "branch_id": "branch-4",
+          "quantities": [
+            "120天",
+            "150天",
+            "90天",
+            "5%"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-22",
+          "branch_id": "branch-1",
+          "quantities": [
+            "30天",
+            "1%"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-22",
+          "branch_id": "branch-2",
+          "quantities": [
+            "30天",
+            "5家",
+            "15%",
+            "15天",
+            "10%"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-22",
+          "branch_id": "branch-3",
+          "quantities": [
+            "30天",
+            "15%",
+            "10个交易日",
+            "8%",
+            "1个百分点"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-22",
+          "branch_id": "branch-4",
+          "quantities": [
+            "15个工作日",
+            "0.2%",
+            "0.1%",
+            "30天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-23",
+          "branch_id": "branch-1",
+          "quantities": [
+            "30日",
+            "15日"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-23",
+          "branch_id": "branch-2",
+          "quantities": [
+            "60日",
+            "90日"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-23",
+          "branch_id": "branch-3",
+          "quantities": [
+            "45日",
+            "30日"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-23",
+          "branch_id": "branch-4",
+          "quantities": [
+            "75日"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-24",
+          "branch_id": "branch-1",
+          "quantities": [
+            "7天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-24",
+          "branch_id": "branch-2",
+          "quantities": [
+            "14天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-24",
+          "branch_id": "branch-3",
+          "quantities": [
+            "21天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-24",
+          "branch_id": "branch-4",
+          "quantities": [
+            "10天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-25",
+          "branch_id": "branch-1",
+          "quantities": [
+            "60天",
+            "5个交易日",
+            "5%"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-25",
+          "branch_id": "branch-2",
+          "quantities": [
+            "90天",
+            "5%",
+            "30天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-25",
+          "branch_id": "branch-3",
+          "quantities": [
+            "45天",
+            "30天",
+            "20%"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-25",
+          "branch_id": "branch-4",
+          "quantities": [
+            "120天",
+            "15%",
+            "50%",
+            "30天"
+          ]
+        }
+      ]
+    },
+    "v8": {
+      "generated_cases": 11,
+      "judged_cases": 0,
+      "branch_count": 44,
+      "judged_branches": 0,
+      "decision_actor_coverage": 1.0,
+      "configured_actor_coverage": 0.9438202247191011,
+      "observation_card_branches": 44,
+      "usable_watchlist_rate": null,
+      "all_criteria_rate": null,
+      "criterion_rates": {
+        "action_time_clear": null,
+        "observable": null,
+        "falsifiable": null,
+        "grounded": null,
+        "multi_actor": null
+      },
+      "repeat_agreement": null,
+      "median_generation_seconds": 176.6934338750434,
+      "generation_retries": 8,
+      "generation_calls": 50,
+      "generation_cost_usd": 0.035972567999999996,
+      "cost_recorded_calls": 50,
+      "quantity_review_branches": 21,
+      "quantity_review_rate": 0.4772727272727273,
+      "quantity_review_findings": [
+        {
+          "case_id": "anonymous-case-01",
+          "branch_id": "branch-3",
+          "quantities": [
+            "5个交易日",
+            "15%",
+            "30日"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-05",
+          "branch_id": "branch-1",
+          "quantities": [
+            "70%",
+            "3个月",
+            "20%",
+            "48小时"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-05",
+          "branch_id": "branch-2",
+          "quantities": [
+            "30分钟",
+            "10%",
+            "5家",
+            "30%",
+            "50%"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-05",
+          "branch_id": "branch-3",
+          "quantities": [
+            "5%",
+            "10%",
+            "48小时",
+            "70%",
+            "20%",
+            "90%"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-05",
+          "branch_id": "branch-4",
+          "quantities": [
+            "50%"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-08",
+          "branch_id": "branch-1",
+          "quantities": [
+            "50%"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-08",
+          "branch_id": "branch-4",
+          "quantities": [
+            "10%"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-13",
+          "branch_id": "branch-1",
+          "quantities": [
+            "0.5个百分点"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-13",
+          "branch_id": "branch-2",
+          "quantities": [
+            "2019年"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-13",
+          "branch_id": "branch-4",
+          "quantities": [
+            "10年"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-18",
+          "branch_id": "branch-1",
+          "quantities": [
+            "15个工作日",
+            "6个月",
+            "60天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-18",
+          "branch_id": "branch-3",
+          "quantities": [
+            "90天",
+            "30天",
+            "63天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-18",
+          "branch_id": "branch-4",
+          "quantities": [
+            "15年",
+            "14天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-20",
+          "branch_id": "branch-4",
+          "quantities": [
+            "36小时"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-21",
+          "branch_id": "branch-1",
+          "quantities": [
+            "60天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-21",
+          "branch_id": "branch-3",
+          "quantities": [
+            "30天",
+            "60%"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-24",
+          "branch_id": "branch-2",
+          "quantities": [
+            "30天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-24",
+          "branch_id": "branch-3",
+          "quantities": [
+            "3天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-24",
+          "branch_id": "branch-4",
+          "quantities": [
+            "45天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-25",
+          "branch_id": "branch-1",
+          "quantities": [
+            "60天"
+          ]
+        },
+        {
+          "case_id": "anonymous-case-25",
+          "branch_id": "branch-2",
+          "quantities": [
+            "5%"
+          ]
+        }
+      ]
+    }
+  },
+  "quality_direction_reliable": false,
+  "calls": 101,
+  "provider_failures": 0,
+  "interrupted_requests_without_usage": 1,
+  "interrupted_cost_upper_bound_usd": 0.00437589,
+  "total_tokens": 616238,
+  "estimated_cost_usd": 0.064124442,
+  "cost_recorded_calls": 100,
+  "original_quality_protocol_complete": false,
+  "generation_regression_complete": false,
+  "classification": "post_pilot_generation_regression_not_confirmatory_quality_evaluation"
+}

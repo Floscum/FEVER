@@ -1,0 +1,190 @@
+{
+  "case_id": "guotai-haitong-2024",
+  "variant": "v10",
+  "cohort": "public_pilot",
+  "artifact": {
+    "schema_version": "0.1.0",
+    "case_id": "real-guotai-haitong-2024",
+    "spec_sha256": "ee29c7f9c903c3415cbf8c84d894a6d147d5523bf666552815303b8cac0ec51c",
+    "simulation_id": "sim_direct_13823f2ff662",
+    "generated_at": "2026-09-12T06:04:27.957518+00:00",
+    "model_id": "deepseek-ai/DeepSeek-V4-Flash",
+    "prompt_version": "scenario-branch-compiler-v10",
+    "status": "completed",
+    "branches": [
+      {
+        "id": "branch-1",
+        "label": "监管提前介入审查",
+        "summary": "若监管机构在停牌期间主动要求补充材料或启动非正式问询，则可能改变事件主体原定的等待节奏，迫使其提前披露部分方案细节或调整交易结构。",
+        "actor_ids": [
+          "actor_regulator",
+          "actor_issuer"
+        ],
+        "trigger_conditions": [
+          "若监管机构在停牌期间通过公开渠道（如官网、答记者问）明确表示已就本次合并启动非正式审查或要求公司补充特定材料"
+        ],
+        "actions": [
+          {
+            "actor_id": "actor_regulator",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_regulator-r2"
+          },
+          {
+            "actor_id": "actor_issuer",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_issuer-r2"
+          }
+        ],
+        "consequences": [
+          "事件主体可能被迫在正式交易文件签署前披露更多方案细节，或调整交易结构以回应监管关切；市场对审批路径的预期可能提前明朗化"
+        ],
+        "invalidation_conditions": [
+          "若监管机构在停牌期间公开确认本次合并无需在正式申报前进行额外非正式审查，或明确表示等待公司提交正式文件"
+        ],
+        "evidence_refs": [
+          "F4"
+        ],
+        "simulation_refs": [
+          "decision-actor_regulator-r2",
+          "decision-actor_issuer-r2"
+        ],
+        "novelty_claim": "监管机构在正式申报前主动介入，将改变事件主体原定的等待与按部就班披露的节奏，迫使提前回应监管关切",
+        "confidence": 0.4,
+        "confidence_semantics": "branch_coherence_not_forecast_probability",
+        "assumptions": [
+          "尚未披露监管机构是否已在停牌期间主动联系公司，本路径假设监管机构在30天内通过公开渠道释放了提前介入的信号"
+        ],
+        "observations": [
+          {
+            "kind": "trigger",
+            "signal": "若监管机构在停牌期间通过公开渠道（如官网、答记者问）明确表示已就本次合并启动非正式审查或要求公司补充特定材料",
+            "source": "证监会官网、上交所公告、监管机构答记者问",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F4"
+            ]
+          },
+          {
+            "kind": "invalidation",
+            "signal": "若监管机构在停牌期间公开确认本次合并无需在正式申报前进行额外非正式审查，或明确表示等待公司提交正式文件",
+            "source": "证监会官网、上交所公告、监管机构答记者问",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F4"
+            ]
+          }
+        ],
+        "starting_decisions": [
+          {
+            "actor_id": "actor_regulator",
+            "action_type": "WAIT",
+            "decision_status": "conditional",
+            "rationale": "截至截止时点，交易仅处于原则性约定阶段（F3），尚未形成具体交易文件，公司尚未提交需审批的正式申报材料（F4）。作为监管机构，无法在无受理文件的情况下启动审查程序。停牌期间公司将按进展履行披露义务（F5），当前最佳行动是等待公司披露具体换股比例、募集金额等关键要素，并提交正式申报文件后方可启动审批程序。我机构已通过社交媒体表达了监管关注（模拟记忆第2轮中的评论），下一步需等待申报材料实际到达。",
+            "decision_ref": "decision-actor_regulator-r2"
+          },
+          {
+            "actor_id": "actor_issuer",
+            "action_type": "WAIT",
+            "decision_status": "intended",
+            "rationale": "截至2024年9月6日收盘，公司已发布停牌公告并签署合作协议。当前处于交易推进的初始阶段，核心变量（换股比例、募集金额）尚未确定，方案需经董事会、股东大会和监管机构审批，存在重大不确定性。作为事件主体，首要目标是维持经营与融资能力、控制事件对客户和业务的影响。在缺少进一步可观察信息的情况下，最审慎的主要动作是等待内部方案细化与中介机构尽调结果，同时按披露义务在停牌期间定期公告进展。过早进行高强度的外部沟通或操作可能引发市场误解或增大不确定性，与公司已披露的审慎立场和约束不符。",
+            "decision_ref": "decision-actor_issuer-r2"
+          }
+        ]
+      },
+      {
+        "id": "branch-2",
+        "label": "机构投资者公开施压",
+        "summary": "若机构投资者在停牌期间通过公开渠道（如媒体采访、研究报告）表达对换股比例或交易结构的担忧，可能迫使事件主体在后续方案中更注重股东利益平衡。",
+        "actor_ids": [
+          "actor_institutions",
+          "actor_issuer"
+        ],
+        "trigger_conditions": [
+          "若机构投资者在停牌期间通过公开渠道（如媒体采访、研究报告）明确表达对换股比例定价或交易结构的担忧，并呼吁公司披露更多信息"
+        ],
+        "actions": [
+          {
+            "actor_id": "actor_institutions",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_institutions-r2"
+          },
+          {
+            "actor_id": "actor_issuer",
+            "action_type": "WAIT",
+            "decision_ref": "decision-actor_issuer-r2"
+          }
+        ],
+        "consequences": [
+          "事件主体可能需要在后续公告中更详细地解释换股定价逻辑，或在最终方案中调整对价以回应股东关切；市场对交易公平性的讨论可能升温"
+        ],
+        "invalidation_conditions": [
+          "若机构投资者在停牌期间公开表示对当前交易框架满意或认为无需额外披露，或主要机构投资者均保持沉默"
+        ],
+        "evidence_refs": [
+          "F1",
+          "F5"
+        ],
+        "simulation_refs": [
+          "decision-actor_institutions-r2",
+          "decision-actor_issuer-r2"
+        ],
+        "novelty_claim": "机构投资者的公开态度将影响事件主体在方案设计中对股东利益平衡的重视程度，可能改变最终换股比例的定价",
+        "confidence": 0.5,
+        "confidence_semantics": "branch_coherence_not_forecast_probability",
+        "assumptions": [
+          "尚未披露机构投资者在停牌期间的具体立场，本路径假设至少一家有影响力的机构投资者在30天内通过公开渠道表达了负面意见"
+        ],
+        "observations": [
+          {
+            "kind": "trigger",
+            "signal": "若机构投资者在停牌期间通过公开渠道（如媒体采访、研究报告）明确表达对换股比例定价或交易结构的担忧，并呼吁公司披露更多信息",
+            "source": "财经媒体报道、机构公开发布的研究报告",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F5"
+            ]
+          },
+          {
+            "kind": "invalidation",
+            "signal": "若机构投资者在停牌期间公开表示对当前交易框架满意或认为无需额外披露，或主要机构投资者均保持沉默",
+            "source": "财经媒体报道、机构公开发布的研究报告",
+            "window": "未来 30 个自然日",
+            "evidence_refs": [
+              "F1",
+              "F5"
+            ]
+          }
+        ],
+        "starting_decisions": [
+          {
+            "actor_id": "actor_institutions",
+            "action_type": "WAIT",
+            "decision_status": "conditional",
+            "rationale": "截至截止时点，国泰君安已公告拟吸收合并海通证券，A股已于9月6日起停牌（F2），但本次公告未给出换股比例或募集金额（F5），且协议仅作原则性约定（F3），交易需经双方董事会、股东大会及监管机构批准，能否实施仍存在不确定性（F4）。作为机构投资者，受流动性约束（约束1），在缺乏换股对价、复合材料估值基准以及审批确定性之前，无法进行有效的风险收益评估和资本配置。因此最优先动作是等待停牌期间的信息披露（F5），待关键变量（换股比、募集规模、审批进展）披露后再行决策。同时关注模拟平台中分析师帖子反映的市场情绪与关注焦点作为新增信息，但目前不构成调整仓位的充分依据。",
+            "decision_ref": "decision-actor_institutions-r2"
+          },
+          {
+            "actor_id": "actor_issuer",
+            "action_type": "WAIT",
+            "decision_status": "intended",
+            "rationale": "截至2024年9月6日收盘，公司已发布停牌公告并签署合作协议。当前处于交易推进的初始阶段，核心变量（换股比例、募集金额）尚未确定，方案需经董事会、股东大会和监管机构审批，存在重大不确定性。作为事件主体，首要目标是维持经营与融资能力、控制事件对客户和业务的影响。在缺少进一步可观察信息的情况下，最审慎的主要动作是等待内部方案细化与中介机构尽调结果，同时按披露义务在停牌期间定期公告进展。过早进行高强度的外部沟通或操作可能引发市场误解或增大不确定性，与公司已披露的审慎立场和约束不符。",
+            "decision_ref": "decision-actor_issuer-r2"
+          }
+        ]
+      }
+    ],
+    "warnings": [
+      "branch-1: bound deterministic actor slot to unique financial decisions",
+      "branch-2: bound deterministic actor slot to unique financial decisions",
+      "Branches are simulated hypotheses, not observed evidence.",
+      "Branch confidence expresses coherence, not occurrence probability.",
+      "未强行纳入情景的参与方：交易所、券商与中介机构、竞争者、分析师、财经媒体。角色有决策不代表存在有用的传导路径。"
+    ]
+  },
+  "elapsed_seconds": 23.732790583046153,
+  "attempt_count": 1,
+  "request_ids": [
+    "9b9d663c6e8648f4b25b9d8565f2d144"
+  ]
+}

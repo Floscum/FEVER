@@ -1,0 +1,576 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "blind_cyber_review_004",
+  "spec_sha256": "55e9dca1054991bb0a3164d8a780ed32797dec6e9a84795dfcf1aa513f102dd0",
+  "generated_at": "2026-07-29T07:20:07.547474+00:00",
+  "status": "partial",
+  "runs": [
+    {
+      "run_id": "sim_db05047e9f39",
+      "seed": 1283371826,
+      "status": "completed",
+      "events": [
+        {
+          "round": 0,
+          "actor_id": "actor_drivers",
+          "action_type": "SEARCH_USER",
+          "summary": "search_user",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_cyber_regulator",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #1：国家网络安全审查机构今日启动对大型出行平台D的网络安全审查，要求其停止新用户注册。此举旨在防范国家数据安全风险，监督个人信息合规。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_cyber_regulator",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #2：我们将积极配合审查，全面排查风险，现有用户服务在审查期间可正常使用。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_platform",
+          "action_type": "COMMUNICATE",
+          "summary": "平台D：我们正在积极配合国家网络安全审查，全面排查数据安全风险。审查期间现有用户服务正常，出行不受影响。我们将确保境内外信息披露的合规与完整，维护用户、司机与投资者的权益。感谢大家的理解与支持。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_cyber_regulator",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #9：若收到正式通知，将执行应用分发限制以合规。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_institutions",
+          "action_type": "COMMUNICATE",
+          "summary": "作为机构投资者，关注D平台网络安全审查的监管路径。关键观察点：(1)审查范围是否仅限数据合规还是扩大至业务模式；(2)境外上市后的双重信息披露约束如何协调；(3)新用户注册暂停的持续时间是短期整改还是长期升级。现有用户服务正常是积极信号，但需等待审查结果明确后再做仓位调整。现阶段保持观望，不急于做方向性判断。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_retail",
+          "action_type": "COMMUNICATE",
+          "summary": "作为个人投资者，我觉得短期确实要警惕追涨风险。审查刚刚启动，结果还不确定，但市场情绪已经被影响了。我会先观望，等审查有明确结论再考虑是否建仓。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_drivers",
+          "action_type": "COMMUNICATE",
+          "summary": "作为平台司机，已经看到审查公告。虽然平台说现有用户服务正常，但新用户停止注册，长期来看单量增长肯定会受影响。希望审查尽快结束，别影响我们的收入。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_media",
+          "action_type": "COMMUNICATE",
+          "summary": "分析：平台D两天前刚完成境外大型IPO，随即启动网络安全审查。这凸显了跨境上市公司面临的双重困境——境内数据安全法规要求严格审查、停止新用户注册；而境外证券法要求持续、完整的信息披露。两种法律体系的冲突正在从理论走向实践，后续需关注审查结论对上市公司持续责任的界定。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_cyber_regulator",
+          "action_type": "SOCIAL_ENDORSEMENT",
+          "summary": "点赞帖子 #11：作为机构投资者，关注D平台网络安全审查的监管路径。关键观察点：(1)审查范围是否仅限数据合规还是扩大至业务模式；(2)境外上市后的双重信息披露约束如何协调；(3)新用户注册暂停的持续时间是短期整改还是长期升级。现有用户服务正常是积极信号，但需等待审查结果明确后再做仓位调整。现阶段保持观望，不急于做方向性判断。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_cyber_regulator",
+          "action_type": "COMMUNICATE",
+          "summary": "感谢您的理性分析。需要明确的是：本次网络安全审查严格依据《网络安全法》《数据安全法》开展，审查范围聚焦于数据安全和个人信息保护合规，并非针对商业模式。关于境外上市后的信息披****露协调问题，审查机构已依法与相关监管部门建立了信息共享机制。新用户注册暂停是审查期间的临时性技术措施，具体持续时间取决于审查进展和平台整改情况。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 0,
+          "actor_id": "actor_cyber_regulator",
+          "action_type": "COMMUNICATE",
+          "summary": "需要澄清：网络安全审查的目的是防范国家数据安全风险和保护个人信息权益，并非针对平台商业收入。审查结果将基于事实和法律作出，不宜将监管措施与短期商业指标简单关联。",
+          "visibility": "public",
+          "evidence_refs": []
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_platform",
+          "action_type": "COMMUNICATE",
+          "summary": "当前处于审查启动后的第3轮模拟，市场存在对强制下架和股价持续下跌的担忧（如F4显示较前一交易日下跌约5%）。作为平台主体，首要任务是稳定用户和资本市场信心，同时配合审查整改。我已通过公开声明表示积极配合审查、现有服务正常（F2），但面对不实猜测（如'会被强制下架'），需要进一步释放清晰信号来稳定预期。选择COMMUNICATE而非OPERATE，是因为审查期间新增用户已被禁止（约束0），运营层面可主动调整的空间有限；选择COMMUNICATE而非WAIT，是因为沉默可能被解读为不确定性加大，加剧市场恐慌。主要传导机制：通过公开沟通重申配合审查的积极态度、强调现有服务不受影响、说明信息披露合规安排，从而降低用户和投资者的不确定性预期。主要不确定性在于审查结论和时限尚不明确，以及境外投资者对此事件的解读。",
+          "visibility": "public",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_cyber_regulator",
+          "action_type": "WAIT",
+          "summary": "当前网络安全审查刚刚启动第一轮，平台已表态配合审查并暂停新用户注册。作为审查机构，核心职责是依法推进审查程序、收集证据、评估风险，而非在市场层面立即采取进一步监管升级措施。现有事实中，平台正在配合整改，用户服务正常运行，尚未出现严重违规证据或紧急风险情形。因此，下一周期最适宜的动作是等待审查进展，让审查按照法定程序持续推进，同时评估平台提交的整改方案和风险排查报告。过早施加额外监管措施可能干扰审查程序的有序进行，也不符合依法行政的约束。",
+          "visibility": "public",
+          "evidence_refs": [
+            "F1",
+            "F2"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_app_stores",
+          "action_type": "WAIT",
+          "summary": "截至当前时点，我未收到任何监管机构或审查部门的正式通知要求对该出行平台应用实施分发限制。依据约束，我不能自行判断审查最终结论，因此不需要针对该平台采取主动分发限制动作。现有事实仅表明平台在配合审查并停止新用户注册，现有服务正常，F4的价格波动属于市场行为且与我的合规目标无直接关联。我的最优选择是等待正式通知后再行动，以控制合规风险并遵守监管要求。",
+          "visibility": "public",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_drivers",
+          "action_type": "WAIT",
+          "summary": "作为平台司机，现有用户服务在审查期间可正常使用（F2），短期订单和收入尚未受直接影响。但新用户停止注册（F1）意味着未来订单增长可能放缓，这让我担忧长期收入。由于无法影响监管决定（约束），没有其他可主动采取的有效动作来改变现状。管理层表态配合审查，我认为现阶段最优选择是继续观察事态发展，等审查结果明确后再做下一步打算。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_users",
+          "action_type": "WAIT",
+          "summary": "现有用户服务可正常使用，因此继续使用现有功能满足出行需求；同时保护个人信息的考虑使我选择暂时观望，等待审查结果和平台后续措施，暂不调整使用行为或账户操作。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_us_exchange",
+          "action_type": "REGULATE",
+          "summary": "作为境外交易所，我的核心目标是维护上市披露完整性。虽然我不能决定网络安全审查，但审查公告（F1）及平台回应（F2）构成重大事件，可能影响投资者决策。该平台两天前刚IPO（F3），上市前未必充分披露境内数据监管风险。股价已下跌5%（F4），但审查影响尚未在信息披露中充分体现。我将要求发行人就审查对经营的影响发布补充披露公告，如未主动回应，则启动问询程序，以确保投资者获得及时且完整的重大信息。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_institutions",
+          "action_type": "COMMUNICATE",
+          "summary": "审查启动仅两天，平台刚完成境外IPO，境内数据监管与境外信披的双重约束尚未显现明确解决路径。现有用户服务正常是短期缓冲，但新用户注册暂停将影响增长指标。在审查范围和持续时间明确前，不适宜做出重大多空方向性动作。选择与同业机构沟通，交换对监管路径的不同情景推演（短期整改vs升级扩大），以便在后续审查结果公布时快速响应。动作强度较低，因为仅通过私下渠道交流，不做公开喊话或仓位变动。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_retail",
+          "action_type": "WAIT",
+          "summary": "审查刚刚启动，尚未公布任何结论。作为个人投资者，我容易把审查启动误解为最终处罚结论，这可能导致恐慌性决策。当前股价仅较发行价高10%，且已较前日下跌5%，说明市场已在消化消息。但审查期间停止新用户注册，经营基本面将受短期影响；审查结果存在不确定性，可能是处罚也可能是整改后放行。在审查结论明确之前，任何增持或减持都可能基于不完整信息。因此选择观望等待更多信息，以避免追涨或恐慌损失。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        },
+        {
+          "round": 3,
+          "actor_id": "actor_media",
+          "action_type": "WAIT",
+          "summary": "审查刚刚启动，截至目前所有已宣布措施（审查启动、停止新用户注册）均已公开，平台也已表态配合并承诺现有用户服务正常。但审查尚未形成任何初步结论或后续限制措施，境外证券披露义务的具体冲突点也尚未显露。作为追踪审查进展的媒体，在这个节点应首先等待审查推进，获取更多事实后再分析跨境监管冲突的具体表现，避免对推测中的进一步限制进行过早解读。",
+          "visibility": "private",
+          "evidence_refs": [
+            "F1",
+            "F2",
+            "F3",
+            "F4"
+          ]
+        }
+      ],
+      "warnings": [
+        "The recorded seed controls Python agent scheduling only; provider-side LLM sampling remains unseeded."
+      ]
+    }
+  ],
+  "scenarios": [],
+  "forecast_target_results": [],
+  "simulation_graph": {
+    "nodes": [
+      {
+        "id": "actor_cyber_regulator",
+        "kind": "actor",
+        "label": "网络安全审查机构"
+      },
+      {
+        "id": "actor_drivers",
+        "kind": "actor",
+        "label": "平台司机群体"
+      },
+      {
+        "id": "actor_institutions",
+        "kind": "actor",
+        "label": "机构投资者"
+      },
+      {
+        "id": "actor_media",
+        "kind": "actor",
+        "label": "财经与科技媒体"
+      },
+      {
+        "id": "actor_platform",
+        "kind": "actor",
+        "label": "匿名出行平台"
+      },
+      {
+        "id": "actor_retail",
+        "kind": "actor",
+        "label": "个人投资者"
+      },
+      {
+        "id": "trace-22",
+        "kind": "simulated_action",
+        "action_type": "SEARCH_USER",
+        "summary": "search_user"
+      },
+      {
+        "id": "trace-24",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #1：国家网络安全审查机构今日启动对大型出行平台D的网络安全审查，要求其停止新用户注册。此举旨在防范国家数据安全风险，监督个人信息合规。"
+      },
+      {
+        "id": "trace-25",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #2：我们将积极配合审查，全面排查风险，现有用户服务在审查期间可正常使用。"
+      },
+      {
+        "id": "trace-26",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "平台D：我们正在积极配合国家网络安全审查，全面排查数据安全风险。审查期间现有用户服务正常，出行不受影响。我们将确保境内外信息披露的合规与完整，维护用户、司机与投资者的权益。感谢大家的理解与支持。"
+      },
+      {
+        "id": "trace-30",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #9：若收到正式通知，将执行应用分发限制以合规。"
+      },
+      {
+        "id": "trace-31",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "作为机构投资者，关注D平台网络安全审查的监管路径。关键观察点：(1)审查范围是否仅限数据合规还是扩大至业务模式；(2)境外上市后的双重信息披露约束如何协调；(3)新用户注册暂停的持续时间是短期整改还是长期升级。现有用户服务正常是积极信号，但需等待审查结果明确后再做仓位调整。现阶段保持观望，不急于做方向性判断。"
+      },
+      {
+        "id": "trace-32",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "作为个人投资者，我觉得短期确实要警惕追涨风险。审查刚刚启动，结果还不确定，但市场情绪已经被影响了。我会先观望，等审查有明确结论再考虑是否建仓。"
+      },
+      {
+        "id": "trace-36",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "作为平台司机，已经看到审查公告。虽然平台说现有用户服务正常，但新用户停止注册，长期来看单量增长肯定会受影响。希望审查尽快结束，别影响我们的收入。"
+      },
+      {
+        "id": "trace-37",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "分析：平台D两天前刚完成境外大型IPO，随即启动网络安全审查。这凸显了跨境上市公司面临的双重困境——境内数据安全法规要求严格审查、停止新用户注册；而境外证券法要求持续、完整的信息披露。两种法律体系的冲突正在从理论走向实践，后续需关注审查结论对上市公司持续责任的界定。"
+      },
+      {
+        "id": "trace-38",
+        "kind": "simulated_action",
+        "action_type": "SOCIAL_ENDORSEMENT",
+        "summary": "点赞帖子 #11：作为机构投资者，关注D平台网络安全审查的监管路径。关键观察点：(1)审查范围是否仅限数据合规还是扩大至业务模式；(2)境外上市后的双重信息披露约束如何协调；(3)新用户注册暂停的持续时间是短期整改还是长期升级。现有用户服务正常是积极信号，但需等待审查结果明确后再做仓位调整。现阶段保持观望，不急于做方向性判断。"
+      },
+      {
+        "id": "trace-39",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "感谢您的理性分析。需要明确的是：本次网络安全审查严格依据《网络安全法》《数据安全法》开展，审查范围聚焦于数据安全和个人信息保护合规，并非针对商业模式。关于境外上市后的信息披****露协调问题，审查机构已依法与相关监管部门建立了信息共享机制。新用户注册暂停是审查期间的临时性技术措施，具体持续时间取决于审查进展和平台整改情况。"
+      },
+      {
+        "id": "trace-40",
+        "kind": "simulated_action",
+        "action_type": "COMMUNICATE",
+        "summary": "需要澄清：网络安全审查的目的是防范国家数据安全风险和保护个人信息权益，并非针对平台商业收入。审查结果将基于事实和法律作出，不宜将监管措施与短期商业指标简单关联。"
+      },
+      {
+        "id": "decision-actor_platform-r3",
+        "kind": "financial_decision",
+        "action_type": "COMMUNICATE",
+        "decision_status": "intended",
+        "direction": "maintain",
+        "intensity": 0.7,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "当前处于审查启动后的第3轮模拟，市场存在对强制下架和股价持续下跌的担忧（如F4显示较前一交易日下跌约5%）。作为平台主体，首要任务是稳定用户和资本市场信心，同时配合审查整改。我已通过公开声明表示积极配合审查、现有服务正常（F2），但面对不实猜测（如'会被强制下架'），需要进一步释放清晰信号来稳定预期。选择COMMUNICATE而非OPERATE，是因为审查期间新增用户已被禁止（约束0），运营层面可主动调整的空间有限；选择COMMUNICATE而非WAIT，是因为沉默可能被解读为不确定性加大，加剧市场恐慌。主要传导机制：通过公开沟通重申配合审查的积极态度、强调现有服务不受影响、说明信息披露合规安排，从而降低用户和投资者的不确定性预期。主要不确定性在于审查结论和时限尚不明确，以及境外投资者对此事件的解读。"
+      },
+      {
+        "id": "decision-actor_cyber_regulator-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "confidence": 0.9,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "当前网络安全审查刚刚启动第一轮，平台已表态配合审查并暂停新用户注册。作为审查机构，核心职责是依法推进审查程序、收集证据、评估风险，而非在市场层面立即采取进一步监管升级措施。现有事实中，平台正在配合整改，用户服务正常运行，尚未出现严重违规证据或紧急风险情形。因此，下一周期最适宜的动作是等待审查进展，让审查按照法定程序持续推进，同时评估平台提交的整改方案和风险排查报告。过早施加额外监管措施可能干扰审查程序的有序进行，也不符合依法行政的约束。"
+      },
+      {
+        "id": "actor_app_stores",
+        "kind": "actor",
+        "label": "移动应用商店"
+      },
+      {
+        "id": "decision-actor_app_stores-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "confidence": 0.95,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "截至当前时点，我未收到任何监管机构或审查部门的正式通知要求对该出行平台应用实施分发限制。依据约束，我不能自行判断审查最终结论，因此不需要针对该平台采取主动分发限制动作。现有事实仅表明平台在配合审查并停止新用户注册，现有服务正常，F4的价格波动属于市场行为且与我的合规目标无直接关联。我的最优选择是等待正式通知后再行动，以控制合规风险并遵守监管要求。"
+      },
+      {
+        "id": "decision-actor_drivers-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "作为平台司机，现有用户服务在审查期间可正常使用（F2），短期订单和收入尚未受直接影响。但新用户停止注册（F1）意味着未来订单增长可能放缓，这让我担忧长期收入。由于无法影响监管决定（约束），没有其他可主动采取的有效动作来改变现状。管理层表态配合审查，我认为现阶段最优选择是继续观察事态发展，等审查结果明确后再做下一步打算。"
+      },
+      {
+        "id": "actor_users",
+        "kind": "actor",
+        "label": "现有用户"
+      },
+      {
+        "id": "decision-actor_users-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "conditional",
+        "direction": "maintain",
+        "intensity": 0.5,
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "现有用户服务可正常使用，因此继续使用现有功能满足出行需求；同时保护个人信息的考虑使我选择暂时观望，等待审查结果和平台后续措施，暂不调整使用行为或账户操作。"
+      },
+      {
+        "id": "actor_us_exchange",
+        "kind": "actor",
+        "label": "境外交易所与证券监管方"
+      },
+      {
+        "id": "decision-actor_us_exchange-r3",
+        "kind": "financial_decision",
+        "action_type": "REGULATE",
+        "decision_status": "conditional",
+        "direction": "increase",
+        "intensity": 0.6,
+        "confidence": 0.8,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "作为境外交易所，我的核心目标是维护上市披露完整性。虽然我不能决定网络安全审查，但审查公告（F1）及平台回应（F2）构成重大事件，可能影响投资者决策。该平台两天前刚IPO（F3），上市前未必充分披露境内数据监管风险。股价已下跌5%（F4），但审查影响尚未在信息披露中充分体现。我将要求发行人就审查对经营的影响发布补充披露公告，如未主动回应，则启动问询程序，以确保投资者获得及时且完整的重大信息。"
+      },
+      {
+        "id": "decision-actor_institutions-r3",
+        "kind": "financial_decision",
+        "action_type": "COMMUNICATE",
+        "decision_status": "conditional",
+        "direction": "maintain",
+        "intensity": 0.3,
+        "confidence": 0.75,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "审查启动仅两天，平台刚完成境外IPO，境内数据监管与境外信披的双重约束尚未显现明确解决路径。现有用户服务正常是短期缓冲，但新用户注册暂停将影响增长指标。在审查范围和持续时间明确前，不适宜做出重大多空方向性动作。选择与同业机构沟通，交换对监管路径的不同情景推演（短期整改vs升级扩大），以便在后续审查结果公布时快速响应。动作强度较低，因为仅通过私下渠道交流，不做公开喊话或仓位变动。"
+      },
+      {
+        "id": "decision-actor_retail-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "intended",
+        "direction": "not_applicable",
+        "intensity": null,
+        "confidence": 0.85,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "审查刚刚启动，尚未公布任何结论。作为个人投资者，我容易把审查启动误解为最终处罚结论，这可能导致恐慌性决策。当前股价仅较发行价高10%，且已较前日下跌5%，说明市场已在消化消息。但审查期间停止新用户注册，经营基本面将受短期影响；审查结果存在不确定性，可能是处罚也可能是整改后放行。在审查结论明确之前，任何增持或减持都可能基于不完整信息。因此选择观望等待更多信息，以避免追涨或恐慌损失。"
+      },
+      {
+        "id": "decision-actor_media-r3",
+        "kind": "financial_decision",
+        "action_type": "WAIT",
+        "decision_status": "no_action",
+        "direction": "not_applicable",
+        "intensity": 0.0,
+        "confidence": 0.9,
+        "probability_semantics": "decision_clarity_not_forecast_probability",
+        "summary": "审查刚刚启动，截至目前所有已宣布措施（审查启动、停止新用户注册）均已公开，平台也已表态配合并承诺现有用户服务正常。但审查尚未形成任何初步结论或后续限制措施，境外证券披露义务的具体冲突点也尚未显露。作为追踪审查进展的媒体，在这个节点应首先等待审查推进，获取更多事实后再分析跨境监管冲突的具体表现，避免对推测中的进一步限制进行过早解读。"
+      }
+    ],
+    "edges": [
+      {
+        "source": "actor_drivers",
+        "target": "trace-22",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_cyber_regulator",
+        "target": "trace-24",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_cyber_regulator",
+        "target": "trace-25",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_platform",
+        "target": "trace-26",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_cyber_regulator",
+        "target": "trace-30",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_institutions",
+        "target": "trace-31",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_retail",
+        "target": "trace-32",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_drivers",
+        "target": "trace-36",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_media",
+        "target": "trace-37",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_cyber_regulator",
+        "target": "trace-38",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_cyber_regulator",
+        "target": "trace-39",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_cyber_regulator",
+        "target": "trace-40",
+        "relation": "SIMULATED_ACTION"
+      },
+      {
+        "source": "actor_platform",
+        "target": "decision-actor_platform-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_cyber_regulator",
+        "target": "decision-actor_cyber_regulator-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_app_stores",
+        "target": "decision-actor_app_stores-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_drivers",
+        "target": "decision-actor_drivers-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_users",
+        "target": "decision-actor_users-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_us_exchange",
+        "target": "decision-actor_us_exchange-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_institutions",
+        "target": "decision-actor_institutions-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_retail",
+        "target": "decision-actor_retail-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      },
+      {
+        "source": "actor_media",
+        "target": "decision-actor_media-r3",
+        "relation": "SIMULATED_FINANCIAL_DECISION"
+      }
+    ]
+  },
+  "warnings": [
+    "Integration smoke result only; it is not a calibrated financial forecast.",
+    "The upstream run monitor reported zero actions; SQLite was used as the authoritative source.",
+    "OASIS did not persist per-action round numbers, so exported events use round 0.",
+    "Rule-generated institutional profiles contain consumer-social attributes and require a financial profile compiler.",
+    "No forecast target result or scenario frequency was produced from this single run.",
+    "Structured financial decisions were elicited post-simulation and remain simulated claims."
+  ],
+  "provenance": {
+    "engine": "MiroFish/OASIS",
+    "engine_version": "60757b3c825d577a1d7a86ab1ba6d5c21f51c261",
+    "model": "deepseek-ai/DeepSeek-V4-Flash",
+    "raw_run_artifacts": [
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/mirofish/simulations/sim_db05047e9f39/reddit_simulation.db",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/mirofish/simulations/sim_db05047e9f39/simulation_config.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_cyber_review_004-b3/sqlite-actions.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_cyber_review_004-b3/raw-actions.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_cyber_review_004-b3/financial-interviews-raw.json",
+      "/Users/floscum/Documents/FEVER-Mirofish/.data/smoke-runs/blind_cyber_review_004-b3/financial-actions.json"
+    ]
+  }
+}
